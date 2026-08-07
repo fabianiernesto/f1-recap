@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# Datos crudos cacheados (pesados; los JSON finales sí se commitean)
+pipeline/cache/
+
+# Entorno y secretos
+.env
+.env.*
+
+# Sistema
+.DS_Store
+Thumbs.db

@@ -1,0 +1,294 @@
+<title>Pantalla de 10 segundos — 3 maquetas</title>
+<style>
+  :root{
+    --bg:#F4F2ED; --surface:#FFFFFF; --ink:#1B1C22; --muted:#6A6E7B;
+    --line:#DFDBD2; --accent:#C46A00; --accent-soft:#F7E8D4; --chip:#ECE8DF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#131419; --surface:#1C1E26; --ink:#EDEEF2; --muted:#9BA0AE;
+      --line:#2A2D38; --accent:#F5A623; --accent-soft:#2E2618; --chip:#252834;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#131419; --surface:#1C1E26; --ink:#EDEEF2; --muted:#9BA0AE;
+    --line:#2A2D38; --accent:#F5A623; --accent-soft:#2E2618; --chip:#252834;
+  }
+  :root[data-theme="light"]{
+    --bg:#F4F2ED; --surface:#FFFFFF; --ink:#1B1C22; --muted:#6A6E7B;
+    --line:#DFDBD2; --accent:#C46A00; --accent-soft:#F7E8D4; --chip:#ECE8DF;
+  }
+  body{background:var(--bg); color:var(--ink); font-family:"Segoe UI",system-ui,sans-serif; line-height:1.5; margin:0;}
+  .wrap{max-width:1240px; margin:0 auto; padding:48px 24px 80px;}
+  .eyebrow{font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-weight:600;}
+  h1{font-family:"Arial Narrow","Segoe UI",sans-serif; font-weight:700; font-size:clamp(30px,4.5vw,46px); line-height:1.05; text-transform:uppercase; letter-spacing:.01em; margin:10px 0 14px; text-wrap:balance;}
+  .lede{max-width:62ch; color:var(--muted); font-size:16px; margin:0 0 8px;}
+  .fake{display:inline-block; margin-top:14px; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); border:1px dashed var(--line); padding:5px 10px; border-radius:3px;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:44px 36px; margin-top:52px;}
+  .concept{display:flex; flex-direction:column; gap:16px;}
+  .concept h2{font-family:"Arial Narrow","Segoe UI",sans-serif; text-transform:uppercase; font-size:22px; margin:0; letter-spacing:.02em;}
+  .concept h2 span{color:var(--accent); margin-right:8px;}
+  .thesis{color:var(--muted); font-size:14.5px; margin:0; max-width:46ch;}
+  .verdict{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:14px 16px; font-size:13.5px;}
+  .verdict strong{display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:6px;}
+  .verdict ul{margin:0; padding-left:18px;} .verdict li{margin:3px 0;}
+  .howto{margin-top:64px; border-top:1px solid var(--line); padding-top:28px; max-width:70ch;}
+  .howto h3{font-family:"Arial Narrow","Segoe UI",sans-serif; text-transform:uppercase; font-size:18px; margin:0 0 10px;}
+  .howto p{color:var(--muted); font-size:15px; margin:6px 0;}
+
+  /* ---------- phone (siempre oscuro: es el producto) ---------- */
+  .phone{width:100%; max-width:340px; aspect-ratio:9/18.5; background:#0C0D12; border-radius:34px; border:1px solid #2A2D38;
+    box-shadow:0 18px 40px rgba(0,0,0,.28); overflow:hidden; position:relative; color:#EDEEF2; align-self:flex-start;
+    font-size:14px; display:flex; flex-direction:column;}
+  .notch{height:24px; display:flex; justify-content:center; align-items:center; flex:none;}
+  .notch i{width:84px; height:7px; background:#1D1F28; border-radius:99px;}
+  .screen{flex:1; display:flex; flex-direction:column; overflow:hidden; position:relative;}
+  .phone button{font:inherit; cursor:pointer;}
+  .phone button:focus-visible, .b-tap:focus-visible{outline:2px solid #F5A623; outline-offset:2px;}
+  .gp-head{padding:14px 18px 10px; flex:none;}
+  .gp-head .r{font-size:10px; letter-spacing:.2em; color:#F5A623; text-transform:uppercase; font-weight:600;}
+  .gp-head h4{font-family:"Arial Narrow","Segoe UI",sans-serif; font-size:24px; text-transform:uppercase; margin:2px 0 0; line-height:1.05;}
+  .gp-head small{color:#9BA0AE; font-size:11.5px;}
+  .panel{display:none; flex:1; flex-direction:column; padding:6px 18px 18px; gap:12px; overflow:hidden;}
+  .panel.on{display:flex;}
+  .qbig{font-size:21px; font-weight:600; line-height:1.25; margin:auto 0 4px; text-wrap:balance;}
+  .btn{width:100%; border:0; border-radius:12px; padding:13px 14px; font-size:14.5px; font-weight:600; text-align:left;}
+  .btn.p{background:#F5A623; color:#181205;}
+  .btn.s{background:#232633; color:#EDEEF2;}
+  .btn small{display:block; font-weight:400; font-size:11.5px; opacity:.75;}
+  .nota{margin-top:auto; text-align:left;}
+  .nota .n{font-family:Consolas,monospace; font-size:52px; font-weight:700; color:#F5A623; line-height:1;}
+  .nota .n em{font-style:normal; font-size:18px; color:#9BA0AE;}
+  .nota p{margin:6px 0 0; font-size:13.5px; color:#C9CCD6;}
+  .heat{margin-top:10px;}
+  .heat .bars{display:flex; gap:2px; height:34px; align-items:flex-end;}
+  .heat .bars i{flex:1; border-radius:2px 2px 0 0; background:#2A2D38;}
+  .heat .lbl{display:flex; justify-content:space-between; font-size:10px; color:#9BA0AE; font-family:Consolas,monospace; margin-top:4px;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{border:1px solid #3A3E4D; background:#1B1D26; color:#EDEEF2; border-radius:99px; padding:9px 14px; font-size:13px;}
+  .chip.big{font-size:14.5px; padding:12px 16px; font-weight:600;}
+  .sess{display:flex; gap:6px; margin-top:auto;}
+  .sess i{flex:1; text-align:center; font-family:Consolas,monospace; font-size:10.5px; padding:7px 0; border-radius:6px; background:#1B1D26; color:#9BA0AE; border:1px solid #2A2D38; font-style:normal;}
+  .sess i.hot{color:#F5A623; border-color:#F5A623;}
+
+  /* stories */
+  .prog{display:flex; gap:4px; padding:10px 14px 0; flex:none;}
+  .prog i{flex:1; height:3px; border-radius:99px; background:#2E313D;}
+  .prog i.done{background:#F5A623;}
+  .b-card{display:none; flex:1; flex-direction:column; padding:18px; gap:10px;}
+  .b-card.on{display:flex;}
+  .b-kicker{font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#F5A623; font-weight:600;}
+  .b-big{font-family:"Arial Narrow","Segoe UI",sans-serif; text-transform:uppercase; font-size:30px; line-height:1.04; margin:0; text-wrap:balance;}
+  .b-txt{font-size:14.5px; color:#C9CCD6; margin:0;}
+  .b-num{font-family:Consolas,monospace; color:#F5A623;}
+  .b-foot{margin-top:auto; display:flex; flex-direction:column; gap:8px;}
+  .swipe{text-align:center; font-size:11px; color:#9BA0AE; letter-spacing:.08em;}
+  .b-tap{position:absolute; top:60px; bottom:70px; width:38%; background:none; border:0; z-index:5;}
+  .b-tap.l{left:0;} .b-tap.r{right:0;}
+  .taphint{position:absolute; bottom:8px; width:100%; text-align:center; font-size:10px; color:#6A6E7B; letter-spacing:.1em;}
+
+  /* chat */
+  .chat{flex:1; display:flex; flex-direction:column; gap:8px; padding:8px 14px; overflow-y:auto;}
+  .msg{max-width:82%; padding:9px 12px; border-radius:14px; font-size:13.5px; line-height:1.4; animation:pop .25s ease;}
+  .msg.bot{background:#232633; border-bottom-left-radius:4px; align-self:flex-start;}
+  .msg.me{background:#155E4B; border-bottom-right-radius:4px; align-self:flex-end;}
+  .msg .t{display:block; font-size:9.5px; color:#9BA0AE; margin-top:3px; text-align:right; font-family:Consolas,monospace;}
+  @keyframes pop{from{transform:translateY(6px); opacity:0} to{transform:none; opacity:1}}
+  .c-chips{display:flex; flex-wrap:wrap; gap:6px; padding:6px 14px; flex:none;}
+  .inbar{flex:none; margin:6px 12px 14px; background:#1B1D26; border:1px solid #2A2D38; border-radius:99px; padding:10px 16px; font-size:13px; color:#6A6E7B;}
+  .chead{flex:none; display:flex; align-items:center; gap:10px; padding:10px 16px; border-bottom:1px solid #1D1F28;}
+  .chead .av{width:34px; height:34px; border-radius:50%; background:#F5A623; color:#181205; display:flex; align-items:center; justify-content:center; font-weight:700; font-family:"Arial Narrow",sans-serif;}
+  .chead b{font-size:14px; display:block; line-height:1.1;}
+  .chead small{color:#4CC38A; font-size:11px;}
+  @media (prefers-reduced-motion: reduce){ .msg{animation:none} }
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">Proyecto 6 · F1 Recap Interactivo</div>
+  <h1>La pantalla de 10 segundos — tres maquetas</h1>
+  <p class="lede">Misma pregunta en las tres: <strong style="color:var(--ink)">¿cómo te recibe un Gran Premio?</strong> Cada maqueta es un esqueleto de producto distinto. Tócalas — los botones funcionan. Decide con la tripa: ¿cuál enseñarías 10 segundos a un no-fan?</p>
+  <span class="fake">⚠ Datos 100% inventados — GP ficticio de Madrid, solo para evaluar formato</span>
+
+  <div class="grid">
+
+    <!-- ============ A · EL PORTERO ============ -->
+    <section class="concept">
+      <h2><span>A</span>El Portero</h2>
+      <p class="thesis">La web te protege antes de contarte nada. Primero pregunta si sabes el resultado; el modo sin spoilers y el selector de tiempo SON la entrada.</p>
+      <div class="phone">
+        <div class="notch"><i></i></div>
+        <div class="screen">
+          <div class="gp-head">
+            <div class="r">Ronda 14 · 13 sep 2026</div>
+            <h4>GP de Madrid</h4>
+            <small>Circuito de Madring · 57 vueltas</small>
+          </div>
+          <div class="panel on" id="a-gate">
+            <p class="qbig">¿Ya sabes cómo acabó la carrera?</p>
+            <button class="btn p" onclick="aShow('a-nospo')">🙈 No — y no me spoilees<small>Te digo si merece la pena verla. Nada más.</small></button>
+            <button class="btn s" onclick="aShow('a-menu')">Sí, la sé — cuéntamelo<small>Recap completo del finde</small></button>
+          </div>
+          <div class="panel" id="a-nospo">
+            <div class="nota">
+              <div class="n">8,7<em>/10</em></div>
+              <p><strong>Búscate un hueco y VELA.</strong> Llueve a mitad de carrera, hay caos y lo que se decide en las últimas 5 vueltas no te lo esperas. Sin nombres, tranquilo.</p>
+            </div>
+            <div class="heat">
+              <div class="bars" id="heatbars"></div>
+              <div class="lbl"><span>V1</span><span>si vas corta de tiempo, salta a lo naranja</span><span>V57</span></div>
+            </div>
+            <button class="btn s" onclick="aShow('a-menu')">Ya la he visto → cuéntamelo</button>
+          </div>
+          <div class="panel" id="a-menu">
+            <p class="qbig">¿Cuánto tiempo tienes?</p>
+            <div class="chips">
+              <button class="chip big">⚡ 30 segundos</button>
+              <button class="chip big">☕ 3 minutos</button>
+              <button class="chip big">🛋️ 15 minutos</button>
+            </div>
+            <div class="sess"><i>FP1</i><i>FP2</i><i>FP3</i><i class="hot">QUALI</i><i class="hot">RACE</i></div>
+          </div>
+        </div>
+      </div>
+      <div class="verdict"><strong>Qué decide esta maqueta</strong>
+        <ul>
+          <li><b>Pro:</b> la promesa anti-spoiler queda clarísima desde el segundo 1 — es EL pitch.</li>
+          <li><b>Pro:</b> estructura clásica debajo: fácil de crecer (sesiones, GPs).</li>
+          <li><b>Contra:</b> es una puerta, no un wow — el momento mágico llega un tap después.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ B · LA STORY ============ -->
+    <section class="concept">
+      <h2><span>B</span>La Story</h2>
+      <p class="thesis">Sin menús: el GP se abre YA contándose, en cards a pantalla completa con predicciones. Las stories no son un modo — son la web.</p>
+      <div class="phone">
+        <div class="notch"><i></i></div>
+        <div class="screen" id="b-screen">
+          <div class="prog" id="b-prog"><i class="done"></i><i></i><i></i><i></i></div>
+          <div class="b-card on">
+            <span class="b-kicker">GP de Madrid · el finde en 12 cards</span>
+            <h3 class="b-big">Esta carrera te la cuento yo</h3>
+            <p class="b-txt">57 vueltas, una tormenta y una decisión en el muro que lo cambió todo. Vamos.</p>
+            <div class="b-foot"><span class="swipe">toca a la derecha para avanzar →</span></div>
+          </div>
+          <div class="b-card">
+            <span class="b-kicker">Antes de empezar, juega</span>
+            <h3 class="b-big">Alonso salía 12º con blandos. ¿Apuesta valiente o suicidio?</h3>
+            <div class="b-foot">
+              <button class="chip big" onclick="bAnswer(true)">😤 Valiente — le salió bien</button>
+              <button class="chip big" onclick="bAnswer(false)">💀 Suicidio — se hundió</button>
+            </div>
+          </div>
+          <div class="b-card">
+            <span class="b-kicker">Revelación</span>
+            <h3 class="b-big" id="b-reveal">…</h3>
+            <p class="b-txt">Ganó <span class="b-num">4 posiciones</span> en 6 vueltas… y luego el blando se murió justo cuando llegó la lluvia. P9 final. La TV casi no lo enseñó.</p>
+            <div class="b-foot"><span class="swipe">▲ desliza arriba: el dato detrás (stint, tiempos)</span></div>
+          </div>
+          <div class="b-card">
+            <span class="b-kicker">Card final · compártela</span>
+            <h3 class="b-big">Madrid en una frase</h3>
+            <p class="b-txt">«La ganó el único equipo que creyó al radar.» <span class="b-num">Nota: 8,7</span></p>
+            <div class="b-foot"><button class="chip big">📤 Mandar al grupo</button></div>
+          </div>
+          <button class="b-tap l" onclick="bMove(-1)" aria-label="anterior"></button>
+          <button class="b-tap r" onclick="bMove(1)" aria-label="siguiente"></button>
+          <div class="taphint">◀ toca izquierda / derecha ▶</div>
+        </div>
+      </div>
+      <div class="verdict"><strong>Qué decide esta maqueta</strong>
+        <ul>
+          <li><b>Pro:</b> cero fricción — el wow es inmediato y el formato ya lo conoce todo el mundo.</li>
+          <li><b>Pro:</b> la predicción engancha: no lees la carrera, JUEGAS con ella.</li>
+          <li><b>Contra:</b> lineal — ¿dónde viven el chat, la quali, los libres? Necesita una "casa" detrás.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ C · EL COLEGA ============ -->
+    <section class="concept">
+      <h2><span>C</span>El Colega</h2>
+      <p class="thesis">La web ES una conversación. Te escribe él primero, como el colega que te espera a la salida del cine, y todo (recap, spoilers, preguntas) pasa por el chat.</p>
+      <div class="phone">
+        <div class="notch"><i></i></div>
+        <div class="screen">
+          <div class="chead"><div class="av">F1</div><div><b>Tu colega friki</b><small>● se ha visto TODO el finde</small></div></div>
+          <div class="chat" id="c-chat"></div>
+          <div class="c-chips" id="c-chips"></div>
+          <div class="inbar">Pregúntale lo que quieras…</div>
+        </div>
+      </div>
+      <div class="verdict"><strong>Qué decide esta maqueta</strong>
+        <ul>
+          <li><b>Pro:</b> personalidad máxima — nadie tiene esto; el tono ES el producto.</li>
+          <li><b>Pro:</b> chat, spoilers y niveles de fan caben de forma natural en un solo formato.</li>
+          <li><b>Contra:</b> depende de LLM desde el día 1 y es el más difícil de hacer BIEN (tono, coste, límites).</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="howto">
+    <h3>Cómo decidir (el test de verdad)</h3>
+    <p>1. Enséñale cada teléfono <strong>10 segundos</strong> a 2-3 personas que no vean F1 (sin explicar nada tú).</p>
+    <p>2. Pregunta solo: <em>«¿qué crees que hace esto?»</em> y <em>«¿cuál abrirías un lunes por la mañana?»</em>.</p>
+    <p>3. Ojo: no son excluyentes del todo — B puede vivir dentro de A, y C puede ser la capa de preguntas de cualquiera. Lo que eliges es <strong>por dónde se entra</strong>.</p>
+  </div>
+</div>
+
+<script>
+  // A — heatmap de emoción por vueltas (datos inventados)
+  (function(){
+    var v=[2,2,3,2,1,1,1,2,1,1,2,3,2,2,5,7,9,6,3,2,2,3,4,8,10,9,7,4,3,2,2,1,2,3,3,5,6,9,10,10,8,7,5,4,3,3,4,5,6,7,9,10,10,9,8,10,10];
+    var el=document.getElementById('heatbars');
+    v.forEach(function(x){
+      var i=document.createElement('i');
+      i.style.height=(x*10)+'%';
+      if(x>=8){i.style.background='#F5A623';}
+      else if(x>=5){i.style.background='#8A6420';}
+      el.appendChild(i);
+    });
+  })();
+  function aShow(id){
+    ['a-gate','a-nospo','a-menu'].forEach(function(p){document.getElementById(p).classList.remove('on');});
+    document.getElementById(id).classList.add('on');
+  }
+
+  // B — stories
+  var bIdx=0, bCards=document.querySelectorAll('#b-screen .b-card'), bProg=document.querySelectorAll('#b-prog i');
+  function bRender(){
+    bCards.forEach(function(c,i){c.classList.toggle('on',i===bIdx);});
+    bProg.forEach(function(p,i){p.classList.toggle('done',i<=bIdx);});
+  }
+  function bMove(d){ bIdx=Math.max(0,Math.min(bCards.length-1,bIdx+d)); bRender(); }
+  function bAnswer(yes){
+    document.getElementById('b-reveal').textContent = yes ? 'Casi. Dijiste valiente… y lo fue A MEDIAS.' : 'Uy. No fue tan suicida como crees.';
+    bIdx=2; bRender();
+  }
+
+  // C — chat guiado
+  var chat=document.getElementById('c-chat'), chipsBox=document.getElementById('c-chips');
+  function say(txt,me){
+    var m=document.createElement('div'); m.className='msg '+(me?'me':'bot');
+    m.innerHTML=txt+'<span class="t">'+(me?'tú':'domingo 18:02')+'</span>';
+    chat.appendChild(m); chat.scrollTop=chat.scrollHeight;
+  }
+  var cChips=[
+    {t:'🙈 Ni se te ocurra spoilearme', r:'Tranqui 🤐 Solo te digo esto: <b>8,7/10</b>. Llueve, hay lío y el final es de los buenos. Búscate 2 horas y luego vuelves y lo comentamos.'},
+    {t:'Cuéntamelo en 3 min', r:'Va. Capítulo 1: en la salida Sainz la lía en la curva 1 (sin consecuencias, tranquilo)… pero fíjate en Alonso, que salía 12º con blandos 👀'},
+    {t:'¿Qué mejoras trajo Aston?', r:'Buena pregunta 🤓 Ala delantera nueva y suelo revisado. En datos: ~2 décimas por vuelta respecto a Hungría. Se notó sobre todo en el sector 2.'}
+  ];
+  function cRenderChips(){
+    chipsBox.innerHTML='';
+    cChips.forEach(function(c,i){
+      var b=document.createElement('button'); b.className='chip'; b.textContent=c.t;
+      b.onclick=function(){ say(c.t,true); setTimeout(function(){say(c.r,false);},450); };
+      chipsBox.appendChild(b);
+    });
+  }
+  var intro=['Eyyy 👋 ¿Qué, viste Madrid o te quedaste dormido otra vez?','Antes de nada: ¿sabes ya el resultado? Que no quiero fastidiarte nada.'];
+  var delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 600;
+  intro.forEach(function(t,i){ setTimeout(function(){ say(t,false); if(i===intro.length-1) cRenderChips(); }, delay*(i+1)); });
+</script>
