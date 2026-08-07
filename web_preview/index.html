@@ -43,25 +43,26 @@
   .trackcap{font-family:var(--mono); font-size:9px; letter-spacing:.16em;
     text-transform:uppercase; color:var(--muted); text-align:center; margin-top:10px;}
   @media (min-width:1100px){
-    .trackwrap{right:3vw; top:50%; transform:translateY(-50%); width:min(42vw,80vh);}
-    .flow{margin:0 0 0 7vw; max-width:500px;}
+    .trackwrap{right:1vw; top:50%; transform:translateY(-50%); width:min(56vw,92vh);}
+    .flow{margin:0 0 0 4vw; max-width:400px;}
     .trackcap{opacity:1;}
   }
   @media (max-width:1099px){
     .trackwrap{left:50%; top:50%; transform:translate(-50%,-50%);
-      width:min(94vw,84vh); opacity:.22;}
+      width:min(96vw,86vh); opacity:.3;}
     .trackcap{display:none;}
   }
 
   /* ---------- content ---------- */
   .flow{position:relative; z-index:10; max-width:540px; margin:0 auto;
     padding:110px 20px 60px; display:flex; flex-direction:column;}
-  .spacer{height:46vh; flex:none;}
+  .spacer{height:58vh; flex:none;}
   .card{background:color-mix(in srgb, var(--carbon-1) 94%, transparent);
     backdrop-filter:blur(5px); border:1px solid var(--line); border-radius:6px;
-    padding:24px 24px 22px; box-shadow:0 10px 28px rgba(0,0,0,.4);
+    padding:18px 20px 16px; box-shadow:0 10px 28px rgba(0,0,0,.4);
     opacity:0; transform:translateY(20px); transition:opacity .4s ease-out, transform .4s ease-out;}
   .card.seen{opacity:1; transform:none;}
+  .card.seen.dim{opacity:.45;}
   .kicker{display:flex; align-items:center; gap:8px; margin-bottom:10px;
     font-family:var(--mono); font-size:10px; font-weight:500;
     letter-spacing:.16em; text-transform:uppercase; color:var(--muted);}
@@ -70,8 +71,9 @@
   .card.k-yellow .kicker::before{background:var(--yellow);}
   .card.k-green  .kicker::before{background:var(--green);}
   h2{font-family:var(--display); font-weight:700; text-transform:uppercase;
-    letter-spacing:.015em; font-size:28px; line-height:1.04; margin:0 0 10px; text-wrap:balance;}
-  .card p{color:#C6CAD2; margin:0;}
+    letter-spacing:.015em; font-size:23px; line-height:1.05; margin:0 0 8px; text-wrap:balance;}
+  .card p{color:#C6CAD2; margin:0; font-size:13.5px;}
+  #tk-labels text{transition:fill .25s ease;}
   .opts{display:flex; flex-direction:column; gap:8px; margin-top:16px;}
   .chip{border:1px solid var(--line); background:var(--carbon-2); color:var(--ink);
     border-radius:4px; padding:12px 16px; font-family:var(--display);
@@ -205,6 +207,7 @@
   const cx0 = T.points.reduce((s, p) => s + p[0], 0) / T.points.length;
   const cy0 = T.points.reduce((s, p) => s + p[1], 0) / T.points.length;
   const labels = document.getElementById('tk-labels');
+  const labelEls = [];
   T.corners.forEach(c => {
     const dx = c.x - cx0, dy = c.y - cy0, m = Math.hypot(dx, dy) || 1;
     const lx = c.x + dx / m * 46, ly = c.y + dy / m * 46;
@@ -217,6 +220,7 @@
     t.setAttribute('style', 'font-family:"JetBrains Mono",monospace;');
     t.textContent = c.label;
     labels.appendChild(t);
+    labelEls.push({ t, x: c.x, y: c.y });
   });
 
   // start / finish tick
@@ -283,10 +287,33 @@
     document.getElementById('pbar').style.width = (prog * 100) + '%';
 
     // one full lap of the real circuit across the whole recap
-    const p = trackPoint(prog * (totalLen - 0.01));
-    carG.setAttribute('transform',
-      `translate(${p.x} ${p.y}) rotate(${p.angle}) scale(0.62) translate(-15 -39)`);
+    target = trackPoint(prog * (totalLen - 0.01));
     trace.setAttribute('stroke-dashoffset', totalLen * (1 - prog));
+    // rAF throttled or paused (hidden tab) -> place the car directly
+    if (performance.now() - lastTick > 200) {
+      cur.x = target.x; cur.y = target.y; cur.angle = target.angle;
+      carG.setAttribute('transform',
+        `translate(${cur.x} ${cur.y}) rotate(${cur.angle}) scale(0.62) translate(-15 -39)`);
+    }
+
+    // light up the corner the car is passing
+    let nearest = null, nd = 1e9;
+    labelEls.forEach(L => {
+      const dd = Math.hypot(L.x - target.x, L.y - target.y);
+      if (dd < nd) { nd = dd; nearest = L; }
+    });
+    labelEls.forEach(L => L.t.setAttribute('fill',
+      (L === nearest && nd < 130) ? '#F2F3F5' : '#8B919D'));
+
+    // focus the card nearest the viewport centre, dim the rest
+    const mid = scrollY + innerHeight / 2;
+    let best = null, bd = 1e9;
+    anchors.forEach(a => {
+      const cy = a.el.offsetTop + a.el.offsetHeight / 2;
+      const dd = Math.abs(cy - mid);
+      if (dd < bd) { bd = dd; best = a.el; }
+    });
+    anchors.forEach(a => a.el.classList.toggle('dim', a.el !== best));
 
     const carDocY = scrollY + innerHeight * 0.42;
     let lap = 0;
@@ -304,7 +331,25 @@
     document.getElementById('lapnum').textContent = Math.max(0, Math.round(lap));
   }
 
-  onScroll();
+  // the car glides with a touch of inertia instead of teleporting
+  let target = trackPoint(0);
+  const cur = { x: target.x, y: target.y, angle: target.angle };
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let lastTick = 0;
+  function tick() {
+    lastTick = performance.now();
+    const k = reduce ? 1 : 0.16;
+    cur.x += (target.x - cur.x) * k;
+    cur.y += (target.y - cur.y) * k;
+    let da = target.angle - cur.angle;
+    da = ((da + 540) % 360) - 180;
+    cur.angle += da * k;
+    carG.setAttribute('transform',
+      `translate(${cur.x} ${cur.y}) rotate(${cur.angle}) scale(0.62) translate(-15 -39)`);
+    requestAnimationFrame(tick);
+  }
+
+  onScroll(); tick();
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', onScroll);
 })();
