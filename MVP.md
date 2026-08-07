@@ -58,7 +58,7 @@ Python 3.11+ (pipeline) · Next.js 14 + TypeScript + Tailwind + Framer Motion (w
 
 ## 7. Fases
 
-- **Fase 0 — Datos reales (siguiente sesión):** ① verificar qué pide hoy OpenF1 (token para sesiones nuevas — visto en el código de Marc; confirmar que histórico sigue libre) ② bajar el GP piloto completo ③ inventario honesto: qué momentos detectamos bien, regular o no. ④ Paralelo, Ernesto: mensaje a Marc pidiendo OK para reutilizar piezas · revisar términos del team radio.
+- **Fase 0 — Datos reales: ✅ COMPLETADA (7 ago 2026).** ① Histórico de OpenF1 libre sin token, confirmado. ② Silverstone 2026 (finde sprint: FP1 + Sprint Quali + Sprint + Quali + Race) cacheado completo en `pipeline/cache/`. ③ Inventario hecho (`fase0_explora.py` + `fase0_analiza.py`); bonus enorme: el endpoint `overtakes` da los adelantamientos ya detectados (quién, a quién, cuándo — 232 en carrera). ④ OK de Marc conseguido · términos del team radio aún pendientes (hay 20 clips en carrera).
 - **Fase 1 — Pipeline:** detección de momentos + templates → `race_story.json` real del GP piloto.
 - **Fase 2 — Web:** entrada A + stories B en móvil, feo pero funcional → luego bonito. Después la composición desktop.
 - **Fase 3 — Finde completo:** quali + libres + nota sin spoilers + glosario + deploy en Vercel.
@@ -66,6 +66,6 @@ Python 3.11+ (pipeline) · Next.js 14 + TypeScript + Tailwind + Framer Motion (w
 
 ## 8. Pendientes finales (por este orden, al final)
 
-1. GP piloto — criterio: carrera 2025-2026 caótica (SC + lluvia o pelea por la victoria). **Ernesto elige.**
+1. GP piloto — ✅ **Silverstone 2026** (elegido por Ernesto). Finde sprint → el formato debe soportar findes sprint desde v1.
 2. Nombre real del producto (+ renombrar repo) — sesión propia de naming/branding.
 3. Idioma (recomendación en pie: español primero).
