@@ -17,10 +17,14 @@ Portada del GP
        ├─ NO → Nota 0-10 sin spoilers + mapa de calor
        │        de vueltas + "vuelve cuando la veas"
        └─ SÍ → "¿Cuánto tiempo tienes?"  ⚡30s / ☕3min / 🛋️15min
-                 └─ STORIES del GP                   [cuerpo B]
-                      · cards a pantalla completa, tap para avanzar
-                      · cards de predicción ("¿valiente o suicidio?")
-                      · swipe-up = el dato detrás (capa "saber más")
+                 └─ EL RECAP SCROLL                  [cuerpo B, revisado 7-ago]
+                      · scroll vertical = transcurso de la carrera: un F1
+                        recorre la pista card a card con contador de vuelta
+                        en vivo (decisión de Ernesto: NADA de stories tipo
+                        Instagram, formato cliché; el detalle del coche
+                        viajando es lo que marca la diferencia)
+                      · cards de predicción ("¿aguantó la pole?")
+                      · "the data behind this" = capa "saber más"
                       · cards de "lo que la TV no enseñó"
                       · card final compartible (resumen + nota)
 ```
@@ -68,4 +72,4 @@ Python 3.11+ (pipeline) · Next.js 14 + TypeScript + Tailwind + Framer Motion (w
 
 1. GP piloto — ✅ **Silverstone 2026** (elegido por Ernesto). Finde sprint → el formato debe soportar findes sprint desde v1.
 2. Nombre real del producto (+ renombrar repo) — sesión propia de naming/branding.
-3. Idioma (recomendación en pie: español primero).
+3. Idioma — ✅ DECIDIDO (7-ago): **TODO el contenido en inglés**, sin excepciones (misma regla que el sistema LinkedIn). La voz escrita sigue los masters de Ernesto: bar voice de `motorsport_simplified_master_v1.md` + reglas duras de `memory_v16.md` (sin em dashes, sin signposts, sin listas planas, hook = escena con algo en juego, "so what" siempre).
