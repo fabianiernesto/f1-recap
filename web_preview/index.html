@@ -4,68 +4,97 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Silverstone 2026 — scroll the race</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#101116; --card:#181A21; --line:#2A2D38; --ink:#EDEEF2;
-    --muted:#9BA0AE; --amber:#F5A623; --road:#1D1F27; --roadline:#3A3E4D;
+    --carbon-0:#0A0B0E; --carbon-1:#111318; --carbon-2:#1A1D24;
+    --line:#272B33; --ink:#F2F3F5; --muted:#8B919D;
+    --accent:#E10600; --purple:#A855F7; --green:#22C55E; --yellow:#EAB308;
+    --display:"Barlow Condensed","Arial Narrow",sans-serif;
+    --body:"Inter","Segoe UI",sans-serif;
+    --mono:"JetBrains Mono",Consolas,monospace;
   }
   *{box-sizing:border-box}
-  body{margin:0; background:var(--bg); color:var(--ink);
-    font-family:"Segoe UI",system-ui,sans-serif; line-height:1.5;}
+  body{margin:0; background:var(--carbon-0); color:var(--ink);
+    font-family:var(--body); line-height:1.55; font-size:15px;}
 
-  /* HUD */
+  /* ---------- HUD: broadcast lower-third style ---------- */
   .hud{position:fixed; top:0; left:0; right:0; z-index:50; display:flex;
-    justify-content:space-between; align-items:center; padding:12px 18px;
-    background:linear-gradient(#101116f2,#10111600); pointer-events:none;}
-  .hud .gp{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--muted);}
-  .hud .gp b{color:var(--amber);}
-  .lapbox{text-align:right; font-family:Consolas,monospace;}
-  .lapbox .n{font-size:26px; font-weight:700; color:var(--amber); font-variant-numeric:tabular-nums;}
-  .lapbox .of{font-size:11px; color:var(--muted); letter-spacing:.1em;}
-  .pbar{position:fixed; top:0; left:0; height:3px; background:var(--amber); z-index:60; width:0%;}
+    justify-content:space-between; align-items:stretch; pointer-events:none;
+    background:linear-gradient(#0A0B0Ef5 55%,#0A0B0E00);}
+  .badge{display:flex; align-items:center; gap:12px; padding:14px 18px;}
+  .badge .flag{width:4px; align-self:stretch; background:var(--accent);}
+  .badge .t1{font-family:var(--display); font-weight:700; font-size:19px;
+    letter-spacing:.04em; text-transform:uppercase; line-height:1;}
+  .badge .t2{font-family:var(--mono); font-size:10px; color:var(--muted);
+    letter-spacing:.14em; text-transform:uppercase; margin-top:4px;}
+  .lapbox{display:flex; align-items:center; padding:14px 18px; gap:10px;}
+  .lapbox .lbl{font-family:var(--mono); font-size:10px; color:var(--muted);
+    letter-spacing:.14em;}
+  .lapbox .n{font-family:var(--mono); font-weight:700; font-size:24px;
+    font-variant-numeric:tabular-nums; letter-spacing:-.02em;}
+  .lapbox .n small{font-size:13px; color:var(--muted); font-weight:500;}
+  .pbar{position:fixed; top:0; left:0; height:2px; background:var(--accent);
+    z-index:60; width:0%;}
 
-  /* track + car */
+  /* ---------- track + car ---------- */
   #roadsvg{position:absolute; top:0; left:0; z-index:0; pointer-events:none;}
-  #car{position:absolute; z-index:5; width:34px; height:60px; margin:-30px 0 0 -17px;
-    pointer-events:none; filter:drop-shadow(0 6px 10px rgba(0,0,0,.5));}
+  #car{position:absolute; z-index:5; width:30px; height:78px; margin:-39px 0 0 -15px;
+    pointer-events:none; filter:drop-shadow(0 4px 6px rgba(0,0,0,.55));}
 
-  /* content */
-  .flow{position:relative; z-index:10; max-width:520px; margin:0 auto;
-    padding:96px 18px 60px; display:flex; flex-direction:column;}
+  /* ---------- content ---------- */
+  .flow{position:relative; z-index:10; max-width:540px; margin:0 auto;
+    padding:110px 20px 60px; display:flex; flex-direction:column;}
   .spacer{height:46vh; flex:none;}
-  .card{background:color-mix(in srgb, var(--card) 92%, transparent);
-    backdrop-filter:blur(4px); border:1px solid var(--line); border-radius:16px;
-    padding:22px 22px 20px; box-shadow:0 14px 34px rgba(0,0,0,.35);
-    opacity:0; transform:translateY(28px); transition:opacity .5s ease, transform .5s ease;}
+  .card{background:color-mix(in srgb, var(--carbon-1) 94%, transparent);
+    backdrop-filter:blur(5px); border:1px solid var(--line); border-radius:6px;
+    padding:24px 24px 22px; box-shadow:0 10px 28px rgba(0,0,0,.4);
+    opacity:0; transform:translateY(20px); transition:opacity .4s ease-out, transform .4s ease-out;}
   .card.seen{opacity:1; transform:none;}
-  .kicker{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
-    color:var(--amber); font-weight:600; display:block; margin-bottom:8px;}
-  h2{font-family:"Arial Narrow","Segoe UI",sans-serif; text-transform:uppercase;
-    font-size:27px; line-height:1.07; margin:0 0 10px; text-wrap:balance;}
-  .card p{font-size:15px; color:#C9CCD6; margin:0;}
-  .opts{display:flex; flex-direction:column; gap:8px; margin-top:14px;}
-  .chip{border:1px solid #3A3E4D; background:#1B1D26; color:var(--ink); border-radius:99px;
-    padding:12px 16px; font-size:14.5px; font-weight:600; cursor:pointer; font-family:inherit; text-align:left;}
-  .chip:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
-  .chip.right{border-color:#4CC38A; color:#4CC38A;}
-  .chip.wrong{border-color:#E5484D; color:#E5484D; text-decoration:line-through;}
-  .verdict{font-family:Consolas,monospace; font-size:12.5px; color:var(--amber);
-    margin-top:10px; display:none;}
-  .dato{background:#14161D; border:1px solid var(--line); border-radius:12px;
-    padding:12px 14px; margin-top:12px; display:none;}
+  .kicker{display:flex; align-items:center; gap:8px; margin-bottom:10px;
+    font-family:var(--mono); font-size:10px; font-weight:500;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--muted);}
+  .kicker::before{content:""; width:14px; height:3px; background:var(--accent);}
+  .card.k-purple .kicker::before{background:var(--purple);}
+  .card.k-yellow .kicker::before{background:var(--yellow);}
+  .card.k-green  .kicker::before{background:var(--green);}
+  h2{font-family:var(--display); font-weight:700; text-transform:uppercase;
+    letter-spacing:.015em; font-size:28px; line-height:1.04; margin:0 0 10px;
+    text-wrap:balance;}
+  .card p{color:#C6CAD2; margin:0;}
+  .opts{display:flex; flex-direction:column; gap:8px; margin-top:16px;}
+  .chip{border:1px solid var(--line); background:var(--carbon-2); color:var(--ink);
+    border-radius:4px; padding:12px 16px; font-family:var(--display);
+    font-weight:600; font-size:16px; letter-spacing:.05em; text-transform:uppercase;
+    cursor:pointer; text-align:left; transition:border-color .2s;}
+  .chip:hover{border-color:var(--muted);}
+  .chip:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .chip.right{border-color:var(--green); color:var(--green);}
+  .chip.wrong{border-color:var(--line); color:var(--muted); text-decoration:line-through;}
+  .verdict{font-family:var(--mono); font-size:12px; color:var(--green);
+    margin-top:12px; display:none; letter-spacing:.04em;}
+  .dato{background:var(--carbon-0); border:1px solid var(--line); border-radius:4px;
+    padding:14px 16px; margin-top:14px; display:none;}
   .dato.open{display:block;}
-  .dato b{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--amber);}
-  .dato table{width:100%; border-collapse:collapse; margin-top:6px;
-    font-family:Consolas,monospace; font-size:13px; font-variant-numeric:tabular-nums;}
-  .dato td{padding:3px 0; border-bottom:1px solid #232633;}
-  .dato td:last-child{text-align:right; color:var(--amber);}
-  .peek{margin-top:12px; font-size:11px; letter-spacing:.1em; color:var(--muted);
-    cursor:pointer; background:none; border:none; font-family:inherit; padding:0;}
-  .peek:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
-  .finish{height:14px; margin:40px -18px 0;
-    background:repeating-conic-gradient(#EDEEF2 0 25%, #101116 0 50%) 0 0/14px 14px;}
-  .credits{text-align:center; color:var(--muted); font-size:11px; letter-spacing:.12em;
-    text-transform:uppercase; padding:26px 0 40px;}
+  .dato b{font-family:var(--mono); font-size:10px; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
+  .dato table{width:100%; border-collapse:collapse; margin-top:8px;
+    font-family:var(--mono); font-size:13px; font-variant-numeric:tabular-nums;}
+  .dato td{padding:5px 0; border-bottom:1px solid #1C1F26;}
+  .dato tr:last-child td{border-bottom:none;}
+  .dato td:last-child{text-align:right; font-weight:700;}
+  .peek{margin-top:14px; font-family:var(--mono); font-size:10px; letter-spacing:.14em;
+    color:var(--muted); cursor:pointer; background:none; border:none; padding:0;
+    text-transform:uppercase;}
+  .peek:hover{color:var(--ink);}
+  .peek:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+  .finish{height:12px; margin:44px -20px 0;
+    background:repeating-conic-gradient(#E6E7EA 0 25%, #0A0B0E 0 50%) 0 0/12px 12px;
+    opacity:.9;}
+  .credits{text-align:center; color:var(--muted); font-family:var(--mono);
+    font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:28px 0 44px;}
   @media (prefers-reduced-motion: reduce){
     .card{transition:none; opacity:1; transform:none;}
   }
@@ -74,21 +103,62 @@
 <body>
 <div class="pbar" id="pbar"></div>
 <div class="hud">
-  <div class="gp"><b>British GP</b> · Silverstone · sneak peek, phase 1 data</div>
-  <div class="lapbox"><span class="n" id="lapnum">0</span><br><span class="of">OF 52 LAPS</span></div>
+  <div class="badge">
+    <div class="flag"></div>
+    <div>
+      <div class="t1">British Grand Prix</div>
+      <div class="t2">Silverstone · Race · Phase-1 preview</div>
+    </div>
+  </div>
+  <div class="lapbox">
+    <span class="lbl">LAP</span>
+    <span class="n"><span id="lapnum">0</span><small> / 52</small></span>
+  </div>
 </div>
 
-<svg id="roadsvg"><path id="road" fill="none"></path><path id="midline" fill="none"></path></svg>
-<svg id="car" viewBox="0 0 34 60" aria-hidden="true">
-  <rect x="1"  y="2"  width="32" height="6" rx="2" fill="#F5A623"/>
-  <rect x="13" y="6"  width="8"  height="46" rx="4" fill="#F5A623"/>
-  <rect x="3"  y="12" width="8"  height="12" rx="3" fill="#0C0D12" stroke="#3A3E4D"/>
-  <rect x="23" y="12" width="8"  height="12" rx="3" fill="#0C0D12" stroke="#3A3E4D"/>
-  <rect x="3"  y="40" width="8"  height="12" rx="3" fill="#0C0D12" stroke="#3A3E4D"/>
-  <rect x="23" y="40" width="8"  height="12" rx="3" fill="#0C0D12" stroke="#3A3E4D"/>
-  <rect x="9"  y="26" width="16" height="14" rx="4" fill="#C9820A"/>
-  <circle cx="17" cy="24" r="4" fill="#0C0D12"/>
-  <rect x="4"  y="52" width="26" height="6" rx="2" fill="#F5A623"/>
+<svg id="roadsvg">
+  <path id="road-edges" fill="none"></path>
+  <path id="road" fill="none"></path>
+</svg>
+
+<!-- F1 top view: real proportions (~2.6:1), carbon body, accent nose line -->
+<svg id="car" viewBox="0 0 30 78" aria-hidden="true">
+  <!-- front wing + endplates -->
+  <rect x="1" y="1" width="28" height="4.5" rx="1" fill="#23262E"/>
+  <rect x="0.5" y="0.5" width="2.6" height="6.5" rx="1" fill="#2E323C"/>
+  <rect x="26.9" y="0.5" width="2.6" height="6.5" rx="1" fill="#2E323C"/>
+  <!-- nose -->
+  <path d="M13 5 L17 5 L16.2 22 L13.8 22 Z" fill="#15171D"/>
+  <rect x="13.9" y="6.5" width="2.2" height="12" rx="1" fill="#E10600"/>
+  <!-- front suspension -->
+  <path d="M8 14 L14 17 M22 14 L16 17" stroke="#2E323C" stroke-width="1.2"/>
+  <!-- front tyres -->
+  <rect x="2.5" y="10.5" width="6.2" height="12.5" rx="2.4" fill="#0D0E11" stroke="#33363E" stroke-width="1"/>
+  <rect x="21.3" y="10.5" width="6.2" height="12.5" rx="2.4" fill="#0D0E11" stroke="#33363E" stroke-width="1"/>
+  <circle cx="5.6" cy="16.7" r="1.5" fill="#3C404A"/>
+  <circle cx="24.4" cy="16.7" r="1.5" fill="#3C404A"/>
+  <!-- monocoque + sidepods -->
+  <path d="M11 22 L19 22 L21.5 34 L21.5 52 L19 56 L11 56 L8.5 52 L8.5 34 Z" fill="#1B1E25"/>
+  <path d="M8.5 34 L5.8 37 L5.8 50 L8.5 52 Z" fill="#15171D"/>
+  <path d="M21.5 34 L24.2 37 L24.2 50 L21.5 52 Z" fill="#15171D"/>
+  <!-- halo -->
+  <ellipse cx="15" cy="30.5" rx="4.6" ry="3.6" fill="none" stroke="#3C404A" stroke-width="1.6"/>
+  <rect x="14.4" y="26" width="1.2" height="4" fill="#3C404A"/>
+  <!-- cockpit + helmet -->
+  <ellipse cx="15" cy="33.5" rx="3" ry="4.2" fill="#0D0E11"/>
+  <circle cx="15" cy="33" r="2" fill="#4A4F5A"/>
+  <!-- engine cover spine -->
+  <rect x="14.3" y="38" width="1.4" height="16" rx="0.7" fill="#23262E"/>
+  <!-- rear tyres (wider) -->
+  <rect x="1.8" y="53" width="7.4" height="13.5" rx="2.6" fill="#0D0E11" stroke="#33363E" stroke-width="1"/>
+  <rect x="20.8" y="53" width="7.4" height="13.5" rx="2.6" fill="#0D0E11" stroke="#33363E" stroke-width="1"/>
+  <circle cx="5.5" cy="59.7" r="1.7" fill="#3C404A"/>
+  <circle cx="24.5" cy="59.7" r="1.7" fill="#3C404A"/>
+  <!-- rear wing + DRS flap + endplates -->
+  <rect x="4.5" y="69" width="21" height="5" rx="1" fill="#23262E"/>
+  <rect x="4.5" y="74.6" width="21" height="1.8" rx="0.9" fill="#15171D"/>
+  <rect x="3.6" y="68" width="2.2" height="9.5" rx="1" fill="#2E323C"/>
+  <rect x="24.2" y="68" width="2.2" height="9.5" rx="1" fill="#2E323C"/>
 </svg>
 
 <div class="flow" id="flow"></div>
@@ -97,35 +167,41 @@
 <script>
 (function () {
   const cards = window.STORY.cards;
-  const TOTAL = window.STORY.laps;
   const flow = document.getElementById('flow');
 
-  // ---------- build cards ----------
+  // semantic kicker colors, timing-screen style
+  const tone = c => {
+    const k = (c.kicker || '').toLowerCase();
+    if (k.includes('fastest')) return 'k-purple';
+    if (k.includes('safety')) return 'k-yellow';
+    if (c.type === 'prediction') return 'k-green';
+    return '';
+  };
+
   cards.forEach((c, i) => {
     if (i > 0) flow.insertAdjacentHTML('beforeend', '<div class="spacer"></div>');
     const div = document.createElement('div');
-    div.className = 'card';
+    div.className = 'card ' + tone(c);
     div.dataset.lap = c.lap ?? 0;
     let html = `<span class="kicker">${c.kicker || ''}</span><h2>${c.title || ''}</h2>`;
     if (c.text) html += `<p>${c.text}</p>`;
     if (c.type === 'prediction' && c.options) {
       html += '<div class="opts">' + c.options.map(o =>
         `<button class="chip" data-pick="${o}">${o}</button>`).join('') + '</div>' +
-        `<div class="verdict">Locked in. The answer is waiting on lap 1... keep scrolling.</div>`;
+        `<div class="verdict">CALL LOCKED. THE ANSWER IS ON LAP 1.</div>`;
     }
     if (c.dato) {
       const rows = c.dato.rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
-      html += `<button class="peek">▼ THE DATA BEHIND THIS</button>
+      html += `<button class="peek">＋ The data behind this</button>
                <div class="dato"><b>${c.dato.label}</b><table>${rows}</table></div>`;
     }
-    if (c.type === 'share') html += `<div class="opts"><button class="chip">📤 Send it to the group chat</button></div>`;
+    if (c.type === 'share') html += `<div class="opts"><button class="chip">Send it to the group chat</button></div>`;
     div.innerHTML = html;
     flow.appendChild(div);
   });
   flow.insertAdjacentHTML('beforeend',
-    '<div class="finish"></div><div class="credits">Generated from real OpenF1 data · texts v1, still cooking</div>');
+    '<div class="finish"></div><div class="credits">Built from OpenF1 timing data · prototype, phase 1</div>');
 
-  // prediction + data-peek interactions
   flow.querySelectorAll('.chip[data-pick]').forEach(b => b.addEventListener('click', e => {
     const card = e.target.closest('.card');
     const answer = cards.find(c => c.type === 'prediction').answer;
@@ -139,16 +215,15 @@
     e.target.nextElementSibling.classList.toggle('open');
   }));
 
-  // card entrance
   const io = new IntersectionObserver(es => es.forEach(en => {
     if (en.isIntersecting) en.target.classList.add('seen');
   }), { threshold: 0.25 });
   document.querySelectorAll('.card').forEach(c => io.observe(c));
 
-  // ---------- the road + the car ----------
+  // ---------- road: asphalt with white edge lines (no highway dashes) ----------
   const svg = document.getElementById('roadsvg');
   const road = document.getElementById('road');
-  const mid = document.getElementById('midline');
+  const edges = document.getElementById('road-edges');
   const car = document.getElementById('car');
   let samples = [];
 
@@ -163,23 +238,23 @@
       d += ` C ${cx + amp * side} ${y + seg * 0.35}, ${cx + amp * side} ${y2 - seg * 0.35}, ${cx} ${y2}`;
       y = y2; side = -side;
     }
-    road.setAttribute('d', d); mid.setAttribute('d', d);
-    road.setAttribute('stroke', 'var(--road)'); road.setAttribute('stroke-width', 58);
-    mid.setAttribute('stroke', 'var(--roadline)'); mid.setAttribute('stroke-width', 2.5);
-    mid.setAttribute('stroke-dasharray', '16 20');
+    // edge lines: white path slightly wider than the asphalt on top of it
+    edges.setAttribute('d', d);
+    edges.setAttribute('stroke', '#5A5F6A'); edges.setAttribute('stroke-width', 62);
+    road.setAttribute('d', d);
+    road.setAttribute('stroke', 'var(--carbon-2)'); road.setAttribute('stroke-width', 58);
     const len = road.getTotalLength();
     samples = [];
     for (let i = 0; i <= len; i += 5) samples.push(road.getPointAtLength(i));
   }
 
   function pointAtY(y) {
-    let lo = 0, hi = samples.length - 1;               // path Y is monotonic
+    let lo = 0, hi = samples.length - 1;
     while (lo < hi) { const m = (lo + hi) >> 1; samples[m].y < y ? lo = m + 1 : hi = m; }
     const p = samples[lo], q = samples[Math.min(lo + 2, samples.length - 1)];
     return { p, angle: Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI + 90 };
   }
 
-  // lap counter: interpolate between card anchors
   const anchors = [...document.querySelectorAll('.card')]
     .map(c => ({ el: c, lap: +c.dataset.lap }));
 
@@ -195,15 +270,13 @@
       car.style.top = p.y + 'px';
       car.style.transform = `rotate(${angle}deg)`;
     }
-    // lap: piecewise between anchor cards by their document position
     let lap = 0;
     for (let i = 0; i < anchors.length; i++) {
       const y = anchors[i].el.offsetTop;
       const next = anchors[i + 1];
       if (!next || carDocY < next.el.offsetTop) {
         if (next) {
-          const t = Math.max(0, Math.min(1,
-            (carDocY - y) / (next.el.offsetTop - y)));
+          const t = Math.max(0, Math.min(1, (carDocY - y) / (next.el.offsetTop - y)));
           lap = anchors[i].lap + t * (next.lap - anchors[i].lap);
         } else lap = anchors[i].lap;
         if (carDocY >= y) break;
@@ -215,6 +288,7 @@
   buildRoad(); onScroll();
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => { buildRoad(); onScroll(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { buildRoad(); onScroll(); });
 })();
 </script>
 </body>
