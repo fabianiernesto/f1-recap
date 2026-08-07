@@ -53,6 +53,16 @@ Jerarquía de card: kicker (mono 10px, tracking ancho, con pestaña lateral de c
 
 Física sobria: ease-out corto (300-450ms), desplazamientos ≤ 24px, sin bounce, sin parallax gratuito. `prefers-reduced-motion` siempre respetado. La sensación objetivo: precisión de equipo de datos, no fiesta.
 
-## 7. Aplicación
+## 7. Anti-AI-look (añadido 7-ago tras feedback de Ernesto: "se nota que es Claude")
+
+El look "IA genérica" = fondo oscuro + acento + columna central de cards uniformes + condensed de Google Fonts. Se combate con decisiones que una IA sin dirección nunca tomaría:
+
+1. **La pista REAL, no una serpentina genérica.** El trazado de Silverstone de verdad (FastF1 da las coordenadas x/y de telemetría). Copse, Maggotts-Becketts, Hangar Straight con sus nombres. Esto solo ya separa el producto de cualquier plantilla del mundo: nuestra carretera ES el circuito.
+2. **Romper la columna única.** Cards que NO son todas iguales: el Safety Car tiñe la pantalla entera de amarillo, la card del ganador es full-bleed, los números de vuelta gigantes viven DETRÁS del contenido como hitos de sección. La uniformidad es el mayor tell de IA.
+3. **Tipografía con intención, no otra font de Google.** El arreglo no es cambiar Barlow por otra condensed: es usarla en extremos que una plantilla no usa (cuerpos 120px+ para vueltas, interlineado negativo, numerales outlined, texto vertical en el rail). Y a medio plazo: una display licenciada con carácter para el nombre del producto.
+4. **Vocabulario visual del mundo real de la F1**: mensajes de race control citados con su formato FIA monoespaciado real, GAP/INT como en el timing, banderas como objetos gráficos, la textura de cuadros solo en meta. Detalles que solo alguien del mundillo mete.
+5. **Dirección humana con moodboard.** Ernesto (que edita fotos y tiene ojo) recopila 5 referencias reales (broadcast F1, pósters de carreras 70s-80s, editorial deportivo tipo The Athletic, scrollytelling del NYT) y elegimos 3 elementos firma. Claude ejecuta; Ernesto dirige el arte. Ese es el flujo desde ya.
+
+## 8. Aplicación
 
 Este doc gobierna el prototipo (`web_preview/`) y sobre todo la Fase 2 (Next.js + Tailwind: estos tokens se convierten en el theme). Cualquier decisión visual nueva se contrasta contra la sección 2 antes de entrar.
