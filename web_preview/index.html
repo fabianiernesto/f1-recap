@@ -18,7 +18,7 @@
   }
   *{box-sizing:border-box}
   body{margin:0; background:var(--carbon-0); color:var(--ink);
-    font-family:var(--body); line-height:1.55; font-size:15px;}
+    font-family:var(--body); line-height:1.55; font-size:15px; overflow-x:hidden;}
 
   /* ---------- HUD ---------- */
   .hud{position:fixed; top:0; left:0; right:0; z-index:50; display:flex;
@@ -37,48 +37,117 @@
   .lapbox .n small{font-size:13px; color:var(--muted); font-weight:500;}
   .pbar{position:fixed; top:0; left:0; height:2px; background:var(--accent); z-index:60; width:0%;}
 
-  /* ---------- real track map, broadcast style ---------- */
-  .trackwrap{position:fixed; z-index:1; pointer-events:none;}
+  /* ---------- the circuit IS the stage ---------- */
+  .trackwrap{position:fixed; z-index:1; pointer-events:none;
+    left:50%; top:50%; transform:translate(-50%,-50%);}
   .trackwrap svg{width:100%; height:auto; display:block;}
-  .trackcap{font-family:var(--mono); font-size:9px; letter-spacing:.16em;
-    text-transform:uppercase; color:var(--muted); text-align:center; margin-top:10px;}
-  @media (min-width:1100px){
-    .trackwrap{right:1vw; top:50%; transform:translateY(-50%); width:min(56vw,92vh);}
-    .flow{margin:0 0 0 4vw; max-width:400px;}
-    .trackcap{opacity:1;}
-  }
-  @media (max-width:1099px){
-    .trackwrap{left:50%; top:50%; transform:translate(-50%,-50%);
-      width:min(96vw,86vh); opacity:.3;}
-    .trackcap{display:none;}
-  }
+  .trackcap{position:fixed; bottom:14px; right:16px; z-index:2;
+    font-family:var(--mono); font-size:9px; letter-spacing:.16em;
+    text-transform:uppercase; color:#565B66;}
+  @media (min-width:1100px){ .trackwrap{width:min(80vw,100vh);} }
+  @media (max-width:1099px){ .trackwrap{width:min(120vw,90vh); opacity:.55;} }
 
-  /* ---------- content ---------- */
-  .flow{position:relative; z-index:10; max-width:540px; margin:0 auto;
-    padding:110px 20px 60px; display:flex; flex-direction:column;}
-  .spacer{height:58vh; flex:none;}
-  .card{background:color-mix(in srgb, var(--carbon-1) 94%, transparent);
-    backdrop-filter:blur(5px); border:1px solid var(--line); border-radius:6px;
-    padding:18px 20px 16px; box-shadow:0 10px 28px rgba(0,0,0,.4);
-    opacity:0; transform:translateY(20px); transition:opacity .4s ease-out, transform .4s ease-out;}
+  /* ---------- flow / stops ---------- */
+  .flow{position:relative; z-index:10; max-width:760px; margin:0 auto;
+    padding:14vh 20px 60px; display:flex; flex-direction:column;}
+  .spacer{height:64vh; flex:none;}
+  .stop{position:relative;}
+  .stop .card{max-width:380px;}
+  @media (min-width:1100px){
+    .stop.s-left  .card{margin-right:auto;}
+    .stop.s-right .card{margin-left:auto;}
+  }
+  @media (max-width:1099px){ .stop .card{margin:0 auto;} }
+
+  /* giant lap numeral behind each stop (typography at extremes) */
+  .biglap{position:absolute; top:-0.62em; z-index:0; pointer-events:none;
+    font-family:var(--display); font-weight:700; font-size:150px; line-height:1;
+    color:transparent; -webkit-text-stroke:1px #30343E; letter-spacing:-.03em;
+    user-select:none;}
+  .stop.s-left .biglap{right:0;} .stop.s-right .biglap{left:0;}
+  @media (max-width:1099px){ .biglap{font-size:110px; left:auto; right:0;} }
+
+  /* ---------- base card ---------- */
+  .card{position:relative; z-index:1;
+    background:color-mix(in srgb, var(--carbon-1) 86%, transparent);
+    backdrop-filter:blur(6px); border:1px solid var(--line); border-radius:6px;
+    padding:18px 20px 16px; box-shadow:0 10px 28px rgba(0,0,0,.45);
+    opacity:0; transform:translateY(20px);
+    transition:opacity .4s ease-out, transform .4s ease-out;}
   .card.seen{opacity:1; transform:none;}
-  .card.seen.dim{opacity:.45;}
+  .card.seen.dim{opacity:.4;}
   .kicker{display:flex; align-items:center; gap:8px; margin-bottom:10px;
     font-family:var(--mono); font-size:10px; font-weight:500;
     letter-spacing:.16em; text-transform:uppercase; color:var(--muted);}
-  .kicker::before{content:""; width:14px; height:3px; background:var(--accent);}
-  .card.k-purple .kicker::before{background:var(--purple);}
-  .card.k-yellow .kicker::before{background:var(--yellow);}
-  .card.k-green  .kicker::before{background:var(--green);}
+  .kicker::before{content:""; width:14px; height:3px; background:var(--accent); flex:none;}
   h2{font-family:var(--display); font-weight:700; text-transform:uppercase;
     letter-spacing:.015em; font-size:23px; line-height:1.05; margin:0 0 8px; text-wrap:balance;}
   .card p{color:#C6CAD2; margin:0; font-size:13.5px;}
   #tk-labels text{transition:fill .25s ease;}
+
+  /* ---------- variants: every moment type has its own shape ---------- */
+  /* cover: editorial, no box, big type over the map */
+  .v-cover{background:radial-gradient(ellipse 130% 120% at 30% 40%, #0A0B0Eee 40%, #0A0B0E00 75%);
+    border:none; box-shadow:none; backdrop-filter:none; max-width:460px !important;
+    padding:28px 24px;}
+  .v-cover h2{font-size:52px; line-height:.96; letter-spacing:0;}
+  .v-cover p{font-size:14.5px; max-width:38ch;}
+  .v-cover .kicker::before{width:34px;}
+
+  /* prediction: pit-board green */
+  .v-pred{border-color:#1d4a33;}
+  .v-pred .kicker{color:var(--green);}
+  .v-pred .kicker::before{background:var(--green);}
+
+  /* safety car: hazard stripes, yellow phase */
+  .v-sc{border-color:#4a3f10;
+    background:linear-gradient(color-mix(in srgb,#EAB308 7%, var(--carbon-1)) 0 100%);}
+  .v-sc::before{content:""; position:absolute; top:0; left:0; right:0; height:7px;
+    border-radius:6px 6px 0 0;
+    background:repeating-linear-gradient(-45deg, var(--yellow) 0 12px, #14151A 12px 24px);}
+  .v-sc .kicker{color:var(--yellow);}
+  .v-sc .kicker::before{background:var(--yellow);}
+  .v-sc h2{color:var(--yellow);}
+
+  /* fastest lap: timing screen */
+  .v-fast{border-color:#3d2a55; text-align:left;}
+  .v-fast .kicker{color:var(--purple);}
+  .v-fast .kicker::before{background:var(--purple);}
+  .v-fast .bigtime{font-family:var(--mono); font-weight:700; font-size:44px;
+    color:var(--purple); letter-spacing:-.03em; font-variant-numeric:tabular-nums;
+    line-height:1; margin:2px 0 8px;}
+  .v-fast .bigtime small{font-size:16px; color:var(--muted); font-weight:500;}
+  .v-fast h2{font-size:19px; color:var(--ink);}
+
+  /* chequered flag: the finish */
+  .v-final{text-align:center; max-width:440px !important; padding-top:26px;}
+  .v-final::before, .v-final::after{content:""; position:absolute; left:0; right:0; height:10px;
+    background:repeating-conic-gradient(#E6E7EA 0 25%, #101116 0 50%) 0 0/10px 10px;}
+  .v-final::before{top:0; border-radius:6px 6px 0 0;}
+  .v-final::after{bottom:0; border-radius:0 0 6px 6px;}
+  .v-final{padding-bottom:26px;}
+  .v-final h2{font-size:36px;}
+
+  /* big-number moment: the stat is the visual */
+  .v-num .bignum{position:absolute; right:8px; top:-34px; z-index:-1;
+    font-family:var(--display); font-weight:700; font-size:120px; line-height:1;
+    color:transparent; -webkit-text-stroke:1.5px var(--accent); opacity:.55;}
+
+  /* share: one-liner, quote style */
+  .v-share{text-align:center; border:none; background:none; box-shadow:none;
+    backdrop-filter:none; max-width:460px !important;}
+  .v-share h2{font-size:34px; line-height:1.02;}
+  .v-share h2::before{content:"“"; display:block; color:var(--accent);
+    font-size:64px; line-height:.6; margin-bottom:10px;}
+  .v-share p{color:var(--muted); font-family:var(--mono); font-size:11px;
+    letter-spacing:.08em; text-transform:uppercase;}
+
+  /* ---------- interactive bits ---------- */
   .opts{display:flex; flex-direction:column; gap:8px; margin-top:16px;}
   .chip{border:1px solid var(--line); background:var(--carbon-2); color:var(--ink);
     border-radius:4px; padding:12px 16px; font-family:var(--display);
     font-weight:600; font-size:16px; letter-spacing:.05em; text-transform:uppercase;
-    cursor:pointer; text-align:left; transition:border-color .2s;}
+    cursor:pointer; text-align:left; transition:border-color .2s; pointer-events:auto;}
   .chip:hover{border-color:var(--muted);}
   .chip:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
   .chip.right{border-color:var(--green); color:var(--green);}
@@ -100,10 +169,8 @@
     text-transform:uppercase;}
   .peek:hover{color:var(--ink);}
   .peek:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
-  .finish{height:12px; margin:44px -20px 0;
-    background:repeating-conic-gradient(#E6E7EA 0 25%, #0A0B0E 0 50%) 0 0/12px 12px; opacity:.9;}
   .credits{text-align:center; color:var(--muted); font-family:var(--mono);
-    font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:28px 0 44px;}
+    font-size:10px; letter-spacing:.14em; text-transform:uppercase; padding:34px 0 44px;}
   @media (prefers-reduced-motion: reduce){
     .card{transition:none; opacity:1; transform:none;}
   }
@@ -135,8 +202,8 @@
     <g id="tk-start"></g>
     <g id="tk-car"></g>
   </svg>
-  <div class="trackcap">Real track shape · Antonelli's fastest-lap telemetry</div>
 </div>
+<div class="trackcap">Real track shape · Antonelli's fastest-lap telemetry</div>
 
 <div class="flow" id="flow"></div>
 
@@ -147,20 +214,54 @@
   const cards = window.STORY.cards;
   const flow = document.getElementById('flow');
 
-  const tone = c => {
+  const variant = c => {
+    if (c.type === 'cover') return 'v-cover';
+    if (c.type === 'share') return 'v-share';
+    if (c.type === 'prediction') return 'v-pred';
     const k = (c.kicker || '').toLowerCase();
-    if (k.includes('fastest')) return 'k-purple';
-    if (k.includes('safety')) return 'k-yellow';
-    if (c.type === 'prediction') return 'k-green';
+    if (k.includes('safety')) return 'v-sc';
+    if (k.includes('fastest')) return 'v-fast';
+    if (k.includes('chequered')) return 'v-final';
+    if (k.includes('busiest')) return 'v-num';
     return '';
+  };
+
+  const fmtTime = s => {                       // 91.777 -> 1:31.777
+    const m = Math.floor(s / 60);
+    return m ? `${m}:${(s - m * 60).toFixed(3).padStart(6, '0')}` : s.toFixed(3);
   };
 
   cards.forEach((c, i) => {
     if (i > 0) flow.insertAdjacentHTML('beforeend', '<div class="spacer"></div>');
+    const v = variant(c);
+    const stop = document.createElement('div');
+    stop.className = 'stop ' + (i % 2 ? 's-right' : 's-left');
+
+    // giant lap numeral behind real race moments
+    if (c.type === 'moment' && c.lap > 1)
+      stop.insertAdjacentHTML('beforeend', `<div class="biglap">${c.lap}</div>`);
+
     const div = document.createElement('div');
-    div.className = 'card ' + tone(c);
+    div.className = 'card ' + v;
     div.dataset.lap = c.lap ?? 0;
-    let html = `<span class="kicker">${c.kicker || ''}</span><h2>${c.title || ''}</h2>`;
+
+    let html = `<span class="kicker">${c.kicker || ''}</span>`;
+
+    if (v === 'v-fast') {
+      // timing-screen: the time itself is the hero
+      const m = /([\d.]+)s/.exec(c.title || '');
+      const who = (c.title || '').split(':')[0];
+      if (m) html += `<div class="bigtime">${fmtTime(+m[1])}<small> · ${who.toUpperCase()}</small></div>`;
+      html += `<h2>Fastest lap of the race</h2>`;
+    } else {
+      html += `<h2>${c.title || ''}</h2>`;
+    }
+
+    if (v === 'v-num') {
+      const n = /\d+/.exec(c.title || '');
+      if (n) html += `<div class="bignum">${n[0]}</div>`;
+    }
+
     if (c.text) html += `<p>${c.text}</p>`;
     if (c.type === 'prediction' && c.options) {
       html += '<div class="opts">' + c.options.map(o =>
@@ -174,10 +275,11 @@
     }
     if (c.type === 'share') html += `<div class="opts"><button class="chip">Send it to the group chat</button></div>`;
     div.innerHTML = html;
-    flow.appendChild(div);
+    stop.appendChild(div);
+    flow.appendChild(stop);
   });
   flow.insertAdjacentHTML('beforeend',
-    '<div class="finish"></div><div class="credits">Built from OpenF1 + FastF1 data · prototype, phase 1</div>');
+    '<div class="credits">Built from OpenF1 + FastF1 data · prototype, phase 1</div>');
 
   flow.querySelectorAll('.chip[data-pick]').forEach(b => b.addEventListener('click', e => {
     const card = e.target.closest('.card');
@@ -203,7 +305,6 @@
   ['tk-edge', 'tk-road', 'tk-trace'].forEach(id =>
     document.getElementById(id).setAttribute('d', d));
 
-  // corner + straight labels, pushed outwards from the track centroid
   const cx0 = T.points.reduce((s, p) => s + p[0], 0) / T.points.length;
   const cy0 = T.points.reduce((s, p) => s + p[1], 0) / T.points.length;
   const labels = document.getElementById('tk-labels');
@@ -223,7 +324,6 @@
     labelEls.push({ t, x: c.x, y: c.y });
   });
 
-  // start / finish tick
   const s0 = T.points[0], s1 = T.points[1];
   const ang0 = Math.atan2(s1[1] - s0[1], s1[0] - s0[0]);
   const nx = Math.cos(ang0 + Math.PI / 2), ny = Math.sin(ang0 + Math.PI / 2);
@@ -234,10 +334,9 @@
   sf.setAttribute('stroke-dasharray', '4 3');
   document.getElementById('tk-start').appendChild(sf);
 
-  // the car, scaled into the map
   const carG = document.getElementById('tk-car');
   carG.innerHTML = `
-    <g id="carbody">
+    <g>
       <rect x="1" y="1" width="28" height="4.5" rx="1" fill="#23262E"/>
       <rect x="0.5" y="0.5" width="2.6" height="6.5" rx="1" fill="#2E323C"/>
       <rect x="26.9" y="0.5" width="2.6" height="6.5" rx="1" fill="#2E323C"/>
@@ -257,7 +356,6 @@
       <rect x="24.2" y="68" width="2.2" height="9.5" rx="1" fill="#2E323C"/>
     </g>`;
 
-  // cumulative lengths for scroll -> position on track
   const cum = [0];
   for (let i = 1; i < T.points.length; i++) {
     const [ax, ay] = T.points[i - 1], [bx, by] = T.points[i];
@@ -286,17 +384,14 @@
     const prog = maxY ? Math.min(1, Math.max(0, scrollY / maxY)) : 0;
     document.getElementById('pbar').style.width = (prog * 100) + '%';
 
-    // one full lap of the real circuit across the whole recap
     target = trackPoint(prog * (totalLen - 0.01));
     trace.setAttribute('stroke-dashoffset', totalLen * (1 - prog));
-    // rAF throttled or paused (hidden tab) -> place the car directly
     if (performance.now() - lastTick > 200) {
       cur.x = target.x; cur.y = target.y; cur.angle = target.angle;
       carG.setAttribute('transform',
         `translate(${cur.x} ${cur.y}) rotate(${cur.angle}) scale(0.62) translate(-15 -39)`);
     }
 
-    // light up the corner the car is passing
     let nearest = null, nd = 1e9;
     labelEls.forEach(L => {
       const dd = Math.hypot(L.x - target.x, L.y - target.y);
@@ -305,7 +400,6 @@
     labelEls.forEach(L => L.t.setAttribute('fill',
       (L === nearest && nd < 130) ? '#F2F3F5' : '#8B919D'));
 
-    // focus the card nearest the viewport centre, dim the rest
     const mid = scrollY + innerHeight / 2;
     let best = null, bd = 1e9;
     anchors.forEach(a => {
@@ -331,7 +425,6 @@
     document.getElementById('lapnum').textContent = Math.max(0, Math.round(lap));
   }
 
-  // the car glides with a touch of inertia instead of teleporting
   let target = trackPoint(0);
   const cur = { x: target.x, y: target.y, angle: target.angle };
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
