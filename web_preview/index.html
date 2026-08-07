@@ -54,6 +54,7 @@
   .stop{position:relative;}
   .stop .card{max-width:380px;}
   @media (min-width:1100px){
+    .flow{max-width:none; padding-left:3vw; padding-right:3vw;}
     .stop.s-left  .card{margin-right:auto;}
     .stop.s-right .card{margin-left:auto;}
   }
@@ -69,8 +70,8 @@
 
   /* ---------- base card ---------- */
   .card{position:relative; z-index:1;
-    background:color-mix(in srgb, var(--carbon-1) 86%, transparent);
-    backdrop-filter:blur(6px); border:1px solid var(--line); border-radius:6px;
+    background:var(--carbon-1);
+    border:1px solid var(--line); border-radius:6px;
     padding:18px 20px 16px; box-shadow:0 10px 28px rgba(0,0,0,.45);
     opacity:0; transform:translateY(20px);
     transition:opacity .4s ease-out, transform .4s ease-out;}
@@ -87,8 +88,8 @@
 
   /* ---------- variants: every moment type has its own shape ---------- */
   /* cover: editorial, no box, big type over the map */
-  .v-cover{background:radial-gradient(ellipse 130% 120% at 30% 40%, #0A0B0Eee 40%, #0A0B0E00 75%);
-    border:none; box-shadow:none; backdrop-filter:none; max-width:460px !important;
+  .v-cover{background:radial-gradient(ellipse 120% 115% at 35% 40%, var(--carbon-0) 58%, #0A0B0E00 88%);
+    border:none; box-shadow:none; max-width:460px !important;
     padding:28px 24px;}
   .v-cover h2{font-size:52px; line-height:.96; letter-spacing:0;}
   .v-cover p{font-size:14.5px; max-width:38ch;}
@@ -134,8 +135,9 @@
     color:transparent; -webkit-text-stroke:1.5px var(--accent); opacity:.55;}
 
   /* share: one-liner, quote style */
-  .v-share{text-align:center; border:none; background:none; box-shadow:none;
-    backdrop-filter:none; max-width:460px !important;}
+  .v-share{text-align:center; border:none; box-shadow:none;
+    background:radial-gradient(ellipse 120% 115% at 50% 50%, var(--carbon-0) 58%, #0A0B0E00 88%);
+    max-width:460px !important;}
   .v-share h2{font-size:34px; line-height:1.02;}
   .v-share h2::before{content:"“"; display:block; color:var(--accent);
     font-size:64px; line-height:.6; margin-bottom:10px;}
