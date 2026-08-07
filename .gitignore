@@ -11,6 +11,7 @@ out/
 
 # Datos crudos cacheados (pesados; los JSON finales sí se commitean)
 pipeline/cache/
+pipeline/fastf1_cache/
 
 # Entorno y secretos
 .env
