@@ -1,95 +1,71 @@
-# MVP — F1 Recap Interactivo
-**Nombre provisional:** After the Flag *(guiño a tu web anterior, Before the Circuit — pendiente de decidir)*
+# MVP v2 — F1 Recap Interactivo
 **Fecha:** 7 agosto 2026
-**Estado:** Borrador v1 — pendiente de validación por Ernesto
+**Estado:** DEFINITIVO. Esqueleto decidido por Ernesto sobre maquetas interactivas: **cuerpo Story (B) + entrada Portero (A)**.
+**Docs previos:** `IDEAS_FORMATOS.md` (exploración) → `CONCEPTO_V1.md` (formatos validados) → este doc (qué se construye).
 
 ---
 
-## 1. El problema
+## 1. El producto en una frase
 
-Ver F1 exige 2 horas de atención sostenida un domingo, más 4 sesiones previas que casi nadie ve. El fan casual (y cada vez más el fan joven) se pierde carreras, se duerme a mitad, o directamente no entiende por qué un momento importa. Las herramientas que existen para ponerse al día son para nerds de datos (dashboards, tablas de tiempos) o resúmenes de vídeo de 8 minutos que no puedes explorar.
+> Tu colega friki de la F1: entras a un GP, te protege de spoilers, te pregunta cuánto tiempo tienes, y te cuenta el finde en stories interactivas con predicciones — en lenguaje humano, con el dato siempre a un swipe.
 
-**No es un problema de falta de datos. Es un problema de falta de atención.**
+## 2. El flujo de usuario (decidido)
 
-## 2. El producto
+```
+Portada del GP
+  └─ "¿Ya sabes cómo acabó?"                        [entrada A]
+       ├─ NO → Nota 0-10 sin spoilers + mapa de calor
+       │        de vueltas + "vuelve cuando la veas"
+       └─ SÍ → "¿Cuánto tiempo tienes?"  ⚡30s / ☕3min / 🛋️15min
+                 └─ STORIES del GP                   [cuerpo B]
+                      · cards a pantalla completa, tap para avanzar
+                      · cards de predicción ("¿valiente o suicidio?")
+                      · swipe-up = el dato detrás (capa "saber más")
+                      · cards de "lo que la TV no enseñó"
+                      · card final compartible (resumen + nota)
+```
 
-Una web que te cuenta **cualquier sesión de un Gran Premio como una historia interactiva**: qué pasó, en qué orden, y por qué importa — en lenguaje humano, no en tablas. Todo post-sesión (datos gratis vía OpenF1 + FastF1), pensado para responder una pregunta:
+- **30s** = 5-6 cards · **3min** = 12-15 cards · **15min** = el finde entero (libres + quali + carrera).
+- Cada sesión (FP1-FP3, Quali, Carrera) tiene sus stories; honestidad como feature: "FP1 en 30 segundos: no pasó nada, de verdad".
+- **Glosario contextual**: términos técnicos marcados, tap = explicación de una línea. Un solo tono ("casual inteligente").
 
-> *"Me he perdido la sesión (o me he dormido a mitad). ¿Qué ha pasado?"*
+## 3. Alcance v1 / después
 
-**Para quién:** el fan casual y el fan nuevo. NO para ingenieros — eso ya lo hace Pit Wall Engineer (el proyecto de Marc, nuestra referencia técnica). El dato duro existe, pero siempre **plegado** bajo un "¿quieres saber más?". La profundidad es opcional, nunca por defecto.
+| v1 (se construye ya) | v1.1 | v2 / nevera |
+|---|---|---|
+| Entrada anti-spoiler + nota 0-10 | Chat "pregúntale al colega" (LLM + ficha editorial) | Modo Estratega (diseñado, esperando) |
+| Selector de tiempo ×3 profundidades | Cards compartibles como imagen | Temporada como episodios |
+| Stories de las 5 sesiones con predicciones | Team radio en cards (si derechos OK) | "Me dormí en la vuelta X" |
+| Swipe-up con el dato | | Duelos como organización |
+| Glosario (~40 términos) | | Toggle niveles de fan (muerto: lo absorbe el chat) |
+| 1 GP completo, perfecto | | Más GPs |
 
-## 3. Qué entra en el MVP (y qué NO)
+## 4. Datos y pipeline
 
-### Entra ✅
-
-**1 Gran Premio completo, 5 sesiones (FP1, FP2, FP3, Quali, Carrera):**
-
-- **Vista "El finde de un vistazo"** — landing del GP: qué pasó en cada sesión en 2-3 frases, quién llega fuerte al domingo, qué mirar en la carrera. Para el que solo ve la carrera.
-- **Timeline narrativo de la carrera** — scroll vertical de momentos clave detectados desde datos: salida, adelantamientos relevantes, paradas que cambian posiciones, safety cars, abandonos, cambios de meteo, batallas (coches a <1s durante varias vueltas), última vuelta. Cada momento: una frase en lenguaje humano + contexto de por qué importa.
-- **Capa "saber más"** — cada momento se despliega y enseña el dato que lo respalda (tiempos, posiciones, neumáticos). Aquí es donde reciclamos las ideas de análisis del proyecto de Marc.
-- **Quali como historia** — no la tabla de resultados: quién sorprendió, quién la lió, por cuánto se decidió la pole.
-
-### NO entra ❌ (v2 o nunca)
-
-- ❌ Chat con IA (lo tiene Marc; para masas aporta menos de lo que parece)
-- ❌ Replay de telemetría sobre el circuito (espectacular pero es feature de ingeniero; candidata a v2 simplificada)
-- ❌ Datos en vivo (descartado por diseño)
-- ❌ Todo el calendario (el MVP es 1 GP hecho excelente, luego escalamos)
-- ❌ Cuentas de usuario, comentarios, social
-- ❌ "Sigue a tu piloto" — la mejor idea para v2, pero es duplicar el trabajo narrativo × 20 pilotos; primero validamos el formato
-
-## 4. Datos (todo gratis)
-
-| Fuente | Qué nos da | Coste |
-|--------|-----------|-------|
-| **OpenF1 API** | Vueltas, posiciones, paradas, stints, race control (banderas, SC, investigaciones), meteo, intervalos, info de pilotos. 2023 en adelante, sin API key | 0 € |
-| **FastF1** (Python) | Telemetría por vuelta, resultados de sesión, compuestos de neumático. Cache local propio | 0 € |
-
-**Decisión clave de arquitectura:** los datos se procesan **offline** con un pipeline Python que genera JSON estáticos (`gp_madrid_2026/race_story.json`, etc.). La web solo lee esos JSON. Consecuencia: **no hay backend en producción → hosting gratis** (Vercel) y la web vuela. El "servidor" es un script que ejecutas tú una vez por GP.
+- **Fuentes:** OpenF1 (vueltas, posiciones, paradas, stints, race control, meteo, radio, pilotos) + FastF1 (compuestos, resultados, telemetría si hiciera falta). Gratis para histórico.
+- **Pipeline offline** (Python): descarga → cache JSON inmutable por sesión → detección de momentos → templates de narrativa → `story.json` por sesión + `weekend.json`. Se ejecuta una vez por GP, a mano.
+- **Sin backend en producción**: la web lee JSON estáticos. Hosting gratis.
+- **Reutilización del Pit-Wall de Marc** (pendiente su OK — no hay LICENSE): cliente OpenF1 (retries/429), cache, `timeline_builder` (vuelta↔timestamp, vueltas SC/VSC), base matemática del chaos→nota. El resto, solo referencia.
 
 ## 5. Stack
 
-| Capa | Tecnología | Por qué |
-|------|-----------|---------|
-| Pipeline de datos | Python 3.11+ (FastF1, httpx, Pandas) | FastF1 es Python sí o sí; mismo terreno que el repo de referencia |
-| Narrativa | Templates en Python (determinista) | Frases generadas por reglas: "X adelanta a Y en la vuelta N por Z". Sin coste, sin alucinaciones. *Opcional v2: pulido con LLM offline, una pasada por GP, céntimos* |
-| Frontend | Next.js 14 + TypeScript + Tailwind + Framer Motion | Estándar, gratis en Vercel, y las animaciones de scroll (Framer Motion) son EL producto aquí |
-| Hosting | Vercel (free tier) | JSON estáticos, cero servidor |
+Python 3.11+ (pipeline) · Next.js 14 + TypeScript + Tailwind + Framer Motion (web) · Vercel (deploy). Repo: `github.com/fabianiernesto/f1-recap` (nombre provisional).
 
-## 6. Estructura del proyecto
+## 6. Diseño: móvil manda, desktop no es el móvil estirado
 
-```
-after-the-flag/
-├── pipeline/               # Python: de OpenF1/FastF1 → JSON de historia
-│   ├── fetch/              # clientes OpenF1 + FastF1, cache crudo por sesión
-│   ├── detect/             # detección de momentos (adelantamientos, SC, batallas...)
-│   ├── narrate/            # templates → frases en lenguaje humano
-│   └── build.py            # orquestador: python build.py --gp madrid-2026
-├── data/                   # JSON generados (se commitean, son el "backend")
-│   └── <gp-slug>/
-│       ├── weekend.json    # resumen del finde
-│       ├── quali_story.json
-│       └── race_story.json
-└── web/                    # Next.js
-```
+- **Móvil = diseño de referencia.** Stories, predicciones y selector de tiempo nacen para el pulgar. El usuario tipo llega el domingo por la noche desde el sofá.
+- **Desktop = composición propia:** stories al centro a tamaño de teléfono, y el espacio lateral trabaja — el swipe-up se convierte en panel de datos siempre visible a la derecha, el progreso del GP a la izquierda. Nunca cards estiradas a 1920px.
 
 ## 7. Fases
 
-- **Fase 0 — Exploración (1ª sesión de curro):** script que baja los datos de 1 carrera de OpenF1, los mira, y confirmamos qué momentos son detectables con qué fiabilidad. Sin frontend. *Aquí es donde el proyecto se hace real.*
-- **Fase 1 — Pipeline:** detección de momentos + templates de narrativa → `race_story.json` completo de 1 carrera.
-- **Fase 2 — Web:** timeline narrativo con scroll + capa "saber más". Primero feo y funcional, luego bonito.
-- **Fase 3 — Finde completo:** quali + libres + vista landing del GP. Deploy en Vercel.
-- **Fase 4 — Validación:** se lo enseñas a 3-4 amigos NO fans de F1. Si entienden la carrera sin ayuda, el MVP funciona. Luego: más GPs, y decidimos v2.
+- **Fase 0 — Datos reales (siguiente sesión):** ① verificar qué pide hoy OpenF1 (token para sesiones nuevas — visto en el código de Marc; confirmar que histórico sigue libre) ② bajar el GP piloto completo ③ inventario honesto: qué momentos detectamos bien, regular o no. ④ Paralelo, Ernesto: mensaje a Marc pidiendo OK para reutilizar piezas · revisar términos del team radio.
+- **Fase 1 — Pipeline:** detección de momentos + templates → `race_story.json` real del GP piloto.
+- **Fase 2 — Web:** entrada A + stories B en móvil, feo pero funcional → luego bonito. Después la composición desktop.
+- **Fase 3 — Finde completo:** quali + libres + nota sin spoilers + glosario + deploy en Vercel.
+- **Fase 4 — Test de verdad:** 3-4 personas que no ven F1. Si entienden la carrera y una repite otra semana, v1 cumplida → v1.1 (chat).
 
-## 8. Decisiones abiertas (las tuyas, Ernesto)
+## 8. Pendientes finales (por este orden, al final)
 
-1. **Nombre** — ¿After the Flag? ¿Otro? (afecta a dominio y a cómo lo vendes en LinkedIn)
-2. **Idioma** — Recomiendo **español primero** (tu audiencia de LinkedIn, tu diferenciación: casi todo esto existe solo en inglés). Bilingüe en v2.
-3. **GP piloto** — Criterio: una carrera 2025-2026 caótica (SC + lluvia o batalla por la victoria). Cuanto más caos, mejor luce el formato. Dime cuál te marcó y esa usamos.
-
-## 9. Trampas conocidas (para no caer)
-
-- **Clonar a Marc con otra piel.** Si en algún momento estamos construyendo una gráfica antes que una frase, nos hemos desviado. La unidad del producto es el *momento contado*, no el dato.
-- **Scope creep.** Todo lo de la lista ❌ está ahí por algo. V2 se gana entregando v1.
-- **Perfeccionismo narrativo.** Los templates darán frases robóticas al principio. Se pulen iterando con carreras reales, no diseñando en abstracto.
+1. GP piloto — criterio: carrera 2025-2026 caótica (SC + lluvia o pelea por la victoria). **Ernesto elige.**
+2. Nombre real del producto (+ renombrar repo) — sesión propia de naming/branding.
+3. Idioma (recomendación en pie: español primero).
