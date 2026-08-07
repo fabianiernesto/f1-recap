@@ -10,7 +10,7 @@
       "lap": 0,
       "kicker": "British GP · Silverstone · 52 laps",
       "title": "Four laps from the flag, this race flipped",
-      "text": "Verstappen was already out. Hamilton was chasing a home podium. And then the Safety Car lights came on. 232 overtakes say this was no Sunday drive... scroll and watch it unfold."
+      "text": "Verstappen was already out. Hamilton was chasing a home podium. And then the Safety Car lights came on. 153 genuine on-track passes say this was no Sunday drive... scroll and watch it unfold."
     },
     {
       "type": "prediction",
@@ -32,32 +32,32 @@
     },
     {
       "type": "moment",
-      "lap": 1,
-      "kicker": "Lap 1 · The busiest lap",
-      "title": "51 overtakes on this lap alone",
-      "text": "The lead group swapped places 18 times today. Your TV feed showed a fraction of that. The one doing most of the passing: Sainz, 19 moves all afternoon.",
+      "lap": 2,
+      "kicker": "Lap 2 · The busiest lap",
+      "title": "16 overtakes on this lap alone",
+      "text": "The lead group swapped places 14 times today. Your TV feed showed a fraction of that. The one doing most of the passing: Bearman, 15 moves all afternoon.",
       "dato": {
         "label": "Most overtakes (top 5)",
         "rows": [
           [
-            "Sainz",
-            19
+            "Bearman",
+            15
+          ],
+          [
+            "Hulkenberg",
+            13
           ],
           [
             "Piastri",
-            18
+            13
           ],
           [
-            "Bearman",
-            17
+            "Sainz",
+            11
           ],
           [
-            "Ocon",
-            16
-          ],
-          [
-            "Gasly",
-            15
+            "Verstappen",
+            10
           ]
         ]
       }

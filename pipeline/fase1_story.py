@@ -109,12 +109,12 @@ def main() -> None:
 
     # overtakes with laps
     ov_laps = [(lap_of(parse_ts(o.get("date"))), o) for o in overtakes]
-    front_ov = [(ln, o) for ln, o in ov_laps if (o.get("position") or 99) <= 3]
-    # busiest GREEN-FLAG lap: post-SC restart laps would win otherwise and
-    # break the chronological order of the scroll
-    busiest_lap = Counter(ln for ln, _ in ov_laps
-                          if ln and ln < 47).most_common(1)[0]
-    ov_count = Counter(o["overtaking_driver_number"] for o in overtakes)
+    # lap 1 is the start shuffle and post-SC laps are field resets: OpenF1
+    # logs every position swap, so neither counts as a genuine on-track pass
+    green_ov = [(ln, o) for ln, o in ov_laps if ln and 2 <= ln <= 46]
+    front_ov = [(ln, o) for ln, o in green_ov if (o.get("position") or 99) <= 3]
+    busiest_lap = Counter(ln for ln, _ in green_ov).most_common(1)[0]
+    ov_count = Counter(o["overtaking_driver_number"] for _, o in green_ov)
 
     # best climber vs quali grid
     grid_pos = {r["driver_number"]: r.get("position") for r in quali_res}
@@ -151,8 +151,9 @@ def main() -> None:
             "kicker": "British GP · Silverstone · 52 laps",
             "title": "Four laps from the flag, this race flipped",
             "text": f"Verstappen was already out. Hamilton was chasing a home podium. "
-                    f"And then the Safety Car lights came on. {len(overtakes)} overtakes "
-                    "say this was no Sunday drive... scroll and watch it unfold.",
+                    f"And then the Safety Car lights came on. {len(green_ov)} genuine "
+                    "on-track passes say this was no Sunday drive... scroll and watch "
+                    "it unfold.",
         },
         {
             "type": "prediction", "lap": 0,
