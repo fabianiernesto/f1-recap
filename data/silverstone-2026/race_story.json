@@ -1,0 +1,108 @@
+{
+  "gp": "GP de Gran Bretana 2026",
+  "session": "Race",
+  "circuit": "Silverstone",
+  "laps": 52,
+  "generated": "fase1_story_v0 (borrador)",
+  "cards": [
+    {
+      "type": "cover",
+      "kicker": "GP de Gran Bretana · Silverstone",
+      "title": "Esta carrera te la cuento yo",
+      "text": "52 vueltas, 232 adelantamientos y un final que se decidio con el Safety Car en pista. Vamos."
+    },
+    {
+      "type": "prediction",
+      "kicker": "Antes de nada, juega",
+      "title": "Antonelli salia desde la pole en casa de Hamilton. ¿Aguanto la primera vuelta como lider?",
+      "options": [
+        "Si, aguanto",
+        "No, la perdio"
+      ],
+      "reveal_key": "pole_hold"
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Salida",
+      "title": "Luces fuera",
+      "text": "Pole para Antonelli tras una quali que se decidio por 0.175s de nada."
+    },
+    {
+      "type": "moment",
+      "kicker": "La pelea de delante",
+      "title": "18 adelantamientos SOLO en el podio provisional",
+      "text": "La cabeza de carrera no fue un desfile: hubo 18 cambios entre los 3 primeros. El mas peleon del dia: Sainz, con 19 adelantamientos.",
+      "dato": {
+        "label": "Adelantamientos por piloto (top 5)",
+        "rows": [
+          [
+            "Sainz",
+            19
+          ],
+          [
+            "Piastri",
+            18
+          ],
+          [
+            "Bearman",
+            17
+          ],
+          [
+            "Ocon",
+            16
+          ],
+          [
+            "Gasly",
+            15
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "kicker": "Lo que la TV no enseno",
+      "title": "Colapinto: de P19 a P9",
+      "text": "La mejor remontada del dia: Colapinto gano 10 posiciones desde la parrilla. Casi nadie hablo de ello."
+    },
+    {
+      "type": "moment",
+      "kicker": "Boxes",
+      "title": "Parada mas rapida: 28.3s (Russell)",
+      "text": "Estrategia a una parada para la mayoria: MEDIUM: 30 / HARD: 22 / SOFT: 21. El neumatico no fue el drama hoy."
+    },
+    {
+      "type": "moment",
+      "kicker": "El drama",
+      "title": "Verstappen, fuera",
+      "text": "Abandonaron Verstappen, Albon, Hulkenberg. Un Mundial se puede torcer en una tarde asi."
+    },
+    {
+      "type": "moment",
+      "lap": 37,
+      "kicker": "Vuelta rapida",
+      "title": "Antonelli: 91.777s",
+      "text": "En la vuelta 37, Antonelli (Mercedes) clavo la vuelta mas rapida de la tarde."
+    },
+    {
+      "type": "moment",
+      "lap": 48,
+      "kicker": "Vuelta 48 de 52",
+      "title": "SAFETY CAR. Todo lo ganado, borrado.",
+      "text": "A 4 vueltas del final salio el Safety Car... y en la 51, OTRO. La carrera termino con los coches agrupados y a Sainz investigado por infraccion bajo SC. Infarto hasta la bandera."
+    },
+    {
+      "type": "moment",
+      "lap": 52,
+      "kicker": "Bandera a cuadros",
+      "title": "Gana Leclerc",
+      "text": "Leclerc (Ferrari) gana por delante de Russell y de Hamilton — podio en casa. Silverstone en pie."
+    },
+    {
+      "type": "share",
+      "kicker": "Silverstone en una frase",
+      "title": "«La carrera se decidio cuando ya nadie miraba el crono»",
+      "text": "Nota del finde: pendiente de calcular con la formula de la v1 :)"
+    }
+  ]
+}

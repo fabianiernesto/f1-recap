@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sneak peek · Silverstone 2026 — datos reales</title>
+<style>
+  body{margin:0; background:#131419; color:#EDEEF2; font-family:"Segoe UI",system-ui,sans-serif;
+    display:flex; flex-direction:column; align-items:center; gap:14px; padding:28px 16px; min-height:100vh; box-sizing:border-box;}
+  .tag{font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:#9BA0AE;}
+  .tag b{color:#F5A623;}
+  .phone{width:min(94vw,360px); height:min(80vh,700px); background:#0C0D12; border-radius:34px;
+    border:1px solid #2A2D38; box-shadow:0 18px 40px rgba(0,0,0,.4); overflow:hidden;
+    position:relative; display:flex; flex-direction:column;}
+  .prog{display:flex; gap:3px; padding:12px 14px 0; flex:none;}
+  .prog i{flex:1; height:3px; border-radius:99px; background:#2E313D;}
+  .prog i.done{background:#F5A623;}
+  .card{flex:1; display:none; flex-direction:column; padding:22px 20px; gap:12px; overflow:hidden;}
+  .card.on{display:flex;}
+  .kicker{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#F5A623; font-weight:600;}
+  .lap{font-family:Consolas,monospace; font-size:11px; color:#9BA0AE;}
+  h2{font-family:"Arial Narrow","Segoe UI",sans-serif; text-transform:uppercase; font-size:30px;
+    line-height:1.05; margin:0; text-wrap:balance;}
+  p{font-size:15px; color:#C9CCD6; margin:0; line-height:1.5;}
+  .foot{margin-top:auto; display:flex; flex-direction:column; gap:8px;}
+  .chip{border:1px solid #3A3E4D; background:#1B1D26; color:#EDEEF2; border-radius:99px;
+    padding:12px 16px; font-size:14.5px; font-weight:600; cursor:pointer; font-family:inherit;}
+  .chip:focus-visible{outline:2px solid #F5A623; outline-offset:2px;}
+  .swipe{text-align:center; font-size:11px; color:#9BA0AE; letter-spacing:.08em; cursor:pointer;}
+  .dato{background:#1B1D26; border:1px solid #2A2D38; border-radius:12px; padding:12px 14px; display:none;}
+  .dato.open{display:block;}
+  .dato b{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#F5A623;}
+  .dato table{width:100%; border-collapse:collapse; margin-top:6px; font-family:Consolas,monospace; font-size:13px;}
+  .dato td{padding:3px 0; border-bottom:1px solid #232633;}
+  .dato td:last-child{text-align:right; color:#F5A623;}
+  .tap{position:absolute; top:60px; bottom:90px; width:38%; background:none; border:0; cursor:pointer; z-index:5;}
+  .tap.l{left:0} .tap.r{right:0}
+  .hint{text-align:center; font-size:10px; color:#6A6E7B; letter-spacing:.1em; padding-bottom:10px;}
+</style>
+</head>
+<body>
+<div class="tag">SNEAK PEEK FASE 1 · cards generadas por el pipeline desde <b>datos reales de OpenF1</b> · textos v0 sin pulir</div>
+<div class="phone">
+  <div class="prog" id="prog"></div>
+  <div id="cards" style="display:contents"></div>
+  <button class="tap l" onclick="move(-1)" aria-label="anterior"></button>
+  <button class="tap r" onclick="move(1)" aria-label="siguiente"></button>
+  <div class="hint">◀ toca izquierda / derecha ▶</div>
+</div>
+<script src="story_data.js"></script>
+<script>
+  const cards = window.STORY.cards;
+  const prog = document.getElementById('prog');
+  const wrap = document.getElementById('cards');
+  let idx = 0;
+
+  cards.forEach((c, i) => {
+    prog.insertAdjacentHTML('beforeend', '<i></i>');
+    const div = document.createElement('div');
+    div.className = 'card';
+    let html = `<span class="kicker">${c.kicker || ''}</span>`;
+    if (c.lap) html += `<span class="lap">VUELTA ${c.lap}</span>`;
+    html += `<h2>${c.title || ''}</h2>`;
+    if (c.text) html += `<p>${c.text}</p>`;
+    html += '<div class="foot">';
+    if (c.type === 'prediction' && c.options) {
+      c.options.forEach(o => {
+        html += `<button class="chip" onclick="move(1)">${o}</button>`;
+      });
+    }
+    if (c.dato) {
+      const rows = c.dato.rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+      html += `<div class="dato" id="dato${i}"><b>${c.dato.label}</b><table>${rows}</table></div>
+               <div class="swipe" onclick="document.getElementById('dato${i}').classList.toggle('open')">▲ ver el dato</div>`;
+    }
+    if (c.type === 'share') html += `<button class="chip">📤 Mandar al grupo</button>`;
+    html += '</div>';
+    div.innerHTML = html;
+    wrap.appendChild(div);
+  });
+
+  const els = document.querySelectorAll('.card'), bars = prog.querySelectorAll('i');
+  function render() {
+    els.forEach((e, i) => e.classList.toggle('on', i === idx));
+    bars.forEach((b, i) => b.classList.toggle('done', i <= idx));
+  }
+  function move(d) { idx = Math.max(0, Math.min(els.length - 1, idx + d)); render(); }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') move(1);
+    if (e.key === 'ArrowLeft') move(-1);
+  });
+  render();
+</script>
+</body>
+</html>
