@@ -211,6 +211,9 @@ body {
 .chip.wrong { border-color: var(--line); color: var(--muted); text-decoration: line-through; }
 .verdict { font-family: var(--font-mono); font-size: 12px; color: var(--green);
   margin-top: 12px; letter-spacing: .04em; }
+.verdict-bad { color: #e5484d; }
+.reveal { margin-top: 8px !important; padding-top: 10px;
+  border-top: 1px solid var(--line); }
 .dato { background: var(--carbon-0); border: 1px solid var(--line); border-radius: 4px;
   padding: 14px 16px; margin-top: 14px; }
 .dato b { font-family: var(--font-mono); font-size: 10px; font-weight: 500;

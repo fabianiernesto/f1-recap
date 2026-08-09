@@ -6,6 +6,7 @@ export type CardData = {
   text?: string;
   options?: string[];
   answer?: string;
+  reveal?: string;
   dato?: { label: string; rows: [string, number][] };
 };
 

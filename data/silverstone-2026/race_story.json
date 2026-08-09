@@ -62,7 +62,8 @@
         "He holds it",
         "He loses it"
       ],
-      "answer": "He loses it"
+      "answer": "He loses it",
+      "reveal": "He lost it. By the time lap 1 was done, Leclerc was the name at the top of the tower and Antonelli was chasing."
     },
     {
       "type": "moment",
@@ -104,6 +105,18 @@
       }
     },
     {
+      "type": "prediction",
+      "lap": 18,
+      "kicker": "Mid-race, call it",
+      "title": "Colapinto started way back in P19. Where does he finish?",
+      "options": [
+        "In the points",
+        "Outside the top 10"
+      ],
+      "answer": "In the points",
+      "reveal": "P9. Colapinto climbed 10 places one pass at a time, and his last one landed on lap 49, right when the race was at its wildest. Almost none of it made the TV cut."
+    },
+    {
       "type": "moment",
       "lap": 35,
       "kicker": "Lap 35 · Pit window",
@@ -133,6 +146,18 @@
       "kicker": "Lap 37 · Fastest lap",
       "title": "Antonelli: 91.777s",
       "text": "The kid who started from pole answered his critics with the fastest lap of the day, 91.777s around Silverstone in a Mercedes. Keep his name handy."
+    },
+    {
+      "type": "prediction",
+      "lap": 44,
+      "kicker": "Lap 44, call it",
+      "title": "Verstappen is still out there fighting. Does he see the chequered flag?",
+      "options": [
+        "He makes it home",
+        "He doesn't"
+      ],
+      "answer": "He doesn't",
+      "reveal": "He didn't. His car rolled to a stop on lap 47, the Safety Car followed, and every gap in the race was erased at once. One retirement flipped the whole ending."
     },
     {
       "type": "moment",

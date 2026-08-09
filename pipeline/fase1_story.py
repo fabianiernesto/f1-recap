@@ -162,6 +162,38 @@ def main() -> None:
                      "Does he still lead after lap 1?",
             "options": ["He holds it", "He loses it"],
             "answer": "He holds it" if pole_held else "He loses it",
+            "reveal": (f"He held it. {name(pole_num)} covered the field into the "
+                       "first corners and closed lap 1 still in front, pole margin "
+                       "intact. The hard part came later."
+                       if pole_held else
+                       f"He lost it. By the time lap 1 was done, "
+                       f"{name(leader_l1)} was the name at the top of the tower "
+                       f"and {name(pole_num)} was chasing."),
+        },
+        {
+            "type": "prediction", "lap": 18,
+            "kicker": "Mid-race, call it",
+            "title": f"{name(climb_num)} started way back in P{climb[2]}. "
+                     "Where does he finish?",
+            "options": ["In the points", "Outside the top 10"],
+            "answer": "In the points" if climb[3] <= 10 else "Outside the top 10",
+            "reveal": f"P{climb[3]}. {name(climb_num)} climbed {climb[0]} places "
+                      f"one pass at a time, and his last one landed on lap "
+                      f"{climb_last_ov}, right when the race was at its wildest. "
+                      "Almost none of it made the TV cut.",
+        },
+        {
+            "type": "prediction", "lap": 44,
+            "kicker": "Lap 44, call it",
+            "title": "Verstappen is still out there fighting. "
+                     "Does he see the chequered flag?",
+            "options": ["He makes it home", "He doesn't"],
+            "answer": "He doesn't" if ver else "He makes it home",
+            "reveal": (f"He didn't. His car rolled to a stop on lap "
+                       f"{dnf_laps.get(ver['driver_number'])}, the Safety Car "
+                       "followed, and every gap in the race was erased at once. "
+                       "One retirement flipped the whole ending."
+                       if ver else "He made it home."),
         },
         {
             "type": "moment", "lap": 1, "kicker": "Lap 1 · Lights out",
@@ -252,11 +284,11 @@ def main() -> None:
         },
     ]
 
-    # the car travels the race in order: moments sorted by lap,
-    # cover + prediction pinned first, share card pinned last
-    head = [c for c in cards if c["type"] in ("cover", "prediction")]
+    # the car travels the race in order: moments AND predictions sorted by
+    # their lap anchor, cover pinned first, share card pinned last
+    head = [c for c in cards if c["type"] == "cover"]
     tail = [c for c in cards if c["type"] == "share"]
-    body = sorted((c for c in cards if c["type"] == "moment"),
+    body = sorted((c for c in cards if c["type"] in ("moment", "prediction")),
                   key=lambda c: c.get("lap") or 0)
     cards = head + body + tail
 

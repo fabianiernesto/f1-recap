@@ -34,7 +34,7 @@ export default function RaceScroll({
   const [lap, setLap] = useState(0);
   const [activeIdx, setActiveIdx] = useState(0);
   const [litLabel, setLitLabel] = useState(-1);
-  const [picked, setPicked] = useState<string | null>(null);
+  const [picks, setPicks] = useState<Record<number, string>>({});
   const [openData, setOpenData] = useState<Record<number, boolean>>({});
 
   const carRef = useRef<SVGGElement>(null);
@@ -181,8 +181,6 @@ export default function RaceScroll({
     };
   }, [geo, story.cards, track.points]);
 
-  const prediction = story.cards.find((c) => c.type === "prediction");
-
   return (
     <>
       <div className="pbar" ref={pbarRef} />
@@ -305,23 +303,34 @@ export default function RaceScroll({
                           <button
                             key={o}
                             className={`chip ${
-                              picked
-                                ? o === prediction?.answer
+                              picks[i]
+                                ? o === c.answer
                                   ? "right"
                                   : "wrong"
                                 : ""
                             }`}
-                            disabled={!!picked}
-                            onClick={() => setPicked(o)}
+                            disabled={!!picks[i]}
+                            onClick={() =>
+                              setPicks((s) => ({ ...s, [i]: o }))
+                            }
                           >
                             {o}
                           </button>
                         ))}
                       </div>
-                      {picked && (
-                        <div className="verdict">
-                          CALL LOCKED. THE ANSWER IS ON LAP 1.
-                        </div>
+                      {picks[i] && (
+                        <>
+                          <div
+                            className={`verdict ${
+                              picks[i] === c.answer ? "" : "verdict-bad"
+                            }`}
+                          >
+                            {picks[i] === c.answer
+                              ? "✔ CALLED IT. HERE'S HOW IT WENT DOWN:"
+                              : "✘ NOT QUITE. HERE'S WHAT ACTUALLY HAPPENED:"}
+                          </div>
+                          {c.reveal && <p className="reveal">{c.reveal}</p>}
+                        </>
                       )}
                     </>
                   )}
