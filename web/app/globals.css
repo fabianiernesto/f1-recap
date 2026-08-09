@@ -104,9 +104,10 @@ body {
   letter-spacing: .14em; text-transform: uppercase; margin-top: 4px; }
 .lapbox { display: flex; align-items: center; padding: 14px 18px; gap: 10px; }
 .lapbox .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: .14em; }
-.lapbox .n { font-family: var(--font-mono); font-weight: 700; font-size: 24px;
-  font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
-.lapbox .n small { font-size: 13px; color: var(--muted); font-weight: 500; }
+/* the lap counter is a trackside board: LED dot-matrix */
+.lapbox .n { font-family: var(--font-led), monospace; font-weight: 900; font-size: 30px;
+  letter-spacing: .04em; line-height: 1; }
+.lapbox .n small { font-size: 15px; color: #6a7080; font-weight: 700; }
 .pbar { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 60; width: 0%; }
 
 /* ---------- the circuit is the stage ---------- */
@@ -133,9 +134,10 @@ body {
 }
 @media (max-width: 1099px) { .stop .card { margin: 0 auto; } }
 
+/* giant lap markers, LED like the numbers on a pit board */
 .biglap { position: absolute; top: -.62em; z-index: 0; pointer-events: none;
-  font-family: var(--font-display); font-weight: 700; font-size: 150px; line-height: 1;
-  color: var(--ink); letter-spacing: -.03em; user-select: none; }
+  font-family: var(--font-led), monospace; font-weight: 900; font-size: 132px;
+  line-height: 1; color: #3a3f4b; letter-spacing: .02em; user-select: none; }
 .stop.s-left .biglap { right: 0; }
 .stop.s-right .biglap { left: 0; }
 @media (max-width: 1099px) { .biglap { font-size: 110px; left: auto; right: 0; } }
@@ -174,15 +176,18 @@ body {
   background: repeating-linear-gradient(-45deg, var(--yellow) 0 12px, #14151a 12px 24px); }
 .v-sc .kicker { color: var(--yellow); }
 .v-sc .kicker::before { background: var(--yellow); }
-.v-sc h2 { color: var(--yellow); }
+/* SAFETY CAR reads like the message board it really is */
+.v-sc h2 { color: var(--yellow); font-family: var(--font-led), monospace;
+  font-weight: 900; font-size: 26px; line-height: 1.1; letter-spacing: .02em; }
 
 .v-fast { border-color: #3d2a55; text-align: left; }
 .v-fast .kicker { color: var(--purple); }
 .v-fast .kicker::before { background: var(--purple); }
-.v-fast .bigtime { font-family: var(--font-mono); font-weight: 700; font-size: 44px;
-  color: var(--purple); letter-spacing: -.03em; font-variant-numeric: tabular-nums;
-  line-height: 1; margin: 2px 0 8px; }
-.v-fast .bigtime small { font-size: 16px; color: var(--muted); font-weight: 500; }
+/* timing screens are LED: the fastest lap is the purple board */
+.v-fast .bigtime { font-family: var(--font-led), monospace; font-weight: 900; font-size: 46px;
+  color: var(--purple); letter-spacing: .02em; line-height: 1; margin: 2px 0 8px; }
+.v-fast .bigtime small { font-family: var(--font-mono); font-size: 14px; color: var(--muted);
+  font-weight: 500; letter-spacing: .1em; }
 .v-fast h2 { font-size: 19px; color: var(--ink); }
 
 .v-final { text-align: center; max-width: 440px !important; padding-top: 26px; padding-bottom: 26px; }
@@ -193,8 +198,8 @@ body {
 .v-final h2 { font-size: 36px; }
 
 .v-num .bignum { position: absolute; right: 8px; top: -34px; z-index: -1;
-  font-family: var(--font-display); font-weight: 700; font-size: 120px; line-height: 1;
-  color: var(--accent); }
+  font-family: var(--font-led), monospace; font-weight: 900; font-size: 104px;
+  line-height: 1; color: var(--accent); }
 
 .v-share { text-align: center; border: none; box-shadow: none;
   background: radial-gradient(ellipse 120% 115% at 50% 50%, var(--carbon-0) 58%, #0a0b0e00 88%);
