@@ -36,7 +36,7 @@ body {
 }
 
 /* ---------- GP hero: the vertical poster (ref Ogilvy Turkish GP) ---------- */
-.hero { position: relative; z-index: 20; min-height: 128vh; overflow: hidden;
+.hero { position: relative; z-index: 20; min-height: 152vh; overflow: hidden;
   display: flex; flex-direction: column; align-items: center;
   padding: 15vh 5vw 0;
   background: linear-gradient(#1a0507 0%, #2b0709 26%, #120a14 58%, #0a1220 100%); }
@@ -74,8 +74,9 @@ body {
   color: #ffb3ae; text-transform: uppercase; }
 
 /* the landmark anchors the bottom of the poster */
+/* the landmark owns the bottom-right corner (ref Ogilvy: the bridge) */
 .hero-city { position: relative; z-index: 3; margin-top: auto; width: 100%;
-  display: flex; justify-content: center; align-items: flex-end; height: 52vh; }
+  display: flex; justify-content: flex-end; align-items: flex-end; height: 52vh; }
 .hero-skyline { position: absolute; bottom: 0; left: -2%; width: 104%; height: 24vh;
   z-index: 0; }
 .hero-landmark { position: relative; z-index: 1; height: 52vh; width: auto;
@@ -83,8 +84,8 @@ body {
 
 /* real landmark photo, graded and masked so it belongs to the night
    instead of looking pasted on (ref Ogilvy: the bridge melts into the city) */
-.hero-landmark-photo { position: relative; z-index: 1; height: 62vh;
-  display: flex; align-items: flex-end; }
+.hero-landmark-photo { position: relative; z-index: 1; height: 64vh;
+  display: flex; align-items: flex-end; margin-right: -3vw; }
 .hero-landmark-photo img { height: 100%; width: auto; object-fit: contain;
   object-position: bottom;
   /* night grade: darker, cooler, contrastier than the daylight original */

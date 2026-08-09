@@ -12,10 +12,19 @@ import path from "node:path";
  */
 const LANDMARK_FORMATS = ["png", "webp", "jpg", "jpeg"];
 
+// cwd is web/ for build, but the repo root when the dev server is launched
+// from there — same resolution dance as lib/data.ts
+const PUBLIC_DIRS = [
+  path.join(process.cwd(), "public"),
+  path.join(process.cwd(), "Proyecto 6_Ernesto - F1 Recap Interactivo", "web", "public"),
+];
+
 export function landmarkPhoto(slug: string): string | null {
-  for (const ext of LANDMARK_FORMATS) {
-    const abs = path.join(process.cwd(), "public", "landmarks", `${slug}.${ext}`);
-    if (fs.existsSync(abs)) return `/landmarks/${slug}.${ext}`;
+  for (const dir of PUBLIC_DIRS) {
+    for (const ext of LANDMARK_FORMATS) {
+      if (fs.existsSync(path.join(dir, "landmarks", `${slug}.${ext}`)))
+        return `/landmarks/${slug}.${ext}`;
+    }
   }
   return null;
 }
