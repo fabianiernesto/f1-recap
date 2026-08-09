@@ -1,6 +1,10 @@
 # Design Direction — el look del producto
-**Fecha:** 7 agosto 2026 · **Estado:** v1, aprobación pendiente de Ernesto
+**Fecha:** 7 agosto 2026 · **Estado:** v1 + moodboard (8-ago)
 **Regla madre (de Ernesto):** profesional y realista en TODO. Cero look infantil.
+
+> ⚠️ **8-ago: llegó el moodboard de Ernesto.** `MOODBOARD_ANALISIS.md` es ahora la autoridad
+> de dirección de arte y SUPERSEDE a este doc donde chocan (radios, uso del rojo, fondos,
+> fotografía, alternancia claro/oscuro). Este doc sigue valiendo para tokens base y motion.
 
 ---
 
