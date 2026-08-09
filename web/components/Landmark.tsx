@@ -1,7 +1,32 @@
+import fs from "node:fs";
+import path from "node:path";
+
 /**
- * Country landmarks, drawn as original SVG line-art so the poster has a sense
- * of place without depending on licensed photography. One per circuit.
+ * The landmark that anchors the poster (ref Ogilvy: the Bosphorus bridge).
+ * Drops a real photo in when one exists at public/landmarks/<slug>.png,
+ * graded and masked so it melts into the night instead of looking pasted on.
+ * Falls back to line-art so the page never breaks while art is missing.
+ *
+ * To add a GP: put a cut-out PNG (transparent background) at
+ * web/public/landmarks/<gp-slug>.png — nothing else to wire up.
  */
+export function landmarkPhoto(slug: string): string | null {
+  const rel = `/landmarks/${slug}.png`;
+  const abs = path.join(process.cwd(), "public", "landmarks", `${slug}.png`);
+  return fs.existsSync(abs) ? rel : null;
+}
+
+export function LandmarkPhoto({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="hero-landmark-photo">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={alt} />
+      <div className="hero-landmark-grade" aria-hidden />
+    </div>
+  );
+}
+
+/** Line-art fallback while a licensed photo is missing. */
 export function BigBen({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 140 900" aria-hidden>
@@ -19,37 +44,27 @@ export function BigBen({ className }: { className?: string }) {
           <rect x="0" y="0" width="140" height="900" fill="url(#lm-fade)" />
         </mask>
       </defs>
-
       <g mask="url(#lm-mask)" stroke="#ff8a5c" strokeOpacity=".55" strokeWidth="1.2">
-        {/* finial + spire */}
         <path d="M70 18 L70 44" />
         <path d="M62 150 L70 44 L78 150 Z" fill="url(#lm-body)" />
-        {/* roof */}
         <path d="M26 252 L70 148 L114 252 Z" fill="url(#lm-body)" />
         <path d="M38 252 L70 196 L102 252" fill="none" strokeOpacity=".3" />
-        {/* belfry with arches */}
         <rect x="28" y="252" width="84" height="58" fill="url(#lm-body)" />
         <path d="M44 310 L44 276 Q52 264 60 276 L60 310" fill="#0d0708" strokeOpacity=".35" />
         <path d="M80 310 L80 276 Q88 264 96 276 L96 310" fill="#0d0708" strokeOpacity=".35" />
-        {/* clock stage */}
         <rect x="20" y="310" width="100" height="104" fill="url(#lm-body)" />
         <circle cx="70" cy="362" r="30" fill="#f6e6c8" fillOpacity=".92" stroke="#ffb98a" />
         <circle cx="70" cy="362" r="24" fill="none" stroke="#8a6a4a" strokeOpacity=".5" />
-        {/* hands: 15:00, the classic race start */}
         <path d="M70 362 L70 344" stroke="#3a2a1c" strokeWidth="2.4" />
         <path d="M70 362 L84 362" stroke="#3a2a1c" strokeWidth="2" />
-        {/* shaft */}
         <path d="M24 414 L116 414" strokeOpacity=".45" />
         <rect x="26" y="414" width="88" height="486" fill="url(#lm-body)" />
-        {/* gothic verticals */}
         {[38, 52, 66, 80, 94].map((x) => (
           <path key={x} d={`M${x} 428 L${x} 900`} strokeOpacity=".18" strokeWidth="1" />
         ))}
-        {/* string courses */}
         {[470, 560, 650, 740].map((y) => (
           <path key={y} d={`M26 ${y} L114 ${y}`} strokeOpacity=".22" strokeWidth="1" />
         ))}
-        {/* window slits */}
         {[500, 590, 680].map((y) => (
           <g key={y}>
             <path d={`M45 ${y} L45 ${y + 40}`} stroke="#ffb98a" strokeOpacity=".28" strokeWidth="3" />
@@ -62,7 +77,7 @@ export function BigBen({ className }: { className?: string }) {
   );
 }
 
-/** Low skyline that sits behind the landmark. */
+/** Low skyline sitting behind the landmark. */
 export function Skyline({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 1400 220" preserveAspectRatio="none" aria-hidden>

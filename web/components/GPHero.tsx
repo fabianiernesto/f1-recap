@@ -1,5 +1,5 @@
 import type { Story, Track } from "@/lib/types";
-import { BigBen, Skyline } from "./Landmark";
+import { BigBen, LandmarkPhoto, Skyline, landmarkPhoto } from "./Landmark";
 
 /**
  * GP hero — the vertical poster (ref Ogilvy Turkish GP): a night sky crossed by
@@ -20,11 +20,14 @@ export default function GPHero({
   story,
   track,
   date,
+  slug,
 }: {
   story: Story;
   track: Track;
   date: string;
+  slug: string;
 }) {
+  const photo = landmarkPhoto(slug);
   const pts = track.points;
   const d = "M " + pts.map((p) => p[0] + " " + p[1]).join(" L ");
 
@@ -150,7 +153,11 @@ export default function GPHero({
       {/* --- landmark + skyline anchor the poster --- */}
       <div className="hero-city">
         <Skyline className="hero-skyline" />
-        <BigBen className="hero-landmark" />
+        {photo ? (
+          <LandmarkPhoto src={photo} alt={`${track.circuit} landmark`} />
+        ) : (
+          <BigBen className="hero-landmark" />
+        )}
         <div className="hero-cta-wrap">
           <a className="hero-cta" href="#race">Enter the race</a>
           <span className="hero-foot">Scroll to race</span>

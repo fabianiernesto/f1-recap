@@ -80,6 +80,24 @@ body {
   z-index: 0; }
 .hero-landmark { position: relative; z-index: 1; height: 52vh; width: auto;
   filter: drop-shadow(0 0 56px #ff5a2a33); }
+
+/* real landmark photo, graded and masked so it belongs to the night
+   instead of looking pasted on (ref Ogilvy: the bridge melts into the city) */
+.hero-landmark-photo { position: relative; z-index: 1; height: 62vh;
+  display: flex; align-items: flex-end; }
+.hero-landmark-photo img { height: 100%; width: auto; object-fit: contain;
+  object-position: bottom;
+  /* night grade: darker, cooler, contrastier than the daylight original */
+  filter: brightness(.62) contrast(1.18) saturate(.72)
+    drop-shadow(0 0 60px #ff5a2a2e);
+  -webkit-mask-image: linear-gradient(#000 0%, #000 72%, #0000 99%);
+  mask-image: linear-gradient(#000 0%, #000 72%, #0000 99%); }
+/* warm rim from the trails + cool night wash, blended over the photo */
+.hero-landmark-grade { position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(200deg, #ff6a2a2e 0%, transparent 42%),
+    linear-gradient(#0a12200a 0%, #0a1220a6 100%);
+  mix-blend-mode: soft-light; }
 .hero-cta-wrap { position: absolute; z-index: 2; bottom: 8vh; left: 5vw;
   display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .hero-cta { display: inline-block; background: var(--accent); border: 1px solid var(--accent);

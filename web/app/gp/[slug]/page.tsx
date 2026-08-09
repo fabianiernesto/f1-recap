@@ -15,7 +15,7 @@ export default async function GPPage({ params }: PageProps<"/gp/[slug]">) {
   const track = loadTrack(slug);
   return (
     <>
-      <GPHero story={story} track={track} date={story.result?.date ?? ""} />
+      <GPHero story={story} track={track} date={story.result?.date ?? ""} slug={slug} />
       <RaceScroll story={story} track={track} />
       <FinalPoster story={story} track={track} />
     </>
