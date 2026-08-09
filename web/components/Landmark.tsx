@@ -10,10 +10,14 @@ import path from "node:path";
  * To add a GP: put a cut-out PNG (transparent background) at
  * web/public/landmarks/<gp-slug>.png — nothing else to wire up.
  */
+const LANDMARK_FORMATS = ["png", "webp", "jpg", "jpeg"];
+
 export function landmarkPhoto(slug: string): string | null {
-  const rel = `/landmarks/${slug}.png`;
-  const abs = path.join(process.cwd(), "public", "landmarks", `${slug}.png`);
-  return fs.existsSync(abs) ? rel : null;
+  for (const ext of LANDMARK_FORMATS) {
+    const abs = path.join(process.cwd(), "public", "landmarks", `${slug}.${ext}`);
+    if (fs.existsSync(abs)) return `/landmarks/${slug}.${ext}`;
+  }
+  return null;
 }
 
 export function LandmarkPhoto({ src, alt }: { src: string; alt: string }) {
