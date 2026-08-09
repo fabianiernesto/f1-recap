@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# copied from the pipeline output by scripts/sync-data.mjs
+/data
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -2,14 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Story, Track } from "./types";
 
-// the pipeline writes static JSON per GP into <repo>/data/<slug>/
-// cwd differs between `next dev <dir>` (launcher root) and `next build` (web/),
-// so probe the likely locations once
-const DATA_DIR = [
-  path.join(process.cwd(), "..", "data"),
-  path.join(process.cwd(), "data"),
-  path.join(process.cwd(), "Proyecto 6_Ernesto - F1 Recap Interactivo", "data"),
-].find((p) => fs.existsSync(p)) ?? path.join(process.cwd(), "..", "data");
+// scripts/sync-data.mjs copies the pipeline output into web/data before dev
+// and build, so this path stays statically scoped inside the app
+const DATA_DIR = path.join(process.cwd(), "data");
 
 export function listGPs(): string[] {
   if (!fs.existsSync(DATA_DIR)) return [];
