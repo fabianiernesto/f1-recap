@@ -79,6 +79,13 @@ export default function GPHero({
         ))}
       </svg>
 
+      {/* the landmark owns the full left flank, floor to sky (ref Ogilvy) */}
+      {photo ? (
+        <LandmarkPhoto src={photo} alt={`${track.circuit} landmark`} />
+      ) : (
+        <BigBen className="hero-landmark" />
+      )}
+
       <div className="hero-meta">
         <span>RACE // RECAP</span>
         <span>{date}</span>
@@ -153,11 +160,6 @@ export default function GPHero({
       {/* --- landmark + skyline anchor the poster --- */}
       <div className="hero-city">
         <Skyline className="hero-skyline" />
-        {photo ? (
-          <LandmarkPhoto src={photo} alt={`${track.circuit} landmark`} />
-        ) : (
-          <BigBen className="hero-landmark" />
-        )}
         <div className="hero-cta-wrap">
           <a className="hero-cta" href="#race">Enter the race</a>
           <span className="hero-foot">Scroll to race</span>

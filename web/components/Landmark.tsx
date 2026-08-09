@@ -30,11 +30,12 @@ export function landmarkPhoto(slug: string): string | null {
 }
 
 export function LandmarkPhoto({ src, alt }: { src: string; alt: string }) {
+  // no overlay element here: any box drawn on top would show as a rectangle
+  // over the cut-out. All grading happens with filters on the image itself.
   return (
     <div className="hero-landmark-photo">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={alt} />
-      <div className="hero-landmark-grade" aria-hidden />
     </div>
   );
 }

@@ -36,14 +36,16 @@ body {
 }
 
 /* ---------- GP hero: the vertical poster (ref Ogilvy Turkish GP) ---------- */
-.hero { position: relative; z-index: 20; min-height: 152vh; overflow: hidden;
+.hero { --flank: min(32vw, 460px);
+  position: relative; z-index: 20; min-height: 152vh; overflow: hidden;
   display: flex; flex-direction: column; align-items: center;
-  padding: 15vh 5vw 0;
+  /* content always starts after the landmark flank */
+  padding: 15vh 4vw 0 calc(var(--flank) + 3vw);
   background: linear-gradient(#1a0507 0%, #2b0709 26%, #120a14 58%, #0a1220 100%); }
 .hero-stars { position: absolute; inset: 0; width: 100%; height: 62%; z-index: 0; }
 .hero-trails { position: absolute; inset: -4% -8%; width: 116%; height: 108%;
   pointer-events: none; z-index: 1; }
-.hero-meta { position: absolute; top: 74px; left: 5vw; right: 5vw; z-index: 6;
+.hero-meta { position: absolute; top: 74px; left: calc(var(--flank) + 3vw); right: 4vw; z-index: 6;
   display: flex; justify-content: space-between; font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .18em; color: #f0c9c9; text-transform: uppercase; }
 .hero-meta span:last-child { color: #ff7b74; }
@@ -74,32 +76,30 @@ body {
   color: #ffb3ae; text-transform: uppercase; }
 
 /* the landmark anchors the bottom of the poster */
-/* the landmark owns the bottom-right corner (ref Ogilvy: the bridge) */
 .hero-city { position: relative; z-index: 3; margin-top: auto; width: 100%;
-  display: flex; justify-content: flex-end; align-items: flex-end; height: 52vh; }
-.hero-skyline { position: absolute; bottom: 0; left: -2%; width: 104%; height: 24vh;
-  z-index: 0; }
+  display: flex; justify-content: flex-start; align-items: flex-end; height: 34vh; }
+/* the skyline spans the full viewport, behind everything, so it reads as the
+   horizon the landmark stands on */
+.hero-skyline { position: absolute; bottom: 0; left: calc(0px - var(--flank) - 3vw);
+  width: 100vw; height: 20vh; z-index: 0; }
 .hero-landmark { position: relative; z-index: 1; height: 52vh; width: auto;
   filter: drop-shadow(0 0 56px #ff5a2a33); }
 
-/* real landmark photo, graded and masked so it belongs to the night
-   instead of looking pasted on (ref Ogilvy: the bridge melts into the city) */
-.hero-landmark-photo { position: relative; z-index: 1; height: 64vh;
-  display: flex; align-items: flex-end; margin-right: -3vw; }
-.hero-landmark-photo img { height: 100%; width: auto; object-fit: contain;
-  object-position: bottom;
-  /* night grade: darker, cooler, contrastier than the daylight original */
-  filter: brightness(.62) contrast(1.18) saturate(.72)
-    drop-shadow(0 0 60px #ff5a2a2e);
-  -webkit-mask-image: linear-gradient(#000 0%, #000 72%, #0000 99%);
-  mask-image: linear-gradient(#000 0%, #000 72%, #0000 99%); }
-/* warm rim from the trails + cool night wash, blended over the photo */
-.hero-landmark-grade { position: absolute; inset: 0; pointer-events: none;
-  background:
-    linear-gradient(200deg, #ff6a2a2e 0%, transparent 42%),
-    linear-gradient(#0a12200a 0%, #0a1220a6 100%);
-  mix-blend-mode: soft-light; }
-.hero-cta-wrap { position: absolute; z-index: 2; bottom: 8vh; left: 5vw;
+/* the landmark owns the whole left flank, floor to sky (ref Ogilvy: the
+   bridge spans the poster). No overlay box on top of it — a rectangle would
+   show around the cut-out — so all grading rides on the image filter. */
+.hero-landmark-photo { position: absolute; z-index: 2; left: 0; bottom: 0;
+  width: var(--flank); height: 100%; pointer-events: none; }
+.hero-landmark-photo img { width: 100%; height: 100%; display: block;
+  object-fit: cover; object-position: 50% 100%;
+  /* night grade: darker, cooler and contrastier than the daylight original,
+     with the warm rim the trails would cast */
+  filter: brightness(.52) contrast(1.22) saturate(.6) hue-rotate(-6deg)
+    drop-shadow(14px 0 70px #ff5a2a24);
+  /* melt the base into the skyline and the crown into the night */
+  -webkit-mask-image: linear-gradient(#0000 0%, #000 11%, #000 88%, #0000 100%);
+  mask-image: linear-gradient(#0000 0%, #000 11%, #000 88%, #0000 100%); }
+.hero-cta-wrap { position: relative; z-index: 2; margin-bottom: 8vh;
   display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .hero-cta { display: inline-block; background: var(--accent); border: 1px solid var(--accent);
   color: #fff; border-radius: 4px; padding: 14px 34px; font-family: var(--font-display);
@@ -111,15 +111,18 @@ body {
   color: #8ba0b4; text-transform: uppercase; }
 
 @media (max-width: 1099px) {
-  .hero { padding-top: 17vh; min-height: 150vh; }
+  /* no room for a flank: the landmark drops behind the content, dimmed */
+  .hero { padding: 17vh 6vw 0; min-height: 150vh; }
+  .hero-meta { left: 6vw; right: 6vw; }
+  .hero-landmark-photo { height: 62%; left: -12vw; opacity: .5; }
   .hero-band { grid-template-columns: 1fr; gap: 22px; justify-items: center; }
   .hero-note { text-align: center !important; max-width: 46ch; }
   .hero-map { width: 76vw; }
   .hero-stats { justify-content: center; }
-  .hero-city { height: 32vh; }
+  .hero-city { height: 26vh; justify-content: center; }
+  .hero-skyline { left: -6vw; width: 100vw; }
   .hero-landmark { height: 32vh; }
-  .hero-cta-wrap { position: relative; bottom: auto; left: auto; align-items: center;
-    margin: 0 auto; }
+  .hero-cta-wrap { align-items: center; margin: 0 auto 6vh; }
 }
 
 /* ---------- HUD ---------- */
