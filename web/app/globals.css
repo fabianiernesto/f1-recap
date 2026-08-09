@@ -126,8 +126,7 @@ body {
 
 .biglap { position: absolute; top: -.62em; z-index: 0; pointer-events: none;
   font-family: var(--font-display); font-weight: 700; font-size: 150px; line-height: 1;
-  color: transparent; -webkit-text-stroke: 1px #30343e; letter-spacing: -.03em;
-  user-select: none; }
+  color: var(--ink); letter-spacing: -.03em; user-select: none; }
 .stop.s-left .biglap { right: 0; }
 .stop.s-right .biglap { left: 0; }
 @media (max-width: 1099px) { .biglap { font-size: 110px; left: auto; right: 0; } }
@@ -139,7 +138,7 @@ body {
   opacity: 0; transform: translateY(20px);
   transition: opacity .4s ease-out, transform .4s ease-out; }
 .card.seen { opacity: 1; transform: none; }
-.card.seen.dim { opacity: .4; }
+/* 8-ago, orden de Ernesto: cero transparencia en cards — el "dim" no atenua */
 .kicker { display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
   font-family: var(--font-mono); font-size: 10px; font-weight: 500;
   letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
@@ -186,7 +185,7 @@ body {
 
 .v-num .bignum { position: absolute; right: 8px; top: -34px; z-index: -1;
   font-family: var(--font-display); font-weight: 700; font-size: 120px; line-height: 1;
-  color: transparent; -webkit-text-stroke: 1.5px var(--accent); opacity: .55; }
+  color: var(--accent); }
 
 .v-share { text-align: center; border: none; box-shadow: none;
   background: radial-gradient(ellipse 120% 115% at 50% 50%, var(--carbon-0) 58%, #0a0b0e00 88%);
