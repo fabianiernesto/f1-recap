@@ -4,6 +4,47 @@
   "circuit": "Silverstone",
   "laps": 52,
   "generated": "fase1_story v1",
+  "result": {
+    "date": "05 JUL 2026",
+    "podium": [
+      {
+        "pos": 1,
+        "number": 16,
+        "first": "Charles",
+        "last": "Leclerc",
+        "team": "Ferrari",
+        "colour": "ED1131",
+        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png.transform/1col/image.png"
+      },
+      {
+        "pos": 2,
+        "number": 63,
+        "first": "George",
+        "last": "Russell",
+        "team": "Mercedes",
+        "colour": "00D7B6",
+        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png.transform/1col/image.png"
+      },
+      {
+        "pos": 3,
+        "number": 44,
+        "first": "Lewis",
+        "last": "Hamilton",
+        "team": "Ferrari",
+        "colour": "ED1131",
+        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png.transform/1col/image.png"
+      }
+    ],
+    "fastest": {
+      "time": 91.777,
+      "number": 12,
+      "first": "Kimi",
+      "last": "Antonelli",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/K/ANDANT01_Kimi_Antonelli/andant01.png.transform/1col/image.png"
+    }
+  },
   "cards": [
     {
       "type": "cover",

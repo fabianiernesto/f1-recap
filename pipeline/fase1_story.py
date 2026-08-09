@@ -260,10 +260,26 @@ def main() -> None:
                   key=lambda c: c.get("lap") or 0)
     cards = head + body + tail
 
+    # full driver details for the light result poster (R1 in the moodboard)
+    def drv(num: int) -> dict:
+        d = drivers.get(num, {})
+        return {"number": num, "first": d.get("first_name", ""),
+                "last": d.get("last_name", ""), "team": d.get("team_name", ""),
+                "colour": d.get("team_colour", ""),
+                "headshot": d.get("headshot_url", "")}
+
+    result = {
+        "date": "05 JUL 2026",
+        "podium": [{"pos": i + 1, **drv(r["driver_number"])}
+                   for i, r in enumerate([winner, second, third])],
+        "fastest": {"time": round(best_lap["lap_duration"], 3),
+                    **drv(best_lap["driver_number"])},
+    }
+
     story = {
         "gp": "British Grand Prix 2026", "session": "Race",
         "circuit": "Silverstone", "laps": TOTAL_LAPS,
-        "generated": "fase1_story v1", "cards": cards,
+        "generated": "fase1_story v1", "result": result, "cards": cards,
     }
 
     OUT.mkdir(parents=True, exist_ok=True)

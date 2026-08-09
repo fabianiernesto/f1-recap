@@ -232,3 +232,56 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .card { transition: none; opacity: 1; transform: none; }
 }
+
+/* ---------- final light poster (MOODBOARD_ANALISIS: elemento firma 3, ref R1) ----------
+   the world flips: paper white, red as pure signal, editorial panels 12-16px */
+.poster { position: relative; z-index: 30; min-height: 100vh; background: #f4f2ed;
+  color: #1b1c22; display: flex; flex-direction: column; }
+.poster-grid { flex: 1; display: grid; grid-template-columns: 1.1fr 1fr;
+  gap: 40px; padding: 9vh 5vw 6vh; align-items: center; }
+.poster-eyebrow { display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em;
+  color: #6a6456; text-transform: uppercase; margin-bottom: 8px; }
+.poster-eyebrow i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.poster-p1 { font-family: var(--font-hero), sans-serif; font-size: clamp(140px, 24vh, 260px);
+  line-height: .85; color: var(--accent); letter-spacing: .01em; }
+.poster-name { font-family: var(--font-display); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(44px, 7vh, 76px); line-height: .92; margin: 18px 0 8px; }
+.poster-team { font-family: var(--font-mono); font-size: 12px; letter-spacing: .24em;
+  text-transform: uppercase; color: #6a6456; }
+.poster-chip { display: inline-block; margin-top: 18px; background: var(--accent);
+  color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 22px;
+  padding: 6px 16px; border-radius: 8px; }
+.poster-right { position: relative; display: flex; flex-direction: column; gap: 16px; }
+.poster-track { position: absolute; top: -7vh; right: 0; width: 170px; }
+.poster-photo { width: min(300px, 60%); border-radius: 14px; background: #e7e3d8;
+  border: 1px solid #dcd7c9; }
+.poster-spec { background: #fff; border: 1px solid #e2ddd0; border-radius: 14px;
+  padding: 18px 20px; display: flex; flex-direction: column; gap: 10px;
+  box-shadow: 0 12px 30px rgba(27, 28, 34, .07); max-width: 440px; }
+.poster-spec > div { display: flex; justify-content: space-between; align-items: baseline;
+  gap: 18px; border-bottom: 1px solid #efebe0; padding-bottom: 8px; }
+.poster-spec > div:last-child { border-bottom: none; padding-bottom: 0; }
+.poster-spec span { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em;
+  color: #8b8574; text-transform: uppercase; }
+.poster-spec b { font-family: var(--font-display); font-weight: 700; font-size: 17px;
+  text-transform: uppercase; text-align: right; }
+.poster-podium { display: flex; gap: 12px; max-width: 440px; }
+.poster-podium > div { flex: 1; background: #fff; border: 1px solid #e2ddd0;
+  border-radius: 12px; padding: 12px 14px; position: relative; overflow: hidden; }
+.poster-podium em { position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.poster-podium span { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em;
+  color: #8b8574; }
+.poster-podium b { display: block; font-family: var(--font-display); font-weight: 700;
+  font-size: 19px; text-transform: uppercase; line-height: 1.05; }
+.poster-podium small { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em;
+  color: #8b8574; text-transform: uppercase; }
+.poster-ticker { background: #b00500; color: #fff; display: flex;
+  justify-content: space-between; gap: 20px; padding: 14px 5vw;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; }
+@media (max-width: 1099px) {
+  .poster-grid { grid-template-columns: 1fr; gap: 28px; padding-top: 12vh; }
+  .poster-track { display: none; }
+  .poster-ticker { flex-direction: column; gap: 6px; }
+}

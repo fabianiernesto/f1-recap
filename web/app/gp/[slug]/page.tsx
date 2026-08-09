@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { listGPs, loadStory, loadTrack } from "@/lib/data";
+import FinalPoster from "@/components/FinalPoster";
 import GPHero from "@/components/GPHero";
 import RaceScroll from "@/components/RaceScroll";
 
@@ -14,8 +15,9 @@ export default async function GPPage({ params }: PageProps<"/gp/[slug]">) {
   const track = loadTrack(slug);
   return (
     <>
-      <GPHero story={story} track={track} date="05 JUL 2026" />
+      <GPHero story={story} track={track} date={story.result?.date ?? ""} />
       <RaceScroll story={story} track={track} />
+      <FinalPoster story={story} track={track} />
     </>
   );
 }
