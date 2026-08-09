@@ -2,9 +2,20 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Story, Track } from "./types";
 
-// scripts/sync-data.mjs copies the pipeline output into web/data before dev
-// and build, so this path stays statically scoped inside the app
-const DATA_DIR = path.join(process.cwd(), "data");
+// scripts/sync-data.mjs copies the pipeline output into web/data. cwd is web/
+// for build and `npm run dev`, but the repo root when the dev server is
+// launched from there — both candidates stay inside cwd (no ".." traversal,
+// which is what made Next trace the whole repo into the build output).
+const DATA_DIR =
+  [
+    path.join(process.cwd(), "data"),
+    path.join(
+      process.cwd(),
+      "Proyecto 6_Ernesto - F1 Recap Interactivo",
+      "web",
+      "data"
+    ),
+  ].find((p) => fs.existsSync(p)) ?? path.join(process.cwd(), "data");
 
 export function listGPs(): string[] {
   if (!fs.existsSync(DATA_DIR)) return [];
