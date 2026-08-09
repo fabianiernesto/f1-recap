@@ -52,7 +52,7 @@ export default function GPHero({
           <path
             d={d}
             fill="none"
-            stroke="#F2F3F5"
+            stroke="#5F6572"
             strokeWidth={3.5}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -66,7 +66,7 @@ export default function GPHero({
           />
           <text
             x={pts[0][0] + nx * 30} y={pts[0][1] + ny * 30}
-            fill="#8B919D" fontSize={17} letterSpacing={2}
+            fill="#6A7080" fontSize={17} letterSpacing={2}
             style={{ fontFamily: "var(--font-mono)" }}
           >
             START // FINISH
@@ -74,11 +74,11 @@ export default function GPHero({
           {/* numbered-style corner dots + names */}
           {corners.map((c) => (
             <g key={c.label}>
-              <circle cx={c.x} cy={c.y} r={7} fill="none" stroke="#8B919D" strokeWidth={1.5} />
-              <circle cx={c.x} cy={c.y} r={2.4} fill="#F2F3F5" />
+              <circle cx={c.x} cy={c.y} r={7} fill="none" stroke="#5F6572" strokeWidth={1.5} />
+              <circle cx={c.x} cy={c.y} r={2.4} fill="#9BA0AE" />
               <text
                 x={c.lx} y={c.ly} textAnchor="middle"
-                fill="#8B919D" fontSize={16} letterSpacing={2}
+                fill="#6A7080" fontSize={16} letterSpacing={2}
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 {c.label}
@@ -87,9 +87,9 @@ export default function GPHero({
           ))}
           {/* compass */}
           <g transform={`translate(${track.view - 60} 70)`}>
-            <text x={0} y={-14} textAnchor="middle" fill="#8B919D" fontSize={20}
+            <text x={0} y={-14} textAnchor="middle" fill="#5F6572" fontSize={20}
               style={{ fontFamily: "var(--font-mono)" }}>N</text>
-            <path d="M0 -8 L5 8 L0 4 L-5 8 Z" fill="#8B919D" />
+            <path d="M0 -8 L5 8 L0 4 L-5 8 Z" fill="#5F6572" />
           </g>
         </svg>
       </div>
