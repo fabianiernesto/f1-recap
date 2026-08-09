@@ -1,10 +1,11 @@
 import type { Story, Track } from "@/lib/types";
 
 /**
- * GP hero — signature element #1 from MOODBOARD_ANALISIS.md:
- * monumental type filling the viewport, with the real circuit
- * (cartographic treatment) overlapping the letters, red slash,
- * ambient background, LED strip. No photos needed: type + map carry it.
+ * GP hero — option B (red world) with option C's LED pit-board type,
+ * the combination Ernesto picked from /options.
+ * Immersive red gradient world, chequered red-on-red texture, a giant blurred
+ * letterform deep in the background, dot-matrix headline, the real circuit in
+ * white line-art, solid stat blocks and a pill CTA into the race.
  */
 export default function GPHero({
   story,
@@ -18,94 +19,89 @@ export default function GPHero({
   const pts = track.points;
   const d = "M " + pts.map((p) => p[0] + " " + p[1]).join(" L ");
 
-  // start/finish tick
-  const a0 = Math.atan2(pts[1][1] - pts[0][1], pts[1][0] - pts[0][0]);
-  const nx = Math.cos(a0 + Math.PI / 2);
-  const ny = Math.sin(a0 + Math.PI / 2);
-
-  // corner labels pushed outwards from centroid
+  // corner labels pushed outwards from the centroid
   const cx = pts.reduce((s, p) => s + p[0], 0) / pts.length;
   const cy = pts.reduce((s, p) => s + p[1], 0) / pts.length;
-  const corners = track.corners.map((c) => {
+  const corners = track.corners.slice(0, 6).map((c) => {
     const dx = c.x - cx, dy = c.y - cy, m = Math.hypot(dx, dy) || 1;
-    return { ...c, lx: c.x + (dx / m) * 52, ly: c.y + (dy / m) * 52 };
+    return { ...c, lx: c.x + (dx / m) * 50, ly: c.y + (dy / m) * 50 };
   });
 
-  const hashtag = "#" + (story.gp.split(" ")[0] || story.circuit) + "GP";
+  const moments = story.cards.filter((c) => c.type === "moment").length;
+  const calls = story.cards.filter((c) => c.type === "prediction").length;
+  const short = story.gp.replace(/ \d{4}$/, "");
+  const ghost = track.circuit.slice(0, 2).toUpperCase();
 
   return (
     <section className="hero">
       <div className="hero-bg" aria-hidden />
-      <div className="hero-slash" aria-hidden />
+      <div className="hero-ghost" aria-hidden>{ghost}</div>
 
       <div className="hero-meta">
         <span>RACE // RECAP</span>
         <span>{date}</span>
-        <span>{hashtag}</span>
+        <span>#{short.replace(/\s/g, "")}</span>
       </div>
 
-      <h1 className="hero-title">{track.circuit}</h1>
+      <div className="hero-inner">
+        <h1 className="hero-title">
+          {track.circuit}
+          <em>
+            {story.laps} laps. <i>one story.</i>
+          </em>
+        </h1>
 
-      <div className="hero-map" aria-hidden>
-        <svg viewBox={`0 0 ${track.view} ${track.view}`}>
-          {/* cartographic dotted line (moodboard R4) */}
-          <path
-            d={d}
-            fill="none"
-            stroke="#5F6572"
-            strokeWidth={3.5}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeDasharray="0.5 14"
-          />
-          {/* start / finish */}
-          <line
-            x1={pts[0][0] + nx * 16} y1={pts[0][1] + ny * 16}
-            x2={pts[0][0] - nx * 16} y2={pts[0][1] - ny * 16}
-            stroke="#E10600" strokeWidth={5}
-          />
-          <text
-            x={pts[0][0] + nx * 30} y={pts[0][1] + ny * 30}
-            fill="#6A7080" fontSize={17} letterSpacing={2}
-            style={{ fontFamily: "var(--font-mono)" }}
-          >
-            START // FINISH
-          </text>
-          {/* numbered-style corner dots + names */}
-          {corners.map((c) => (
-            <g key={c.label}>
-              <circle cx={c.x} cy={c.y} r={7} fill="none" stroke="#5F6572" strokeWidth={1.5} />
-              <circle cx={c.x} cy={c.y} r={2.4} fill="#9BA0AE" />
-              <text
-                x={c.lx} y={c.ly} textAnchor="middle"
-                fill="#6A7080" fontSize={16} letterSpacing={2}
-                style={{ fontFamily: "var(--font-mono)" }}
-              >
-                {c.label}
-              </text>
-            </g>
-          ))}
-          {/* compass */}
-          <g transform={`translate(${track.view - 60} 70)`}>
-            <text x={0} y={-14} textAnchor="middle" fill="#5F6572" fontSize={20}
-              style={{ fontFamily: "var(--font-mono)" }}>N</text>
-            <path d="M0 -8 L5 8 L0 4 L-5 8 Z" fill="#5F6572" />
-          </g>
-        </svg>
-      </div>
-
-      <div className="hero-stats">
-        <div>
-          <b>{story.laps}</b>
-          <span>LAPS</span>
+        <div className="hero-map">
+          <svg viewBox={`0 0 ${track.view} ${track.view}`} aria-hidden>
+            <path
+              d={d}
+              fill="none"
+              stroke="#ffffff"
+              strokeWidth={9}
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              opacity={0.92}
+            />
+            {corners.map((c) => (
+              <g key={c.label}>
+                <circle cx={c.x} cy={c.y} r={9} fill="#1a0507" stroke="#fff" strokeWidth={3} />
+                <text
+                  x={c.lx}
+                  y={c.ly}
+                  textAnchor="middle"
+                  fill="#ffc9c9"
+                  fontSize={19}
+                  letterSpacing={1.5}
+                  style={{ fontFamily: "var(--font-mono)" }}
+                >
+                  {c.label}
+                </text>
+              </g>
+            ))}
+          </svg>
         </div>
-        <div>
-          <b>{story.gp.replace(/ \d{4}$/, "")}</b>
-          <span>{story.session} · {date.split(" ").pop()}</span>
+
+        <div className="hero-stats">
+          <div>
+            <b>{story.laps}</b>
+            <span>Laps</span>
+          </div>
+          <div>
+            <b>{moments}</b>
+            <span>Moments</span>
+          </div>
+          <div>
+            <b>{calls}</b>
+            <span>Calls to make</span>
+          </div>
         </div>
+
+        <a className="hero-cta" href="#race">
+          Enter the race
+        </a>
       </div>
 
-      <div className="hero-led">SCROLL TO RACE</div>
+      <div className="hero-led">Scroll to race</div>
     </section>
   );
 }

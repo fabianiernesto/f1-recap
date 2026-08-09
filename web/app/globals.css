@@ -35,54 +35,60 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- GP hero (MOODBOARD_ANALISIS: elemento firma 1) ---------- */
+/* ---------- GP hero: RED WORLD (option B) + LED type (option C) ---------- */
 .hero { position: relative; z-index: 20; min-height: 100vh; overflow: hidden;
-  background: var(--carbon-0); display: flex; flex-direction: column;
-  justify-content: center; padding: 10vh 4vw 8vh; }
-/* ambient layer: diagonal stripes + deep red glow — never a flat background */
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 13vh 4vw 9vh;
+  background: radial-gradient(ellipse 85% 72% at 50% 0%,
+    #7d0d0d 0%, #380709 38%, #170406 68%, #0b0407 100%); }
+/* chequered texture, red on red — invisible until you look for it */
 .hero-bg { position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 90% 60% at 85% 110%, #E1060022 0%, transparent 60%),
-    radial-gradient(ellipse 70% 50% at -10% -20%, #E1060014 0%, transparent 55%),
-    repeating-linear-gradient(-55deg, transparent 0 26px, #ffffff05 26px 27px); }
-/* red slash BEHIND the wordmark (ref Drellex): the letters mask it, so the
-   red only shows between and around them — never on top of the type */
-.hero-slash { position: absolute; top: 10%; left: 62%; width: 14px; height: 62%;
-  background: var(--accent); transform: rotate(20deg); z-index: 0; }
+  background-image: repeating-conic-gradient(#ffffff09 0 25%, transparent 0 50%);
+  background-size: 130px 130px; mix-blend-mode: overlay; }
+/* giant blurred letterform sitting deep in the world */
+.hero-ghost { position: absolute; z-index: 0; pointer-events: none; user-select: none;
+  font-family: var(--font-hero), sans-serif; font-size: 48vw; line-height: .8;
+  color: #ffffff0b; letter-spacing: -.05em; filter: blur(2px); }
 .hero-meta { position: absolute; top: 74px; left: 4vw; right: 4vw; z-index: 4;
   display: flex; justify-content: space-between; font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: .18em; color: #c6cad2; text-transform: uppercase; }
-.hero-meta span:last-child { color: var(--accent); }
-/* monumental type: fills the viewport width */
-.hero-title { position: relative; z-index: 2; margin: 0;
-  font-family: var(--font-hero), var(--font-display), sans-serif;
-  font-size: clamp(90px, 16.5vw, 320px); line-height: .88; letter-spacing: .01em;
-  text-transform: uppercase; color: var(--ink); user-select: none;
-  margin-top: -6vh; }
-/* the real circuit: anchored lower-right so its white dots never sit on the
-   white letters — only the tail of the wordmark may touch it */
-.hero-map { position: absolute; z-index: 0; right: 3vw; top: 55%;
-  transform: translateY(-42%); width: min(42vw, 72vh); pointer-events: none; }
+  font-size: 11px; letter-spacing: .18em; color: #f0c9c9; text-transform: uppercase; }
+.hero-meta span:last-child { color: #ff7b74; }
+.hero-inner { position: relative; z-index: 3; display: flex; flex-direction: column;
+  align-items: center; gap: 22px; text-align: center; }
+/* the LED pit-board headline Ernesto picked from option C */
+.hero-title { margin: 0; font-family: var(--font-led), monospace; font-weight: 900;
+  font-size: clamp(52px, 9vw, 146px); line-height: .95; letter-spacing: .02em;
+  text-transform: uppercase; color: #fff; }
+.hero-title em { display: block; font-style: normal; font-size: .34em;
+  margin-top: .35em; color: #ff4640; }
+.hero-title em i { font-style: normal; color: #ffffff5c; }
+.hero-map { width: min(40vw, 40vh); pointer-events: none; }
 .hero-map svg { width: 100%; height: auto; display: block; }
-.hero-stats { position: relative; z-index: 3; display: flex; gap: 42px;
-  margin-top: 6vh; align-items: flex-end; }
+/* solid stat blocks (no see-through: Ernesto's legibility rule) */
+.hero-stats { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.hero-stats > div { min-width: 168px; background: #2a0a0ce6; border: 1px solid #ffffff2e;
+  border-radius: 26px; padding: 18px 20px; }
 .hero-stats b { display: block; font-family: var(--font-display); font-weight: 700;
-  font-size: 54px; line-height: .9; text-transform: uppercase; }
-.hero-stats span { font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: .18em; color: var(--muted); text-transform: uppercase; }
-/* LED strip (R6): pit-board language */
+  font-size: 38px; line-height: .95; color: #fff; }
+.hero-stats span { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .2em;
+  color: #ffc9c9; text-transform: uppercase; }
+.hero-cta { display: inline-block; border: 1px solid #ffffff5c; color: #fff;
+  border-radius: 99px; padding: 14px 38px; font-family: var(--font-display);
+  font-weight: 600; font-size: 18px; letter-spacing: .16em; text-transform: uppercase;
+  text-decoration: none; transition: background-color .2s, border-color .2s; }
+.hero-cta:hover { background: #ffffff1a; border-color: #fff; }
+.hero-cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 .hero-led { position: absolute; z-index: 4; bottom: 26px; left: 50%;
   transform: translateX(-50%); font-family: var(--font-led), monospace;
-  font-weight: 900; font-size: 22px; letter-spacing: .34em; color: var(--accent);
+  font-weight: 900; font-size: 20px; letter-spacing: .34em; color: #ff4640;
   text-transform: uppercase; animation: led-pulse 1.6s steps(2) infinite;
   white-space: nowrap; }
 @keyframes led-pulse { 50% { opacity: .35; } }
 @media (max-width: 1099px) {
-  .hero { padding-top: 14vh; }
-  .hero-map { position: relative; right: auto; top: auto; transform: none;
-    width: min(88vw, 60vh); margin: -6vh auto 0; }
-  .hero-slash { left: 78%; }
-  .hero-stats b { font-size: 38px; }
+  .hero { padding-top: 15vh; }
+  .hero-map { width: min(78vw, 34vh); }
+  .hero-stats > div { min-width: 132px; padding: 14px 16px; }
+  .hero-stats b { font-size: 28px; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-led { animation: none; } }
 

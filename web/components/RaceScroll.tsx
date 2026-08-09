@@ -262,7 +262,7 @@ export default function RaceScroll({
       </div>
       <div className="trackcap">Real track shape · fastest-lap telemetry</div>
 
-      <div className="flow">
+      <div className="flow" id="race">
         {story.cards.map((c, i) => {
           const v = variant(c);
           const time = v === "v-fast" ? /([\d.]+)s/.exec(c.title || "") : null;
