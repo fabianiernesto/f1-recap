@@ -35,62 +35,71 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- GP hero: RED WORLD (option B) + LED type (option C) ---------- */
+/* ---------- GP hero: red world + monumental type (Drellex) + light trails
+     and dotted numbered map (Ogilvy). No LED anywhere. ---------- */
 .hero { position: relative; z-index: 20; min-height: 100vh; overflow: hidden;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 13vh 4vw 9vh;
-  background: radial-gradient(ellipse 85% 72% at 50% 0%,
-    #7d0d0d 0%, #380709 38%, #170406 68%, #0b0407 100%); }
-/* chequered texture, red on red — invisible until you look for it */
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 15vh 5vw 10vh;
+  background: radial-gradient(ellipse 90% 75% at 50% 0%,
+    #6d0c0f 0%, #350709 40%, #170406 70%, #0b0407 100%); }
+/* diagonal stripe texture (Drellex) */
 .hero-bg { position: absolute; inset: 0; pointer-events: none;
-  background-image: repeating-conic-gradient(#ffffff09 0 25%, transparent 0 50%);
-  background-size: 130px 130px; mix-blend-mode: overlay; }
-/* giant blurred letterform sitting deep in the world */
+  background: repeating-linear-gradient(-58deg,
+    transparent 0 46px, #ffffff08 46px 92px); }
+/* red passe-partout framing the whole viewport (Drellex) */
+.hero-frame { position: absolute; inset: 14px; border: 2px solid #ffffff1f;
+  border-radius: 4px; pointer-events: none; z-index: 4; }
+/* light trails sweeping across the composition (Ogilvy) */
+.hero-trails { position: absolute; inset: -6% -8%; width: 116%; height: 112%;
+  pointer-events: none; z-index: 1; }
+/* giant blurred letterform deep in the world */
 .hero-ghost { position: absolute; z-index: 0; pointer-events: none; user-select: none;
-  font-family: var(--font-hero), sans-serif; font-size: 48vw; line-height: .8;
-  color: #ffffff0b; letter-spacing: -.05em; filter: blur(2px); }
-.hero-meta { position: absolute; top: 74px; left: 4vw; right: 4vw; z-index: 4;
+  left: 50%; top: 46%; transform: translate(-50%, -50%);
+  font-family: var(--font-hero), sans-serif; font-size: 46vw; line-height: .8;
+  color: #ffffff0a; letter-spacing: -.05em; filter: blur(3px); }
+.hero-meta { position: absolute; top: 74px; left: 5vw; right: 5vw; z-index: 5;
   display: flex; justify-content: space-between; font-family: var(--font-mono);
   font-size: 11px; letter-spacing: .18em; color: #f0c9c9; text-transform: uppercase; }
 .hero-meta span:last-child { color: #ff7b74; }
 .hero-inner { position: relative; z-index: 3; display: flex; flex-direction: column;
-  align-items: center; gap: 22px; text-align: center; }
-/* the LED pit-board headline Ernesto picked from option C */
-.hero-title { margin: 0; font-family: var(--font-led), monospace; font-weight: 900;
-  font-size: clamp(52px, 9vw, 146px); line-height: .95; letter-spacing: .02em;
-  text-transform: uppercase; color: #fff; }
-.hero-title em { display: block; font-style: normal; font-size: .34em;
-  margin-top: .35em; color: #ff4640; }
-.hero-title em i { font-style: normal; color: #ffffff5c; }
-.hero-map { width: min(40vw, 40vh); pointer-events: none; }
+  align-items: flex-start; gap: 26px; }
+/* monumental wordmark (Drellex): fills the width, type is the composition */
+.hero-title { margin: 0; font-family: var(--font-hero), var(--font-display), sans-serif;
+  font-size: clamp(74px, 14.5vw, 260px); line-height: .86; letter-spacing: .01em;
+  text-transform: uppercase; color: #fff; user-select: none; }
+.hero-title em { display: block; font-style: normal; font-family: var(--font-mono);
+  font-size: clamp(11px, 1.1vw, 14px); letter-spacing: .34em; color: #ffb3ae;
+  margin-top: 1.4em; }
+/* dotted map with numbered corners (Ogilvy), a background object */
+.hero-map { position: absolute; z-index: 1; right: 2vw; top: 50%;
+  transform: translateY(-46%); width: min(40vw, 70vh); pointer-events: none; }
 .hero-map svg { width: 100%; height: auto; display: block; }
-/* solid stat blocks (no see-through: Ernesto's legibility rule) */
-.hero-stats { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-.hero-stats > div { min-width: 168px; background: #2a0a0ce6; border: 1px solid #ffffff2e;
-  border-radius: 26px; padding: 18px 20px; }
+/* solid floating cards (Drellex): never see-through */
+.hero-stats { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-stats > div { min-width: 150px; background: #1c0507; border: 1px solid #ffffff26;
+  border-radius: 10px; padding: 15px 18px; }
 .hero-stats b { display: block; font-family: var(--font-display); font-weight: 700;
-  font-size: 38px; line-height: .95; color: #fff; }
+  font-size: 34px; line-height: .95; color: #fff; }
 .hero-stats span { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .2em;
-  color: #ffc9c9; text-transform: uppercase; }
-.hero-cta { display: inline-block; border: 1px solid #ffffff5c; color: #fff;
-  border-radius: 99px; padding: 14px 38px; font-family: var(--font-display);
-  font-weight: 600; font-size: 18px; letter-spacing: .16em; text-transform: uppercase;
-  text-decoration: none; transition: background-color .2s, border-color .2s; }
-.hero-cta:hover { background: #ffffff1a; border-color: #fff; }
+  color: #ffb3ae; text-transform: uppercase; }
+.hero-cta { display: inline-block; background: var(--accent); border: 1px solid var(--accent);
+  color: #fff; border-radius: 4px; padding: 14px 34px; font-family: var(--font-display);
+  font-weight: 700; font-size: 18px; letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; transition: filter .2s; }
+.hero-cta:hover { filter: brightness(1.15); }
 .hero-cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.hero-led { position: absolute; z-index: 4; bottom: 26px; left: 50%;
-  transform: translateX(-50%); font-family: var(--font-led), monospace;
-  font-weight: 900; font-size: 20px; letter-spacing: .34em; color: #ff4640;
-  text-transform: uppercase; animation: led-pulse 1.6s steps(2) infinite;
-  white-space: nowrap; }
-@keyframes led-pulse { 50% { opacity: .35; } }
+.hero-foot { position: absolute; z-index: 5; bottom: 34px; left: 5vw;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .28em;
+  color: #ffb3ae; text-transform: uppercase; }
 @media (max-width: 1099px) {
-  .hero { padding-top: 15vh; }
-  .hero-map { width: min(78vw, 34vh); }
-  .hero-stats > div { min-width: 132px; padding: 14px 16px; }
-  .hero-stats b { font-size: 28px; }
+  .hero { padding-top: 16vh; }
+  .hero-map { position: relative; right: auto; top: auto; transform: none;
+    width: 80vw; margin: 4px auto 0; }
+  .hero-inner { align-items: center; text-align: center; }
+  .hero-stats { justify-content: center; }
+  .hero-stats > div { min-width: 122px; padding: 12px 14px; }
+  .hero-stats b { font-size: 26px; }
 }
-@media (prefers-reduced-motion: reduce) { .hero-led { animation: none; } }
 
 /* ---------- HUD ---------- */
 .hud { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex;
@@ -104,10 +113,9 @@ body {
   letter-spacing: .14em; text-transform: uppercase; margin-top: 4px; }
 .lapbox { display: flex; align-items: center; padding: 14px 18px; gap: 10px; }
 .lapbox .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: .14em; }
-/* the lap counter is a trackside board: LED dot-matrix */
-.lapbox .n { font-family: var(--font-led), monospace; font-weight: 900; font-size: 30px;
-  letter-spacing: .04em; line-height: 1; }
-.lapbox .n small { font-size: 15px; color: #6a7080; font-weight: 700; }
+.lapbox .n { font-family: var(--font-mono); font-weight: 700; font-size: 24px;
+  font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.lapbox .n small { font-size: 13px; color: var(--muted); font-weight: 500; }
 .pbar { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 60; width: 0%; }
 
 /* ---------- the circuit is the stage ---------- */
@@ -134,10 +142,9 @@ body {
 }
 @media (max-width: 1099px) { .stop .card { margin: 0 auto; } }
 
-/* giant lap markers, LED like the numbers on a pit board */
 .biglap { position: absolute; top: -.62em; z-index: 0; pointer-events: none;
-  font-family: var(--font-led), monospace; font-weight: 900; font-size: 132px;
-  line-height: 1; color: #3a3f4b; letter-spacing: .02em; user-select: none; }
+  font-family: var(--font-hero), var(--font-display), sans-serif; font-size: 150px;
+  line-height: 1; color: #3a3f4b; letter-spacing: -.02em; user-select: none; }
 .stop.s-left .biglap { right: 0; }
 .stop.s-right .biglap { left: 0; }
 @media (max-width: 1099px) { .biglap { font-size: 110px; left: auto; right: 0; } }
@@ -176,18 +183,15 @@ body {
   background: repeating-linear-gradient(-45deg, var(--yellow) 0 12px, #14151a 12px 24px); }
 .v-sc .kicker { color: var(--yellow); }
 .v-sc .kicker::before { background: var(--yellow); }
-/* SAFETY CAR reads like the message board it really is */
-.v-sc h2 { color: var(--yellow); font-family: var(--font-led), monospace;
-  font-weight: 900; font-size: 26px; line-height: 1.1; letter-spacing: .02em; }
+.v-sc h2 { color: var(--yellow); }
 
 .v-fast { border-color: #3d2a55; text-align: left; }
 .v-fast .kicker { color: var(--purple); }
 .v-fast .kicker::before { background: var(--purple); }
-/* timing screens are LED: the fastest lap is the purple board */
-.v-fast .bigtime { font-family: var(--font-led), monospace; font-weight: 900; font-size: 46px;
-  color: var(--purple); letter-spacing: .02em; line-height: 1; margin: 2px 0 8px; }
-.v-fast .bigtime small { font-family: var(--font-mono); font-size: 14px; color: var(--muted);
-  font-weight: 500; letter-spacing: .1em; }
+.v-fast .bigtime { font-family: var(--font-mono); font-weight: 700; font-size: 44px;
+  color: var(--purple); letter-spacing: -.03em; font-variant-numeric: tabular-nums;
+  line-height: 1; margin: 2px 0 8px; }
+.v-fast .bigtime small { font-size: 16px; color: var(--muted); font-weight: 500; }
 .v-fast h2 { font-size: 19px; color: var(--ink); }
 
 .v-final { text-align: center; max-width: 440px !important; padding-top: 26px; padding-bottom: 26px; }
@@ -198,7 +202,7 @@ body {
 .v-final h2 { font-size: 36px; }
 
 .v-num .bignum { position: absolute; right: 8px; top: -34px; z-index: -1;
-  font-family: var(--font-led), monospace; font-weight: 900; font-size: 104px;
+  font-family: var(--font-hero), var(--font-display), sans-serif; font-size: 120px;
   line-height: 1; color: var(--accent); }
 
 .v-share { text-align: center; border: none; box-shadow: none;

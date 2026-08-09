@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Anton,
-  Barlow_Condensed,
-  Doto,
-  Inter,
-  JetBrains_Mono,
-} from "next/font/google";
+import { Anton, Barlow_Condensed, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const display = Barlow_Condensed({
@@ -20,7 +14,6 @@ const mono = JetBrains_Mono({
   variable: "--font-mono",
 });
 const hero = Anton({ subsets: ["latin"], weight: "400", variable: "--font-hero" });
-const led = Doto({ subsets: ["latin"], weight: ["700", "900"], variable: "--font-led" });
 
 export const metadata: Metadata = {
   title: "F1 Recap — scroll the race",
@@ -32,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} ${hero.variable} ${led.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable} ${hero.variable}`}
     >
       <body>{children}</body>
     </html>
