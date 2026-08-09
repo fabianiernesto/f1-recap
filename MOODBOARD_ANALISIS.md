@@ -90,7 +90,8 @@ La más importante del lote porque contradice todo lo que veníamos haciendo:
 2. **El circuito cartográfico vivo**: línea punteada, corners numerados, anotaciones técnicas que se encienden al paso del coche, trace como estela de luz (R3+R4+R6). Es NUESTRO dato real vestido de arte.
 3. **El final en claro**: la última sección invierte el mundo — fondo crema, "P1" rojo monumental, foto del ganador, firma, ticker (R1). El recap termina como un póster oficial que da ganas de compartir. El contraste oscuro→claro es el estímulo máximo del scroll.
 
-Acento transversal: **dot-matrix roja** para el lenguaje de pista (contador LAP, SC, banderas).
+~~Acento transversal: dot-matrix roja para el lenguaje de pista.~~
+❌ **DESCARTADO (8-ago) por Ernesto: la tipografía LED/dot-matrix (Doto) queda PROHIBIDA en todo el proyecto.** Se probó en portada, contador de vuelta, Safety Car y crono, y no convence. Las referencias vivas son **Drellex** (mundo rojo, rayas diagonales, marco, tipografía monumental) y **Ogilvy Turkish GP** (estelas de luz, mapa punteado con curvas numeradas, brújula), más la página de resultado **Ferrari** para el final en claro.
 
 ## PARTE 5 — Assets necesarios (tareas)
 
