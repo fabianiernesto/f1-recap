@@ -1,10 +1,15 @@
 import type { Story, Track } from "@/lib/types";
-import Flag, { CIRCUIT_COUNTRY } from "./Flag";
 import { BigBen, LandmarkPhoto, Skyline, landmarkPhoto } from "./Landmark";
 
-const COUNTRY_NAME: Record<string, string> = {
-  GB: "Great Britain", IT: "Italy", BE: "Belgium", ES: "Spain",
-  NL: "Netherlands", JP: "Japan", US: "United States",
+/** Circuit -> country, for the strapline. One line per Grand Prix. */
+const CIRCUIT_COUNTRY: Record<string, string> = {
+  Silverstone: "Great Britain",
+  Monza: "Italy",
+  Imola: "Italy",
+  Spa: "Belgium",
+  Catalunya: "Spain",
+  Zandvoort: "Netherlands",
+  Suzuka: "Japan",
 };
 
 /**
@@ -44,8 +49,7 @@ export default function GPHero({
   const moments = story.cards.filter((c) => c.type === "moment").length;
   const calls = story.cards.filter((c) => c.type === "prediction").length;
   const short = story.gp.replace(/ \d{4}$/, "");
-  const code = CIRCUIT_COUNTRY[track.circuit] ?? "";
-  const country = { code, name: COUNTRY_NAME[code] ?? "" };
+  const country = { name: CIRCUIT_COUNTRY[track.circuit] ?? "" };
 
   return (
     <section className="hero">
@@ -94,17 +98,10 @@ export default function GPHero({
         <BigBen className="hero-landmark" />
       )}
 
-      {/* third cell stays empty: the flag owns that corner */}
       <div className="hero-meta">
         <span>RACE // RECAP</span>
         <span>{date}</span>
-        <span />
-      </div>
-
-      {/* the flag balances the landmark's weight on the other corner */}
-      <div className="hero-flag-wrap">
-        <Flag country={country.code} />
-        <span>{country.name}</span>
+        <span>#{short.replace(/\s/g, "")}</span>
       </div>
 
       {/* --- one centred column: name, circuit, numbers --- */}
