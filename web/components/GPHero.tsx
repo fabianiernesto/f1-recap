@@ -1,5 +1,11 @@
 import type { Story, Track } from "@/lib/types";
+import Flag, { CIRCUIT_COUNTRY } from "./Flag";
 import { BigBen, LandmarkPhoto, Skyline, landmarkPhoto } from "./Landmark";
+
+const COUNTRY_NAME: Record<string, string> = {
+  GB: "Great Britain", IT: "Italy", BE: "Belgium", ES: "Spain",
+  NL: "Netherlands", JP: "Japan", US: "United States",
+};
 
 /**
  * GP hero — the vertical poster (ref Ogilvy Turkish GP): a night sky crossed by
@@ -38,6 +44,8 @@ export default function GPHero({
   const moments = story.cards.filter((c) => c.type === "moment").length;
   const calls = story.cards.filter((c) => c.type === "prediction").length;
   const short = story.gp.replace(/ \d{4}$/, "");
+  const code = CIRCUIT_COUNTRY[track.circuit] ?? "";
+  const country = { code, name: COUNTRY_NAME[code] ?? "" };
 
   return (
     <section className="hero">
@@ -92,20 +100,18 @@ export default function GPHero({
         <span>#{short.replace(/\s/g, "")}</span>
       </div>
 
-      {/* --- headline --- */}
-      <div className="hero-head">
-        <h1 className="hero-title">{track.circuit}</h1>
-        <div className="hero-kicker">
-          {short} · {story.laps} laps · Great Britain
-        </div>
+      {/* the flag balances the landmark's weight on the other corner */}
+      <div className="hero-flag-wrap">
+        <Flag country={country.code} />
+        <span>{country.name}</span>
       </div>
 
-      {/* --- middle band: text / map / text, Ogilvy layout --- */}
-      <div className="hero-band">
-        <p className="hero-note hero-note-l">
-          Fifty-two laps at the fastest, most committed circuit on the calendar.
-          A safety car with four to go. A fight that only settled at the flag.
-        </p>
+      {/* --- one centred column: name, circuit, numbers --- */}
+      <div className="hero-core">
+        <h1 className="hero-title">{track.circuit}</h1>
+        <div className="hero-kicker">
+          {short} · {country.name}
+        </div>
 
         <div className="hero-map">
           <svg viewBox={`0 0 ${track.view} ${track.view}`} aria-hidden>
@@ -144,16 +150,10 @@ export default function GPHero({
           </svg>
         </div>
 
-        <div className="hero-note hero-note-r">
-          <p>
-            This is the whole race, told the way a friend would tell it: no
-            spoilers up front, no homework, just the moments that decided it.
-          </p>
-          <div className="hero-stats">
-            <div><b>{story.laps}</b><span>Laps</span></div>
-            <div><b>{moments}</b><span>Moments</span></div>
-            <div><b>{calls}</b><span>Calls to make</span></div>
-          </div>
+        <div className="hero-stats">
+          <div><b>{story.laps}</b><span>Laps</span></div>
+          <div><b>{moments}</b><span>Moments</span></div>
+          <div><b>{calls}</b><span>Calls to make</span></div>
         </div>
       </div>
 
