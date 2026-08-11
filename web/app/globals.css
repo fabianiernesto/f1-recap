@@ -116,14 +116,17 @@ body {
   mask-composite: intersect; }
 .hero-cta-wrap { position: relative; z-index: 4; margin-bottom: 8vh;
   display: flex; flex-direction: column; gap: 14px; align-items: center; }
-.hero-cta { display: inline-block; background: var(--accent); border: 1px solid var(--accent);
-  color: #fff; border-radius: 4px; padding: 14px 34px; font-family: var(--font-display);
-  font-weight: 700; font-size: 18px; letter-spacing: .14em; text-transform: uppercase;
-  text-decoration: none; transition: filter .2s; }
-.hero-cta:hover { filter: brightness(1.15); }
-.hero-cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-.hero-foot { font-family: var(--font-mono); font-size: 10px; letter-spacing: .28em;
-  color: #8ba0b4; text-transform: uppercase; }
+/* no button: the page scrolls, so the invitation is just a clear cue */
+.hero-foot { font-family: var(--font-mono); font-weight: 500; font-size: 13px;
+  letter-spacing: .42em; text-indent: .42em; color: #f2f3f5;
+  text-transform: uppercase; }
+.hero-arrow { width: 22px; height: 31px; color: var(--accent);
+  animation: scroll-hint 2.1s ease-in-out infinite; }
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: .85; }
+  50% { transform: translateY(7px); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-arrow { animation: none; } }
 
 @media (max-width: 1099px) {
   /* no room for a flank: the landmark drops behind the content, dimmed */

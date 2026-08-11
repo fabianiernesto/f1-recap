@@ -159,8 +159,12 @@ export default function GPHero({
       <div className="hero-city">
         <Skyline className="hero-skyline" />
         <div className="hero-cta-wrap">
-          <a className="hero-cta" href="#race">Enter the race</a>
           <span className="hero-foot">Scroll to race</span>
+          <svg className="hero-arrow" viewBox="0 0 24 34" aria-hidden>
+            <path d="M12 0 V28" stroke="currentColor" strokeWidth="1.5" />
+            <path d="M4 21 L12 30 L20 21" fill="none" stroke="currentColor"
+              strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
       </div>
     </section>
