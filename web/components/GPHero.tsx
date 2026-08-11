@@ -39,11 +39,13 @@ export default function GPHero({
   track,
   date,
   slug,
+  sessions = 0,
 }: {
   story: Story;
   track: Track;
   date: string;
   slug: string;
+  sessions?: number;
 }) {
   const photo = landmarkPhoto(slug);
   const figure = figurePhoto(slug);
@@ -173,7 +175,11 @@ export default function GPHero({
         <div className="hero-stats">
           <div><b>{story.laps}</b><span>Laps</span></div>
           <div><b>{moments}</b><span>Moments</span></div>
-          <div><b>{calls}</b><span>Calls to make</span></div>
+          {calls > 0 ? (
+            <div><b>{calls}</b><span>Calls to make</span></div>
+          ) : (
+            <div><b>{sessions}</b><span>Sessions</span></div>
+          )}
         </div>
       </div>
 

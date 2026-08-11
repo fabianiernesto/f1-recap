@@ -1,0 +1,31 @@
+{
+  "gp": "British Grand Prix 2026",
+  "session": "Practice 1",
+  "sessionSlug": "fp1",
+  "circuit": "Silverstone",
+  "laps": 33,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "British Grand Prix · Practice 1",
+      "title": "Practice, honestly",
+      "text": "Nobody wins anything here. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 25,
+      "kicker": "Fastest of the session",
+      "title": "Hamilton: 1:29.260",
+      "text": "In a Ferrari. Take practice times with salt: nobody shows their hand yet."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "What actually happened",
+      "title": "4 flags, 613 laps run",
+      "text": "Enough interruptions to lose track time, which matters more than it sounds."
+    }
+  ]
+}

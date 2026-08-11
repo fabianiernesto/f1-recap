@@ -3,6 +3,30 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CardData, Story, Track } from "@/lib/types";
 
+/** ?d=short keeps only the headline moments; medium/full show everything. */
+function filterByDepth(cards: CardData[], depth: string): CardData[] {
+  if (depth !== "short") return cards;
+  const priority = (c: CardData) => {
+    const k = (c.kicker || "").toLowerCase();
+    if (k.includes("chequered")) return 0;
+    if (k.includes("safety")) return 1;
+    if (k.includes("busiest")) return 2;
+    if (k.includes("pole")) return 2;
+    if (k.includes("fastest")) return 3;
+    return 9;
+  };
+  const moments = cards
+    .filter((c) => c.type === "moment")
+    .sort((a, b) => priority(a) - priority(b))
+    .slice(0, 4)
+    .sort((a, b) => (a.lap ?? 0) - (b.lap ?? 0));
+  return [
+    ...cards.filter((c) => c.type === "cover"),
+    ...moments,
+    ...cards.filter((c) => c.type === "share"),
+  ];
+}
+
 /* ---------- helpers ---------- */
 
 function variant(c: CardData): string {
@@ -27,10 +51,16 @@ function fmtTime(s: number): string {
 export default function RaceScroll({
   story,
   track,
+  depth = "medium",
 }: {
   story: Story;
   track: Track;
+  depth?: string;
 }) {
+  const cards = useMemo(
+    () => filterByDepth(story.cards, depth),
+    [story.cards, depth]
+  );
   const [lap, setLap] = useState(0);
   const [activeIdx, setActiveIdx] = useState(0);
   const [litLabel, setLitLabel] = useState(-1);
@@ -134,7 +164,7 @@ export default function RaceScroll({
 
       const carDocY = scrollY + innerHeight * 0.42;
       const anchors = cardRefs.current
-        .map((el, i) => ({ el, lap: story.cards[i]?.lap ?? 0 }))
+        .map((el, i) => ({ el, lap: cards[i]?.lap ?? 0 }))
         .filter((a): a is { el: HTMLDivElement; lap: number } => !!a.el);
       let lapNow = 0;
       for (let i = 0; i < anchors.length; i++) {
@@ -179,7 +209,7 @@ export default function RaceScroll({
       removeEventListener("resize", onScroll);
       io.disconnect();
     };
-  }, [geo, story.cards, track.points]);
+  }, [geo, cards, track.points]);
 
   return (
     <>
@@ -263,7 +293,7 @@ export default function RaceScroll({
       <div className="trackcap">Real track shape · fastest-lap telemetry</div>
 
       <div className="flow" id="race">
-        {story.cards.map((c, i) => {
+        {cards.map((c, i) => {
           const v = variant(c);
           const time = v === "v-fast" ? /([\d.]+)s/.exec(c.title || "") : null;
           const num = v === "v-num" ? /\d+/.exec(c.title || "") : null;

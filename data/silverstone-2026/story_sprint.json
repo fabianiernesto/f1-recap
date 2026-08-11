@@ -1,0 +1,83 @@
+{
+  "gp": "British Grand Prix 2026",
+  "session": "Sprint",
+  "sessionSlug": "sprint",
+  "circuit": "Silverstone",
+  "laps": 17,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "British Grand Prix · Sprint · 17 laps",
+      "title": "Here is how it actually went",
+      "text": "42 genuine on-track passes, 0 cars that never finished. Scroll and watch it unfold."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · The busiest lap",
+      "title": "16 overtakes on this lap alone",
+      "text": "The one doing most of the passing all afternoon: Leclerc, 4 moves.",
+      "dato": {
+        "label": "Most overtakes",
+        "rows": [
+          [
+            "Leclerc",
+            4
+          ],
+          [
+            "Albon",
+            4
+          ],
+          [
+            "Hadjar",
+            4
+          ],
+          [
+            "Verstappen",
+            3
+          ],
+          [
+            "Bottas",
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "Lap 8 · Pit window",
+      "title": "The stops that shaped it",
+      "text": "Fastest trip down the pit lane, entry to exit: Stroll, 30.9s. When nobody gains in the pits, track position becomes the whole game.",
+      "dato": {
+        "label": "Stints per compound",
+        "rows": [
+          [
+            "MEDIUM",
+            20
+          ],
+          [
+            "SOFT",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 17,
+      "kicker": "Lap 17 · Fastest lap",
+      "title": "Antonelli: 91.607s",
+      "text": "The quickest anyone went all day, in a Mercedes."
+    },
+    {
+      "type": "moment",
+      "lap": 17,
+      "kicker": "Lap 17 · Chequered flag",
+      "title": "Antonelli wins it",
+      "text": "Antonelli brings the Mercedes home first, ahead of Hamilton and Norris."
+    }
+  ]
+}

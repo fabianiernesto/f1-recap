@@ -1,0 +1,90 @@
+{
+  "gp": "British Grand Prix 2026",
+  "session": "Qualifying",
+  "sessionSlug": "quali",
+  "circuit": "Silverstone",
+  "laps": 20,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "British Grand Prix · Qualifying",
+      "title": "One lap decides the whole Sunday",
+      "text": "Three rounds, five cars knocked out each time, and a grid that shapes everything the race can become."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Pole position",
+      "title": "Antonelli takes it",
+      "text": "By 0.175s over Leclerc. That is less time than a blink."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · First cut",
+      "title": "Out before it got serious",
+      "text": "Albon (P16), Ocon (P17), Bottas (P18), Colapinto (P19), Perez (P20)."
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · Second cut",
+      "title": "So close to the top ten",
+      "text": "Bortoleto (P11), Gasly (P12), Hulkenberg (P13), Bearman (P14), Sainz (P15)."
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "The front rows",
+      "title": "How Sunday starts",
+      "text": "P1 Antonelli · P2 Leclerc · P3 Hamilton · P4 Russell · P5 Hadjar · P6 Norris",
+      "dato": {
+        "label": "Top ten",
+        "rows": [
+          [
+            "P1 Antonelli",
+            "Mercedes"
+          ],
+          [
+            "P2 Leclerc",
+            "Ferrari"
+          ],
+          [
+            "P3 Hamilton",
+            "Ferrari"
+          ],
+          [
+            "P4 Russell",
+            "Mercedes"
+          ],
+          [
+            "P5 Hadjar",
+            "Red Bull Racing"
+          ],
+          [
+            "P6 Norris",
+            "McLaren"
+          ],
+          [
+            "P7 Verstappen",
+            "Red Bull Racing"
+          ],
+          [
+            "P8 Piastri",
+            "McLaren"
+          ],
+          [
+            "P9 Lindblad",
+            "Racing Bulls"
+          ],
+          [
+            "P10 Lawson",
+            "Racing Bulls"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -54,10 +54,12 @@ export default function FinalPoster({
             <div><span>CIRCUIT</span><b>{story.circuit}</b></div>
             <div><span>DATE</span><b>{r.date}</b></div>
             <div><span>LAPS</span><b>{story.laps}</b></div>
-            <div>
-              <span>FASTEST LAP</span>
-              <b>{r.fastest.last} · {Math.floor(r.fastest.time / 60)}:{(r.fastest.time % 60).toFixed(3).padStart(6, "0")}</b>
-            </div>
+            {r.fastest && (
+              <div>
+                <span>FASTEST LAP</span>
+                <b>{r.fastest.last} · {Math.floor(r.fastest.time / 60)}:{(r.fastest.time % 60).toFixed(3).padStart(6, "0")}</b>
+              </div>
+            )}
           </div>
 
           <div className="poster-podium">

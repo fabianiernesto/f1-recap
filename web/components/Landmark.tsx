@@ -12,19 +12,12 @@ import path from "node:path";
  */
 const LANDMARK_FORMATS = ["png", "webp", "jpg", "jpeg"];
 
-// cwd is web/ for build, but the repo root when the dev server is launched
-// from there — same resolution dance as lib/data.ts
-const PUBLIC_DIRS = [
-  path.join(process.cwd(), "public"),
-  path.join(process.cwd(), "Proyecto 6_Ernesto - F1 Recap Interactivo", "web", "public"),
-];
-
+// scripts/dev.mjs pins cwd to web/ in dev, so public/ resolves the same way
+// in dev and build — no multi-candidate probing needed.
 function findAsset(folder: string, slug: string): string | null {
-  for (const dir of PUBLIC_DIRS) {
-    for (const ext of LANDMARK_FORMATS) {
-      if (fs.existsSync(path.join(dir, folder, `${slug}.${ext}`)))
-        return `/${folder}/${slug}.${ext}`;
-    }
+  for (const ext of LANDMARK_FORMATS) {
+    if (fs.existsSync(path.join(process.cwd(), "public", folder, `${slug}.${ext}`)))
+      return `/${folder}/${slug}.${ext}`;
   }
   return null;
 }

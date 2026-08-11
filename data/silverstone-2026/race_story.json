@@ -1,9 +1,103 @@
 {
   "gp": "British Grand Prix 2026",
   "session": "Race",
+  "sessionSlug": "race",
   "circuit": "Silverstone",
   "laps": 52,
-  "generated": "fase1_story v1",
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "British Grand Prix · Race · 52 laps",
+      "title": "Here is how it actually went",
+      "text": "153 genuine on-track passes, 3 cars that never finished and 2 safety car. Scroll and watch it unfold."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · The busiest lap",
+      "title": "16 overtakes on this lap alone",
+      "text": "The one doing most of the passing all afternoon: Bearman, 15 moves.",
+      "dato": {
+        "label": "Most overtakes",
+        "rows": [
+          [
+            "Bearman",
+            15
+          ],
+          [
+            "Hulkenberg",
+            13
+          ],
+          [
+            "Piastri",
+            13
+          ],
+          [
+            "Sainz",
+            11
+          ],
+          [
+            "Verstappen",
+            10
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 35,
+      "kicker": "Lap 35 · Pit window",
+      "title": "The stops that shaped it",
+      "text": "Fastest trip down the pit lane, entry to exit: Russell, 28.3s. When nobody gains in the pits, track position becomes the whole game.",
+      "dato": {
+        "label": "Stints per compound",
+        "rows": [
+          [
+            "MEDIUM",
+            30
+          ],
+          [
+            "HARD",
+            22
+          ],
+          [
+            "SOFT",
+            21
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 37,
+      "kicker": "Lap 37 · Fastest lap",
+      "title": "Antonelli: 91.777s",
+      "text": "The quickest anyone went all day, in a Mercedes."
+    },
+    {
+      "type": "moment",
+      "lap": 47,
+      "kicker": "Lap 47 · Out",
+      "title": "Verstappen's day ends early",
+      "text": "Also out: Albon, Hulkenberg. Zero points weekends are where title fights quietly bleed."
+    },
+    {
+      "type": "moment",
+      "lap": 48,
+      "kicker": "Lap 48 of 52 · Safety Car",
+      "title": "Every gap on track, erased",
+      "text": "Whatever anyone had built up to here was wiped out in one lap, and the race restarted nose to tail."
+    },
+    {
+      "type": "moment",
+      "lap": 52,
+      "kicker": "Lap 52 · Chequered flag",
+      "title": "Leclerc wins it",
+      "text": "Leclerc brings the Ferrari home first, ahead of Russell and Hamilton."
+    }
+  ],
   "result": {
     "date": "05 JUL 2026",
     "podium": [
@@ -37,162 +131,12 @@
     ],
     "fastest": {
       "time": 91.777,
-      "number": 12,
-      "first": "Kimi",
       "last": "Antonelli",
+      "number": 12,
+      "first": "",
       "team": "Mercedes",
-      "colour": "00D7B6",
-      "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/K/ANDANT01_Kimi_Antonelli/andant01.png.transform/1col/image.png"
+      "colour": "",
+      "headshot": ""
     }
-  },
-  "cards": [
-    {
-      "type": "cover",
-      "lap": 0,
-      "kicker": "British GP · Silverstone · 52 laps",
-      "title": "Four laps from the flag, this race flipped",
-      "text": "Verstappen was already out. Hamilton was chasing a home podium. And then the Safety Car lights came on. 153 genuine on-track passes say this was no Sunday drive... scroll and watch it unfold."
-    },
-    {
-      "type": "prediction",
-      "lap": 0,
-      "kicker": "Before lights out, call it",
-      "title": "Antonelli starts from pole, in Hamilton's backyard. Does he still lead after lap 1?",
-      "options": [
-        "He holds it",
-        "He loses it"
-      ],
-      "answer": "He loses it",
-      "reveal": "He lost it. By the time lap 1 was done, Leclerc was the name at the top of the tower and Antonelli was chasing."
-    },
-    {
-      "type": "moment",
-      "lap": 1,
-      "kicker": "Lap 1 · Lights out",
-      "title": "Lights out",
-      "text": "Antonelli took pole by 0.175s the day before. That is less time than a single blink. It bought him exactly one racing lap of peace: by the end of lap 1, Leclerc was the name on top."
-    },
-    {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Lap 2 · The busiest lap",
-      "title": "16 overtakes on this lap alone",
-      "text": "The lead group swapped places 14 times today. Your TV feed showed a fraction of that. The one doing most of the passing: Bearman, 15 moves all afternoon.",
-      "dato": {
-        "label": "Most overtakes (top 5)",
-        "rows": [
-          [
-            "Bearman",
-            15
-          ],
-          [
-            "Hulkenberg",
-            13
-          ],
-          [
-            "Piastri",
-            13
-          ],
-          [
-            "Sainz",
-            11
-          ],
-          [
-            "Verstappen",
-            10
-          ]
-        ]
-      }
-    },
-    {
-      "type": "prediction",
-      "lap": 18,
-      "kicker": "Mid-race, call it",
-      "title": "Colapinto started way back in P19. Where does he finish?",
-      "options": [
-        "In the points",
-        "Outside the top 10"
-      ],
-      "answer": "In the points",
-      "reveal": "P9. Colapinto climbed 10 places one pass at a time, and his last one landed on lap 49, right when the race was at its wildest. Almost none of it made the TV cut."
-    },
-    {
-      "type": "moment",
-      "lap": 35,
-      "kicker": "Lap 35 · Pit window",
-      "title": "One stop, and everyone knew it",
-      "text": "Soft, medium, hard: all three compounds saw track today, and almost everyone got away with a single stop. Fastest trip down the pit lane, entry to exit: Russell, 28.3s. When nobody gains anything in the pits, track position becomes the whole game... remember that when the Safety Car shows up later.",
-      "dato": {
-        "label": "Stints per compound",
-        "rows": [
-          [
-            "MEDIUM",
-            30
-          ],
-          [
-            "HARD",
-            22
-          ],
-          [
-            "SOFT",
-            21
-          ]
-        ]
-      }
-    },
-    {
-      "type": "moment",
-      "lap": 37,
-      "kicker": "Lap 37 · Fastest lap",
-      "title": "Antonelli: 91.777s",
-      "text": "The kid who started from pole answered his critics with the fastest lap of the day, 91.777s around Silverstone in a Mercedes. Keep his name handy."
-    },
-    {
-      "type": "prediction",
-      "lap": 44,
-      "kicker": "Lap 44, call it",
-      "title": "Verstappen is still out there fighting. Does he see the chequered flag?",
-      "options": [
-        "He makes it home",
-        "He doesn't"
-      ],
-      "answer": "He doesn't",
-      "reveal": "He didn't. His car rolled to a stop on lap 47, the Safety Car followed, and every gap in the race was erased at once. One retirement flipped the whole ending."
-    },
-    {
-      "type": "moment",
-      "lap": 47,
-      "kicker": "Lap 47 · Out",
-      "title": "Verstappen's Sunday ends early",
-      "text": "His car rolled to a stop on lap 47 and that was that. Also out today: Albon, Hulkenberg. Zero points weekends are where title fights quietly bleed."
-    },
-    {
-      "type": "moment",
-      "lap": 48,
-      "kicker": "Lap 48 of 52 · Safety Car",
-      "title": "Every gap on track, erased",
-      "text": "Four laps from home, the Safety Car wiped out every second anyone had built all afternoon. It pulled in on lap 51... and came straight back out again. The race finished with the field packed nose to tail and Sainz under investigation for a Safety Car infringement. Silverstone got its money's worth."
-    },
-    {
-      "type": "moment",
-      "lap": 49,
-      "kicker": "The drive your feed skipped",
-      "title": "Colapinto: P19 on the grid, P9 at the flag",
-      "text": "10 positions gained, one overtake at a time, most of them nowhere near a TV camera. His last pass came on lap 49. Nobody will open the sports pages with Colapinto tomorrow. They probably should."
-    },
-    {
-      "type": "moment",
-      "lap": 52,
-      "kicker": "Lap 52 · Chequered flag",
-      "title": "Leclerc wins it",
-      "text": "Leclerc brings his Ferrari home first, ahead of Russell. And P3, in front of his own grandstand, at home: Hamilton. Listen to that crowd."
-    },
-    {
-      "type": "share",
-      "lap": 52,
-      "kicker": "Silverstone, one line",
-      "title": "Won on the lap nobody was watching the clock",
-      "text": "Race rating: coming with v1's spoiler-free formula."
-    }
-  ]
+  }
 }

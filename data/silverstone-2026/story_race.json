@@ -1,0 +1,142 @@
+{
+  "gp": "British Grand Prix 2026",
+  "session": "Race",
+  "sessionSlug": "race",
+  "circuit": "Silverstone",
+  "laps": 52,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "British Grand Prix · Race · 52 laps",
+      "title": "Here is how it actually went",
+      "text": "153 genuine on-track passes, 3 cars that never finished and 2 safety car. Scroll and watch it unfold."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · The busiest lap",
+      "title": "16 overtakes on this lap alone",
+      "text": "The one doing most of the passing all afternoon: Bearman, 15 moves.",
+      "dato": {
+        "label": "Most overtakes",
+        "rows": [
+          [
+            "Bearman",
+            15
+          ],
+          [
+            "Hulkenberg",
+            13
+          ],
+          [
+            "Piastri",
+            13
+          ],
+          [
+            "Sainz",
+            11
+          ],
+          [
+            "Verstappen",
+            10
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 35,
+      "kicker": "Lap 35 · Pit window",
+      "title": "The stops that shaped it",
+      "text": "Fastest trip down the pit lane, entry to exit: Russell, 28.3s. When nobody gains in the pits, track position becomes the whole game.",
+      "dato": {
+        "label": "Stints per compound",
+        "rows": [
+          [
+            "MEDIUM",
+            30
+          ],
+          [
+            "HARD",
+            22
+          ],
+          [
+            "SOFT",
+            21
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 37,
+      "kicker": "Lap 37 · Fastest lap",
+      "title": "Antonelli: 91.777s",
+      "text": "The quickest anyone went all day, in a Mercedes."
+    },
+    {
+      "type": "moment",
+      "lap": 47,
+      "kicker": "Lap 47 · Out",
+      "title": "Verstappen's day ends early",
+      "text": "Also out: Albon, Hulkenberg. Zero points weekends are where title fights quietly bleed."
+    },
+    {
+      "type": "moment",
+      "lap": 48,
+      "kicker": "Lap 48 of 52 · Safety Car",
+      "title": "Every gap on track, erased",
+      "text": "Whatever anyone had built up to here was wiped out in one lap, and the race restarted nose to tail."
+    },
+    {
+      "type": "moment",
+      "lap": 52,
+      "kicker": "Lap 52 · Chequered flag",
+      "title": "Leclerc wins it",
+      "text": "Leclerc brings the Ferrari home first, ahead of Russell and Hamilton."
+    }
+  ],
+  "result": {
+    "date": "05 JUL 2026",
+    "podium": [
+      {
+        "pos": 1,
+        "number": 16,
+        "first": "Charles",
+        "last": "Leclerc",
+        "team": "Ferrari",
+        "colour": "ED1131",
+        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png.transform/1col/image.png"
+      },
+      {
+        "pos": 2,
+        "number": 63,
+        "first": "George",
+        "last": "Russell",
+        "team": "Mercedes",
+        "colour": "00D7B6",
+        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png.transform/1col/image.png"
+      },
+      {
+        "pos": 3,
+        "number": 44,
+        "first": "Lewis",
+        "last": "Hamilton",
+        "team": "Ferrari",
+        "colour": "ED1131",
+        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png.transform/1col/image.png"
+      }
+    ],
+    "fastest": {
+      "time": 91.777,
+      "last": "Antonelli",
+      "number": 12,
+      "first": "",
+      "team": "Mercedes",
+      "colour": "",
+      "headshot": ""
+    }
+  }
+}

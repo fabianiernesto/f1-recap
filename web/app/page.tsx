@@ -1,54 +1,85 @@
 import Link from "next/link";
-import { listGPs, loadStory } from "@/lib/data";
+import { listGPs, loadWeekend } from "@/lib/data";
 
 export default function Home() {
-  const gps = listGPs().map((slug) => ({ slug, story: loadStory(slug) }));
+  const weekends = listGPs()
+    .map((slug) => loadWeekend(slug))
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+  const latest = weekends[0];
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center gap-10 px-6 py-24">
-      <header>
-        <div className="mb-3 h-1 w-14 bg-accent" />
-        <h1
-          className="text-6xl font-bold uppercase leading-[.95] text-ink"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
+    <main className="home">
+      <header className="home-head">
+        <div className="home-brand">RACE // RECAP</div>
+        <h1>
           The race,
           <br />
           told properly
         </h1>
-        <p className="mt-5 max-w-md text-[15px] text-muted">
-          Missed the Grand Prix? Fell asleep on lap 30? Scroll the race like a
-          story: the real track, the real moments, none of the homework.
+        <p>
+          Missed the Grand Prix? Fell asleep on lap 30? Every race weekend told
+          like a story you scroll — the real track, the real moments, none of
+          the homework.
         </p>
       </header>
 
-      <section className="flex flex-col gap-3">
-        {gps.map(({ slug, story }) => (
-          <Link
-            key={slug}
-            href={`/gp/${slug}`}
-            className="group border border-line bg-carbon-1 p-5 transition-colors hover:border-muted"
-          >
-            <div
-              className="text-[10px] uppercase tracking-[.16em] text-muted"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              {story.circuit} · {story.laps} laps · Race
-            </div>
-            <div
-              className="mt-1 text-3xl font-bold uppercase text-ink group-hover:text-accent"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              {story.gp}
-            </div>
-          </Link>
-        ))}
+      {latest && (
+        <Link href={`/gp/${latest.slug}`} className="home-latest">
+          <span className="home-eyebrow">Latest Grand Prix</span>
+          <span className="home-latest-name">{latest.circuit}</span>
+          <span className="home-latest-sub">
+            {latest.short} · {latest.country} · {latest.date}
+          </span>
+          <span className="home-latest-meta">
+            {latest.sessions.length} sessions
+            {latest.rating && (
+              <>
+                {" "}
+                · rated <b>{latest.rating.score.toFixed(1)}/10</b> — spoiler-free
+              </>
+            )}
+          </span>
+          <span className="home-latest-cta">Open the weekend →</span>
+        </Link>
+      )}
+
+      {weekends.length > 1 && (
+        <section className="home-list">
+          <span className="home-eyebrow">Earlier weekends</span>
+          {weekends.slice(1).map((w) => (
+            <Link key={w.slug} href={`/gp/${w.slug}`} className="home-row">
+              <span>{w.circuit}</span>
+              <span>{w.date}</span>
+            </Link>
+          ))}
+        </section>
+      )}
+
+      <section className="home-how">
+        <div>
+          <b>No spoilers first</b>
+          <span>
+            Every weekend opens by asking if you already know the result. If you
+            don&apos;t, you only get a rating: worth watching, or not.
+          </span>
+        </div>
+        <div>
+          <b>Your time, your depth</b>
+          <span>
+            Thirty seconds, three minutes or the full story. Same race, told at
+            the depth you actually have time for.
+          </span>
+        </div>
+        <div>
+          <b>Real data, human words</b>
+          <span>
+            Built from official timing data — every overtake, stop and safety
+            car — then told the way a friend would tell it.
+          </span>
+        </div>
       </section>
 
-      <footer
-        className="text-[10px] uppercase tracking-[.14em] text-muted"
-        style={{ fontFamily: "var(--font-mono)" }}
-      >
+      <footer className="home-foot">
         Built from OpenF1 + FastF1 timing data · not affiliated with Formula 1
       </footer>
     </main>
