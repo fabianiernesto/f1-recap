@@ -54,6 +54,17 @@ export default function GPHero({
   const nx = Math.cos(a0 + Math.PI / 2);
   const ny = Math.sin(a0 + Math.PI / 2);
 
+  // crop the viewBox to the track itself (plus room for the corner labels), so
+  // the shape sits dead centre instead of floating inside a square canvas
+  const xs = pts.map((p) => p[0]);
+  const ys = pts.map((p) => p[1]);
+  const pad = 46;
+  const vbX = Math.min(...xs) - pad;
+  const vbY = Math.min(...ys) - pad;
+  const vbW = Math.max(...xs) - Math.min(...xs) + pad * 2;
+  const vbH = Math.max(...ys) - Math.min(...ys) + pad * 2;
+  const vb = `${vbX} ${vbY} ${vbW} ${vbH}`;
+
   const moments = story.cards.filter((c) => c.type === "moment").length;
   const calls = story.cards.filter((c) => c.type === "prediction").length;
   const short = story.gp.replace(/ \d{4}$/, "");
@@ -123,7 +134,7 @@ export default function GPHero({
         </div>
 
         <div className="hero-map">
-          <svg viewBox={`0 0 ${track.view} ${track.view}`} aria-hidden>
+          <svg viewBox={vb} aria-hidden>
             <path
               d={d}
               fill="none"
@@ -151,7 +162,7 @@ export default function GPHero({
                 </text>
               </g>
             ))}
-            <g transform={`translate(${track.view - 60} 76)`}>
+            <g transform={`translate(${vbX + vbW - 34} ${vbY + 44})`}>
               <text x={0} y={-15} textAnchor="middle" fill="#ffffff" fontSize={22} opacity={0.75}
                 style={{ fontFamily: "var(--font-display)" }}>N</text>
               <path d="M0 -9 L6 9 L0 4.5 L-6 9 Z" fill="#ffffff" opacity={0.75} />
