@@ -116,17 +116,13 @@ body {
   mask-composite: intersect; }
 .hero-cta-wrap { position: relative; z-index: 4; margin-bottom: 8vh;
   display: flex; flex-direction: column; gap: 14px; align-items: center; }
-/* no button: the page scrolls, so the invitation is just a clear cue */
-.hero-foot { font-family: var(--font-mono); font-weight: 500; font-size: 13px;
-  letter-spacing: .42em; text-indent: .42em; color: #f2f3f5;
-  text-transform: uppercase; }
-.hero-arrow { width: 22px; height: 31px; color: var(--accent);
-  animation: scroll-hint 2.1s ease-in-out infinite; }
-@keyframes scroll-hint {
-  0%, 100% { transform: translateY(0); opacity: .85; }
-  50% { transform: translateY(7px); opacity: 1; }
-}
-@media (prefers-reduced-motion: reduce) { .hero-arrow { animation: none; } }
+/* no button: the page scrolls. The cue is a red line that quietly pulses,
+   like a trackside signal waiting for you */
+.hero-foot { font-family: var(--font-mono); font-weight: 700; font-size: 14px;
+  letter-spacing: .42em; text-indent: .42em; color: #ff4640;
+  text-transform: uppercase; animation: scroll-pulse 1.9s ease-in-out infinite; }
+@keyframes scroll-pulse { 50% { opacity: .38; } }
+@media (prefers-reduced-motion: reduce) { .hero-foot { animation: none; } }
 
 @media (max-width: 1099px) {
   /* no room for a flank: the landmark drops behind the content, dimmed */
