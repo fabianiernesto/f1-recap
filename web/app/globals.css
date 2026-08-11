@@ -122,9 +122,11 @@ body {
    drops the black into the night and keeps the glow: integration without a
    cut-out. Masks stop it ending in a straight edge. */
 .hero-figure { position: absolute; z-index: 1; right: 0; bottom: 0;
-  width: min(34vw, 520px); height: 92%; pointer-events: none; }
+  width: min(40vw, 640px); height: 88%; pointer-events: none; }
+/* the artwork is landscape with the driver in the middle, so it is cropped
+   to a tall slice rather than letterboxed at the bottom */
 .hero-figure img { width: 100%; height: 100%; display: block;
-  object-fit: contain; object-position: right bottom;
+  object-fit: cover; object-position: 55% 42%;
   mix-blend-mode: screen; filter: contrast(1.06) saturate(1.05) brightness(1.02);
   -webkit-mask-image:
     linear-gradient(to bottom, #0000 0%, #000 12%, #000 88%, #0000 100%),
