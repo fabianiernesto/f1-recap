@@ -57,11 +57,13 @@ body {
   color: #f0c9c9; text-transform: uppercase; }
 .hero-meta span:last-child { justify-self: end; }
 
-/* everything the eye reads lives in one centred column */
+/* everything the eye reads lives in one centred column, and that column sits
+   in the middle of the first screen */
 .hero-core { position: relative; z-index: 4; display: flex; flex-direction: column;
-  align-items: center; text-align: center; width: 100%; }
+  align-items: center; justify-content: center; text-align: center;
+  width: 100%; min-height: 78vh; }
 .hero-title { margin: 0; font-family: var(--font-hero), var(--font-display), sans-serif;
-  font-size: clamp(60px, 11vw, 196px); line-height: .86; letter-spacing: .01em;
+  font-size: clamp(46px, 7.6vw, 138px); line-height: .88; letter-spacing: .01em;
   text-transform: uppercase; color: #fff; user-select: none;
   text-shadow: 0 6px 44px #0a0406cc; }
 /* the one pixel-type line in the whole product */
@@ -116,6 +118,23 @@ body {
   mask-composite: intersect; }
 .hero-cta-wrap { position: relative; z-index: 4; margin-bottom: 8vh;
   display: flex; flex-direction: column; gap: 14px; align-items: center; }
+/* driver artwork on the right flank. The art is lit on black, so `screen`
+   drops the black into the night and keeps the glow: integration without a
+   cut-out. Masks stop it ending in a straight edge. */
+.hero-figure { position: absolute; z-index: 1; right: 0; bottom: 0;
+  width: min(34vw, 520px); height: 92%; pointer-events: none; }
+.hero-figure img { width: 100%; height: 100%; display: block;
+  object-fit: contain; object-position: right bottom;
+  mix-blend-mode: screen; filter: contrast(1.06) saturate(1.05) brightness(1.02);
+  -webkit-mask-image:
+    linear-gradient(to bottom, #0000 0%, #000 12%, #000 88%, #0000 100%),
+    linear-gradient(to left, #000 0%, #000 52%, #000a 82%, #0000 100%);
+  mask-image:
+    linear-gradient(to bottom, #0000 0%, #000 12%, #000 88%, #0000 100%),
+    linear-gradient(to left, #000 0%, #000 52%, #000a 82%, #0000 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect; }
+
 /* no button: the page scrolls. The cue is a red line that quietly pulses,
    like a trackside signal waiting for you */
 .hero-foot { font-family: var(--font-mono); font-weight: 700; font-size: 14px;

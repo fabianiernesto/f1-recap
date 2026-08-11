@@ -19,14 +19,37 @@ const PUBLIC_DIRS = [
   path.join(process.cwd(), "Proyecto 6_Ernesto - F1 Recap Interactivo", "web", "public"),
 ];
 
-export function landmarkPhoto(slug: string): string | null {
+function findAsset(folder: string, slug: string): string | null {
   for (const dir of PUBLIC_DIRS) {
     for (const ext of LANDMARK_FORMATS) {
-      if (fs.existsSync(path.join(dir, "landmarks", `${slug}.${ext}`)))
-        return `/landmarks/${slug}.${ext}`;
+      if (fs.existsSync(path.join(dir, folder, `${slug}.${ext}`)))
+        return `/${folder}/${slug}.${ext}`;
     }
   }
   return null;
+}
+
+export function landmarkPhoto(slug: string): string | null {
+  return findAsset("landmarks", slug);
+}
+
+/** Driver artwork for the right flank: public/figures/<slug>.(png|jpg|webp) */
+export function figurePhoto(slug: string): string | null {
+  return findAsset("figures", slug);
+}
+
+/**
+ * Right-hand figure. Artwork lit on black blends with `screen`, so the black
+ * simply disappears into the night and only the glow and the driver remain —
+ * no cut-out needed. Edges are masked so nothing ends in a straight line.
+ */
+export function FigurePhoto({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="hero-figure">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={alt} />
+    </div>
+  );
 }
 
 export function LandmarkPhoto({ src, alt }: { src: string; alt: string }) {

@@ -1,5 +1,12 @@
 import type { Story, Track } from "@/lib/types";
-import { BigBen, LandmarkPhoto, Skyline, landmarkPhoto } from "./Landmark";
+import {
+  BigBen,
+  FigurePhoto,
+  LandmarkPhoto,
+  Skyline,
+  figurePhoto,
+  landmarkPhoto,
+} from "./Landmark";
 
 /** Circuit -> country, for the strapline. One line per Grand Prix. */
 const CIRCUIT_COUNTRY: Record<string, string> = {
@@ -39,6 +46,7 @@ export default function GPHero({
   slug: string;
 }) {
   const photo = landmarkPhoto(slug);
+  const figure = figurePhoto(slug);
   const pts = track.points;
   const d = "M " + pts.map((p) => p[0] + " " + p[1]).join(" L ");
 
@@ -97,6 +105,9 @@ export default function GPHero({
       ) : (
         <BigBen className="hero-landmark" />
       )}
+
+      {/* the driver holds the right flank, mirroring the landmark */}
+      {figure && <FigurePhoto src={figure} alt={`${short} driver artwork`} />}
 
       <div className="hero-meta">
         <span>RACE // RECAP</span>
