@@ -94,10 +94,11 @@ export default function GPHero({
         <BigBen className="hero-landmark" />
       )}
 
+      {/* third cell stays empty: the flag owns that corner */}
       <div className="hero-meta">
         <span>RACE // RECAP</span>
         <span>{date}</span>
-        <span>#{short.replace(/\s/g, "")}</span>
+        <span />
       </div>
 
       {/* the flag balances the landmark's weight on the other corner */}

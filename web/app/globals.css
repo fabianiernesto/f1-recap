@@ -49,10 +49,13 @@ body {
 .hero-stars { position: absolute; inset: 0; width: 100%; height: 62%; z-index: 0; }
 .hero-trails { position: absolute; inset: -4% -8%; width: 116%; height: 108%;
   pointer-events: none; z-index: 1; }
+/* three columns so the date stays dead centre and the right cell is left
+   free for the flag — nothing ever runs under it */
 .hero-meta { position: absolute; top: 74px; left: 5vw; right: 5vw; z-index: 6;
-  display: flex; justify-content: space-between; font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: .18em; color: #f0c9c9; text-transform: uppercase; }
-.hero-meta span:last-child { color: #ff7b74; }
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: start;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em;
+  color: #f0c9c9; text-transform: uppercase; }
+.hero-meta span:last-child { justify-self: end; }
 
 /* everything the eye reads lives in one centred column */
 .hero-core { position: relative; z-index: 4; display: flex; flex-direction: column;
@@ -61,8 +64,10 @@ body {
   font-size: clamp(60px, 11vw, 196px); line-height: .86; letter-spacing: .01em;
   text-transform: uppercase; color: #fff; user-select: none;
   text-shadow: 0 6px 44px #0a0406cc; }
-.hero-kicker { font-family: var(--font-mono); font-size: clamp(10px, 1vw, 13px);
-  letter-spacing: .34em; color: #ffb3ae; text-transform: uppercase; margin-top: 16px; }
+/* the one pixel-type line in the whole product */
+.hero-kicker { font-family: var(--font-pixel), monospace; font-weight: 900;
+  font-size: clamp(15px, 1.7vw, 24px); letter-spacing: .2em; color: #ffb3ae;
+  text-transform: uppercase; margin-top: 18px; }
 
 .hero-map { width: min(56vw, 76vh); margin-top: 1vh; }
 .hero-map svg { width: 100%; height: auto; display: block; }
@@ -102,18 +107,19 @@ body {
 /* `contain`, never `cover`: cover crops the cut-out and stretches the tower
    until it reads as a solid slab with a hard vertical edge — the "two blocks"
    effect. Contained, the whole tower shows and the night surrounds it. */
+/* no text sits on the landmark any more, so it can be properly lit */
 .hero-landmark-photo img { width: 100%; height: 100%; display: block;
   object-fit: contain; object-position: left bottom;
-  filter: brightness(.46) contrast(1.24) saturate(.55) hue-rotate(-6deg); }
+  filter: brightness(.92) contrast(1.06) saturate(.85) hue-rotate(-4deg); }
 /* two masks intersected: fade top and bottom into the night, and fade the
    right edge out so the landmark dissolves into the page instead of ending */
 .hero-landmark-photo img {
   -webkit-mask-image:
     linear-gradient(to bottom, #0000 0%, #000 10%, #000 86%, #0000 100%),
-    linear-gradient(to right, #000 0%, #000 30%, #0007 66%, #0000 96%);
+    linear-gradient(to right, #000 0%, #000 52%, #000a 80%, #0000 100%);
   mask-image:
     linear-gradient(to bottom, #0000 0%, #000 10%, #000 86%, #0000 100%),
-    linear-gradient(to right, #000 0%, #000 30%, #0007 66%, #0000 96%);
+    linear-gradient(to right, #000 0%, #000 52%, #000a 80%, #0000 100%);
   -webkit-mask-composite: source-in;
   mask-composite: intersect; }
 .hero-cta-wrap { position: relative; z-index: 4; margin-bottom: 8vh;

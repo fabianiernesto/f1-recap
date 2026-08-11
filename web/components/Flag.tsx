@@ -70,12 +70,33 @@ export const CIRCUIT_COUNTRY: Record<string, string> = {
   Suzuka: "JP",
 };
 
+/** Waving silhouette + fold shading, identical for every country. */
+const WAVE =
+  "M0,2.6 C10,-0.4 20,5.2 30,2.6 C40,0 50,5.4 60,2.4 " +
+  "L60,27.4 C50,30.4 40,24.8 30,27.4 C20,30 10,24.6 0,27.6 Z";
+
 export default function Flag({ country }: { country: string }) {
   const art = FLAGS[country];
   if (!art) return null;
   return (
     <svg className="hero-flag" viewBox="0 0 60 30" aria-hidden>
-      {art}
+      <defs>
+        <clipPath id="fl-wave">
+          <path d={WAVE} />
+        </clipPath>
+        {/* light and shadow across the folds */}
+        <linearGradient id="fl-shade" x1="0" y1="0" x2="1" y2="0.15">
+          <stop offset="0%" stopColor="#000" stopOpacity=".42" />
+          <stop offset="14%" stopColor="#fff" stopOpacity=".16" />
+          <stop offset="30%" stopColor="#000" stopOpacity=".34" />
+          <stop offset="48%" stopColor="#fff" stopOpacity=".12" />
+          <stop offset="64%" stopColor="#000" stopOpacity=".3" />
+          <stop offset="82%" stopColor="#fff" stopOpacity=".14" />
+          <stop offset="100%" stopColor="#000" stopOpacity=".4" />
+        </linearGradient>
+      </defs>
+      <g clipPath="url(#fl-wave)">{art}</g>
+      <path d={WAVE} fill="url(#fl-shade)" />
     </svg>
   );
 }
