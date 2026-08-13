@@ -91,7 +91,8 @@ La más importante del lote porque contradice todo lo que veníamos haciendo:
 3. **El final en claro**: la última sección invierte el mundo — fondo crema, "P1" rojo monumental, foto del ganador, firma, ticker (R1). El recap termina como un póster oficial que da ganas de compartir. El contraste oscuro→claro es el estímulo máximo del scroll.
 
 ~~Acento transversal: dot-matrix roja para el lenguaje de pista.~~
-❌ **DESCARTADO (8-ago) por Ernesto: la tipografía LED/dot-matrix (Doto) queda PROHIBIDA en todo el proyecto.** Se probó en portada, contador de vuelta, Safety Car y crono, y no convence. Las referencias vivas son **Drellex** (mundo rojo, rayas diagonales, marco, tipografía monumental) y **Ogilvy Turkish GP** (estelas de luz, mapa punteado con curvas numeradas, brújula), más la página de resultado **Ferrari** para el final en claro.
+❌ Descartada (8-ago) como acento transversal en toda la web (se probó en HUD/SC/crono y no convenció).
+✅ **RESUCITADA (11-ago) COMO LENGUAJE DE LA PORTADA**: Ernesto validó el template base LED calcado de su referencia "BORN TO RACE / BRED TO WIN" (`web_preview/portada_led_propuestas.html`, commit 2eafa99): logo F1 de píxeles, coche negro sangrando, "NOMBRE-CIRCUITO." / "SIMPLIFIED" en Doto roja escalonada, anotaciones técnicas con minimapa rojo. Regla vigente: **la LED vive SOLO en la portada**; el resto de la web mantiene Anton/Barlow/Inter/Mono. Referencias vivas para lo demás: Drellex, Ogilvy y el póster Ferrari para el final en claro.
 
 ## PARTE 5 — Assets necesarios (tareas)
 
