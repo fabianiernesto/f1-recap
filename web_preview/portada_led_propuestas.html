@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Template base portada LED — no committed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     TEMPLATE BASE — measured 1:1 from the reference (736x414):
+       logo      x 0-54%   y 0-28%
+       notes     x 58-99%  y 3.5-45%
+       car       x 0-95%   y 31-80%   (bleeds off the left edge)
+       headline  L1 x 1.4% y 66%  ·  L2 x 37% y 82%  ·  12.6vh glyphs
+       smalltag  x 1.4%    y 91%
+     Only texts + circuit change per GP. Layout is the template.
+     ============================================================ */
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #000; }
+  .stage { position: relative; height: 100vh; overflow: hidden; background: #000;
+    font-family: "JetBrains Mono", monospace; }
+
+  .led { font-family: "Doto", monospace; font-weight: 900; color: #ff1c12;
+    text-transform: uppercase; line-height: .9;
+    text-shadow: 0 0 14px #ff1c1240; }
+
+  /* pixel F1 glyph, straight crop from the reference */
+  .logo { position: absolute; z-index: 2; top: 0; left: 0; width: 54vw; }
+  .logo img { width: 100%; height: auto; display: block; }
+
+  /* the car: bleeding off the left edge, nose reaching 95% */
+  .car { position: absolute; z-index: 1; left: 0; top: 31%; width: 95vw; }
+  .car img { width: 100%; height: auto; display: block; }
+
+  /* annotations block: labels | red minimap | captions */
+  .notes { position: absolute; z-index: 3; top: 3.5%; right: 1vw;
+    display: grid; grid-template-columns: 11vw 11vw 17vw; column-gap: 1.6vw;
+    align-items: start; }
+  .labels, .caps { display: flex; flex-direction: column; }
+  .labels div { font-size: 1.9vh; letter-spacing: .12em; color: #f2f3f5;
+    text-transform: uppercase; min-height: 7.6vh; }
+  .caps div { font-size: 1.55vh; line-height: 1.55; color: #9aa0aa;
+    letter-spacing: .04em; text-transform: uppercase; min-height: 7.6vh; }
+  .caps em { font-style: normal; color: #ff1c12; }
+  .minimap { padding-top: .6vh; }
+  .minimap svg { width: 100%; height: auto; display: block; }
+
+  /* the two LED lines, exact reference placement */
+  .l1 { position: absolute; z-index: 4; left: 1.4vw; top: 65.5%;
+    font-size: 12.6vh; }
+  .l2 { position: absolute; z-index: 4; left: 37vw; top: 81.5%;
+    font-size: 12.6vh; }
+
+  .smalltag { position: absolute; z-index: 4; left: 1.4vw; top: 91.5%;
+    font-size: 2.6vh; letter-spacing: .18em; color: #f2f3f5;
+    text-transform: uppercase; font-weight: 700; }
+</style>
+</head>
+<body>
+<section class="stage">
+  <div class="logo"><img src="f1_pixel_logo.png" alt=""></div>
+
+  <div class="notes">
+    <div class="labels">
+      <div>Start / Finish</div>
+      <div>DRS zone</div>
+      <div>Braking point</div>
+      <div>Apex</div>
+      <div>Exit line</div>
+    </div>
+    <div class="minimap"></div>
+    <div class="caps">
+      <div>The point where every lap begins. <em>Full throttle launch.</em> Maximum reaction.</div>
+      <div>Lower drag on the straight. Designed for overtaking, <em>only when the gap is close.</em></div>
+      <div>The last moment before turn-in. Maximum deceleration. Precision defines the corner.</div>
+      <div>The innermost point of the turn, where speed meets control. <em>Kick it perfectly, gain time.</em></div>
+      <div>Power back on the throttle. Traction becomes acceleration. Every metre matters.</div>
+    </div>
+  </div>
+
+  <div class="car"><img src="car.png" alt=""></div>
+
+  <span class="led l1">Silverstone.</span>
+  <span class="led l2">Simplified</span>
+  <span class="smalltag">RACE 12 // RECAP</span>
+</section>
+
+<script src="track_data.js"></script>
+<script>
+(function () {
+  const T = window.TRACK;
+  const xs = T.points.map(p => p[0]), ys = T.points.map(p => p[1]);
+  const pad = 30;
+  const vb = [Math.min(...xs) - pad, Math.min(...ys) - pad,
+              Math.max(...xs) - Math.min(...xs) + pad * 2,
+              Math.max(...ys) - Math.min(...ys) + pad * 2].join(' ');
+  const d = 'M ' + T.points.map(p => p[0] + ' ' + p[1]).join(' L ');
+  document.querySelector('.minimap').innerHTML = `
+    <svg viewBox="${vb}">
+      <path d="${d}" fill="none" stroke="#ff1c12" stroke-width="6"
+        stroke-linejoin="round"/>
+      ${T.corners.slice(0, 6).map(c =>
+        `<circle cx="${c.x}" cy="${c.y}" r="9" fill="none"
+           stroke="#ff1c12" stroke-width="3"/>`).join('')}
+    </svg>`;
+})();
+</script>
+</body>
+</html>
