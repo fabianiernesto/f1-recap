@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { listGPs, loadStory, loadTrack, loadWeekend } from "@/lib/data";
-import GPHero from "@/components/GPHero";
+import { listGPs, loadTrack, loadWeekend } from "@/lib/data";
+import GPHeroLED from "@/components/GPHeroLED";
 import WeekendHub from "@/components/WeekendHub";
 
 export function generateStaticParams() {
@@ -11,17 +11,10 @@ export default async function GPPage({ params }: PageProps<"/gp/[slug]">) {
   const { slug } = await params;
   if (!listGPs().includes(slug)) notFound();
   const weekend = loadWeekend(slug);
-  const story = loadStory(slug, "race");
   const track = loadTrack(slug);
   return (
     <>
-      <GPHero
-        story={story}
-        track={track}
-        date={weekend.date}
-        slug={slug}
-        sessions={weekend.sessions.length}
-      />
+      <GPHeroLED weekend={weekend} track={track} />
       <WeekendHub weekend={weekend} />
     </>
   );
