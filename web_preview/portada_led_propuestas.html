@@ -47,10 +47,10 @@
   .minimap { padding-top: .6vh; }
   .minimap svg { width: 100%; height: auto; display: block; }
 
-  /* the two LED lines, exact reference placement */
-  .l1 { position: absolute; z-index: 4; left: 1.4vw; top: 65.5%;
+  /* the two LED lines: reference sizing, shifted right */
+  .l1 { position: absolute; z-index: 4; left: 13vw; top: 65.5%;
     font-size: 12.6vh; }
-  .l2 { position: absolute; z-index: 4; left: 37vw; top: 81.5%;
+  .l2 { position: absolute; z-index: 4; left: 48vw; top: 81.5%;
     font-size: 12.6vh; }
 
   .smalltag { position: absolute; z-index: 4; left: 1.4vw; top: 91.5%;
@@ -60,7 +60,8 @@
 </head>
 <body>
 <section class="stage">
-  <div class="logo"><img src="f1_pixel_logo.png" alt=""></div>
+  <!-- vector rebuild of the dotted logo: same grid, sharp at any size -->
+  <div class="logo"><img src="f1_pixel_logo.svg" alt=""></div>
 
   <div class="notes">
     <div class="labels">
@@ -82,7 +83,7 @@
 
   <div class="car"><img src="car.png" alt=""></div>
 
-  <span class="led l1">Silverstone.</span>
+  <span class="led l1">Silverstone</span>
   <span class="led l2">Simplified</span>
   <span class="smalltag">RACE 12 // RECAP</span>
 </section>
