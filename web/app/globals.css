@@ -46,20 +46,21 @@ body {
 .ledhero-car { position: absolute; z-index: 1; left: 0; top: 31%; width: 95vw; }
 .ledhero-car img { width: 100%; height: auto; display: block; }
 
-.ledhero-notes { position: absolute; z-index: 3; top: 3.5%; right: 1vw;
-  display: grid; grid-template-columns: 11vw 11vw 17vw; column-gap: 1.6vw;
-  align-items: start; }
-.ledhero-labels, .ledhero-caps { display: flex; flex-direction: column; }
-.ledhero-labels div { font-size: 1.9vh; letter-spacing: .12em; color: #f2f3f5;
-  text-transform: uppercase; min-height: 7.6vh; }
-.ledhero-caps div { font-size: 1.55vh; line-height: 1.55; color: #9aa0aa;
-  letter-spacing: .04em; text-transform: uppercase; min-height: 7.6vh; }
-/* the number leads, the sentence explains why it matters */
-.ledhero-caps b { display: block; font-size: 2.9vh; color: #ff1c12;
-  letter-spacing: .02em; margin-bottom: .3vh; }
-.ledhero-caps em { font-style: normal; color: #ff1c12; }
-.ledhero-map { padding-top: .6vh; }
+/* a tight corner panel: map beside the numbers, nothing spilling down */
+.ledhero-notes { position: absolute; z-index: 3; top: 4%; right: 1.6vw;
+  display: flex; align-items: flex-start; gap: 1.6vw; }
+.ledhero-map { width: 9.5vw; }
 .ledhero-map svg { width: 100%; height: auto; display: block; }
+.ledhero-stats { margin: 0; display: flex; flex-direction: column; gap: .55vh;
+  min-width: 15vw; }
+.ledhero-stats > div { display: flex; align-items: baseline;
+  justify-content: space-between; gap: 1.2vw;
+  border-bottom: 1px solid #ffffff14; padding-bottom: .55vh; }
+.ledhero-stats > div:last-child { border-bottom: none; }
+.ledhero-stats dt { font-size: 1.5vh; letter-spacing: .14em; color: #8a8f99;
+  text-transform: uppercase; }
+.ledhero-stats dd { margin: 0; font-size: 1.9vh; letter-spacing: .02em;
+  color: #ff1c12; text-transform: uppercase; white-space: nowrap; }
 
 .ledhero-l1, .ledhero-l2 { position: absolute; z-index: 4;
   font-family: var(--font-pixel), monospace; font-weight: 900; color: #ff1c12;

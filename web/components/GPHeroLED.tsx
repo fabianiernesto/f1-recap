@@ -58,12 +58,9 @@ export default function GPHeroLED({
         <img src="/f1_pixel_logo.svg" alt="" />
       </div>
 
+      {/* corner panel: the map, then one row per number. Label and value live
+          in the same row, so they can never drift apart. */}
       <div className="ledhero-notes">
-        <div className="ledhero-labels">
-          {stats.map((s) => (
-            <div key={s.label}>{s.label}</div>
-          ))}
-        </div>
         <div className="ledhero-map">
           <svg viewBox={vb} aria-hidden>
             <path d={d} fill="none" stroke="#ff1c12" strokeWidth={6} strokeLinejoin="round" />
@@ -73,14 +70,14 @@ export default function GPHeroLED({
             ))}
           </svg>
         </div>
-        <div className="ledhero-caps">
+        <dl className="ledhero-stats">
           {stats.map((s) => (
             <div key={s.label}>
-              <b>{s.value}</b>
-              {s.note}
+              <dt>{s.label}</dt>
+              <dd>{s.value}</dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
 
       <div className="ledhero-car">
