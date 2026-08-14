@@ -41,7 +41,10 @@ body {
 /* the hero fills the screen and nothing follows it: the page cannot scroll */
 .ledhero { position: fixed; inset: 0; z-index: 20; overflow: hidden;
   background: #000; font-family: var(--font-mono); }
-.ledhero-logo { position: absolute; z-index: 2; top: 0; left: 0; width: 54vw; }
+/* the crop is cut off at its top and left edges, so bleed those edges out of
+   frame: the mark then reads as continuing past the corner, not as broken */
+.ledhero-logo { position: absolute; z-index: 2; top: -3.4vh; left: -2.6vw;
+  width: 56vw; overflow: hidden; }
 .ledhero-logo img { width: 100%; height: auto; display: block; }
 .ledhero-car { position: absolute; z-index: 1; left: 0; top: 31%; width: 95vw; }
 .ledhero-car img { width: 100%; height: auto; display: block; }
