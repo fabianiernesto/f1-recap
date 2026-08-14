@@ -53,19 +53,19 @@ body {
    first row and the labels bunched at the bottom. Fixed rows keep every
    label, its number and the map evenly spaced, like the reference. */
 .ledhero-notes { position: absolute; z-index: 3; top: 4%; right: 3vw; margin: 0;
-  height: 44vh;
-  display: grid; grid-template-columns: auto auto minmax(11vw, auto);
+  height: 40vh;
+  display: grid; grid-template-columns: auto auto minmax(10vw, auto);
   grid-template-rows: repeat(5, 1fr);
   column-gap: 1.5vw; align-items: center; }
 .ledhero-map { grid-column: 2; grid-row: 1 / -1; height: 100%;
   display: flex; align-items: center; }
 .ledhero-map svg { height: 92%; width: auto; display: block; }
-.ledhero-notes dt { grid-column: 1; font-size: 1.45vh; letter-spacing: .13em;
+.ledhero-notes dt { grid-column: 1; font-size: 1.32vh; letter-spacing: .13em;
   color: #f2f3f5; text-transform: uppercase; }
-.ledhero-notes dd { grid-column: 3; margin: 0; font-size: 2.1vh;
+.ledhero-notes dd { grid-column: 3; margin: 0; font-size: 1.92vh;
   letter-spacing: .02em; color: #ff1c12; text-transform: uppercase;
   white-space: nowrap; }
-.ledhero-notes dd small { display: block; font-size: 1.15vh; color: #c9ced6;
+.ledhero-notes dd small { display: block; font-size: 1.04vh; color: #c9ced6;
   letter-spacing: .08em; margin-top: .15vh; white-space: nowrap; }
 
 .ledhero-l1, .ledhero-l2 { position: absolute; z-index: 4;
