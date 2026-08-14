@@ -53,22 +53,22 @@ body {
    first row and the labels bunched at the bottom. Fixed rows keep every
    label, its number and the map evenly spaced, like the reference. */
 .ledhero-notes { position: absolute; z-index: 3; top: 4%; right: 3vw; margin: 0;
-  height: 40vh;
-  display: grid; grid-template-columns: auto auto minmax(10vw, auto);
+  height: 36vh;
+  display: grid; grid-template-columns: auto auto minmax(9vw, auto);
   grid-template-rows: repeat(5, 1fr);
   column-gap: 1.5vw; align-items: center; }
 .ledhero-map { grid-column: 2; grid-row: 1 / -1; height: 100%;
   display: flex; align-items: center; }
 .ledhero-map svg { height: 92%; width: auto; display: block; }
-.ledhero-notes dt { grid-column: 1; font-size: 1.18vh; letter-spacing: .13em;
+.ledhero-notes dt { grid-column: 1; font-size: 1.06vh; letter-spacing: .13em;
   color: #f2f3f5; text-transform: uppercase; }
-.ledhero-notes dd { grid-column: 3; margin: 0; font-size: 1.72vh;
+.ledhero-notes dd { grid-column: 3; margin: 0; font-size: 1.55vh;
   letter-spacing: .02em; color: #ff1c12; text-transform: uppercase;
   white-space: nowrap; }
 /* the note runs to a second line: there is room, and one line looked bare */
-.ledhero-notes dd small { display: block; font-size: .94vh; color: #c9ced6;
+.ledhero-notes dd small { display: block; font-size: .85vh; color: #c9ced6;
   letter-spacing: .08em; margin-top: .2vh; white-space: normal;
-  line-height: 1.5; max-width: 15vw; }
+  line-height: 1.5; max-width: 13.5vw; }
 
 .ledhero-l1, .ledhero-l2 { position: absolute; z-index: 4;
   font-family: var(--font-pixel), monospace; font-weight: 900; color: #ff1c12;
