@@ -1,21 +1,15 @@
 import { notFound } from "next/navigation";
 import { listGPs, loadTrack, loadWeekend } from "@/lib/data";
 import GPHeroLED from "@/components/GPHeroLED";
-import WeekendHub from "@/components/WeekendHub";
 
 export function generateStaticParams() {
   return listGPs().map((slug) => ({ slug }));
 }
 
+/** The circuit's front door: one locked screen, no scroll. You go in by
+ *  choosing to, from the button — the weekend lives at /gp/<slug>/weekend. */
 export default async function GPPage({ params }: PageProps<"/gp/[slug]">) {
   const { slug } = await params;
   if (!listGPs().includes(slug)) notFound();
-  const weekend = loadWeekend(slug);
-  const track = loadTrack(slug);
-  return (
-    <>
-      <GPHeroLED weekend={weekend} track={track} />
-      <WeekendHub weekend={weekend} />
-    </>
-  );
+  return <GPHeroLED weekend={loadWeekend(slug)} track={loadTrack(slug)} />;
 }

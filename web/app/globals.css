@@ -38,7 +38,8 @@ body {
 /* ---------- LED hero (validated 13-ago) ----------
    Measured 1:1 from the reference: logo x0-54/y0-28, car x0-95/y31-80,
    headline 12.6vh, annotations top-right. Only texts and art change per GP. */
-.ledhero { position: relative; z-index: 20; height: 100vh; overflow: hidden;
+/* the hero fills the screen and nothing follows it: the page cannot scroll */
+.ledhero { position: fixed; inset: 0; z-index: 20; overflow: hidden;
   background: #000; font-family: var(--font-mono); }
 .ledhero-logo { position: absolute; z-index: 2; top: 0; left: 0; width: 54vw; }
 .ledhero-logo img { width: 100%; height: auto; display: block; }
@@ -66,17 +67,32 @@ body {
 .ledhero-tag { position: absolute; z-index: 4; left: 1.4vw; top: 91.5%;
   font-size: 2.6vh; letter-spacing: .18em; color: #f2f3f5;
   text-transform: uppercase; font-weight: 700; }
-.ledhero-scroll { position: absolute; z-index: 4; right: 1.4vw; top: 92.5%;
-  font-size: 1.6vh; letter-spacing: .34em; color: #ff1c12;
-  text-transform: uppercase; animation: scroll-pulse 1.9s ease-in-out infinite; }
+/* the way in. This screen never scrolls, so the button is the whole promise */
+.ledhero-enter { position: absolute; z-index: 5; right: 1.4vw; top: 90.5%;
+  display: inline-flex; align-items: center; gap: .9em;
+  border: 1px solid #ff1c12; color: #ff1c12; background: #ff1c1208;
+  padding: 1.5vh 2.4vw; font-family: var(--font-mono); font-weight: 700;
+  font-size: 1.7vh; letter-spacing: .28em; text-transform: uppercase;
+  text-decoration: none; transition: background-color .18s, color .18s; }
+.ledhero-enter i { font-style: normal; transition: transform .18s; }
+.ledhero-enter:hover { background: #ff1c12; color: #000; }
+.ledhero-enter:hover i { transform: translateX(4px); }
+.ledhero-enter:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 @media (max-width: 900px) {
   .ledhero-notes { display: none; }
   .ledhero-logo { width: 76vw; }
   .ledhero-l1, .ledhero-l2 { font-size: 8.4vh; }
   .ledhero-l1 { left: 6vw; top: 58%; }
   .ledhero-l2 { left: 30vw; top: 70%; }
+  .ledhero-enter { right: auto; left: 6vw; top: 88%; padding: 1.6vh 6vw; }
 }
-@media (prefers-reduced-motion: reduce) { .ledhero-scroll { animation: none; } }
+
+/* back to the circuit's front door, above the hub */
+.hub-top { position: sticky; top: 0; z-index: 60; background: #0a0b0e;
+  border-bottom: 1px solid var(--line); padding: 12px 5vw; }
+.hub-back { font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none; }
+.hub-back:hover { color: var(--ink); }
 
 /* ---------- GP hero: the vertical poster (ref Ogilvy Turkish GP) ---------- */
 .hero { --flank: min(30vw, 430px);

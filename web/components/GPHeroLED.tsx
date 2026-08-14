@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import Link from "next/link";
 import type { Track, Weekend } from "@/lib/types";
 
 /**
@@ -113,7 +114,12 @@ export default function GPHeroLED({
       <span className="ledhero-l1">{track.circuit}</span>
       <span className="ledhero-l2">Simplified</span>
       <span className="ledhero-tag">Race {round} // Recap</span>
-      <span className="ledhero-scroll">Scroll to race</span>
+
+      {/* the only way in: no scroll on this screen */}
+      <Link className="ledhero-enter" href={`/gp/${weekend.slug}/weekend`}>
+        Enter the weekend
+        <i aria-hidden>→</i>
+      </Link>
     </section>
   );
 }
