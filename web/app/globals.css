@@ -62,8 +62,9 @@ body {
   font-family: var(--font-pixel), monospace; font-weight: 900; color: #ff1c12;
   text-transform: uppercase; line-height: .9; font-size: 12.6vh;
   text-shadow: 0 0 14px #ff1c1240; pointer-events: none; }
-.ledhero-l1 { left: 13vw; top: 65.5%; }
-.ledhero-l2 { left: 48vw; top: 81.5%; }
+/* raised so the second line clears the entry button below it */
+.ledhero-l1 { left: 13vw; top: 56.5%; }
+.ledhero-l2 { left: 48vw; top: 72.5%; }
 .ledhero-tag { position: absolute; z-index: 4; left: 1.4vw; top: 91.5%;
   font-size: 2.6vh; letter-spacing: .18em; color: #f2f3f5;
   text-transform: uppercase; font-weight: 700; }
