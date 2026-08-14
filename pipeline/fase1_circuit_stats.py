@@ -74,25 +74,34 @@ def main() -> None:
             start = None
 
     corners = len(session.get_circuit_info().corners)
+    laps_in_race = int(session.laps["LapNumber"].max())
+
+    # slowest point of a flying lap: the speed the tightest corner forces
+    slowest = int(tel["Speed"].min())
 
     # `short` is the line that sits under the number in the hero: a handful of
     # words, there for rhythm as much as for information
     stats = [
         {"label": "Lap length",
          "value": f"{length_km:.3f} km",
-         "short": "Start line to start line"},
+         "short": f"Start line to start line, {laps_in_race} times "
+                  "over on Sunday"},
         {"label": "Corners",
          "value": str(corners),
-         "short": "Each one a chance to gain"},
+         "short": "Each one a chance to gain time, and a chance to "
+                  "throw the lap away"},
         {"label": "Full throttle",
          "value": f"{flat_out:.0f}%",
-         "short": "Two thirds of the lap flat out"},
+         "short": "Two thirds of the lap flat out, so the engine has "
+                  "as much to say as the chassis"},
         {"label": "Top speed",
          "value": f"{top_speed} km/h",
-         "short": "Fastest anybody went all race"},
+         "short": f"Fastest anybody went all race. It drops to "
+                  f"{slowest} km/h at the tightest corner"},
         {"label": "Braking zones",
          "value": str(braking_zones),
-         "short": "Where the overtakes happen"},
+         "short": "Proper stops, not brushes of the pedal. This is where "
+                  "the overtakes happen"},
     ]
 
     track_file = OUT / "track.json"
