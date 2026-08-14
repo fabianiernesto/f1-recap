@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { Fragment } from "react";
 import Link from "next/link";
 import type { Track, Weekend } from "@/lib/types";
 
@@ -23,7 +24,7 @@ function carFor(slug: string): string {
 
 /** Shown when a circuit has not been measured yet, so the panel never lies. */
 const FALLBACK_STATS = [
-  { label: "Corners", value: "—", note: "Measured from the telemetry of this weekend." },
+  { label: "Corners", value: "—", short: "Not measured yet" },
 ];
 
 export default function GPHeroLED({
@@ -58,9 +59,10 @@ export default function GPHeroLED({
         <img src="/f1_pixel_logo.svg" alt="" />
       </div>
 
-      {/* corner panel: the map, then one row per number. Label and value live
-          in the same row, so they can never drift apart. */}
-      <div className="ledhero-notes">
+      {/* label · circuit · number. One CSS grid row per stat, with the map
+          spanning the middle column, so a label can never drift from its
+          number the way two loose columns did. */}
+      <dl className="ledhero-notes">
         <div className="ledhero-map">
           <svg viewBox={vb} aria-hidden>
             <path d={d} fill="none" stroke="#ff1c12" strokeWidth={6} strokeLinejoin="round" />
@@ -70,15 +72,16 @@ export default function GPHeroLED({
             ))}
           </svg>
         </div>
-        <dl className="ledhero-stats">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <dt>{s.label}</dt>
-              <dd>{s.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
+        {stats.map((s) => (
+          <Fragment key={s.label}>
+            <dt>{s.label}</dt>
+            <dd>
+              {s.value}
+              {s.short && <small>{s.short}</small>}
+            </dd>
+          </Fragment>
+        ))}
+      </dl>
 
       <div className="ledhero-car">
         {/* eslint-disable-next-line @next/next/no-img-element */}

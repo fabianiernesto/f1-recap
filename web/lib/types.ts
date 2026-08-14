@@ -64,5 +64,5 @@ export type Track = {
   points: [number, number][];
   corners: { x: number; y: number; label: string }[];
   /** the same five circuit vitals at every GP, measured from telemetry */
-  stats?: { label: string; value: string; note: string }[];
+  stats?: { label: string; value: string; short?: string }[];
 };

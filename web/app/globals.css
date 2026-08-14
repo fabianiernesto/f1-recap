@@ -47,20 +47,22 @@ body {
 .ledhero-car img { width: 100%; height: auto; display: block; }
 
 /* a tight corner panel: map beside the numbers, nothing spilling down */
-.ledhero-notes { position: absolute; z-index: 3; top: 4%; right: 4.5vw;
-  display: flex; align-items: center; gap: 2.2vw; }
-.ledhero-map { width: 15vw; }
-.ledhero-map svg { width: 100%; height: auto; display: block; }
-.ledhero-stats { margin: 0; display: flex; flex-direction: column; gap: .55vh;
-  min-width: 15vw; }
-.ledhero-stats > div { display: flex; align-items: baseline;
-  justify-content: space-between; gap: 1.2vw;
-  border-bottom: 1px solid #ffffff14; padding-bottom: .55vh; }
-.ledhero-stats > div:last-child { border-bottom: none; }
-.ledhero-stats dt { font-size: 1.5vh; letter-spacing: .14em; color: #8a8f99;
-  text-transform: uppercase; }
-.ledhero-stats dd { margin: 0; font-size: 1.9vh; letter-spacing: .02em;
-  color: #ff1c12; text-transform: uppercase; white-space: nowrap; }
+/* label · circuit · number, one grid row each. The map spans the middle
+   column, so labels and numbers stay locked to the same row. */
+.ledhero-notes { position: absolute; z-index: 3; top: 3%; right: 3vw; margin: 0;
+  display: grid; grid-template-columns: auto auto minmax(11vw, auto);
+  column-gap: 1.5vw; row-gap: .4vh; align-items: center; }
+/* the map spans every row, so its height sets the height of the whole panel:
+   size it by height and the block stays clear of the headline below */
+.ledhero-map { grid-column: 2; grid-row: 1 / -1; align-self: center; }
+.ledhero-map svg { height: 27vh; width: auto; display: block; }
+.ledhero-notes dt { grid-column: 1; font-size: 1.45vh; letter-spacing: .13em;
+  color: #f2f3f5; text-transform: uppercase; }
+.ledhero-notes dd { grid-column: 3; margin: 0; font-size: 2.1vh;
+  letter-spacing: .02em; color: #ff1c12; text-transform: uppercase;
+  white-space: nowrap; }
+.ledhero-notes dd small { display: block; font-size: 1.15vh; color: #c9ced6;
+  letter-spacing: .08em; margin-top: .15vh; white-space: nowrap; }
 
 .ledhero-l1, .ledhero-l2 { position: absolute; z-index: 4;
   font-family: var(--font-pixel), monospace; font-weight: 900; color: #ff1c12;

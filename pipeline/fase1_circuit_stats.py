@@ -75,24 +75,24 @@ def main() -> None:
 
     corners = len(session.get_circuit_info().corners)
 
+    # `short` is the line that sits under the number in the hero: a handful of
+    # words, there for rhythm as much as for information
     stats = [
         {"label": "Lap length",
          "value": f"{length_km:.3f} km",
-         "note": "Official distance of one lap."},
+         "short": "Start line to start line"},
         {"label": "Corners",
          "value": str(corners),
-         "note": "Every one of them a chance to gain or lose the lap."},
+         "short": "Each one a chance to gain"},
         {"label": "Full throttle",
          "value": f"{flat_out:.0f}%",
-         "note": "How much of the lap is spent flat out. The higher it is, "
-                 "the more the engine decides."},
+         "short": "Two thirds of the lap flat out"},
         {"label": "Top speed",
          "value": f"{top_speed} km/h",
-         "note": "Fastest anybody went here all race."},
+         "short": "Fastest anybody went all race"},
         {"label": "Braking zones",
          "value": str(braking_zones),
-         "note": "Times the driver hits the brakes in a single lap. "
-                 "Every one of them is a chance to out-brake somebody."},
+         "short": "Where the overtakes happen"},
     ]
 
     track_file = OUT / "track.json"
