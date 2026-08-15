@@ -10,15 +10,138 @@
       "type": "cover",
       "lap": 0,
       "kicker": "British Grand Prix · Sprint · 17 laps",
-      "title": "Here is how it actually went",
-      "text": "42 genuine on-track passes, 0 cars that never finished. Scroll and watch it unfold."
+      "title": "Everything that happened, in order",
+      "text": "42 on-track passes, 2 pit stops, 0 cars that never finished."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Lap 1 · Lights out",
+      "title": "52 places changed hands before the first lap was done",
+      "text": "Twenty cars funnelling into the first corner on cold tyres. Most of this is the pack sorting itself out, and some of it decides the afternoon."
     },
     {
       "type": "moment",
       "lap": 2,
-      "kicker": "Lap 2 · The busiest lap",
+      "kicker": "Lap 2 · Traffic",
       "title": "16 overtakes on this lap alone",
-      "text": "The one doing most of the passing all afternoon: Leclerc, 4 moves.",
+      "text": "The pack compressed and everyone had a go: Bottas, Albon, Verstappen.",
+      "dato": {
+        "label": "Passes on lap 2",
+        "rows": [
+          [
+            "Bottas",
+            3
+          ],
+          [
+            "Albon",
+            3
+          ],
+          [
+            "Verstappen",
+            2
+          ],
+          [
+            "Stroll",
+            2
+          ],
+          [
+            "Leclerc",
+            1
+          ],
+          [
+            "Perez",
+            1
+          ],
+          [
+            "Ocon",
+            1
+          ],
+          [
+            "Piastri",
+            1
+          ],
+          [
+            "Hulkenberg",
+            1
+          ],
+          [
+            "Norris",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Lap 3 · Traffic",
+      "title": "7 overtakes on this lap alone",
+      "text": "The pack compressed and everyone had a go: Bortoleto, Alonso, Hadjar.",
+      "dato": {
+        "label": "Passes on lap 3",
+        "rows": [
+          [
+            "Bortoleto",
+            1
+          ],
+          [
+            "Alonso",
+            1
+          ],
+          [
+            "Hadjar",
+            1
+          ],
+          [
+            "Ocon",
+            1
+          ],
+          [
+            "Albon",
+            1
+          ],
+          [
+            "Piastri",
+            1
+          ],
+          [
+            "Russell",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Lap 4 · Traffic",
+      "title": "4 overtakes on this lap alone",
+      "text": "The pack compressed and everyone had a go: Leclerc, Piastri, Lawson.",
+      "dato": {
+        "label": "Passes on lap 4",
+        "rows": [
+          [
+            "Leclerc",
+            2
+          ],
+          [
+            "Piastri",
+            1
+          ],
+          [
+            "Lawson",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "The one doing the passing",
+      "title": "Leclerc: 4 overtakes",
+      "text": "More than anybody else out there, in a Ferrari.",
       "dato": {
         "label": "Most overtakes",
         "rows": [
@@ -41,6 +164,103 @@
           [
             "Bottas",
             3
+          ],
+          [
+            "Piastri",
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Conditions",
+      "title": "Track at 41°C, and falling to 32°C",
+      "text": "Hot tarmac punishes tyres and rewards whoever is gentlest with them. As it cools, the picture flips. It stayed dry.",
+      "dato": {
+        "label": "Conditions",
+        "rows": [
+          [
+            "Track temp",
+            "32-41 °C"
+          ],
+          [
+            "Air temp",
+            "21-24 °C"
+          ],
+          [
+            "Rain",
+            "No"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Stewards",
+      "title": "4 incidents looked at",
+      "text": "Turn 3 Incident Involving Cars 11 (Per) And 14 (Alo) Noted - Causing A Collision (12:05:54).",
+      "dato": {
+        "label": "Under investigation",
+        "rows": [
+          [
+            "Lap 6",
+            "TURN 3 INCIDENT INVOLVING CARS 11 (PER) AND "
+          ],
+          [
+            "Lap 7",
+            "LAP 1 TURN 9 INCIDENT INVOLVING CAR 27 (HUL)"
+          ],
+          [
+            "Lap 8",
+            "FIA STEWARDS: TURN 3 INCIDENT INVOLVING CARS"
+          ],
+          [
+            "Lap 17",
+            "TURN 15 INCIDENT INVOLVING CAR 30 (LAW) NOTE"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Lap 7 · For the lead",
+      "title": "Antonelli takes the lead from Hamilton",
+      "text": "The lead changed hands 3 times on track today, which is rarer than it sounds."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Track limits",
+      "title": "9 lap times deleted",
+      "text": "The white line is the track. Run wide and the lap simply stops counting."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Speed trap",
+      "title": "Hadjar hit 340 km/h",
+      "text": "Top speed says as much about wing level and tow as it does about the engine."
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "Lap 8 · Pit window",
+      "title": "2 stops, and the busiest lap saw 1 of them",
+      "text": "Once one car blinks, everybody has to answer. The quickest trip down the lane belonged to Stroll at 30.9s.",
+      "dato": {
+        "label": "Stops per lap",
+        "rows": [
+          [
+            "Lap 2",
+            1
+          ],
+          [
+            "Lap 14",
+            1
           ]
         ]
       }
@@ -48,11 +268,90 @@
     {
       "type": "moment",
       "lap": 8,
-      "kicker": "Lap 8 · Pit window",
-      "title": "The stops that shaped it",
-      "text": "Fastest trip down the pit lane, entry to exit: Stroll, 30.9s. When nobody gains in the pits, track position becomes the whole game.",
+      "kicker": "Penalties",
+      "title": "1 penalty calls",
+      "text": "Time added, places lost, and in some cases a result rewritten after the flag."
+    },
+    {
+      "type": "moment",
+      "lap": 9,
+      "kicker": "Stuck within a second",
+      "title": "Hadjar spent the race in somebody's mirrors",
+      "text": "Close enough for DRS for long stretches and still no way through. This is what modern F1 traffic actually looks like, and it happened to 6 drivers today.",
       "dato": {
-        "label": "Stints per compound",
+        "label": "Longest spells within a second",
+        "rows": [
+          [
+            "Hadjar",
+            "134 samples"
+          ],
+          [
+            "Bortoleto",
+            "126 samples"
+          ],
+          [
+            "Sainz",
+            "118 samples"
+          ],
+          [
+            "Piastri",
+            "114 samples"
+          ],
+          [
+            "Leclerc",
+            "107 samples"
+          ],
+          [
+            "Antonelli",
+            "80 samples"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 11,
+      "kicker": "True pace",
+      "title": "Antonelli had the quickest car underneath him",
+      "text": "Ranked on median clean lap, which strips out traffic, safety cars and one-off heroics. It does not always match the result.",
+      "dato": {
+        "label": "Median clean lap",
+        "rows": [
+          [
+            "Antonelli",
+            "1:32.330"
+          ],
+          [
+            "Hamilton",
+            "1:32.418"
+          ],
+          [
+            "Russell",
+            "1:32.456"
+          ],
+          [
+            "Leclerc",
+            "1:32.604"
+          ],
+          [
+            "Norris",
+            "1:32.663"
+          ],
+          [
+            "Piastri",
+            "1:32.954"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 17,
+      "kicker": "Tyres",
+      "title": "Lawson nursed one set for 16 laps",
+      "text": "On the mediums. Every lap you stretch is a lap you do not lose in the pits, until the rubber gives up.",
+      "dato": {
+        "label": "Stints by compound",
         "rows": [
           [
             "MEDIUM",
@@ -68,16 +367,106 @@
     {
       "type": "moment",
       "lap": 17,
-      "kicker": "Lap 17 · Fastest lap",
-      "title": "Antonelli: 91.607s",
-      "text": "The quickest anyone went all day, in a Mercedes."
+      "kicker": "Yellow flags",
+      "title": "32 yellow flag calls",
+      "text": "Debris, spins and cars parked in dangerous places. Every one of them costs lap time to whoever is unlucky enough to arrive.",
+      "dato": {
+        "label": "Most affected sectors",
+        "rows": [
+          [
+            "Sector 3",
+            5
+          ],
+          [
+            "Sector 15",
+            4
+          ],
+          [
+            "Sector 12",
+            4
+          ],
+          [
+            "Sector 2",
+            3
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
       "lap": 17,
-      "kicker": "Lap 17 · Chequered flag",
+      "kicker": "Lap 17 · Fastest lap",
+      "title": "Antonelli: 1:31.607",
+      "text": "The quickest anybody went all afternoon, in a Mercedes.",
+      "dato": {
+        "label": "Best sector times",
+        "rows": [
+          [
+            "Sector 1 · Antonelli",
+            "29.367s"
+          ],
+          [
+            "Sector 2 · Hamilton",
+            "36.754s"
+          ],
+          [
+            "Sector 3 · Antonelli",
+            "24.923s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 17,
+      "kicker": "Chequered flag",
       "title": "Antonelli wins it",
-      "text": "Antonelli brings the Mercedes home first, ahead of Hamilton and Norris."
+      "text": "P1 Antonelli · P2 Hamilton · P3 Norris. Hamilton finished 2.745s behind.",
+      "dato": {
+        "label": "Points scored",
+        "rows": [
+          [
+            "Antonelli",
+            "8"
+          ],
+          [
+            "Hamilton",
+            "7"
+          ],
+          [
+            "Norris",
+            "6"
+          ],
+          [
+            "Russell",
+            "5"
+          ],
+          [
+            "Leclerc",
+            "4"
+          ],
+          [
+            "Verstappen",
+            "3"
+          ],
+          [
+            "Piastri",
+            "2"
+          ],
+          [
+            "Lawson",
+            "1"
+          ],
+          [
+            "Hadjar",
+            "0"
+          ],
+          [
+            "Lindblad",
+            "0"
+          ]
+        ]
+      }
     }
   ]
 }

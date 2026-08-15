@@ -18,28 +18,7 @@
       "lap": 1,
       "kicker": "Pole position",
       "title": "Antonelli takes it",
-      "text": "By 0.175s over Leclerc. That is less time than a blink."
-    },
-    {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Q1 · First cut",
-      "title": "Out before it got serious",
-      "text": "Albon (P16), Ocon (P17), Bottas (P18), Colapinto (P19), Perez (P20)."
-    },
-    {
-      "type": "moment",
-      "lap": 3,
-      "kicker": "Q2 · Second cut",
-      "title": "So close to the top ten",
-      "text": "Bortoleto (P11), Gasly (P12), Hulkenberg (P13), Bearman (P14), Sainz (P15)."
-    },
-    {
-      "type": "moment",
-      "lap": 4,
-      "kicker": "The front rows",
-      "title": "How Sunday starts",
-      "text": "P1 Antonelli · P2 Leclerc · P3 Hamilton · P4 Russell · P5 Hadjar · P6 Norris",
+      "text": "By 0.175s over Leclerc. Less time than a blink.",
       "dato": {
         "label": "Top ten",
         "rows": [
@@ -85,6 +64,147 @@
           ]
         ]
       }
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · The cut",
+      "title": "Out before it got serious",
+      "text": "Albon (P16), Ocon (P17), Bottas (P18), Colapinto (P19), Perez (P20).",
+      "dato": {
+        "label": "Knocked out in Q1",
+        "rows": [
+          [
+            "Albon",
+            "P16"
+          ],
+          [
+            "Ocon",
+            "P17"
+          ],
+          [
+            "Bottas",
+            "P18"
+          ],
+          [
+            "Colapinto",
+            "P19"
+          ],
+          [
+            "Perez",
+            "P20"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · The cut",
+      "title": "So close to the top ten",
+      "text": "Bortoleto (P11), Gasly (P12), Hulkenberg (P13), Bearman (P14), Sainz (P15).",
+      "dato": {
+        "label": "Knocked out in Q2",
+        "rows": [
+          [
+            "Bortoleto",
+            "P11"
+          ],
+          [
+            "Gasly",
+            "P12"
+          ],
+          [
+            "Hulkenberg",
+            "P13"
+          ],
+          [
+            "Bearman",
+            "P14"
+          ],
+          [
+            "Sainz",
+            "P15"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Track limits",
+      "title": "9 laps thrown in the bin",
+      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
+      "dato": {
+        "label": "Deleted laps",
+        "rows": [
+          [
+            "CAR 55 (SAI) TIME 1:33.460 DELETED - TRA",
+            "deleted"
+          ],
+          [
+            "CAR 14 (ALO) LAP DELETED - TRACK LIMITS ",
+            "deleted"
+          ],
+          [
+            "CAR 63 (RUS) LAP DELETED - TRACK LIMITS ",
+            "deleted"
+          ],
+          [
+            "CAR 43 (COL) LAP DELETED - TRACK LIMITS ",
+            "deleted"
+          ],
+          [
+            "CAR 11 (PER) TIME 1:31.451 DELETED - TRA",
+            "deleted"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Hamilton was quickest through the trap: 317 km/h",
+      "text": "Qualifying trim, wings trimmed back, nothing to lose."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Sector by sector",
+      "title": "Nobody owned the whole lap",
+      "text": "The perfect lap of the day was never actually driven: it lives in three different cars.",
+      "dato": {
+        "label": "Fastest sectors",
+        "rows": [
+          [
+            "Sector 1 · Antonelli",
+            "28.292s"
+          ],
+          [
+            "Sector 2 · Antonelli",
+            "35.521s"
+          ],
+          [
+            "Sector 3 · Hamilton",
+            "24.201s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Interruptions",
+      "title": "20 yellow flag calls during the session",
+      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "The grid",
+      "title": "How Sunday starts",
+      "text": "P1 Antonelli · P2 Leclerc · P3 Hamilton · P4 Russell · P5 Hadjar · P6 Norris"
     }
   ]
 }

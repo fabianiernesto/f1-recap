@@ -11,8 +11,8 @@
       "slug": "fp1",
       "label": "Practice 1",
       "kind": "practice",
-      "headline": "Rodaje and tyre work. You can skip this one.",
-      "moments": 3,
+      "headline": "613 laps run, no points at stake",
+      "moments": 8,
       "laps": 33
     },
     {
@@ -20,7 +20,7 @@
       "label": "Sprint Qualifying",
       "kind": "quali",
       "headline": "Hamilton on pole",
-      "moments": 5,
+      "moments": 9,
       "laps": 15
     },
     {
@@ -28,7 +28,7 @@
       "label": "Sprint",
       "kind": "race",
       "headline": "42 on-track passes",
-      "moments": 5,
+      "moments": 19,
       "laps": 17
     },
     {
@@ -36,7 +36,7 @@
       "label": "Qualifying",
       "kind": "quali",
       "headline": "Antonelli on pole",
-      "moments": 5,
+      "moments": 9,
       "laps": 20
     },
     {
@@ -44,67 +44,10 @@
       "label": "Race",
       "kind": "race",
       "headline": "153 on-track passes, 2 safety car",
-      "moments": 7,
+      "moments": 26,
       "laps": 52
     }
   ],
-  "rating": {
-    "score": 8.4,
-    "verdict": "Find two hours. Watch this one properly.",
-    "spoiler_free": true
-  },
-  "heat": [
-    0,
-    6,
-    2,
-    0,
-    2,
-    1,
-    4,
-    4,
-    0,
-    0,
-    0,
-    0,
-    2,
-    1,
-    0,
-    0,
-    2,
-    2,
-    4,
-    2,
-    4,
-    7,
-    5,
-    6,
-    10,
-    8,
-    2,
-    3,
-    2,
-    3,
-    2,
-    4,
-    3,
-    4,
-    3,
-    2,
-    7,
-    6,
-    2,
-    7,
-    6,
-    3,
-    4,
-    4,
-    4,
-    5,
-    4,
-    4,
-    1,
-    0,
-    5,
-    8
-  ]
+  "rating": null,
+  "heat": []
 }

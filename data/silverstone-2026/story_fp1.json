@@ -11,21 +11,131 @@
       "lap": 0,
       "kicker": "British Grand Prix · Practice 1",
       "title": "Practice, honestly",
-      "text": "Nobody wins anything here. What it does tell you is who looks comfortable and who is fighting the car."
+      "text": "613 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."
     },
     {
       "type": "moment",
-      "lap": 25,
-      "kicker": "Fastest of the session",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 25",
       "title": "Hamilton: 1:29.260",
-      "text": "In a Ferrari. Take practice times with salt: nobody shows their hand yet."
+      "text": "In a Ferrari. Take practice times with salt: fuel loads are secret and nobody shows their hand."
     },
     {
       "type": "moment",
       "lap": 2,
-      "kicker": "What actually happened",
-      "title": "4 flags, 613 laps run",
-      "text": "Enough interruptions to lose track time, which matters more than it sounds."
+      "kicker": "Who did the work",
+      "title": "Sainz racked up 32 laps",
+      "text": "Track time is the currency of a Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Sainz",
+            32
+          ],
+          [
+            "Hamilton",
+            31
+          ],
+          [
+            "Lindblad",
+            31
+          ],
+          [
+            "Leclerc",
+            30
+          ],
+          [
+            "Russell",
+            30
+          ],
+          [
+            "Albon",
+            29
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Long-run pace",
+      "title": "Sainz looked strongest over a stint",
+      "text": "Average clean lap across the session. This is the number teams actually care about on a Friday, not the headline time.",
+      "dato": {
+        "label": "Average clean lap",
+        "rows": [
+          [
+            "Sainz",
+            "1:47.068"
+          ],
+          [
+            "Russell",
+            "1:47.610"
+          ],
+          [
+            "Norris",
+            "1:48.252"
+          ],
+          [
+            "Antonelli",
+            "1:48.750"
+          ],
+          [
+            "Colapinto",
+            "1:49.043"
+          ],
+          [
+            "Leclerc",
+            "1:49.469"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice on a Friday is a rehearsal for Sunday's plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "HARD",
+            56
+          ],
+          [
+            "SOFT",
+            23
+          ],
+          [
+            "MEDIUM",
+            13
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Lawson topped the trap at 325 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "2 flag calls",
+      "text": "Every interruption costs somebody a run they had planned."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 38°C and 43°C",
+      "text": "Friday conditions rarely match Sunday, which is why the times you see here mislead so often."
     }
   ]
 }

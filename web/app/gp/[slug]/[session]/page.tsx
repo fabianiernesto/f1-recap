@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { hasSession, listGPs, loadStory, loadTrack, loadWeekend } from "@/lib/data";
+import { hasSession, loadStory, loadTrack, listGPs, loadWeekend } from "@/lib/data";
 import FinalPoster from "@/components/FinalPoster";
 import RaceScroll from "@/components/RaceScroll";
 
@@ -10,23 +10,23 @@ export function generateStaticParams() {
   );
 }
 
+/** One session, told in full. There is no depth switch any more: everybody
+ *  gets every moment the data supports. */
 export default async function SessionPage({
   params,
-  searchParams,
 }: PageProps<"/gp/[slug]/[session]">) {
   const { slug, session } = await params;
   if (!hasSession(slug, session)) notFound();
-  // depth is resolved server-side: the HTML arrives already filtered
-  const { d } = await searchParams;
-  const depth = typeof d === "string" ? d : "medium";
   const story = loadStory(slug, session);
   const track = loadTrack(slug);
   return (
     <>
-      <Link href={`/gp/${slug}`} className="back-link">
-        ← Weekend
-      </Link>
-      <RaceScroll story={story} track={track} depth={depth} />
+      <div className="hub-top">
+        <Link href={`/gp/${slug}/weekend`} className="hub-back">
+          ← {story.circuit} · all sessions
+        </Link>
+      </div>
+      <RaceScroll story={story} track={track} />
       {session === "race" && <FinalPoster story={story} track={track} />}
     </>
   );

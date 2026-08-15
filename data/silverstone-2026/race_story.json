@@ -10,15 +10,164 @@
       "type": "cover",
       "lap": 0,
       "kicker": "British Grand Prix · Race · 52 laps",
-      "title": "Here is how it actually went",
-      "text": "153 genuine on-track passes, 3 cars that never finished and 2 safety car. Scroll and watch it unfold."
+      "title": "Everything that happened, in order",
+      "text": "153 on-track passes, 51 pit stops, 3 cars that never finished and 2 safety car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Lap 1 · Lights out",
+      "title": "51 places changed hands before the first lap was done",
+      "text": "Twenty cars funnelling into the first corner on cold tyres. Most of this is the pack sorting itself out, and some of it decides the afternoon."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Yellow flags",
+      "title": "30 yellow flag calls",
+      "text": "Debris, spins and cars parked in dangerous places. Every one of them costs lap time to whoever is unlucky enough to arrive.",
+      "dato": {
+        "label": "Most affected sectors",
+        "rows": [
+          [
+            "Sector 15",
+            7
+          ],
+          [
+            "Sector 11",
+            4
+          ],
+          [
+            "Sector 10",
+            4
+          ],
+          [
+            "Sector 13",
+            2
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
       "lap": 2,
-      "kicker": "Lap 2 · The busiest lap",
+      "kicker": "Lap 2 · Traffic",
       "title": "16 overtakes on this lap alone",
-      "text": "The one doing most of the passing all afternoon: Bearman, 15 moves.",
+      "text": "The pack compressed and everyone had a go: Bortoleto, Hulkenberg, Colapinto.",
+      "dato": {
+        "label": "Passes on lap 2",
+        "rows": [
+          [
+            "Bortoleto",
+            2
+          ],
+          [
+            "Hulkenberg",
+            2
+          ],
+          [
+            "Colapinto",
+            2
+          ],
+          [
+            "Perez",
+            2
+          ],
+          [
+            "Bottas",
+            2
+          ],
+          [
+            "Stroll",
+            2
+          ],
+          [
+            "Bearman",
+            2
+          ],
+          [
+            "Alonso",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Stewards",
+      "title": "17 incidents looked at",
+      "text": "Turn 6 Incident Involving Cars 23 (Alb) And 87 (Bea) Noted (15:04:34).",
+      "dato": {
+        "label": "Under investigation",
+        "rows": [
+          [
+            "Lap 3",
+            "TURN 6 INCIDENT INVOLVING CARS 23 (ALB) AND "
+          ],
+          [
+            "Lap 3",
+            "FIA STEWARDS: TURN 6 INCIDENT INVOLVING CARS"
+          ],
+          [
+            "Lap 6",
+            "INCIDENT INVOLVING CAR 44 (HAM) NOTED - FALS"
+          ],
+          [
+            "Lap 7",
+            "FIA STEWARDS: INCIDENT INVOLVING CAR 44 (HAM"
+          ],
+          [
+            "Lap 36",
+            "TURN 15 INCIDENT INVOLVING CARS 63 (RUS) AND"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Penalties",
+      "title": "11 penalty calls",
+      "text": "Time added, places lost, and in some cases a result rewritten after the flag."
+    },
+    {
+      "type": "moment",
+      "lap": 9,
+      "kicker": "Track limits",
+      "title": "23 lap times deleted",
+      "text": "The white line is the track. Run wide and the lap simply stops counting."
+    },
+    {
+      "type": "moment",
+      "lap": 15,
+      "kicker": "Conditions",
+      "title": "Track at 44°C, and falling to 38°C",
+      "text": "Hot tarmac punishes tyres and rewards whoever is gentlest with them. As it cools, the picture flips. It stayed dry.",
+      "dato": {
+        "label": "Conditions",
+        "rows": [
+          [
+            "Track temp",
+            "38-44 °C"
+          ],
+          [
+            "Air temp",
+            "23-26 °C"
+          ],
+          [
+            "Rain",
+            "No"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 17,
+      "kicker": "The one doing the passing",
+      "title": "Bearman: 15 overtakes",
+      "text": "More than anybody else out there, in a Haas F1 Team.",
       "dato": {
         "label": "Most overtakes",
         "rows": [
@@ -41,6 +190,143 @@
           [
             "Verstappen",
             10
+          ],
+          [
+            "Russell",
+            10
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 22,
+      "kicker": "Lap 22 · Traffic",
+      "title": "12 overtakes on this lap alone",
+      "text": "The pack compressed and everyone had a go: Piastri, Bearman, Sainz.",
+      "dato": {
+        "label": "Passes on lap 22",
+        "rows": [
+          [
+            "Piastri",
+            3
+          ],
+          [
+            "Bearman",
+            2
+          ],
+          [
+            "Sainz",
+            2
+          ],
+          [
+            "Hulkenberg",
+            2
+          ],
+          [
+            "Bottas",
+            2
+          ],
+          [
+            "Perez",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 23,
+      "kicker": "Speed trap",
+      "title": "Hamilton hit 351 km/h",
+      "text": "Top speed says as much about wing level and tow as it does about the engine."
+    },
+    {
+      "type": "moment",
+      "lap": 25,
+      "kicker": "Lap 25 · For the lead",
+      "title": "Antonelli takes the lead from Leclerc",
+      "text": "The lead changed hands 2 times on track today, which is rarer than it sounds."
+    },
+    {
+      "type": "moment",
+      "lap": 28,
+      "kicker": "Stuck within a second",
+      "title": "Alonso spent the race in somebody's mirrors",
+      "text": "Close enough for DRS for long stretches and still no way through. This is what modern F1 traffic actually looks like, and it happened to 6 drivers today.",
+      "dato": {
+        "label": "Longest spells within a second",
+        "rows": [
+          [
+            "Alonso",
+            "172 samples"
+          ],
+          [
+            "Bearman",
+            "138 samples"
+          ],
+          [
+            "Hamilton",
+            "120 samples"
+          ],
+          [
+            "Hulkenberg",
+            "103 samples"
+          ],
+          [
+            "Antonelli",
+            "103 samples"
+          ],
+          [
+            "Verstappen",
+            "88 samples"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 31,
+      "kicker": "Blue flags",
+      "title": "110 blue flags waved",
+      "text": "That is how often a backmarker had to move aside. Lapped traffic decides more races than anybody admits."
+    },
+    {
+      "type": "moment",
+      "lap": 34,
+      "kicker": "Lap 34 · Traffic",
+      "title": "9 overtakes on this lap alone",
+      "text": "The pack compressed and everyone had a go: Russell, Verstappen, Hamilton.",
+      "dato": {
+        "label": "Passes on lap 34",
+        "rows": [
+          [
+            "Russell",
+            2
+          ],
+          [
+            "Verstappen",
+            2
+          ],
+          [
+            "Hamilton",
+            1
+          ],
+          [
+            "Sainz",
+            1
+          ],
+          [
+            "Norris",
+            1
+          ],
+          [
+            "Piastri",
+            1
+          ],
+          [
+            "Hadjar",
+            1
           ]
         ]
       }
@@ -49,10 +335,54 @@
       "type": "moment",
       "lap": 35,
       "kicker": "Lap 35 · Pit window",
-      "title": "The stops that shaped it",
-      "text": "Fastest trip down the pit lane, entry to exit: Russell, 28.3s. When nobody gains in the pits, track position becomes the whole game.",
+      "title": "51 stops, and the busiest lap saw 8 of them",
+      "text": "Once one car blinks, everybody has to answer. The quickest trip down the lane belonged to Russell at 28.3s.",
       "dato": {
-        "label": "Stints per compound",
+        "label": "Stops per lap",
+        "rows": [
+          [
+            "Lap 1",
+            1
+          ],
+          [
+            "Lap 2",
+            1
+          ],
+          [
+            "Lap 14",
+            1
+          ],
+          [
+            "Lap 17",
+            2
+          ],
+          [
+            "Lap 18",
+            1
+          ],
+          [
+            "Lap 19",
+            1
+          ],
+          [
+            "Lap 20",
+            2
+          ],
+          [
+            "Lap 21",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 35,
+      "kicker": "Tyres",
+      "title": "Antonelli nursed one set for 34 laps",
+      "text": "On the mediums. Every lap you stretch is a lap you do not lose in the pits, until the rubber gives up.",
+      "dato": {
+        "label": "Stints by compound",
         "rows": [
           [
             "MEDIUM",
@@ -71,31 +401,157 @@
     },
     {
       "type": "moment",
+      "lap": 36,
+      "kicker": "True pace",
+      "title": "Leclerc had the quickest car underneath him",
+      "text": "Ranked on median clean lap, which strips out traffic, safety cars and one-off heroics. It does not always match the result.",
+      "dato": {
+        "label": "Median clean lap",
+        "rows": [
+          [
+            "Leclerc",
+            "1:34.056"
+          ],
+          [
+            "Verstappen",
+            "1:34.233"
+          ],
+          [
+            "Antonelli",
+            "1:34.268"
+          ],
+          [
+            "Hamilton",
+            "1:34.518"
+          ],
+          [
+            "Russell",
+            "1:34.572"
+          ],
+          [
+            "Norris",
+            "1:34.836"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 37,
+      "kicker": "Lap 37 · Retirement",
+      "title": "Hulkenberg is out",
+      "text": "The Audi stops after 37 laps. Zero points weekends are where title fights quietly bleed."
+    },
+    {
+      "type": "moment",
       "lap": 37,
       "kicker": "Lap 37 · Fastest lap",
-      "title": "Antonelli: 91.777s",
-      "text": "The quickest anyone went all day, in a Mercedes."
+      "title": "Antonelli: 1:31.777",
+      "text": "The quickest anybody went all afternoon, in a Mercedes.",
+      "dato": {
+        "label": "Best sector times",
+        "rows": [
+          [
+            "Sector 1 · Hamilton",
+            "28.967s"
+          ],
+          [
+            "Sector 2 · Antonelli",
+            "37.119s"
+          ],
+          [
+            "Sector 3 · Verstappen",
+            "24.964s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 39,
+      "kicker": "Off the script",
+      "title": "Albon stopped 5 times",
+      "text": "Three stops when the field is doing one or two means something went wrong, or somebody gambled."
+    },
+    {
+      "type": "moment",
+      "lap": 44,
+      "kicker": "Lap 44 · Retirement",
+      "title": "Albon is out",
+      "text": "The Williams stops after 44 laps. Zero points weekends are where title fights quietly bleed."
     },
     {
       "type": "moment",
       "lap": 47,
-      "kicker": "Lap 47 · Out",
-      "title": "Verstappen's day ends early",
-      "text": "Also out: Albon, Hulkenberg. Zero points weekends are where title fights quietly bleed."
+      "kicker": "Lap 47 · Retirement",
+      "title": "Verstappen is out",
+      "text": "The Red Bull Racing stops after 47 laps. Zero points weekends are where title fights quietly bleed."
     },
     {
       "type": "moment",
       "lap": 48,
       "kicker": "Lap 48 of 52 · Safety Car",
       "title": "Every gap on track, erased",
-      "text": "Whatever anyone had built up to here was wiped out in one lap, and the race restarted nose to tail."
+      "text": "Neutralised until lap 51. Whatever anybody had built up to here was wiped out, and the race restarted nose to tail."
+    },
+    {
+      "type": "moment",
+      "lap": 51,
+      "kicker": "Lap 51 of 52 · Safety Car",
+      "title": "Every gap on track, erased",
+      "text": "Neutralised until lap 51. Whatever anybody had built up to here was wiped out, and the race restarted nose to tail."
     },
     {
       "type": "moment",
       "lap": 52,
-      "kicker": "Lap 52 · Chequered flag",
+      "kicker": "Chequered flag",
       "title": "Leclerc wins it",
-      "text": "Leclerc brings the Ferrari home first, ahead of Russell and Hamilton."
+      "text": "P1 Leclerc · P2 Russell · P3 Hamilton. Russell finished 0.427s behind.",
+      "dato": {
+        "label": "Points scored",
+        "rows": [
+          [
+            "Leclerc",
+            "25"
+          ],
+          [
+            "Russell",
+            "18"
+          ],
+          [
+            "Hamilton",
+            "15"
+          ],
+          [
+            "Norris",
+            "12"
+          ],
+          [
+            "Hadjar",
+            "10"
+          ],
+          [
+            "Lawson",
+            "8"
+          ],
+          [
+            "Lindblad",
+            "6"
+          ],
+          [
+            "Bortoleto",
+            "4"
+          ],
+          [
+            "Colapinto",
+            "2"
+          ],
+          [
+            "Gasly",
+            "1"
+          ]
+        ]
+      }
     }
   ],
   "result": {

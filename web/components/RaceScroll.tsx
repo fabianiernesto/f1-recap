@@ -3,30 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CardData, Story, Track } from "@/lib/types";
 
-/** ?d=short keeps only the headline moments; medium/full show everything. */
-function filterByDepth(cards: CardData[], depth: string): CardData[] {
-  if (depth !== "short") return cards;
-  const priority = (c: CardData) => {
-    const k = (c.kicker || "").toLowerCase();
-    if (k.includes("chequered")) return 0;
-    if (k.includes("safety")) return 1;
-    if (k.includes("busiest")) return 2;
-    if (k.includes("pole")) return 2;
-    if (k.includes("fastest")) return 3;
-    return 9;
-  };
-  const moments = cards
-    .filter((c) => c.type === "moment")
-    .sort((a, b) => priority(a) - priority(b))
-    .slice(0, 4)
-    .sort((a, b) => (a.lap ?? 0) - (b.lap ?? 0));
-  return [
-    ...cards.filter((c) => c.type === "cover"),
-    ...moments,
-    ...cards.filter((c) => c.type === "share"),
-  ];
-}
-
 /* ---------- helpers ---------- */
 
 function variant(c: CardData): string {
@@ -51,16 +27,11 @@ function fmtTime(s: number): string {
 export default function RaceScroll({
   story,
   track,
-  depth = "medium",
 }: {
   story: Story;
   track: Track;
-  depth?: string;
 }) {
-  const cards = useMemo(
-    () => filterByDepth(story.cards, depth),
-    [story.cards, depth]
-  );
+  const cards = story.cards;
   const [lap, setLap] = useState(0);
   const [activeIdx, setActiveIdx] = useState(0);
   const [litLabel, setLitLabel] = useState(-1);
@@ -236,14 +207,14 @@ export default function RaceScroll({
 
       <div className="trackwrap">
         <svg viewBox={`0 0 ${track.view} ${track.view}`}>
-          <path d={geo.d} fill="none" stroke="#464B55" strokeWidth={21} strokeLinejoin="round" />
-          <path d={geo.d} fill="none" stroke="var(--carbon-2)" strokeWidth={16} strokeLinejoin="round" />
+          {/* the circuit in the hero's own line-art: thin, red, unlit until driven */}
+          <path d={geo.d} fill="none" stroke="#3a0f0e" strokeWidth={6} strokeLinejoin="round" />
           <path
             ref={traceRef}
             d={geo.d}
             fill="none"
-            stroke="var(--accent)"
-            strokeWidth={5}
+            stroke="var(--led)"
+            strokeWidth={6}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeDasharray={geo.total}

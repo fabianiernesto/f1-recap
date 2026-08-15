@@ -18,28 +18,7 @@
       "lap": 1,
       "kicker": "Pole position",
       "title": "Hamilton takes it",
-      "text": "By 0.011s over Antonelli. That is less time than a blink."
-    },
-    {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Q1 · First cut",
-      "title": "Out before it got serious",
-      "text": "Albon (P16), Bearman (P17), Ocon (P18), Perez (P19), Bottas (P20)."
-    },
-    {
-      "type": "moment",
-      "lap": 3,
-      "kicker": "Q2 · Second cut",
-      "title": "So close to the top ten",
-      "text": "Gasly (P11), Bortoleto (P12), Hulkenberg (P13), Colapinto (P14), Sainz (P15)."
-    },
-    {
-      "type": "moment",
-      "lap": 4,
-      "kicker": "The front rows",
-      "title": "How Sunday starts",
-      "text": "P1 Hamilton · P2 Antonelli · P3 Verstappen · P4 Leclerc · P5 Russell · P6 Norris",
+      "text": "By 0.011s over Antonelli. Less time than a blink.",
       "dato": {
         "label": "Top ten",
         "rows": [
@@ -85,6 +64,131 @@
           ]
         ]
       }
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · The cut",
+      "title": "Out before it got serious",
+      "text": "Albon (P16), Bearman (P17), Ocon (P18), Perez (P19), Bottas (P20).",
+      "dato": {
+        "label": "Knocked out in Q1",
+        "rows": [
+          [
+            "Albon",
+            "P16"
+          ],
+          [
+            "Bearman",
+            "P17"
+          ],
+          [
+            "Ocon",
+            "P18"
+          ],
+          [
+            "Perez",
+            "P19"
+          ],
+          [
+            "Bottas",
+            "P20"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · The cut",
+      "title": "So close to the top ten",
+      "text": "Gasly (P11), Bortoleto (P12), Hulkenberg (P13), Colapinto (P14), Sainz (P15).",
+      "dato": {
+        "label": "Knocked out in Q2",
+        "rows": [
+          [
+            "Gasly",
+            "P11"
+          ],
+          [
+            "Bortoleto",
+            "P12"
+          ],
+          [
+            "Hulkenberg",
+            "P13"
+          ],
+          [
+            "Colapinto",
+            "P14"
+          ],
+          [
+            "Sainz",
+            "P15"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Track limits",
+      "title": "1 laps thrown in the bin",
+      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
+      "dato": {
+        "label": "Deleted laps",
+        "rows": [
+          [
+            "CAR 18 (STR) TIME 1:33.438 DELETED - TRA",
+            "deleted"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Hamilton was quickest through the trap: 308 km/h",
+      "text": "Qualifying trim, wings trimmed back, nothing to lose."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Sector by sector",
+      "title": "Nobody owned the whole lap",
+      "text": "The perfect lap of the day was never actually driven: it lives in three different cars.",
+      "dato": {
+        "label": "Fastest sectors",
+        "rows": [
+          [
+            "Sector 1 · Antonelli",
+            "28.094s"
+          ],
+          [
+            "Sector 2 · Antonelli",
+            "35.623s"
+          ],
+          [
+            "Sector 3 · Norris",
+            "24.512s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Interruptions",
+      "title": "21 yellow flag calls during the session",
+      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "The grid",
+      "title": "How Sunday starts",
+      "text": "P1 Hamilton · P2 Antonelli · P3 Verstappen · P4 Leclerc · P5 Russell · P6 Norris"
     }
   ]
 }
