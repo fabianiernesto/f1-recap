@@ -454,16 +454,16 @@ body {
 
 .home-hero { position: relative; padding: 9vh 0 10vh; }
 /* the driver holds the right of the hero, lit on black and blended into it */
-.home-figure { position: absolute; z-index: 0; right: -5vw; top: 50%;
-  transform: translateY(-50%); width: min(46vw, 760px); pointer-events: none; }
+.home-figure { position: absolute; z-index: 0; right: -7vw; top: 48%;
+  transform: translateY(-50%); width: min(58vw, 980px); pointer-events: none; }
 .home-figure img { width: 100%; height: auto; display: block;
-  mix-blend-mode: screen; filter: contrast(1.05) saturate(1.05);
+  mix-blend-mode: screen; filter: contrast(1.08) saturate(1.08) brightness(1.04);
   -webkit-mask-image:
-    linear-gradient(to bottom, #0000 0%, #000 10%, #000 88%, #0000 100%),
-    linear-gradient(to right, #0000 0%, #000a 22%, #000 55%);
+    linear-gradient(to bottom, #0000 0%, #000 8%, #000 90%, #0000 100%),
+    linear-gradient(to right, #0000 0%, #000c 10%, #000 24%);
   mask-image:
-    linear-gradient(to bottom, #0000 0%, #000 10%, #000 88%, #0000 100%),
-    linear-gradient(to right, #0000 0%, #000a 22%, #000 55%);
+    linear-gradient(to bottom, #0000 0%, #000 8%, #000 90%, #0000 100%),
+    linear-gradient(to right, #0000 0%, #000c 10%, #000 24%);
   -webkit-mask-composite: source-in; mask-composite: intersect; }
 .home-hero h1, .home-hero p { position: relative; z-index: 1; }
 @media (max-width: 900px) { .home-figure { display: none; } }
@@ -471,9 +471,12 @@ body {
   font-weight: 900; color: var(--led); text-transform: uppercase;
   line-height: .95; text-shadow: 0 0 14px #ff1c1240;
   animation: led-breathe 6s ease-in-out infinite; }
-.home-hero .home-l1 { display: block; font-size: clamp(44px, 8.6vw, 128px); }
-.home-hero .home-l2 { display: block; font-size: clamp(44px, 8.6vw, 128px);
-  margin-left: clamp(60px, 16vw, 300px); margin-top: 1.4vh; }
+/* the headline owns the left half only — it must never run into the driver */
+.home-hero h1 { max-width: 58vw; }
+.home-hero .home-l1 { display: block; font-size: clamp(40px, 7.2vw, 112px);
+  white-space: nowrap; }
+.home-hero .home-l2 { display: block; font-size: clamp(40px, 7.2vw, 112px);
+  margin-left: clamp(30px, 5vw, 100px); margin-top: 1.4vh; white-space: nowrap; }
 .home-hero p { max-width: 54ch; margin: 4vh 0 0; font-family: var(--font-mono);
   font-size: 11.5px; line-height: 1.9; letter-spacing: .06em; color: #8a8f99;
   text-transform: uppercase; }
