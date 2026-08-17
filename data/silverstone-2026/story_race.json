@@ -93,6 +93,20 @@
       }
     },
     {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Colapinto starts P19. Where does he finish?",
+      "text": "He is in a car that belongs further up the road than this, and he has the whole afternoon to prove it.",
+      "options": [
+        "On the podium",
+        "Somewhere in the points",
+        "Out of the points"
+      ],
+      "answer": "Somewhere in the points",
+      "reveal": "P19 to P9, 10 places, and almost none of it on television. This is the drive nobody will talk about on Monday."
+    },
+    {
       "type": "moment",
       "lap": 3,
       "kicker": "Stewards",
@@ -197,6 +211,20 @@
           ]
         ]
       }
+    },
+    {
+      "type": "prediction",
+      "lap": 20,
+      "kicker": "Call it before it happens",
+      "title": "Who has the fastest lap on the board at the flag?",
+      "text": "It almost always lands late, when the car is light and the track has rubber all over it, and it is worth a point to whoever finishes in the top ten.",
+      "options": [
+        "Antonelli",
+        "Leclerc",
+        "Russell"
+      ],
+      "answer": "Antonelli",
+      "reveal": "Antonelli on lap 37, 1:31.777, in a Mercedes."
     },
     {
       "type": "moment",
@@ -568,11 +596,32 @@
       "text": "Three stops when the field is doing one or two means something went wrong, or somebody gambled."
     },
     {
+      "type": "prediction",
+      "lap": 42,
+      "kicker": "Call it before it happens",
+      "title": "One of these three does not see the chequered flag. Who?",
+      "text": "Nothing on the timing screens says it is coming. That is rather the point of mechanical failure.",
+      "options": [
+        "Verstappen",
+        "Leclerc",
+        "Russell"
+      ],
+      "answer": "Verstappen",
+      "reveal": "Verstappen, on lap 47 of 52, the Red Bull Racing car stopping without warning."
+    },
+    {
       "type": "moment",
       "lap": 44,
       "kicker": "Lap 44 · Retirement",
       "title": "Albon is out",
       "text": "The Williams stops after 44 laps. Zero points weekends are where title fights quietly bleed."
+    },
+    {
+      "type": "moment",
+      "lap": 46,
+      "kicker": "Backwards",
+      "title": "Antonelli went the other way: 14 places lost",
+      "text": "Strategy, damage or simply a car that would not do what it did on Saturday."
     },
     {
       "type": "moment",
@@ -636,6 +685,13 @@
       "kicker": "Lap 48 of 52 · Safety Car",
       "title": "Every gap on track, erased",
       "text": "Neutralised until lap 51. Whatever anybody had built up to here was wiped out, and the race restarted nose to tail."
+    },
+    {
+      "type": "moment",
+      "lap": 48,
+      "kicker": "The drive nobody talked about",
+      "title": "Colapinto: P19 on the grid, P9 at the flag",
+      "text": "10 places gained, one pass at a time, most of them nowhere near a TV camera."
     },
     {
       "type": "decision",

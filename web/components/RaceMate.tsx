@@ -14,7 +14,7 @@ import type { MateThread } from "@/lib/types";
 
 type Line = { who: "them" | "you"; text: string };
 
-const MATE = "Sam";
+const MATE = "Alfred";
 
 export default function RaceMate({
   thread,

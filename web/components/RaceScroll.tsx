@@ -337,8 +337,8 @@ export default function RaceScroll({
                             }`}
                           >
                             {picks[i] === c.answer
-                              ? "✔ CALLED IT. HERE'S HOW IT WENT DOWN:"
-                              : "✘ NOT QUITE. HERE'S WHAT ACTUALLY HAPPENED:"}
+                              ? "You called it"
+                              : "Not this time"}
                           </div>
                           {c.reveal && <p className="reveal">{c.reveal}</p>}
                         </>

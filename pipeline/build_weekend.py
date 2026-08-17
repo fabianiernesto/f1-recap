@@ -220,6 +220,21 @@ class Session:
         return next((r.get("position") for r in self.result
                      if r["driver_number"] == num), None)
 
+    def start_grid(self) -> dict[int, int]:
+        """Where everybody started.
+
+        Not every session publishes starting_grid, so when it is missing the
+        first position each driver is given in the feed is the grid slot.
+        """
+        if self.grid:
+            return {g["driver_number"]: g.get("position") for g in self.grid
+                    if g.get("position")}
+        first: dict[int, int] = {}
+        for p in sorted(self.position, key=lambda x: x.get("date") or ""):
+            if p.get("position") and p["driver_number"] not in first:
+                first[p["driver_number"]] = p["position"]
+        return first
+
     def stewards(self) -> list[dict]:
         """Incidents the stewards looked at, paired with the verdict they gave.
 
@@ -260,6 +275,85 @@ class Session:
                           "reason": reason.title(), "verdict": verdict, "secs": secs,
                           "raw": (m.get("message") or "")})
         return cases
+
+
+# ------------------------------------------------------------- predictions
+# Called before the fact or they are worth nothing, so each one is anchored a
+# few laps ahead of the card that gives it away. Three per race, always with a
+# right answer, which is what separates them from the decision cards.
+
+def prediction_cards(s: Session) -> list[dict]:
+    if not s.result:
+        return []
+    out: list[dict] = []
+    add = out.append
+    grid_pos = s.start_grid()
+    finishers = [r["driver_number"] for r in s.result if not r.get("dnf")]
+
+    def decoys(right: int, n: int = 2) -> list[int]:
+        """Plausible wrong answers: drivers who finished near the front."""
+        return [d for d in finishers if d != right][:n]
+
+    def options(nums: list[int]) -> list[str]:
+        # sorted by car number so the right answer is not always in slot one
+        return [s.name(n) for n in sorted(nums)]
+
+    # --- the climb: asked on lap 2, answered at the flag
+    gains = [((grid_pos.get(r["driver_number"]) or 99) - (r.get("position") or 99),
+              r["driver_number"]) for r in s.result
+             if not r.get("dnf") and grid_pos.get(r["driver_number"])]
+    if gains:
+        climb, num = max(gains)
+        start, end = grid_pos[num], s.finish_pos(num)
+        if climb > 1 and start and end:
+            band = ("On the podium" if end <= 3 else
+                    "Somewhere in the points" if end <= 10 else "Out of the points")
+            add({"type": "prediction", "lap": 2,
+                 "kicker": "Call it before it happens",
+                 "title": f"{s.name(num)} starts P{start}. Where does he finish?",
+                 "text": "He is in a car that belongs further up the road than this, "
+                         "and he has the whole afternoon to prove it.",
+                 "options": ["On the podium", "Somewhere in the points",
+                             "Out of the points"],
+                 "answer": band,
+                 "reveal": f"P{start} to P{end}, {climb} places, and almost none of it "
+                           "on television. This is the drive nobody will talk about "
+                           "on Monday."})
+
+    # --- the fastest lap: asked well before it lands
+    best = s.best_lap
+    if best and len(finishers) >= 3:
+        right = best["driver_number"]
+        lap_of_best = best.get("lap_number") or s.total_laps
+        add({"type": "prediction", "lap": max(2, int(lap_of_best * 0.55)),
+             "kicker": "Call it before it happens",
+             "title": "Who has the fastest lap on the board at the flag?",
+             "text": "It almost always lands late, when the car is light and the track "
+                     "has rubber all over it, and it is worth a point to whoever "
+                     "finishes in the top ten.",
+             "options": options([right] + decoys(right)),
+             "answer": s.name(right),
+             "reveal": f"{s.name(right)} on lap {lap_of_best}, {fmt(best['lap_duration'])}, "
+                       f"in a {s.team(right)}."})
+
+    # --- somebody stops: asked before the car actually lets go
+    if s.dnfs and len(finishers) >= 2:
+        r = s.dnfs[0]
+        num = r["driver_number"]
+        out_lap = max((l.get("lap_number") or 0) for l in s.laps
+                      if l.get("driver_number") == num) or 0
+        if out_lap > 5:
+            add({"type": "prediction", "lap": max(2, out_lap - 5),
+                 "kicker": "Call it before it happens",
+                 "title": "One of these three does not see the chequered flag. Who?",
+                 "text": "Nothing on the timing screens says it is coming. That is "
+                         "rather the point of mechanical failure.",
+                 "options": options([num] + decoys(num)),
+                 "answer": s.name(num),
+                 "reveal": f"{s.name(num)}, on lap {out_lap} of {s.total_laps}, the "
+                           f"{s.team(num)} car stopping without warning."})
+
+    return out
 
 
 # -------------------------------------------------------- you make the call
@@ -650,7 +744,7 @@ def race_story(s: Session) -> list[dict]:
     cards: list[dict] = []
     green = s.green_overtakes()
     ov_by_driver = Counter(o["overtaking_driver_number"] for _, o in green)
-    grid_pos = {g["driver_number"]: g.get("position") for g in s.grid}
+    grid_pos = s.start_grid()
     winner = s.result[0]
     add = cards.append
 
@@ -890,7 +984,8 @@ def race_story(s: Session) -> list[dict]:
                            for r in s.result[:10]]}})
 
     head = [c for c in cards if c["type"] == "cover"]
-    body = sorted([c for c in cards if c["type"] == "moment"] + decision_cards(s),
+    body = sorted([c for c in cards if c["type"] == "moment"]
+                  + prediction_cards(s) + decision_cards(s),
                   key=lambda c: c.get("lap") or 0)
     return head + body
 

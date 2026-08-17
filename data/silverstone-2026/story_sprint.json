@@ -73,6 +73,20 @@
       }
     },
     {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Albon starts P22. Where does he finish?",
+      "text": "He is in a car that belongs further up the road than this, and he has the whole afternoon to prove it.",
+      "options": [
+        "On the podium",
+        "Somewhere in the points",
+        "Out of the points"
+      ],
+      "answer": "Out of the points",
+      "reveal": "P22 to P18, 4 places, and almost none of it on television. This is the drive nobody will talk about on Monday."
+    },
+    {
       "type": "moment",
       "lap": 3,
       "kicker": "Lap 3 · Traffic",
@@ -403,6 +417,20 @@
       }
     },
     {
+      "type": "prediction",
+      "lap": 9,
+      "kicker": "Call it before it happens",
+      "title": "Who has the fastest lap on the board at the flag?",
+      "text": "It almost always lands late, when the car is light and the track has rubber all over it, and it is worth a point to whoever finishes in the top ten.",
+      "options": [
+        "Norris",
+        "Antonelli",
+        "Hamilton"
+      ],
+      "answer": "Antonelli",
+      "reveal": "Antonelli on lap 17, 1:31.607, in a Mercedes."
+    },
+    {
       "type": "moment",
       "lap": 11,
       "kicker": "True pace",
@@ -437,6 +465,20 @@
           ]
         ]
       }
+    },
+    {
+      "type": "moment",
+      "lap": 11,
+      "kicker": "Backwards",
+      "title": "Perez went the other way: 4 places lost",
+      "text": "Strategy, damage or simply a car that would not do what it did on Saturday."
+    },
+    {
+      "type": "moment",
+      "lap": 13,
+      "kicker": "The drive nobody talked about",
+      "title": "Albon: P22 on the grid, P18 at the flag",
+      "text": "4 places gained, one pass at a time, most of them nowhere near a TV camera."
     },
     {
       "type": "moment",
