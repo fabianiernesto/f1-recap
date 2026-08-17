@@ -269,15 +269,17 @@ body {
 .lapbox .n small { font-size: 12px; color: #565b66; font-weight: 500; }
 .pbar { position: fixed; top: 0; left: 0; height: 2px; background: var(--led); z-index: 60; width: 0%; }
 
-/* ---------- the circuit is the stage ---------- */
+/* ---------- the circuit is the stage ----------
+   Centred on the band the reader actually sees, which starts under the top
+   bar, and small enough that the outermost corner names are never clipped. */
 .trackwrap { position: fixed; z-index: 1; pointer-events: none;
-  left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  left: 50%; top: calc(50% + 22px); transform: translate(-50%, -50%); }
 .trackwrap svg { width: 100%; height: auto; display: block; }
 .trackcap { position: fixed; bottom: 14px; right: 16px; z-index: 2;
   font-family: var(--font-mono); font-size: 9px; letter-spacing: .16em;
   text-transform: uppercase; color: #565b66; }
-@media (min-width: 1100px) { .trackwrap { width: min(80vw, 100vh); } }
-@media (max-width: 1099px) { .trackwrap { width: min(120vw, 90vh); opacity: .55; } }
+@media (min-width: 1100px) { .trackwrap { width: min(74vw, 86vh); } }
+@media (max-width: 1099px) { .trackwrap { width: min(120vw, 82vh); opacity: .55; } }
 #tk-labels text { transition: fill .25s ease; }
 
 /* ---------- flow / stops ---------- */
@@ -322,8 +324,9 @@ body {
 /* the cover echoes the hero itself: pixel type, red, no box */
 .v-cover { background: none; border: none; max-width: 500px !important;
   padding: 20px 0; }
-.v-cover h2 { font-family: var(--font-pixel), monospace; font-weight: 900;
-  color: var(--led); font-size: 40px; line-height: 1.05; letter-spacing: .02em; }
+/* the pixel face belongs to the GP front door, not to the session opener */
+.v-cover h2 { font-family: var(--font-display), sans-serif; font-weight: 700;
+  color: var(--led); font-size: 46px; line-height: 1.02; letter-spacing: .01em; }
 .v-cover p { font-size: 14.5px; max-width: 40ch; color: #c9ced6; }
 .v-cover .kicker::before { width: 34px; }
 

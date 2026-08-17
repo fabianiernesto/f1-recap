@@ -753,7 +753,8 @@ def race_story(s: Session) -> list[dict]:
          "title": "Everything that happened, in order",
          "text": f"{len(green)} on-track passes, {len(s.pits)} pit stops, "
                  f"{len(s.dnfs)} cars that never finished"
-                 + (f" and {len(s.sc_laps)} safety car." if s.sc_laps else ".")})
+                 + (f" and {len(s.sc_laps)} safety car"
+                    f"{'s' if len(s.sc_laps) > 1 else ''}." if s.sc_laps else ".")})
 
     # --- the start ---
     lap1 = [o for o in s.overtakes if s.lap_of(parse_ts(o.get("date"))) in (None, 1)]
