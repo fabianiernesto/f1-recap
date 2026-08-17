@@ -296,7 +296,7 @@ body {
 /* lap markers back in the display face (Ernesto: pixel is for headlines only) */
 .biglap { position: absolute; top: -.62em; z-index: 0; pointer-events: none;
   font-family: var(--font-hero), var(--font-display), sans-serif; font-size: 150px;
-  line-height: 1; color: #2e1213; letter-spacing: -.02em; user-select: none; }
+  line-height: 1; color: #3a3f4b; letter-spacing: -.02em; user-select: none; }
 .stop.s-left .biglap { right: 0; }
 .stop.s-right .biglap { left: 0; }
 @media (max-width: 1099px) { .biglap { font-size: 110px; left: auto; right: 0; } }

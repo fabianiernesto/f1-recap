@@ -207,14 +207,16 @@ export default function RaceScroll({
 
       <div className="trackwrap">
         <svg viewBox={`0 0 ${track.view} ${track.view}`}>
-          {/* the circuit in the hero's own line-art: thin, red, unlit until driven */}
-          <path d={geo.d} fill="none" stroke="#3a0f0e" strokeWidth={6} strokeLinejoin="round" />
+          {/* a real road: kerb-gray edges around dark asphalt, with the red
+              racing line lighting up as the reader drives through the story */}
+          <path d={geo.d} fill="none" stroke="#464B55" strokeWidth={21} strokeLinejoin="round" />
+          <path d={geo.d} fill="none" stroke="#1a1d24" strokeWidth={16} strokeLinejoin="round" />
           <path
             ref={traceRef}
             d={geo.d}
             fill="none"
             stroke="var(--led)"
-            strokeWidth={6}
+            strokeWidth={5}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeDasharray={geo.total}
