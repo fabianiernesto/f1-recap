@@ -1,6 +1,18 @@
+import fs from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import { listGPs, loadTrack, loadWeekend } from "@/lib/data";
 import type { Track } from "@/lib/types";
+
+/** Hero artwork for the home, dropped at public/home/driver.(png|jpg|webp).
+ *  Lit-on-black images blend straight into the page with `screen`. */
+function homeFigure(): string | null {
+  for (const ext of ["png", "webp", "jpg", "jpeg"]) {
+    if (fs.existsSync(path.join(process.cwd(), "public", "home", `driver.${ext}`)))
+      return `/home/driver.${ext}`;
+  }
+  return null;
+}
 
 /**
  * The front door of the whole site, in the LED language of the GP heroes:
@@ -36,6 +48,12 @@ export default function Home() {
       </div>
 
       <header className="home-hero">
+        {homeFigure() && (
+          <div className="home-figure" aria-hidden>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={homeFigure()!} alt="" />
+          </div>
+        )}
         <h1>
           <span className="home-l1">Every race</span>
           <span className="home-l2">Simplified</span>
