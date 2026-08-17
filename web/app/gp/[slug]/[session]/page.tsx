@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { hasSession, loadStory, loadTrack, listGPs, loadWeekend } from "@/lib/data";
+import {
+  hasSession,
+  listGPs,
+  loadMate,
+  loadStory,
+  loadTrack,
+  loadWeekend,
+} from "@/lib/data";
 import FinalPoster from "@/components/FinalPoster";
 import RaceScroll from "@/components/RaceScroll";
 
@@ -19,6 +26,7 @@ export default async function SessionPage({
   if (!hasSession(slug, session)) notFound();
   const story = loadStory(slug, session);
   const track = loadTrack(slug);
+  const mate = loadMate(slug, session);
   return (
     <>
       <div className="hub-top">
@@ -26,7 +34,7 @@ export default async function SessionPage({
           ← {story.circuit} · all sessions
         </Link>
       </div>
-      <RaceScroll story={story} track={track} />
+      <RaceScroll story={story} track={track} mate={mate} />
       {session === "race" && <FinalPoster story={story} track={track} />}
     </>
   );

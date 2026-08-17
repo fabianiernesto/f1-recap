@@ -76,6 +76,7 @@ class Session:
         self.weather = load(skey, cache_name, "weather")
         self.radio = load(skey, cache_name, "team_radio")
         self.intervals = load(skey, cache_name, "intervals")
+        self.position = load(skey, cache_name, "position")
         self.grid = sorted(load(skey, cache_name, "starting_grid"),
                            key=lambda r: (r.get("position") or 99))
         self.total_laps = max((l.get("lap_number") or 0) for l in self.laps) if self.laps else 0
@@ -170,6 +171,476 @@ class Session:
         """Median clean lap: a fairer read of pace than any single lap."""
         laps = [l["lap_duration"] for l in self.timed_laps(num)]
         return median(laps) if len(laps) >= 5 else None
+
+    # ---------- freezing the race at a given lap ----------
+    # Everything the interactive cards ask you to decide on has to be the real
+    # state of the race at that moment, otherwise the question is a trick.
+
+    def order_at_lap(self, lap: int) -> list[tuple[int, int]]:
+        """[(position, driver)] as it stood on that lap."""
+        latest: dict[int, int] = {}
+        for p in sorted(self.position, key=lambda x: x.get("date") or ""):
+            ln = self.lap_of(parse_ts(p.get("date")))
+            if ln is not None and ln <= lap and p.get("position"):
+                latest[p["driver_number"]] = p["position"]
+        return sorted(((pos, num) for num, pos in latest.items()))
+
+    def _interval_index(self) -> dict[int, list[tuple[int, float]]]:
+        if getattr(self, "_iv_idx", None) is None:
+            idx: dict[int, list[tuple[int, float]]] = defaultdict(list)
+            for iv in sorted(self.intervals, key=lambda x: x.get("date") or ""):
+                gap = iv.get("interval")
+                if isinstance(gap, (int, float)):
+                    ln = self.lap_of(parse_ts(iv.get("date")))
+                    if ln is not None:
+                        idx[iv["driver_number"]].append((ln, gap))
+            self._iv_idx = idx
+        return self._iv_idx
+
+    def gap_at_lap(self, num: int, lap: int) -> float | None:
+        """Gap to the car directly ahead, as of that lap."""
+        vals = [g for ln, g in self._interval_index().get(num, []) if ln <= lap]
+        return vals[-1] if vals else None
+
+    def tyre_at_lap(self, num: int, lap: int) -> tuple[str | None, int | None]:
+        for st in self.stints:
+            if st.get("driver_number") != num:
+                continue
+            a, b = st.get("lap_start") or 0, st.get("lap_end") or 0
+            if a <= lap <= b:
+                return st.get("compound"), (st.get("tyre_age_at_start") or 0) + (lap - a)
+        return None, None
+
+    def pit_laps(self, num: int) -> list[int]:
+        return sorted(p["lap_number"] for p in self.pits
+                      if p.get("driver_number") == num and p.get("pit_duration")
+                      and p.get("lap_number"))
+
+    def finish_pos(self, num: int) -> int | None:
+        return next((r.get("position") for r in self.result
+                     if r["driver_number"] == num), None)
+
+    def stewards(self) -> list[dict]:
+        """Incidents the stewards looked at, paired with the verdict they gave.
+
+        Race control publishes the incident and the ruling as separate
+        messages, so they are matched back by car number.
+        """
+        import re
+
+        cases: list[dict] = []
+        for m in self.rc:
+            msg = (m.get("message") or "").upper()
+            if "NOTED" not in msg or "INVESTIGATION" in msg:
+                continue
+            # race control always writes cars as "63 (RUS)"
+            cars = [int(n) for n in re.findall(r"(\d+) \([A-Z]{3}\)", msg)]
+            if not cars:
+                continue
+            lap = m.get("lap_number") or 0
+            head, _, tail = msg.partition("NOTED")
+            # the trailing "(15:57:46)" is a clock stamp, not part of the offence
+            reason = re.sub(r"\(\d{2}:\d{2}:\d{2}\)", "", tail).strip(" -")
+            where = head.split("INCIDENT")[0].strip() if "INCIDENT" in head else ""
+            verdict, secs = "NO ACTION", 0
+            for v in self.rc:
+                vm = (v.get("message") or "").upper()
+                if (v.get("lap_number") or 0) < lap or "STEWARDS" not in vm:
+                    continue
+                if not any(f"CAR {c}" in vm for c in cars):
+                    continue
+                pen = re.search(r"(\d+) SECOND TIME PENALTY", vm)
+                if pen and "SERVED" not in vm:
+                    verdict, secs = f"{pen.group(1)}S PENALTY", int(pen.group(1))
+                    break
+                if "NO FURTHER" in vm:
+                    verdict, secs = "NO ACTION", 0
+                    break
+            cases.append({"lap": lap, "cars": cars, "where": where.title(),
+                          "reason": reason.title(), "verdict": verdict, "secs": secs,
+                          "raw": (m.get("message") or "")})
+        return cases
+
+
+# -------------------------------------------------------- you make the call
+# The recap is not a documentary. At the real forks of the race it stops and
+# hands the decision to the reader, with the same information the pit wall had
+# and no more. Every state on these cards is read from the data, never invented.
+
+def decision_cards(s: Session) -> list[dict]:
+    out: list[dict] = []
+    add = out.append
+
+    # --- the stewards' seat: a real incident, judged before the verdict shows
+    cases = [c for c in s.stewards() if c["lap"]]
+    if cases:
+        # the juiciest case is the one involving two cars up at the sharp end
+        def juice(c: dict) -> tuple:
+            pos = min((s.finish_pos(n) or 99) for n in c["cars"])
+            return (-len(c["cars"]), pos)
+
+        c = sorted(cases, key=juice)[0]
+        who = " and ".join(s.name(n) for n in c["cars"])
+        where = f" at {c['where'].title()}" if c["where"] else ""
+        if len(c["cars"]) >= 2:
+            headline = f"contact between {who}{where}"
+            reported = f"Incident{where}, {len(c['cars'])} cars"
+        else:
+            headline = f"{(c['reason'] or 'an incident').lower()}, {who}"
+            reported = (c["reason"] or "Incident").title()
+        add({"type": "decision", "lap": c["lap"], "kicker": "You are the steward",
+             "title": f"Lap {c['lap']}: {headline}. What do you give?",
+             "text": "Race control has flagged it and the whole thing lands on your "
+                     "desk while the cars keep circulating. Same call the stewards "
+                     "had to make, same three seconds to think about it.",
+             "state": [["Lap", f"{c['lap']} of {s.total_laps}"],
+                       ["Cars involved", who],
+                       ["Reported as", reported]],
+             "choices": [
+                 {"id": "none", "label": "No further action",
+                  "sub": "Racing incident, let them race"},
+                 {"id": "5", "label": "5 second penalty", "sub": "Mild advantage gained"},
+                 {"id": "10", "label": "10 second penalty", "sub": "Clearly at fault"}],
+             "actual": {"NO ACTION": "none", "5S PENALTY": "5",
+                        "10S PENALTY": "10"}.get(c["verdict"], "none"),
+             "outcomes": {
+                 "none": "You let it go. Nobody loses a place at a desk, and the "
+                         "driver behind spends the rest of the afternoon on the radio.",
+                 "5": "Five seconds gets added at the next stop, or to the final time "
+                      "if they never stop again. Usually one position, sometimes none.",
+                 "10": "Ten seconds is a real punishment and it almost always costs "
+                       "track position, which is why teams argue so hard about it."},
+             "reveal": f"The stewards went with {c['verdict'].lower()}."
+                       + (f" {s.name(c['cars'][0])} served it and still finished "
+                          f"P{s.finish_pos(c['cars'][0])}."
+                          if c["secs"] and s.finish_pos(c["cars"][0]) else "")})
+
+    # --- the safety car gamble: the biggest free lottery in the sport
+    for sc in s.sc_laps[:1]:
+        left = s.total_laps - sc
+        if left < 1:
+            continue
+        order = s.order_at_lap(sc)
+        if not order:
+            continue
+        leader = order[0][1]
+        comp, age = s.tyre_at_lap(leader, sc)
+        boxed = [n for _, n in order[:6] if any(abs(p - sc) <= 1 for p in s.pit_laps(n))]
+        add({"type": "decision", "lap": sc, "kicker": "Your call on the pit wall",
+             "title": f"Safety car with {left} laps left. You are leading. Box or stay out?",
+             "text": "The pack is bunched up behind you and a stop costs you far less "
+                     "than usual, except that everybody behind can copy you and the "
+                     "one who does not gets the lead.",
+             "state": [["Running", f"P1, {s.name(leader)}"],
+                       ["Laps left", str(left)],
+                       ["Tyres", f"{(comp or 'unknown').title()}, {age} laps old"
+                                 if age is not None else (comp or "unknown").title()],
+                       ["Gap to P2", "Wiped out by the safety car"]],
+             "choices": [
+                 {"id": "box", "label": "Box for fresh tyres",
+                  "sub": "Grip for the restart, hand over track position"},
+                 {"id": "stay", "label": "Stay out and defend",
+                  "sub": "Keep the lead on tyres that are done"}],
+             "actual": "box" if leader in boxed else "stay",
+             "outcomes": {
+                 "box": "New rubber under a safety car is close to free, and it only "
+                        "works if the cars behind stay out. If they all follow you in, "
+                        "you have spent your lead for nothing.",
+                 "stay": "You keep the lead and you restart on tyres with nothing left, "
+                         "with a queue of fresher cars in your mirrors and no gap to "
+                         "hide in."},
+             "reveal": (f"{s.name(leader)} came in. " if leader in boxed
+                        else f"{s.name(leader)} stayed out. ")
+                       + f"At the flag it was "
+                       + ", ".join(f"P{r['position']} {s.name(r['driver_number'])}"
+                                   for r in s.result[:3]) + "."})
+
+    # --- the undercut: the quiet decision that decides most modern races
+    real_pits = [p for p in s.pits if p.get("pit_duration") and p.get("lap_number")]
+    if real_pits and s.position:
+        window = int(median(p["lap_number"] for p in real_pits))
+        order = s.order_at_lap(window)
+        pair = None
+        for i in range(1, min(6, len(order))):
+            chaser, ahead = order[i][1], order[i - 1][1]
+            gap = s.gap_at_lap(chaser, window)
+            if gap and gap <= 3.0:
+                pair = (chaser, ahead, gap)
+                break
+        if pair:
+            chaser, ahead, gap = pair
+            chaser_pos = next(p for p, n in order if n == chaser)
+            comp, age = s.tyre_at_lap(chaser, window)
+            pit_loss = median(p["pit_duration"] for p in real_pits)
+            stops = s.pit_laps(chaser)
+            next_stop = next((p for p in stops if p >= window), None)
+            add({"type": "decision", "lap": window, "kicker": "Your call on the pit wall",
+                 "title": f"You are {s.name(chaser)}, {gap:.1f}s behind "
+                          f"{s.name(ahead)} and going nowhere. Now what?",
+                 "text": "Stuck in dirty air your tyres cook and your car will not turn. "
+                         "Stopping first gives you clean track for two or three laps, "
+                         "which is the whole trick behind the undercut.",
+                 "state": [["Running", f"P{chaser_pos}"],
+                           ["Gap ahead", f"{gap:.1f}s to {s.name(ahead)}"],
+                           ["Tyres", f"{(comp or 'unknown').title()}, {age} laps old"
+                                     if age is not None else (comp or "unknown").title()],
+                           ["Pit lane costs", f"about {pit_loss:.0f}s today"]],
+                 "choices": [
+                     {"id": "box", "label": "Box now and undercut",
+                      "sub": "Fresh tyres, clean air, two laps to make it pay"},
+                     {"id": "wait", "label": "Stay out and overcut",
+                      "sub": "Let him stop first, then push on an empty track"},
+                     {"id": "attack", "label": "Forget strategy, pass him",
+                      "sub": "Send it and take the risk"}],
+                 "actual": "box" if next_stop and next_stop <= window + 2 else "wait",
+                 "outcomes": {
+                     "box": f"You lose about {pit_loss:.0f}s in the lane and come out in "
+                            "traffic, betting that two fast laps on new tyres are worth "
+                            "more than the place you just gave up.",
+                     "wait": "You stay on old rubber while he gets new ones, and you need "
+                             "clean air plus a mistake from him to make it work.",
+                     "attack": "Passing a car with the same tyres on the same fuel is the "
+                               "hardest thing in the sport, and running into the back of "
+                               "him ends both afternoons."},
+                 "reveal": (f"{s.name(chaser)} came in on lap {next_stop}, "
+                            f"{next_stop - window} lap"
+                            f"{'s' if next_stop - window != 1 else ''} after this."
+                            if next_stop else
+                            f"{s.name(chaser)} never stopped again from here.")
+                           + f" He finished P{s.finish_pos(chaser)}"
+                           + (f", {s.name(ahead)} P{s.finish_pos(ahead)}."
+                              if s.finish_pos(ahead) else ".")})
+
+    # --- what if: the counterfactual you cannot look up anywhere
+    if s.dnfs:
+        r = s.dnfs[0]
+        num = r["driver_number"]
+        out_lap = max((l.get("lap_number") or 0) for l in s.laps
+                      if l.get("driver_number") == num) or 0
+        order = s.order_at_lap(max(1, out_lap - 1))
+        was = next((p for p, n in order if n == num), None)
+        his = s.pace(num)
+        rivals = [(s.pace(x["driver_number"]), x["driver_number"]) for x in s.result[:5]
+                  if s.pace(x["driver_number"]) and x["driver_number"] != num]
+        beaten = [n for t, n in rivals if his and t > his]
+        winner_num = s.result[0]["driver_number"]
+        winner_pace = s.pace(winner_num)
+        win_delta = (his - winner_pace) if (his and winner_pace) else None
+        if was and his:
+            add({"type": "decision", "lap": out_lap, "kicker": "What if",
+                 "title": f"{s.name(num)} was running P{was} when the car gave up. "
+                          "Where does he finish if it holds together?",
+                 "text": "Nobody can answer this one for certain, which is exactly why "
+                         "it is still being argued about. You have his own lap times to "
+                         "go on and nothing else.",
+                 "state": [["Out on lap", f"{out_lap} of {s.total_laps}"],
+                           ["Running", f"P{was}"],
+                           ["His median lap", fmt(his)],
+                           ["Quicker than", f"{len(beaten)} of the eventual top five"]],
+                 "choices": [
+                     {"id": "win", "label": "He wins it", "sub": "Pace was there"},
+                     {"id": "podium", "label": "Podium, not the win",
+                      "sub": "Close, but the leader had it covered"},
+                     {"id": "midfield", "label": "Swallowed by the pack",
+                      "sub": "Traffic and tyres get him anyway"}],
+                 "actual": "",
+                 "outcomes": {
+                     "win": "For this to happen he needs the leader to have nothing left, "
+                            "and leaders rarely do.",
+                     "podium": "The safe read, and the boring one. Track position plus "
+                               "his pace usually lands you here.",
+                     "midfield": "It takes one bad restart or one long stint to fall "
+                                 "through the field, and it happens more than people think."},
+                 "reveal": (
+                     f"Our read from his own lap times, not a fact. "
+                     + (f"He was lapping {abs(win_delta):.2f}s a lap "
+                        f"{'quicker' if win_delta < 0 else 'slower'} than "
+                        f"{s.name(winner_num)}, who went on to win it, "
+                        if win_delta is not None else "")
+                     + f"and he was ahead of {len(beaten)} of the five drivers who "
+                       f"ended up at the front. Take {out_lap} laps of that and P"
+                       f"{max(1, was - 1) if win_delta is not None and win_delta < 0 else was}"
+                       " is the honest guess. The car had other ideas and nobody gets "
+                       "to check.")})
+
+    # --- guess the number: the margin nobody ever remembers right
+    if len(s.result) > 1:
+        gap = q_gap(s.result[1])
+        if gap:
+            # the slider has to be winnable: a 0.4s answer inside a 0-30s range is
+            # a lottery, so the scale follows the size of the real margin
+            top = max(2.0, round(gap * 4, 1))
+            step = 0.05 if top <= 5 else (0.1 if top <= 20 else 0.5)
+            lane = median(p["pit_duration"] for p in s.pits
+                          if p.get("pit_duration")) if s.pits else None
+            add({"type": "guess", "lap": s.total_laps, "kicker": "Guess it",
+                 "title": f"How far behind was {s.name(s.result[1]['driver_number'])} "
+                          "at the flag?",
+                 "text": f"{s.total_laps} laps, the best part of two hours of racing, "
+                         "and the whole thing comes down to this one number.",
+                 "unit": "s", "min": 0, "max": top, "step": step,
+                 "target": round(gap, 3), "close": max(0.3, gap * 0.4),
+                 "reveal": f"{gap:.3f} seconds after {s.total_laps} laps."
+                           + (f" A single trip down the pit lane costs about {lane:.0f}s "
+                              f"today, which is {lane / gap:.0f} times the margin this "
+                              "race was decided by."
+                              if lane and gap else "")})
+
+    return out
+
+
+# ------------------------------------------------------------- the mate
+# The cards are the museum. This is the friend who watched it and is texting
+# you about it, and who will answer whatever you want to ask him. Every number
+# he uses comes from the same data as the cards, so he can be casual without
+# being wrong.
+
+def mate_thread(s: Session) -> dict:
+    beats: list[dict] = []
+    add = beats.append
+    green = s.green_overtakes()
+    winner = s.result[0]["driver_number"] if s.result else None
+
+    add({"lap": 0,
+         "msgs": ["yo", "you missed a good one honestly",
+                  f"{s.total_laps} laps, {len(green)} proper overtakes and "
+                  + (f"{len(s.sc_laps)} safety car"
+                     f"{'s' if len(s.sc_laps) > 1 else ''}"
+                     if s.sc_laps else "no safety car")],
+         "asks": [
+             {"q": "just tell me who won", "a": [
+                 f"{s.name(winner)} 🏆" if winner else "nobody, weirdly",
+                 f"{s.team(winner)}. and he did it the boring way, out front and gone"
+                 if winner else ""]},
+             {"q": "was it actually good or are you being nice", "a": [
+                 "bit of both lol",
+                 f"the racing in the midfield was mental, {len(green)} passes, "
+                 "the front was quieter"]},
+             {"q": "i know nothing about f1, start there", "a": [
+                 "ok so 20 cars, everyone starts in the order they qualified on saturday",
+                 "everyone has to stop at least once to change tyres, and that stop "
+                 "costs you about 25 seconds",
+                 "the whole sport is basically deciding WHEN to lose those 25 seconds"]}]})
+
+    lap1 = [o for o in s.overtakes if s.lap_of(parse_ts(o.get("date"))) in (None, 1)]
+    add({"lap": 1,
+         "msgs": ["lights out and it was chaos immediately",
+                  f"{len(lap1)} position changes before they even finished lap 1"],
+         "asks": [
+             {"q": "why is the start always so mad", "a": [
+                 "cold tyres, cold brakes, full fuel tank and 20 people who all think "
+                 "they can make the same gap work",
+                 "it's the only moment of the race where everyone is genuinely equal"]},
+             {"q": "does the start decide the race", "a": [
+                 "more than anyone admits",
+                 "track position is everything on most circuits, you lose 3 places on "
+                 "lap 1 and you spend the next hour stuck behind someone slower"]}]})
+
+    if green:
+        lap, n = Counter(ln for ln, _ in green).most_common(1)[0]
+        add({"lap": lap,
+             "msgs": [f"lap {lap} was the busiest of the whole race",
+                      f"{n} overtakes on that lap alone, everyone woke up at once"],
+             "asks": [
+                 {"q": "why do they all overtake at the same time", "a": [
+                     "because they all pitted around the same time",
+                     "you come out on new tyres next to someone on old ones and it's "
+                     "basically a free pass. it stacks up"]},
+                 {"q": "what's DRS", "a": [
+                     "a flap on the rear wing that opens on the straights and makes the "
+                     "car faster",
+                     "you only get it if you're within a second of the car ahead at a "
+                     "certain point. it's an artificial help to make passing possible",
+                     "purists hate it. i'm fine with it, the alternative was processions"]}]})
+
+    if s.sc_laps:
+        sc = s.sc_laps[0]
+        add({"lap": sc,
+             "msgs": [f"SAFETY CAR on lap {sc}", "and there goes the whole race",
+                      f"{s.total_laps - sc} laps left and every gap just got deleted"],
+             "asks": [
+                 {"q": "explain safety car like i'm five", "a": [
+                     "something's on track that shouldn't be, so a road car comes out "
+                     "and everyone has to queue up behind it at half speed",
+                     "if you'd built a 20 second lead, congrats, it's gone. the guy in "
+                     "P2 is now right behind you",
+                     "it's the most unfair thing in the sport and also the best thing "
+                     "that happens to a boring race"]},
+                 {"q": "so is pitting under it free", "a": [
+                     "close to it. everyone's going slow so you lose way less time in "
+                     "the pit lane",
+                     "the catch is everyone behind you can do the same thing, and "
+                     "whoever doesn't follow you inherits the lead"]}]})
+
+    real_pits = [p for p in s.pits if p.get("pit_duration") and p.get("lap_number")]
+    if real_pits:
+        window = int(median(p["lap_number"] for p in real_pits))
+        add({"lap": window,
+             "msgs": ["this is where it actually got decided btw",
+                      "not a single overtake involved, just people stopping at "
+                      "different times"],
+             "asks": [
+                 {"q": "why not just stop early every time", "a": [
+                     "new tyres are quick for about 3 laps, then they start going off",
+                     "stop too early and you're on dead rubber at the end with everyone "
+                     "hunting you. stop too late and someone's already jumped you"]},
+                 {"q": "what's an undercut", "a": [
+                     "you pit before the guy ahead, do two really fast laps on new "
+                     "tyres while he's still out there on old ones",
+                     "when he finally stops he comes out behind you. you never passed "
+                     "him on track, you passed him in the pit lane"]}]})
+
+    if s.dnfs:
+        r = s.dnfs[0]
+        num = r["driver_number"]
+        out_lap = max((l.get("lap_number") or 0) for l in s.laps
+                      if l.get("driver_number") == num) or 0
+        add({"lap": out_lap,
+             "msgs": [f"and {s.name(num)} is out", f"lap {out_lap}, car just stopped",
+                      "you could hear the team on the radio, brutal"],
+             "asks": [
+                 {"q": "what actually broke", "a": [
+                     "honestly not sure, they never say on the day",
+                     "the data only tells me he stopped, not why. teams sit on that "
+                     "stuff for weeks"]},
+                 {"q": "does he get any points", "a": [
+                     "nope. you have to finish, and you have to be in the top 10",
+                     f"zero points on a weekend like this is how championships quietly "
+                     "get lost"]}]})
+
+    best = s.best_lap
+    if best:
+        add({"lap": best.get("lap_number") or s.total_laps - 1,
+             "msgs": [f"fastest lap of the race went to {s.name(best['driver_number'])}",
+                      fmt(best["lap_duration"])],
+             "asks": [
+                 {"q": "is fastest lap worth anything", "a": [
+                     "one point, and only if you finish top 10",
+                     "so at the end you get people pitting for fresh tyres just to nick "
+                     "it. it's a bit silly and i love it"]},
+                 {"q": "why is it always at the end", "a": [
+                     "car's light, almost no fuel left, and the track has rubber all "
+                     "over it by then",
+                     "a lap 1 time and a lap 50 time are basically different sports"]}]})
+
+    if s.result:
+        top = s.result[:3]
+        add({"lap": s.total_laps,
+             "msgs": ["chequered flag",
+                      " · ".join(f"P{r['position']} {s.name(r['driver_number'])}"
+                                 for r in top),
+                      "go watch the last 5 laps at least, they were worth it"],
+             "asks": [
+                 {"q": "was the winner just in the fastest car", "a": [
+                     "partly, always. but look at the median lap times, that's the "
+                     "honest read on who had the pace",
+                     "the card above with the true pace ranking is the one i'd trust"]},
+                 {"q": "when's the next one", "a": [
+                     "two weeks, they almost never race back to back",
+                     "and the teams bring upgrades between races so the order can just "
+                     "change completely. that's why nobody can predict this sport"]}]})
+
+    return {"session": s.label, "beats": beats}
 
 
 # ------------------------------------------------------------------ race
@@ -419,7 +890,7 @@ def race_story(s: Session) -> list[dict]:
                            for r in s.result[:10]]}})
 
     head = [c for c in cards if c["type"] == "cover"]
-    body = sorted((c for c in cards if c["type"] == "moment"),
+    body = sorted([c for c in cards if c["type"] == "moment"] + decision_cards(s),
                   key=lambda c: c.get("lap") or 0)
     return head + body
 
@@ -611,6 +1082,11 @@ def main() -> None:
 
         (OUT / f"story_{slug}.json").write_text(
             json.dumps(story, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        if kind == "race":
+            (OUT / f"mate_{slug}.json").write_text(
+                json.dumps(mate_thread(s), ensure_ascii=False, indent=2),
+                encoding="utf-8")
 
         if kind == "practice":
             headline = f"{len(s.laps)} laps run, no points at stake"

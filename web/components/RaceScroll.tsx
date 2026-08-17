@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { CardData, Story, Track } from "@/lib/types";
+import type { CardData, MateThread, Story, Track } from "@/lib/types";
+import { DecisionBody, GuessBody } from "./CallIt";
+import RaceMate from "./RaceMate";
 
 /* ---------- helpers ---------- */
 
@@ -9,6 +11,7 @@ function variant(c: CardData): string {
   if (c.type === "cover") return "v-cover";
   if (c.type === "share") return "v-share";
   if (c.type === "prediction") return "v-pred";
+  if (c.type === "decision" || c.type === "guess") return "v-call";
   const k = (c.kicker || "").toLowerCase();
   if (k.includes("safety")) return "v-sc";
   if (k.includes("fastest")) return "v-fast";
@@ -27,9 +30,11 @@ function fmtTime(s: number): string {
 export default function RaceScroll({
   story,
   track,
+  mate,
 }: {
   story: Story;
   track: Track;
+  mate?: MateThread | null;
 }) {
   const cards = story.cards;
   const [lap, setLap] = useState(0);
@@ -299,6 +304,9 @@ export default function RaceScroll({
                   {num && <div className="bignum">{num[0]}</div>}
                   {c.text && <p>{c.text}</p>}
 
+                  {c.type === "decision" && <DecisionBody card={c} />}
+                  {c.type === "guess" && <GuessBody card={c} />}
+
                   {c.type === "prediction" && c.options && (
                     <>
                       <div className="opts">
@@ -380,6 +388,7 @@ export default function RaceScroll({
           Built from OpenF1 + FastF1 data · {story.generated}
         </div>
       </div>
+      {mate && <RaceMate thread={mate} lap={lap} />}
     </>
   );
 }

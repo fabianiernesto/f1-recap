@@ -1,0 +1,203 @@
+{
+  "session": "Race",
+  "beats": [
+    {
+      "lap": 0,
+      "msgs": [
+        "yo",
+        "you missed a good one honestly",
+        "52 laps, 153 proper overtakes and 2 safety cars"
+      ],
+      "asks": [
+        {
+          "q": "just tell me who won",
+          "a": [
+            "Leclerc 🏆",
+            "Ferrari. and he did it the boring way, out front and gone"
+          ]
+        },
+        {
+          "q": "was it actually good or are you being nice",
+          "a": [
+            "bit of both lol",
+            "the racing in the midfield was mental, 153 passes, the front was quieter"
+          ]
+        },
+        {
+          "q": "i know nothing about f1, start there",
+          "a": [
+            "ok so 20 cars, everyone starts in the order they qualified on saturday",
+            "everyone has to stop at least once to change tyres, and that stop costs you about 25 seconds",
+            "the whole sport is basically deciding WHEN to lose those 25 seconds"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 1,
+      "msgs": [
+        "lights out and it was chaos immediately",
+        "51 position changes before they even finished lap 1"
+      ],
+      "asks": [
+        {
+          "q": "why is the start always so mad",
+          "a": [
+            "cold tyres, cold brakes, full fuel tank and 20 people who all think they can make the same gap work",
+            "it's the only moment of the race where everyone is genuinely equal"
+          ]
+        },
+        {
+          "q": "does the start decide the race",
+          "a": [
+            "more than anyone admits",
+            "track position is everything on most circuits, you lose 3 places on lap 1 and you spend the next hour stuck behind someone slower"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 2,
+      "msgs": [
+        "lap 2 was the busiest of the whole race",
+        "16 overtakes on that lap alone, everyone woke up at once"
+      ],
+      "asks": [
+        {
+          "q": "why do they all overtake at the same time",
+          "a": [
+            "because they all pitted around the same time",
+            "you come out on new tyres next to someone on old ones and it's basically a free pass. it stacks up"
+          ]
+        },
+        {
+          "q": "what's DRS",
+          "a": [
+            "a flap on the rear wing that opens on the straights and makes the car faster",
+            "you only get it if you're within a second of the car ahead at a certain point. it's an artificial help to make passing possible",
+            "purists hate it. i'm fine with it, the alternative was processions"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 48,
+      "msgs": [
+        "SAFETY CAR on lap 48",
+        "and there goes the whole race",
+        "4 laps left and every gap just got deleted"
+      ],
+      "asks": [
+        {
+          "q": "explain safety car like i'm five",
+          "a": [
+            "something's on track that shouldn't be, so a road car comes out and everyone has to queue up behind it at half speed",
+            "if you'd built a 20 second lead, congrats, it's gone. the guy in P2 is now right behind you",
+            "it's the most unfair thing in the sport and also the best thing that happens to a boring race"
+          ]
+        },
+        {
+          "q": "so is pitting under it free",
+          "a": [
+            "close to it. everyone's going slow so you lose way less time in the pit lane",
+            "the catch is everyone behind you can do the same thing, and whoever doesn't follow you inherits the lead"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 35,
+      "msgs": [
+        "this is where it actually got decided btw",
+        "not a single overtake involved, just people stopping at different times"
+      ],
+      "asks": [
+        {
+          "q": "why not just stop early every time",
+          "a": [
+            "new tyres are quick for about 3 laps, then they start going off",
+            "stop too early and you're on dead rubber at the end with everyone hunting you. stop too late and someone's already jumped you"
+          ]
+        },
+        {
+          "q": "what's an undercut",
+          "a": [
+            "you pit before the guy ahead, do two really fast laps on new tyres while he's still out there on old ones",
+            "when he finally stops he comes out behind you. you never passed him on track, you passed him in the pit lane"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 47,
+      "msgs": [
+        "and Verstappen is out",
+        "lap 47, car just stopped",
+        "you could hear the team on the radio, brutal"
+      ],
+      "asks": [
+        {
+          "q": "what actually broke",
+          "a": [
+            "honestly not sure, they never say on the day",
+            "the data only tells me he stopped, not why. teams sit on that stuff for weeks"
+          ]
+        },
+        {
+          "q": "does he get any points",
+          "a": [
+            "nope. you have to finish, and you have to be in the top 10",
+            "zero points on a weekend like this is how championships quietly get lost"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 37,
+      "msgs": [
+        "fastest lap of the race went to Antonelli",
+        "1:31.777"
+      ],
+      "asks": [
+        {
+          "q": "is fastest lap worth anything",
+          "a": [
+            "one point, and only if you finish top 10",
+            "so at the end you get people pitting for fresh tyres just to nick it. it's a bit silly and i love it"
+          ]
+        },
+        {
+          "q": "why is it always at the end",
+          "a": [
+            "car's light, almost no fuel left, and the track has rubber all over it by then",
+            "a lap 1 time and a lap 50 time are basically different sports"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 52,
+      "msgs": [
+        "chequered flag",
+        "P1 Leclerc · P2 Russell · P3 Hamilton",
+        "go watch the last 5 laps at least, they were worth it"
+      ],
+      "asks": [
+        {
+          "q": "was the winner just in the fastest car",
+          "a": [
+            "partly, always. but look at the median lap times, that's the honest read on who had the pace",
+            "the card above with the true pace ranking is the one i'd trust"
+          ]
+        },
+        {
+          "q": "when's the next one",
+          "a": [
+            "two weeks, they almost never race back to back",
+            "and the teams bring upgrades between races so the order can just change completely. that's why nobody can predict this sport"
+          ]
+        }
+      ]
+    }
+  ]
+}

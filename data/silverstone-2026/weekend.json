@@ -28,7 +28,7 @@
       "label": "Sprint",
       "kind": "race",
       "headline": "42 on-track passes",
-      "moments": 19,
+      "moments": 22,
       "laps": 17
     },
     {
@@ -44,7 +44,7 @@
       "label": "Race",
       "kind": "race",
       "headline": "153 on-track passes, 2 safety car",
-      "moments": 26,
+      "moments": 31,
       "laps": 52
     }
   ],

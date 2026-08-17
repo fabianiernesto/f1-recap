@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { Story, Track, Weekend } from "./types";
+import type { MateThread, Story, Track, Weekend } from "./types";
 
 // scripts/sync-data.mjs copies the pipeline output into web/data, and
 // scripts/dev.mjs pins cwd to web/ in dev — so this path is always right
@@ -32,4 +32,12 @@ export function loadTrack(slug: string): Track {
 
 export function hasSession(slug: string, session: string): boolean {
   return fs.existsSync(path.join(DATA_DIR, slug, `story_${session}.json`));
+}
+
+/** The mate only has something to say about sessions that were a race. */
+export function loadMate(slug: string, session: string): MateThread | null {
+  const f = path.join(DATA_DIR, slug, `mate_${session}.json`);
+  return fs.existsSync(f)
+    ? (JSON.parse(fs.readFileSync(f, "utf-8")) as MateThread)
+    : null;
 }

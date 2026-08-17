@@ -1,5 +1,5 @@
 export type CardData = {
-  type: "cover" | "prediction" | "moment" | "share";
+  type: "cover" | "prediction" | "moment" | "share" | "decision" | "guess";
   lap?: number;
   kicker?: string;
   title?: string;
@@ -8,6 +8,34 @@ export type CardData = {
   answer?: string;
   reveal?: string;
   dato?: { label: string; rows: [string, number | string][] };
+
+  /** decision cards: the race frozen at a fork, with the call handed over */
+  state?: [string, string][];
+  choices?: { id: string; label: string; sub?: string }[];
+  /** id of the option the team really took, empty when nobody can know */
+  actual?: string;
+  /** what each line would have meant, whichever one you pick */
+  outcomes?: Record<string, string>;
+
+  /** guess cards: a slider instead of buttons */
+  unit?: string;
+  min?: number;
+  max?: number;
+  step?: number;
+  /** the real number, and how far off still counts as close */
+  target?: number;
+  close?: number;
+};
+
+export type MateBeat = {
+  lap: number;
+  msgs: string[];
+  asks: { q: string; a: string[] }[];
+};
+
+export type MateThread = {
+  session: string;
+  beats: MateBeat[];
 };
 
 export type PodiumDriver = {

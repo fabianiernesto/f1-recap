@@ -400,6 +400,55 @@
       }
     },
     {
+      "type": "decision",
+      "lap": 35,
+      "kicker": "Your call on the pit wall",
+      "title": "You are Hamilton, 0.7s behind Verstappen and going nowhere. Now what?",
+      "text": "Stuck in dirty air your tyres cook and your car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
+      "state": [
+        [
+          "Running",
+          "P4"
+        ],
+        [
+          "Gap ahead",
+          "0.7s to Verstappen"
+        ],
+        [
+          "Tyres",
+          "Hard, 11 laps old"
+        ],
+        [
+          "Pit lane costs",
+          "about 30s today"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "box",
+          "label": "Box now and undercut",
+          "sub": "Fresh tyres, clean air, two laps to make it pay"
+        },
+        {
+          "id": "wait",
+          "label": "Stay out and overcut",
+          "sub": "Let him stop first, then push on an empty track"
+        },
+        {
+          "id": "attack",
+          "label": "Forget strategy, pass him",
+          "sub": "Send it and take the risk"
+        }
+      ],
+      "actual": "wait",
+      "outcomes": {
+        "box": "You lose about 30s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
+        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both afternoons."
+      },
+      "reveal": "Hamilton came in on lap 48, 13 laps after this. He finished P3, Verstappen P20."
+    },
+    {
       "type": "moment",
       "lap": 36,
       "kicker": "True pace",
@@ -434,6 +483,51 @@
           ]
         ]
       }
+    },
+    {
+      "type": "decision",
+      "lap": 36,
+      "kicker": "You are the steward",
+      "title": "Lap 36: contact between Russell and Verstappen at Turn 15. What do you give?",
+      "text": "Race control has flagged it and the whole thing lands on your desk while the cars keep circulating. Same call the stewards had to make, same three seconds to think about it.",
+      "state": [
+        [
+          "Lap",
+          "36 of 52"
+        ],
+        [
+          "Cars involved",
+          "Russell and Verstappen"
+        ],
+        [
+          "Reported as",
+          "Incident at Turn 15, 2 cars"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "none",
+          "label": "No further action",
+          "sub": "Racing incident, let them race"
+        },
+        {
+          "id": "5",
+          "label": "5 second penalty",
+          "sub": "Mild advantage gained"
+        },
+        {
+          "id": "10",
+          "label": "10 second penalty",
+          "sub": "Clearly at fault"
+        }
+      ],
+      "actual": "none",
+      "outcomes": {
+        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the afternoon on the radio.",
+        "5": "Five seconds gets added at the next stop, or to the final time if they never stop again. Usually one position, sometimes none.",
+        "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
+      },
+      "reveal": "The stewards went with no action."
     },
     {
       "type": "moment",
@@ -488,11 +582,103 @@
       "text": "The Red Bull Racing stops after 47 laps. Zero points weekends are where title fights quietly bleed."
     },
     {
+      "type": "decision",
+      "lap": 47,
+      "kicker": "What if",
+      "title": "Verstappen was running P3 when the car gave up. Where does he finish if it holds together?",
+      "text": "Nobody can answer this one for certain, which is exactly why it is still being argued about. You have his own lap times to go on and nothing else.",
+      "state": [
+        [
+          "Out on lap",
+          "47 of 52"
+        ],
+        [
+          "Running",
+          "P3"
+        ],
+        [
+          "His median lap",
+          "1:34.233"
+        ],
+        [
+          "Quicker than",
+          "4 of the eventual top five"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "win",
+          "label": "He wins it",
+          "sub": "Pace was there"
+        },
+        {
+          "id": "podium",
+          "label": "Podium, not the win",
+          "sub": "Close, but the leader had it covered"
+        },
+        {
+          "id": "midfield",
+          "label": "Swallowed by the pack",
+          "sub": "Traffic and tyres get him anyway"
+        }
+      ],
+      "actual": "",
+      "outcomes": {
+        "win": "For this to happen he needs the leader to have nothing left, and leaders rarely do.",
+        "podium": "The safe read, and the boring one. Track position plus his pace usually lands you here.",
+        "midfield": "It takes one bad restart or one long stint to fall through the field, and it happens more than people think."
+      },
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.18s a lap slower than Leclerc, who went on to win it, and he was ahead of 4 of the five drivers who ended up at the front. Take 47 laps of that and P3 is the honest guess. The car had other ideas and nobody gets to check."
+    },
+    {
       "type": "moment",
       "lap": 48,
       "kicker": "Lap 48 of 52 · Safety Car",
       "title": "Every gap on track, erased",
       "text": "Neutralised until lap 51. Whatever anybody had built up to here was wiped out, and the race restarted nose to tail."
+    },
+    {
+      "type": "decision",
+      "lap": 48,
+      "kicker": "Your call on the pit wall",
+      "title": "Safety car with 4 laps left. You are leading. Box or stay out?",
+      "text": "The pack is bunched up behind you and a stop costs you far less than usual, except that everybody behind can copy you and the one who does not gets the lead.",
+      "state": [
+        [
+          "Running",
+          "P1, Leclerc"
+        ],
+        [
+          "Laps left",
+          "4"
+        ],
+        [
+          "Tyres",
+          "Hard, 22 laps old"
+        ],
+        [
+          "Gap to P2",
+          "Wiped out by the safety car"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "box",
+          "label": "Box for fresh tyres",
+          "sub": "Grip for the restart, hand over track position"
+        },
+        {
+          "id": "stay",
+          "label": "Stay out and defend",
+          "sub": "Keep the lead on tyres that are done"
+        }
+      ],
+      "actual": "box",
+      "outcomes": {
+        "box": "New rubber under a safety car is close to free, and it only works if the cars behind stay out. If they all follow you in, you have spent your lead for nothing.",
+        "stay": "You keep the lead and you restart on tyres with nothing left, with a queue of fresher cars in your mirrors and no gap to hide in."
+      },
+      "reveal": "Leclerc came in. At the flag it was P1 Leclerc, P2 Russell, P3 Hamilton."
     },
     {
       "type": "moment",
@@ -552,6 +738,20 @@
           ]
         ]
       }
+    },
+    {
+      "type": "guess",
+      "lap": 52,
+      "kicker": "Guess it",
+      "title": "How far behind was Russell at the flag?",
+      "text": "52 laps, the best part of two hours of racing, and the whole thing comes down to this one number.",
+      "unit": "s",
+      "min": 0,
+      "max": 2.0,
+      "step": 0.05,
+      "target": 0.427,
+      "close": 0.3,
+      "reveal": "0.427 seconds after 52 laps. A single trip down the pit lane costs about 30s today, which is 69 times the margin this race was decided by."
     }
   ],
   "result": {

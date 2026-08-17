@@ -361,6 +361,140 @@ body {
 .v-share p { color: #8a8f99; font-family: var(--font-mono); font-size: 11px;
   letter-spacing: .08em; text-transform: uppercase; }
 
+/* ---------- your call: the cards that stop and hand the race over ----------
+   These are the only cards with a red edge, because they are the only ones
+   asking the reader for something. */
+.v-call { border-left: 2px solid var(--led); background: #0a0506; }
+.v-call .kicker { color: var(--led); }
+
+.call { margin-top: 18px; }
+/* the pit wall readout: the same information the team had, nothing more */
+.call-state { display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: #ffffff14; border: 1px solid #ffffff14; margin: 0 0 16px; }
+.call-state > div { background: #050506; padding: 10px 12px; }
+.call-state dt { font-family: var(--font-mono); font-size: 9px; letter-spacing: .16em;
+  text-transform: uppercase; color: #6c7280; }
+.call-state dd { margin: 4px 0 0; font-family: var(--font-mono); font-size: 13px;
+  color: #f2f3f5; font-variant-numeric: tabular-nums; }
+
+.call-opts { display: flex; flex-direction: column; gap: 8px; }
+.call-opt { position: relative; display: flex; flex-direction: column; gap: 3px;
+  border: 1px solid #ffffff1f; background: #0d0e11; color: #f2f3f5;
+  padding: 12px 14px; text-align: left; cursor: pointer; pointer-events: auto;
+  transition: border-color .18s, background-color .18s, opacity .18s; }
+.call-opt b { font-family: var(--font-display); font-weight: 600; font-size: 15.5px;
+  letter-spacing: .04em; text-transform: uppercase; }
+.call-opt span { font-family: var(--font-mono); font-size: 11px; color: #8a8f99;
+  letter-spacing: .02em; }
+.call-opt em { position: absolute; top: 10px; right: 12px; font-style: normal;
+  font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--led); }
+.call-opt:hover:not(:disabled) { border-color: var(--led); background: #140708; }
+.call-opt:focus-visible { outline: 2px solid var(--led); outline-offset: 2px; }
+.call-opt:disabled { cursor: default; opacity: .45; }
+.call-opt.picked { opacity: 1; border-color: #ffffff59; background: #16181d; }
+.call-opt.real { opacity: 1; border-color: var(--led); }
+.call-opt.lock { align-items: center; margin-top: 14px; }
+
+.call-out { margin-top: 16px; padding-top: 14px; border-top: 1px solid #ffffff1f; }
+.call-verdict { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em;
+  text-transform: uppercase; color: #8a8f99; }
+.call-verdict.agreed { color: var(--led); }
+.call-cost { margin: 10px 0 0 !important; color: #c9ced6 !important; }
+.call-reveal { margin: 12px 0 0 !important; padding-left: 12px;
+  border-left: 2px solid var(--led); color: #9aa0aa !important; }
+
+/* the slider: one number, and your instinct against the record */
+.guess { margin-top: 18px; }
+.guess-dial { display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 10px; }
+.guess-val { font-family: var(--font-hero), var(--font-display), sans-serif;
+  font-size: 52px; line-height: 1; color: var(--led); font-variant-numeric: tabular-nums; }
+.guess-val small { font-size: 20px; margin-left: 3px; }
+.guess-real { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em;
+  text-transform: uppercase; color: #f2f3f5; }
+.guess-range { width: 100%; appearance: none; height: 2px; background: #ffffff26;
+  pointer-events: auto; cursor: pointer; }
+.guess-range::-webkit-slider-thumb { appearance: none; width: 14px; height: 26px;
+  background: var(--led); cursor: grab; box-shadow: 0 0 12px #ff1c1259; }
+.guess-range::-moz-range-thumb { width: 14px; height: 26px; border: none;
+  background: var(--led); cursor: grab; }
+.guess-range:disabled::-webkit-slider-thumb { background: #565b66; box-shadow: none; }
+.guess-scale { display: flex; justify-content: space-between; margin-top: 6px;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em;
+  text-transform: uppercase; color: #565b66; }
+
+@media (max-width: 520px) { .call-state { grid-template-columns: 1fr; } }
+
+/* ---------- the mate ----------
+   A chat thread, but wearing the same black and red as everything else, so it
+   reads as part of the broadcast rather than a widget bolted onto it. */
+.mate-fab { position: fixed; z-index: 70; right: 20px; bottom: 20px;
+  display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+  background: var(--led); color: #fff; border: none; cursor: pointer;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  box-shadow: 0 6px 26px #ff1c1259; transition: transform .18s, background-color .18s; }
+.mate-fab:hover { transform: translateY(-2px); }
+.mate-fab.on { background: #16181d; color: #f2f3f5; box-shadow: none; }
+.mate-fab-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff;
+  animation: led-breathe 2.4s ease-in-out infinite; }
+.mate-badge { position: absolute; top: -7px; right: -7px; min-width: 19px; height: 19px;
+  border-radius: 10px; background: #fff; color: var(--led); font-size: 10px;
+  display: grid; place-items: center; padding: 0 5px; }
+
+.mate { position: fixed; z-index: 69; right: 20px; bottom: 74px; width: 360px;
+  max-height: min(70vh, 620px); display: flex; flex-direction: column;
+  background: #060708; border: 1px solid #ffffff1f;
+  box-shadow: 0 24px 70px #000000cc;
+  opacity: 0; transform: translateY(14px) scale(.98); pointer-events: none;
+  transition: opacity .2s, transform .2s; }
+.mate.open { opacity: 1; transform: none; pointer-events: auto; }
+.mate-top { display: flex; align-items: center; gap: 11px; padding: 14px 16px;
+  border-bottom: 1px solid #ffffff14; background: #0b0c0e; }
+.mate-av { width: 34px; height: 34px; flex: none; border-radius: 50%;
+  background: var(--led); color: #fff; display: grid; place-items: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+.mate-top b { display: block; font-family: var(--font-display); font-weight: 600;
+  font-size: 15px; letter-spacing: .04em; text-transform: uppercase; color: #f2f3f5; }
+.mate-top span { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: #6c7280; }
+
+.mate-body { flex: 1; overflow-y: auto; padding: 16px; display: flex;
+  flex-direction: column; gap: 8px; scrollbar-width: thin; }
+.mate-empty { margin: auto 0; font-family: var(--font-mono); font-size: 11px;
+  line-height: 1.8; color: #565b66; text-align: center; }
+.bub { max-width: 84%; padding: 9px 13px; font-size: 13.5px; line-height: 1.5;
+  color: #e8eaee; background: #16181d; border-radius: 14px 14px 14px 3px;
+  animation: bub-in .22s ease-out; }
+.bub.you { align-self: flex-end; background: var(--led); color: #fff;
+  border-radius: 14px 14px 3px 14px; }
+.bub.typing { display: flex; gap: 4px; padding: 13px; }
+.bub.typing i { width: 6px; height: 6px; border-radius: 50%; background: #6c7280;
+  animation: bub-dot 1.1s ease-in-out infinite; }
+.bub.typing i:nth-child(2) { animation-delay: .16s; }
+.bub.typing i:nth-child(3) { animation-delay: .32s; }
+@keyframes bub-in { from { opacity: 0; transform: translateY(6px); } }
+@keyframes bub-dot { 0%, 60%, 100% { opacity: .3; } 30% { opacity: 1; } }
+
+.mate-asks { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 14px;
+  border-top: 1px solid #ffffff14; background: #0b0c0e; }
+.mate-asks button { border: 1px solid #ff1c1259; background: #14080a; color: #ff5a52;
+  border-radius: 14px; padding: 7px 12px; font-size: 12px; cursor: pointer;
+  text-align: left; transition: background-color .16s, color .16s; }
+.mate-asks button:hover { background: var(--led); color: #fff; }
+.mate-hint { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .12em;
+  text-transform: uppercase; color: #565b66; }
+
+@media (max-width: 560px) {
+  .mate { right: 10px; left: 10px; width: auto; bottom: 68px; max-height: 62vh; }
+  .mate-fab { right: 12px; bottom: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bub { animation: none; }
+  .mate-fab-dot { animation: none; }
+}
+
 /* ---------- interactive bits ---------- */
 .opts { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
 .chip { border: 1px solid var(--line); background: var(--carbon-2); color: var(--ink);

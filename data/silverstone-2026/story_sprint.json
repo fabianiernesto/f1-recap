@@ -225,6 +225,51 @@
       }
     },
     {
+      "type": "decision",
+      "lap": 6,
+      "kicker": "You are the steward",
+      "title": "Lap 6: contact between Perez and Alonso at Turn 3. What do you give?",
+      "text": "Race control has flagged it and the whole thing lands on your desk while the cars keep circulating. Same call the stewards had to make, same three seconds to think about it.",
+      "state": [
+        [
+          "Lap",
+          "6 of 17"
+        ],
+        [
+          "Cars involved",
+          "Perez and Alonso"
+        ],
+        [
+          "Reported as",
+          "Incident at Turn 3, 2 cars"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "none",
+          "label": "No further action",
+          "sub": "Racing incident, let them race"
+        },
+        {
+          "id": "5",
+          "label": "5 second penalty",
+          "sub": "Mild advantage gained"
+        },
+        {
+          "id": "10",
+          "label": "10 second penalty",
+          "sub": "Clearly at fault"
+        }
+      ],
+      "actual": "10",
+      "outcomes": {
+        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the afternoon on the radio.",
+        "5": "Five seconds gets added at the next stop, or to the final time if they never stop again. Usually one position, sometimes none.",
+        "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
+      },
+      "reveal": "The stewards went with 10s penalty. Perez served it and still finished P22."
+    },
+    {
       "type": "moment",
       "lap": 7,
       "kicker": "Lap 7 · For the lead",
@@ -271,6 +316,55 @@
       "kicker": "Penalties",
       "title": "1 penalty calls",
       "text": "Time added, places lost, and in some cases a result rewritten after the flag."
+    },
+    {
+      "type": "decision",
+      "lap": 8,
+      "kicker": "Your call on the pit wall",
+      "title": "You are Hamilton, 1.0s behind Antonelli and going nowhere. Now what?",
+      "text": "Stuck in dirty air your tyres cook and your car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
+      "state": [
+        [
+          "Running",
+          "P2"
+        ],
+        [
+          "Gap ahead",
+          "1.0s to Antonelli"
+        ],
+        [
+          "Tyres",
+          "Medium, 7 laps old"
+        ],
+        [
+          "Pit lane costs",
+          "about 40s today"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "box",
+          "label": "Box now and undercut",
+          "sub": "Fresh tyres, clean air, two laps to make it pay"
+        },
+        {
+          "id": "wait",
+          "label": "Stay out and overcut",
+          "sub": "Let him stop first, then push on an empty track"
+        },
+        {
+          "id": "attack",
+          "label": "Forget strategy, pass him",
+          "sub": "Send it and take the risk"
+        }
+      ],
+      "actual": "wait",
+      "outcomes": {
+        "box": "You lose about 40s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
+        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both afternoons."
+      },
+      "reveal": "Hamilton never stopped again from here. He finished P2, Antonelli P1."
     },
     {
       "type": "moment",
@@ -467,6 +561,20 @@
           ]
         ]
       }
+    },
+    {
+      "type": "guess",
+      "lap": 17,
+      "kicker": "Guess it",
+      "title": "How far behind was Hamilton at the flag?",
+      "text": "17 laps, the best part of two hours of racing, and the whole thing comes down to this one number.",
+      "unit": "s",
+      "min": 0,
+      "max": 11.0,
+      "step": 0.1,
+      "target": 2.745,
+      "close": 1.098,
+      "reveal": "2.745 seconds after 17 laps. A single trip down the pit lane costs about 40s today, which is 14 times the margin this race was decided by."
     }
   ]
 }
