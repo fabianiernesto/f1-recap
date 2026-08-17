@@ -1,82 +1,87 @@
 import Link from "next/link";
-import { listGPs, loadWeekend } from "@/lib/data";
+import { listGPs, loadTrack, loadWeekend } from "@/lib/data";
+import type { Track } from "@/lib/types";
+
+/**
+ * The front door of the whole site, in the LED language of the GP heroes:
+ * black ground, red signal, pixel headline — and one card per Grand Prix,
+ * carrying the real silhouette of its circuit from the telemetry.
+ */
+
+function trackArt(track: Track) {
+  const pts = track.points;
+  const d = "M " + pts.map((p) => p[0] + " " + p[1]).join(" L ");
+  const xs = pts.map((p) => p[0]);
+  const ys = pts.map((p) => p[1]);
+  const pad = 40;
+  const vb = [
+    Math.min(...xs) - pad,
+    Math.min(...ys) - pad,
+    Math.max(...xs) - Math.min(...xs) + pad * 2,
+    Math.max(...ys) - Math.min(...ys) + pad * 2,
+  ].join(" ");
+  return { d, vb };
+}
 
 export default function Home() {
   const weekends = listGPs()
-    .map((slug) => loadWeekend(slug))
-    .sort((a, b) => (a.date < b.date ? 1 : -1));
-  const latest = weekends[0];
+    .map((slug) => ({ weekend: loadWeekend(slug), track: loadTrack(slug) }))
+    .sort((a, b) => (a.weekend.date < b.weekend.date ? 1 : -1));
 
   return (
     <main className="home">
-      <header className="home-head">
-        <div className="home-brand">RACE // RECAP</div>
+      <div className="home-top">
+        <span>RACE // RECAP</span>
+        <span>Season 2026</span>
+      </div>
+
+      <header className="home-hero">
         <h1>
-          The race,
-          <br />
-          told properly
+          <span className="home-l1">Every race</span>
+          <span className="home-l2">Simplified</span>
         </h1>
         <p>
-          Missed the Grand Prix? Fell asleep on lap 30? Every race weekend told
-          like a story you scroll — the real track, the real moments, none of
-          the homework.
+          Missed the Grand Prix? Fell asleep on lap 30? Every weekend rebuilt
+          from the official timing data and told moment by moment — pick a
+          circuit and scroll the race.
         </p>
       </header>
 
-      {latest && (
-        <Link href={`/gp/${latest.slug}`} className="home-latest">
-          <span className="home-eyebrow">Latest Grand Prix</span>
-          <span className="home-latest-name">{latest.circuit}</span>
-          <span className="home-latest-sub">
-            {latest.short} · {latest.country} · {latest.date}
-          </span>
-          <span className="home-latest-meta">
-            {latest.sessions.length} sessions
-            {latest.rating && (
-              <>
-                {" "}
-                · rated <b>{latest.rating.score.toFixed(1)}/10</b> — spoiler-free
-              </>
-            )}
-          </span>
-          <span className="home-latest-cta">Open the weekend →</span>
-        </Link>
-      )}
-
-      {weekends.length > 1 && (
-        <section className="home-list">
-          <span className="home-eyebrow">Earlier weekends</span>
-          {weekends.slice(1).map((w) => (
-            <Link key={w.slug} href={`/gp/${w.slug}`} className="home-row">
-              <span>{w.circuit}</span>
-              <span>{w.date}</span>
+      <section className="home-grid">
+        {weekends.map(({ weekend: w, track }) => {
+          const art = trackArt(track);
+          const moments = w.sessions.reduce((n, s) => n + s.moments, 0);
+          return (
+            <Link key={w.slug} href={`/gp/${w.slug}`} className="home-card">
+              <svg viewBox={art.vb} aria-hidden>
+                <path
+                  d={art.d}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={4}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="0.5 13"
+                />
+              </svg>
+              <span className="home-card-name">{w.circuit}</span>
+              <span className="home-card-sub">
+                {w.short} · {w.country}
+              </span>
+              <span className="home-card-meta">
+                <em>{w.date}</em>
+                {w.sessions.length > 0 ? (
+                  <b>
+                    {w.sessions.length} sessions · {moments} moments
+                  </b>
+                ) : (
+                  <b>Analysis coming soon</b>
+                )}
+              </span>
+              <span className="home-card-go">Enter →</span>
             </Link>
-          ))}
-        </section>
-      )}
-
-      <section className="home-how">
-        <div>
-          <b>No spoilers first</b>
-          <span>
-            Every weekend opens by asking if you already know the result. If you
-            don&apos;t, you only get a rating: worth watching, or not.
-          </span>
-        </div>
-        <div>
-          <b>Your time, your depth</b>
-          <span>
-            Thirty seconds, three minutes or the full story. Same race, told at
-            the depth you actually have time for.
-          </span>
-        </div>
-        <div>
-          <b>Real data, human words</b>
-          <span>
-            Built from official timing data — every overtake, stop and safety
-            car — then told the way a friend would tell it.
-          </span>
-        </div>
+          );
+        })}
       </section>
 
       <footer className="home-foot">
