@@ -72,14 +72,17 @@ export default function Home() {
           return (
             <Link key={w.slug} href={`/gp/${w.slug}`} className="home-card">
               <svg viewBox={art.vb} aria-hidden>
+                {/* non-scaling-stroke keeps the LED dots at screen size no
+                    matter how large the circuit's coordinate space is */}
                 <path
                   d={art.d}
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth={4}
+                  strokeWidth={2.6}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeDasharray="0.5 13"
+                  strokeDasharray="0 6"
+                  vectorEffect="non-scaling-stroke"
                 />
               </svg>
               <span className="home-card-name">{w.circuit}</span>
