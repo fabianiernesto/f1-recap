@@ -96,7 +96,7 @@ export default function GPHeroLED({
         <i aria-hidden>←</i>
         All circuits
       </Link>
-      <span className="ledhero-tag">Race {round} // Recap</span>
+      <span className="ledhero-tag">Race {round} // Simplified</span>
 
       {/* the only way in: no scroll on this screen */}
       <Link className="ledhero-enter" href={`/gp/${weekend.slug}/weekend`}>

@@ -123,7 +123,7 @@ export default function GPHero({
       {figure && <FigurePhoto src={figure} alt={`${short} driver artwork`} />}
 
       <div className="hero-meta">
-        <span>RACE // RECAP</span>
+        <span>RACING SIMPLIFIED</span>
         <span>{date}</span>
         <span>#{short.replace(/\s/g, "")}</span>
       </div>

@@ -33,7 +33,7 @@ export default async function SessionPage({
         <Link href={`/gp/${slug}/weekend`} className="hub-back">
           ← {story.circuit} · all sessions
         </Link>
-        <Link href="/" className="hub-home">Race // Recap</Link>
+        <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
       <RaceScroll story={story} track={track} mate={mate} />
       {session === "race" && <FinalPoster story={story} track={track} />}

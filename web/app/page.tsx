@@ -43,7 +43,7 @@ export default function Home() {
   return (
     <main className="home">
       <div className="home-top">
-        <span>RACE // RECAP</span>
+        <span>RACING SIMPLIFIED</span>
         <span>Season 2026</span>
       </div>
 

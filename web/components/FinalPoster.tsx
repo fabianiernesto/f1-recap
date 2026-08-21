@@ -78,7 +78,7 @@ export default function FinalPoster({
       <div className="poster-ticker">
         <span>{winner.first} {winner.last} · #{winner.number}</span>
         <span>{winner.team}</span>
-        <span>{story.gp} · RACE // RECAP</span>
+        <span>{story.gp} · RACING SIMPLIFIED</span>
       </div>
     </section>
   );

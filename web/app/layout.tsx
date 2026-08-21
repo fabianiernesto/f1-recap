@@ -49,7 +49,7 @@ const pixel = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "F1 Recap — scroll the race",
+  title: "Racing Simplified",
   description:
     "Every Grand Prix told as a story you scroll: the real track, the real moments, none of the homework.",
 };
