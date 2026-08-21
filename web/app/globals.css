@@ -272,9 +272,11 @@ body {
 
 /* ---------- HUD ----------
    Same language as the LED hero: black ground, red signal, mono labels. */
-.hud { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex;
-  justify-content: space-between; align-items: stretch; pointer-events: none;
-  background: linear-gradient(#000000f2 55%, #00000000); }
+/* clears the bar above instead of hiding under it, and carries the lap
+   counter alone now that the badge is gone */
+.hud { position: fixed; top: 48px; left: 0; right: 0; z-index: 50; display: flex;
+  justify-content: flex-end; align-items: stretch; pointer-events: none;
+  background: linear-gradient(#000000cc 40%, #00000000); }
 .badge { display: flex; align-items: center; gap: 12px; padding: 14px 18px; }
 .badge .flag { width: 3px; align-self: stretch; background: var(--led); }
 .badge .t1 { font-family: var(--font-mono); font-weight: 700; font-size: 12px;

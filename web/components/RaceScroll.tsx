@@ -7,6 +7,26 @@ import RaceMate from "./RaceMate";
 
 /* ---------- helpers ---------- */
 
+/** Slides a run of points sideways, so a strip can hug the edge of the road. */
+function offsetRun(run: [number, number][], off: number): string {
+  const out: string[] = [];
+  for (let i = 0; i < run.length; i++) {
+    const p = run[i];
+    const a = run[Math.max(0, i - 1)];
+    const b = run[Math.min(run.length - 1, i + 1)];
+    const dx = b[0] - a[0], dy = b[1] - a[1];
+    const m = Math.hypot(dx, dy) || 1;
+    out.push(`${p[0] + (-dy / m) * off} ${p[1] + (dx / m) * off}`);
+  }
+  return "M " + out.join(" L ");
+}
+
+/* Invented sponsors. Trackside advertising is half of what makes a circuit
+   read as a real place, and inventing the brands keeps somebody else's
+   trademark off our drawing. */
+const BOARDS = ["OCTANE 99", "APEX FUELS", "SLIPSTREAM", "KERBSIDE",
+                "TORQUE & CO", "RACING SIMPLIFIED"];
+
 function variant(c: CardData): string {
   if (c.type === "cover") return "v-cover";
   if (c.type === "share") return "v-share";
@@ -63,6 +83,69 @@ export default function RaceScroll({
       const dx = c.x - cx, dy = c.y - cy, m = Math.hypot(dx, dy) || 1;
       return { ...c, lx: c.x + (dx / m) * 46, ly: c.y + (dy / m) * 46 };
     });
+    /* kerbs, on the outside of each corner only: the sign of the turn says
+       which side of the road that is, and a straight never gets one */
+    const kerbs = track.corners
+      .map((c) => {
+        let bi = 0, bd = Infinity;
+        pts.forEach((p, i) => {
+          const dd = Math.hypot(p[0] - c.x, p[1] - c.y);
+          if (dd < bd) { bd = dd; bi = i; }
+        });
+        const span = 6;
+        const lo = Math.max(0, bi - span), hi = Math.min(pts.length - 1, bi + span);
+        const run = pts.slice(lo, hi + 1) as [number, number][];
+        if (run.length < 4) return null;
+        const v1x = pts[bi][0] - run[0][0], v1y = pts[bi][1] - run[0][1];
+        const v2x = run[run.length - 1][0] - pts[bi][0];
+        const v2y = run[run.length - 1][1] - pts[bi][1];
+        const cross = v1x * v2y - v1y * v2x;
+        return offsetRun(run, 11 * (cross > 0 ? -1 : 1));
+      })
+      .filter((d): d is string => !!d);
+
+    /* hoardings, dropped on the straightest ground we can find and turned to
+       face the road, on the infield so the corner names keep the outside */
+    const placeBoard = (bi: number) => {
+      const p = pts[bi];
+      const a = pts[Math.max(0, bi - 2)], b = pts[Math.min(pts.length - 1, bi + 2)];
+      const dx = b[0] - a[0], dy = b[1] - a[1], m = Math.hypot(dx, dy) || 1;
+      const nx = -dy / m, ny = dx / m;
+      const inward = nx * (cx - p[0]) + ny * (cy - p[1]) > 0 ? 1 : -1;
+      const off = 32 * inward;
+      let angle = (Math.atan2(dy, dx) * 180) / Math.PI;
+      if (angle > 90 || angle < -90) angle += 180;   // never upside down
+      return { x: p[0] + nx * off, y: p[1] + ny * off, angle };
+    };
+    const taken: { x: number; y: number }[] = [];
+    const boards = BOARDS.map((name, k) => {
+      const base = Math.floor(((k + 0.5) / BOARDS.length) * (pts.length - 1));
+      let bi = base, best = -Infinity;
+      // score where the board actually ends up, not the point on the road it
+      // hangs off, or it lands on top of a corner name
+      for (let o = -80; o <= 80; o++) {
+        const i = (base + o + pts.length) % pts.length;
+        const spot = placeBoard(i);
+        let clear = Infinity;
+        for (const c of track.corners)
+          clear = Math.min(clear, Math.hypot(spot.x - c.x, spot.y - c.y));
+        // a corner name is far wider than the point it hangs off, and
+        // WELLINGTON STRAIGHT is the one that proves it
+        for (const l of labels)
+          clear = Math.min(clear,
+            Math.hypot(spot.x - l.lx, spot.y - l.ly) - l.label.length * 5.5);
+        for (const t of taken)
+          clear = Math.min(clear, Math.hypot(spot.x - t.x, spot.y - t.y));
+        if (clear > best) { best = clear; bi = i; }
+      }
+      // nowhere clean on this stretch: five well placed boards beat six with
+      // one sitting on a corner name
+      if (best < 24) return null;
+      const spot = placeBoard(bi);
+      taken.push(spot);
+      return { name, ...spot, w: name.length * 5.6 + 14 };
+    }).filter((b): b is NonNullable<typeof b> => !!b);
+
     const a0 = Math.atan2(pts[1][1] - pts[0][1], pts[1][0] - pts[0][0]);
     const sf = {
       x1: pts[0][0] + Math.cos(a0 + Math.PI / 2) * 14,
@@ -70,7 +153,7 @@ export default function RaceScroll({
       x2: pts[0][0] - Math.cos(a0 + Math.PI / 2) * 14,
       y2: pts[0][1] - Math.sin(a0 + Math.PI / 2) * 14,
     };
-    return { d, cum, total, labels, sf };
+    return { d, cum, total, labels, sf, kerbs, boards };
   }, [track]);
 
   /* scroll + car animation */
@@ -190,16 +273,9 @@ export default function RaceScroll({
     <>
       <div className="pbar" ref={pbarRef} />
 
+      {/* the badge only repeated what the bar above already says, and both
+          it and the lap counter were hidden behind that bar anyway */}
       <div className="hud">
-        <div className="badge">
-          <div className="flag" />
-          <div>
-            <div className="t1">{story.gp.replace(/ \d{4}$/, "")}</div>
-            <div className="t2">
-              {story.circuit} · {story.session}
-            </div>
-          </div>
-        </div>
         <div className="lapbox">
           <span className="lbl">LAP</span>
           <span className="n">
@@ -211,6 +287,21 @@ export default function RaceScroll({
 
       <div className="trackwrap">
         <svg viewBox={`0 0 ${track.view} ${track.view}`}>
+          {/* the hoardings sit furthest back, out on the infield grass */}
+          <g className="tk-boards">
+            {geo.boards.map((b) => (
+              <g key={b.name} transform={`translate(${b.x} ${b.y}) rotate(${b.angle})`}>
+                <rect x={-b.w / 2} y={-8} width={b.w} height={16}
+                      fill="#0c0e12" stroke="#242832" />
+                <text x={0} y={3.8} textAnchor="middle" fontSize={7.4}
+                      letterSpacing={1.5} fill="#6d7480"
+                      style={{ fontFamily: "var(--font-mono)" }}>
+                  {b.name}
+                </text>
+              </g>
+            ))}
+          </g>
+
           {/* a real road: kerb-gray edges around dark asphalt, with the red
               racing line lighting up as the reader drives through the story */}
           <path d={geo.d} fill="none" stroke="#464B55" strokeWidth={21} strokeLinejoin="round" />
@@ -226,6 +317,17 @@ export default function RaceScroll({
             strokeDasharray={geo.total}
             strokeDashoffset={geo.total}
           />
+          {/* kerbs last of the road furniture, so they sit on the tarmac edge */}
+          <g className="tk-kerbs">
+            {geo.kerbs.map((d, i) => (
+              <g key={i}>
+                <path d={d} fill="none" stroke="#dfe1e6" strokeWidth={6} />
+                <path d={d} fill="none" stroke="#c0261e" strokeWidth={6}
+                      strokeDasharray="8 8" />
+              </g>
+            ))}
+          </g>
+
           <g id="tk-labels">
             {geo.labels.map((L, i) => (
               <text
