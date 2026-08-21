@@ -21,60 +21,6 @@ function offsetRun(run: [number, number][], off: number): string {
   return "M " + out.join(" L ");
 }
 
-/* Invented sponsors. Trackside advertising is half of what makes a circuit
-   read as a real place, and inventing the brands keeps somebody else's
-   trademark off our drawing. Each one is a mark plus a wordmark, because a
-   row of grey words is a caption, not a hoarding. The colours are the one
-   place on the site that breaks the single-accent rule on purpose: these are
-   objects standing in the world, not part of the interface. */
-type Brand = { id: string; name: string; colour: string };
-const BOARDS: Brand[] = [
-  { id: "octane", name: "OCTANE 99", colour: "#b8862e" },
-  { id: "apex", name: "APEX FUELS", colour: "#2b6ca8" },
-  { id: "slip", name: "SLIPSTREAM", colour: "#2f8f7f" },
-  { id: "kerb", name: "KERBSIDE", colour: "#8b3a62" },
-  { id: "torque", name: "TORQUE & CO", colour: "#5c6270" },
-  { id: "rs", name: "RACING SIMPLIFIED", colour: "#c0261e" },
-];
-
-/** The mark on a hoarding, drawn inside a 26 by 26 tile. */
-function BrandMark({ id }: { id: string }) {
-  const w = "#fff";
-  if (id === "octane")
-    return <path d="M13 4C19 12 21 16 13 22C5 16 7 12 13 4Z" fill={w} />;
-  if (id === "apex")
-    return <path d="M13 4L22 22L13 17L4 22Z" fill={w} />;
-  if (id === "slip")
-    return (
-      <g fill={w}>
-        <rect x="3" y="8" width="20" height="2.6" />
-        <rect x="7" y="12.2" width="16" height="2.6" />
-        <rect x="11" y="16.4" width="12" height="2.6" />
-      </g>
-    );
-  if (id === "kerb")
-    return (
-      <g fill={w}>
-        <rect x="3" y="10" width="6.6" height="6.6" />
-        <rect x="16.4" y="10" width="6.6" height="6.6" />
-        <rect x="9.6" y="16.6" width="6.8" height="3" opacity=".55" />
-      </g>
-    );
-  if (id === "torque")
-    return (
-      <g fill="none" stroke={w} strokeWidth="2.6">
-        <path d="M20 9A8 8 0 1 0 21 15" />
-        <path d="M22 4L22 10L16 10" strokeLinejoin="round" />
-      </g>
-    );
-  return (
-    <g fill={w}>
-      <rect x="5" y="4" width="3" height="18" transform="skewX(-14)" />
-      <rect x="13" y="4" width="3" height="18" transform="skewX(-14)" />
-    </g>
-  );
-}
-
 function variant(c: CardData): string {
   if (c.type === "cover") return "v-cover";
   if (c.type === "share") return "v-share";
@@ -177,50 +123,6 @@ export default function RaceScroll({
 
     /* hoardings, dropped on the straightest ground we can find and turned to
        face the road, on the infield so the corner names keep the outside */
-    const placeBoard = (bi: number) => {
-      const p = pts[bi];
-      const a = pts[Math.max(0, bi - 2)], b = pts[Math.min(pts.length - 1, bi + 2)];
-      const dx = b[0] - a[0], dy = b[1] - a[1], m = Math.hypot(dx, dy) || 1;
-      const nx = -dy / m, ny = dx / m;
-      const inward = nx * (cx - p[0]) + ny * (cy - p[1]) > 0 ? 1 : -1;
-      const off = 32 * inward;
-      let angle = (Math.atan2(dy, dx) * 180) / Math.PI;
-      if (angle > 90 || angle < -90) angle += 180;   // never upside down
-      return { x: p[0] + nx * off, y: p[1] + ny * off, angle };
-    };
-    const taken: { x: number; y: number; w: number }[] = [];
-    const boards = BOARDS.map((brand, k) => {
-      const base = Math.floor(((k + 0.5) / BOARDS.length) * (pts.length - 1));
-      const w = brand.name.length * 6.4 + 40;
-      const half = w / 2;
-      let bi = base, best = -Infinity;
-      // score where the board actually ends up, not the point on the road it
-      // hangs off, and always in terms of its own width: these carry a mark
-      // and a wordmark now, so they are wide enough to sit on each other
-      for (let o = -80; o <= 80; o++) {
-        const i = (base + o + pts.length) % pts.length;
-        const spot = placeBoard(i);
-        let clear = Infinity;
-        for (const c of track.corners)
-          clear = Math.min(clear, Math.hypot(spot.x - c.x, spot.y - c.y) - half);
-        // a corner name is far wider than the point it hangs off, and
-        // WELLINGTON STRAIGHT is the one that proves it
-        for (const l of labels)
-          clear = Math.min(clear, Math.hypot(spot.x - l.lx, spot.y - l.ly)
-                                  - half - l.label.length * 5.5);
-        for (const t of taken)
-          clear = Math.min(clear,
-            Math.hypot(spot.x - t.x, spot.y - t.y) - half - t.w / 2);
-        if (clear > best) { best = clear; bi = i; }
-      }
-      // nowhere clean on this stretch: five well placed boards beat six with
-      // one sitting on a corner name
-      if (best < 6) return null;
-      const spot = placeBoard(bi);
-      taken.push({ ...spot, w });
-      return { ...brand, ...spot, w };
-    }).filter((b): b is NonNullable<typeof b> => !!b);
-
     const a0 = Math.atan2(pts[1][1] - pts[0][1], pts[1][0] - pts[0][0]);
     const sf = {
       x1: pts[0][0] + Math.cos(a0 + Math.PI / 2) * 14,
@@ -228,7 +130,7 @@ export default function RaceScroll({
       x2: pts[0][0] - Math.cos(a0 + Math.PI / 2) * 14,
       y2: pts[0][1] - Math.sin(a0 + Math.PI / 2) * 14,
     };
-    return { d, cum, total, labels, marks, sf, kerbs, boards };
+    return { d, cum, total, labels, marks, sf, kerbs };
   }, [track]);
 
   /* scroll + car animation */
@@ -362,25 +264,6 @@ export default function RaceScroll({
 
       <div className="trackwrap">
         <svg viewBox={`0 0 ${track.view} ${track.view}`}>
-          {/* the hoardings sit furthest back, out on the infield grass */}
-          <g className="tk-boards">
-            {geo.boards.map((b) => (
-              <g key={b.id} transform={`translate(${b.x} ${b.y}) rotate(${b.angle})`}>
-                <rect x={-b.w / 2} y={-13} width={b.w} height={26}
-                      fill="#0b0d11" stroke="#262a33" />
-                {/* the mark sits in its own colour block, like every real one */}
-                <rect x={-b.w / 2} y={-13} width={26} height={26} fill={b.colour} />
-                <g transform={`translate(${-b.w / 2} -13)`}>
-                  <BrandMark id={b.id} />
-                </g>
-                <text x={-b.w / 2 + 33} y={4} fontSize={11} letterSpacing={1}
-                      fill="#cfd4db" style={{ fontFamily: "var(--font-mono)" }}>
-                  {b.name}
-                </text>
-              </g>
-            ))}
-          </g>
-
           {/* a real road: kerb-gray edges around dark asphalt, with the red
               racing line lighting up as the reader drives through the story */}
           <path d={geo.d} fill="none" stroke="#464B55" strokeWidth={21} strokeLinejoin="round" />
