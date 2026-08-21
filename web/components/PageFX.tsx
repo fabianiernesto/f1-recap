@@ -17,12 +17,12 @@ import { usePathname, useRouter } from "next/navigation";
  * new pathname, so a slow route holds the curtain instead of flashing.
  */
 
-export type FXVariant = "lights" | "sweep" | "grid";
+export type FXVariant = "sting" | "lights" | "sweep" | "grid";
 export const FX_KEY = "f1recap:fx";
-export const FX_DEFAULT: FXVariant = "lights";
+export const FX_DEFAULT: FXVariant = "sting";
 
-const COVER = { lights: 620, sweep: 430, grid: 470 };
-const REVEAL = { lights: 340, sweep: 400, grid: 440 };
+const COVER = { sting: 640, lights: 620, sweep: 430, grid: 470 };
+const REVEAL = { sting: 420, lights: 340, sweep: 400, grid: 440 };
 
 export default function PageFX() {
   const router = useRouter();
@@ -78,8 +78,15 @@ export default function PageFX() {
     if (pending.current) {
       pending.current = null;
       setPhase("reveal");
+      // the arriving page settles in under the curtain rather than just being
+      // there; the class is what the page-in animation hangs off
+      document.documentElement.classList.add("fx-in");
       const t = setTimeout(() => setPhase("idle"), REVEAL[variant]);
-      return () => clearTimeout(t);
+      const t2 = setTimeout(
+        () => document.documentElement.classList.remove("fx-in"),
+        REVEAL[variant] + 420
+      );
+      return () => { clearTimeout(t); clearTimeout(t2); };
     }
   }, [pathname, variant]);
 
@@ -96,6 +103,26 @@ export default function PageFX() {
         </div>
       )}
       {variant === "sweep" && <div className="fx-streak" />}
+      {variant === "sting" && (
+        <>
+          {/* bars first, then the impact frame, then the mark snapping in */}
+          <div className="sting-bars">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <span key={i} style={{ ["--i" as string]: i }} />
+            ))}
+          </div>
+          <div className="sting-flash" />
+          <div className="sting-core">
+            <div className="sting-mark">
+              <span className="sting-ghost g1">R//R</span>
+              <span className="sting-ghost g2">R//R</span>
+              <span className="sting-face">R//R</span>
+            </div>
+            <div className="sting-tag">Race &#47;&#47; Recap</div>
+          </div>
+          <div className="sting-scan" />
+        </>
+      )}
     </div>
   );
 }

@@ -817,3 +817,118 @@ body {
 .fxtry a { color: #f2f3f5; text-decoration: none; border-bottom: 1px solid #ff1c1259;
   padding-bottom: 3px; transition: color .18s, border-color .18s; }
 .fxtry a:hover { color: var(--led); border-color: var(--led); }
+
+/* ---------- the sting ----------
+   A broadcast ident, not a fade. Five skewed bars rip across the screen at
+   different speeds, a single white frame marks the impact, and our own mark
+   snaps in out of focus and lands sharp, its colour channels pulling back
+   together. Then the whole thing whips off to the left.
+
+   The mark is ours: R//R in the LED face the heroes already use, never the
+   F1 logo, which is a registered trademark. */
+
+/* --- the bars: a wall arriving in pieces --- */
+/* the bars ARE the black wall: no veil underneath, or the screen would go
+   black before they even arrive and the whole hit would be lost */
+.fx-sting .fx-veil { display: none; }
+.sting-bars { position: absolute; inset: -8% -14%; display: flex;
+  transform: skewX(-13deg); }
+.sting-bars span { position: relative; flex: 1; background: #000;
+  transform: translateX(125%); }
+/* each bar drags a hot edge behind it, which burns off once it lands */
+.sting-bars span::after { content: ""; position: absolute; top: 0; bottom: 0;
+  right: 0; width: 44%;
+  background: linear-gradient(90deg, #ff1c1200, #ff1c1233 52%,
+              #ff1c12d9 88%, #ffe3e1 100%); }
+.fx-sting.fx-cover .sting-bars span::after {
+  animation: fx-fade-out .3s ease-out both;
+  animation-delay: calc(.14s + var(--i) * .026s); }
+.fx-sting.fx-hold .sting-bars span::after,
+.fx-sting.fx-reveal .sting-bars span::after { opacity: 0; }
+.fx-sting.fx-cover .sting-bars span {
+  animation: sting-bar-in .18s cubic-bezier(.25,.9,.25,1) both;
+  animation-delay: calc(var(--i) * .026s); }
+.fx-sting.fx-hold .sting-bars span { transform: none; }
+.fx-sting.fx-reveal .sting-bars span {
+  animation: sting-bar-out .3s cubic-bezier(.6,0,.9,.3) both;
+  animation-delay: calc((4 - var(--i)) * .022s); }
+@keyframes sting-bar-in { from { transform: translateX(125%) } to { transform: none } }
+@keyframes sting-bar-out { from { transform: none } to { transform: translateX(-125%) } }
+
+/* --- the impact frame --- */
+.sting-flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+.fx-sting.fx-cover .sting-flash {
+  animation: sting-flash .1s ease-out both; animation-delay: .26s; }
+@keyframes sting-flash { 0% { opacity: 0 } 35% { opacity: .82 } 100% { opacity: 0 } }
+
+/* --- the mark --- */
+.sting-core { position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2.4vh; }
+.sting-mark { position: relative; font-family: var(--font-pixel), monospace;
+  font-weight: 900; font-size: clamp(84px, 17vw, 260px); line-height: 1;
+  letter-spacing: .04em; color: var(--led); }
+.sting-face { position: relative; z-index: 2;
+  text-shadow: 0 0 18px #ff1c1266, 0 0 54px #ff1c1233; }
+/* the channels arrive apart and pull together, the way a broadcast mark does */
+.sting-ghost { position: absolute; inset: 0; z-index: 1; mix-blend-mode: screen;
+  opacity: 0; pointer-events: none; }
+.sting-ghost.g1 { color: #ff2d24; }
+.sting-ghost.g2 { color: #16d4ff; }
+.sting-tag { font-family: var(--font-mono); font-weight: 700;
+  font-size: clamp(9px, 1.15vw, 13px); letter-spacing: .52em; text-indent: .52em;
+  text-transform: uppercase; color: #f2f3f5; opacity: 0; }
+
+.fx-sting.fx-cover .sting-mark {
+  animation: sting-mark-in .22s cubic-bezier(.16,1,.3,1) both; animation-delay: .29s; }
+.fx-sting.fx-cover .sting-ghost.g1 {
+  animation: sting-split-l .26s cubic-bezier(.16,1,.3,1) both; animation-delay: .29s; }
+.fx-sting.fx-cover .sting-ghost.g2 {
+  animation: sting-split-r .26s cubic-bezier(.16,1,.3,1) both; animation-delay: .29s; }
+.fx-sting.fx-cover .sting-tag {
+  animation: sting-tag-in .18s ease-out both; animation-delay: .4s; }
+@keyframes sting-mark-in {
+  from { opacity: 0; transform: scale(1.18); filter: blur(10px) }
+  to { opacity: 1; transform: none; filter: blur(0) }
+}
+@keyframes sting-split-l {
+  0% { opacity: .9; transform: translateX(-9px) }
+  100% { opacity: 0; transform: none }
+}
+@keyframes sting-split-r {
+  0% { opacity: .9; transform: translateX(9px) }
+  100% { opacity: 0; transform: none }
+}
+@keyframes sting-tag-in {
+  from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none }
+}
+
+/* the mark holds and breathes while the route loads behind it */
+.fx-sting.fx-hold .sting-mark { animation: sting-breathe 1.6s ease-in-out infinite; }
+.fx-sting.fx-hold .sting-tag { opacity: 1; }
+@keyframes sting-breathe {
+  0%, 100% { filter: drop-shadow(0 0 10px #ff1c1233) }
+  50% { filter: drop-shadow(0 0 26px #ff1c1266) }
+}
+
+/* --- and it whips away --- */
+.fx-sting.fx-reveal .sting-core {
+  animation: sting-core-out .26s cubic-bezier(.55,0,.95,.35) both; }
+@keyframes sting-core-out {
+  from { opacity: 1; transform: none; filter: blur(0) }
+  to { opacity: 0; transform: translateX(-16vw) skewX(-9deg); filter: blur(16px) }
+}
+
+/* --- the LED screen it is all playing on --- */
+.sting-scan { position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: repeating-linear-gradient(#0000 0 2px, #00000059 2px 3px); }
+.fx-sting.fx-cover .sting-scan { animation: fx-fade-in .2s ease-out both;
+  animation-delay: .26s; }
+.fx-sting.fx-hold .sting-scan { opacity: 1; }
+.fx-sting.fx-reveal .sting-scan { animation: fx-fade-out .2s ease-in both; }
+
+/* the page arriving underneath settles in, instead of simply being there */
+.fx-in body > *:not(.fx) { animation: sting-page-in .4s cubic-bezier(.16,1,.3,1) both; }
+@keyframes sting-page-in {
+  from { opacity: 0; transform: scale(.986) }
+  to { opacity: 1; transform: none }
+}

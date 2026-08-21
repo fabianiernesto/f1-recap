@@ -6,6 +6,14 @@ import { FX_DEFAULT, FX_KEY, type FXVariant } from "./PageFX";
 
 const OPTIONS: { id: FXVariant; name: string; line: string; note: string }[] = [
   {
+    id: "sting",
+    name: "The sting",
+    line: "Bars, impact frame, the mark lands",
+    note: "A broadcast ident. Five skewed bars rip across at different speeds, "
+        + "one white frame marks the hit, and R//R snaps in out of focus with "
+        + "its colour channels apart, then pulls sharp and whips away left.",
+  },
+  {
     id: "lights",
     name: "Lights out",
     line: "Five reds, one by one, then black",
