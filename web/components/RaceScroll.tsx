@@ -23,9 +23,57 @@ function offsetRun(run: [number, number][], off: number): string {
 
 /* Invented sponsors. Trackside advertising is half of what makes a circuit
    read as a real place, and inventing the brands keeps somebody else's
-   trademark off our drawing. */
-const BOARDS = ["OCTANE 99", "APEX FUELS", "SLIPSTREAM", "KERBSIDE",
-                "TORQUE & CO", "RACING SIMPLIFIED"];
+   trademark off our drawing. Each one is a mark plus a wordmark, because a
+   row of grey words is a caption, not a hoarding. The colours are the one
+   place on the site that breaks the single-accent rule on purpose: these are
+   objects standing in the world, not part of the interface. */
+type Brand = { id: string; name: string; colour: string };
+const BOARDS: Brand[] = [
+  { id: "octane", name: "OCTANE 99", colour: "#b8862e" },
+  { id: "apex", name: "APEX FUELS", colour: "#2b6ca8" },
+  { id: "slip", name: "SLIPSTREAM", colour: "#2f8f7f" },
+  { id: "kerb", name: "KERBSIDE", colour: "#8b3a62" },
+  { id: "torque", name: "TORQUE & CO", colour: "#5c6270" },
+  { id: "rs", name: "RACING SIMPLIFIED", colour: "#c0261e" },
+];
+
+/** The mark on a hoarding, drawn inside a 26 by 26 tile. */
+function BrandMark({ id }: { id: string }) {
+  const w = "#fff";
+  if (id === "octane")
+    return <path d="M13 4C19 12 21 16 13 22C5 16 7 12 13 4Z" fill={w} />;
+  if (id === "apex")
+    return <path d="M13 4L22 22L13 17L4 22Z" fill={w} />;
+  if (id === "slip")
+    return (
+      <g fill={w}>
+        <rect x="3" y="8" width="20" height="2.6" />
+        <rect x="7" y="12.2" width="16" height="2.6" />
+        <rect x="11" y="16.4" width="12" height="2.6" />
+      </g>
+    );
+  if (id === "kerb")
+    return (
+      <g fill={w}>
+        <rect x="3" y="10" width="6.6" height="6.6" />
+        <rect x="16.4" y="10" width="6.6" height="6.6" />
+        <rect x="9.6" y="16.6" width="6.8" height="3" opacity=".55" />
+      </g>
+    );
+  if (id === "torque")
+    return (
+      <g fill="none" stroke={w} strokeWidth="2.6">
+        <path d="M20 9A8 8 0 1 0 21 15" />
+        <path d="M22 4L22 10L16 10" strokeLinejoin="round" />
+      </g>
+    );
+  return (
+    <g fill={w}>
+      <rect x="5" y="4" width="3" height="18" transform="skewX(-14)" />
+      <rect x="13" y="4" width="3" height="18" transform="skewX(-14)" />
+    </g>
+  );
+}
 
 function variant(c: CardData): string {
   if (c.type === "cover") return "v-cover";
@@ -83,6 +131,29 @@ export default function RaceScroll({
       const dx = c.x - cx, dy = c.y - cy, m = Math.hypot(dx, dy) || 1;
       return { ...c, lx: c.x + (dx / m) * 46, ly: c.y + (dy / m) * 46 };
     });
+    /* a tick per corner instead of a name per corner: eleven labels pinned
+       over the drawing fought the track itself, so the corner you are at
+       says its name and the rest are just marks on the edge */
+    const marks = track.corners.map((c) => {
+      let bi = 0, bd = Infinity;
+      pts.forEach((p, i) => {
+        const dd = Math.hypot(p[0] - c.x, p[1] - c.y);
+        if (dd < bd) { bd = dd; bi = i; }
+      });
+      const p = pts[bi];
+      const a = pts[Math.max(0, bi - 2)], b = pts[Math.min(pts.length - 1, bi + 2)];
+      const dx = b[0] - a[0], dy = b[1] - a[1], m = Math.hypot(dx, dy) || 1;
+      let nx = -dy / m, ny = dx / m;
+      if (nx * (cx - p[0]) + ny * (cy - p[1]) > 0) { nx = -nx; ny = -ny; }
+      return {
+        label: c.label,
+        x1: p[0] + nx * 13, y1: p[1] + ny * 13,
+        x2: p[0] + nx * 24, y2: p[1] + ny * 24,
+        tx: p[0] + nx * 32, ty: p[1] + ny * 32 + 5,
+        anchor: nx > 0.3 ? "start" : nx < -0.3 ? "end" : "middle",
+      };
+    });
+
     /* kerbs, on the outside of each corner only: the sign of the turn says
        which side of the road that is, and a straight never gets one */
     const kerbs = track.corners
@@ -117,33 +188,37 @@ export default function RaceScroll({
       if (angle > 90 || angle < -90) angle += 180;   // never upside down
       return { x: p[0] + nx * off, y: p[1] + ny * off, angle };
     };
-    const taken: { x: number; y: number }[] = [];
-    const boards = BOARDS.map((name, k) => {
+    const taken: { x: number; y: number; w: number }[] = [];
+    const boards = BOARDS.map((brand, k) => {
       const base = Math.floor(((k + 0.5) / BOARDS.length) * (pts.length - 1));
+      const w = brand.name.length * 6.4 + 40;
+      const half = w / 2;
       let bi = base, best = -Infinity;
       // score where the board actually ends up, not the point on the road it
-      // hangs off, or it lands on top of a corner name
+      // hangs off, and always in terms of its own width: these carry a mark
+      // and a wordmark now, so they are wide enough to sit on each other
       for (let o = -80; o <= 80; o++) {
         const i = (base + o + pts.length) % pts.length;
         const spot = placeBoard(i);
         let clear = Infinity;
         for (const c of track.corners)
-          clear = Math.min(clear, Math.hypot(spot.x - c.x, spot.y - c.y));
+          clear = Math.min(clear, Math.hypot(spot.x - c.x, spot.y - c.y) - half);
         // a corner name is far wider than the point it hangs off, and
         // WELLINGTON STRAIGHT is the one that proves it
         for (const l of labels)
-          clear = Math.min(clear,
-            Math.hypot(spot.x - l.lx, spot.y - l.ly) - l.label.length * 5.5);
+          clear = Math.min(clear, Math.hypot(spot.x - l.lx, spot.y - l.ly)
+                                  - half - l.label.length * 5.5);
         for (const t of taken)
-          clear = Math.min(clear, Math.hypot(spot.x - t.x, spot.y - t.y));
+          clear = Math.min(clear,
+            Math.hypot(spot.x - t.x, spot.y - t.y) - half - t.w / 2);
         if (clear > best) { best = clear; bi = i; }
       }
       // nowhere clean on this stretch: five well placed boards beat six with
       // one sitting on a corner name
-      if (best < 24) return null;
+      if (best < 6) return null;
       const spot = placeBoard(bi);
-      taken.push(spot);
-      return { name, ...spot, w: name.length * 5.6 + 14 };
+      taken.push({ ...spot, w });
+      return { ...brand, ...spot, w };
     }).filter((b): b is NonNullable<typeof b> => !!b);
 
     const a0 = Math.atan2(pts[1][1] - pts[0][1], pts[1][0] - pts[0][0]);
@@ -153,7 +228,7 @@ export default function RaceScroll({
       x2: pts[0][0] - Math.cos(a0 + Math.PI / 2) * 14,
       y2: pts[0][1] - Math.sin(a0 + Math.PI / 2) * 14,
     };
-    return { d, cum, total, labels, sf, kerbs, boards };
+    return { d, cum, total, labels, marks, sf, kerbs, boards };
   }, [track]);
 
   /* scroll + car animation */
@@ -290,12 +365,16 @@ export default function RaceScroll({
           {/* the hoardings sit furthest back, out on the infield grass */}
           <g className="tk-boards">
             {geo.boards.map((b) => (
-              <g key={b.name} transform={`translate(${b.x} ${b.y}) rotate(${b.angle})`}>
-                <rect x={-b.w / 2} y={-8} width={b.w} height={16}
-                      fill="#0c0e12" stroke="#242832" />
-                <text x={0} y={3.8} textAnchor="middle" fontSize={7.4}
-                      letterSpacing={1.5} fill="#6d7480"
-                      style={{ fontFamily: "var(--font-mono)" }}>
+              <g key={b.id} transform={`translate(${b.x} ${b.y}) rotate(${b.angle})`}>
+                <rect x={-b.w / 2} y={-13} width={b.w} height={26}
+                      fill="#0b0d11" stroke="#262a33" />
+                {/* the mark sits in its own colour block, like every real one */}
+                <rect x={-b.w / 2} y={-13} width={26} height={26} fill={b.colour} />
+                <g transform={`translate(${-b.w / 2} -13)`}>
+                  <BrandMark id={b.id} />
+                </g>
+                <text x={-b.w / 2 + 33} y={4} fontSize={11} letterSpacing={1}
+                      fill="#cfd4db" style={{ fontFamily: "var(--font-mono)" }}>
                   {b.name}
                 </text>
               </g>
@@ -328,20 +407,14 @@ export default function RaceScroll({
             ))}
           </g>
 
-          <g id="tk-labels">
-            {geo.labels.map((L, i) => (
-              <text
-                key={L.label}
-                x={L.lx}
-                y={L.ly}
-                textAnchor="middle"
-                fill={i === litLabel ? "#F2F3F5" : "#8B919D"}
-                fontSize={19}
-                letterSpacing={2}
-                style={{ fontFamily: "var(--font-mono)" }}
-              >
-                {L.label}
-              </text>
+          <g id="tk-labels" className="tk-marks">
+            {geo.marks.map((M, i) => (
+              <g key={M.label} className={i === litLabel ? "on" : ""}>
+                <line x1={M.x1} y1={M.y1} x2={M.x2} y2={M.y2} />
+                {i === litLabel && (
+                  <text x={M.tx} y={M.ty} textAnchor={M.anchor}>{M.label}</text>
+                )}
+              </g>
             ))}
           </g>
           <line

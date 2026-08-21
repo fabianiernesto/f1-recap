@@ -860,3 +860,11 @@ body {
   from { opacity: 0; transform: scale(.986) }
   to { opacity: 1; transform: none }
 }
+
+/* corner marks: a tick on the edge of the road for every corner, and the
+   name only for the one the car is actually at */
+.tk-marks line { stroke: #3d424d; stroke-width: 3; stroke-linecap: round;
+  transition: stroke .25s ease, stroke-width .25s ease; }
+.tk-marks .on line { stroke: var(--led); stroke-width: 4.5; }
+.tk-marks text { font-family: var(--font-mono); font-size: 17px;
+  letter-spacing: 2px; fill: #f2f3f5; }
