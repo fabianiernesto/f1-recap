@@ -39,117 +39,6 @@ function fmtTime(s: number): string {
   return m ? `${m}:${(s - m * 60).toFixed(3).padStart(6, "0")}` : s.toFixed(3);
 }
 
-/* Invented sponsors, drawn the way the reference boards are drawn: the word
-   IS the mark. No icons, no colour blocks, one bone-white ink on black, and a
-   different typographic device each so they read as six companies rather than
-   six instances of a template.
-
-   Widths are fixed and the type is fitted to them with textLength, so nothing
-   depends on guessing Anton's metrics on the server. */
-type Brand = { id: string; name: string; w: number; h: number };
-const BOARDS: Brand[] = [
-  { id: "octane", name: "OCTANE 99", w: 116, h: 34 },
-  { id: "apex", name: "APEX", w: 88, h: 38 },
-  { id: "slip", name: "SLIPSTREAM", w: 124, h: 34 },
-  { id: "kerb", name: "KERBSIDE", w: 96, h: 36 },
-  { id: "torque", name: "TORQUE", w: 96, h: 32 },
-  { id: "rs", name: "R//S", w: 100, h: 36 },
-];
-
-const INK = "#e6e6e0";
-const HERO = "var(--font-hero), sans-serif";
-const MONO = "var(--font-mono), monospace";
-
-/** One hoarding. Each id is its own small piece of design. */
-function BoardArt({ b }: { b: Brand }) {
-  const half = b.w / 2;
-
-  // knocked out of a solid: the one that survives any size
-  if (b.id === "octane")
-    return (
-      <>
-        <rect x={-half} y={-b.h / 2} width={b.w} height={b.h} fill={INK} />
-        <text x={0} y={9} textAnchor="middle" fontFamily={HERO} fontSize={27}
-              fill="#07080b" textLength={b.w - 18} lengthAdjust="spacing">
-          OCTANE 99
-        </text>
-      </>
-    );
-
-  // a badge with the trade underneath, the commonest shape on the sheet
-  if (b.id === "apex")
-    return (
-      <>
-        <rect x={-half} y={-b.h / 2} width={b.w} height={b.h}
-              fill="#07080b" stroke={INK} strokeWidth={2.2} />
-        <text x={0} y={4} textAnchor="middle" fontFamily={HERO} fontSize={23}
-              fill={INK} textLength={b.w - 26} lengthAdjust="spacing">
-          APEX
-        </text>
-        <text x={0} y={13.5} textAnchor="middle" fontFamily={MONO} fontSize={7}
-              fill="#9aa0aa" letterSpacing={2.4}>
-          FUELS
-        </text>
-      </>
-    );
-
-  // leaning, with the ground it sits on: speed without drawing anything
-  if (b.id === "slip")
-    return (
-      <>
-        <text x={0} y={4} textAnchor="middle" fontFamily={HERO} fontSize={25}
-              fill={INK} transform="skewX(-13)" textLength={b.w - 14}
-              lengthAdjust="spacing">
-          SLIPSTREAM
-        </text>
-        <rect x={-half} y={10} width={b.w} height={3} fill={INK} />
-      </>
-    );
-
-  // ruled top and bottom, wide tracking: a parts-catalogue mark
-  if (b.id === "kerb")
-    return (
-      <>
-        <rect x={-half} y={-16} width={b.w} height={2.2} fill={INK} />
-        <text x={0} y={7} textAnchor="middle" fontFamily={HERO} fontSize={19}
-              fill={INK} textLength={b.w - 14} lengthAdjust="spacing">
-          KERBSIDE
-        </text>
-        <rect x={-half} y={12} width={b.w} height={2.2} fill={INK} />
-      </>
-    );
-
-  // the pill, straight off the reference sheet
-  if (b.id === "torque")
-    return (
-      <>
-        <rect x={-half} y={-b.h / 2} width={b.w} height={b.h} rx={b.h / 2}
-              fill="#07080b" stroke={INK} strokeWidth={2.2} />
-        <text x={0} y={7} textAnchor="middle" fontFamily={HERO} fontSize={20}
-              fill={INK} textLength={b.w - 30} lengthAdjust="spacing">
-          TORQUE
-        </text>
-      </>
-    );
-
-  // ours: the monogram knocked out, the full name ruled underneath. The plate
-  // is narrower than the board, because the board has to be as wide as its
-  // longest line for the placement to keep it clear of anything else
-  return (
-    <>
-      <rect x={-31} y={-b.h / 2} width={62} height={24} fill={INK} />
-      <text x={0} y={3} textAnchor="middle" fontFamily={HERO} fontSize={20}
-            fill="#07080b" textLength={46} lengthAdjust="spacing">
-        R//S
-      </text>
-      <text x={0} y={16} textAnchor="middle" fontFamily={MONO} fontSize={6.2}
-            fill="#9aa0aa" letterSpacing={1.2}>
-        RACING SIMPLIFIED
-      </text>
-    </>
-  );
-}
-
 /* ---------- component ---------- */
 
 export default function RaceScroll({
@@ -234,48 +123,6 @@ export default function RaceScroll({
 
     /* hoardings, dropped on the straightest ground we can find and turned to
        face the road, on the infield so the corner names keep the outside */
-    /* hoardings: dropped on the straightest ground available, turned to face
-       the road and kept clear of the corner names and of each other. The
-       clearance is measured in each board's own half-width, so a wide one
-       needs a wider gap than a narrow one. */
-    const placeBoard = (bi: number) => {
-      const p = pts[bi];
-      const a = pts[Math.max(0, bi - 2)], b = pts[Math.min(pts.length - 1, bi + 2)];
-      const dx = b[0] - a[0], dy = b[1] - a[1], m = Math.hypot(dx, dy) || 1;
-      const nx = -dy / m, ny = dx / m;
-      const inward = nx * (cx - p[0]) + ny * (cy - p[1]) > 0 ? 1 : -1;
-      const off = 36 * inward;
-      let angle = (Math.atan2(dy, dx) * 180) / Math.PI;
-      if (angle > 90 || angle < -90) angle += 180;   // never upside down
-      return { x: p[0] + nx * off, y: p[1] + ny * off, angle };
-    };
-    const taken: { x: number; y: number; w: number }[] = [];
-    const boards = BOARDS.map((brand, k) => {
-      const base = Math.floor(((k + 0.5) / BOARDS.length) * (pts.length - 1));
-      const half = brand.w / 2;
-      let bi = base, best = -Infinity;
-      for (let o = -80; o <= 80; o++) {
-        const i = (base + o + pts.length) % pts.length;
-        const spot = placeBoard(i);
-        let clear = Infinity;
-        for (const c of track.corners)
-          clear = Math.min(clear, Math.hypot(spot.x - c.x, spot.y - c.y) - half);
-        for (const l of labels)
-          clear = Math.min(clear, Math.hypot(spot.x - l.lx, spot.y - l.ly)
-                                  - half - l.label.length * 5.5);
-        for (const t of taken)
-          clear = Math.min(clear,
-            Math.hypot(spot.x - t.x, spot.y - t.y) - half - t.w / 2);
-        if (clear > best) { best = clear; bi = i; }
-      }
-      // nowhere clean on this stretch: a missing board beats one printed over
-      // a corner name or another board
-      if (best < 6) return null;
-      const spot = placeBoard(bi);
-      taken.push({ ...spot, w: brand.w });
-      return { ...brand, ...spot };
-    }).filter((b): b is NonNullable<typeof b> => !!b);
-
     const a0 = Math.atan2(pts[1][1] - pts[0][1], pts[1][0] - pts[0][0]);
     const sf = {
       x1: pts[0][0] + Math.cos(a0 + Math.PI / 2) * 14,
@@ -283,7 +130,7 @@ export default function RaceScroll({
       x2: pts[0][0] - Math.cos(a0 + Math.PI / 2) * 14,
       y2: pts[0][1] - Math.sin(a0 + Math.PI / 2) * 14,
     };
-    return { d, cum, total, labels, marks, sf, kerbs, boards };
+    return { d, cum, total, labels, marks, sf, kerbs };
   }, [track]);
 
   /* scroll + car animation */
@@ -417,15 +264,6 @@ export default function RaceScroll({
 
       <div className="trackwrap">
         <svg viewBox={`0 0 ${track.view} ${track.view}`}>
-          {/* the hoardings sit furthest back, out on the infield */}
-          <g className="tk-boards">
-            {geo.boards.map((b) => (
-              <g key={b.id} transform={`translate(${b.x} ${b.y}) rotate(${b.angle})`}>
-                <BoardArt b={b} />
-              </g>
-            ))}
-          </g>
-
           {/* a real road: kerb-gray edges around dark asphalt, with the red
               racing line lighting up as the reader drives through the story */}
           <path d={geo.d} fill="none" stroke="#464B55" strokeWidth={21} strokeLinejoin="round" />
