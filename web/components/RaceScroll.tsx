@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CardData, MateThread, Story, Track } from "@/lib/types";
-import { DecisionBody, GuessBody } from "./CallIt";
+import { DecisionBody, GuessBody, PredictionBody } from "./CallIt";
 import RaceMate from "./RaceMate";
 
 /* ---------- helpers ---------- */
@@ -40,7 +40,6 @@ export default function RaceScroll({
   const [lap, setLap] = useState(0);
   const [activeIdx, setActiveIdx] = useState(0);
   const [litLabel, setLitLabel] = useState(-1);
-  const [picks, setPicks] = useState<Record<number, string>>({});
   const [openData, setOpenData] = useState<Record<number, boolean>>({});
 
   const carRef = useRef<SVGGElement>(null);
@@ -307,43 +306,8 @@ export default function RaceScroll({
                   {c.type === "decision" && <DecisionBody card={c} />}
                   {c.type === "guess" && <GuessBody card={c} />}
 
-                  {c.type === "prediction" && c.options && (
-                    <>
-                      <div className="opts">
-                        {c.options.map((o) => (
-                          <button
-                            key={o}
-                            className={`chip ${
-                              picks[i]
-                                ? o === c.answer
-                                  ? "right"
-                                  : "wrong"
-                                : ""
-                            }`}
-                            disabled={!!picks[i]}
-                            onClick={() =>
-                              setPicks((s) => ({ ...s, [i]: o }))
-                            }
-                          >
-                            {o}
-                          </button>
-                        ))}
-                      </div>
-                      {picks[i] && (
-                        <>
-                          <div
-                            className={`verdict ${
-                              picks[i] === c.answer ? "" : "verdict-bad"
-                            }`}
-                          >
-                            {picks[i] === c.answer
-                              ? "You called it"
-                              : "Not this time"}
-                          </div>
-                          {c.reveal && <p className="reveal">{c.reveal}</p>}
-                        </>
-                      )}
-                    </>
+                  {c.type === "prediction" && (
+                    <PredictionBody card={c} />
                   )}
 
                   {c.dato && (

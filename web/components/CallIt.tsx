@@ -64,6 +64,45 @@ export function DecisionBody({ card }: { card: CardData }) {
   );
 }
 
+/**
+ * A prediction does have a right answer, so it wears the same blocks as a
+ * decision but scores you: the call that came true lights up green, the rest
+ * go quiet.
+ */
+export function PredictionBody({ card }: { card: CardData }) {
+  const [pick, setPick] = useState<string | null>(null);
+  const right = pick && pick === card.answer;
+
+  return (
+    <div className="call">
+      <div className="call-opts">
+        {(card.options || []).map((o) => (
+          <button
+            key={o}
+            className={`call-opt${pick === o ? " picked" : ""}${
+              pick ? (o === card.answer ? " right" : " wrong") : ""
+            }`}
+            disabled={!!pick}
+            onClick={() => setPick(o)}
+          >
+            <b>{o}</b>
+            {pick && o === card.answer && <em>What happened</em>}
+          </button>
+        ))}
+      </div>
+
+      {pick && (
+        <div className="call-out">
+          <div className={`call-verdict${right ? " agreed" : ""}`}>
+            {right ? "You called it" : "Not this time"}
+          </div>
+          {card.reveal && <p className="call-reveal">{card.reveal}</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function GuessBody({ card }: { card: CardData }) {
   const min = card.min ?? 0;
   const max = card.max ?? 100;

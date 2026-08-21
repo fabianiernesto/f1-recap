@@ -13,6 +13,7 @@
   --accent: #e10600;
   --purple: #a855f7;
   --green: #22c55e;
+  --ok: #2fd06a;          /* you got it right */
   --yellow: #eab308;
 }
 
@@ -397,12 +398,19 @@ body {
 .call-opt:disabled { cursor: default; opacity: .45; }
 .call-opt.picked { opacity: 1; border-color: #ffffff59; background: #16181d; }
 .call-opt.real { opacity: 1; border-color: var(--led); }
+/* predictions have a right answer, so getting it lands in green */
+.call-opt.right { opacity: 1; border-color: var(--ok); background: #06150d; }
+.call-opt.right b { color: var(--ok); }
+.call-opt.right em { color: var(--ok); }
+/* the extra :disabled keeps this above .picked no matter the source order */
+.call-opt.wrong, .call-opt.wrong:disabled { opacity: .4; border-color: #ffffff14; }
+.call-opt.wrong.picked b { text-decoration: line-through; }
 .call-opt.lock { align-items: center; margin-top: 14px; }
 
 .call-out { margin-top: 16px; padding-top: 14px; border-top: 1px solid #ffffff1f; }
 .call-verdict { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em;
   text-transform: uppercase; color: #8a8f99; }
-.call-verdict.agreed { color: var(--led); }
+.call-verdict.agreed { color: var(--ok); }
 .call-cost { margin: 10px 0 0 !important; color: #c9ced6 !important; }
 .call-reveal { margin: 12px 0 0 !important; padding-left: 12px;
   border-left: 2px solid var(--led); color: #9aa0aa !important; }
