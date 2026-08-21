@@ -20,3 +20,4 @@ pipeline/fastf1_cache/
 # Sistema
 .DS_Store
 Thumbs.db
+web/.dev-server.log
