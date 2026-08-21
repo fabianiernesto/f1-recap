@@ -4,41 +4,24 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 /**
- * Every navigation on this site used to be a cut. This puts a curtain in
- * front of it: the old screen is covered, the route is pushed while nothing
- * is visible, and the new one is uncovered once it has actually arrived.
- *
- * Three curtains, because the right one is a matter of taste:
- *   lights  the start procedure, five reds lit one by one and then blackout
- *   sweep   a car going past at night, one red streak wiping the screen
- *   grid    the dot matrix of the hero flooding in and draining away
+ * Every navigation on this site used to be a cut. This puts a broadcast
+ * ident in front of it: the old screen is covered, the route is pushed while
+ * nothing is visible, and the new one is uncovered once it has arrived.
  *
  * The cover always finishes before the push, but the reveal waits for the
- * new pathname, so a slow route holds the curtain instead of flashing.
+ * new pathname, so a slow route holds on the mark instead of flashing
+ * half-rendered content.
  */
 
-export type FXVariant = "sting" | "lights" | "sweep" | "grid";
-export const FX_KEY = "f1recap:fx";
-export const FX_DEFAULT: FXVariant = "sting";
-
-const COVER = { sting: 640, lights: 620, sweep: 430, grid: 470 };
-const REVEAL = { sting: 420, lights: 340, sweep: 400, grid: 440 };
+const COVER = 640;
+const REVEAL = 420;
 
 export default function PageFX() {
   const router = useRouter();
   const pathname = usePathname();
-  const [variant, setVariant] = useState<FXVariant>(FX_DEFAULT);
   const [phase, setPhase] = useState<"idle" | "cover" | "hold" | "reveal">("idle");
   const pending = useRef<string | null>(null);
   const from = useRef(pathname);
-
-  useEffect(() => {
-    const saved = localStorage.getItem(FX_KEY) as FXVariant | null;
-    if (saved) setVariant(saved);
-    const onPick = (e: Event) => setVariant((e as CustomEvent).detail as FXVariant);
-    addEventListener("f1recap:fx", onPick);
-    return () => removeEventListener("f1recap:fx", onPick);
-  }, []);
 
   /* the curtain comes down, then the route changes behind it */
   const go = useCallback(
@@ -48,9 +31,9 @@ export default function PageFX() {
       setTimeout(() => {
         setPhase("hold");
         router.push(href);
-      }, COVER[variant]);
+      }, COVER);
     },
-    [router, variant]
+    [router]
   );
 
   useEffect(() => {
@@ -81,48 +64,35 @@ export default function PageFX() {
       // the arriving page settles in under the curtain rather than just being
       // there; the class is what the page-in animation hangs off
       document.documentElement.classList.add("fx-in");
-      const t = setTimeout(() => setPhase("idle"), REVEAL[variant]);
+      const t = setTimeout(() => setPhase("idle"), REVEAL);
       const t2 = setTimeout(
         () => document.documentElement.classList.remove("fx-in"),
-        REVEAL[variant] + 420
+        REVEAL + 420
       );
       return () => { clearTimeout(t); clearTimeout(t2); };
     }
-  }, [pathname, variant]);
+  }, [pathname]);
 
   if (phase === "idle") return null;
 
   return (
-    <div className={`fx fx-${variant} fx-${phase}`} aria-hidden>
-      <div className="fx-veil" />
-      {variant === "lights" && (
-        <div className="fx-bulbs">
-          {[0, 1, 2, 3, 4].map((i) => (
-            <span key={i} style={{ ["--i" as string]: i }} />
-          ))}
+    <div className={`fx fx-sting fx-${phase}`} aria-hidden>
+      {/* bars first, then the impact frame, then the mark snapping in */}
+      <div className="sting-bars">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <span key={i} style={{ ["--i" as string]: i }} />
+        ))}
+      </div>
+      <div className="sting-flash" />
+      <div className="sting-core">
+        <div className="sting-mark">
+          <span className="sting-ghost g1">R//S</span>
+          <span className="sting-ghost g2">R//S</span>
+          <span className="sting-face">R//S</span>
         </div>
-      )}
-      {variant === "sweep" && <div className="fx-streak" />}
-      {variant === "sting" && (
-        <>
-          {/* bars first, then the impact frame, then the mark snapping in */}
-          <div className="sting-bars">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <span key={i} style={{ ["--i" as string]: i }} />
-            ))}
-          </div>
-          <div className="sting-flash" />
-          <div className="sting-core">
-            <div className="sting-mark">
-              <span className="sting-ghost g1">R//R</span>
-              <span className="sting-ghost g2">R//R</span>
-              <span className="sting-face">R//R</span>
-            </div>
-            <div className="sting-tag">Race &#47;&#47; Recap</div>
-          </div>
-          <div className="sting-scan" />
-        </>
-      )}
+        <div className="sting-tag">Racing Simplified</div>
+      </div>
+      <div className="sting-scan" />
     </div>
   );
 }
