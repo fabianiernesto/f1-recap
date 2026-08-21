@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import PageFX from "@/components/PageFX";
 
 /**
  * Fonts are served from app/fonts, fetched once by scripts/fetch-fonts.mjs.
@@ -59,7 +60,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable} ${hero.variable} ${pixel.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <PageFX />
+      </body>
     </html>
   );
 }

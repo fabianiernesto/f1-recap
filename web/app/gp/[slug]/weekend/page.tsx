@@ -19,6 +19,7 @@ export default async function WeekendPage({
         <Link href={`/gp/${slug}`} className="hub-back">
           ← {weekend.circuit}
         </Link>
+        <Link href="/" className="hub-home">Race // Recap</Link>
       </div>
       <WeekendHub weekend={weekend} />
     </>

@@ -90,6 +90,12 @@ export default function GPHeroLED({
 
       <span className="ledhero-l1">{track.circuit}</span>
       <span className="ledhero-l2">Simplified</span>
+      {/* the way back out, above the tag so it reads as part of the same
+          bottom-left block instead of floating on its own */}
+      <Link className="ledhero-home" href="/">
+        <i aria-hidden>←</i>
+        All circuits
+      </Link>
       <span className="ledhero-tag">Race {round} // Recap</span>
 
       {/* the only way in: no scroll on this screen */}

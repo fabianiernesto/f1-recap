@@ -93,6 +93,17 @@ body {
   50% { opacity: 1;
     text-shadow: 0 0 14px #ff1c1259, 0 0 38px #ff1c1233; }
 }
+/* the way home, sitting just above the tag in the same bottom-left block */
+.ledhero-home { position: absolute; z-index: 5; left: 1.4vw; top: 86.5%;
+  display: inline-flex; align-items: center; gap: .7em;
+  font-family: var(--font-mono); font-size: 1.24vh; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase; color: #8a8f99;
+  text-decoration: none; transition: color .18s; }
+.ledhero-home i { font-style: normal; transition: transform .18s; }
+.ledhero-home:hover { color: var(--led); }
+.ledhero-home:hover i { transform: translateX(-4px); }
+.ledhero-home:focus-visible { outline: 2px solid var(--led); outline-offset: 4px; }
+
 .ledhero-tag { position: absolute; z-index: 4; left: 1.4vw; top: 91.5%;
   font-size: 2.6vh; letter-spacing: .18em; color: #f2f3f5;
   text-transform: uppercase; font-weight: 700; }
@@ -114,11 +125,18 @@ body {
   .ledhero-l1 { left: 6vw; top: 58%; }
   .ledhero-l2 { left: 30vw; top: 70%; }
   .ledhero-enter { right: auto; left: 6vw; top: 88%; padding: 1.6vh 6vw; }
+  .ledhero-home { left: 6vw; top: 82%; }
 }
 
 /* back to the circuit's front door, above the hub */
 .hub-top { position: sticky; top: 0; z-index: 60; background: #0a0b0e;
-  border-bottom: 1px solid var(--line); padding: 12px 5vw; }
+  border-bottom: 1px solid var(--line); padding: 12px 5vw;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+/* the wordmark doubles as the way home, on every screen that has this bar */
+.hub-home { font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .24em; text-transform: uppercase; color: var(--muted);
+  text-decoration: none; transition: color .18s; }
+.hub-home:hover { color: var(--led); }
 .hub-back { font-family: var(--font-mono); font-size: 11px; letter-spacing: .2em;
   text-transform: uppercase; color: var(--muted); text-decoration: none; }
 .hub-back:hover { color: var(--ink); }
@@ -714,3 +732,88 @@ body {
   .poster-track { display: none; }
   .poster-ticker { flex-direction: column; gap: 6px; }
 }
+
+/* ---------- page transitions ----------
+   One curtain over the whole viewport. Cover runs before the route is
+   pushed, reveal runs once the new page has actually arrived, so a slow
+   route holds on black instead of flashing half-rendered content. */
+.fx { position: fixed; inset: 0; z-index: 9999; pointer-events: all;
+  overflow: hidden; }
+.fx-veil { position: absolute; inset: 0; background: #000; }
+
+/* --- lights out: the start procedure, five reds and then blackout --- */
+.fx-bulbs { position: absolute; inset: 0; display: flex; align-items: center;
+  justify-content: center; gap: 2.4vw; }
+.fx-bulbs span { width: 3.4vw; height: 3.4vw; max-width: 54px; max-height: 54px;
+  border-radius: 50%; background: #2a0d0c; box-shadow: inset 0 0 0 1px #ffffff10; }
+.fx-lights.fx-cover .fx-veil { animation: fx-fade-in .16s ease-out both; }
+.fx-lights.fx-cover .fx-bulbs span { animation: fx-bulb-on .18s ease-out both;
+  animation-delay: calc(.14s + var(--i) * .085s); }
+/* they all go out at once, which is the moment a race actually starts */
+.fx-lights.fx-hold .fx-bulbs span, .fx-lights.fx-reveal .fx-bulbs span { opacity: 0; }
+.fx-lights.fx-reveal .fx-veil { animation: fx-fade-out .34s ease-in both; }
+@keyframes fx-bulb-on {
+  from { background: #2a0d0c; box-shadow: inset 0 0 0 1px #ffffff10; }
+  to { background: var(--led);
+       box-shadow: 0 0 22px #ff1c1288, 0 0 60px #ff1c1244, inset 0 0 0 1px #ff6b64; }
+}
+
+/* --- light trail: a car going past in the dark --- */
+.fx-sweep .fx-veil { transform: translateX(-101%); }
+.fx-sweep .fx-streak { position: absolute; top: 0; bottom: 0; left: 0; width: 26vw;
+  transform: translateX(-120%); filter: blur(1px);
+  background: linear-gradient(90deg, #0000 0%, #ff1c1233 55%, var(--led) 92%, #fff 100%); }
+.fx-sweep.fx-cover .fx-veil { animation: fx-wipe-in .43s cubic-bezier(.7,0,.3,1) both; }
+.fx-sweep.fx-cover .fx-streak { animation: fx-streak-in .43s cubic-bezier(.7,0,.3,1) both; }
+.fx-sweep.fx-hold .fx-veil { transform: none; }
+.fx-sweep.fx-reveal .fx-veil { animation: fx-wipe-out .4s cubic-bezier(.7,0,.3,1) both; }
+.fx-sweep.fx-reveal .fx-streak { animation: fx-streak-out .4s cubic-bezier(.7,0,.3,1) both; }
+@keyframes fx-wipe-in { from { transform: translateX(-101%) } to { transform: none } }
+@keyframes fx-wipe-out { from { transform: none } to { transform: translateX(101%) } }
+@keyframes fx-streak-in { from { transform: translateX(-120%) } to { transform: translateX(390%) } }
+@keyframes fx-streak-out { from { transform: translateX(-20%) } to { transform: translateX(420%) } }
+
+/* --- LED curtain: the hero's dot matrix floods in and drains away --- */
+.fx-grid .fx-veil { background-color: #000;
+  background-image: radial-gradient(#ff1c12 32%, #0000 34%);
+  background-size: 22px 22px; }
+.fx-grid.fx-cover .fx-veil { animation: fx-dots-in .47s cubic-bezier(.6,0,.35,1) both; }
+.fx-grid.fx-hold .fx-veil { clip-path: inset(0 0 0 0); }
+.fx-grid.fx-reveal .fx-veil { animation: fx-dots-out .44s cubic-bezier(.6,0,.35,1) both; }
+@keyframes fx-dots-in {
+  from { clip-path: inset(0 100% 0 0); opacity: .7 }
+  to { clip-path: inset(0 0 0 0); opacity: 1 }
+}
+@keyframes fx-dots-out {
+  from { clip-path: inset(0 0 0 0); opacity: 1 }
+  to { clip-path: inset(0 0 0 100%); opacity: .7 }
+}
+
+@keyframes fx-fade-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes fx-fade-out { from { opacity: 1 } to { opacity: 0 } }
+@media (prefers-reduced-motion: reduce) { .fx { display: none } }
+
+/* ---------- the transition bench ---------- */
+.fxcard { display: flex; flex-direction: column; gap: 8px; text-align: left;
+  background: #050506; border: 1px solid #ffffff1c; padding: 24px 24px 20px;
+  min-height: 260px; cursor: pointer; color: #f2f3f5;
+  transition: border-color .18s, background-color .18s; }
+.fxcard:hover { border-color: #ff1c1266; background: #0d0405; }
+.fxcard.on { border-color: var(--led); background: #140708; }
+.fxcard-name { font-family: var(--font-display); font-weight: 700; font-size: 30px;
+  letter-spacing: .02em; text-transform: uppercase; color: var(--led); }
+.fxcard-line { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: #f2f3f5; }
+.fxcard-note { font-size: 13.5px; line-height: 1.6; color: #9aa0aa; flex: 1; }
+.fxcard-state { font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: #565b66; }
+.fxcard.on .fxcard-state { color: var(--led); }
+
+.fxtry { display: flex; flex-wrap: wrap; align-items: center; gap: 18px;
+  margin-top: 40px; padding-top: 22px; border-top: 1px solid #ffffff14;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; }
+.fxtry span { color: #565b66; }
+.fxtry a { color: #f2f3f5; text-decoration: none; border-bottom: 1px solid #ff1c1259;
+  padding-bottom: 3px; transition: color .18s, border-color .18s; }
+.fxtry a:hover { color: var(--led); border-color: var(--led); }
