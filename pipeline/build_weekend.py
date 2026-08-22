@@ -57,6 +57,17 @@ def fmt(seconds: float) -> str:
     return f"{m}:{seconds - m * 60:06.3f}" if m else f"{seconds:.3f}"
 
 
+def names_list(names: list[str], cap: int = 3) -> str:
+    """Three names read as a sentence; twelve read as a spreadsheet."""
+    shown = names[:cap]
+    rest = len(names) - len(shown)
+    if not shown:
+        return ""
+    if rest > 0:                      # "A, B, C and 9 others", never two ands
+        return ", ".join(shown) + f" and {rest} others"
+    return shown[0] if len(shown) == 1 else ", ".join(shown[:-1]) + " and " + shown[-1]
+
+
 def q_gap(r: dict) -> float | None:
     """In qualifying gap_to_leader is a list [Q1, Q2, Q3]."""
     g = r.get("gap_to_leader")
@@ -764,23 +775,36 @@ def race_story(s: Session) -> list[dict]:
     lap1 = [o for o in s.overtakes if s.lap_of(parse_ts(o.get("date"))) in (None, 1)]
     add({"type": "moment", "lap": 1, "kicker": "Lap 1 · Lights out",
          "title": f"{len(lap1)} places changed hands before the first lap was done",
-         "text": "Twenty cars funnelling into the first corner on cold tyres. "
-                 "Most of this is the pack sorting itself out, and some of it "
-                 "decides the afternoon.",
-         "dato": {"label": "Busiest movers on lap 1",
-                  "rows": [[s.name(num), f"{c} passes"] for num, c in
-                           Counter(o["overtaking_driver_number"]
-                                   for o in lap1).most_common(5)]}})
+         "text": "Twenty cars funnelling into the first corner on cold tyres and "
+                 "full tanks. "
+                 + (names_list([s.name(n) for n, _ in Counter(
+                     o["overtaking_driver_number"] for o in lap1).most_common(3)])
+                    + " came out of it best, and none of them had to pass anybody "
+                      "cleanly to do it: on lap 1 the places are simply there for "
+                      "whoever is brave into the first braking zone. "
+                    if lap1 else "")
+                 + "Most of this is the pack sorting itself out. Some of it decides "
+                   "the afternoon."})
 
     # --- busiest green-flag laps ---
     for lap, n in Counter(ln for ln, _ in green).most_common(3):
         movers = Counter(o["overtaking_driver_number"] for ln, o in green if ln == lap)
         add({"type": "moment", "lap": lap, "kicker": f"Lap {lap} · Traffic",
              "title": f"{n} overtakes on this lap alone",
-             "text": "The pack compressed and everyone had a go: "
-                     + ", ".join(s.name(num) for num, _ in movers.most_common(3)) + ".",
-             "dato": {"label": f"Passes on lap {lap}",
-                      "rows": [[s.name(num), c] for num, c in movers.most_common()]}})
+             "text": names_list([s.name(num) for num, _ in movers.most_common(3)])
+                     + " all found a way through on the same lap, which almost never "
+                       "happens by coincidence. "
+                     + ("Cars were rejoining on new rubber alongside cars that had "
+                        "been out there for twenty laps, and that is a free pass "
+                        "rather than a move. "
+                        if lap > 8 and sum(1 for p in s.pits if p.get("pit_duration")
+                                           and abs((p.get("lap_number") or 0) - lap) <= 1) >= 3
+                        else "Cold tyres, full tanks and everybody still finding out "
+                             "where they belong. "
+                        if lap <= 8 else
+                        "Nobody had stopped, so this was done the hard way, wheel to "
+                        "wheel. ")
+                     + f"{len(movers)} different drivers gained a place here."})
 
     # --- fights for the lead ---
     lead = [(ln, o) for ln, o in green if (o.get("position") or 99) == 1]
@@ -799,7 +823,14 @@ def race_story(s: Session) -> list[dict]:
         add({"type": "moment", "lap": max(2, s.total_laps // 3),
              "kicker": "The one doing the passing",
              "title": f"{s.name(num)}: {n} overtakes",
-             "text": f"More than anybody else out there, in a {s.team(num)}.",
+             "text": f"More than anybody else out there, in a {s.team(num)}"
+                     + (f", and he started P{grid_pos[num]}"
+                        if grid_pos.get(num) else "")
+                     + (f" and finished P{s.finish_pos(num)}. "
+                        if s.finish_pos(num) else ". ")
+                     + "Passing is the part of this sport that looks like the whole "
+                       "sport on television and turns out to be the rarest thing in "
+                       "it: most positions change in the pit lane, not on the road.",
              "dato": {"label": "Most overtakes",
                       "rows": [[s.name(d), c] for d, c in ov_by_driver.most_common(6)]}})
 
@@ -813,8 +844,7 @@ def race_story(s: Session) -> list[dict]:
                      "through. This is what modern F1 traffic actually looks like, "
                      "and it happened to "
                      + (f"{len(stuck)} drivers today." if len(stuck) > 1 else "him alone today."),
-             "dato": {"label": "Longest spells within a second",
-                      "rows": [[s.name(n), f"{c} samples"] for n, c in stuck]}})
+             })
 
     # --- pit strategy ---
     real_pits = [p for p in s.pits if p.get("pit_duration")]
@@ -825,11 +855,16 @@ def race_story(s: Session) -> list[dict]:
         busiest_lap, busiest_n = by_lap.most_common(1)[0]
         add({"type": "moment", "lap": window, "kicker": f"Lap {window} · Pit window",
              "title": f"{len(real_pits)} stops, and the busiest lap saw {busiest_n} of them",
-             "text": f"Once one car blinks, everybody has to answer. The quickest "
-                     f"trip down the lane belonged to {s.name(fastest['driver_number'])} "
-                     f"at {fastest['pit_duration']:.1f}s.",
-             "dato": {"label": "Stops per lap",
-                      "rows": [[f"Lap {l}", c] for l, c in sorted(by_lap.items())[:8]]}})
+             "text": f"Once one car blinks the rest have to answer. The window "
+                     f"opened around here and the busiest single lap was {busiest_lap}, "
+                     f"with {busiest_n} cars in on the same tour. The quickest trip "
+                     f"belonged to "
+                     f"{s.name(fastest['driver_number'])} at "
+                     f"{fastest['pit_duration']:.1f}s, and the slowest to "
+                     f"{s.name(max(real_pits, key=lambda p: p['pit_duration'])['driver_number'])} "
+                     f"at {max(p['pit_duration'] for p in real_pits):.1f}s. "
+                     "That gap is a whole position, sometimes two, decided by people "
+                     "who never touch the steering wheel."})
 
         stops_per_driver = Counter(p["driver_number"] for p in real_pits)
         odd = [n for n, c in stops_per_driver.items() if c >= 3]
@@ -847,11 +882,12 @@ def race_story(s: Session) -> list[dict]:
         add({"type": "moment", "lap": longest.get("lap_end") or s.total_laps // 2,
              "kicker": "Tyres", "title": f"{s.name(longest['driver_number'])} nursed one "
                                          f"set for {span} laps",
-             "text": f"On the {(longest.get('compound') or '').lower()}s. Every lap you "
-                     "stretch is a lap you do not lose in the pits, until the rubber "
-                     "gives up.",
-             "dato": {"label": "Stints by compound",
-                      "rows": [[c, n] for c, n in compounds.most_common()]}})
+             "text": f"On the {(longest.get('compound') or '').lower()}s, from lap "
+                     f"{longest.get('lap_start')} to lap {longest.get('lap_end')}. "
+                     "Every lap you stretch is a lap you do not lose in the pit lane, "
+                     "and every lap you stretch is also a set of tyres getting slower "
+                     "underneath you. The whole afternoon is that argument, run at "
+                     "300 km/h."})
 
     # --- safety cars ---
     for lap in s.sc_laps:
@@ -860,14 +896,22 @@ def race_story(s: Session) -> list[dict]:
         add({"type": "moment", "lap": lap,
              "kicker": f"Lap {lap} of {s.total_laps} · Safety Car",
              "title": "Every gap on track, erased",
-             "text": (f"Neutralised until lap {ended}. " if ended else "")
-                     + "Whatever anybody had built up to here was wiped out, and the "
-                       "race restarted nose to tail.",
-             "dato": {"label": "Who dived in under it",
-                      "rows": [[s.name(p["driver_number"]), f"lap {p['lap_number']}"]
-                               for p in s.pits
-                               if p.get("pit_duration") and p.get("lap_number")
-                               and abs(p["lap_number"] - lap) <= 1][:6]}})
+             "text": (lambda leader, dived: (
+                 f"{s.name(leader)} was leading when it came out"
+                 + (" and dived straight in, along with "
+                    + names_list([s.name(n) for n in dived if n != leader]) + ". "
+                    if leader in dived and len(dived) > 1
+                    else " and stayed out. "
+                         + (names_list([s.name(n) for n in dived])
+                            + " took the free stop instead. " if dived else ""))
+                 + (f"Neutralised until lap {ended}. " if ended else "")
+                 + "Every gap on track was wiped, so a lead built over twenty laps "
+                   "was worth nothing at the restart, and whoever had fresher tyres "
+                   "underneath him suddenly had a race again."
+             ))(s.order_at_lap(lap)[0][1] if s.order_at_lap(lap) else None,
+                [p["driver_number"] for p in s.pits
+                 if p.get("pit_duration") and p.get("lap_number")
+                 and abs(p["lap_number"] - lap) <= 1])})
 
     # --- flags and stewards ---
     yellows = [m for m in s.rc if m.get("flag") in ("YELLOW", "DOUBLE YELLOW")]
@@ -876,10 +920,14 @@ def race_story(s: Session) -> list[dict]:
                           for m in yellows if "SECTOR" in (m.get("message") or ""))
         add({"type": "moment", "lap": yellows[len(yellows) // 2].get("lap_number") or 1,
              "kicker": "Yellow flags", "title": f"{len(yellows)} yellow flag calls",
-             "text": "Debris, spins and cars parked in dangerous places. Every one "
-                     "of them costs lap time to whoever is unlucky enough to arrive.",
-             "dato": {"label": "Marshalling sectors, most affected",
-                      "rows": [[f"Sector {k}", v] for k, v in sectors.most_common(4) if k]}})
+             "text": "Debris, spins and cars parked where they should not be. A "
+                     "yellow means lift and do not overtake, so it costs real lap time "
+                     "to whoever happens to arrive at that corner while it is out, and "
+                     "nothing at all to the car half a lap ahead. "
+                     + (f"Most of them were waved in the same part of the circuit, "
+                        f"around marshalling post {sectors.most_common(1)[0][0]}, which "
+                        "usually means one corner kept catching people out."
+                        if sectors and sectors.most_common(1)[0][0] else "")})
 
     reds = [m for m in s.rc if m.get("flag") == "RED"]
     if reds:
@@ -901,33 +949,39 @@ def race_story(s: Session) -> list[dict]:
     if investigations:
         add({"type": "moment", "lap": investigations[0].get("lap_number") or s.total_laps,
              "kicker": "Stewards", "title": f"{len(investigations)} incidents looked at",
-             "text": (investigations[0].get("message") or "").title() + ".",
-             "dato": {"label": "Under investigation",
-                      "rows": [[f"Lap {m.get('lap_number') or '-'}",
-                                (m.get("message") or "")[:44]] for m in investigations[:5]]}})
+             "text": (investigations[0].get("message") or "").title().replace(
+                         "Fia", "FIA")
+                     + ". Being noted is not the same as being punished: most of these "
+                       "are looked at, argued over on the radio, and quietly dropped a "
+                       "few laps later."})
 
     penalties = s.messages("PENALTY")
     if penalties:
+        given = [c for c in s.stewards() if c["secs"]]
+        who = ", ".join(f"{s.name(c['cars'][0])} {c['secs']}s for "
+                        f"{(c['reason'] or 'an incident').lower()}" for c in given[:3])
         add({"type": "moment", "lap": penalties[0].get("lap_number") or s.total_laps,
              "kicker": "Penalties", "title": f"{len(penalties)} penalty calls",
-             "text": "Time added, places lost, and in some cases a result rewritten "
-                     "after the flag.",
-             "dato": {"label": "Handed out",
-                      "rows": [[s.name(c["cars"][0]),
-                                f"{c['secs']}s · {(c['reason'] or 'incident').lower()}"]
-                               for c in s.stewards() if c["secs"]][:6]}})
+             "text": (who + ". " if who else "")
+                     + "A time penalty is served at the next stop, or added to the "
+                       "final time when there is no stop left to serve it at, which "
+                       "is how a result gets rewritten twenty minutes after the flag."})
 
     deleted = s.messages("DELETED")
     if deleted:
         add({"type": "moment", "lap": deleted[0].get("lap_number") or 1,
              "kicker": "Track limits", "title": f"{len(deleted)} lap times deleted",
-             "text": "The white line is the track. Run wide and the lap simply "
-                     "stops counting.",
-             "dato": {"label": "Most deletions",
-                      "rows": [[s.name(n), f"{c} laps"] for n, c in Counter(
-                          int(g) for m in deleted
-                          for g in re.findall(r"CAR (\d+)", m.get("message") or "")
-                      ).most_common(5)]}})
+             "text": (lambda worst: (
+                 "The white line is the track. Put a wheel beyond it and the lap "
+                 "simply stops counting, however quick it was. "
+                 + (f"{s.name(worst[0][0])} lost {worst[0][1]} of them, more than "
+                    "anybody, which is the sort of thing that turns into a penalty "
+                    "if it keeps happening. " if worst else "")
+                 + "It sounds pedantic until you remember the alternative is letting "
+                   "everybody find their own edge of the circuit."
+             ))(Counter(int(g) for m in deleted
+                        for g in re.findall(r"CAR (\d+)", m.get("message") or "")
+                        ).most_common(1))})
 
     # --- retirements ---
     for r in s.dnfs:
@@ -936,14 +990,18 @@ def race_story(s: Session) -> list[dict]:
                       if l.get("driver_number") == num) or 0
         add({"type": "moment", "lap": out_lap, "kicker": f"Lap {out_lap} · Retirement",
              "title": f"{s.name(num)} is out",
-             "text": f"The {s.team(num)} stops after {out_lap} laps. "
-                     "Zero points weekends are where title fights quietly bleed.",
-             "dato": {"label": "His afternoon",
-                      "rows": [["Laps completed", f"{out_lap} of {s.total_laps}"],
-                               ["Started", f"P{grid_pos.get(num) or '-'}"],
-                               ["Pit stops", str(len(s.pit_laps(num)))],
-                               ["Median lap",
-                                fmt(s.pace(num)) if s.pace(num) else "-"]]}})
+             "text": (lambda was: (
+                 f"The {s.team(num)} stops after {out_lap} of {s.total_laps} laps"
+                 + (f", running P{was} at the time" if was else "")
+                 + (f" from P{grid_pos.get(num)} on the grid" if grid_pos.get(num) else "")
+                 + ". "
+                 + (f"He had made {ov_by_driver[num]} passes getting there. "
+                    if ov_by_driver.get(num) else "")
+                 + "Teams almost never say what broke on the day, and the timing feed "
+                   "only records that he stopped. Zero points weekends are where "
+                   "title fights quietly bleed."
+             ))(next((p for p, n in s.order_at_lap(max(1, out_lap - 1)) if n == num),
+                     None))})
 
     # --- pace and speed ---
     best = s.best_lap
@@ -952,7 +1010,11 @@ def race_story(s: Session) -> list[dict]:
              "kicker": f"Lap {best.get('lap_number')} · Fastest lap",
              "title": f"{s.name(best['driver_number'])}: {fmt(best['lap_duration'])}",
              "text": f"The quickest anybody went all afternoon, in a "
-                     f"{s.team(best['driver_number'])}.",
+                     f"{s.team(best['driver_number'])}, and it came on lap "
+                     f"{best.get('lap_number')} of {s.total_laps}. They almost always "
+                     "do: by then the fuel is nearly gone, the car is at its lightest "
+                     "of the day, and the track has an afternoon of rubber laid into "
+                     "it. A lap 1 time and a lap 50 time are barely the same sport.",
              "dato": {"label": "Best sector times",
                       "rows": [[f"{sec} · {who}", f"{t:.3f}s"]
                                for sec, who, t in s.sector_kings()]}})
@@ -961,14 +1023,12 @@ def race_story(s: Session) -> list[dict]:
     if trap:
         add({"type": "moment", "lap": int(s.total_laps * 0.45), "kicker": "Speed trap",
              "title": f"{s.name(trap[0])} hit {trap[1]} km/h",
-             "text": "Top speed says as much about wing level and tow as it does "
-                     "about the engine.",
-             "dato": {"label": "Quickest through the trap",
-                      "rows": [[s.name(n), f"{v} km/h"] for n, v in sorted(
-                          {l["driver_number"]: int(l["st_speed"])
-                           for l in sorted(s.laps, key=lambda x: x.get("st_speed") or 0)
-                           if l.get("st_speed")}.items(),
-                          key=lambda kv: -kv[1])[:5]]}})
+             "text": f"Top speed says as much about wing level and about sitting in "
+                     f"somebody's tow as it does about the engine, which is why the "
+                     f"quickest car through the trap is so rarely the quickest car "
+                     f"over a lap. {s.name(trap[0])} was running a "
+                     f"{s.team(trap[0])} that clearly gave something up in the "
+                     "corners to get it."})
 
     # --- pace ranking, the honest one ---
     ranked = sorted(((s.pace(r["driver_number"]), r["driver_number"])
@@ -992,14 +1052,25 @@ def race_story(s: Session) -> list[dict]:
                  "kicker": "The drive nobody talked about",
                  "title": f"{s.name(num)}: P{grid_pos[num]} on the grid, "
                           f"P{next(r.get('position') for r in s.result if r['driver_number'] == num)} at the flag",
-                 "text": f"{climb} places gained, one pass at a time, most of them "
-                         "nowhere near a TV camera."})
+                 "text": f"{climb} places gained"
+                         + (f", {ov_by_driver[num]} of them by passing somebody on "
+                            "track" if ov_by_driver.get(num) else "")
+                         + ". This is the drive nobody will mention on Monday, because "
+                           "the cameras live at the front and the story of a race is "
+                           "written from there. The timing sheet does not care where "
+                           "the cameras were."})
         drop, dnum = min(gains)
         if drop < -1:
             add({"type": "moment", "lap": max(3, s.total_laps - 6), "kicker": "Backwards",
                  "title": f"{s.name(dnum)} went the other way: {abs(drop)} places lost",
-                 "text": "Strategy, damage or simply a car that would not do what it "
-                         "did on Saturday."})
+                 "text": f"P{grid_pos.get(dnum)} on the grid, P{s.finish_pos(dnum)} at "
+                         f"the flag"
+                         + (f", and {len(s.pit_laps(dnum))} stops when most of the "
+                            f"field did {int(median([len(s.pit_laps(r['driver_number'])) for r in s.result if s.pit_laps(r['driver_number'])]))}"
+                            if s.pit_laps(dnum) else "")
+                         + ". Strategy, damage, or simply a car that would not do on "
+                           "Sunday what it did on Saturday. Qualifying flatters "
+                           "whoever can put one lap together; a race asks for sixty."})
 
     # --- weather ---
     if s.weather:
@@ -1011,18 +1082,21 @@ def race_story(s: Session) -> list[dict]:
                  "text": "Hot tarmac punishes tyres and rewards whoever is gentlest "
                          "with them. As it cools, the picture flips."
                          + (" It stayed dry." if not any(w.get("rainfall") for w in s.weather) else ""),
-                 "dato": {"label": "Conditions",
-                          "rows": [["Track temp", f"{min(track):.0f}-{max(track):.0f} °C"],
-                                   ["Air temp", f"{min(air):.0f}-{max(air):.0f} °C" if air else "-"],
-                                   ["Rain", "Yes" if any(w.get("rainfall") for w in s.weather) else "No"]]}})
+                 })
 
     # --- the flag ---
     podium = s.result[:3]
     add({"type": "moment", "lap": s.total_laps, "kicker": "Chequered flag",
          "title": f"{s.name(winner['driver_number'])} wins it",
-         "text": " · ".join(f"P{r['position']} {s.name(r['driver_number'])}" for r in podium)
-                 + f". {s.name(podium[1]['driver_number'])} finished "
-                   f"{q_gap(podium[1]) or 0:.3f}s behind." if len(podium) > 1 else "",
+         "text": (" · ".join(f"P{r['position']} {s.name(r['driver_number'])}"
+                              for r in podium)
+                  + f". After {s.total_laps} laps and the best part of two hours, "
+                    f"{s.name(podium[1]['driver_number'])} crossed the line "
+                    f"{q_gap(podium[1]) or 0:.3f}s behind"
+                  + (f", which is less than the time it takes to read this sentence. "
+                     if (q_gap(podium[1]) or 9) < 2 else ". ")
+                  + "The gaps at the end of a race almost never reflect the gaps "
+                    "during it.") if len(podium) > 1 else "",
          "dato": {"label": "Points scored",
                   "rows": [[s.name(r["driver_number"]), f"{r.get('points') or 0:.0f}"]
                            for r in s.result[:10]]}})
