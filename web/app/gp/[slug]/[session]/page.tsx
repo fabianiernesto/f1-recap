@@ -5,6 +5,7 @@ import {
   listGPs,
   loadMate,
   loadBrain,
+  loadBlind,
   loadStory,
   loadTrack,
   loadWeekend,
@@ -29,6 +30,7 @@ export default async function SessionPage({
   const track = loadTrack(slug);
   const mate = loadMate(slug, session);
   const brain = loadBrain(slug, session);
+  const blind = loadBlind(slug, session);
   return (
     <>
       <div className="hub-top">
@@ -38,6 +40,22 @@ export default async function SessionPage({
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
       <RaceScroll story={story} track={track} mate={mate} brain={brain} />
+
+      {/* the third way through the session, once the story has been told */}
+      {blind && blind.rounds.length >= 3 && (
+        <section className="playit">
+          <span className="playit-eyebrow">One more thing</span>
+          <h2>Can you spot a driver from his numbers alone?</h2>
+          <p>
+            Five sheets from this session with the names taken off. Where he
+            started, how often he stopped, what the stewards made of him.
+          </p>
+          <Link href={`/gp/${slug}/${session}/blind`} className="blind-go">
+            Take the blind test <i aria-hidden>→</i>
+          </Link>
+        </section>
+      )}
+
       {session === "race" && <FinalPoster story={story} track={track} />}
     </>
   );

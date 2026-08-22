@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { Brain, MateThread, Story, Track, Weekend } from "./types";
+import type { BlindTest, Brain, MateThread, Story, Track, Weekend } from "./types";
 
 // scripts/sync-data.mjs copies the pipeline output into web/data, and
 // scripts/dev.mjs pins cwd to web/ in dev — so this path is always right
@@ -47,5 +47,13 @@ export function loadBrain(slug: string, session: string): Brain | null {
   const f = path.join(DATA_DIR, slug, `brain_${session}.json`);
   return fs.existsSync(f)
     ? (JSON.parse(fs.readFileSync(f, "utf-8")) as Brain)
+    : null;
+}
+
+/** Anonymised driver sheets to guess at. */
+export function loadBlind(slug: string, session: string): BlindTest | null {
+  const f = path.join(DATA_DIR, slug, `blind_${session}.json`);
+  return fs.existsSync(f)
+    ? (JSON.parse(fs.readFileSync(f, "utf-8")) as BlindTest)
     : null;
 }

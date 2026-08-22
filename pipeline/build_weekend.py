@@ -17,6 +17,7 @@ from datetime import datetime
 from pathlib import Path
 from statistics import mean, median
 
+from blind import blind_rounds
 from brain import race_brain
 
 ROOT = Path(__file__).parent
@@ -1185,6 +1186,9 @@ def main() -> None:
             (OUT / f"mate_{slug}.json").write_text(
                 json.dumps(mate_thread(s), ensure_ascii=False, indent=2),
                 encoding="utf-8")
+            (OUT / f"blind_{slug}.json").write_text(
+                json.dumps({"session": label, "rounds": blind_rounds(s, fmt)},
+                           ensure_ascii=False, indent=2), encoding="utf-8")
             (OUT / f"brain_{slug}.json").write_text(
                 json.dumps(race_brain(s, GP, fmt, parse_ts), ensure_ascii=False,
                            indent=2), encoding="utf-8")

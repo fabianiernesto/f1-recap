@@ -133,3 +133,13 @@ export type Brain = {
   lapEvents: Record<string, string[]>;
   topics: { id: string; keys: string[]; say: string[] }[];
 };
+
+/** A driver's afternoon with the name taken off, for the blind test. */
+export type BlindRound = {
+  answer: string;
+  options: string[];
+  rows: [string, string][];
+  tell: string;
+};
+
+export type BlindTest = { session: string; rounds: BlindRound[] };
