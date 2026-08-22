@@ -40,6 +40,7 @@ export type MateThread = {
 
 export type PodiumDriver = {
   pos?: number;
+  gap?: number | null;
   number: number;
   first: string;
   last: string;

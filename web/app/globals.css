@@ -685,101 +685,112 @@ body {
 /* ---------- final light poster (MOODBOARD_ANALISIS: elemento firma 3, ref R1) ----------
    the world flips: paper white, red as pure signal, editorial panels 12-16px */
 /* ---------- the light finale ----------
-   A poster, not a panel: rules and edges, no rounded cards, and the name at
-   the largest size anywhere on the site with the photograph running under it.
-   The studio grey behind a headshot is flat, so multiply drops it into the
-   paper and the picture stops looking pasted into a box. */
-.poster { position: relative; z-index: 30; min-height: 100vh; background: #f4f2ed;
-  color: #1b1c22; overflow: hidden;
-  display: flex; flex-direction: column; }
+   One centre line and one set of margins. Everything above the bands is
+   centred on the same axis; the bands are the only full-width elements, and
+   they share the page gutter so their edges line up with each other. */
+.poster { --gut: 6vw;
+  position: relative; z-index: 30; min-height: 100vh; background: #f4f2ed;
+  color: #1b1c22; overflow: hidden; display: flex; flex-direction: column; }
 
-.poster-ghost { position: absolute; z-index: 0; right: -8vw; top: 50%;
-  transform: translateY(-52%); height: 108vh; width: auto; opacity: .05;
+/* centred, and large enough to read as paper texture rather than a squiggle */
+.poster-ghost { position: absolute; z-index: 0; left: 50%; top: 46%;
+  transform: translate(-50%, -50%); height: 112vh; width: auto; opacity: .045;
   pointer-events: none; }
 
-.poster-head { position: relative; z-index: 2; display: flex;
-  justify-content: space-between; align-items: baseline; gap: 20px;
-  padding: 5vh 5vw 0; font-family: var(--font-mono); font-size: 10.5px;
-  letter-spacing: .26em; text-transform: uppercase; }
+/* three cells, so the middle one is dead centre no matter what flanks it.
+   The top padding clears the sticky bar the scroll leaves behind. */
+.poster-head { position: relative; z-index: 2; display: grid;
+  grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  padding: calc(48px + 4vh) var(--gut) 0;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .26em;
+  text-transform: uppercase; color: #8a8578; }
+.poster-head > span:nth-child(2) { color: #1b1c22; font-weight: 700; }
+.poster-head > span:last-child { justify-self: end; }
 .poster-eyebrow { display: inline-flex; align-items: center; gap: 10px;
   color: #1b1c22; font-weight: 700; }
 .poster-eyebrow i { width: 8px; height: 8px; border-radius: 50%;
   background: var(--accent); }
-.poster-round { color: #8a8578; }
 
-/* the stage: name over photograph, position number behind both */
-.poster-stage { position: relative; z-index: 2; flex: 1;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 4vh 5vw 2vh; min-height: 58vh; }
-.poster-photo { position: absolute; z-index: 1; right: 3vw; bottom: 0;
-  height: min(68vh, 620px); width: auto;
+/* the stage: mark, photograph and name stacked on one axis */
+.poster-stage { position: relative; z-index: 2; flex: 1; min-height: 62vh;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-end; padding: 3vh var(--gut) 3vh; text-align: center; }
+.poster-pos { font-family: var(--font-hero), sans-serif;
+  font-size: clamp(20px, 2.2vw, 30px); line-height: 1; color: #fff;
+  background: var(--accent); padding: .28em .5em .22em; letter-spacing: .02em; }
+.poster-photo { display: block; height: min(46vh, 430px); width: auto;
+  margin: -1vh 0 -6.2vh;
   mix-blend-mode: multiply; filter: contrast(1.06) saturate(1.04);
-  -webkit-mask-image: linear-gradient(to bottom, #000 72%, #0000 99%);
-  mask-image: linear-gradient(to bottom, #000 72%, #0000 99%); }
-/* a filled number half behind the name read as an accident. Outlined and
-   cropped hard by the left edge of the page, it reads as a decision: the
-   name sits on it, and what is missing is obviously off the paper */
-.poster-pos { position: absolute; z-index: 0; left: -3.5vw; top: 50%;
-  transform: translateY(-54%);
-  font-family: var(--font-hero), sans-serif; font-size: min(74vh, 620px);
-  line-height: .78; letter-spacing: -.02em; color: transparent;
-  -webkit-text-stroke: 2px #1b1c2226; user-select: none; }
+  -webkit-mask-image: linear-gradient(to bottom, #000 76%, #0000 99%);
+  mask-image: linear-gradient(to bottom, #000 76%, #0000 99%); }
+/* the name crosses the bottom of the photograph, which is the one move the
+   whole moodboard keeps making */
 .poster-name { position: relative; z-index: 3; margin: 0;
   font-family: var(--font-hero), sans-serif; text-transform: uppercase;
-  font-size: clamp(56px, 11.5vw, 190px); line-height: .83;
-  letter-spacing: -.005em; padding-left: 1.4vw; }
-/* the rule the name hangs from, and the only thing in the left margin */
-.poster-name::before { content: ""; position: absolute; left: 0; top: .1em;
-  bottom: .18em; width: 4px; background: var(--accent); }
+  line-height: .84; letter-spacing: -.005em;
+  font-size: clamp(44px, 9.6vw, 156px); }
 .poster-name span { display: block; }
 .poster-name span:last-child { color: var(--accent); }
-.poster-sub { position: relative; z-index: 3; display: flex; align-items: center;
-  gap: 16px; margin-top: 20px; padding-left: calc(1.4vw + 4px); font-family: var(--font-mono); font-size: 12px;
-  letter-spacing: .24em; text-transform: uppercase; }
+.poster-sub { position: relative; z-index: 3; display: inline-flex;
+  align-items: center; gap: 14px; margin-top: 20px;
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .26em;
+  text-transform: uppercase; }
 .poster-sub b { font-weight: 700; }
-.poster-sub span { background: var(--accent); color: #fff; padding: 6px 10px;
-  font-weight: 700; letter-spacing: .16em; }
+.poster-sub em { font-style: normal; background: var(--accent); color: #fff;
+  padding: 6px 10px; font-weight: 700; letter-spacing: .16em; }
 
-/* the numbers, ruled rather than boxed */
-.poster-spec { position: relative; z-index: 2; margin: 0; display: grid;
-  grid-template-columns: repeat(4, 1fr); border-top: 1px solid #1b1c2233;
-  border-bottom: 1px solid #1b1c2233; }
-.poster-spec > div { padding: 18px 5vw 18px 0; border-right: 1px solid #1b1c2214; }
-.poster-spec > div:first-child { padding-left: 5vw; }
-.poster-spec > div:last-child { border-right: none; }
+/* the bands: same gutter, same divider treatment, centred cells */
+.poster-spec, .poster-podium { position: relative; z-index: 2; margin: 0;
+  padding: 0 var(--gut); border-top: 1px solid #1b1c2226; }
+.poster-spec { display: grid; grid-template-columns: repeat(4, 1fr); }
+.poster-spec > div { padding: 20px 14px; text-align: center;
+  border-left: 1px solid #1b1c2214; }
+.poster-spec > div:first-child { border-left: none; }
 .poster-spec dt { font-family: var(--font-mono); font-size: 9.5px;
   letter-spacing: .22em; text-transform: uppercase; color: #8a8578;
-  margin-bottom: 7px; }
+  margin-bottom: 8px; }
 .poster-spec dd { margin: 0; font-family: var(--font-display), sans-serif;
-  font-weight: 700; font-size: clamp(15px, 1.5vw, 22px); text-transform: uppercase;
-  letter-spacing: .01em; }
+  font-weight: 700; font-size: clamp(15px, 1.5vw, 21px); text-transform: uppercase; }
 
-.poster-podium { position: relative; z-index: 2; list-style: none;
-  margin: 0; padding: 0 5vw; display: grid; grid-template-columns: repeat(3, 1fr); }
-.poster-podium li { position: relative; padding: 22px 20px 22px 0; }
-.poster-podium i { position: absolute; left: 0; bottom: 14px; width: 42px;
-  height: 3px; }
-.poster-pp { font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em;
-  color: #8a8578; }
+.poster-podium { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #1b1c2226; }
+.poster-podium li { position: relative; padding: 24px 14px 26px;
+  text-align: center; border-left: 1px solid #1b1c2214; }
+.poster-podium li:first-child { border-left: none; }
+/* the team colour is a rule at the top of the cell, identical on all three */
+.poster-podium i { position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 46px; height: 3px; }
+.poster-pp { display: block; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .2em; color: #8a8578; }
 .poster-podium b { display: block; font-family: var(--font-hero), sans-serif;
-  font-size: clamp(26px, 3.4vw, 46px); text-transform: uppercase; line-height: 1;
-  margin: 6px 0 4px; }
-.poster-podium small { font-family: var(--font-mono); font-size: 9.5px;
+  font-size: clamp(24px, 3vw, 42px); text-transform: uppercase; line-height: 1;
+  margin: 8px 0 6px; }
+.poster-podium small { display: block; font-family: var(--font-mono); font-size: 9.5px;
   letter-spacing: .16em; text-transform: uppercase; color: #8a8578; }
+.poster-podium em { display: block; margin-top: 7px; font-style: normal;
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em;
+  color: var(--accent); }
 
 .poster-ticker { position: relative; z-index: 2; background: #b00500; color: #fff;
-  display: flex; justify-content: space-between; gap: 20px; padding: 14px 5vw;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  padding: 14px var(--gut);
   font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em;
   text-transform: uppercase; }
+.poster-ticker span:nth-child(2) { text-align: center; }
+.poster-ticker span:last-child { justify-self: end; }
 
 @media (max-width: 1099px) {
-  .poster-photo { height: 46vh; right: -4vw; opacity: .9; }
-  .poster-pos { font-size: 34vh; }
+  .poster { --gut: 5vw; }
+  .poster-photo { height: 34vh; margin-bottom: -4.6vh; }
+  .poster-head, .poster-ticker { grid-template-columns: 1fr; gap: 6px;
+    text-align: center; justify-items: center; }
+  .poster-head > span:last-child, .poster-ticker span:last-child { justify-self: center; }
   .poster-spec { grid-template-columns: repeat(2, 1fr); }
-  .poster-spec > div { padding-right: 20px; }
-  .poster-spec > div:nth-child(odd) { padding-left: 5vw; }
+  .poster-spec > div:nth-child(odd) { border-left: none; }
+  .poster-spec > div:nth-child(n+3) { border-top: 1px solid #1b1c2214; }
   .poster-podium { grid-template-columns: 1fr; }
-  .poster-ticker { flex-direction: column; gap: 6px; }
+  .poster-podium li { border-left: none; border-top: 1px solid #1b1c2214; }
+  .poster-podium li:first-child { border-top: none; }
 }
 
 

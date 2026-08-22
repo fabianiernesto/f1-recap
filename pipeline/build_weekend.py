@@ -1209,7 +1209,9 @@ def main() -> None:
                             "last": s.name(r["driver_number"]),
                             "team": s.team(r["driver_number"]),
                             "colour": s.drivers.get(r["driver_number"], {}).get("team_colour", ""),
-                            "headshot": s.drivers.get(r["driver_number"], {}).get("headshot_url", "")}
+                            "headshot": s.drivers.get(r["driver_number"], {}).get("headshot_url", ""),
+                            # the winning margin is a headline number, not a name
+                            "gap": (round(q_gap(r), 3) if q_gap(r) else None)}
                            for i, r in enumerate(s.result[:3])],
                 "fastest": ({"time": round(s.best_lap["lap_duration"], 3),
                              "last": s.name(s.best_lap["driver_number"]),

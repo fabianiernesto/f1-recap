@@ -9,15 +9,20 @@ function bigPhoto(url: string): string {
   return url.replace("/1col/", "/9col/");
 }
 
+function mmss(t: number): string {
+  return `${Math.floor(t / 60)}:${(t % 60).toFixed(3).padStart(6, "0")}`;
+}
+
 /**
  * The light finale — signature element #3 (moodboard R1, Ferrari result page):
- * the recap ends by flipping the world to paper white, with the result as a
- * monumental poster. Dark scroll to light poster is the biggest stimulus of
- * the whole page, so it has to earn the flip.
+ * the recap ends by flipping the world to paper white.
  *
- * The winner's name is the largest thing on the site and the photograph runs
- * under it, because type over image is the one move the whole moodboard keeps
- * making. Nothing here sits in a rounded card: a poster is rules and edges.
+ * Everything sits on one centre line. An earlier pass hung the name off the
+ * left margin with a cropped number behind it and a circuit wandering across
+ * the right, and each of those was a different alignment fighting the others.
+ * Symmetry is what a poster has instead of a layout: the mark, the photograph
+ * and the name share an axis, and the bands underneath are the only things
+ * allowed to run the full width.
  */
 export default function FinalPoster({
   story,
@@ -29,32 +34,31 @@ export default function FinalPoster({
   const r = story.result;
   if (!r) return null;
   const winner = r.podium[0];
+  const second = r.podium[1];
   const d = "M " + track.points.map((p) => p[0] + " " + p[1]).join(" L ");
-  const fastest = r.fastest
-    ? `${r.fastest.last} · ${Math.floor(r.fastest.time / 60)}:${(r.fastest.time % 60)
-        .toFixed(3)
-        .padStart(6, "0")}`
-    : null;
 
   return (
     <section className="poster">
-      {/* the circuit is the paper this is printed on */}
+      {/* the circuit is the watermark on the paper, centred like the rest */}
       <svg
         className="poster-ghost"
         viewBox={`0 0 ${track.view} ${track.view}`}
         aria-hidden
       >
-        <path d={d} fill="none" stroke="#1b1c22" strokeWidth={9} strokeLinejoin="round" />
+        <path d={d} fill="none" stroke="#1b1c22" strokeWidth={8} strokeLinejoin="round" />
       </svg>
 
-      <div className="poster-head">
+      <header className="poster-head">
         <span className="poster-eyebrow">
-          <i /> Race result · {story.gp.replace(/ \d{4}$/, "")}
+          <i /> Race result
         </span>
-        <span className="poster-round">{r.date}</span>
-      </div>
+        <span>{story.gp.replace(/ \d{4}$/, "")}</span>
+        <span>{r.date}</span>
+      </header>
 
       <div className="poster-stage">
+        <span className="poster-pos">P1</span>
+
         {winner.headshot && (
           /* multiply drops the flat studio grey straight into the paper, which
              is what stops this reading as a photo pasted into a box */
@@ -65,14 +69,15 @@ export default function FinalPoster({
             alt={`${winner.first} ${winner.last}`}
           />
         )}
-        <div className="poster-pos" aria-hidden>P1</div>
+
         <h2 className="poster-name">
           <span>{winner.first}</span>
           <span>{winner.last}</span>
         </h2>
+
         <div className="poster-sub">
           <b>{winner.team}</b>
-          <span>#{winner.number}</span>
+          <em>#{winner.number}</em>
         </div>
       </div>
 
@@ -85,25 +90,24 @@ export default function FinalPoster({
           <dt>Laps</dt>
           <dd>{story.laps}</dd>
         </div>
-        {fastest && (
-          <div>
-            <dt>Fastest lap</dt>
-            <dd>{fastest}</dd>
-          </div>
-        )}
         <div>
-          <dt>Margin</dt>
-          <dd>{r.podium[1] ? `${r.podium[1].last} behind` : "lights to flag"}</dd>
+          <dt>Fastest lap</dt>
+          <dd>{r.fastest ? `${r.fastest.last} · ${mmss(r.fastest.time)}` : "—"}</dd>
+        </div>
+        <div>
+          <dt>Winning margin</dt>
+          <dd>{second?.gap ? `${second.gap.toFixed(3)}s` : "—"}</dd>
         </div>
       </dl>
 
       <ol className="poster-podium">
         {r.podium.map((p) => (
           <li key={p.number}>
+            <i style={{ background: `#${p.colour || "1b1c22"}` }} />
             <span className="poster-pp">P{p.pos}</span>
             <b>{p.last}</b>
             <small>{p.team}</small>
-            <i style={{ background: `#${p.colour || "1b1c22"}` }} />
+            <em>{p.gap ? `+${p.gap.toFixed(3)}s` : "winner"}</em>
           </li>
         ))}
       </ol>
