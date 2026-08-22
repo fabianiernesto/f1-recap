@@ -4,6 +4,8 @@ export type CardData = {
   kicker?: string;
   title?: string;
   text?: string;
+  /** skimmable facts under the lead line, because nobody reads a block */
+  bullets?: string[];
   options?: string[];
   answer?: string;
   reveal?: string;

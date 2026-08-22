@@ -365,6 +365,13 @@ export default function RaceScroll({
 
                   {num && <div className="bignum">{num[0]}</div>}
                   {c.text && <p>{c.text}</p>}
+                  {c.bullets && c.bullets.length > 0 && (
+                    <ul className="pts">
+                      {c.bullets.map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                  )}
 
                   {c.type === "decision" && <DecisionBody card={c} />}
                   {c.type === "guess" && <GuessBody card={c} />}
