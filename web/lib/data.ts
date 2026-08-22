@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { MateThread, Story, Track, Weekend } from "./types";
+import type { Brain, MateThread, Story, Track, Weekend } from "./types";
 
 // scripts/sync-data.mjs copies the pipeline output into web/data, and
 // scripts/dev.mjs pins cwd to web/ in dev — so this path is always right
@@ -39,5 +39,13 @@ export function loadMate(slug: string, session: string): MateThread | null {
   const f = path.join(DATA_DIR, slug, `mate_${session}.json`);
   return fs.existsSync(f)
     ? (JSON.parse(fs.readFileSync(f, "utf-8")) as MateThread)
+    : null;
+}
+
+/** The race packed into something Alfred can look answers up in. */
+export function loadBrain(slug: string, session: string): Brain | null {
+  const f = path.join(DATA_DIR, slug, `brain_${session}.json`);
+  return fs.existsSync(f)
+    ? (JSON.parse(fs.readFileSync(f, "utf-8")) as Brain)
     : null;
 }

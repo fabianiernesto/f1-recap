@@ -1,0 +1,785 @@
+{
+  "session": "Sprint",
+  "circuit": "Silverstone",
+  "laps": 17,
+  "winner": "Antonelli",
+  "drivers": {
+    "antonelli": {
+      "name": "Antonelli",
+      "code": "ant",
+      "number": 12,
+      "team": "Mercedes",
+      "start": 2,
+      "finish": 1,
+      "moved": 1,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 8,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:32.330",
+      "paceRaw": 92.33,
+      "overtakes": 2,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "hamilton": {
+      "name": "Hamilton",
+      "code": "ham",
+      "number": 44,
+      "team": "Ferrari",
+      "start": 1,
+      "finish": 2,
+      "moved": -1,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 7,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:32.418",
+      "paceRaw": 92.418,
+      "overtakes": 1,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "norris": {
+      "name": "Norris",
+      "code": "nor",
+      "number": 1,
+      "team": "McLaren",
+      "start": 6,
+      "finish": 3,
+      "moved": 3,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 6,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:32.663",
+      "paceRaw": 92.663,
+      "overtakes": 1,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "russell": {
+      "name": "Russell",
+      "code": "rus",
+      "number": 63,
+      "team": "Mercedes",
+      "start": 5,
+      "finish": 4,
+      "moved": 1,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 5,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:32.456",
+      "paceRaw": 92.456,
+      "overtakes": 3,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "leclerc": {
+      "name": "Leclerc",
+      "code": "lec",
+      "number": 16,
+      "team": "Ferrari",
+      "start": 4,
+      "finish": 5,
+      "moved": -1,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 4,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:32.604",
+      "paceRaw": 92.604,
+      "overtakes": 4,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "verstappen": {
+      "name": "Verstappen",
+      "code": "ver",
+      "number": 3,
+      "team": "Red Bull Racing",
+      "start": 3,
+      "finish": 6,
+      "moved": -3,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 3,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:33.123",
+      "paceRaw": 93.123,
+      "overtakes": 3,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "piastri": {
+      "name": "Piastri",
+      "code": "pia",
+      "number": 81,
+      "team": "McLaren",
+      "start": 7,
+      "finish": 7,
+      "moved": 0,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 2,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:32.954",
+      "paceRaw": 92.954,
+      "overtakes": 3,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "lawson": {
+      "name": "Lawson",
+      "code": "law",
+      "number": 30,
+      "team": "Racing Bulls",
+      "start": 9,
+      "finish": 8,
+      "moved": 1,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 1,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:33.754",
+      "paceRaw": 93.754,
+      "overtakes": 1,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "hadjar": {
+      "name": "Hadjar",
+      "code": "had",
+      "number": 6,
+      "team": "Red Bull Racing",
+      "start": 8,
+      "finish": 9,
+      "moved": -1,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:33.539",
+      "paceRaw": 93.539,
+      "overtakes": 4,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "lindblad": {
+      "name": "Lindblad",
+      "code": "lin",
+      "number": 41,
+      "team": "Racing Bulls",
+      "start": 10,
+      "finish": 10,
+      "moved": 0,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.011",
+      "paceRaw": 94.011,
+      "overtakes": 1,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "gasly": {
+      "name": "Gasly",
+      "code": "gas",
+      "number": 10,
+      "team": "Alpine",
+      "start": 11,
+      "finish": 11,
+      "moved": 0,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.520",
+      "paceRaw": 94.52,
+      "overtakes": 0,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "colapinto": {
+      "name": "Colapinto",
+      "code": "col",
+      "number": 43,
+      "team": "Alpine",
+      "start": 14,
+      "finish": 12,
+      "moved": 2,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.369",
+      "paceRaw": 94.369,
+      "overtakes": 0,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "bortoleto": {
+      "name": "Bortoleto",
+      "code": "bor",
+      "number": 5,
+      "team": "Audi",
+      "start": 12,
+      "finish": 13,
+      "moved": -1,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.231",
+      "paceRaw": 94.231,
+      "overtakes": 3,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "bearman": {
+      "name": "Bearman",
+      "code": "bea",
+      "number": 87,
+      "team": "Haas F1 Team",
+      "start": 16,
+      "finish": 14,
+      "moved": 2,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.685",
+      "paceRaw": 94.685,
+      "overtakes": 0,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "hulkenberg": {
+      "name": "Hulkenberg",
+      "code": "hul",
+      "number": 27,
+      "team": "Audi",
+      "start": 13,
+      "finish": 15,
+      "moved": -2,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.104",
+      "paceRaw": 94.104,
+      "overtakes": 2,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "ocon": {
+      "name": "Ocon",
+      "code": "oco",
+      "number": 31,
+      "team": "Haas F1 Team",
+      "start": 17,
+      "finish": 16,
+      "moved": 1,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.692",
+      "paceRaw": 94.692,
+      "overtakes": 2,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "sainz": {
+      "name": "Sainz",
+      "code": "sai",
+      "number": 55,
+      "team": "Williams",
+      "start": 15,
+      "finish": 17,
+      "moved": -2,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.752",
+      "paceRaw": 94.752,
+      "overtakes": 0,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "albon": {
+      "name": "Albon",
+      "code": "alb",
+      "number": 23,
+      "team": "Williams",
+      "start": 22,
+      "finish": 18,
+      "moved": 4,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:34.428",
+      "paceRaw": 94.428,
+      "overtakes": 4,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "bottas": {
+      "name": "Bottas",
+      "code": "bot",
+      "number": 77,
+      "team": "Cadillac",
+      "start": 19,
+      "finish": 19,
+      "moved": 0,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "SOFT"
+      ],
+      "pace": "1:36.220",
+      "paceRaw": 96.22,
+      "overtakes": 3,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "alonso": {
+      "name": "Alonso",
+      "code": "alo",
+      "number": 14,
+      "team": "Aston Martin",
+      "start": 20,
+      "finish": 20,
+      "moved": 0,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [],
+      "compounds": [
+        "SOFT"
+      ],
+      "pace": "1:37.062",
+      "paceRaw": 97.062,
+      "overtakes": 2,
+      "penalty": "10s",
+      "penaltyFor": "causing a collision"
+    },
+    "stroll": {
+      "name": "Stroll",
+      "code": "str",
+      "number": 18,
+      "team": "Aston Martin",
+      "start": 21,
+      "finish": 21,
+      "moved": 0,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [
+        14
+      ],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:37.549",
+      "paceRaw": 97.549,
+      "overtakes": 2,
+      "penalty": null,
+      "penaltyFor": null
+    },
+    "perez": {
+      "name": "Perez",
+      "code": "per",
+      "number": 11,
+      "team": "Cadillac",
+      "start": 18,
+      "finish": 22,
+      "moved": -4,
+      "dnf": false,
+      "dnfLap": null,
+      "points": 0,
+      "stops": [
+        2
+      ],
+      "compounds": [
+        "MEDIUM"
+      ],
+      "pace": "1:35.444",
+      "paceRaw": 95.444,
+      "overtakes": 1,
+      "penalty": "10s",
+      "penaltyFor": "causing a collision"
+    }
+  },
+  "lapEvents": {
+    "2": [
+      "16 overtakes, busiest lap of the race",
+      "Perez pitted"
+    ],
+    "3": [
+      "7 overtakes"
+    ],
+    "4": [
+      "4 overtakes"
+    ],
+    "6": [
+      "Perez picked up a 10s penalty"
+    ],
+    "7": [
+      "3 overtakes"
+    ],
+    "8": [
+      "3 overtakes"
+    ],
+    "9": [
+      "4 overtakes"
+    ],
+    "14": [
+      "Stroll pitted"
+    ],
+    "17": [
+      "Antonelli set the fastest lap, 1:31.607"
+    ]
+  },
+  "topics": [
+    {
+      "id": "winner",
+      "keys": [
+        "who won",
+        "winner",
+        "won",
+        "win",
+        "ganador",
+        "gano",
+        "quien gano",
+        "first place",
+        "p1"
+      ],
+      "say": [
+        "Antonelli took it",
+        "Mercedes. led when it mattered"
+      ]
+    },
+    {
+      "id": "podium",
+      "keys": [
+        "podium",
+        "podio",
+        "top 3",
+        "top three",
+        "second",
+        "third",
+        "segundo"
+      ],
+      "say": [
+        "P1 Antonelli · P2 Hamilton · P3 Norris"
+      ]
+    },
+    {
+      "id": "fastest",
+      "keys": [
+        "fastest lap",
+        "quickest lap",
+        "vuelta rapida",
+        "fastest time"
+      ],
+      "say": [
+        "Antonelli, 1:31.607 on lap 17",
+        "it's worth a point if you finish top 10, which is why you see people pitting at the end just to nick it"
+      ]
+    },
+    {
+      "id": "sc",
+      "keys": [
+        "safety car",
+        "sc",
+        "coche de seguridad",
+        "neutralised",
+        "yellow"
+      ],
+      "say": [
+        "no safety car in this one, green the whole way"
+      ]
+    },
+    {
+      "id": "overtakes",
+      "keys": [
+        "overtake",
+        "overtaking",
+        "passes",
+        "adelantamiento",
+        "adelantamientos",
+        "how many overtakes"
+      ],
+      "say": [
+        "42 proper overtakes",
+        "that's not counting lap 1 or the safety car restarts. those are just the field shuffling, they'd double the number and mean nothing"
+      ]
+    },
+    {
+      "id": "pits",
+      "keys": [
+        "pit",
+        "pitstop",
+        "pit stop",
+        "stops",
+        "parada",
+        "boxes",
+        "pitted"
+      ],
+      "say": [
+        "2 stops all afternoon",
+        "the lane costs about 40s here, which is why nobody stops unless they have to"
+      ]
+    },
+    {
+      "id": "undercut",
+      "keys": [
+        "undercut",
+        "overcut"
+      ],
+      "say": [
+        "you pit before the guy ahead and bang in two fast laps on new tyres while he's still out there on old ones",
+        "when he finally stops he comes out behind you. you never passed him on track, you passed him in the pit lane"
+      ]
+    },
+    {
+      "id": "tyres",
+      "keys": [
+        "tyre",
+        "tyres",
+        "tire",
+        "compound",
+        "neumatico",
+        "rueda",
+        "soft",
+        "medium",
+        "hard"
+      ],
+      "say": [
+        "compounds out there: medium, soft",
+        "softer is quicker and dies faster, harder lasts and is slower. the whole strategy is choosing which pain you want"
+      ]
+    },
+    {
+      "id": "drs",
+      "keys": [
+        "drs",
+        "rear wing",
+        "ala movil"
+      ],
+      "say": [
+        "a flap on the rear wing that opens on the straights and makes you quicker",
+        "you only get it within a second of the car ahead at a set point. purists hate it, i'm fine with it, the alternative was processions"
+      ]
+    },
+    {
+      "id": "points",
+      "keys": [
+        "points",
+        "puntos",
+        "championship",
+        "standings",
+        "scored"
+      ],
+      "say": [
+        "top 10 score: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1",
+        "Antonelli 8 · Hamilton 7 · Norris 6 · Russell 5 · Leclerc 4"
+      ]
+    },
+    {
+      "id": "penalty",
+      "keys": [
+        "penalty",
+        "penalties",
+        "sancion",
+        "stewards",
+        "fia",
+        "punished",
+        "investigation"
+      ],
+      "say": [
+        "1 penalties stuck",
+        "Perez 10s"
+      ]
+    },
+    {
+      "id": "weather",
+      "keys": [
+        "weather",
+        "rain",
+        "wet",
+        "dry",
+        "temperature",
+        "lluvia",
+        "tiempo",
+        "calor",
+        "hot"
+      ],
+      "say": [
+        "bone dry all afternoon",
+        "track hit 41°C and cooled to 32°C"
+      ]
+    },
+    {
+      "id": "good",
+      "keys": [
+        "was it good",
+        "worth watching",
+        "boring",
+        "merece la pena",
+        "estuvo bien",
+        "any good",
+        "should i watch",
+        "entertaining"
+      ],
+      "say": [
+        "bit of both honestly",
+        "42 overtakes and the midfield was mental, the front was quieter",
+        "watch the last 10 laps at least"
+      ]
+    },
+    {
+      "id": "newbie",
+      "keys": [
+        "explain",
+        "i know nothing",
+        "new to f1",
+        "how does this work",
+        "no entiendo",
+        "explicame",
+        "beginner",
+        "from scratch",
+        "like im five"
+      ],
+      "say": [
+        "ok so 20 cars, everyone starts in the order they qualified on saturday",
+        "everyone has to stop at least once to change tyres, and that stop costs about 25 seconds",
+        "the whole sport is deciding WHEN to lose those 25 seconds"
+      ]
+    },
+    {
+      "id": "pace",
+      "keys": [
+        "fastest car",
+        "best car",
+        "pace",
+        "ritmo",
+        "quickest car",
+        "who was quickest",
+        "who had the pace"
+      ],
+      "say": [
+        "on median clean lap it was Antonelli",
+        "median lap strips out traffic, safety cars and one-off heroics. it's the honest read on who actually had the car under him"
+      ]
+    },
+    {
+      "id": "dnf",
+      "keys": [
+        "retire",
+        "retired",
+        "retirement",
+        "dnf",
+        "abandono",
+        "broke down",
+        "who went out",
+        "did not finish",
+        "crash"
+      ],
+      "say": [
+        "everyone finished"
+      ]
+    },
+    {
+      "id": "grid",
+      "keys": [
+        "start",
+        "lights out",
+        "first lap",
+        "lap 1",
+        "salida",
+        "grid",
+        "pole"
+      ],
+      "say": [
+        "52 position changes before lap 1 was even done",
+        "cold tyres, cold brakes, full fuel and 20 people who all think the same gap belongs to them"
+      ]
+    },
+    {
+      "id": "next",
+      "keys": [
+        "next race",
+        "when is",
+        "proxima",
+        "siguiente",
+        "next one"
+      ],
+      "say": [
+        "two weeks usually, they almost never go back to back",
+        "and teams bring upgrades in between, so the order can change completely. that's why nobody can predict this sport"
+      ]
+    }
+  ]
+}

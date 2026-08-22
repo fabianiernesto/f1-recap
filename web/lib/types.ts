@@ -94,3 +94,34 @@ export type Track = {
   /** the same five circuit vitals at every GP, measured from telemetry */
   stats?: { label: string; value: string; short?: string }[];
 };
+
+/** What Alfred knows: enough about this race to answer a typed question. */
+export type BrainDriver = {
+  name: string;
+  code: string;
+  number: number;
+  team: string;
+  start: number | null;
+  finish: number | null;
+  moved: number | null;
+  dnf: boolean;
+  dnfLap: number | null;
+  points: number;
+  stops: number[];
+  compounds: string[];
+  pace: string | null;
+  paceRaw: number | null;
+  overtakes: number;
+  penalty: string | null;
+  penaltyFor: string | null;
+};
+
+export type Brain = {
+  session: string;
+  circuit: string;
+  laps: number;
+  winner: string | null;
+  drivers: Record<string, BrainDriver>;
+  lapEvents: Record<string, string[]>;
+  topics: { id: string; keys: string[]; say: string[] }[];
+};

@@ -868,3 +868,17 @@ body {
 .tk-marks .on line { stroke: var(--led); stroke-width: 4.5; }
 .tk-marks text { font-family: var(--font-mono); font-size: 17px;
   letter-spacing: 2px; fill: #f2f3f5; }
+
+/* the ask box: the point of Alfred is typing at him, so it is always there */
+.mate-ask { display: flex; gap: 8px; padding: 12px 14px;
+  border-top: 1px solid #ffffff14; background: #06070a; }
+.mate-ask input { flex: 1; min-width: 0; background: #101217; color: #f2f3f5;
+  border: 1px solid #ffffff1f; padding: 10px 12px; font-family: var(--font-body);
+  font-size: 13px; transition: border-color .18s; }
+.mate-ask input::placeholder { color: #565b66; }
+.mate-ask input:focus { outline: none; border-color: var(--led); }
+.mate-ask button { flex: none; width: 40px; border: 1px solid #ff1c1259;
+  background: #14080a; color: var(--led); font-size: 15px; cursor: pointer;
+  transition: background-color .18s, color .18s, opacity .18s; }
+.mate-ask button:hover:not(:disabled) { background: var(--led); color: #fff; }
+.mate-ask button:disabled { opacity: .35; cursor: default; }

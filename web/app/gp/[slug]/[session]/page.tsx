@@ -4,6 +4,7 @@ import {
   hasSession,
   listGPs,
   loadMate,
+  loadBrain,
   loadStory,
   loadTrack,
   loadWeekend,
@@ -27,6 +28,7 @@ export default async function SessionPage({
   const story = loadStory(slug, session);
   const track = loadTrack(slug);
   const mate = loadMate(slug, session);
+  const brain = loadBrain(slug, session);
   return (
     <>
       <div className="hub-top">
@@ -35,7 +37,7 @@ export default async function SessionPage({
         </Link>
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
-      <RaceScroll story={story} track={track} mate={mate} />
+      <RaceScroll story={story} track={track} mate={mate} brain={brain} />
       {session === "race" && <FinalPoster story={story} track={track} />}
     </>
   );

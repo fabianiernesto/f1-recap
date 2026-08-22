@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { CardData, MateThread, Story, Track } from "@/lib/types";
+import type { Brain, CardData, MateThread, Story, Track } from "@/lib/types";
 import { DecisionBody, GuessBody, PredictionBody } from "./CallIt";
 import RaceMate from "./RaceMate";
 
@@ -45,10 +45,12 @@ export default function RaceScroll({
   story,
   track,
   mate,
+  brain,
 }: {
   story: Story;
   track: Track;
   mate?: MateThread | null;
+  brain?: Brain | null;
 }) {
   const cards = story.cards;
   const [lap, setLap] = useState(0);
@@ -410,7 +412,7 @@ export default function RaceScroll({
           Built from OpenF1 + FastF1 data · {story.generated}
         </div>
       </div>
-      {mate && <RaceMate thread={mate} lap={lap} />}
+      {mate && <RaceMate thread={mate} lap={lap} brain={brain ?? null} />}
     </>
   );
 }
