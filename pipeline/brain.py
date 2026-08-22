@@ -25,6 +25,43 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
         return max((l.get("lap_number") or 0) for l in s.laps
                    if l.get("driver_number") == num) or 0
 
+    # where each driver was, lap by lap, so a collapse can be pinned to a lap
+    pos_by_driver: dict[int, list[tuple[int, int]]] = defaultdict(list)
+    for pt in sorted(s.position, key=lambda x: x.get('date') or ''):
+        ln = s.lap_of(parse_ts(pt.get('date')))
+        if ln and pt.get('position'):
+            pos_by_driver[pt['driver_number']].append((ln, pt['position']))
+
+    # laps where a driver dropped two or more places at once
+    def swings(num: int) -> list[dict]:
+        out, prev = [], None
+        for ln, pos in pos_by_driver.get(num, []):
+            if prev is not None and pos - prev >= 2:
+                out.append({'lap': ln, 'lost': pos - prev})
+            prev = pos
+        out.sort(key=lambda x: -x['lost'])
+        return out[:3]
+
+    # the position feed only records CHANGES, so counting the laps a driver
+    # appears at P1 undercounts badly: a leader who never loses the lead
+    # generates one event all race. Carry the last known position forward.
+    def led_laps(num: int) -> int:
+        events = pos_by_driver.get(num, [])
+        if not events:
+            return 0
+        led, at, i, pos = 0, 1, 0, None
+        for lap in range(1, (s.total_laps or 0) + 1):
+            while i < len(events) and events[i][0] <= lap:
+                pos = events[i][1]
+                i += 1
+            if pos == 1:
+                led += 1
+        return led
+
+    stop_counts = Counter(p['driver_number'] for p in real_pits)
+    typical = Counter(stop_counts.values()).most_common(1)[0][0] if stop_counts else 0
+    winner_pace = s.pace(winner) if winner else None
+
     # ---------- every driver's afternoon ----------
     drivers: dict[str, dict] = {}
     for r in s.result:
@@ -53,6 +90,15 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
             "overtakes": ov_by_driver.get(num, 0),
             "penalty": f"{pens[0]['secs']}s" if pens else None,
             "penaltyFor": (pens[0]["reason"] or "").lower() or None if pens else None,
+            # the pieces a "why did he lose it" answer gets built from
+            "led": led_laps(num),
+            "swings": swings(num),
+            "fastestLap": bool(best and best.get("driver_number") == num),
+            "gap": (round(r["gap_to_leader"], 3)
+                    if isinstance(r.get("gap_to_leader"), (int, float)) else None),
+            "vsWinner": (round(pace - winner_pace, 3)
+                         if pace and winner_pace and num != winner else None),
+            "extraStops": (len(s.pit_laps(num)) - typical) if typical else 0,
         }
 
     # ---------- what happened, lap by lap ----------
@@ -200,6 +246,8 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     ]
 
     return {
+        "typicalStops": typical,
+        "pitLoss": round(lane) if lane else None,
         "session": s.label,
         "circuit": gp["circuit"],
         "laps": s.total_laps,

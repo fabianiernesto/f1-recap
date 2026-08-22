@@ -1,4 +1,6 @@
 {
+  "typicalStops": 2,
+  "pitLoss": 30,
   "session": "Race",
   "circuit": "Silverstone",
   "laps": 52,
@@ -28,7 +30,13 @@
       "paceRaw": 94.056,
       "overtakes": 1,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 42,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 0,
+      "vsWinner": null,
+      "extraStops": 0
     },
     "russell": {
       "name": "Russell",
@@ -53,7 +61,13 @@
       "paceRaw": 94.572,
       "overtakes": 10,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 0.427,
+      "vsWinner": 0.516,
+      "extraStops": 0
     },
     "hamilton": {
       "name": "Hamilton",
@@ -79,7 +93,13 @@
       "paceRaw": 94.518,
       "overtakes": 7,
       "penalty": "5s",
-      "penaltyFor": "false start - moving before signal"
+      "penaltyFor": "false start - moving before signal",
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 0.772,
+      "vsWinner": 0.462,
+      "extraStops": 0
     },
     "norris": {
       "name": "Norris",
@@ -106,7 +126,13 @@
       "paceRaw": 94.836,
       "overtakes": 8,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 1.149,
+      "vsWinner": 0.78,
+      "extraStops": 1
     },
     "hadjar": {
       "name": "Hadjar",
@@ -133,7 +159,13 @@
       "paceRaw": 94.877,
       "overtakes": 7,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 1.598,
+      "vsWinner": 0.821,
+      "extraStops": 1
     },
     "lawson": {
       "name": "Lawson",
@@ -159,7 +191,13 @@
       "paceRaw": 95.714,
       "overtakes": 2,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 2.023,
+      "vsWinner": 1.658,
+      "extraStops": 0
     },
     "lindblad": {
       "name": "Lindblad",
@@ -185,7 +223,13 @@
       "paceRaw": 95.799,
       "overtakes": 2,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 2.214,
+      "vsWinner": 1.743,
+      "extraStops": 0
     },
     "bortoleto": {
       "name": "Bortoleto",
@@ -211,7 +255,13 @@
       "paceRaw": 95.827,
       "overtakes": 6,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 2.413,
+      "vsWinner": 1.771,
+      "extraStops": 0
     },
     "colapinto": {
       "name": "Colapinto",
@@ -237,7 +287,13 @@
       "paceRaw": 96.072,
       "overtakes": 6,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 3.229,
+      "vsWinner": 2.016,
+      "extraStops": 0
     },
     "gasly": {
       "name": "Gasly",
@@ -263,7 +319,13 @@
       "paceRaw": 96.006,
       "overtakes": 7,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 3.445,
+      "vsWinner": 1.95,
+      "extraStops": 0
     },
     "piastri": {
       "name": "Piastri",
@@ -290,7 +352,13 @@
       "paceRaw": 95.157,
       "overtakes": 13,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 4.014,
+      "vsWinner": 1.101,
+      "extraStops": 1
     },
     "bearman": {
       "name": "Bearman",
@@ -316,7 +384,13 @@
       "paceRaw": 97.002,
       "overtakes": 15,
       "penalty": "10s",
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 5.245,
+      "vsWinner": 2.946,
+      "extraStops": 0
     },
     "ocon": {
       "name": "Ocon",
@@ -342,7 +416,13 @@
       "paceRaw": 96.731,
       "overtakes": 7,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 5.512,
+      "vsWinner": 2.675,
+      "extraStops": 0
     },
     "perez": {
       "name": "Perez",
@@ -368,7 +448,13 @@
       "paceRaw": 97.231,
       "overtakes": 9,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 7.403,
+      "vsWinner": 3.174,
+      "extraStops": 0
     },
     "antonelli": {
       "name": "Antonelli",
@@ -394,7 +480,18 @@
       "paceRaw": 94.268,
       "overtakes": 3,
       "penalty": "5s",
-      "penaltyFor": "track limits"
+      "penaltyFor": "track limits",
+      "led": 10,
+      "swings": [
+        {
+          "lap": 52,
+          "lost": 2
+        }
+      ],
+      "fastestLap": true,
+      "gap": 8.005,
+      "vsWinner": 0.212,
+      "extraStops": 1
     },
     "bottas": {
       "name": "Bottas",
@@ -420,7 +517,13 @@
       "paceRaw": 97.89,
       "overtakes": 6,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": 8.162,
+      "vsWinner": 3.834,
+      "extraStops": 0
     },
     "sainz": {
       "name": "Sainz",
@@ -446,7 +549,13 @@
       "paceRaw": 96.56,
       "overtakes": 11,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": null,
+      "vsWinner": 2.504,
+      "extraStops": 0
     },
     "alonso": {
       "name": "Alonso",
@@ -472,7 +581,13 @@
       "paceRaw": 98.792,
       "overtakes": 5,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": null,
+      "vsWinner": 4.736,
+      "extraStops": 0
     },
     "stroll": {
       "name": "Stroll",
@@ -498,7 +613,13 @@
       "paceRaw": 98.983,
       "overtakes": 4,
       "penalty": "5s",
-      "penaltyFor": "track limits"
+      "penaltyFor": "track limits",
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": null,
+      "vsWinner": 4.927,
+      "extraStops": 0
     },
     "verstappen": {
       "name": "Verstappen",
@@ -523,7 +644,13 @@
       "paceRaw": 94.233,
       "overtakes": 10,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": null,
+      "vsWinner": 0.177,
+      "extraStops": 0
     },
     "albon": {
       "name": "Albon",
@@ -552,7 +679,13 @@
       "paceRaw": 96.42,
       "overtakes": 1,
       "penalty": "10s",
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": null,
+      "vsWinner": 2.364,
+      "extraStops": 3
     },
     "hulkenberg": {
       "name": "Hulkenberg",
@@ -578,7 +711,13 @@
       "paceRaw": 95.971,
       "overtakes": 13,
       "penalty": null,
-      "penaltyFor": null
+      "penaltyFor": null,
+      "led": 0,
+      "swings": [],
+      "fastestLap": false,
+      "gap": null,
+      "vsWinner": 1.914,
+      "extraStops": 0
     }
   },
   "lapEvents": {

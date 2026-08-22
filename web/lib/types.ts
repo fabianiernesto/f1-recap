@@ -114,9 +114,17 @@ export type BrainDriver = {
   overtakes: number;
   penalty: string | null;
   penaltyFor: string | null;
+  led: number;
+  swings: { lap: number; lost: number }[];
+  fastestLap: boolean;
+  gap: number | null;
+  vsWinner: number | null;
+  extraStops: number;
 };
 
 export type Brain = {
+  typicalStops: number;
+  pitLoss: number | null;
   session: string;
   circuit: string;
   laps: number;
