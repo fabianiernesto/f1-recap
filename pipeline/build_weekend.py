@@ -871,6 +871,15 @@ def race_story(s: Session) -> list[dict]:
              "dato": {"label": "Most affected sectors",
                       "rows": [[f"Sector {k}", v] for k, v in sectors.most_common(4) if k]}})
 
+    reds = [m for m in s.rc if m.get("flag") == "RED"]
+    if reds:
+        add({"type": "moment", "lap": reds[0].get("lap_number") or 1,
+             "kicker": f"Lap {reds[0].get('lap_number') or '-'} · Red flag",
+             "title": "The race is stopped",
+             "text": "Everybody back to the pit lane. A red flag means the track "
+                     "cannot be made safe under a safety car, and whatever anybody "
+                     "had built up to that point is now negotiable."})
+
     blues = [m for m in s.rc if m.get("flag") == "BLUE"]
     if len(blues) > 20:
         add({"type": "moment", "lap": int(s.total_laps * 0.6), "kicker": "Blue flags",

@@ -27,9 +27,13 @@ function variant(c: CardData): string {
   if (c.type === "prediction") return "v-pred";
   if (c.type === "decision" || c.type === "guess") return "v-call";
   const k = (c.kicker || "").toLowerCase();
-  if (k.includes("safety")) return "v-sc";
-  if (k.includes("fastest")) return "v-fast";
+  // chequered before red: "chequered flag" contains the substring "red flag",
+  // and the finish was being dressed as a stoppage
   if (k.includes("chequered")) return "v-final";
+  if (k.includes("safety")) return "v-sc";
+  if (k.includes("red flag")) return "v-red";
+  if (k.includes("yellow")) return "v-yellow";
+  if (k.includes("fastest")) return "v-fast";
   if (k.includes("busiest")) return "v-num";
   return "";
 }
