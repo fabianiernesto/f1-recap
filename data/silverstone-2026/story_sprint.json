@@ -18,7 +18,32 @@
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
       "title": "52 places changed hands before the first lap was done",
-      "text": "Twenty cars funnelling into the first corner on cold tyres. Most of this is the pack sorting itself out, and some of it decides the afternoon."
+      "text": "Twenty cars funnelling into the first corner on cold tyres. Most of this is the pack sorting itself out, and some of it decides the afternoon.",
+      "dato": {
+        "label": "Busiest movers on lap 1",
+        "rows": [
+          [
+            "Russell",
+            "5 passes"
+          ],
+          [
+            "Gasly",
+            "5 passes"
+          ],
+          [
+            "Colapinto",
+            "5 passes"
+          ],
+          [
+            "Norris",
+            "4 passes"
+          ],
+          [
+            "Piastri",
+            "4 passes"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
@@ -295,14 +320,64 @@
       "lap": 7,
       "kicker": "Track limits",
       "title": "9 lap times deleted",
-      "text": "The white line is the track. Run wide and the lap simply stops counting."
+      "text": "The white line is the track. Run wide and the lap simply stops counting.",
+      "dato": {
+        "label": "Most deletions",
+        "rows": [
+          [
+            "Stroll",
+            "3 laps"
+          ],
+          [
+            "Piastri",
+            "2 laps"
+          ],
+          [
+            "Hulkenberg",
+            "1 laps"
+          ],
+          [
+            "Alonso",
+            "1 laps"
+          ],
+          [
+            "Lawson",
+            "1 laps"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
       "lap": 7,
       "kicker": "Speed trap",
       "title": "Hadjar hit 340 km/h",
-      "text": "Top speed says as much about wing level and tow as it does about the engine."
+      "text": "Top speed says as much about wing level and tow as it does about the engine.",
+      "dato": {
+        "label": "Quickest through the trap",
+        "rows": [
+          [
+            "Hadjar",
+            "340 km/h"
+          ],
+          [
+            "Sainz",
+            "338 km/h"
+          ],
+          [
+            "Hulkenberg",
+            "337 km/h"
+          ],
+          [
+            "Albon",
+            "336 km/h"
+          ],
+          [
+            "Russell",
+            "336 km/h"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
@@ -329,7 +404,16 @@
       "lap": 8,
       "kicker": "Penalties",
       "title": "1 penalty calls",
-      "text": "Time added, places lost, and in some cases a result rewritten after the flag."
+      "text": "Time added, places lost, and in some cases a result rewritten after the flag.",
+      "dato": {
+        "label": "Handed out",
+        "rows": [
+          [
+            "Perez",
+            "10s · causing a collision"
+          ]
+        ]
+      }
     },
     {
       "type": "decision",
@@ -507,7 +591,7 @@
       "title": "32 yellow flag calls",
       "text": "Debris, spins and cars parked in dangerous places. Every one of them costs lap time to whoever is unlucky enough to arrive.",
       "dato": {
-        "label": "Most affected sectors",
+        "label": "Marshalling sectors, most affected",
         "rows": [
           [
             "Sector 3",

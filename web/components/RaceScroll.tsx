@@ -60,7 +60,6 @@ export default function RaceScroll({
   const [lap, setLap] = useState(0);
   const [activeIdx, setActiveIdx] = useState(0);
   const [litLabel, setLitLabel] = useState(-1);
-  const [openData, setOpenData] = useState<Record<number, boolean>>({});
 
   const carRef = useRef<SVGGElement>(null);
   const traceRef = useRef<SVGPathElement>(null);
@@ -374,32 +373,22 @@ export default function RaceScroll({
                     <PredictionBody card={c} />
                   )}
 
-                  {c.dato && (
-                    <>
-                      <button
-                        className="peek"
-                        onClick={() =>
-                          setOpenData((s) => ({ ...s, [i]: !s[i] }))
-                        }
-                      >
-                        ＋ The data behind this
-                      </button>
-                      {openData[i] && (
-                        <div className="dato">
-                          <b>{c.dato.label}</b>
-                          <table>
-                            <tbody>
-                              {c.dato.rows.map((r) => (
-                                <tr key={r[0]}>
-                                  <td>{r[0]}</td>
-                                  <td>{r[1]}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
-                      )}
-                    </>
+                  {/* the table is the card's evidence, so it stays open: it
+                      used to hide behind a button nobody was pressing */}
+                  {c.dato && c.dato.rows.length > 0 && (
+                    <div className="dato">
+                      <b>{c.dato.label}</b>
+                      <table>
+                        <tbody>
+                          {c.dato.rows.map((r) => (
+                            <tr key={r[0]}>
+                              <td>{r[0]}</td>
+                              <td>{r[1]}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   )}
 
                   {c.type === "share" && (

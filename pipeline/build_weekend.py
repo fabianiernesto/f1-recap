@@ -12,6 +12,7 @@ moments and even a practice session has something honest to say.
 Usage:  python build_weekend.py
 """
 import json
+import re
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
@@ -765,7 +766,11 @@ def race_story(s: Session) -> list[dict]:
          "title": f"{len(lap1)} places changed hands before the first lap was done",
          "text": "Twenty cars funnelling into the first corner on cold tyres. "
                  "Most of this is the pack sorting itself out, and some of it "
-                 "decides the afternoon."})
+                 "decides the afternoon.",
+         "dato": {"label": "Busiest movers on lap 1",
+                  "rows": [[s.name(num), f"{c} passes"] for num, c in
+                           Counter(o["overtaking_driver_number"]
+                                   for o in lap1).most_common(5)]}})
 
     # --- busiest green-flag laps ---
     for lap, n in Counter(ln for ln, _ in green).most_common(3):
@@ -857,7 +862,12 @@ def race_story(s: Session) -> list[dict]:
              "title": "Every gap on track, erased",
              "text": (f"Neutralised until lap {ended}. " if ended else "")
                      + "Whatever anybody had built up to here was wiped out, and the "
-                       "race restarted nose to tail."})
+                       "race restarted nose to tail.",
+             "dato": {"label": "Who dived in under it",
+                      "rows": [[s.name(p["driver_number"]), f"lap {p['lap_number']}"]
+                               for p in s.pits
+                               if p.get("pit_duration") and p.get("lap_number")
+                               and abs(p["lap_number"] - lap) <= 1][:6]}})
 
     # --- flags and stewards ---
     yellows = [m for m in s.rc if m.get("flag") in ("YELLOW", "DOUBLE YELLOW")]
@@ -868,7 +878,7 @@ def race_story(s: Session) -> list[dict]:
              "kicker": "Yellow flags", "title": f"{len(yellows)} yellow flag calls",
              "text": "Debris, spins and cars parked in dangerous places. Every one "
                      "of them costs lap time to whoever is unlucky enough to arrive.",
-             "dato": {"label": "Most affected sectors",
+             "dato": {"label": "Marshalling sectors, most affected",
                       "rows": [[f"Sector {k}", v] for k, v in sectors.most_common(4) if k]}})
 
     reds = [m for m in s.rc if m.get("flag") == "RED"]
@@ -901,14 +911,23 @@ def race_story(s: Session) -> list[dict]:
         add({"type": "moment", "lap": penalties[0].get("lap_number") or s.total_laps,
              "kicker": "Penalties", "title": f"{len(penalties)} penalty calls",
              "text": "Time added, places lost, and in some cases a result rewritten "
-                     "after the flag."})
+                     "after the flag.",
+             "dato": {"label": "Handed out",
+                      "rows": [[s.name(c["cars"][0]),
+                                f"{c['secs']}s · {(c['reason'] or 'incident').lower()}"]
+                               for c in s.stewards() if c["secs"]][:6]}})
 
     deleted = s.messages("DELETED")
     if deleted:
         add({"type": "moment", "lap": deleted[0].get("lap_number") or 1,
              "kicker": "Track limits", "title": f"{len(deleted)} lap times deleted",
              "text": "The white line is the track. Run wide and the lap simply "
-                     "stops counting."})
+                     "stops counting.",
+             "dato": {"label": "Most deletions",
+                      "rows": [[s.name(n), f"{c} laps"] for n, c in Counter(
+                          int(g) for m in deleted
+                          for g in re.findall(r"CAR (\d+)", m.get("message") or "")
+                      ).most_common(5)]}})
 
     # --- retirements ---
     for r in s.dnfs:
@@ -918,7 +937,13 @@ def race_story(s: Session) -> list[dict]:
         add({"type": "moment", "lap": out_lap, "kicker": f"Lap {out_lap} · Retirement",
              "title": f"{s.name(num)} is out",
              "text": f"The {s.team(num)} stops after {out_lap} laps. "
-                     "Zero points weekends are where title fights quietly bleed."})
+                     "Zero points weekends are where title fights quietly bleed.",
+             "dato": {"label": "His afternoon",
+                      "rows": [["Laps completed", f"{out_lap} of {s.total_laps}"],
+                               ["Started", f"P{grid_pos.get(num) or '-'}"],
+                               ["Pit stops", str(len(s.pit_laps(num)))],
+                               ["Median lap",
+                                fmt(s.pace(num)) if s.pace(num) else "-"]]}})
 
     # --- pace and speed ---
     best = s.best_lap
@@ -937,7 +962,13 @@ def race_story(s: Session) -> list[dict]:
         add({"type": "moment", "lap": int(s.total_laps * 0.45), "kicker": "Speed trap",
              "title": f"{s.name(trap[0])} hit {trap[1]} km/h",
              "text": "Top speed says as much about wing level and tow as it does "
-                     "about the engine."})
+                     "about the engine.",
+             "dato": {"label": "Quickest through the trap",
+                      "rows": [[s.name(n), f"{v} km/h"] for n, v in sorted(
+                          {l["driver_number"]: int(l["st_speed"])
+                           for l in sorted(s.laps, key=lambda x: x.get("st_speed") or 0)
+                           if l.get("st_speed")}.items(),
+                          key=lambda kv: -kv[1])[:5]]}})
 
     # --- pace ranking, the honest one ---
     ranked = sorted(((s.pace(r["driver_number"]), r["driver_number"])

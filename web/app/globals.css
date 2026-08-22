@@ -716,17 +716,25 @@ body {
   mix-blend-mode: multiply; filter: contrast(1.06) saturate(1.04);
   -webkit-mask-image: linear-gradient(to bottom, #000 72%, #0000 99%);
   mask-image: linear-gradient(to bottom, #000 72%, #0000 99%); }
-.poster-pos { position: absolute; z-index: 0; left: 3.4vw; top: 2vh;
-  font-family: var(--font-hero), sans-serif; font-size: min(52vh, 460px);
-  line-height: .8; color: var(--accent); opacity: .12; user-select: none; }
+/* a filled number half behind the name read as an accident. Outlined and
+   cropped hard by the left edge of the page, it reads as a decision: the
+   name sits on it, and what is missing is obviously off the paper */
+.poster-pos { position: absolute; z-index: 0; left: -3.5vw; top: 50%;
+  transform: translateY(-54%);
+  font-family: var(--font-hero), sans-serif; font-size: min(74vh, 620px);
+  line-height: .78; letter-spacing: -.02em; color: transparent;
+  -webkit-text-stroke: 2px #1b1c2226; user-select: none; }
 .poster-name { position: relative; z-index: 3; margin: 0;
   font-family: var(--font-hero), sans-serif; text-transform: uppercase;
   font-size: clamp(56px, 11.5vw, 190px); line-height: .83;
-  letter-spacing: -.005em; }
+  letter-spacing: -.005em; padding-left: 1.4vw; }
+/* the rule the name hangs from, and the only thing in the left margin */
+.poster-name::before { content: ""; position: absolute; left: 0; top: .1em;
+  bottom: .18em; width: 4px; background: var(--accent); }
 .poster-name span { display: block; }
 .poster-name span:last-child { color: var(--accent); }
 .poster-sub { position: relative; z-index: 3; display: flex; align-items: center;
-  gap: 16px; margin-top: 20px; font-family: var(--font-mono); font-size: 12px;
+  gap: 16px; margin-top: 20px; padding-left: calc(1.4vw + 4px); font-family: var(--font-mono); font-size: 12px;
   letter-spacing: .24em; text-transform: uppercase; }
 .poster-sub b { font-weight: 700; }
 .poster-sub span { background: var(--accent); color: #fff; padding: 6px 10px;

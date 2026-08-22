@@ -18,7 +18,32 @@
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
       "title": "51 places changed hands before the first lap was done",
-      "text": "Twenty cars funnelling into the first corner on cold tyres. Most of this is the pack sorting itself out, and some of it decides the afternoon."
+      "text": "Twenty cars funnelling into the first corner on cold tyres. Most of this is the pack sorting itself out, and some of it decides the afternoon.",
+      "dato": {
+        "label": "Busiest movers on lap 1",
+        "rows": [
+          [
+            "Ocon",
+            "7 passes"
+          ],
+          [
+            "Sainz",
+            "5 passes"
+          ],
+          [
+            "Gasly",
+            "5 passes"
+          ],
+          [
+            "Lindblad",
+            "4 passes"
+          ],
+          [
+            "Colapinto",
+            "4 passes"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
@@ -27,7 +52,7 @@
       "title": "30 yellow flag calls",
       "text": "Debris, spins and cars parked in dangerous places. Every one of them costs lap time to whoever is unlucky enough to arrive.",
       "dato": {
-        "label": "Most affected sectors",
+        "label": "Marshalling sectors, most affected",
         "rows": [
           [
             "Sector 15",
@@ -143,14 +168,68 @@
       "lap": 5,
       "kicker": "Penalties",
       "title": "11 penalty calls",
-      "text": "Time added, places lost, and in some cases a result rewritten after the flag."
+      "text": "Time added, places lost, and in some cases a result rewritten after the flag.",
+      "dato": {
+        "label": "Handed out",
+        "rows": [
+          [
+            "Albon",
+            "10s · incident"
+          ],
+          [
+            "Hamilton",
+            "5s · false start - moving before signal"
+          ],
+          [
+            "Stroll",
+            "5s · track limits"
+          ],
+          [
+            "Stroll",
+            "5s · track limits (5th offence)"
+          ],
+          [
+            "Stroll",
+            "5s · track limits (6th offence)"
+          ],
+          [
+            "Antonelli",
+            "5s · track limits"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
       "lap": 9,
       "kicker": "Track limits",
       "title": "23 lap times deleted",
-      "text": "The white line is the track. Run wide and the lap simply stops counting."
+      "text": "The white line is the track. Run wide and the lap simply stops counting.",
+      "dato": {
+        "label": "Most deletions",
+        "rows": [
+          [
+            "Stroll",
+            "7 laps"
+          ],
+          [
+            "Sainz",
+            "4 laps"
+          ],
+          [
+            "Antonelli",
+            "4 laps"
+          ],
+          [
+            "Piastri",
+            "2 laps"
+          ],
+          [
+            "Hulkenberg",
+            "1 laps"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
@@ -267,7 +346,32 @@
       "lap": 23,
       "kicker": "Speed trap",
       "title": "Hamilton hit 351 km/h",
-      "text": "Top speed says as much about wing level and tow as it does about the engine."
+      "text": "Top speed says as much about wing level and tow as it does about the engine.",
+      "dato": {
+        "label": "Quickest through the trap",
+        "rows": [
+          [
+            "Hamilton",
+            "351 km/h"
+          ],
+          [
+            "Gasly",
+            "344 km/h"
+          ],
+          [
+            "Colapinto",
+            "343 km/h"
+          ],
+          [
+            "Bearman",
+            "339 km/h"
+          ],
+          [
+            "Hulkenberg",
+            "339 km/h"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
@@ -562,7 +666,28 @@
       "lap": 37,
       "kicker": "Lap 37 · Retirement",
       "title": "Hulkenberg is out",
-      "text": "The Audi stops after 37 laps. Zero points weekends are where title fights quietly bleed."
+      "text": "The Audi stops after 37 laps. Zero points weekends are where title fights quietly bleed.",
+      "dato": {
+        "label": "His afternoon",
+        "rows": [
+          [
+            "Laps completed",
+            "37 of 52"
+          ],
+          [
+            "Started",
+            "P12"
+          ],
+          [
+            "Pit stops",
+            "2"
+          ],
+          [
+            "Median lap",
+            "1:35.971"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
@@ -614,7 +739,28 @@
       "lap": 44,
       "kicker": "Lap 44 · Retirement",
       "title": "Albon is out",
-      "text": "The Williams stops after 44 laps. Zero points weekends are where title fights quietly bleed."
+      "text": "The Williams stops after 44 laps. Zero points weekends are where title fights quietly bleed.",
+      "dato": {
+        "label": "His afternoon",
+        "rows": [
+          [
+            "Laps completed",
+            "44 of 52"
+          ],
+          [
+            "Started",
+            "P16"
+          ],
+          [
+            "Pit stops",
+            "5"
+          ],
+          [
+            "Median lap",
+            "1:36.420"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
@@ -628,7 +774,28 @@
       "lap": 47,
       "kicker": "Lap 47 · Retirement",
       "title": "Verstappen is out",
-      "text": "The Red Bull Racing stops after 47 laps. Zero points weekends are where title fights quietly bleed."
+      "text": "The Red Bull Racing stops after 47 laps. Zero points weekends are where title fights quietly bleed.",
+      "dato": {
+        "label": "His afternoon",
+        "rows": [
+          [
+            "Laps completed",
+            "47 of 52"
+          ],
+          [
+            "Started",
+            "P7"
+          ],
+          [
+            "Pit stops",
+            "2"
+          ],
+          [
+            "Median lap",
+            "1:34.233"
+          ]
+        ]
+      }
     },
     {
       "type": "decision",
@@ -684,7 +851,36 @@
       "lap": 48,
       "kicker": "Lap 48 of 52 · Safety Car",
       "title": "Every gap on track, erased",
-      "text": "Neutralised until lap 51. Whatever anybody had built up to here was wiped out, and the race restarted nose to tail."
+      "text": "Neutralised until lap 51. Whatever anybody had built up to here was wiped out, and the race restarted nose to tail.",
+      "dato": {
+        "label": "Who dived in under it",
+        "rows": [
+          [
+            "Hadjar",
+            "lap 47"
+          ],
+          [
+            "Lawson",
+            "lap 47"
+          ],
+          [
+            "Lindblad",
+            "lap 47"
+          ],
+          [
+            "Bortoleto",
+            "lap 47"
+          ],
+          [
+            "Colapinto",
+            "lap 47"
+          ],
+          [
+            "Leclerc",
+            "lap 48"
+          ]
+        ]
+      }
     },
     {
       "type": "moment",
@@ -741,7 +937,11 @@
       "lap": 51,
       "kicker": "Lap 51 of 52 · Safety Car",
       "title": "Every gap on track, erased",
-      "text": "Neutralised until lap 51. Whatever anybody had built up to here was wiped out, and the race restarted nose to tail."
+      "text": "Neutralised until lap 51. Whatever anybody had built up to here was wiped out, and the race restarted nose to tail.",
+      "dato": {
+        "label": "Who dived in under it",
+        "rows": []
+      }
     },
     {
       "type": "moment",
