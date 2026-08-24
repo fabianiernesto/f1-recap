@@ -372,6 +372,7 @@ export default function RaceScroll({
                       ))}
                     </ul>
                   )}
+                  {c.note && <p className="note">{c.note}</p>}
 
                   {c.type === "decision" && <DecisionBody card={c} />}
                   {c.type === "guess" && <GuessBody card={c} />}

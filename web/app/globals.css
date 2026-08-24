@@ -1056,3 +1056,9 @@ body {
 .v-yellow .pts li::before { background: var(--yellow); }
 .v-red .pts li::before { background: #fff; }
 .v-sc .pts li::before { background: var(--yellow); }
+
+/* the closing thought, which is a reflection rather than a fact and so reads
+   as prose under the list instead of as one more item in it */
+.card .note { margin-top: 14px !important; padding-top: 12px;
+  border-top: 1px solid #ffffff12; color: #9aa0aa !important;
+  font-size: 13px; line-height: 1.65; }

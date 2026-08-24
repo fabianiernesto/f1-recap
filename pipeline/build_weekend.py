@@ -57,6 +57,30 @@ def fmt(seconds: float) -> str:
     return f"{m}:{seconds - m * 60:06.3f}" if m else f"{seconds:.3f}"
 
 
+def close_thoughts(cards: list[dict]) -> list[dict]:
+    """Lifts a trailing reflection out of the bullet list and into its own line.
+
+    A list is for facts. The sentence at the end of these cards is an opinion
+    about the facts, and it reads as one more item when it is really the point,
+    so it moves under the list as prose. A reflection is recognisable: it
+    carries no numbers and it is long enough to be a thought.
+    """
+    def is_thought(line: str) -> bool:
+        return len(line) >= 40 and not any(ch.isdigit() for ch in line)
+
+    for c in cards:
+        bl = list(c.get("bullets") or [])
+        lifted: list[str] = []
+        # a card can end on two reflections in a row, and splitting them across
+        # a bullet and a paragraph reads worse than either on its own
+        while len(bl) > 1 and is_thought(bl[-1]):
+            lifted.insert(0, bl.pop())
+        if lifted:
+            note = " ".join(t if t.endswith(".") else t + "." for t in lifted)
+            c["note"], c["bullets"] = note, bl
+    return cards
+
+
 def names_list(names: list[str], cap: int = 3) -> str:
     """Three names read as a sentence; twelve read as a spreadsheet."""
     shown = names[:cap]
@@ -1121,7 +1145,7 @@ def race_story(s: Session) -> list[dict]:
     body = sorted([c for c in cards if c["type"] == "moment"]
                   + prediction_cards(s) + decision_cards(s),
                   key=lambda c: c.get("lap") or 0)
-    return head + body
+    return close_thoughts(head + body)
 
 
 # ------------------------------------------------------------------ quali

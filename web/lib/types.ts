@@ -6,6 +6,8 @@ export type CardData = {
   text?: string;
   /** skimmable facts under the lead line, because nobody reads a block */
   bullets?: string[];
+  /** the closing thought: a reflection is prose, not an item in a list */
+  note?: string;
   options?: string[];
   answer?: string;
   reveal?: string;

@@ -21,9 +21,9 @@
       "text": "Twenty cars funnelling into one corner on cold tyres and full tanks.",
       "bullets": [
         "Russell, Gasly and Colapinto came out of it best",
-        "Nobody has to pass cleanly here: on lap 1 the places are simply there for whoever is brave into the first braking zone",
-        "Most of this is the pack sorting itself out. Some of it decides the afternoon"
-      ]
+        "Nobody has to pass cleanly here: on lap 1 the places are simply there for whoever is brave into the first braking zone"
+      ],
+      "note": "Most of this is the pack sorting itself out. Some of it decides the afternoon."
     },
     {
       "type": "moment",
@@ -33,9 +33,9 @@
       "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
       "bullets": [
         "Bottas, Albon and Verstappen all found a way through",
-        "10 different drivers gained a place on this lap alone",
-        "Cold tyres, full tanks, and everybody still working out where they belong"
-      ]
+        "10 different drivers gained a place on this lap alone"
+      ],
+      "note": "Cold tyres, full tanks, and everybody still working out where they belong."
     },
     {
       "type": "prediction",
@@ -59,9 +59,9 @@
       "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
       "bullets": [
         "Bortoleto, Alonso and Hadjar all found a way through",
-        "7 different drivers gained a place on this lap alone",
-        "Cold tyres, full tanks, and everybody still working out where they belong"
-      ]
+        "7 different drivers gained a place on this lap alone"
+      ],
+      "note": "Cold tyres, full tanks, and everybody still working out where they belong."
     },
     {
       "type": "moment",
@@ -71,9 +71,9 @@
       "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
       "bullets": [
         "Leclerc, Piastri and Lawson all found a way through",
-        "3 different drivers gained a place on this lap alone",
-        "Cold tyres, full tanks, and everybody still working out where they belong"
-      ]
+        "3 different drivers gained a place on this lap alone"
+      ],
+      "note": "Cold tyres, full tanks, and everybody still working out where they belong."
     },
     {
       "type": "moment",
@@ -82,9 +82,7 @@
       "title": "Leclerc: 4 overtakes",
       "text": "More than anybody else out there, in a Ferrari.",
       "bullets": [
-        "P4 on the grid, P5 at the flag",
-        "Passing looks like the whole sport on television and turns out to be the rarest thing in it",
-        "Most positions change in the pit lane, not on the road"
+        "P4 on the grid, P5 at the flag"
       ],
       "dato": {
         "label": "Most overtakes",
@@ -114,7 +112,8 @@
             3
           ]
         ]
-      }
+      },
+      "note": "Passing looks like the whole sport on television and turns out to be the rarest thing in it. Most positions change in the pit lane, not on the road."
     },
     {
       "type": "moment",
@@ -130,10 +129,9 @@
       "title": "4 incidents looked at",
       "text": "Race control saw more than it acted on.",
       "bullets": [
-        "Turn 3 Incident Involving Cars 11 (Per) And 14 (Alo) Noted - Causing A Collision",
-        "Being noted is not the same as being punished",
-        "Most of these get looked at, argued over on the radio, and quietly dropped a few laps later"
-      ]
+        "Turn 3 Incident Involving Cars 11 (Per) And 14 (Alo) Noted - Causing A Collision"
+      ],
+      "note": "Being noted is not the same as being punished. Most of these get looked at, argued over on the radio, and quietly dropped a few laps later."
     },
     {
       "type": "decision",
@@ -194,10 +192,9 @@
       "title": "9 lap times deleted",
       "text": "The white line is the track, and the lap simply stops counting if you leave it.",
       "bullets": [
-        "Stroll lost 3 laps that way, more than anybody",
-        "Keep doing it and it turns into a penalty",
-        "It sounds pedantic until you picture the alternative: everybody finding their own edge of the circuit"
-      ]
+        "Stroll lost 3 laps that way, more than anybody"
+      ],
+      "note": "Keep doing it and it turns into a penalty. It sounds pedantic until you picture the alternative: everybody finding their own edge of the circuit."
     },
     {
       "type": "moment",
@@ -206,10 +203,9 @@
       "title": "Hadjar hit 340 km/h",
       "text": "The fastest car in a straight line is almost never the fastest car over a lap.",
       "bullets": [
-        "Hadjar did it in a Red Bull Racing",
-        "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine",
-        "Less wing means more speed here and less grip everywhere else, which is a trade you pay for in the corners"
-      ]
+        "Hadjar did it in a Red Bull Racing"
+      ],
+      "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine. Less wing means more speed here and less grip everywhere else, which is a trade you pay for in the corners."
     },
     {
       "type": "moment",
@@ -220,9 +216,9 @@
       "bullets": [
         "Busiest single lap was 2, with 1 cars in on the same tour",
         "Quickest trip down the lane: Stroll, 30.9s",
-        "Slowest: Perez, 48.6s",
-        "That difference is a whole position, sometimes two, decided by people who never touch the steering wheel"
-      ]
+        "Slowest: Perez, 48.6s"
+      ],
+      "note": "That difference is a whole position, sometimes two, decided by people who never touch the steering wheel."
     },
     {
       "type": "moment",
@@ -231,9 +227,9 @@
       "title": "1 penalty calls",
       "text": "Time added, places lost, and sometimes a result rewritten after the flag.",
       "bullets": [
-        "Perez: 10s for causing a collision",
-        "Served at the next stop, or added to the final time when there is no stop left to serve it at"
-      ]
+        "Perez: 10s for causing a collision"
+      ],
+      "note": "Served at the next stop, or added to the final time when there is no stop left to serve it at."
     },
     {
       "type": "decision",
@@ -354,9 +350,9 @@
       "text": "Saturday promised one thing and Sunday delivered another.",
       "bullets": [
         "P18 on the grid, P22 at the flag",
-        "1 stops when most of the field did 1",
-        "Qualifying flatters whoever can put one lap together. A race asks for sixty of them"
-      ]
+        "1 stops when most of the field did 1"
+      ],
+      "note": "Qualifying flatters whoever can put one lap together. A race asks for sixty of them."
     },
     {
       "type": "moment",
@@ -365,10 +361,9 @@
       "title": "Albon: P22 on the grid, P18 at the flag",
       "text": "4 places gained, and almost none of it on camera.",
       "bullets": [
-        "4 of them by passing somebody on track",
-        "Nobody will mention this on Monday, because the cameras live at the front and the story of a race gets written from there",
-        "The timing sheet does not care where the cameras were pointing"
-      ]
+        "4 of them by passing somebody on track"
+      ],
+      "note": "Nobody will mention this on Monday, because the cameras live at the front and the story of a race gets written from there. The timing sheet does not care where the cameras were pointing."
     },
     {
       "type": "moment",
@@ -430,8 +425,7 @@
       "title": "Antonelli wins it",
       "text": "P1 Antonelli · P2 Hamilton · P3 Norris.",
       "bullets": [
-        "After 17 laps, Hamilton crossed the line 2.745s behind",
-        "The gaps at the end of a race almost never reflect the gaps during it"
+        "After 17 laps, Hamilton crossed the line 2.745s behind"
       ],
       "dato": {
         "label": "Points scored",
@@ -477,7 +471,8 @@
             "0"
           ]
         ]
-      }
+      },
+      "note": "The gaps at the end of a race almost never reflect the gaps during it."
     },
     {
       "type": "guess",
