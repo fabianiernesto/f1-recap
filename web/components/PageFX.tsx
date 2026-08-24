@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { SFX_ARRIVE, loadSfx, playSfx } from "@/lib/sfx";
 
 /**
  * Every navigation on this site used to be a cut. This puts a broadcast
@@ -19,7 +20,6 @@ const REVEAL = 420;
 /* Arriving at a circuit is the one navigation that gets a sound. It plays on a
    real click, so no autoplay policy stands in the way, and it stays quiet
    enough to sit under the sting rather than announce itself. */
-const SFX = "/sfx/arrive.mp4";
 const SFX_VOLUME = 0.22;
 const isFrontDoor = (href: string) => /^\/gp\/[^/]+$/.test(href);
 
@@ -29,28 +29,16 @@ export default function PageFX() {
   const [phase, setPhase] = useState<"idle" | "cover" | "hold" | "reveal">("idle");
   const pending = useRef<string | null>(null);
   const from = useRef(pathname);
-  const sfx = useRef<HTMLAudioElement | null>(null);
 
-  /* loaded once and kept, so the hit lands with the bars rather than after
+  /* decoded once and kept, so the hit lands with the bars rather than after
      them while the file is still being fetched */
-  useEffect(() => {
-    const a = new Audio(SFX);
-    a.preload = "auto";
-    a.volume = SFX_VOLUME;
-    sfx.current = a;
-    return () => { a.pause(); sfx.current = null; };
-  }, []);
+  useEffect(() => { loadSfx(SFX_ARRIVE); }, []);
 
   /* the curtain comes down, then the route changes behind it */
   const go = useCallback(
     (href: string) => {
       pending.current = href;
-      if (isFrontDoor(href) && sfx.current) {
-        const a = sfx.current;
-        a.currentTime = 0;
-        // a browser can still refuse, and a silent transition is no failure
-        a.play().catch(() => {});
-      }
+      if (isFrontDoor(href)) playSfx(SFX_ARRIVE, { volume: SFX_VOLUME });
       setPhase("cover");
       setTimeout(() => {
         setPhase("hold");

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Brain, MateThread } from "@/lib/types";
 import { askAlfred, STARTERS } from "@/lib/alfred";
+import { SFX_RADIO, loadSfx, playSfx } from "@/lib/sfx";
 
 /**
  * The mate who watched the race and is texting you about it.
@@ -18,13 +19,11 @@ type Line = { who: "them" | "you"; text: string };
 
 const MATE = "Alfred";
 
-/* The radio click when he comes on. The clip runs eleven seconds, which is a
-   lot of chatter for opening a panel, so it plays the front of it and fades
-   out: a radio opening is a beat, not a track. */
-const SFX = "/sfx/radio.mp4";
+/* The radio click when he comes on. The clip runs eleven seconds and opens on
+   over a second of silence, so it is played from its first audible sample and
+   cut after a beat: a radio opening is a beat, not a track. */
 const SFX_VOLUME = 0.22;
-const SFX_MS = 1800;
-const FADE_MS = 260;
+const SFX_MS = 1600;
 
 export default function RaceMate({
   thread,
@@ -44,7 +43,7 @@ export default function RaceMate({
   const [hasAsked, setHasAsked] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const sfx = useRef<HTMLAudioElement | null>(null);
+  const [sound, setSound] = useState(false);
   /* effects run twice in dev, and a beat must never be said twice */
   const saidRef = useRef(-1);
 
@@ -83,32 +82,16 @@ export default function RaceMate({
     }
   }, [open, log]);
 
-  /* loaded once, so the click lands with the panel rather than after it */
+  /* decoded once, so the click lands with the panel rather than after it */
   useEffect(() => {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const a = new Audio(SFX);
-    a.preload = "auto";
-    a.volume = SFX_VOLUME;
-    sfx.current = a;
-    return () => { a.pause(); sfx.current = null; };
+    loadSfx(SFX_RADIO);
+    setSound(true);
   }, []);
 
   /** He comes on air when the panel opens, and never when it closes. */
   const radioOn = () => {
-    const a = sfx.current;
-    if (!a) return;
-    a.currentTime = 0;
-    a.volume = SFX_VOLUME;
-    a.play().catch(() => {});
-    setTimeout(() => {
-      const steps = 8;
-      let n = 0;
-      const fade = setInterval(() => {
-        n += 1;
-        a.volume = Math.max(0, SFX_VOLUME * (1 - n / steps));
-        if (n >= steps) { clearInterval(fade); a.pause(); }
-      }, FADE_MS / steps);
-    }, SFX_MS - FADE_MS);
+    if (sound) playSfx(SFX_RADIO, { volume: SFX_VOLUME, maxMs: SFX_MS });
   };
 
   /* your question jumps the queue: he answers you before carrying on with
