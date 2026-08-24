@@ -945,9 +945,9 @@ body {
    The sheet is the hero here, so it gets the panel treatment the circuit
    stats get on the front door: mono labels, red figures, hairline rows. */
 .blind { min-height: 100vh; background: #000; color: var(--ink);
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: flex-start;
   padding: 8vh 5vw; }
-.blind-intro { max-width: 620px; text-align: left; }
+.blind-intro { max-width: 640px; text-align: left; }
 .blind-eyebrow { display: block; font-family: var(--font-mono); font-size: 10px;
   letter-spacing: .3em; text-transform: uppercase; color: var(--led);
   margin-bottom: 22px; }
@@ -956,8 +956,7 @@ body {
   line-height: .95; text-shadow: 0 0 14px #ff1c1240;
   animation: led-breathe 6s ease-in-out infinite; }
 .blind-intro h1 span { display: block; font-size: clamp(28px, 5vw, 72px); }
-.blind-intro h1 span:last-child { margin-left: clamp(24px, 5vw, 96px);
-  margin-top: 1.2vh; }
+.blind-intro h1 span:last-child { margin-top: 1.2vh; }
 .blind-intro p { margin: 0 0 32px; max-width: 54ch; color: #8a8f99;
   font-family: var(--font-mono); font-size: 11.5px; line-height: 1.9;
   letter-spacing: .06em; text-transform: uppercase; }
@@ -1087,8 +1086,7 @@ body {
   line-height: .95; text-shadow: 0 0 14px #ff1c1240;
   animation: led-breathe 6s ease-in-out infinite; }
 .acts-head h1 span { display: block; font-size: clamp(30px, 5.4vw, 78px); }
-.acts-head h1 span:last-child { margin-left: clamp(28px, 6vw, 110px);
-  margin-top: 1.2vh; }
+.acts-head h1 span:last-child { margin-top: 1.2vh; }
 /* mono and letter-spaced, the way the home states its promise */
 .acts-head p { margin: 0; color: #8a8f99; font-family: var(--font-mono);
   font-size: 11.5px; line-height: 1.9; letter-spacing: .06em;
