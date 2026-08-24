@@ -14,8 +14,12 @@ import { SFX_ARRIVE, loadSfx, playSfx } from "@/lib/sfx";
  * half-rendered content.
  */
 
-const COVER = 640;
-const REVEAL = 420;
+const COVER = 780;
+const REVEAL = 500;
+/* the arrival carries three seconds of sound, and a mark that leaves after one
+   makes the whole thing feel hurried. Only that navigation holds; every other
+   one keeps its pace, because a curtain nobody asked for should not linger. */
+const HOLD_WITH_SOUND = 1500;
 
 /* Arriving at a circuit is the one navigation that gets a sound. It plays on a
    real click, so no autoplay policy stands in the way, and it stays quiet
@@ -29,6 +33,9 @@ export default function PageFX() {
   const [phase, setPhase] = useState<"idle" | "cover" | "hold" | "reveal">("idle");
   const pending = useRef<string | null>(null);
   const from = useRef(pathname);
+  /* the earliest the curtain is allowed to lift, so a slow route never
+     shortens the hold and a fast one never cuts the sound off */
+  const holdUntil = useRef(0);
 
   /* decoded once and kept, so the hit lands with the bars rather than after
      them while the file is still being fetched */
@@ -38,7 +45,10 @@ export default function PageFX() {
   const go = useCallback(
     (href: string) => {
       pending.current = href;
-      if (isFrontDoor(href)) playSfx(SFX_ARRIVE, { volume: SFX_VOLUME });
+      const withSound = isFrontDoor(href);
+      if (withSound) playSfx(SFX_ARRIVE, { volume: SFX_VOLUME });
+      holdUntil.current =
+        performance.now() + COVER + (withSound ? HOLD_WITH_SOUND : 0);
       setPhase("cover");
       setTimeout(() => {
         setPhase("hold");
@@ -76,16 +86,20 @@ export default function PageFX() {
     from.current = pathname;
     if (pending.current) {
       pending.current = null;
-      setPhase("reveal");
-      // the arriving page settles in under the curtain rather than just being
-      // there; the class is what the page-in animation hangs off
-      document.documentElement.classList.add("fx-in");
-      const t = setTimeout(() => setPhase("idle"), REVEAL);
-      const t2 = setTimeout(
-        () => document.documentElement.classList.remove("fx-in"),
-        REVEAL + 420
-      );
-      return () => { clearTimeout(t); clearTimeout(t2); };
+      const wait = Math.max(0, holdUntil.current - performance.now());
+      let t = 0, t2 = 0;
+      const lift = setTimeout(() => {
+        setPhase("reveal");
+        // the arriving page settles in under the curtain rather than just
+        // being there; the class is what the page-in animation hangs off
+        document.documentElement.classList.add("fx-in");
+        t = window.setTimeout(() => setPhase("idle"), REVEAL);
+        t2 = window.setTimeout(
+          () => document.documentElement.classList.remove("fx-in"),
+          REVEAL + 420
+        );
+      }, wait);
+      return () => { clearTimeout(lift); clearTimeout(t); clearTimeout(t2); };
     }
   }, [pathname]);
 
