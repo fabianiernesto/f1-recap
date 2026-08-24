@@ -951,20 +951,25 @@ body {
 .blind-eyebrow { display: block; font-family: var(--font-mono); font-size: 10px;
   letter-spacing: .3em; text-transform: uppercase; color: var(--led);
   margin-bottom: 22px; }
-.blind-intro h1 { margin: 0 0 22px; font-family: var(--font-hero), sans-serif;
-  font-size: clamp(46px, 8vw, 104px); line-height: .92; text-transform: uppercase;
-  letter-spacing: .01em; }
-.blind-intro p { margin: 0 0 30px; max-width: 52ch; color: #9aa0aa;
-  font-size: 14.5px; line-height: 1.7; }
+.blind-intro h1 { margin: 0 0 24px; font-family: var(--font-pixel), monospace;
+  font-weight: 900; color: var(--led); text-transform: uppercase;
+  line-height: .95; text-shadow: 0 0 14px #ff1c1240;
+  animation: led-breathe 6s ease-in-out infinite; }
+.blind-intro h1 span { display: block; font-size: clamp(28px, 5vw, 72px); }
+.blind-intro h1 span:last-child { margin-left: clamp(24px, 5vw, 96px);
+  margin-top: 1.2vh; }
+.blind-intro p { margin: 0 0 32px; max-width: 54ch; color: #8a8f99;
+  font-family: var(--font-mono); font-size: 11.5px; line-height: 1.9;
+  letter-spacing: .06em; text-transform: uppercase; }
 .blind-score { font-family: var(--font-hero), sans-serif; color: var(--led);
   font-size: clamp(90px, 17vw, 200px); line-height: 1; margin-bottom: 18px; }
 .blind-score small { font-size: .28em; color: #565b66; margin-left: .18em;
   letter-spacing: .04em; }
 
-.blind-go { display: inline-flex; align-items: center; gap: .8em;
-  border: 1px solid var(--led); background: #ff1c1208; color: var(--led);
+.blind-go { display: inline-flex; align-items: center; gap: .9em;
+  border: 1px solid #ff1c12; background: #ff1c1208; color: var(--led);
   padding: 14px 26px; font-family: var(--font-mono); font-weight: 700;
-  font-size: 12px; letter-spacing: .24em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: .28em; text-transform: uppercase;
   cursor: pointer; transition: background-color .18s, color .18s; }
 .blind-go i { font-style: normal; transition: transform .18s; }
 .blind-go:hover { background: var(--led); color: #000; }
@@ -978,9 +983,12 @@ body {
 .blind-progress { display: flex; justify-content: space-between;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em;
   text-transform: uppercase; color: #565b66; margin-bottom: 26px; }
-.blind-q { margin: 0 0 20px; font-family: var(--font-display), sans-serif;
-  font-weight: 700; font-size: 34px; text-transform: uppercase;
-  letter-spacing: .02em; color: var(--led); }
+.blind-q { display: flex; align-items: center; gap: 11px; margin: 0 0 22px;
+  font-family: var(--font-display), sans-serif; font-weight: 700;
+  font-size: 32px; text-transform: uppercase; letter-spacing: .02em;
+  color: var(--ink); }
+.blind-q::before { content: ""; width: 18px; height: 4px; background: var(--led);
+  flex: none; }
 
 .blind-sheet { margin: 0 0 26px; border-top: 1px solid #ffffff1c; }
 .blind-sheet > div { display: flex; justify-content: space-between; gap: 20px;
@@ -1072,10 +1080,19 @@ body {
 .acts-eyebrow { display: block; font-family: var(--font-mono); font-size: 10px;
   letter-spacing: .3em; text-transform: uppercase; color: var(--led);
   margin-bottom: 18px; }
-.acts-head h1 { margin: 0 0 18px; font-family: var(--font-hero), sans-serif;
-  font-size: clamp(40px, 7vw, 92px); line-height: .95; text-transform: uppercase; }
-.acts-head p { margin: 0; color: #9aa0aa; font-size: 14.5px; line-height: 1.7;
-  max-width: 46ch; }
+/* the page title is the same rank as the home's and the front door's, so it
+   wears the same LED face, the same red and the same breath */
+.acts-head h1 { margin: 0 0 22px; font-family: var(--font-pixel), monospace;
+  font-weight: 900; color: var(--led); text-transform: uppercase;
+  line-height: .95; text-shadow: 0 0 14px #ff1c1240;
+  animation: led-breathe 6s ease-in-out infinite; }
+.acts-head h1 span { display: block; font-size: clamp(30px, 5.4vw, 78px); }
+.acts-head h1 span:last-child { margin-left: clamp(28px, 6vw, 110px);
+  margin-top: 1.2vh; }
+/* mono and letter-spaced, the way the home states its promise */
+.acts-head p { margin: 0; color: #8a8f99; font-family: var(--font-mono);
+  font-size: 11.5px; line-height: 1.9; letter-spacing: .06em;
+  text-transform: uppercase; max-width: 54ch; }
 
 .acts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 16px; }
@@ -1084,18 +1101,26 @@ body {
   min-height: 290px; text-decoration: none; color: var(--ink);
   transition: background-color .18s, border-color .18s; }
 a.act:hover { background: #0d0405; border-color: #ff1c1266; }
-.act-n { font-family: var(--font-mono); font-size: 10px; letter-spacing: .24em;
-  color: #565b66; margin-bottom: 16px; }
+.act-n { display: flex; align-items: center; gap: 9px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .24em;
+  text-transform: uppercase; color: #8a8f99; margin-bottom: 16px; }
+.act-n::before { content: ""; width: 14px; height: 3px; background: var(--led);
+  flex: none; }
+.act-off .act-n::before, .act-next .act-n::before { background: #3d424d; }
 .act h2 { margin: 0 0 12px; font-family: var(--font-display), sans-serif;
-  font-weight: 700; font-size: 27px; text-transform: uppercase;
-  letter-spacing: .02em; color: var(--led); }
+  font-weight: 700; font-size: 26px; text-transform: uppercase;
+  letter-spacing: .02em; color: var(--ink); line-height: 1.1; }
+a.act:hover h2 { color: var(--led); }
 .act p { margin: 0 0 18px; color: #9aa0aa; font-size: 13.5px; line-height: 1.65;
   flex: 1; }
 .act-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em;
   text-transform: uppercase; color: #565b66; }
-.act-go { margin-top: 14px; font-family: var(--font-mono); font-size: 11px;
-  font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--led); }
+.act-go { display: inline-flex; align-self: flex-start; align-items: center;
+  gap: .8em; margin-top: 18px; border: 1px solid #ff1c12; color: var(--led);
+  background: #ff1c1208; padding: 11px 20px; font-family: var(--font-mono);
+  font-weight: 700; font-size: 10.5px; letter-spacing: .24em;
+  text-transform: uppercase; transition: background-color .18s, color .18s; }
+a.act:hover .act-go { background: var(--led); color: #000; }
 /* the slot that is not a thing yet reads as a promise, not as a broken link */
 .act-next, .act-off { border-style: dashed; background: #030304; }
 .act-next h2, .act-off h2 { color: #6b7078; }

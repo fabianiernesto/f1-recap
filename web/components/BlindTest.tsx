@@ -53,9 +53,8 @@ export default function BlindTest({
         <div className="blind-intro">
           <span className="blind-eyebrow">The blind test · {test.session}</span>
           <h1>
-            Five drivers.
-            <br />
-            No names.
+            <span>Five drivers</span>
+            <span>No names</span>
           </h1>
           <p>
             Every sheet is somebody&rsquo;s real afternoon: where they started,

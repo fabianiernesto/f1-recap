@@ -37,7 +37,10 @@ export default async function WeekendPage({
       <main className="acts">
         <header className="acts-head">
           <span className="acts-eyebrow">{weekend.short} · {weekend.date}</span>
-          <h1>Pick your way in</h1>
+          <h1>
+            <span>Pick your</span>
+            <span>Way in</span>
+          </h1>
           <p>
             {ready
               ? `${weekend.sessions.length} sessions and ${moments} moments of it, `
@@ -50,7 +53,7 @@ export default async function WeekendPage({
         <div className="acts-grid">
           {ready ? (
           <Link href={`/gp/${slug}/sessions`} className="act">
-            <span className="act-n">01</span>
+            <span className="act-n">Activity 01</span>
             <h2>Scroll the weekend</h2>
             <p>
               Every session told moment by moment, with the circuit drawing
@@ -64,7 +67,7 @@ export default async function WeekendPage({
           </Link>
           ) : (
             <div className="act act-off">
-              <span className="act-n">01</span>
+              <span className="act-n">Activity 01</span>
               <h2>Scroll the weekend</h2>
               <p>Waiting on the timing data for this Grand Prix.</p>
             </div>
@@ -72,7 +75,7 @@ export default async function WeekendPage({
 
           {blind && blind.rounds.length >= 3 ? (
             <Link href={`/gp/${slug}/${blindSession}/blind`} className="act">
-              <span className="act-n">02</span>
+              <span className="act-n">Activity 02</span>
               <h2>The blind test</h2>
               <p>
                 Five drivers with their names taken off, and nothing to go on
@@ -86,7 +89,7 @@ export default async function WeekendPage({
             </Link>
           ) : (
             <div className="act act-off">
-              <span className="act-n">02</span>
+              <span className="act-n">Activity 02</span>
               <h2>The blind test</h2>
               <p>
                 Needs a race with enough happening in it. Nothing to guess at
@@ -96,7 +99,7 @@ export default async function WeekendPage({
           )}
 
           <div className="act act-next">
-            <span className="act-n">03</span>
+            <span className="act-n">Activity 03</span>
             <h2>More on the way</h2>
             <p>
               The pit wall run, where you call the strategy and find out where
