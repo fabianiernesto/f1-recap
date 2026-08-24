@@ -65,17 +65,17 @@ export default function GPHeroLED({
       n: "00",
       word: "Simplified",
       label: "Simplified",
-      href: "#ways-in",
-      cta: "See the ways in",
+      href: `/gp/${weekend.slug}/activities`,
+      cta: "See the activities",
       map: "corners",
       rows: stats.map((s) => ({
         label: s.label, value: s.value, short: cap(s.short ?? "", 62),
       })),
       read: [
         `${weekend.date} · ${weekend.short}`,
-        acts.scroll
-          ? `${acts.sessions} sessions · ${acts.moments} moments on the board`
-          : "Timing data still to come",
+        acts.blind
+          ? `${acts.blind.rounds} sheets to guess at, and more on the way`
+          : "The activities arrive with the timing data",
         `${weekend.laps} laps · ${weekend.circuit}`,
       ],
     },
@@ -84,8 +84,8 @@ export default function GPHeroLED({
   if (acts.scroll)
     channels.push({
       n: "01",
-      word: "Scroll it",
-      label: "Scroll it",
+      word: "Scrolled",
+      label: "Scrolled",
       href: `/gp/${weekend.slug}/sessions`,
       cta: "Scroll the weekend",
       map: "lap",
@@ -108,33 +108,6 @@ export default function GPHeroLED({
         acts.alfred
           ? `Ask Alfred on ${acts.alfred} of them`
           : "Told from the timing data, moment by moment",
-      ],
-    });
-
-  if (acts.blind)
-    channels.push({
-      n: String(channels.length).padStart(2, "0"),
-      word: "Blind test",
-      label: "Blind test",
-      href: `/gp/${weekend.slug}/${acts.blind.session}/blind`,
-      cta: "Start the blind test",
-      map: "blank",
-      rows: [
-        { label: "Sheets", value: String(acts.blind.rounds),
-          short: "Real afternoons with the name taken off the top" },
-        { label: "Options", value: String(acts.blind.options),
-          short: "Four names, and only the numbers to tell them apart" },
-        { label: "Clues", value: String(acts.blind.clues),
-          short: "Grid, stops, tyres, pace, and what the stewards made of him" },
-        { label: "Source", value: acts.blind.session.toUpperCase(),
-          short: "Drawn from the session that had the most happen in it" },
-        { label: "Names", value: "None",
-          short: "The circuit loses its corner names for this one too" },
-      ],
-      read: [
-        `${acts.blind.rounds} sheets · no names`,
-        "Read the numbers and tell me who you are looking at",
-        "Five drawn at random, so a second run is a different test",
       ],
     });
 

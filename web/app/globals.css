@@ -42,7 +42,7 @@ body {
    Measured 1:1 from the reference: logo x0-54/y0-28, car x0-95/y31-80,
    headline 12.6vh, annotations top-right. Only texts and art change per GP. */
 /* the hero fills the screen and nothing follows it: the page cannot scroll */
-.ledhero { position: relative; z-index: 20; height: 100vh; overflow: hidden;
+.ledhero { position: fixed; inset: 0; z-index: 20; overflow: hidden;
   background: #000; font-family: var(--font-mono); }
 /* the crop is cut off at its top and left edges, so bleed those edges out of
    frame: the mark then reads as continuing past the corner, not as broken */
