@@ -1,11 +1,10 @@
 /**
- * The site's two sounds.
+ * The site's sound.
  *
- * Both clips are recordings with dead air at the front: the arrival carries
- * 2.2 seconds of silence before anything happens and the radio 1.3, which is
- * why they seemed to arrive late when the file was simply playing its own
- * quiet opening. Every clip is decoded once, the first audible sample is
- * measured, and playback starts there.
+ * Alfred's radio is a recording with dead air at the front: 1.3 seconds of
+ * silence before anything happens, which is why it seemed to arrive late when
+ * the file was simply playing its own quiet opening. A clip is decoded once,
+ * the span that actually makes a noise is measured, and playback starts there.
  *
  * Web Audio rather than an audio element, because a buffer source starts on
  * the sample you ask for with none of the latency play() carries, and because
@@ -116,5 +115,4 @@ export function playSfx(
   }).catch(() => {});
 }
 
-export const SFX_ARRIVE = "/sfx/arrive.mp4";
 export const SFX_RADIO = "/sfx/radio.mp4";

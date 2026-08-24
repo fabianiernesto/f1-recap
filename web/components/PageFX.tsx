@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { SFX_ARRIVE, loadSfx, playSfx } from "@/lib/sfx";
 
 /**
  * Every navigation on this site used to be a cut. This puts a broadcast
@@ -14,19 +13,12 @@ import { SFX_ARRIVE, loadSfx, playSfx } from "@/lib/sfx";
  * half-rendered content.
  */
 
-/* Timed to the sound it carries rather than to a round number. The arrival
-   clip rises for 210ms, sustains for 430 and decays for 200: the bars and the
-   impact ride the rise, the mark holds through the sustain, and the whip out
-   runs over the decay. Nothing waits on silence, which is what made the last
-   version feel both slow and badly cut. */
+/* These came from measuring a sound this transition used to carry: bars over
+   its 210ms rise, the white frame on its peak, the mark holding through the
+   sustain, the whip out over the decay. The sound is gone and the timing
+   stayed, because it was the version that finally moved as one thing. */
 const COVER = 640;
 const REVEAL = 340;
-
-/* Arriving at a circuit is the one navigation that gets a sound. It plays on a
-   real click, so no autoplay policy stands in the way, and it stays quiet
-   enough to sit under the sting rather than announce itself. */
-const SFX_VOLUME = 0.22;
-const isFrontDoor = (href: string) => /^\/gp\/[^/]+$/.test(href);
 
 export default function PageFX() {
   const router = useRouter();
@@ -38,15 +30,10 @@ export default function PageFX() {
      shortens the hold and a fast one never cuts the sound off */
   const holdUntil = useRef(0);
 
-  /* decoded once and kept, so the hit lands with the bars rather than after
-     them while the file is still being fetched */
-  useEffect(() => { loadSfx(SFX_ARRIVE); }, []);
-
   /* the curtain comes down, then the route changes behind it */
   const go = useCallback(
     (href: string) => {
       pending.current = href;
-      if (isFrontDoor(href)) playSfx(SFX_ARRIVE, { volume: SFX_VOLUME });
       holdUntil.current = performance.now() + COVER;
       setPhase("cover");
       setTimeout(() => {
