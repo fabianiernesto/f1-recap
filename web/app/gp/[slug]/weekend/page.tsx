@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { listGPs, loadBlind, loadWeekend } from "@/lib/data";
+import { activitiesFor, listGPs, loadWeekend } from "@/lib/data";
 
 export function generateStaticParams() {
   return listGPs().map((slug) => ({ slug }));
@@ -20,10 +20,11 @@ export default async function WeekendPage({
   const { slug } = await params;
   if (!listGPs().includes(slug)) notFound();
   const weekend = loadWeekend(slug);
-  const moments = weekend.sessions.reduce((n, s) => n + s.moments, 0);
-  const blind = loadBlind(slug, "race") ?? loadBlind(slug, "sprint");
-  const blindSession = loadBlind(slug, "race") ? "race" : "sprint";
-  const ready = weekend.sessions.length > 0;
+  /* the same counts the front door prints, so the two screens can never
+     disagree one click apart */
+  const acts = activitiesFor(slug, weekend);
+  const moments = acts.moments;
+  const ready = acts.scroll;
 
   return (
     <>
@@ -61,7 +62,8 @@ export default async function WeekendPage({
               whatever you want to ask about it.
             </p>
             <span className="act-meta">
-              {weekend.sessions.length} sessions · {moments} moments · with Alfred
+              {acts.sessions} sessions · {moments} moments
+              {acts.alfred > 0 && ` · Alfred on ${acts.alfred}`}
             </span>
             <span className="act-go">Start →</span>
           </Link>
@@ -73,8 +75,8 @@ export default async function WeekendPage({
             </div>
           )}
 
-          {blind && blind.rounds.length >= 3 ? (
-            <Link href={`/gp/${slug}/${blindSession}/blind`} className="act">
+          {acts.blind ? (
+            <Link href={`/gp/${slug}/${acts.blind.session}/blind`} className="act">
               <span className="act-n">Activity 02</span>
               <h2>The blind test</h2>
               <p>
@@ -83,7 +85,7 @@ export default async function WeekendPage({
                 stewards made of them. Work out who you are looking at.
               </p>
               <span className="act-meta">
-                5 rounds · about 2 minutes
+                {acts.blind.rounds} sheets · 5 drawn a run · about 2 minutes
               </span>
               <span className="act-go">Play →</span>
             </Link>

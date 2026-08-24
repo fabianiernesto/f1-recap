@@ -48,7 +48,11 @@ export default function PageFX() {
       if (href === location.pathname) return;
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       e.preventDefault();
-      go(href);
+      // a link can ask for a beat before the curtain, so a screen has room to
+      // finish saying goodbye. Nothing else on the site sets this.
+      const delay = Number(a.getAttribute("data-fx-delay")) || 0;
+      if (delay) setTimeout(() => go(href), delay);
+      else go(href);
     };
     document.addEventListener("click", onClick, true);
     return () => document.removeEventListener("click", onClick, true);

@@ -57,3 +57,45 @@ export function loadBlind(slug: string, session: string): BlindTest | null {
     ? (JSON.parse(fs.readFileSync(f, "utf-8")) as BlindTest)
     : null;
 }
+
+/**
+ * What a Grand Prix actually offers, counted once.
+ *
+ * Both the front door and the activity chooser read this, so the two screens
+ * can never disagree about what exists or how much of it there is. The gates
+ * are the ones the chooser already used: a weekend needs sessions, and a blind
+ * test needs at least three rounds to be worth starting.
+ */
+export function activitiesFor(slug: string, weekend: Weekend) {
+  const sessions = weekend.sessions;
+  const moments = sessions.reduce((n, s) => n + s.moments, 0);
+  const longest = sessions.reduce(
+    (best, s) => (s.moments > (best?.moments ?? 0) ? s : best),
+    sessions[0]
+  );
+  // Alfred only exists where the pipeline built him a pack, which is the races
+  const alfred = sessions.filter((s) => loadBrain(slug, s.slug)).length;
+
+  const raceBlind = loadBlind(slug, "race");
+  const test = raceBlind ?? loadBlind(slug, "sprint");
+  const blindSession = raceBlind ? "race" : "sprint";
+  const blind =
+    test && test.rounds.length >= 3
+      ? {
+          session: blindSession,
+          rounds: test.rounds.length,
+          options: test.rounds[0].options.length,
+          clues: Math.max(...test.rounds.map((r) => r.rows.length)),
+        }
+      : null;
+
+  return {
+    scroll: sessions.length > 0,
+    sessions: sessions.length,
+    moments,
+    longest: longest ? { label: longest.label, moments: longest.moments } : null,
+    laps: weekend.laps,
+    alfred,
+    blind,
+  };
+}

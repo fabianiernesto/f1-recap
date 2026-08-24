@@ -1122,3 +1122,122 @@ a.act:hover .act-go { background: var(--led); color: #000; }
 /* the slot that is not a thing yet reads as a promise, not as a broken link */
 .act-next, .act-off { border-style: dashed; background: #030304; }
 .act-next h2, .act-off h2 { color: #6b7078; }
+
+/* ---------- the board re-letters ----------
+   Line 2 is one lamp per character so the LED face can flick a new word up
+   without the line moving. inline-block keeps every advance width, which is
+   what stops the validated composition from shifting. */
+.ledhero-l2 b { display: inline-block; white-space: pre; }
+@keyframes relamp {
+  0%   { opacity: 0; filter: brightness(3); transform: translateX(1px); }
+  35%  { opacity: .35; }
+  100% { opacity: 1; filter: none; transform: none; }
+}
+@keyframes cursor-blink { 50% { opacity: 0; } }
+
+/* ---------- the board ----------
+   The panel arms on load, the map answers where the data places something and
+   goes quiet where it does not, the readout says what you are touching, and
+   the rail tunes the channel. Every colour here is already in this file. */
+
+/* registered, so a bad value can never invalidate the whole transform */
+@property --head { syntax: "<number>"; inherits: true; initial-value: 0; }
+
+/* the boot: the map draws and the five rows arm, top to bottom */
+.ledhero-map path.trk { animation: trkdraw 520ms ease-out 260ms both; }
+@keyframes trkdraw { from { stroke-dashoffset: 1 } to { stroke-dashoffset: 0 } }
+.ledhero-notes dt, .ledhero-notes dd { animation: rowlamp 300ms both;
+  animation-delay: calc(260ms + var(--r) * 60ms); }
+@keyframes rowlamp { from { opacity: 0; transform: translateX(6px) } }
+
+/* probing a vital: the rest of the panel steps back */
+.ledhero-notes[data-probe] dt:not([data-on]),
+.ledhero-notes[data-probe] dd:not([data-on]) { opacity: .34; }
+.ledhero-notes dt { cursor: default; transition: opacity .18s; }
+.ledhero-notes dd { transition: opacity .18s, color .18s; }
+.ledhero-notes dd[data-on] { color: #f2f3f5; }
+.ledhero-notes dt:focus-visible { outline: 1px solid var(--led); outline-offset: 3px; }
+
+/* the map: a travelling head, and rings that light where a name sits */
+.ledhero-map { cursor: crosshair; }
+.ledhero-map:focus-visible { outline: 1px solid var(--led); outline-offset: 4px; }
+.ledhero-map path.head { stroke-dashoffset: calc(var(--head) * -1); }
+.ledhero-map.m-lap path.head { animation: lap-run 9s linear infinite; }
+@keyframes lap-run { to { stroke-dashoffset: -1 } }
+.ledhero-map circle.ring { transition: opacity .2s, stroke-width .2s; opacity: .55; }
+.ledhero-map circle.ring[data-on] { opacity: 1; stroke-width: 5; }
+/* three of the five vitals have no per-point data behind them, so the map
+   says nothing rather than drawing something it cannot support */
+.ledhero-map.m-quiet path.trk { opacity: .4; }
+.ledhero-map.m-quiet circle.ring, .ledhero-map.m-quiet path.head { opacity: 0; }
+.ledhero-map.m-blank path.trk { opacity: .25; }
+.ledhero-map.m-blank circle.ring, .ledhero-map.m-blank path.head { opacity: 0; }
+
+/* the readout, in the notch between the two headline lines */
+.ledhero-read { position: absolute; z-index: 5; left: 13vw; top: 68.2%;
+  margin: 0; max-width: 33vw; min-height: 3.4vh;
+  font-family: var(--font-mono); font-size: 1.15vh; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase; color: #8a8f99;
+  text-shadow: 0 0 12px #000, 0 0 4px #000; }
+.ledhero-read i { font-style: normal; color: var(--led);
+  animation: cursor-blink 1s steps(1) infinite; }
+
+/* the rail: the tag's own // separators, and no boxes anywhere */
+.ledhero-rail { position: absolute; z-index: 5; left: 48vw; top: 85.2%;
+  display: flex; gap: 1.2vw; align-items: baseline; }
+.ledhero-rail button { background: none; border: 0; padding: 0; cursor: pointer;
+  display: inline-flex; gap: .55vw; align-items: baseline;
+  font-family: var(--font-mono); font-size: 1.15vh; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase; color: #565b66;
+  transition: color .18s; }
+.ledhero-rail button b { font-family: var(--font-pixel), monospace;
+  font-size: 1.7vh; letter-spacing: 0; color: #565b66; transition: color .18s; }
+.ledhero-rail button:hover { color: #c9ced6; }
+.ledhero-rail button[aria-pressed="true"] { color: #f2f3f5; }
+.ledhero-rail button[aria-pressed="true"] b { color: var(--led); }
+.ledhero-rail button:focus-visible { outline: 1px solid var(--led); outline-offset: 4px; }
+.ledhero-rail em { font-style: normal; color: var(--line); font-family: var(--font-mono);
+  font-size: 1.15vh; letter-spacing: .1em; }
+
+/* re-lettering: each lamp comes back on a beat after the one before it */
+.ledhero-l2 b { animation: relamp 260ms both;
+  animation-delay: calc(var(--i) * 26ms); }
+.ledhero-enter span { display: inline-block; animation: relamp 220ms both; }
+
+/* lights out. In F1 they come on one at a time and go out together, and that
+   single frame is the one everybody recognises. */
+.ledhero.is-firing .ledhero-notes dt,
+.ledhero.is-firing .ledhero-notes dd,
+.ledhero.is-firing .ledhero-map,
+.ledhero.is-firing .ledhero-read,
+.ledhero.is-firing .ledhero-rail { animation: none; opacity: .08;
+  transition: opacity 60ms; }
+.ledhero.is-firing .ledhero-l1,
+.ledhero.is-firing .ledhero-l2 { animation: led-strike 180ms ease-out both; }
+@keyframes led-strike {
+  0%   { opacity: 1; text-shadow: 0 0 28px #ff1c1280, 0 0 60px #ff1c1240; }
+  100% { opacity: 1; text-shadow: 0 0 6px #ff1c1226; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ledhero-notes dt, .ledhero-notes dd, .ledhero-l2 b, .ledhero-enter span,
+  .ledhero-map path.trk, .ledhero-map path.head, .ledhero-read i,
+  .ledhero.is-firing .ledhero-l1, .ledhero.is-firing .ledhero-l2 {
+    animation: none; opacity: 1; transform: none; }
+}
+
+/* on a phone the panel is already hidden, so the instrument layer goes with
+   it. The decision layer, which is the point, works everywhere. */
+@media (max-width: 900px) {
+  .ledhero-rail { left: 6vw; right: 6vw; top: 79%; gap: 4vw;
+    overflow-x: auto; scrollbar-width: none; }
+  .ledhero-rail::-webkit-scrollbar { display: none; }
+  .ledhero-read { left: 6vw; top: 83.5%; max-width: 88vw; font-size: 1.05vh;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ledhero-home { top: 85.6%; }
+}
+
+/* the room behind the door lamps in like the board did, so the two screens
+   read as the same piece of equipment rather than two pages */
+.fx-in .acts-head h1 span { animation: relamp 320ms both; }
+.fx-in .acts-head h1 span:last-child { animation-delay: 90ms; }

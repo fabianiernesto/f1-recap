@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import { Fragment } from "react";
 import Link from "next/link";
+import { activitiesFor } from "@/lib/data";
+import GPBoard, { type Channel } from "./GPBoard";
 import type { Track, Weekend } from "@/lib/types";
 
 /**
@@ -52,6 +53,91 @@ export default function GPHeroLED({
 
   const stats = track.stats?.length ? track.stats : FALLBACK_STATS;
 
+  /* The channels. Availability uses the same tests the activity chooser runs,
+     so the two screens can never disagree about which doors exist, and a door
+     that does not exist is not advertised. Words are capped at ten characters
+     so line 2 keeps its optical mass whichever one is showing. */
+  const acts = activitiesFor(weekend.slug, weekend);
+  const cap = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1) + "…" : s);
+
+  const channels: Channel[] = [
+    {
+      n: "00",
+      word: "Simplified",
+      label: "Simplified",
+      href: `/gp/${weekend.slug}/weekend`,
+      cta: "Enter the weekend",
+      map: "corners",
+      rows: stats.map((s) => ({
+        label: s.label, value: s.value, short: cap(s.short ?? "", 62),
+      })),
+      read: [
+        `${weekend.date} · ${weekend.short}`,
+        acts.scroll
+          ? `${acts.sessions} sessions · ${acts.moments} moments on the board`
+          : "Timing data still to come",
+        `${weekend.laps} laps · ${weekend.circuit}`,
+      ],
+    },
+  ];
+
+  if (acts.scroll)
+    channels.push({
+      n: "01",
+      word: "Scroll it",
+      label: "Scroll it",
+      href: `/gp/${weekend.slug}/sessions`,
+      cta: "Scroll the weekend",
+      map: "lap",
+      rows: [
+        { label: "Sessions", value: String(acts.sessions),
+          short: "Every session of the weekend, from first practice to the flag" },
+        { label: "Moments", value: String(acts.moments),
+          short: "One card each, in the order they happened" },
+        { label: "Longest", value: acts.longest
+            ? `${acts.longest.label} ${acts.longest.moments}` : "—",
+          short: "The session with the most to say for itself" },
+        { label: "Laps", value: String(acts.laps),
+          short: "The circuit draws itself underneath you as you read" },
+        { label: "Alfred", value: String(acts.alfred),
+          short: "Sessions he can answer questions about, in his own words" },
+      ],
+      read: [
+        `${acts.sessions} sessions · ${acts.moments} moments`,
+        "The circuit draws itself as you scroll",
+        acts.alfred
+          ? `Ask Alfred on ${acts.alfred} of them`
+          : "Told from the timing data, moment by moment",
+      ],
+    });
+
+  if (acts.blind)
+    channels.push({
+      n: String(channels.length).padStart(2, "0"),
+      word: "Blind test",
+      label: "Blind test",
+      href: `/gp/${weekend.slug}/${acts.blind.session}/blind`,
+      cta: "Start the blind test",
+      map: "blank",
+      rows: [
+        { label: "Sheets", value: String(acts.blind.rounds),
+          short: "Real afternoons with the name taken off the top" },
+        { label: "Options", value: String(acts.blind.options),
+          short: "Four names, and only the numbers to tell them apart" },
+        { label: "Clues", value: String(acts.blind.clues),
+          short: "Grid, stops, tyres, pace, and what the stewards made of him" },
+        { label: "Source", value: acts.blind.session.toUpperCase(),
+          short: "Drawn from the session that had the most happen in it" },
+        { label: "Names", value: "None",
+          short: "The circuit loses its corner names for this one too" },
+      ],
+      read: [
+        `${acts.blind.rounds} sheets · no names`,
+        "Read the numbers and tell me who you are looking at",
+        "Five drawn at random, so a second run is a different test",
+      ],
+    });
+
   return (
     <section className="ledhero">
       <div className="ledhero-logo">
@@ -59,37 +145,13 @@ export default function GPHeroLED({
         <img src="/f1_pixel_logo.svg" alt="" />
       </div>
 
-      {/* label · circuit · number. One CSS grid row per stat, with the map
-          spanning the middle column, so a label can never drift from its
-          number the way two loose columns did. */}
-      <dl className="ledhero-notes">
-        <div className="ledhero-map">
-          <svg viewBox={vb} aria-hidden>
-            <path d={d} fill="none" stroke="#ff1c12" strokeWidth={6} strokeLinejoin="round" />
-            {track.corners.slice(0, 6).map((c) => (
-              <circle key={c.label} cx={c.x} cy={c.y} r={9} fill="none"
-                stroke="#ff1c12" strokeWidth={3} />
-            ))}
-          </svg>
-        </div>
-        {stats.map((s) => (
-          <Fragment key={s.label}>
-            <dt>{s.label}</dt>
-            <dd>
-              {s.value}
-              {s.short && <small>{s.short}</small>}
-            </dd>
-          </Fragment>
-        ))}
-      </dl>
-
       <div className="ledhero-car">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={carFor(weekend.slug)} alt="" />
       </div>
 
       <span className="ledhero-l1">{track.circuit}</span>
-      <span className="ledhero-l2">Simplified</span>
+
       {/* the way back out, above the tag so it reads as part of the same
           bottom-left block instead of floating on its own */}
       <Link className="ledhero-home" href="/">
@@ -98,12 +160,11 @@ export default function GPHeroLED({
       </Link>
       <span className="ledhero-tag">Race {round} // Simplified</span>
 
-      {/* the only way in: no scroll on this screen, and what waits on the
-          other side is a choice of activities rather than a list of sessions */}
-      <Link className="ledhero-enter" href={`/gp/${weekend.slug}/weekend`}>
-        Enter the weekend
-        <i aria-hidden>→</i>
-      </Link>
+      {/* the panel, line 2, the readout, the rail and the way in: all of
+          them absolutely positioned siblings, so the validated coordinates
+          keep working exactly as they are */}
+      <GPBoard channels={channels} track={track} d={d} vb={vb} />
+
     </section>
   );
 }
