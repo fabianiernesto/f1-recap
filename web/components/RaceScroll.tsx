@@ -192,31 +192,38 @@ export default function RaceScroll({
       });
       setLitLabel(nd < 130 ? nearest : -1);
 
+      /* offsetTop is measured against the offsetParent, and every card sits
+         inside its own position:relative .stop, so it reads 0 for all of them.
+         Document coordinates are the only thing comparable with scrollY. */
+      const anchors = cardRefs.current
+        .map((el, i) => el
+          ? { y: el.getBoundingClientRect().top + scrollY,
+              h: el.offsetHeight, lap: cards[i]?.lap ?? 0 }
+          : null)
+        .filter((a): a is { y: number; h: number; lap: number } => !!a);
+
       const mid = scrollY + innerHeight / 2;
       let best = 0, bd = 1e9;
-      cardRefs.current.forEach((el, i) => {
-        if (!el) return;
-        const cyy = el.offsetTop + el.offsetHeight / 2;
-        const dd = Math.abs(cyy - mid);
+      anchors.forEach((a, i) => {
+        const dd = Math.abs(a.y + a.h / 2 - mid);
         if (dd < bd) { bd = dd; best = i; }
       });
       setActiveIdx(best);
 
+      /* the lap the car is on: interpolated between the two cards the reading
+         line sits between, so the counter climbs rather than jumping */
       const carDocY = scrollY + innerHeight * 0.42;
-      const anchors = cardRefs.current
-        .map((el, i) => ({ el, lap: cards[i]?.lap ?? 0 }))
-        .filter((a): a is { el: HTMLDivElement; lap: number } => !!a.el);
-      let lapNow = 0;
+      let lapNow = anchors.length ? anchors[0].lap : 0;
       for (let i = 0; i < anchors.length; i++) {
-        const y = anchors[i].el.offsetTop;
-        const next = anchors[i + 1];
-        if (!next || carDocY < next.el.offsetTop) {
-          if (next) {
-            const t = Math.max(0, Math.min(1, (carDocY - y) / (next.el.offsetTop - y)));
-            lapNow = anchors[i].lap + t * (next.lap - anchors[i].lap);
-          } else lapNow = anchors[i].lap;
-          if (carDocY >= y) break;
+        const a = anchors[i], next = anchors[i + 1];
+        if (carDocY < a.y) break;
+        if (!next) { lapNow = a.lap; break; }
+        if (carDocY < next.y) {
+          const t = Math.max(0, Math.min(1, (carDocY - a.y) / (next.y - a.y)));
+          lapNow = a.lap + t * (next.lap - a.lap);
+          break;
         }
+        lapNow = next.lap;
       }
       setLap(Math.max(0, Math.round(lapNow)));
     };

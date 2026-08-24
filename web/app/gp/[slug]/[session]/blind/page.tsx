@@ -22,12 +22,12 @@ export default async function BlindPage({
   return (
     <>
       <div className="hub-top">
-        <Link href={`/gp/${slug}/${session}`} className="hub-back">
-          ← {weekend.circuit} · {test.session}
+        <Link href={`/gp/${slug}/weekend`} className="hub-back">
+          ← {weekend.circuit} · all activities
         </Link>
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
-      <BlindTest test={test} backTo={`/gp/${slug}/${session}`} />
+      <BlindTest test={test} backTo={`/gp/${slug}/weekend`} />
     </>
   );
 }

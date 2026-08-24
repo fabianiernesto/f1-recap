@@ -1062,3 +1062,40 @@ body {
 .card .note { margin-top: 14px !important; padding-top: 12px;
   border-top: 1px solid #ffffff12; color: #9aa0aa !important;
   font-size: 13px; line-height: 1.65; }
+
+/* ---------- what you can do with a Grand Prix ----------
+   The weekend is the material; these are the ways through it. The empty slot
+   is deliberate: the list is meant to grow, and saying so is better than
+   pretending two is the whole offer. */
+.acts { min-height: 100vh; background: #000; padding: 9vh 5vw 12vh; }
+.acts-head { max-width: 640px; margin-bottom: 6vh; }
+.acts-eyebrow { display: block; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .3em; text-transform: uppercase; color: var(--led);
+  margin-bottom: 18px; }
+.acts-head h1 { margin: 0 0 18px; font-family: var(--font-hero), sans-serif;
+  font-size: clamp(40px, 7vw, 92px); line-height: .95; text-transform: uppercase; }
+.acts-head p { margin: 0; color: #9aa0aa; font-size: 14.5px; line-height: 1.7;
+  max-width: 46ch; }
+
+.acts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 16px; }
+.act { position: relative; display: flex; flex-direction: column;
+  background: #050506; border: 1px solid #ffffff1c; padding: 26px 26px 24px;
+  min-height: 290px; text-decoration: none; color: var(--ink);
+  transition: background-color .18s, border-color .18s; }
+a.act:hover { background: #0d0405; border-color: #ff1c1266; }
+.act-n { font-family: var(--font-mono); font-size: 10px; letter-spacing: .24em;
+  color: #565b66; margin-bottom: 16px; }
+.act h2 { margin: 0 0 12px; font-family: var(--font-display), sans-serif;
+  font-weight: 700; font-size: 27px; text-transform: uppercase;
+  letter-spacing: .02em; color: var(--led); }
+.act p { margin: 0 0 18px; color: #9aa0aa; font-size: 13.5px; line-height: 1.65;
+  flex: 1; }
+.act-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: #565b66; }
+.act-go { margin-top: 14px; font-family: var(--font-mono); font-size: 11px;
+  font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--led); }
+/* the slot that is not a thing yet reads as a promise, not as a broken link */
+.act-next, .act-off { border-style: dashed; background: #030304; }
+.act-next h2, .act-off h2 { color: #6b7078; }

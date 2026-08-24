@@ -98,7 +98,8 @@ export default function GPHeroLED({
       </Link>
       <span className="ledhero-tag">Race {round} // Simplified</span>
 
-      {/* the only way in: no scroll on this screen */}
+      {/* the only way in: no scroll on this screen, and what waits on the
+          other side is a choice of activities rather than a list of sessions */}
       <Link className="ledhero-enter" href={`/gp/${weekend.slug}/weekend`}>
         Enter the weekend
         <i aria-hidden>→</i>
