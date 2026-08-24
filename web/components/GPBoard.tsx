@@ -306,8 +306,9 @@ export default function GPBoard({
       <Link
         className="ledhero-enter"
         href={active.href}
-        data-fx-delay={still ? undefined : 260}
-        onClick={() => { if (!still) setFiring(true); }}
+        data-fx-delay={still || !active.href.startsWith("/") ? undefined : 260}
+        /* the lights only go out when you are actually leaving the screen */
+        onClick={() => { if (!still && active.href.startsWith("/")) setFiring(true); }}
       >
         <span key={active.cta}>{active.cta}</span>
         <i aria-hidden>→</i>

@@ -65,8 +65,8 @@ export default function GPHeroLED({
       n: "00",
       word: "Simplified",
       label: "Simplified",
-      href: `/gp/${weekend.slug}/weekend`,
-      cta: "Enter the weekend",
+      href: "#ways-in",
+      cta: "See the ways in",
       map: "corners",
       rows: stats.map((s) => ({
         label: s.label, value: s.value, short: cap(s.short ?? "", 62),

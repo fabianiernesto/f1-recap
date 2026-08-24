@@ -17,7 +17,7 @@ export default async function SessionsPage({
   return (
     <>
       <div className="hub-top">
-        <Link href={`/gp/${slug}/weekend`} className="hub-back">
+        <Link href={`/gp/${slug}`} className="hub-back">
           ← {weekend.circuit} · all activities
         </Link>
         <Link href="/" className="hub-home">Racing Simplified</Link>

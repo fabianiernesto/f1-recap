@@ -42,7 +42,7 @@ body {
    Measured 1:1 from the reference: logo x0-54/y0-28, car x0-95/y31-80,
    headline 12.6vh, annotations top-right. Only texts and art change per GP. */
 /* the hero fills the screen and nothing follows it: the page cannot scroll */
-.ledhero { position: fixed; inset: 0; z-index: 20; overflow: hidden;
+.ledhero { position: relative; z-index: 20; height: 100vh; overflow: hidden;
   background: #000; font-family: var(--font-mono); }
 /* the crop is cut off at its top and left edges, so bleed those edges out of
    frame: the mark then reads as continuing past the corner, not as broken */
@@ -94,26 +94,30 @@ body {
     text-shadow: 0 0 14px #ff1c1259, 0 0 38px #ff1c1233; }
 }
 /* the way home, sitting just above the tag in the same bottom-left block */
-.ledhero-home { position: absolute; z-index: 5; left: 1.4vw; top: 86.5%;
-  display: inline-flex; align-items: center; gap: .7em;
-  font-family: var(--font-mono); font-size: 1.24vh; font-weight: 700;
-  letter-spacing: .26em; text-transform: uppercase; color: #8a8f99;
-  text-decoration: none; transition: color .18s; }
+.ledhero-home { position: absolute; z-index: 5; left: 2.4vw; top: 85.4%;
+  display: inline-flex; align-items: center; gap: .8em;
+  border: 1px solid #ffffff2b; padding: 1.4vh 1.8vw;
+  font-family: var(--font-mono); font-size: 1.5vh; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase; color: #c9ced6;
+  text-decoration: none; transition: color .18s, border-color .18s; }
+.ledhero-home:hover { border-color: var(--led); }
 .ledhero-home i { font-style: normal; transition: transform .18s; }
 .ledhero-home:hover { color: var(--led); }
 .ledhero-home:hover i { transform: translateX(-4px); }
 .ledhero-home:focus-visible { outline: 2px solid var(--led); outline-offset: 4px; }
 
-.ledhero-tag { position: absolute; z-index: 4; left: 1.4vw; top: 91.5%;
-  font-size: 2.6vh; letter-spacing: .18em; color: #f2f3f5;
+.ledhero-tag { position: absolute; z-index: 4; left: 2.4vw; top: 93.4%;
+  font-size: 2.2vh; letter-spacing: .18em; color: #8a8f99;
   text-transform: uppercase; font-weight: 700; }
 /* the way in. This screen never scrolls, so the button is the whole promise */
-.ledhero-enter { position: absolute; z-index: 5; right: 1.4vw; top: 90.5%;
-  display: inline-flex; align-items: center; gap: .9em;
-  border: 1px solid #ff1c12; color: #ff1c12; background: #ff1c1208;
-  padding: 1.5vh 2.4vw; font-family: var(--font-mono); font-weight: 700;
-  font-size: 1.7vh; letter-spacing: .28em; text-transform: uppercase;
-  text-decoration: none; transition: background-color .18s, color .18s; }
+.ledhero-enter { position: absolute; z-index: 5; right: 2.4vw; top: 88.4%;
+  display: inline-flex; align-items: center; gap: 1em;
+  border: 2px solid #ff1c12; color: #ff1c12; background: #ff1c1214;
+  padding: 2.2vh 3.2vw; font-family: var(--font-mono); font-weight: 700;
+  font-size: 2.1vh; letter-spacing: .28em; text-transform: uppercase;
+  text-decoration: none; box-shadow: 0 0 0 0 #ff1c1200;
+  transition: background-color .18s, color .18s, box-shadow .18s; }
+.ledhero-enter:hover { box-shadow: 0 0 34px #ff1c1259; }
 .ledhero-enter i { font-style: normal; transition: transform .18s; }
 .ledhero-enter:hover { background: #ff1c12; color: #000; }
 .ledhero-enter:hover i { transform: translateX(4px); }
@@ -1074,7 +1078,8 @@ body {
    The weekend is the material; these are the ways through it. The empty slot
    is deliberate: the list is meant to grow, and saying so is better than
    pretending two is the whole offer. */
-.acts { min-height: 100vh; background: #000; padding: 9vh 5vw 12vh; }
+.acts { min-height: 100vh; background: #000; padding: 11vh 5vw 12vh;
+  border-top: 1px solid #ffffff14; scroll-margin-top: 0; }
 .acts-head { max-width: 640px; margin-bottom: 6vh; }
 .acts-eyebrow { display: block; font-family: var(--font-mono); font-size: 10px;
   letter-spacing: .3em; text-transform: uppercase; color: var(--led);
@@ -1095,8 +1100,8 @@ body {
 .acts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 16px; }
 .act { position: relative; display: flex; flex-direction: column;
-  background: #050506; border: 1px solid #ffffff1c; padding: 26px 26px 24px;
-  min-height: 290px; text-decoration: none; color: var(--ink);
+  background: #050506; border: 1px solid #ffffff1c; padding: 32px 30px 30px;
+  min-height: 330px; text-decoration: none; color: var(--ink);
   transition: background-color .18s, border-color .18s; }
 a.act:hover { background: #0d0405; border-color: #ff1c1266; }
 .act-n { display: flex; align-items: center; gap: 9px;
@@ -1105,18 +1110,18 @@ a.act:hover { background: #0d0405; border-color: #ff1c1266; }
 .act-n::before { content: ""; width: 14px; height: 3px; background: var(--led);
   flex: none; }
 .act-off .act-n::before, .act-next .act-n::before { background: #3d424d; }
-.act h2 { margin: 0 0 12px; font-family: var(--font-display), sans-serif;
-  font-weight: 700; font-size: 26px; text-transform: uppercase;
-  letter-spacing: .02em; color: var(--ink); line-height: 1.1; }
+.act h2 { margin: 0 0 14px; font-family: var(--font-display), sans-serif;
+  font-weight: 700; font-size: 32px; text-transform: uppercase;
+  letter-spacing: .02em; color: var(--ink); line-height: 1.05; }
 a.act:hover h2 { color: var(--led); }
 .act p { margin: 0 0 18px; color: #9aa0aa; font-size: 13.5px; line-height: 1.65;
   flex: 1; }
 .act-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em;
   text-transform: uppercase; color: #565b66; }
 .act-go { display: inline-flex; align-self: flex-start; align-items: center;
-  gap: .8em; margin-top: 18px; border: 1px solid #ff1c12; color: var(--led);
-  background: #ff1c1208; padding: 11px 20px; font-family: var(--font-mono);
-  font-weight: 700; font-size: 10.5px; letter-spacing: .24em;
+  gap: .9em; margin-top: 22px; border: 2px solid #ff1c12; color: var(--led);
+  background: #ff1c1214; padding: 16px 28px; font-family: var(--font-mono);
+  font-weight: 700; font-size: 13px; letter-spacing: .24em;
   text-transform: uppercase; transition: background-color .18s, color .18s; }
 a.act:hover .act-go { background: var(--led); color: #000; }
 /* the slot that is not a thing yet reads as a promise, not as a broken link */
