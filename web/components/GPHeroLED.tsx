@@ -60,56 +60,61 @@ export default function GPHeroLED({
   const acts = activitiesFor(weekend.slug, weekend);
   const cap = (s: string, n: number) => (s.length > n ? s.slice(0, n - 1) + "…" : s);
 
-  const channels: Channel[] = [
-    {
-      n: "00",
-      word: "Simplified",
-      label: "Simplified",
-      href: `/gp/${weekend.slug}/activities`,
-      cta: "See the activities",
-      map: "corners",
-      rows: stats.map((s) => ({
-        label: s.label, value: s.value, short: cap(s.short ?? "", 62),
-      })),
-      read: [
-        `${weekend.date} · ${weekend.short}`,
-        acts.blind
-          ? `${acts.blind.rounds} sheets to guess at, and more on the way`
-          : "The activities arrive with the timing data",
-        `${weekend.laps} laps · ${weekend.circuit}`,
-      ],
-    },
-  ];
+  /* SCROLLED comes first on the rail because the weekend is the main event,
+     but the screen still lands on SIMPLIFIED: that is the brand, and the
+     composition signed off with that word under the circuit's name. */
+  const scrolled: Channel | null = acts.scroll
+    ? {
+        n: "01",
+        word: "Scrolled",
+        label: "Scrolled",
+        href: `/gp/${weekend.slug}/sessions`,
+        cta: "Scroll the weekend",
+        map: "lap",
+        rows: [
+          { label: "Sessions", value: String(acts.sessions),
+            short: "Every session of the weekend, from first practice to the flag" },
+          { label: "Moments", value: String(acts.moments),
+            short: "One card each, in the order they happened" },
+          { label: "Longest", value: acts.longest
+              ? `${acts.longest.label} ${acts.longest.moments}` : "—",
+            short: "The session with the most to say for itself" },
+          { label: "Laps", value: String(acts.laps),
+            short: "The circuit draws itself underneath you as you read" },
+          { label: "Alfred", value: String(acts.alfred),
+            short: "Sessions he can answer questions about, in his own words" },
+        ],
+        read: [
+          `${acts.sessions} sessions · ${acts.moments} moments`,
+          "The circuit draws itself as you scroll",
+          acts.alfred
+            ? `Ask Alfred on ${acts.alfred} of them`
+            : "Told from the timing data, moment by moment",
+        ],
+      }
+    : null;
 
-  if (acts.scroll)
-    channels.push({
-      n: "01",
-      word: "Scrolled",
-      label: "Scrolled",
-      href: `/gp/${weekend.slug}/sessions`,
-      cta: "Scroll the weekend",
-      map: "lap",
-      rows: [
-        { label: "Sessions", value: String(acts.sessions),
-          short: "Every session of the weekend, from first practice to the flag" },
-        { label: "Moments", value: String(acts.moments),
-          short: "One card each, in the order they happened" },
-        { label: "Longest", value: acts.longest
-            ? `${acts.longest.label} ${acts.longest.moments}` : "—",
-          short: "The session with the most to say for itself" },
-        { label: "Laps", value: String(acts.laps),
-          short: "The circuit draws itself underneath you as you read" },
-        { label: "Alfred", value: String(acts.alfred),
-          short: "Sessions he can answer questions about, in his own words" },
-      ],
-      read: [
-        `${acts.sessions} sessions · ${acts.moments} moments`,
-        "The circuit draws itself as you scroll",
-        acts.alfred
-          ? `Ask Alfred on ${acts.alfred} of them`
-          : "Told from the timing data, moment by moment",
-      ],
-    });
+  const simplified: Channel = {
+    n: scrolled ? "02" : "01",
+    word: "Simplified",
+    label: "Simplified",
+    href: `/gp/${weekend.slug}/activities`,
+    cta: "See the activities",
+    map: "corners",
+    rows: stats.map((s) => ({
+      label: s.label, value: s.value, short: cap(s.short ?? "", 62),
+    })),
+    read: [
+      `${weekend.date} · ${weekend.short}`,
+      acts.blind
+        ? `${acts.blind.rounds} sheets to guess at, and more on the way`
+        : "The activities arrive with the timing data",
+      `${weekend.laps} laps · ${weekend.circuit}`,
+    ],
+  };
+
+  const channels: Channel[] = scrolled ? [scrolled, simplified] : [simplified];
+  const start = channels.indexOf(simplified);
 
   return (
     <section className="ledhero">
@@ -136,7 +141,7 @@ export default function GPHeroLED({
       {/* the panel, line 2, the readout, the rail and the way in: all of
           them absolutely positioned siblings, so the validated coordinates
           keep working exactly as they are */}
-      <GPBoard channels={channels} track={track} d={d} vb={vb} />
+      <GPBoard channels={channels} start={start} track={track} d={d} vb={vb} />
 
     </section>
   );

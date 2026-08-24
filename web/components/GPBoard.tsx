@@ -40,16 +40,19 @@ const IDLE_MS = 3400;
 
 export default function GPBoard({
   channels,
+  start,
   track,
   d,
   vb,
 }: {
   channels: Channel[];
+  /** which channel the screen lands on, which is not the first on the rail */
+  start: number;
   track: Track;
   d: string;
   vb: string;
 }) {
-  const [ch, setCh] = useState(0);
+  const [ch, setCh] = useState(start);
   const [peek, setPeek] = useState<number | null>(null);
   const [row, setRow] = useState<number | null>(null);
   const [sec, setSec] = useState<number | null>(null);
@@ -110,12 +113,12 @@ export default function GPBoard({
       const tag = (e.target as HTMLElement)?.tagName;
       if (tag === "INPUT" || tag === "TEXTAREA") return;
       const i = Number(e.key);
-      if (e.key === "Escape" || e.key === "0") { setCh(0); setPeek(null); return; }
+      if (e.key === "Escape" || e.key === "0") { setCh(start); setPeek(null); return; }
       if (i >= 1 && i < channels.length) { setCh(i); setPeek(null); }
     };
     addEventListener("keydown", onKey);
     return () => removeEventListener("keydown", onKey);
-  }, [channels.length]);
+  }, [channels.length, start]);
 
   /* ---------- hover previews, click commits ---------- */
 
@@ -130,7 +133,7 @@ export default function GPBoard({
   const commit = (i: number) => {
     if (peekT.current) clearTimeout(peekT.current);
     setPeek(null);
-    setCh((c) => (c === i ? 0 : i));
+    setCh((c) => (c === i ? start : i));
   };
 
   /* ---------- the head follows the pointer along the lap ---------- */
