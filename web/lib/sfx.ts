@@ -12,7 +12,7 @@
  * a gain node can fade a clip out without touching the element's volume.
  */
 
-type Clip = { buffer: AudioBuffer; offset: number };
+type Clip = { buffer: AudioBuffer; offset: number; audible: number };
 
 const clips = new Map<string, Promise<Clip>>();
 let ctx: AudioContext | null = null;
@@ -29,13 +29,36 @@ function context(): AudioContext | null {
   return ctx;
 }
 
-/** Where the recording stops being silent, in seconds. */
-function firstAudible(buffer: AudioBuffer): number {
+/**
+ * The span of the recording that actually contains sound.
+ *
+ * Measured on a short RMS window rather than on single samples, because one
+ * stray peak in a rip is not an onset. Both ends matter: the arrival clip is
+ * five and a half seconds long and only 0.84 of that makes a noise, so playing
+ * to the end of the file left two and a half seconds of silence running under
+ * a curtain that was waiting for it.
+ */
+function audibleSpan(buffer: AudioBuffer): { offset: number; audible: number } {
   const ch = buffer.getChannelData(0);
-  // a real onset, not the noise floor of a rip
-  for (let i = 0; i < ch.length; i++)
-    if (Math.abs(ch[i]) > 0.02) return Math.max(0, i / buffer.sampleRate - 0.02);
-  return 0;
+  const sr = buffer.sampleRate;
+  const win = Math.round(sr * 0.01);
+  const env: number[] = [];
+  for (let i = 0; i + win < ch.length; i += win) {
+    let s = 0;
+    for (let j = 0; j < win; j++) s += ch[i + j] * ch[i + j];
+    env.push(Math.sqrt(s / win));
+  }
+  const peak = env.reduce((m, v) => Math.max(m, v), 0);
+  if (peak === 0) return { offset: 0, audible: buffer.duration };
+  const gate = peak * 0.05;
+  let first = env.findIndex((v) => v > gate);
+  let last = env.length - 1;
+  while (last > first && env[last] <= gate) last--;
+  if (first < 0) return { offset: 0, audible: buffer.duration };
+  // a breath before the attack, and the tail of the decay
+  const offset = Math.max(0, (first * win) / sr - 0.03);
+  const end = Math.min(buffer.duration, ((last + 1) * win) / sr + 0.06);
+  return { offset, audible: Math.max(0.05, end - offset) };
 }
 
 /** Fetches and decodes once. Safe to call on mount; it needs no gesture. */
@@ -47,7 +70,7 @@ export function loadSfx(url: string): Promise<Clip> | null {
     clip = fetch(url)
       .then((r) => r.arrayBuffer())
       .then((b) => ac.decodeAudioData(b))
-      .then((buffer) => ({ buffer, offset: firstAudible(buffer) }));
+      .then((buffer) => ({ buffer, ...audibleSpan(buffer) }));
     clips.set(url, clip);
   }
   return clip;
@@ -69,7 +92,7 @@ export function playSfx(
   const clip = clips.get(url) ?? loadSfx(url);
   if (!ac || !clip) return;
 
-  clip.then(({ buffer, offset }) => {
+  clip.then(({ buffer, offset, audible }) => {
     if (ac.state === "suspended") ac.resume().catch(() => {});
     const src = ac.createBufferSource();
     const gain = ac.createGain();
@@ -78,7 +101,8 @@ export function playSfx(
     src.connect(gain).connect(ac.destination);
 
     const now = ac.currentTime;
-    const room = buffer.duration - offset;
+    // by default a clip runs exactly as long as it makes a noise
+    const room = audible;
     const runFor = maxMs > 0 ? Math.min(maxMs / 1000, room) : room;
     src.start(now, offset, runFor);
 

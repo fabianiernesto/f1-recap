@@ -836,19 +836,19 @@ body {
 .fx-sting.fx-hold .sting-bars span::after,
 .fx-sting.fx-reveal .sting-bars span::after { opacity: 0; }
 .fx-sting.fx-cover .sting-bars span {
-  animation: sting-bar-in .24s cubic-bezier(.25,.9,.25,1) both;
-  animation-delay: calc(var(--i) * .038s); }
+  animation: sting-bar-in .2s cubic-bezier(.25,.9,.25,1) both;
+  animation-delay: calc(var(--i) * .026s); }
 .fx-sting.fx-hold .sting-bars span { transform: none; }
 .fx-sting.fx-reveal .sting-bars span {
-  animation: sting-bar-out .36s cubic-bezier(.6,0,.9,.3) both;
-  animation-delay: calc((4 - var(--i)) * .03s); }
+  animation: sting-bar-out .32s cubic-bezier(.6,0,.9,.3) both;
+  animation-delay: calc((4 - var(--i)) * .018s); }
 @keyframes sting-bar-in { from { transform: translateX(125%) } to { transform: none } }
 @keyframes sting-bar-out { from { transform: none } to { transform: translateX(-125%) } }
 
 /* --- the impact frame --- */
 .sting-flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
 .fx-sting.fx-cover .sting-flash {
-  animation: sting-flash .12s ease-out both; animation-delay: .34s; }
+  animation: sting-flash .11s ease-out both; animation-delay: .185s; }
 @keyframes sting-flash { 0% { opacity: 0 } 35% { opacity: .82 } 100% { opacity: 0 } }
 
 /* --- the mark --- */
@@ -869,13 +869,13 @@ body {
   text-transform: uppercase; color: #f2f3f5; opacity: 0; }
 
 .fx-sting.fx-cover .sting-mark {
-  animation: sting-mark-in .3s cubic-bezier(.16,1,.3,1) both; animation-delay: .38s; }
+  animation: sting-mark-in .26s cubic-bezier(.16,1,.3,1) both; animation-delay: .21s; }
 .fx-sting.fx-cover .sting-ghost.g1 {
-  animation: sting-split-l .34s cubic-bezier(.16,1,.3,1) both; animation-delay: .38s; }
+  animation: sting-split-l .3s cubic-bezier(.16,1,.3,1) both; animation-delay: .21s; }
 .fx-sting.fx-cover .sting-ghost.g2 {
-  animation: sting-split-r .34s cubic-bezier(.16,1,.3,1) both; animation-delay: .38s; }
+  animation: sting-split-r .3s cubic-bezier(.16,1,.3,1) both; animation-delay: .21s; }
 .fx-sting.fx-cover .sting-tag {
-  animation: sting-tag-in .24s ease-out both; animation-delay: .54s; }
+  animation: sting-tag-in .2s ease-out both; animation-delay: .38s; }
 @keyframes sting-mark-in {
   from { opacity: 0; transform: scale(1.18); filter: blur(10px) }
   to { opacity: 1; transform: none; filter: blur(0) }
@@ -893,7 +893,7 @@ body {
 }
 
 /* the mark holds and breathes while the route loads behind it */
-.fx-sting.fx-hold .sting-mark { animation: sting-breathe 1.6s ease-in-out infinite; }
+.fx-sting.fx-hold .sting-mark { animation: sting-breathe .86s ease-in-out infinite; }
 .fx-sting.fx-hold .sting-tag { opacity: 1; }
 @keyframes sting-breathe {
   0%, 100% { filter: drop-shadow(0 0 10px #ff1c1233) }
@@ -902,7 +902,7 @@ body {
 
 /* --- and it whips away --- */
 .fx-sting.fx-reveal .sting-core {
-  animation: sting-core-out .34s cubic-bezier(.55,0,.95,.35) both; }
+  animation: sting-core-out .3s cubic-bezier(.55,0,.95,.35) both; }
 @keyframes sting-core-out {
   from { opacity: 1; transform: none; filter: blur(0) }
   to { opacity: 0; transform: translateX(-16vw) skewX(-9deg); filter: blur(16px) }

@@ -14,12 +14,13 @@ import { SFX_ARRIVE, loadSfx, playSfx } from "@/lib/sfx";
  * half-rendered content.
  */
 
-const COVER = 780;
-const REVEAL = 500;
-/* the arrival carries three seconds of sound, and a mark that leaves after one
-   makes the whole thing feel hurried. Only that navigation holds; every other
-   one keeps its pace, because a curtain nobody asked for should not linger. */
-const HOLD_WITH_SOUND = 1500;
+/* Timed to the sound it carries rather than to a round number. The arrival
+   clip rises for 210ms, sustains for 430 and decays for 200: the bars and the
+   impact ride the rise, the mark holds through the sustain, and the whip out
+   runs over the decay. Nothing waits on silence, which is what made the last
+   version feel both slow and badly cut. */
+const COVER = 640;
+const REVEAL = 340;
 
 /* Arriving at a circuit is the one navigation that gets a sound. It plays on a
    real click, so no autoplay policy stands in the way, and it stays quiet
@@ -45,10 +46,8 @@ export default function PageFX() {
   const go = useCallback(
     (href: string) => {
       pending.current = href;
-      const withSound = isFrontDoor(href);
-      if (withSound) playSfx(SFX_ARRIVE, { volume: SFX_VOLUME });
-      holdUntil.current =
-        performance.now() + COVER + (withSound ? HOLD_WITH_SOUND : 0);
+      if (isFrontDoor(href)) playSfx(SFX_ARRIVE, { volume: SFX_VOLUME });
+      holdUntil.current = performance.now() + COVER;
       setPhase("cover");
       setTimeout(() => {
         setPhase("hold");
