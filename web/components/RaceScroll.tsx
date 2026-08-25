@@ -60,6 +60,11 @@ export default function RaceScroll({
   const [lap, setLap] = useState(0);
   const [activeIdx, setActiveIdx] = useState(0);
   const [litLabel, setLitLabel] = useState(-1);
+  /* which cards have come into view. This has to be state: it used to be a
+     class written onto the node, and React wiped it on the next render of that
+     className, which only started happening once the active card began
+     changing for real. */
+  const [seen, setSeen] = useState<Set<number>>(() => new Set());
 
   const carRef = useRef<SVGGElement>(null);
   const traceRef = useRef<SVGPathElement>(null);
@@ -210,6 +215,23 @@ export default function RaceScroll({
       });
       setActiveIdx(best);
 
+      /* the reveal is not left to the observer alone. It is the whole content
+         of the page, and an observer that is throttled or never fires would
+         leave every card at zero opacity with no way back. The positions are
+         already here, so use them. */
+      const top = scrollY + innerHeight;
+      const arrived: number[] = [];
+      anchors.forEach((a, i) => {
+        if (a.y < top && a.y + a.h > scrollY) arrived.push(i);
+      });
+      if (arrived.length)
+        setSeen((prev) => {
+          if (arrived.every((i) => prev.has(i))) return prev;
+          const next = new Set(prev);
+          arrived.forEach((i) => next.add(i));
+          return next;
+        });
+
       /* the lap the car is on: interpolated between the two cards the reading
          line sits between, so the counter climbs rather than jumping */
       const carDocY = scrollY + innerHeight * 0.42;
@@ -241,7 +263,21 @@ export default function RaceScroll({
     };
 
     const io = new IntersectionObserver(
-      (es) => es.forEach((en) => en.isIntersecting && en.target.classList.add("seen")),
+      (es) => {
+        const arrived: number[] = [];
+        es.forEach((en) => {
+          if (!en.isIntersecting) return;
+          const i = cardRefs.current.indexOf(en.target as HTMLDivElement);
+          if (i >= 0) arrived.push(i);
+        });
+        if (!arrived.length) return;
+        setSeen((prev) => {
+          if (arrived.every((i) => prev.has(i))) return prev;
+          const next = new Set(prev);
+          arrived.forEach((i) => next.add(i));
+          return next;
+        });
+      },
       { threshold: 0.25 }
     );
     cardRefs.current.forEach((el) => el && io.observe(el));
@@ -353,7 +389,9 @@ export default function RaceScroll({
                 )}
                 <div
                   ref={(el) => { cardRefs.current[i] = el; }}
-                  className={`card ${v} ${i === activeIdx ? "" : "dim"}`}
+                  className={`card ${v}${seen.has(i) ? " seen" : ""}${
+                    i === activeIdx ? "" : " dim"
+                  }`}
                   data-lap={c.lap ?? 0}
                 >
                   <span className="kicker">{c.kicker}</span>
