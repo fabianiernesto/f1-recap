@@ -31,11 +31,9 @@ const FALLBACK_STATS = [
 export default function GPHeroLED({
   weekend,
   track,
-  round = 12,
 }: {
   weekend: Weekend;
   track: Track;
-  round?: number;
 }) {
   const pts = track.points;
   const d = "M " + pts.map((p) => p[0] + " " + p[1]).join(" L ");
@@ -118,9 +116,11 @@ export default function GPHeroLED({
 
   return (
     <section className="ledhero">
+      {/* our own mark, in the same LED face the sting lands on, rather than a
+          logo that belongs to Formula One Licensing BV */}
       <div className="ledhero-logo">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/f1_pixel_logo.svg" alt="" />
+        <span className="ledhero-mark">R//S</span>
+        <span className="ledhero-wordmark">Racing Simplified</span>
       </div>
 
       <div className="ledhero-car">
@@ -136,8 +136,6 @@ export default function GPHeroLED({
         <i aria-hidden>←</i>
         All circuits
       </Link>
-      <span className="ledhero-tag">Race {round} // Simplified</span>
-
       {/* the panel, line 2, the readout, the rail and the way in: all of
           them absolutely positioned siblings, so the validated coordinates
           keep working exactly as they are */}

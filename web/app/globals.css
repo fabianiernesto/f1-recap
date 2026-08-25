@@ -44,11 +44,16 @@ body {
 /* the hero fills the screen and nothing follows it: the page cannot scroll */
 .ledhero { position: fixed; inset: 0; z-index: 20; overflow: hidden;
   background: #000; font-family: var(--font-mono); }
-/* the crop is cut off at its top and left edges, so bleed those edges out of
-   frame: the mark then reads as continuing past the corner, not as broken */
-.ledhero-logo { position: absolute; z-index: 2; top: -3.4vh; left: -2.6vw;
-  width: 56vw; overflow: hidden; }
-.ledhero-logo img { width: 100%; height: auto; display: block; }
+/* ours, set rather than cropped: the old mark was an image cut at its own
+   edges and had to bleed off the corner to read as whole. Type does not. */
+.ledhero-logo { position: absolute; z-index: 2; top: 3.4vh; left: 2.4vw; }
+.ledhero-mark { display: block; font-family: var(--font-pixel), monospace;
+  font-weight: 900; font-size: 9.4vh; line-height: .9; letter-spacing: .04em;
+  color: var(--led); text-shadow: 0 0 18px #ff1c1259, 0 0 46px #ff1c1226;
+  animation: led-breathe 5.4s ease-in-out infinite; }
+.ledhero-wordmark { display: block; margin-top: 1.1vh;
+  font-family: var(--font-mono); font-weight: 700; font-size: 1.15vh;
+  letter-spacing: .42em; text-transform: uppercase; color: #8a8f99; }
 .ledhero-car { position: absolute; z-index: 1; left: 0; top: 31%; width: 95vw; }
 .ledhero-car img { width: 100%; height: auto; display: block; }
 
@@ -94,42 +99,38 @@ body {
     text-shadow: 0 0 14px #ff1c1259, 0 0 38px #ff1c1233; }
 }
 /* the way home, sitting just above the tag in the same bottom-left block */
-.ledhero-home { position: absolute; z-index: 5; left: 2.4vw; top: 85.4%;
-  display: inline-flex; align-items: center; gap: .8em;
-  border: 1px solid #ffffff2b; padding: 1.4vh 1.8vw;
-  font-family: var(--font-mono); font-size: 1.5vh; font-weight: 700;
-  letter-spacing: .26em; text-transform: uppercase; color: #c9ced6;
-  text-decoration: none; transition: color .18s, border-color .18s; }
-.ledhero-home:hover { border-color: var(--led); }
+/* one design for both ways off this screen, sharing a baseline so they read
+   as a pair rather than as two unrelated things in two corners */
+.ledhero-home, .ledhero-enter { position: absolute; z-index: 5; top: 89.5%;
+  display: inline-flex; align-items: center; gap: .85em;
+  border: 1px solid #ff1c12; background: #ff1c120f; color: var(--led);
+  padding: 1.25vh 1.9vw; font-family: var(--font-mono); font-weight: 700;
+  font-size: 1.34vh; letter-spacing: .26em; text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color .18s, color .18s, box-shadow .18s; }
+.ledhero-home { left: 2.4vw; }
+.ledhero-home:hover, .ledhero-enter:hover { background: var(--led); color: #000; }
 .ledhero-home i { font-style: normal; transition: transform .18s; }
 .ledhero-home:hover { color: var(--led); }
 .ledhero-home:hover i { transform: translateX(-4px); }
 .ledhero-home:focus-visible { outline: 2px solid var(--led); outline-offset: 4px; }
 
-.ledhero-tag { position: absolute; z-index: 4; left: 2.4vw; top: 93.4%;
-  font-size: 2.2vh; letter-spacing: .18em; color: #8a8f99;
-  text-transform: uppercase; font-weight: 700; }
 /* the way in. This screen never scrolls, so the button is the whole promise */
-.ledhero-enter { position: absolute; z-index: 5; right: 2.4vw; top: 88.4%;
-  display: inline-flex; align-items: center; gap: 1em;
-  border: 2px solid #ff1c12; color: #ff1c12; background: #ff1c1214;
-  padding: 2.2vh 3.2vw; font-family: var(--font-mono); font-weight: 700;
-  font-size: 2.1vh; letter-spacing: .28em; text-transform: uppercase;
-  text-decoration: none; box-shadow: 0 0 0 0 #ff1c1200;
-  transition: background-color .18s, color .18s, box-shadow .18s; }
-.ledhero-enter:hover { box-shadow: 0 0 34px #ff1c1259; }
+.ledhero-enter { right: 2.4vw; }
+.ledhero-enter:hover { box-shadow: 0 0 28px #ff1c1259; }
 .ledhero-enter i { font-style: normal; transition: transform .18s; }
 .ledhero-enter:hover { background: #ff1c12; color: #000; }
 .ledhero-enter:hover i { transform: translateX(4px); }
 .ledhero-enter:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 @media (max-width: 900px) {
   .ledhero-notes { display: none; }
-  .ledhero-logo { width: 76vw; }
+  .ledhero-mark { font-size: 7vh; }
   .ledhero-l1, .ledhero-l2 { font-size: 8.4vh; }
   .ledhero-l1 { left: 6vw; top: 58%; }
   .ledhero-l2 { left: 30vw; top: 70%; }
-  .ledhero-enter { right: auto; left: 6vw; top: 88%; padding: 1.6vh 6vw; }
-  .ledhero-home { left: 6vw; top: 82%; }
+  .ledhero-home, .ledhero-enter { top: 90%; padding: 1.3vh 4vw; }
+  .ledhero-home { left: 6vw; }
+  .ledhero-enter { right: 6vw; }
 }
 
 /* back to the circuit's front door, above the hub */
