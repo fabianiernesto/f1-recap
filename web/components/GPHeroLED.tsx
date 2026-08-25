@@ -12,37 +12,6 @@ import type { Track, Weekend } from "@/lib/types";
  * Per GP only the texts, the minimap and the car change.
  */
 
-/* ---------------------------------------------------------------- the mark
-   A real dot matrix rather than a typeface. Doto is a dot face but it sets
-   square pixels, and the board this composition is imitating is built from
-   round lamps: that difference is the whole look, and no font was going to
-   give it. So the letters are a 5 by 7 bitmap and every lit cell is a circle,
-   which is exactly how the old logo was drawn before it was replaced. */
-
-const GLYPHS: Record<string, string[]> = {
-  R: ["11110", "10001", "10001", "11110", "10100", "10010", "10001"],
-  S: ["01111", "10000", "10000", "01110", "00001", "00001", "11110"],
-  "/": ["00001", "00001", "00010", "00100", "01000", "10000", "10000"],
-};
-
-const MARK = "R//S";
-const CELL_ROWS = 7;
-
-/** The lit cells of a word, laid out on one grid with a column between letters. */
-function markDots(word: string) {
-  const dots: { x: number; y: number }[] = [];
-  let col = 0;
-  for (const ch of word) {
-    const g = GLYPHS[ch];
-    if (!g) { col += 3; continue; }
-    g.forEach((row, y) =>
-      [...row].forEach((on, x) => { if (on === "1") dots.push({ x: col + x, y }); })
-    );
-    col += g[0].length + 1;   // one dark column between letters
-  }
-  return { dots, cols: col - 1 };
-}
-
 const CAR_FORMATS = ["png", "webp", "jpg"];
 
 function carFor(slug: string): string {
@@ -81,7 +50,6 @@ export default function GPHeroLED({
   ].join(" ");
 
   const stats = track.stats?.length ? track.stats : FALLBACK_STATS;
-  const mark = markDots(MARK);
 
   /* The channels. Availability uses the same tests the activity chooser runs,
      so the two screens can never disagree about which doors exist, and a door
@@ -151,16 +119,7 @@ export default function GPHeroLED({
       {/* our own mark, in the same LED face the sting lands on, rather than a
           logo that belongs to Formula One Licensing BV */}
       <div className="ledhero-logo">
-        <svg
-          className="ledhero-mark"
-          viewBox={`0 0 ${mark.cols} ${CELL_ROWS}`}
-          aria-label="Racing Simplified"
-          role="img"
-        >
-          {mark.dots.map((p) => (
-            <circle key={`${p.x}-${p.y}`} cx={p.x + 0.5} cy={p.y + 0.5} r={0.4} />
-          ))}
-        </svg>
+        <span className="ledhero-mark">R//S</span>
         <span className="ledhero-wordmark">Racing Simplified</span>
       </div>
 
