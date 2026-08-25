@@ -44,16 +44,18 @@ body {
 /* the hero fills the screen and nothing follows it: the page cannot scroll */
 .ledhero { position: fixed; inset: 0; z-index: 20; overflow: hidden;
   background: #000; font-family: var(--font-mono); }
-/* ours, set rather than cropped: the old mark was an image cut at its own
-   edges and had to bleed off the corner to read as whole. Type does not. */
-.ledhero-logo { position: absolute; z-index: 2; top: 3.4vh; left: 2.4vw; }
+/* ours, at the scale the old mark held. That logotype ran about 52vw across
+   the top left and the corner has looked empty at anything smaller, so the
+   type is sized to the same width: Doto sets four characters at roughly 2.4
+   times its font size, which puts 21.6vw here. */
+.ledhero-logo { position: absolute; z-index: 2; top: 1.2vh; left: 1.6vw; }
 .ledhero-mark { display: block; font-family: var(--font-pixel), monospace;
-  font-weight: 900; font-size: 9.4vh; line-height: .9; letter-spacing: .04em;
-  color: var(--led); text-shadow: 0 0 18px #ff1c1259, 0 0 46px #ff1c1226;
+  font-weight: 900; font-size: 21.6vw; line-height: .82; letter-spacing: .01em;
+  color: var(--led); text-shadow: 0 0 26px #ff1c1259, 0 0 70px #ff1c121f;
   animation: led-breathe 5.4s ease-in-out infinite; }
-.ledhero-wordmark { display: block; margin-top: 1.1vh;
-  font-family: var(--font-mono); font-weight: 700; font-size: 1.15vh;
-  letter-spacing: .42em; text-transform: uppercase; color: #8a8f99; }
+.ledhero-wordmark { display: block; margin-top: -.4vh; padding-left: .5vw;
+  font-family: var(--font-mono); font-weight: 700; font-size: 1.3vh;
+  letter-spacing: .52em; text-transform: uppercase; color: #8a8f99; }
 .ledhero-car { position: absolute; z-index: 1; left: 0; top: 31%; width: 95vw; }
 .ledhero-car img { width: 100%; height: auto; display: block; }
 
@@ -124,7 +126,7 @@ body {
 .ledhero-enter:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 @media (max-width: 900px) {
   .ledhero-notes { display: none; }
-  .ledhero-mark { font-size: 7vh; }
+  .ledhero-mark { font-size: 30vw; }
   .ledhero-l1, .ledhero-l2 { font-size: 8.4vh; }
   .ledhero-l1 { left: 6vw; top: 58%; }
   .ledhero-l2 { left: 30vw; top: 70%; }
