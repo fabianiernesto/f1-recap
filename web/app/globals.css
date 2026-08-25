@@ -54,9 +54,8 @@ body {
    behind it. Dimmer than the headline too, because a mark this size at full
    strength stops being a background and starts being the subject. */
 .ledhero-logo { position: absolute; z-index: 0; top: 1.2vh; left: 1.6vw; }
-.ledhero-mark { display: block; font-family: var(--font-pixel), monospace;
-  font-weight: 900; font-size: 21.6vw; line-height: .82; letter-spacing: .01em;
-  color: #c4130c; text-shadow: 0 0 30px #ff1c1233;
+.ledhero-mark { display: block; width: 52vw; height: auto;
+  fill: #c4130c; filter: drop-shadow(0 0 22px #ff1c121f);
   animation: led-breathe 7.2s ease-in-out infinite; }
 .ledhero-wordmark { display: block; margin-top: -.4vh; padding-left: .5vw;
   font-family: var(--font-mono); font-weight: 700; font-size: 1.3vh;
@@ -131,7 +130,7 @@ body {
 .ledhero-enter:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 @media (max-width: 900px) {
   .ledhero-notes { display: none; }
-  .ledhero-mark { font-size: 30vw; }
+  .ledhero-mark { width: 74vw; }
   .ledhero-l1, .ledhero-l2 { font-size: 8.4vh; }
   .ledhero-l1 { left: 6vw; top: 58%; }
   .ledhero-l2 { left: 30vw; top: 70%; }
