@@ -114,6 +114,7 @@ export default function RaceMate({
     <>
       <button
         className={`mate-fab${open ? " on" : ""}`}
+        data-sfx="own"
         /* the sound is fired here and not inside the state updater, which
            React is free to call twice and did */
         onClick={() => { if (!open) radioOn(); setOpen((o) => !o); }}

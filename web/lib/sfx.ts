@@ -116,3 +116,85 @@ export function playSfx(
 }
 
 export const SFX_RADIO = "/sfx/radio.mp4";
+
+/* ---------------------------------------------------------------- the UI
+   The interface sounds are generated rather than recorded. Nobody's clip is
+   being borrowed, they weigh nothing, and a pip built from an oscillator can
+   be forty milliseconds long on purpose instead of by trimming.
+   
+   The vocabulary is the sport's own: the pip of a timing screen, the two-tone
+   of a confirmation, the dry low knock of going back. Everything sits around
+   five per cent gain, because a sound you notice on the second click is a
+   sound you will hate on the twentieth. */
+
+type Pip = { hz: number; ms: number; at?: number; type?: OscillatorType; gain?: number };
+
+function pips(parts: Pip[], master = 1): void {
+  const ac = context();
+  if (!ac) return;
+  if (ac.state === "suspended") ac.resume().catch(() => {});
+  const t0 = ac.currentTime;
+  for (const p of parts) {
+    const osc = ac.createOscillator();
+    const gain = ac.createGain();
+    const start = t0 + (p.at ?? 0) / 1000;
+    const dur = p.ms / 1000;
+    const peak = (p.gain ?? 0.05) * master;
+    osc.type = p.type ?? "sine";
+    osc.frequency.setValueAtTime(p.hz, start);
+    // a couple of milliseconds of attack, then an exponential tail: a square
+    // gate on an oscillator is a click, and not the good kind
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(peak, start + 0.004);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+    osc.connect(gain).connect(ac.destination);
+    osc.start(start);
+    osc.stop(start + dur + 0.02);
+  }
+}
+
+/** The timing screen pip. Anything you can click gets this one. */
+export const uiTick = () => pips([{ hz: 2050, ms: 0.032 * 1000, gain: 0.035 }]);
+
+/** Two tones rising: something committed, a way in taken. */
+export const uiConfirm = () =>
+  pips([
+    { hz: 1480, ms: 34, gain: 0.045 },
+    { hz: 2220, ms: 46, at: 46, gain: 0.04 },
+  ]);
+
+/** Lower and drier: a step back out of somewhere. */
+export const uiBack = () => pips([{ hz: 880, ms: 40, gain: 0.035 }]);
+
+/** Three rising pips, the sound of a lap time going green. */
+export const uiRight = () =>
+  pips([
+    { hz: 1320, ms: 30, gain: 0.04 },
+    { hz: 1760, ms: 30, at: 34, gain: 0.04 },
+    { hz: 2640, ms: 56, at: 68, gain: 0.038 },
+  ]);
+
+/** One flat low tone that bends down, and no second chance about it. */
+export function uiWrong(): void {
+  const ac = context();
+  if (!ac) return;
+  if (ac.state === "suspended") ac.resume().catch(() => {});
+  const t = ac.currentTime;
+  const osc = ac.createOscillator();
+  const gain = ac.createGain();
+  osc.type = "triangle";
+  osc.frequency.setValueAtTime(300, t);
+  osc.frequency.exponentialRampToValueAtTime(190, t + 0.13);
+  gain.gain.setValueAtTime(0.0001, t);
+  gain.gain.exponentialRampToValueAtTime(0.05, t + 0.006);
+  gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+  osc.connect(gain).connect(ac.destination);
+  osc.start(t);
+  osc.stop(t + 0.17);
+}
+
+/** Nothing makes a noise for somebody who asked for less of it. */
+export function soundAllowed(): boolean {
+  return typeof window !== "undefined"
+    && !matchMedia("(prefers-reduced-motion: reduce)").matches;
+}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { CardData } from "@/lib/types";
+import { soundAllowed, uiRight, uiWrong } from "@/lib/sfx";
 
 /**
  * The two cards that stop the story and hand it over.
@@ -75,7 +76,7 @@ export function PredictionBody({ card }: { card: CardData }) {
 
   return (
     <div className="call">
-      <div className="call-opts">
+      <div className="call-opts" data-sfx="own">
         {(card.options || []).map((o) => (
           <button
             key={o}
@@ -83,7 +84,10 @@ export function PredictionBody({ card }: { card: CardData }) {
               pick ? (o === card.answer ? " right" : " wrong") : ""
             }`}
             disabled={!!pick}
-            onClick={() => setPick(o)}
+            onClick={() => {
+              setPick(o);
+              if (soundAllowed()) (o === card.answer ? uiRight : uiWrong)();
+            }}
           >
             <b>{o}</b>
             {pick && o === card.answer && <em>What happened</em>}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { BlindRound, BlindTest as Test } from "@/lib/types";
+import { soundAllowed, uiRight, uiWrong } from "@/lib/sfx";
 
 /**
  * Five drivers with their names taken off.
@@ -111,8 +112,11 @@ export default function BlindTest({
 
   const choose = (o: string) => {
     if (answered) return;
+    const got = o === round.answer;
     setPick(o);
-    if (o === round.answer) setScore((s) => s + 1);
+    if (got) setScore((s) => s + 1);
+    // the result is worth more than a click, so it gets its own sound
+    if (soundAllowed()) (got ? uiRight : uiWrong)();
   };
 
   return (
@@ -136,7 +140,7 @@ export default function BlindTest({
           ))}
         </dl>
 
-        <div className="call-opts blind-opts">
+        <div className="call-opts blind-opts" data-sfx="own">
           {round.options.map((o) => (
             <button
               key={o}

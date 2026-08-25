@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import PageFX from "@/components/PageFX";
+import UISound from "@/components/UISound";
 
 /**
  * Fonts are served from app/fonts, fetched once by scripts/fetch-fonts.mjs.
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         {children}
         <PageFX />
+        <UISound />
       </body>
     </html>
   );
