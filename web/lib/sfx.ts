@@ -118,80 +118,115 @@ export function playSfx(
 export const SFX_RADIO = "/sfx/radio.mp4";
 
 /* ---------------------------------------------------------------- the UI
-   The interface sounds are generated rather than recorded. Nobody's clip is
-   being borrowed, they weigh nothing, and a pip built from an oscillator can
-   be forty milliseconds long on purpose instead of by trimming.
-   
-   The vocabulary is the sport's own: the pip of a timing screen, the two-tone
-   of a confirmation, the dry low knock of going back. Everything sits around
-   five per cent gain, because a sound you notice on the second click is a
-   sound you will hate on the twentieth. */
+   Generated rather than recorded: nobody's clip is borrowed, it weighs
+   nothing, and a transient can be twelve milliseconds long on purpose.
 
-type Pip = { hz: number; ms: number; at?: number; type?: OscillatorType; gain?: number };
+   The first attempt was sine pips at two kilohertz and it sounded like a
+   handheld game, because a pure tone up there is a beep and a beep is a toy.
+   Nothing in a garage makes that noise. A switch, a relay, a paddle behind a
+   steering wheel: every one of them is a broadband transient with a low body
+   under it and no pitch you could hum. So that is what these are, built from
+   filtered noise over a short low thud, kept under 900Hz where equipment
+   lives, and with no interval between two sounds that could be mistaken for a
+   tune. */
 
-function pips(parts: Pip[], master = 1): void {
-  const ac = context();
-  if (!ac) return;
-  if (ac.state === "suspended") ac.resume().catch(() => {});
-  const t0 = ac.currentTime;
-  for (const p of parts) {
-    const osc = ac.createOscillator();
-    const gain = ac.createGain();
-    const start = t0 + (p.at ?? 0) / 1000;
-    const dur = p.ms / 1000;
-    const peak = (p.gain ?? 0.05) * master;
-    osc.type = p.type ?? "sine";
-    osc.frequency.setValueAtTime(p.hz, start);
-    // a couple of milliseconds of attack, then an exponential tail: a square
-    // gate on an oscillator is a click, and not the good kind
-    gain.gain.setValueAtTime(0.0001, start);
-    gain.gain.exponentialRampToValueAtTime(peak, start + 0.004);
-    gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
-    osc.connect(gain).connect(ac.destination);
-    osc.start(start);
-    osc.stop(start + dur + 0.02);
+let noise: AudioBuffer | null = null;
+
+/** One second of white noise, made once and reused for every transient. */
+function noiseBuffer(ac: AudioContext): AudioBuffer {
+  if (!noise) {
+    noise = ac.createBuffer(1, ac.sampleRate, ac.sampleRate);
+    const d = noise.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
   }
+  return noise;
 }
 
-/** The timing screen pip. Anything you can click gets this one. */
-export const uiTick = () => pips([{ hz: 2050, ms: 0.032 * 1000, gain: 0.035 }]);
+/** The transient: the sound of contact, before anything resonates. */
+function snap(
+  ac: AudioContext,
+  { at = 0, ms = 14, hz = 1200, q = 1.1, gain = 0.05 }
+): void {
+  const t = ac.currentTime + at / 1000;
+  const src = ac.createBufferSource();
+  const band = ac.createBiquadFilter();
+  const amp = ac.createGain();
+  src.buffer = noiseBuffer(ac);
+  src.loop = true;
+  band.type = "bandpass";
+  band.frequency.value = hz;
+  band.Q.value = q;
+  amp.gain.setValueAtTime(0.0001, t);
+  amp.gain.exponentialRampToValueAtTime(gain, t + 0.0015);
+  amp.gain.exponentialRampToValueAtTime(0.0001, t + ms / 1000);
+  src.connect(band).connect(amp).connect(ac.destination);
+  src.start(t);
+  src.stop(t + ms / 1000 + 0.02);
+}
 
-/** Two tones rising: something committed, a way in taken. */
-export const uiConfirm = () =>
-  pips([
-    { hz: 1480, ms: 34, gain: 0.045 },
-    { hz: 2220, ms: 46, at: 46, gain: 0.04 },
-  ]);
+/** The body: what the housing does after the contact. No melody in it. */
+function body(
+  ac: AudioContext,
+  { at = 0, ms = 60, hz = 140, to = 0, gain = 0.04 }
+): void {
+  const t = ac.currentTime + at / 1000;
+  const osc = ac.createOscillator();
+  const amp = ac.createGain();
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(hz, t);
+  if (to) osc.frequency.exponentialRampToValueAtTime(to, t + ms / 1000);
+  amp.gain.setValueAtTime(0.0001, t);
+  amp.gain.exponentialRampToValueAtTime(gain, t + 0.004);
+  amp.gain.exponentialRampToValueAtTime(0.0001, t + ms / 1000);
+  osc.connect(amp).connect(ac.destination);
+  osc.start(t);
+  osc.stop(t + ms / 1000 + 0.02);
+}
 
-/** Lower and drier: a step back out of somewhere. */
-export const uiBack = () => pips([{ hz: 880, ms: 40, gain: 0.035 }]);
-
-/** Three rising pips, the sound of a lap time going green. */
-export const uiRight = () =>
-  pips([
-    { hz: 1320, ms: 30, gain: 0.04 },
-    { hz: 1760, ms: 30, at: 34, gain: 0.04 },
-    { hz: 2640, ms: 56, at: 68, gain: 0.038 },
-  ]);
-
-/** One flat low tone that bends down, and no second chance about it. */
-export function uiWrong(): void {
+function withCtx(fn: (ac: AudioContext) => void): void {
   const ac = context();
   if (!ac) return;
   if (ac.state === "suspended") ac.resume().catch(() => {});
-  const t = ac.currentTime;
-  const osc = ac.createOscillator();
-  const gain = ac.createGain();
-  osc.type = "triangle";
-  osc.frequency.setValueAtTime(300, t);
-  osc.frequency.exponentialRampToValueAtTime(190, t + 0.13);
-  gain.gain.setValueAtTime(0.0001, t);
-  gain.gain.exponentialRampToValueAtTime(0.05, t + 0.006);
-  gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
-  osc.connect(gain).connect(ac.destination);
-  osc.start(t);
-  osc.stop(t + 0.17);
+  fn(ac);
 }
+
+/** A switch closing. Anything you can click gets this one. */
+export const uiTick = () =>
+  withCtx((ac) => {
+    snap(ac, { ms: 11, hz: 1500, q: 1.4, gain: 0.045 });
+    body(ac, { ms: 34, hz: 165, to: 120, gain: 0.03 });
+  });
+
+/** Heavier contact, and a housing with more in it: a way in taken. */
+export const uiConfirm = () =>
+  withCtx((ac) => {
+    snap(ac, { ms: 16, hz: 900, q: 0.9, gain: 0.055 });
+    body(ac, { ms: 95, hz: 104, to: 74, gain: 0.055 });
+  });
+
+/** The same latch let go of, drier and further down. */
+export const uiBack = () =>
+  withCtx((ac) => {
+    snap(ac, { ms: 9, hz: 700, q: 1.2, gain: 0.03 });
+    body(ac, { ms: 70, hz: 96, to: 72, gain: 0.04 });
+  });
+
+/** Two dry pulses off a timing gantry. Flat on purpose: a rising figure is a
+ *  reward noise, and this is a confirmation. */
+export const uiRight = () =>
+  withCtx((ac) => {
+    snap(ac, { ms: 10, hz: 1100, q: 1.6, gain: 0.035 });
+    body(ac, { ms: 46, hz: 620, gain: 0.03 });
+    snap(ac, { at: 108, ms: 10, hz: 1100, q: 1.6, gain: 0.035 });
+    body(ac, { at: 108, ms: 52, hz: 620, gain: 0.03 });
+  });
+
+/** A dead knock. Nothing resonates and nothing bends: it simply stops. */
+export const uiWrong = () =>
+  withCtx((ac) => {
+    snap(ac, { ms: 22, hz: 320, q: 0.7, gain: 0.05 });
+    body(ac, { ms: 130, hz: 78, to: 58, gain: 0.06 });
+  });
 
 /** Nothing makes a noise for somebody who asked for less of it. */
 export function soundAllowed(): boolean {
