@@ -44,18 +44,23 @@ body {
 /* the hero fills the screen and nothing follows it: the page cannot scroll */
 .ledhero { position: fixed; inset: 0; z-index: 20; overflow: hidden;
   background: #000; font-family: var(--font-mono); }
-/* ours, at the scale the old mark held. That logotype ran about 52vw across
-   the top left and the corner has looked empty at anything smaller, so the
-   type is sized to the same width: Doto sets four characters at roughly 2.4
-   times its font size, which puts 21.6vw here. */
-.ledhero-logo { position: absolute; z-index: 2; top: 1.2vh; left: 1.6vw; }
+/* ours, at the scale the old logotype held: it ran about 52vw across the top
+   left, and Doto sets four characters at roughly 2.4 times its font size,
+   which puts this at 21.6vw.
+
+   It sits at z-index 0, behind the car. The old logo sat at 2 and walked all
+   over the bodywork, which is the one thing this composition cannot afford:
+   the car is the photograph and everything else is printed on the same black
+   behind it. Dimmer than the headline too, because a mark this size at full
+   strength stops being a background and starts being the subject. */
+.ledhero-logo { position: absolute; z-index: 0; top: 1.2vh; left: 1.6vw; }
 .ledhero-mark { display: block; font-family: var(--font-pixel), monospace;
   font-weight: 900; font-size: 21.6vw; line-height: .82; letter-spacing: .01em;
-  color: var(--led); text-shadow: 0 0 26px #ff1c1259, 0 0 70px #ff1c121f;
-  animation: led-breathe 5.4s ease-in-out infinite; }
+  color: #c4130c; text-shadow: 0 0 30px #ff1c1233;
+  animation: led-breathe 7.2s ease-in-out infinite; }
 .ledhero-wordmark { display: block; margin-top: -.4vh; padding-left: .5vw;
   font-family: var(--font-mono); font-weight: 700; font-size: 1.3vh;
-  letter-spacing: .52em; text-transform: uppercase; color: #8a8f99; }
+  letter-spacing: .52em; text-transform: uppercase; color: #6b7078; }
 .ledhero-car { position: absolute; z-index: 1; left: 0; top: 31%; width: 95vw; }
 .ledhero-car img { width: 100%; height: auto; display: block; }
 
