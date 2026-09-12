@@ -3,6 +3,10 @@
   "rounds": [
     {
       "answer": "Antonelli",
+      "number": 12,
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
       "rows": [
         [
           "Started",
@@ -47,6 +51,10 @@
     },
     {
       "answer": "Leclerc",
+      "number": 16,
+      "team": "Ferrari",
+      "colour": "ED1131",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
       "rows": [
         [
           "Started",
@@ -83,6 +91,10 @@
     },
     {
       "answer": "Hadjar",
+      "number": 6,
+      "team": "Red Bull Racing",
+      "colour": "4781D7",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp",
       "rows": [
         [
           "Started",
@@ -119,6 +131,10 @@
     },
     {
       "answer": "Albon",
+      "number": 23,
+      "team": "Williams",
+      "colour": "1868DB",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp",
       "rows": [
         [
           "Started",
@@ -155,6 +171,10 @@
     },
     {
       "answer": "Alonso",
+      "number": 14,
+      "team": "Aston Martin",
+      "colour": "229971",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp",
       "rows": [
         [
           "Started",
@@ -195,6 +215,10 @@
     },
     {
       "answer": "Perez",
+      "number": 11,
+      "team": "Cadillac",
+      "colour": "909090",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp",
       "rows": [
         [
           "Started",

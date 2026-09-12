@@ -93,7 +93,7 @@
       "paceRaw": 94.518,
       "overtakes": 7,
       "penalty": "5s",
-      "penaltyFor": "false start - moving before signal",
+      "penaltyFor": "false start: moving before signal",
       "led": 0,
       "swings": [],
       "fastestLap": false,

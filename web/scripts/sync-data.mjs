@@ -14,7 +14,7 @@ const src = path.join(here, "..", "..", "data");
 const dest = path.join(here, "..", "data");
 
 if (!existsSync(src)) {
-  console.warn(`[sync-data] no pipeline data at ${src} — skipping`);
+  console.warn(`[sync-data] no pipeline data at ${src}, skipping`);
   process.exit(0);
 }
 

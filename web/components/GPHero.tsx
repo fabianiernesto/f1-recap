@@ -20,7 +20,7 @@ const CIRCUIT_COUNTRY: Record<string, string> = {
 };
 
 /**
- * GP hero — the vertical poster (ref Ogilvy Turkish GP): a night sky crossed by
+ * GP hero: the vertical poster (ref Ogilvy Turkish GP): a night sky crossed by
  * light trails, the real circuit as a dotted map with numbered corners, and the
  * country's landmark anchoring the composition. Type stays monumental (Drellex).
  */

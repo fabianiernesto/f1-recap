@@ -48,6 +48,29 @@
       "laps": 52
     }
   ],
+  "facts": {
+    "winner": {
+      "first": "Charles",
+      "last": "Leclerc",
+      "team": "Ferrari",
+      "colour": "ED1131",
+      "number": 16,
+      "start": 2,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp"
+    },
+    "margin": 0.427,
+    "runnerUp": "Russell",
+    "fastest": {
+      "last": "Antonelli",
+      "time": "1:31.777"
+    },
+    "passes": 153,
+    "stops": 51,
+    "dnfs": 3,
+    "safetyCars": 2,
+    "redFlag": false,
+    "laps": 52
+  },
   "rating": null,
   "heat": []
 }

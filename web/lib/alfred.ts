@@ -179,6 +179,22 @@ function whySay(d: BrainDriver, brain: Brain): string[] {
       d.stops.length ? `on a ${d.stops.length} stop` : "",
     ];
 
+  // led it and still did not win it: the one afternoon that is never quiet.
+  // Russell led 41 of Monza's 53 laps from pole and finished second, and the
+  // old answer here was "nothing in the data", which is the data not being
+  // read. The laps-led figure is the whole story.
+  if (d.led && d.led >= brain.laps * 0.3 && d.finish !== 1) {
+    const winner = Object.values(brain.drivers).find((x) => x.finish === 1);
+    return [
+      `${d.name} led ${d.led} of ${brain.laps} laps and still finished P${d.finish}. that's the one that hurts`,
+      winner
+        ? `${winner.name} came through${winner.start && winner.start > 3 ? ` from P${winner.start}` : ""}, and by the end ${d.name} had nothing left to answer with`
+        : "",
+      causes.length ? causes.join(", plus ") : "",
+      d.gap !== null ? `${d.gap.toFixed(3)}s behind at the flag, after leading most of the afternoon` : "",
+    ];
+  }
+
   return [
     `${d.name} finished where he started, P${d.finish}`,
     causes.length ? causes.join(", plus ") : "quiet afternoon, nothing in the data",

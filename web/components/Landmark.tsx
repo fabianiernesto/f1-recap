@@ -8,12 +8,12 @@ import path from "node:path";
  * Falls back to line-art so the page never breaks while art is missing.
  *
  * To add a GP: put a cut-out PNG (transparent background) at
- * web/public/landmarks/<gp-slug>.png — nothing else to wire up.
+ * web/public/landmarks/<gp-slug>.png, nothing else to wire up.
  */
 const LANDMARK_FORMATS = ["png", "webp", "jpg", "jpeg"];
 
 // scripts/dev.mjs pins cwd to web/ in dev, so public/ resolves the same way
-// in dev and build — no multi-candidate probing needed.
+// in dev and build, so no multi-candidate probing needed.
 function findAsset(folder: string, slug: string): string | null {
   for (const ext of LANDMARK_FORMATS) {
     if (fs.existsSync(path.join(process.cwd(), "public", folder, `${slug}.${ext}`)))
@@ -33,7 +33,7 @@ export function figurePhoto(slug: string): string | null {
 
 /**
  * Right-hand figure. Artwork lit on black blends with `screen`, so the black
- * simply disappears into the night and only the glow and the driver remain —
+ * simply disappears into the night and only the glow and the driver remain,
  * no cut-out needed. Edges are masked so nothing ends in a straight line.
  */
 export function FigurePhoto({ src, alt }: { src: string; alt: string }) {

@@ -3,7 +3,7 @@ import type { Weekend } from "@/lib/types";
 
 /**
  * The weekend hub: the five sessions, nothing else. No spoiler gate and no
- * depth selector — everyone gets the same full analysis, so the only decision
+ * depth selector: everyone gets the same full analysis, so the only decision
  * left here is which session to read.
  */
 export default function WeekendHub({ weekend }: { weekend: Weekend }) {
@@ -15,7 +15,7 @@ export default function WeekendHub({ weekend }: { weekend: Weekend }) {
         <span className="hub-eyebrow">The weekend, session by session</span>
         <h2>{weekend.short}</h2>
         <p>
-          {weekend.circuit} · {weekend.country} · {weekend.date} —{" "}
+          {weekend.circuit} · {weekend.country} · {weekend.date} ·{" "}
           {weekend.sessions.length} sessions, {total} moments, all of it built
           from the timing data.
         </p>

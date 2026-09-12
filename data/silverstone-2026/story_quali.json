@@ -139,24 +139,24 @@
         "label": "Deleted laps",
         "rows": [
           [
-            "CAR 55 (SAI) TIME 1:33.460 DELETED - TRA",
-            "deleted"
+            "Sainz",
+            "1:33.460"
           ],
           [
-            "CAR 14 (ALO) LAP DELETED - TRACK LIMITS ",
-            "deleted"
+            "Alonso",
+            "at turn 9"
           ],
           [
-            "CAR 63 (RUS) LAP DELETED - TRACK LIMITS ",
-            "deleted"
+            "Russell",
+            "at turn 7"
           ],
           [
-            "CAR 43 (COL) LAP DELETED - TRACK LIMITS ",
-            "deleted"
+            "Colapinto",
+            "at turn 13"
           ],
           [
-            "CAR 11 (PER) TIME 1:31.451 DELETED - TRA",
-            "deleted"
+            "Perez",
+            "1:31.451"
           ]
         ]
       }

@@ -1,28 +1,27 @@
 """
-Fase 0 — Explorador de datos de OpenF1.
+Fase 0: Explorador de datos de OpenF1.
 Baja todos los endpoints de todas las sesiones de un GP a pipeline/cache/
 (JSON inmutables, nunca se re-descargan) y imprime un inventario honesto
 de qué datos tenemos para detectar "momentos".
 
-Uso:  python fase0_explora.py
+Uso:  python fase0_explora.py [gp-slug]      (por defecto: silverstone-2026)
 """
 import json
+import sys
 import time
 import urllib.request
 import urllib.parse
 from pathlib import Path
 
+from gps import DEFAULT, weekend_of
+
 BASE = "https://api.openf1.org/v1"
 CACHE = Path(__file__).parent / "cache"
 
-# Silverstone 2026 (finde SPRINT: 5 sesiones)
-SESSIONS = {
-    11316: "FP1",
-    11317: "Sprint_Quali",
-    11321: "Sprint",
-    11322: "Quali",
-    11326: "Race",
-}
+# qué finde se baja. Las claves de sesión viven en gps.py, no aquí
+SLUG = sys.argv[1] if len(sys.argv) > 1 else DEFAULT
+_, _SESSIONS = weekend_of(SLUG)
+SESSIONS = {skey: cache_name for skey, cache_name, *_ in _SESSIONS}
 
 # Los 8 de Marc + los que nos interesan a nosotros (radio, adelantamientos, resultados)
 ENDPOINTS = [

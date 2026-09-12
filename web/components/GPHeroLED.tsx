@@ -6,7 +6,7 @@ import GPBoard, { type Channel } from "./GPBoard";
 import type { Track, Weekend } from "@/lib/types";
 
 /**
- * LED hero — the template Ernesto validated, wired to real GP data.
+ * LED hero: the template Ernesto validated, wired to real GP data.
  * Layout is measured 1:1 from his reference: logo x0-54/y0-28, car x0-95/y31-80,
  * headline 12.6vh with the second line indented, annotations top-right.
  * Per GP only the texts, the minimap and the car change.
@@ -25,7 +25,7 @@ function carFor(slug: string): string {
 
 /** Shown when a circuit has not been measured yet, so the panel never lies. */
 const FALLBACK_STATS = [
-  { label: "Corners", value: "—", short: "Not measured yet" },
+  { label: "Corners", value: "-", short: "Not measured yet" },
 ];
 
 export default function GPHeroLED({
@@ -75,7 +75,7 @@ export default function GPHeroLED({
           { label: "Moments", value: String(acts.moments),
             short: "One card each, in the order they happened" },
           { label: "Longest", value: acts.longest
-              ? `${acts.longest.label} ${acts.longest.moments}` : "—",
+              ? `${acts.longest.label} ${acts.longest.moments}` : "-",
             short: "The session with the most to say for itself" },
           { label: "Laps", value: String(acts.laps),
             short: "The circuit draws itself underneath you as you read" },
@@ -104,9 +104,15 @@ export default function GPHeroLED({
     })),
     read: [
       `${weekend.date} · ${weekend.short}`,
-      acts.blind
-        ? `${acts.blind.rounds} sheets to guess at, and more on the way`
-        : "The activities arrive with the timing data",
+      // whichever activities this weekend's data actually supports, named
+      // rather than counted: a number on its own says nothing about what is
+      // behind the door
+      [
+        acts.blind && `${acts.blind.rounds} sheets to guess at`,
+        acts.pitwall && `${acts.pitwall.driver}'s ${acts.pitwall.calls} calls to make`,
+      ]
+        .filter(Boolean)
+        .join(" · ") || "The activities arrive with the timing data",
       `${weekend.laps} laps · ${weekend.circuit}`,
     ],
   };
@@ -120,7 +126,6 @@ export default function GPHeroLED({
           logo that belongs to Formula One Licensing BV */}
       <div className="ledhero-logo">
         <span className="ledhero-mark">R//S</span>
-        <span className="ledhero-wordmark">Racing Simplified</span>
       </div>
 
       <div className="ledhero-car">

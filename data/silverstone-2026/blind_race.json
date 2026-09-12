@@ -3,6 +3,10 @@
   "rounds": [
     {
       "answer": "Antonelli",
+      "number": 12,
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
       "rows": [
         [
           "Started",
@@ -51,6 +55,10 @@
     },
     {
       "answer": "Leclerc",
+      "number": 16,
+      "team": "Ferrari",
+      "colour": "ED1131",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
       "rows": [
         [
           "Started",
@@ -91,6 +99,10 @@
     },
     {
       "answer": "Colapinto",
+      "number": 43,
+      "team": "Alpine",
+      "colour": "00A1E8",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/alpine/fracol01/2026alpinefracol01right.webp",
       "rows": [
         [
           "Started",
@@ -127,6 +139,10 @@
     },
     {
       "answer": "Perez",
+      "number": 11,
+      "team": "Cadillac",
+      "colour": "909090",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp",
       "rows": [
         [
           "Started",
@@ -163,6 +179,10 @@
     },
     {
       "answer": "Verstappen",
+      "number": 3,
+      "team": "Red Bull Racing",
+      "colour": "4781D7",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
       "rows": [
         [
           "Started",
@@ -199,6 +219,10 @@
     },
     {
       "answer": "Albon",
+      "number": 23,
+      "team": "Williams",
+      "colour": "1868DB",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp",
       "rows": [
         [
           "Started",
@@ -239,6 +263,10 @@
     },
     {
       "answer": "Hulkenberg",
+      "number": 27,
+      "team": "Audi",
+      "colour": "F50537",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp",
       "rows": [
         [
           "Started",
@@ -275,6 +303,10 @@
     },
     {
       "answer": "Norris",
+      "number": 1,
+      "team": "McLaren",
+      "colour": "F47600",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp",
       "rows": [
         [
           "Started",

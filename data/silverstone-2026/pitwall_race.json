@@ -1,0 +1,267 @@
+{
+  "session": "Race",
+  "laps": 52,
+  "driver": {
+    "name": "Hadjar",
+    "number": 6,
+    "team": "Red Bull Racing",
+    "colour": "4781D7",
+    "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp",
+    "start": 5,
+    "finish": 5,
+    "margin": 0.425
+  },
+  "economics": {
+    "pitLoss": 24.9,
+    "fuelTrend": -0.041,
+    "tyres": {
+      "HARD": {
+        "deg": 0.0589,
+        "base": -0.133,
+        "laps": 388
+      },
+      "MEDIUM": {
+        "deg": 0.0342,
+        "base": 0.313,
+        "laps": 467
+      }
+    },
+    "typicalDeg": 0.0466
+  },
+  "calls": [
+    {
+      "lap": 19,
+      "kicker": "The first stop",
+      "question": "When do you box him?",
+      "facts": [
+        [
+          "Running",
+          "P9"
+        ],
+        [
+          "Tyre",
+          "medium, 18 laps old"
+        ],
+        [
+          "Ahead",
+          "Lindblad, 3.7s up"
+        ],
+        [
+          "Behind",
+          "Bortoleto"
+        ]
+      ],
+      "options": [
+        {
+          "label": "12 laps earlier",
+          "lap": 7,
+          "lost": 7.5,
+          "real": false,
+          "note": "6 laps on the mediums, then 31 on the hards."
+        },
+        {
+          "label": "8 laps earlier",
+          "lap": 11,
+          "lost": 3.5,
+          "real": false,
+          "note": "10 laps on the mediums, then 27 on the hards."
+        },
+        {
+          "label": "4 laps earlier",
+          "lap": 15,
+          "lost": 1.0,
+          "real": false,
+          "note": "14 laps on the mediums, then 23 on the hards."
+        },
+        {
+          "label": "Box him now, lap 19",
+          "lap": 19,
+          "lost": 0.0,
+          "real": true,
+          "note": "18 laps on the mediums, then 19 on the hards."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 23,
+          "lost": 0.5,
+          "real": false,
+          "note": "22 laps on the mediums, then 15 on the hards."
+        },
+        {
+          "label": "8 laps later",
+          "lap": 27,
+          "lost": 2.4,
+          "real": false,
+          "note": "26 laps on the mediums, then 11 on the hards."
+        },
+        {
+          "label": "12 laps later",
+          "lap": 31,
+          "lost": 5.9,
+          "real": false,
+          "note": "30 laps on the mediums, then 7 on the hards."
+        }
+      ],
+      "reading": "The mediums lose 34ms a lap as they age, the hards 59ms. The stint has to reach lap 38 either way."
+    },
+    {
+      "lap": 38,
+      "kicker": "Stop 2",
+      "question": "When do you box him?",
+      "facts": [
+        [
+          "Running",
+          "P7"
+        ],
+        [
+          "Tyre",
+          "hard, 18 laps old"
+        ],
+        [
+          "Ahead",
+          "Norris, 17.0s up"
+        ],
+        [
+          "Behind",
+          "Lawson"
+        ]
+      ],
+      "options": [
+        {
+          "label": "12 laps earlier",
+          "lap": 26,
+          "lost": 3.4,
+          "real": false,
+          "note": "6 laps on the hards, then 21 on the mediums."
+        },
+        {
+          "label": "8 laps earlier",
+          "lap": 30,
+          "lost": 1.0,
+          "real": false,
+          "note": "10 laps on the hards, then 17 on the mediums."
+        },
+        {
+          "label": "4 laps earlier",
+          "lap": 34,
+          "lost": 0.0,
+          "real": false,
+          "note": "14 laps on the hards, then 13 on the mediums."
+        },
+        {
+          "label": "Box him now, lap 38",
+          "lap": 38,
+          "lost": 0.5,
+          "real": true,
+          "note": "18 laps on the hards, then 9 on the mediums."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 42,
+          "lost": 2.5,
+          "real": false,
+          "note": "22 laps on the hards, then 5 on the mediums."
+        }
+      ],
+      "reading": "The hards lose 59ms a lap as they age, the mediums 34ms. The stint has to reach lap 47 either way."
+    }
+  ],
+  "ladder": [
+    {
+      "pos": 1,
+      "name": "Leclerc",
+      "team": "Ferrari",
+      "gap": 0.0
+    },
+    {
+      "pos": 2,
+      "name": "Russell",
+      "team": "Mercedes",
+      "gap": 0.427
+    },
+    {
+      "pos": 3,
+      "name": "Hamilton",
+      "team": "Ferrari",
+      "gap": 0.772
+    },
+    {
+      "pos": 4,
+      "name": "Norris",
+      "team": "McLaren",
+      "gap": 1.149
+    },
+    {
+      "pos": 5,
+      "name": "Hadjar",
+      "team": "Red Bull Racing",
+      "gap": 1.598
+    },
+    {
+      "pos": 6,
+      "name": "Lawson",
+      "team": "Racing Bulls",
+      "gap": 2.023
+    },
+    {
+      "pos": 7,
+      "name": "Lindblad",
+      "team": "Racing Bulls",
+      "gap": 2.214
+    },
+    {
+      "pos": 8,
+      "name": "Bortoleto",
+      "team": "Audi",
+      "gap": 2.413
+    },
+    {
+      "pos": 9,
+      "name": "Colapinto",
+      "team": "Alpine",
+      "gap": 3.229
+    },
+    {
+      "pos": 10,
+      "name": "Gasly",
+      "team": "Alpine",
+      "gap": 3.445
+    },
+    {
+      "pos": 11,
+      "name": "Piastri",
+      "team": "McLaren",
+      "gap": 4.014
+    },
+    {
+      "pos": 12,
+      "name": "Bearman",
+      "team": "Haas F1 Team",
+      "gap": 5.245
+    },
+    {
+      "pos": 13,
+      "name": "Ocon",
+      "team": "Haas F1 Team",
+      "gap": 5.512
+    },
+    {
+      "pos": 14,
+      "name": "Perez",
+      "team": "Cadillac",
+      "gap": 7.403
+    },
+    {
+      "pos": 15,
+      "name": "Antonelli",
+      "team": "Mercedes",
+      "gap": 8.005
+    },
+    {
+      "pos": 16,
+      "name": "Bottas",
+      "team": "Cadillac",
+      "gap": 8.162
+    }
+  ]
+}

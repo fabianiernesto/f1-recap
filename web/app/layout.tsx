@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import PageFX from "@/components/PageFX";
-import UISound from "@/components/UISound";
 
 /**
  * Fonts are served from app/fonts, fetched once by scripts/fetch-fonts.mjs.
@@ -19,11 +18,16 @@ const display = localFont({
   ],
 });
 
+// Ernesto's brand text face is Agrandir. It is not a Google font, so this is
+// the stand-in that reads closest to it, and globals.css declares an
+// @font-face for the real thing that takes over the moment its files are
+// dropped into public/fonts/. Inter is gone: two body faces is one too many.
 const body = localFont({
   variable: "--font-body",
   src: [
-    { path: "./fonts/inter-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/inter-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/space-grotesk-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/space-grotesk-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/space-grotesk-700.woff2", weight: "700", style: "normal" },
   ],
 });
 
@@ -38,6 +42,16 @@ const mono = localFont({
 const hero = localFont({
   variable: "--font-hero",
   src: [{ path: "./fonts/anton-400.woff2", weight: "400", style: "normal" }],
+});
+
+// the editorial italic, for the light sections only: the one face on the
+// site allowed to sound like a magazine
+const serif = localFont({
+  variable: "--font-serif",
+  src: [
+    { path: "./fonts/instrument-serif-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/instrument-serif-400-italic.woff2", weight: "400", style: "italic" },
+  ],
 });
 
 // pixel face, used on the hero headline only
@@ -59,12 +73,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} ${hero.variable} ${pixel.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable} ${hero.variable} ${pixel.variable} ${serif.variable}`}
     >
       <body>
         {children}
         <PageFX />
-        <UISound />
       </body>
     </html>
   );

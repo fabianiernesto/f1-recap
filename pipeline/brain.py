@@ -15,7 +15,7 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     grid = s.start_grid()
     green = s.green_overtakes()
     ov_by_driver = Counter(o["overtaking_driver_number"] for _, o in green)
-    real_pits = [p for p in s.pits if p.get("pit_duration") and p.get("lap_number")]
+    real_pits = s.real_pits
     cases = s.stewards()
     penalties = [c for c in cases if c["secs"]]
     winner = s.result[0]["driver_number"] if s.result else None
@@ -45,12 +45,21 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     # the position feed only records CHANGES, so counting the laps a driver
     # appears at P1 undercounts badly: a leader who never loses the lead
     # generates one event all race. Carry the last known position forward.
+    #
+    # The fill starts on the grid rather than on nothing. Every driver's first
+    # record is the grid order, stamped before lap one has begun, so it belongs
+    # to no lap and is dropped on the way in -- which leaves the leader unknown
+    # until he first loses or regains a place. At Barcelona that was lap 12,
+    # and the first eleven laps of the race belonged to nobody.
+    #
+    # It also stops on the lap a driver's race stopped. Forward-filling a
+    # retirement would have him still leading from the barriers while the car
+    # that inherited it is credited with the same lap.
     def led_laps(num: int) -> int:
         events = pos_by_driver.get(num, [])
-        if not events:
-            return 0
-        led, at, i, pos = 0, 1, 0, None
-        for lap in range(1, (s.total_laps or 0) + 1):
+        last = out_lap(num) or s.total_laps or 0
+        led, i, pos = 0, 0, grid.get(num)
+        for lap in range(1, min(s.total_laps or 0, last) + 1):
             while i < len(events) and events[i][0] <= lap:
                 pos = events[i][1]
                 i += 1

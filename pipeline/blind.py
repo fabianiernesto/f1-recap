@@ -14,6 +14,8 @@ no fun to be asked about.
 """
 from collections import Counter
 
+from photos import photo
+
 
 def blind_rounds(s, fmt) -> list[dict]:
     if not s.result:
@@ -25,7 +27,7 @@ def blind_rounds(s, fmt) -> list[dict]:
     cases = s.stewards()
     best = s.best_lap
     fastest_num = best["driver_number"] if best else None
-    stop_counts = Counter(p["driver_number"] for p in s.pits if p.get("pit_duration"))
+    stop_counts = Counter(p["driver_number"] for p in s.real_pits)
     typical = Counter(stop_counts.values()).most_common(1)[0][0] if stop_counts else 0
     most_passes = max(ov.values()) if ov else 0
 
@@ -125,6 +127,15 @@ def blind_rounds(s, fmt) -> list[dict]:
         candidates.append((weight, {
             "answer": s.name(num),
             "number": num,
+            # Carried for the reveal. The sheet you read is anonymous; the
+            # moment the answer lands, the page has a car number, a team and
+            # a colour to put a face to it. This used to be deleted on the way
+            # out on the grounds that a car number gives the driver away --
+            # which it does, and so does the "answer" field sitting next to it
+            # in the same payload. Hiding one of the two protected nothing.
+            "team": s.team(num),
+            "colour": (s.drivers.get(num, {}).get("team_colour") or "").lstrip("#"),
+            "headshot": photo(s.drivers.get(num, {})),
             "rows": rows,
             "tell": tell,
         }))
@@ -144,6 +155,5 @@ def blind_rounds(s, fmt) -> list[dict]:
             if extra not in decoys and extra != rnd["answer"]:
                 decoys.append(extra)
         rnd["options"] = sorted([rnd["answer"], *decoys])
-        del rnd["number"]
 
     return picked

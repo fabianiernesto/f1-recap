@@ -1,8 +1,26 @@
 @import "tailwindcss";
 
 /* ---------- design tokens (DESIGN_DIRECTION.md) ---------- */
+/* Ernesto's brand text face. Not a Google font and not in the repo: these
+   rules point at public/fonts/ and fail silently until the files are there,
+   at which point "Agrandir" wins the body stack over the stand-in. */
+@font-face { font-family: "Agrandir"; font-weight: 400; font-display: swap;
+  src: url("/fonts/agrandir-regular.woff2") format("woff2"); }
+@font-face { font-family: "Agrandir"; font-weight: 500; font-display: swap;
+  src: url("/fonts/agrandir-medium.woff2") format("woff2"); }
+@font-face { font-family: "Agrandir"; font-weight: 700; font-display: swap;
+  src: url("/fonts/agrandir-bold.woff2") format("woff2"); }
+
 :root {
-  /* the hero's red, reused everywhere so the whole site speaks one language */
+  /* Two reds, on purpose. The brand red is printed: it is what goes on
+     paper, on buttons, on anything that reflects light. The LED red is lit:
+     the dot-matrix board, the circuit lines and the glow on black, where the
+     printed red would read as a lamp that is switched off. A red LED is a
+     brighter thing than red ink, and the site keeps that difference. */
+  --brand: #a9170b;
+  --paper: #fffce8;
+  --paper-ink: #1b1c22;
+  --paper-mute: #6a6c73;
   --led: #ff1c12;
   --carbon-0: #0a0b0e;
   --carbon-1: #111318;
@@ -10,7 +28,7 @@
   --line: #272b33;
   --ink: #f2f3f5;
   --muted: #8b919d;
-  --accent: #e10600;
+  --accent: var(--brand);
   --purple: #a855f7;
   --green: #22c55e;
   --ok: #2fd06a;          /* you got it right */
@@ -32,7 +50,7 @@ body {
   margin: 0;
   background: var(--carbon-0);
   color: var(--ink);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: "Agrandir", var(--font-body), system-ui, sans-serif;
   line-height: 1.55;
   font-size: 15px;
   overflow-x: hidden;
@@ -54,13 +72,16 @@ body {
    behind it. Dimmer than the headline too, because a mark this size at full
    strength stops being a background and starts being the subject. */
 .ledhero-logo { position: absolute; z-index: 0; top: 1.2vh; left: 1.6vw; }
+/* the headline treatment, at the scale of a backdrop: same face, same red,
+   same glow and the same slow breath as SILVERSTONE and SCROLLED, so the two
+   read as one sign rather than a mark and a title that happen to share a
+   colour. The blur is scaled with the glyph, since a 14px halo on something
+   four times the size disappears. Third phase offset, so all three swell at
+   different moments and none of them pulse together. */
 .ledhero-mark { display: block; font-family: var(--font-pixel), monospace;
-  font-weight: 900; font-size: 21.6vw; line-height: .82; letter-spacing: .01em;
-  color: #c4130c; text-shadow: 0 0 30px #ff1c1233;
-  animation: led-breathe 7.2s ease-in-out infinite; }
-.ledhero-wordmark { display: block; margin-top: -.4vh; padding-left: .5vw;
-  font-family: var(--font-mono); font-weight: 700; font-size: 1.3vh;
-  letter-spacing: .52em; text-transform: uppercase; color: #6b7078; }
+  font-weight: 900; font-size: 21.6vw; line-height: .9;
+  color: #ff1c12; text-shadow: 0 0 44px #ff1c1240;
+  animation: led-breathe 8.6s ease-in-out -4.1s infinite; }
 .ledhero-car { position: absolute; z-index: 1; left: 0; top: 31%; width: 95vw; }
 .ledhero-car img { width: 100%; height: auto; display: block; }
 
@@ -168,7 +189,7 @@ body {
 .hero-trails { position: absolute; inset: -4% -8%; width: 116%; height: 108%;
   pointer-events: none; z-index: 1; }
 /* three columns so the date stays dead centre and the right cell is left
-   free for the flag — nothing ever runs under it */
+   free for the flag: nothing ever runs under it */
 .hero-meta { position: absolute; top: 74px; left: 5vw; right: 5vw; z-index: 6;
   display: grid; grid-template-columns: 1fr auto 1fr; align-items: start;
   font-family: var(--font-mono); font-size: 11px; letter-spacing: .18em;
@@ -214,12 +235,12 @@ body {
   filter: drop-shadow(0 0 56px #ff5a2a33); }
 
 /* the landmark owns the whole left flank, floor to sky (ref Ogilvy: the
-   bridge spans the poster). No overlay box on top of it — a rectangle would
-   show around the cut-out — so all grading rides on the image filter. */
+   bridge spans the poster). No overlay box on top of it, because a rectangle would
+   show around the cut-out, so all grading rides on the image filter. */
 .hero-landmark-photo { position: absolute; z-index: 1; left: 0; bottom: 0;
   width: var(--flank); height: 100%; pointer-events: none; }
 /* `contain`, never `cover`: cover crops the cut-out and stretches the tower
-   until it reads as a solid slab with a hard vertical edge — the "two blocks"
+   until it reads as a solid slab with a hard vertical edge: the "two blocks"
    effect. Contained, the whole tower shows and the night surrounds it. */
 /* no text sits on the landmark any more, so it can be properly lit */
 .hero-landmark-photo img { width: 100%; height: 100%; display: block;
@@ -358,7 +379,7 @@ body {
 .v-cover { background: none; border: none; max-width: 500px !important;
   padding: 20px 0; }
 /* the pixel face belongs to the GP front door, not to the session opener */
-.v-cover h2 { font-family: var(--font-display), sans-serif; font-weight: 700;
+.v-cover h2 { font-family: var(--font-hero), sans-serif; font-weight: 400;
   color: var(--led); font-size: 46px; line-height: 1.02; letter-spacing: .01em; }
 .v-cover p { font-size: 14.5px; max-width: 40ch; color: #c9ced6; }
 .v-cover .kicker::before { width: 34px; }
@@ -474,7 +495,7 @@ body {
    reads as part of the broadcast rather than a widget bolted onto it. */
 .mate-fab { position: fixed; z-index: 70; right: 20px; bottom: 20px;
   display: flex; align-items: center; gap: 8px; padding: 12px 18px;
-  background: var(--led); color: #fff; border: none; cursor: pointer;
+  background: var(--brand); color: var(--paper); border: none; cursor: pointer;
   font-family: var(--font-mono); font-size: 11px; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
   box-shadow: 0 6px 26px #ff1c1259; transition: transform .18s, background-color .18s; }
@@ -510,7 +531,7 @@ body {
 .bub { max-width: 84%; padding: 9px 13px; font-size: 13.5px; line-height: 1.5;
   color: #e8eaee; background: #16181d; border-radius: 14px 14px 14px 3px;
   animation: bub-in .22s ease-out; }
-.bub.you { align-self: flex-end; background: var(--led); color: #fff;
+.bub.you { align-self: flex-end; background: var(--brand); color: var(--paper);
   border-radius: 14px 14px 3px 14px; }
 .bub.typing { display: flex; gap: 4px; padding: 13px; }
 .bub.typing i { width: 6px; height: 6px; border-radius: 50%; background: #6c7280;
@@ -626,73 +647,286 @@ body {
 .hub-back:hover { color: #f2f3f5; }
 
 /* ---------- home: the front door, in the LED kit ---------- */
-.home { min-height: 100vh; background: #000; padding: 0 5vw 8vh;
-  display: flex; flex-direction: column; }
-.home-top { display: flex; justify-content: space-between; padding: 26px 0;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
-  letter-spacing: .2em; text-transform: uppercase; color: #f2f3f5; }
-.home-top span:last-child { color: var(--led); }
+/* ======================================================== the home page
+   Two worlds, alternating. Black is the site's own voice: the LED board, the
+   red signal, the timing data. Cream is the magazine spread: black condensed
+   type over a red graphic, a photograph cutting through both, and an italic
+   serif doing the talking. The paper is the poster's paper, so the last
+   section of every race and the front door share one world. */
+.home { background: #000; color: var(--ink); }
 
-.home-hero { position: relative; padding: 9vh 0 10vh; }
-/* the driver holds the right of the hero, lit on black and blended into it */
-.home-figure { position: absolute; z-index: 0; right: -7vw; top: 48%;
-  transform: translateY(-50%); width: min(58vw, 980px); pointer-events: none; }
+/* ---- the nav: sparse, the way the reference does it */
+.home-nav { display: flex; align-items: center; gap: 4vw; padding: 24px 5vw;
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase; }
+.home-nav a { color: #8a8f99; text-decoration: none; transition: color .15s; }
+.home-nav a:hover { color: var(--ink); }
+.home-brand { color: var(--ink); margin-right: auto; }
+.home-season { color: var(--led); margin-left: auto; }
+
+/* ============================================================ 1 · hero */
+.home-hero { position: relative; min-height: calc(100vh - 68px); overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8vh 5vw 14vh; isolation: isolate; }
+/* the latest circuit, drawing itself across the back of the board: the one
+   piece of motion on the page, and it is ours to draw */
+.home-hero-track { position: absolute; z-index: 0; right: -6vw; top: 50%;
+  height: 118vh; width: auto; transform: translateY(-52%) rotate(-8deg);
+  color: #ff1c12; opacity: .16; }
+.home-hero-track path { stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: home-draw 14s ease-in-out infinite; }
+@keyframes home-draw {
+  0% { stroke-dashoffset: 1; opacity: 0 }
+  8% { opacity: 1 }
+  55% { stroke-dashoffset: 0; opacity: 1 }
+  78% { stroke-dashoffset: 0; opacity: 1 }
+  100% { stroke-dashoffset: 0; opacity: 0 }
+}
+/* the driver holds the right of the board, lit on black, breathing slowly */
+.home-figure { position: absolute; z-index: 1; right: -6vw; top: 50%;
+  transform: translateY(-50%); width: min(60vw, 1020px); pointer-events: none; }
 .home-figure img { width: 100%; height: auto; display: block;
   mix-blend-mode: screen; filter: contrast(1.08) saturate(1.08) brightness(1.04);
+  animation: home-breathe 22s ease-in-out infinite alternate;
   -webkit-mask-image:
-    linear-gradient(to bottom, #0000 0%, #000 8%, #000 90%, #0000 100%),
-    linear-gradient(to right, #0000 0%, #000c 10%, #000 24%);
+    linear-gradient(to bottom, #0000 0%, #000 8%, #000 88%, #0000 100%),
+    linear-gradient(to right, #0000 0%, #000c 14%, #000 30%);
   mask-image:
-    linear-gradient(to bottom, #0000 0%, #000 8%, #000 90%, #0000 100%),
-    linear-gradient(to right, #0000 0%, #000c 10%, #000 24%);
+    linear-gradient(to bottom, #0000 0%, #000 8%, #000 88%, #0000 100%),
+    linear-gradient(to right, #0000 0%, #000c 14%, #000 30%);
   -webkit-mask-composite: source-in; mask-composite: intersect; }
-.home-hero h1, .home-hero p { position: relative; z-index: 1; }
-@media (max-width: 900px) { .home-figure { display: none; } }
-.home-hero h1 { margin: 0; font-family: var(--font-pixel), monospace;
-  font-weight: 900; color: var(--led); text-transform: uppercase;
-  line-height: .95; text-shadow: 0 0 14px #ff1c1240;
+@keyframes home-breathe { from { transform: scale(1) } to { transform: scale(1.06) } }
+.home-hero h1 { position: relative; z-index: 2; margin: 0; max-width: 60vw;
+  font-family: var(--font-pixel), monospace; font-weight: 900; color: var(--led);
+  text-transform: uppercase; line-height: .95; text-shadow: 0 0 14px #ff1c1240;
   animation: led-breathe 6s ease-in-out infinite; }
-/* the headline owns the left half only — it must never run into the driver */
-.home-hero h1 { max-width: 58vw; }
-.home-hero .home-l1 { display: block; font-size: clamp(40px, 7.2vw, 112px);
+.home-hero .home-l1 { display: block; font-size: clamp(40px, 7.4vw, 118px);
   white-space: nowrap; }
-.home-hero .home-l2 { display: block; font-size: clamp(40px, 7.2vw, 112px);
+.home-hero .home-l2 { display: block; font-size: clamp(40px, 7.4vw, 118px);
   margin-left: clamp(30px, 5vw, 100px); margin-top: 1.4vh; white-space: nowrap; }
-.home-hero p { max-width: 54ch; margin: 4vh 0 0; font-family: var(--font-mono);
-  font-size: 11.5px; line-height: 1.9; letter-spacing: .06em; color: #8a8f99;
-  text-transform: uppercase; }
+.home-lede { position: relative; z-index: 2; max-width: 46ch; margin: 4vh 0 0;
+  font-family: "Agrandir", var(--font-body), sans-serif; font-size: 17px; line-height: 1.7;
+  color: #b3b8c2; }
+.home-cta { position: relative; z-index: 2; display: flex; align-items: center;
+  gap: 28px; margin-top: 4.5vh; }
+.home-go { display: inline-flex; align-items: center; gap: .9em;
+  background: var(--brand); color: var(--paper); text-decoration: none;
+  padding: 17px 30px; font-family: var(--font-mono); font-weight: 700;
+  font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+  transition: filter .18s; }
+.home-go i { font-style: normal; transition: transform .18s; }
+.home-go:hover { filter: brightness(1.12); }
+.home-go:hover i { transform: translateX(4px); }
+.home-more { font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: #8a8f99; text-decoration: none; }
+.home-more:hover { color: var(--ink); }
 
-/* one card per Grand Prix, wearing its own circuit in full red */
+/* the ticker: every race in one line, and it never stops moving */
+.home-ticker { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0;
+  border-top: 1px solid #ffffff14; background: #000000c8; overflow: hidden;
+  padding: 14px 0; }
+.home-ticker-run { display: flex; gap: 0; width: max-content;
+  animation: home-tick 48s linear infinite; }
+.home-ticker-run span { padding: 0 3vw; font-family: var(--font-mono);
+  font-size: 10.5px; font-weight: 700; letter-spacing: .24em;
+  text-transform: uppercase; color: #c9ced6; white-space: nowrap; }
+.home-ticker-run span::before { content: "▸"; margin-right: 1.2em; color: var(--led); }
+@keyframes home-tick { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+/* ============================================= 2 · the spread (cream) */
+.spread { position: relative; overflow: hidden; background: var(--paper);
+  color: var(--paper-ink); padding: 8vh 5vw 10vh; min-height: 100vh;
+  display: grid; grid-template-columns: 1fr minmax(320px, 46%);
+  grid-template-rows: auto 1fr auto; column-gap: 3vw; }
+.spread-head { grid-column: 1 / -1; display: flex; align-items: baseline;
+  gap: 22px; margin-bottom: 4vh; }
+.spread-n { font-family: var(--font-serif), serif; font-style: italic;
+  font-size: 20px; color: var(--paper-mute); }
+.spread-eyebrow { font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase; color: var(--brand); }
+/* the red graphic: the circuit, thick, where the reference had the horse */
+.spread-track { position: absolute; z-index: 0; right: 22vw; top: 3vh;
+  height: 84vh; width: auto; color: var(--brand); opacity: .9;
+  transform: rotate(-6deg); }
+/* the name runs the full width so it is big enough for the photograph to cut
+   across its right-hand end, which is the whole move in the reference */
+/* the name is set the way the LinkedIn cards set a driver's name: a red
+   condensed serif on cream, upper and lower case, big enough that the
+   photograph has to cut across it */
+.spread-name { position: relative; z-index: 1; grid-column: 1 / -1; grid-row: 2;
+  align-self: start; margin: 0; font-family: var(--font-serif), serif;
+  font-weight: 400; font-size: clamp(72px, 14.6vw, 236px); line-height: .86;
+  letter-spacing: -.015em; color: var(--brand); }
+.spread-name span { display: block; }
+.spread-name span:last-child { margin-left: .02em; }
+/* the photograph cuts across both the type and the graphic */
+.spread-shot { position: absolute; z-index: 2; right: 7vw; bottom: 0; margin: 0;
+  height: 86vh; width: min(42vw, 600px); }
+.spread-shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0;
+  display: block;
+  -webkit-mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 88%, transparent 100%); }
+.spread-copy { position: relative; z-index: 3; grid-column: 1; grid-row: 3;
+  max-width: 520px; margin-top: 4vh; }
+.spread-serif { margin: 0 0 3vh; font-family: var(--font-serif), serif;
+  font-style: italic; font-size: clamp(19px, 1.7vw, 26px); line-height: 1.42;
+  color: var(--paper-ink); }
+.spread-facts { display: flex; gap: 0; margin: 0 0 3.5vh; border-top: 1px solid #1b1c2226; }
+.spread-facts > div { flex: 1; padding: 14px 18px 0 0; }
+.spread-facts dt { font-family: var(--font-mono); font-size: 9px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--paper-mute); margin-bottom: 6px; }
+.spread-facts dd { margin: 0; font-family: var(--font-display), sans-serif;
+  font-weight: 700; font-size: 20px; letter-spacing: .01em; text-transform: uppercase; }
+.spread-go { display: inline-flex; align-items: center; gap: .9em;
+  background: var(--brand); color: var(--paper); text-decoration: none;
+  padding: 16px 28px; font-family: var(--font-mono); font-weight: 700;
+  font-size: 11px; letter-spacing: .26em; text-transform: uppercase; }
+.spread-go i { font-style: normal; transition: transform .18s; }
+.spread-go:hover i { transform: translateX(4px); }
+
+/* ---- section heads shared by the black and cream sections */
+.home-sec-head { display: grid; grid-template-columns: auto 1fr; column-gap: 22px;
+  align-items: baseline; margin-bottom: 5vh; }
+.home-sec-n { font-family: var(--font-serif), serif; font-style: italic;
+  font-size: 20px; color: #565b66; }
+.home-sec-head h2 { margin: 0; font-family: var(--font-hero), sans-serif;
+  font-weight: 400; font-size: clamp(34px, 4.6vw, 64px); line-height: .96;
+  letter-spacing: -.01em; text-transform: uppercase; }
+.home-sec-head p { grid-column: 2; margin: 14px 0 0; max-width: 60ch;
+  font-family: "Agrandir", var(--font-body), sans-serif; font-size: 16px; line-height: 1.65;
+  color: #8a8f99; }
+
+/* ============================================ 3 · the circuits (black) */
+.home-races { padding: 12vh 5vw 10vh; }
 .home-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px; }
 .home-card { position: relative; display: flex; flex-direction: column;
-  background: #050506; border: 1px solid #ffffff1c; padding: 26px 26px 22px;
-  min-height: 320px; text-decoration: none; color: var(--led);
-  transition: background-color .2s, border-color .2s; }
-.home-card:hover { background: #0d0405; border-color: #ff1c1266; }
-.home-card svg { width: 72%; max-height: 170px; margin: 0 auto 20px; flex: 1;
-  filter: drop-shadow(0 0 8px #ff1c1226); transition: filter .2s; }
-.home-card:hover svg { filter: drop-shadow(0 0 14px #ff1c1259); }
-.home-card-name { font-family: var(--font-display); font-weight: 700;
-  font-size: 30px; text-transform: uppercase; line-height: 1; color: #f2f3f5; }
-.home-card-sub { font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: .14em; color: #8a8f99; text-transform: uppercase;
+  overflow: hidden; background: #050506; border: 1px solid #ffffff1c;
+  padding: 26px 26px 22px; min-height: 380px; text-decoration: none;
+  color: var(--led); transition: border-color .2s, transform .2s; }
+.home-card:hover { border-color: color-mix(in srgb, var(--team) 70%, #ffffff1c);
+  transform: translateY(-3px); }
+.home-card-i { font-family: var(--font-serif), serif; font-style: italic;
+  font-size: 18px; color: #565b66; }
+.home-card svg { position: relative; z-index: 1; width: 64%; max-height: 160px;
+  margin: 18px auto 18px 0; filter: drop-shadow(0 0 8px #ff1c1226); }
+/* the winner, standing in the corner of his own weekend, lit by his colour */
+.home-card-face { position: absolute; z-index: 0; right: -30px; top: 8px; margin: 0;
+  width: 200px; height: 250px; pointer-events: none; }
+.home-card-face::before { content: ""; position: absolute; inset: 20% -20% -10% -20%;
+  background: radial-gradient(50% 50% at 50% 70%,
+    color-mix(in srgb, var(--team) 50%, transparent), transparent 72%); }
+.home-card-face img { position: relative; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 0; opacity: .85;
+  -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 96%);
+  mask-image: linear-gradient(180deg, #000 60%, transparent 96%); }
+.home-card-name { position: relative; z-index: 1; font-family: var(--font-hero), sans-serif;
+  font-weight: 400; font-size: 34px; text-transform: uppercase; line-height: 1;
+  color: #f2f3f5; margin-top: auto; }
+.home-card-sub { position: relative; z-index: 1; font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: .14em; color: #8a8f99; text-transform: uppercase;
   margin-top: 7px; }
-.home-card-meta { display: flex; justify-content: space-between; gap: 12px;
-  margin-top: 16px; padding-top: 12px; border-top: 1px solid #ffffff14;
-  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .12em;
-  text-transform: uppercase; }
+.home-card-win { position: relative; z-index: 1; margin-top: 12px;
+  font-family: "Agrandir", var(--font-body), sans-serif; font-size: 14px; color: #c9ced6; }
+.home-card-win b { color: var(--ink); font-weight: 600; }
+.home-card-meta { position: relative; z-index: 1; display: flex;
+  justify-content: space-between; gap: 12px; margin-top: 14px; padding-top: 12px;
+  border-top: 1px solid #ffffff14; font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: .12em; text-transform: uppercase; }
 .home-card-meta em { font-style: normal; color: #565b66; }
 .home-card-meta b { font-weight: 700; color: var(--led); }
-.home-card-go { position: absolute; top: 22px; right: 24px;
+.home-card-go { position: absolute; z-index: 1; top: 22px; right: 24px;
   font-family: var(--font-mono); font-size: 10px; font-weight: 700;
   letter-spacing: .18em; text-transform: uppercase; color: var(--led);
   opacity: 0; transition: opacity .2s; }
 .home-card:hover .home-card-go { opacity: 1; }
 
-.home-foot { margin-top: 8vh; font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: .14em; color: #565b66; text-transform: uppercase; }
-@media (prefers-reduced-motion: reduce) { .home-hero h1 { animation: none; } }
+/* ============================================= 4 · three ways (cream) */
+.ways { background: var(--paper); color: var(--paper-ink); padding: 12vh 5vw; }
+.ways .home-sec-n, .numbers .home-sec-n { color: var(--paper-mute); }
+.ways .home-sec-head p, .numbers .home-sec-head p { color: var(--paper-mute); }
+.ways-serif { font-family: var(--font-serif), serif !important; font-style: italic;
+  font-size: clamp(19px, 1.6vw, 24px) !important; line-height: 1.42 !important;
+  color: var(--paper-ink) !important; }
+.ways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: #1b1c2226; border: 1px solid #1b1c2226; }
+.way { display: flex; flex-direction: column; background: var(--paper);
+  padding: 34px 30px 30px; min-height: 420px; text-decoration: none;
+  color: var(--paper-ink); transition: background-color .2s; }
+.way:hover { background: #f5f1d9; }
+.way-n { font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase; color: var(--brand); }
+.way-art { width: 120px; height: 80px; margin: 26px 0 22px; color: var(--paper-ink); }
+.way-ghost { position: relative; width: 96px; height: 80px; margin: 26px 0 22px; }
+.way-ghost img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0;
+  filter: brightness(.22); }
+.way-ghost b { position: absolute; left: 50%; top: 44%; transform: translate(-50%, -50%);
+  font-family: var(--font-hero), sans-serif; font-size: 44px; color: transparent;
+  -webkit-text-stroke: 1.5px var(--paper); }
+.way h3 { margin: 0 0 12px; font-family: var(--font-hero), sans-serif;
+  font-weight: 400; font-size: 28px; line-height: 1; text-transform: uppercase; }
+.way p { margin: 0; font-family: "Agrandir", var(--font-body), sans-serif; font-size: 15px;
+  line-height: 1.65; color: #45474f; }
+.way-go { margin-top: auto; padding-top: 22px; font-family: var(--font-mono);
+  font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--brand); }
+
+/* =================================================== 5 · Alfred (black) */
+.alfred { padding: 12vh 5vw; display: grid; grid-template-columns: minmax(280px, 42%) 1fr;
+  column-gap: 5vw; align-items: start; }
+.alfred .home-sec-head { grid-template-columns: auto 1fr; margin-bottom: 0; }
+.alfred-chat { max-width: 560px; }
+.alfred-turn { margin-bottom: 22px; }
+.alfred-you, .alfred-him { margin: 0 0 8px; padding: 12px 16px; max-width: 86%;
+  font-family: "Agrandir", var(--font-body), sans-serif; font-size: 15px; line-height: 1.55; }
+/* a bubble is a painted surface, not a lamp: brand red, cream type */
+.alfred-you { margin-left: auto; background: var(--brand); color: var(--paper);
+  border-radius: 14px 14px 4px 14px; width: fit-content; }
+.alfred-him { background: #15171c; color: var(--ink); border-radius: 14px 14px 14px 4px;
+  width: fit-content; }
+.alfred-go { display: inline-flex; align-items: center; gap: .9em; margin-top: 10px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--led);
+  text-decoration: none; }
+.alfred-go i { font-style: normal; transition: transform .18s; }
+.alfred-go:hover i { transform: translateX(4px); }
+
+/* ================================================ 6 · numbers (cream) */
+.numbers { background: var(--paper); color: var(--paper-ink); padding: 12vh 5vw; }
+.numbers-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+  margin: 0; background: #1b1c2226; border-top: 1px solid #1b1c2226;
+  border-bottom: 1px solid #1b1c2226; }
+.numbers-row > div { background: var(--paper); padding: 30px 22px; }
+.numbers-row dd { margin: 0; font-family: var(--font-hero), sans-serif;
+  font-size: clamp(48px, 6vw, 96px); line-height: .9; color: var(--brand); }
+.numbers-row dt { margin-top: 10px; font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--paper-mute); }
+.numbers-serif { margin: 5vh 0 0; max-width: 60ch; font-family: var(--font-serif), serif;
+  font-style: italic; font-size: clamp(19px, 1.6vw, 24px); line-height: 1.42; }
+
+.home-foot { display: flex; justify-content: space-between; gap: 20px;
+  padding: 34px 5vw; border-top: 1px solid #ffffff14; font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: .14em; color: #565b66; text-transform: uppercase; }
+
+@media (max-width: 980px) {
+  .home-nav a { display: none; }
+  .home-figure, .home-hero-track { display: none; }
+  .home-hero h1 { max-width: none; }
+  .spread { grid-template-columns: 1fr; min-height: 0; padding-bottom: 6vh; }
+  .spread-track { right: -10vw; top: 30vh; height: 50vh; opacity: .35; }
+  .spread-shot { position: relative; right: auto; height: 52vh; width: 100%;
+    margin: 4vh 0 0; grid-column: 1; grid-row: 4; }
+  .spread-facts { flex-wrap: wrap; }
+  .ways-grid { grid-template-columns: 1fr; }
+  .alfred { grid-template-columns: 1fr; row-gap: 4vh; }
+  .numbers-row { grid-template-columns: repeat(2, 1fr); }
+  .home-foot { flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hero h1, .home-figure img, .home-hero-track path, .home-ticker-run { animation: none; }
+  .home-hero-track path { stroke-dashoffset: 0; }
+}
+
 
 /* ---------- final light poster (MOODBOARD_ANALISIS: elemento firma 3, ref R1) ----------
    the world flips: paper white, red as pure signal, editorial panels 12-16px */
@@ -701,7 +935,7 @@ body {
    centred on the same axis; the bands are the only full-width elements, and
    they share the page gutter so their edges line up with each other. */
 .poster { --gut: 6vw;
-  position: relative; z-index: 30; min-height: 100vh; background: #f4f2ed;
+  position: relative; z-index: 30; min-height: 100vh; background: var(--paper);
   color: #1b1c22; overflow: hidden; display: flex; flex-direction: column; }
 
 /* centred, and large enough to read as paper texture rather than a squiggle */
@@ -730,8 +964,8 @@ body {
 .poster-pos { font-family: var(--font-hero), sans-serif;
   font-size: clamp(20px, 2.2vw, 30px); line-height: 1; color: #fff;
   background: var(--accent); padding: .28em .5em .22em; letter-spacing: .02em; }
-.poster-photo { display: block; height: min(46vh, 430px); width: auto;
-  margin: -1vh 0 -6.2vh;
+.poster-photo { display: block; height: min(46vh, 430px); width: min(46vh, 430px);
+  object-fit: cover; object-position: 50% 0; margin: -1vh 0 -6.2vh;
   mix-blend-mode: multiply; filter: contrast(1.06) saturate(1.04);
   -webkit-mask-image: linear-gradient(to bottom, #000 76%, #0000 99%);
   mask-image: linear-gradient(to bottom, #000 76%, #0000 99%); }
@@ -950,66 +1184,9 @@ body {
 .mate-ask button { flex: none; width: 40px; border: 1px solid #ff1c1259;
   background: #14080a; color: var(--led); font-size: 15px; cursor: pointer;
   transition: background-color .18s, color .18s, opacity .18s; }
-.mate-ask button:hover:not(:disabled) { background: var(--led); color: #fff; }
+.mate-ask button:hover:not(:disabled) { background: var(--brand); color: var(--paper); }
 .mate-ask button:disabled { opacity: .35; cursor: default; }
 
-/* ---------- the blind test ----------
-   The sheet is the hero here, so it gets the panel treatment the circuit
-   stats get on the front door: mono labels, red figures, hairline rows. */
-.blind { min-height: 100vh; background: #000; color: var(--ink);
-  display: flex; align-items: center; justify-content: flex-start;
-  padding: 8vh 5vw; }
-.blind-intro { max-width: 640px; text-align: left; }
-.blind-eyebrow { display: block; font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: .3em; text-transform: uppercase; color: var(--led);
-  margin-bottom: 22px; }
-.blind-intro h1 { margin: 0 0 24px; font-family: var(--font-pixel), monospace;
-  font-weight: 900; color: var(--led); text-transform: uppercase;
-  line-height: .95; text-shadow: 0 0 14px #ff1c1240;
-  animation: led-breathe 6s ease-in-out infinite; }
-.blind-intro h1 span { display: block; font-size: clamp(28px, 5vw, 72px); }
-.blind-intro h1 span:last-child { margin-top: 1.2vh; }
-.blind-intro p { margin: 0 0 32px; max-width: 54ch; color: #8a8f99;
-  font-family: var(--font-mono); font-size: 11.5px; line-height: 1.9;
-  letter-spacing: .06em; text-transform: uppercase; }
-.blind-score { font-family: var(--font-hero), sans-serif; color: var(--led);
-  font-size: clamp(90px, 17vw, 200px); line-height: 1; margin-bottom: 18px; }
-.blind-score small { font-size: .28em; color: #565b66; margin-left: .18em;
-  letter-spacing: .04em; }
-
-.blind-go { display: inline-flex; align-items: center; gap: .9em;
-  border: 1px solid #ff1c12; background: #ff1c1208; color: var(--led);
-  padding: 14px 26px; font-family: var(--font-mono); font-weight: 700;
-  font-size: 11px; letter-spacing: .28em; text-transform: uppercase;
-  cursor: pointer; transition: background-color .18s, color .18s; }
-.blind-go i { font-style: normal; transition: transform .18s; }
-.blind-go:hover { background: var(--led); color: #000; }
-.blind-go:hover i { transform: translateX(4px); }
-.blind-back { display: block; margin-top: 22px; font-family: var(--font-mono);
-  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
-  color: #565b66; text-decoration: none; }
-.blind-back:hover { color: var(--ink); }
-
-.blind-run { width: 100%; max-width: 560px; }
-.blind-progress { display: flex; justify-content: space-between;
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em;
-  text-transform: uppercase; color: #565b66; margin-bottom: 26px; }
-.blind-q { display: flex; align-items: center; gap: 11px; margin: 0 0 22px;
-  font-family: var(--font-display), sans-serif; font-weight: 700;
-  font-size: 32px; text-transform: uppercase; letter-spacing: .02em;
-  color: var(--ink); }
-.blind-q::before { content: ""; width: 18px; height: 4px; background: var(--led);
-  flex: none; }
-
-.blind-sheet { margin: 0 0 26px; border-top: 1px solid #ffffff1c; }
-.blind-sheet > div { display: flex; justify-content: space-between; gap: 20px;
-  padding: 11px 0; border-bottom: 1px solid #ffffff14; }
-.blind-sheet dt { font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: .18em; text-transform: uppercase; color: #8a8f99; }
-.blind-sheet dd { margin: 0; font-family: var(--font-mono); font-size: 13px;
-  color: var(--led); text-align: right; }
-.blind-opts { margin-bottom: 0; }
-.blind-next { margin-top: 18px; }
 
 /* the way into the blind test, after the story has been told */
 .playit { position: relative; z-index: 20; background: #050506;
@@ -1017,8 +1194,8 @@ body {
 .playit-eyebrow { display: block; font-family: var(--font-mono); font-size: 10px;
   letter-spacing: .3em; text-transform: uppercase; color: var(--led);
   margin-bottom: 18px; }
-.playit h2 { margin: 0 0 16px; font-family: var(--font-display), sans-serif;
-  font-weight: 700; font-size: clamp(28px, 4.4vw, 52px); text-transform: uppercase;
+.playit h2 { margin: 0 0 16px; font-family: var(--font-hero), sans-serif;
+  font-weight: 400; font-size: clamp(28px, 4.4vw, 52px); text-transform: uppercase;
   letter-spacing: .01em; max-width: 18ch; margin-inline: auto; }
 .playit p { margin: 0 auto 30px; max-width: 46ch; color: #9aa0aa;
   font-size: 14px; line-height: 1.7; }
@@ -1118,8 +1295,8 @@ a.act:hover { background: #0d0405; border-color: #ff1c1266; }
 .act-n::before { content: ""; width: 14px; height: 3px; background: var(--led);
   flex: none; }
 .act-off .act-n::before, .act-next .act-n::before { background: #3d424d; }
-.act h2 { margin: 0 0 14px; font-family: var(--font-display), sans-serif;
-  font-weight: 700; font-size: 32px; text-transform: uppercase;
+.act h2 { margin: 0 0 14px; font-family: var(--font-hero), sans-serif;
+  font-weight: 400; font-size: 32px; text-transform: uppercase;
   letter-spacing: .02em; color: var(--ink); line-height: 1.05; }
 a.act:hover h2 { color: var(--led); }
 .act p { margin: 0 0 18px; color: #9aa0aa; font-size: 13.5px; line-height: 1.65;
@@ -1254,3 +1431,544 @@ a.act:hover .act-go { background: var(--led); color: #000; }
    read as the same piece of equipment rather than two pages */
 .fx-in .acts-head h1 span { animation: relamp 320ms both; }
 .fx-in .acts-head h1 span:last-child { animation-delay: 90ms; }
+
+/* ================================================== the activity screens
+   Two games out of the same data, deliberately built as opposites. The blind
+   test hides a face and hands you a file; the pit wall puts the face where you
+   cannot avoid it and hands you a radio. Everything below is shared only where
+   it should be (the ground, the grain, the buttons) and diverges everywhere
+   the two are actually doing different things.
+
+   Colour comes from one custom property, --team, set per driver from the feed.
+   It is used as light rather than as a border: a soft radial behind the
+   portrait, a tint on the row that is yours, the accent on his own name. A
+   hairline box around everything was what made the first pass look like a
+   stylesheet applied to a form. */
+
+.bt, .pw {
+  --ground: #05060700;
+  min-height: 100vh; position: relative; isolation: isolate;
+  background: radial-gradient(120% 90% at 50% 0%, #0c0e12 0%, #000 62%);
+  color: var(--ink);
+}
+/* film on the black, so a flat fill reads as a surface and not as nothing */
+.bt::after, .pw::after {
+  content: ""; position: fixed; inset: 0; z-index: 40; pointer-events: none;
+  opacity: .5; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+}
+
+/* ---- the furniture both screens share ---- */
+.bt-eyebrow, .pw-eyebrow { display: block; font-family: var(--font-mono);
+  font-size: 10px; font-weight: 700; letter-spacing: .32em;
+  text-transform: uppercase; color: var(--led); margin-bottom: 26px; }
+.bt-lede, .pw-lede { margin: 0 0 34px; max-width: 52ch; color: #9aa0aa;
+  font-family: "Agrandir", var(--font-body), sans-serif; font-size: 16px; line-height: 1.72; }
+.pw-lede b { color: var(--ink); font-weight: 600; }
+.bt-go, .pw-go { display: inline-flex; align-items: center; gap: .95em;
+  border: 0; background: var(--brand); color: var(--paper);
+  padding: 16px 30px; font-family: var(--font-mono); font-weight: 700;
+  font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+  cursor: pointer; transition: filter .18s, transform .18s; }
+.bt-go i, .pw-go i { font-style: normal; transition: transform .18s; }
+.bt-go:hover, .pw-go:hover { filter: brightness(1.12); }
+.bt-go:hover i, .pw-go:hover i { transform: translateX(4px); }
+.bt-go:focus-visible, .pw-go:focus-visible { outline: 2px solid #fff;
+  outline-offset: 3px; }
+/* its own line: beside an inline-flex button it sat in the button's shadow */
+.bt-back, .pw-back { display: block; width: fit-content; margin-top: 24px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: #565b66; text-decoration: none; }
+.bt-back:hover, .pw-back:hover { color: var(--ink); }
+.bt-next, .pw-next { margin-top: 22px; }
+
+/* One face, one size, and enough air between the lines to read as a title
+   rather than a stack. What made the two halves look like different sizes was
+   never the size: it was the line break landing on a colour change. With the
+   spacing fixed, the colour can stay where it earns its keep.
+   Blind test: all white. Nothing is his yet, so nothing gets his colour.
+   Pit wall: his name arrives in his team's colour, because the whole screen
+   is about whose seat you are in, and the glow behind him is already saying
+   the same thing. */
+.bt-h1, .pw-h1 { margin: 0 0 30px; font-family: var(--font-hero), sans-serif;
+  font-weight: 400; font-size: clamp(42px, 6.4vw, 104px); line-height: 1.06;
+  letter-spacing: -.015em; text-transform: uppercase; color: var(--ink); }
+.bt-h1 span, .pw-h1 span { display: block; font-size: inherit; }
+.pw-h1 span { color: var(--team); }
+
+/* ============================================================ blind test */
+.bt-cover { display: grid; grid-template-columns: 1fr minmax(300px, 46%);
+  align-items: center; gap: 4vw; padding: 10vh 5vw; }
+.bt-cover-copy { max-width: 620px; }
+/* the five of them, overlapped and blacked out: a line-up, not five cards */
+.bt-crowd { position: relative; display: flex; align-items: flex-end;
+  justify-content: center; height: min(58vh, 460px); }
+.bt-crowd img { width: 44%; height: 100%; margin-right: -18%;
+  object-fit: cover; object-position: 50% 0;
+  filter: brightness(0) invert(.17); }
+.bt-crowd img:last-child { margin-right: 0; }
+
+.bt-score { font-family: var(--font-hero), sans-serif; color: var(--led);
+  font-size: clamp(96px, 16vw, 210px); line-height: .86; margin-bottom: 22px; }
+.bt-score small { font-size: .26em; color: #4a4e56; margin-left: .16em; }
+/* who you just met, so the run ends on faces and not on a number alone */
+.bt-recap { list-style: none; display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0 0 36px; padding: 0; }
+.bt-recap li { position: relative; width: 104px; padding: 74px 10px 12px;
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--team) 22%, transparent), #0b0d10 62%);
+  overflow: hidden; }
+.bt-recap img { position: absolute; top: -6px; left: 50%; width: 104px;
+  height: 84px; object-fit: cover; object-position: 50% 0;
+  transform: translateX(-50%); }
+.bt-recap b { position: relative; display: block; font-family: var(--font-display);
+  font-weight: 700; font-size: 14px; letter-spacing: .04em;
+  text-transform: uppercase; }
+.bt-recap em { position: relative; display: block; margin-top: 2px;
+  font-style: normal; font-family: var(--font-mono); font-size: 8.5px;
+  letter-spacing: .16em; text-transform: uppercase; color: #6b7079; }
+
+.bt-stage { display: grid; grid-template-columns: minmax(300px, 36%) 1fr;
+  min-height: 100vh; }
+
+/* ---- the subject: the same photograph, blacked out until you answer ---- */
+.bt-subject { position: relative; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 8vh 3vw 9vh 5vw; overflow: hidden;
+  border-right: 1px solid #ffffff12; }
+/* the reveal is a light coming on, not a border changing colour, so the glow
+   is worth the strength: at 42% it was doing nothing on a dark livery */
+.bt-glow { position: absolute; inset: auto -34% -24% -34%; height: 86%;
+  background:
+    radial-gradient(52% 46% at 50% 84%,
+      color-mix(in srgb, var(--team) 62%, transparent), transparent 72%),
+    radial-gradient(90% 70% at 50% 100%,
+      color-mix(in srgb, var(--team) 20%, transparent), transparent 76%);
+  opacity: 0; transition: opacity .55s ease-out; }
+.bt-subject.lit .bt-glow { opacity: 1; }
+.bt-shot { position: relative; margin: 0 0 30px; display: flex;
+  justify-content: center; }
+/* the column needs a head as well as a foot, and the wording is the state of
+   the file: withheld, then identified */
+.bt-stamp { position: absolute; top: 6vh; left: 5vw; font-family: var(--font-mono);
+  font-size: 9.5px; font-weight: 700; letter-spacing: .3em;
+  text-transform: uppercase; color: #4a4e56; }
+.bt-stamp::before { content: ""; display: inline-block; width: 18px; height: 1px;
+  margin: 0 10px 3px 0; background: currentColor; vertical-align: middle; }
+.bt-subject.lit .bt-stamp { color: var(--team); }
+/* height-bounded, or a 997px portrait pushes the name plate off the bottom of
+   the screen and the redaction is the one thing that has to be visible */
+/* two images in the same box: the ghost, which every round shares, and the
+   face, which is only in the document once the answer is in. The ghost is
+   F1's own grey placeholder figure, dimmed; nothing about it is his. */
+.bt-shot { width: min(100%, 340px); height: min(38vh, 330px); }
+.bt-shot img { position: absolute; inset: 0; width: 100%; height: 100%;
+  display: block; object-fit: cover; object-position: 50% 0;
+  -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent 99%);
+  mask-image: linear-gradient(180deg, #000 86%, transparent 99%); }
+.bt-ghost { filter: brightness(.34); transition: opacity .45s ease-out; }
+.bt-subject.lit .bt-ghost { opacity: 0; }
+.bt-face { animation: bt-arrive .5s ease-out both; }
+@keyframes bt-arrive {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.bt-noshot { display: block; width: 240px; aspect-ratio: 1; border-radius: 50%;
+  background: #14171b; }
+/* the question mark has to beat the silhouette it sits on, so it is drawn as
+   an outline with a hole in it rather than as another shade of grey */
+.bt-mark { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%);
+  font-family: var(--font-hero), sans-serif; font-size: clamp(88px, 12vw, 168px);
+  line-height: 1; color: transparent; -webkit-text-stroke: 2px #6d737d;
+  text-shadow: 0 0 46px #000; }
+
+.bt-plate { position: relative; display: flex; align-items: center; gap: 16px; }
+.bt-num { font-family: var(--font-hero), sans-serif; font-size: 54px;
+  line-height: .8; color: var(--team, #3a3e45); min-width: 68px; }
+.bt-plate b { display: block; font-family: var(--font-display), sans-serif;
+  font-weight: 700; font-size: 30px; letter-spacing: .03em;
+  text-transform: uppercase; line-height: 1.05; min-height: 32px; }
+.bt-plate em { display: block; margin-top: 3px; font-style: normal;
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .22em;
+  text-transform: uppercase; color: #6b7079; min-height: 13px; }
+/* the redaction: struck out the way a released document is struck out */
+.bt-bar { display: block; height: 26px; width: 62px;
+  background: repeating-linear-gradient(112deg, #1b1e24 0 8px, #121519 8px 16px); }
+.bt-bar.wide { width: 190px; height: 28px; }
+.bt-bar.mid { width: 110px; height: 11px; margin-top: 5px; }
+.bt-subject.lit .bt-num,
+.bt-subject.lit .bt-plate b,
+.bt-subject.lit .bt-plate em { animation: bt-lift .42s ease-out both; }
+.bt-subject.lit .bt-plate b { animation-delay: .05s; }
+.bt-subject.lit .bt-plate em { animation-delay: .1s; }
+@keyframes bt-lift {
+  from { opacity: 0; clip-path: inset(0 100% 0 0); }
+  to { opacity: 1; clip-path: inset(0 -2px 0 0); }
+}
+
+/* ---- the file ---- */
+.bt-file { padding: 7vh 5vw 10vh 4vw; max-width: 780px; }
+.bt-strip { display: flex; align-items: center; gap: 24px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--ink); }
+.bt-strip em, .bt-tally em { font-style: normal; color: #565b66; }
+.bt-tally { margin-left: auto; }
+.bt-dots { display: flex; gap: 5px; }
+.bt-dots i { width: 22px; height: 2px; background: #ffffff1f; }
+.bt-dots i.done { background: #565b66; }
+.bt-dots i.on { background: var(--led); }
+
+.bt-q { margin: 30px 0 30px; font-family: var(--font-hero), sans-serif;
+  font-weight: 400; font-size: clamp(30px, 4vw, 50px); line-height: 1;
+  text-transform: uppercase; letter-spacing: .005em; }
+
+.bt-sheet { margin: 0 0 34px; }
+.bt-sheet > div { display: flex; justify-content: space-between;
+  align-items: baseline; gap: 24px; padding: 12px 14px;
+  border-bottom: 1px solid #ffffff0f; }
+.bt-sheet > div:nth-child(odd) { background: #ffffff05; }
+.bt-sheet dt { font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .2em; text-transform: uppercase; color: #6b7079; }
+.bt-sheet dd { margin: 0; font-family: var(--font-mono); font-size: 15px;
+  color: var(--ink); text-align: right; letter-spacing: .01em; }
+
+.bt-opts { list-style: none; display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; margin: 0; padding: 0; }
+.bt-opt { position: relative; display: flex; align-items: center; gap: 14px;
+  width: 100%; border: 1px solid #ffffff1a; background: #0b0d10;
+  color: #f2f3f5; padding: 15px 18px; text-align: left; cursor: pointer;
+  overflow: hidden; transition: border-color .18s, background-color .18s,
+    opacity .18s, transform .18s; }
+.bt-opt b { font-family: var(--font-display), sans-serif; font-weight: 600;
+  font-size: 17px; letter-spacing: .05em; text-transform: uppercase; }
+.bt-key { display: grid; place-items: center; width: 24px; height: 24px;
+  flex: none; border: 1px solid #ffffff26; font-family: var(--font-mono);
+  font-size: 10px; color: #6b7079; transition: border-color .18s, color .18s; }
+.bt-opt:hover:not(:disabled) { border-color: var(--led); transform: translateX(2px); }
+.bt-opt:hover:not(:disabled) .bt-key { border-color: var(--led); color: var(--led); }
+.bt-opt:focus-visible { outline: 2px solid var(--led); outline-offset: 2px; }
+.bt-opt:disabled { cursor: default; }
+.bt-opt.right { border-color: var(--ok); background: #06150d; }
+.bt-opt.right b, .bt-opt.right .bt-key { color: var(--ok); }
+.bt-opt.right .bt-key { border-color: var(--ok); }
+.bt-opt.wrong { opacity: .26; }
+.bt-opt.wrong.picked { opacity: .6; border-color: var(--led); }
+.bt-opt.wrong.picked b { text-decoration: line-through; }
+
+.bt-out { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ffffff1a; }
+.bt-verdict { font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--led); }
+.bt-verdict.got { color: var(--ok); }
+.bt-tell { margin: 14px 0 0; padding-left: 16px;
+  border-left: 2px solid var(--team, #ffffff1f); color: #c9ced6;
+  font-family: "Agrandir", var(--font-body), sans-serif; font-size: 16px; line-height: 1.68;
+  max-width: 58ch; }
+
+@media (max-width: 980px) {
+  .bt-cover { grid-template-columns: 1fr; gap: 2vh; }
+  .bt-crowd { height: 34vh; order: -1; }
+  .bt-stage { grid-template-columns: 1fr; }
+  .bt-subject { flex-direction: row; align-items: flex-end; gap: 20px;
+    border-right: 0; border-bottom: 1px solid #ffffff12;
+    padding: 4vh 5vw 3vh; }
+  .bt-shot { margin: 0; flex: none; width: 150px; height: 180px; }
+  .bt-mark { font-size: 62px; }
+  .bt-file { padding: 5vh 5vw 10vh; }
+  .bt-opts { grid-template-columns: 1fr; }
+  .bt-num { font-size: 40px; min-width: 50px; }
+  .bt-plate b { font-size: 22px; }
+}
+
+/* ============================================================== pit wall */
+/* The cover is two worlds side by side: copy on the left, and the whole of
+   the right edge given over to him. Not a portrait in a box: the panel runs
+   from the top bar to the bottom of the screen, his colour fills it like
+   smoke, and he stands at the foot of it. The copy column keeps the page's
+   own padding; the panel has none, because a margin around it would turn
+   it back into a card. */
+.pw-cover { display: grid; grid-template-columns: 1fr minmax(320px, 44%);
+  align-items: stretch; gap: 0; padding: 0; min-height: calc(100vh - 42px); }
+/* content-box, so the 660px is the width of the words and not of the words
+   plus the padding: on border-box the title lost 170px to its own margins and
+   HADJAR'S RADIO broke onto a third line */
+.pw-cover-copy { box-sizing: content-box; max-width: 740px; align-self: center;
+  padding: 9vh 4vw 9vh 5vw; }
+/* a surname's worth of room: HAMILTON'S RADIO and VERSTAPPEN'S RADIO have to
+   sit on one line each, or the title is two lines for one driver and three
+   for the next */
+.pw-cover .pw-h1 { font-size: clamp(42px, 5.6vw, 94px); }
+
+.pw-stage { display: grid; grid-template-columns: 1fr minmax(276px, 32%);
+  min-height: 100vh; }
+.pw-desk { padding: 7vh 4vw 10vh 5vw; max-width: 820px; }
+/* sticky, or the claim that he never leaves the screen is only true on the
+   first call: seven options and a verdict make the desk twice the height of
+   the viewport, and the rail was scrolling away with it */
+.pw-rail { position: sticky; top: 0; align-self: start; height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  border-left: 1px solid #ffffff12; padding: 6vh 2.5vw 5vh; overflow: hidden; }
+
+/* the man himself, lit from below by his own colour */
+.pw-shot { position: relative; margin: 0; }
+.pw-glow { position: absolute; inset: auto -40% -14% -40%; height: 84%;
+  background:
+    radial-gradient(50% 44% at 50% 86%,
+      color-mix(in srgb, var(--team) 58%, transparent), transparent 74%),
+    radial-gradient(92% 70% at 50% 100%,
+      color-mix(in srgb, var(--team) 18%, transparent), transparent 78%); }
+.pw-shot img { position: relative; display: block; width: 100%; height: auto;
+  max-width: 360px; margin: 0 auto; object-fit: cover; object-position: 50% 0;
+  -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 99%);
+  mask-image: linear-gradient(180deg, #000 82%, transparent 99%); }
+/* in the rail he shares the column with the two live numbers, and those are
+   the half that has to be on screen: a 997px portrait pushed them under the
+   fold on anything shorter than a desktop */
+.pw-rail .pw-shot img { width: min(100%, 300px); height: min(40vh, 360px);
+  max-height: none; }
+.pw-noshot { position: relative; display: grid; place-items: center;
+  width: 180px; aspect-ratio: 1; margin: 0 auto; border-radius: 50%;
+  background: #12151a; font-family: var(--font-hero), sans-serif;
+  font-size: 66px; color: var(--team); }
+.pw-shot figcaption { position: relative; display: grid;
+  grid-template-columns: auto 1fr; align-items: center; gap: 4px 14px;
+  margin-top: 14px; padding-top: 16px; border-top: 1px solid #ffffff1a; }
+.pw-num { grid-row: 1 / span 2; font-family: var(--font-hero), sans-serif;
+  font-size: 52px; line-height: .8; color: var(--team); }
+.pw-shot figcaption b { font-family: var(--font-display), sans-serif;
+  font-weight: 700; font-size: 26px; letter-spacing: .03em;
+  text-transform: uppercase; line-height: 1; align-self: end; }
+.pw-shot figcaption em { font-style: normal; font-family: var(--font-mono);
+  font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase;
+  color: #6b7079; }
+.pw-cover .pw-shot { position: relative; display: flex; flex-direction: column;
+  justify-content: flex-end; min-height: calc(100vh - 42px);
+  padding: 0 3vw 5vh; overflow: visible; }
+/* The smoke. A wash that rises from the floor of the panel to nothing near
+   the top, the brighter core behind his shoulders, and no edge on the left:
+   the glow runs a third of the way into the copy column and is masked out
+   to nothing on the way, so the two halves of the screen meet in a fade and
+   not in a seam. A border there read as a cut between two sections. */
+.pw-cover .pw-glow { inset: 0 0 0 -36%; height: auto;
+  background:
+    radial-gradient(52% 42% at 62% 74%,
+      color-mix(in srgb, var(--team) 64%, transparent), transparent 74%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--team) 6%, transparent) 0%,
+      color-mix(in srgb, var(--team) 14%, transparent) 46%,
+      color-mix(in srgb, var(--team) 30%, transparent) 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 38%); }
+.pw-cover .pw-shot img { width: min(100%, 560px); height: 74vh; max-height: none;
+  margin: 0 auto; object-fit: cover; object-position: 50% 0; }
+.pw-cover .pw-shot figcaption { margin-top: 0; padding-top: 18px; }
+
+/* the only two numbers that move while you play */
+.pw-live { position: relative; margin-top: 26px; }
+.pw-live > div { padding: 12px 0; border-top: 1px solid #ffffff14; }
+.pw-live dt { font-family: var(--font-mono); font-size: 9px; letter-spacing: .22em;
+  text-transform: uppercase; color: #6b7079; margin-bottom: 5px; }
+.pw-live dd { margin: 0; font-family: var(--font-hero), sans-serif;
+  font-size: 40px; line-height: 1; color: #5c6169; }
+.pw-live dd small { margin-left: .2em; font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: .1em; color: #43474e; }
+.pw-live dd.bad { color: var(--led); }
+.pw-live dd.good { color: var(--ok); }
+
+.pw-kicker { display: flex; align-items: baseline; gap: 14px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: .28em; text-transform: uppercase; color: var(--led); }
+.pw-kicker em { font-style: normal; font-weight: 500; letter-spacing: .2em;
+  color: #565b66; }
+.pw-q { margin: 14px 0 32px; font-family: var(--font-hero), sans-serif;
+  font-weight: 400; font-size: clamp(30px, 4.2vw, 54px); line-height: 1;
+  text-transform: uppercase; letter-spacing: .005em; }
+
+/* the state of the race: an instrument cluster, not a paragraph */
+.pw-instruments { display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px; background: #ffffff14; border: 1px solid #ffffff14;
+  margin-bottom: 34px; }
+.pw-instruments > div { background: #08090b; padding: 14px 16px; }
+.pw-instruments dt { font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: .22em; text-transform: uppercase; color: #6b7079;
+  margin-bottom: 7px; }
+.pw-instruments dd { margin: 0; font-family: var(--font-mono); font-size: 14px;
+  color: var(--ink); }
+
+.pw-opts { list-style: none; display: flex; flex-direction: column; gap: 7px;
+  margin: 0; padding: 0; }
+.pw-opt { position: relative; display: grid;
+  grid-template-columns: 54px 1fr auto; align-items: center; gap: 18px;
+  width: 100%; border: 1px solid #ffffff1a; background: #0b0d10;
+  color: #f2f3f5; padding: 14px 18px; text-align: left; cursor: pointer;
+  transition: border-color .18s, background-color .18s, opacity .18s,
+    transform .18s; }
+/* the lap chip: which lap this call actually puts him in the lane on */
+.pw-lap { display: grid; place-items: center; padding: 5px 0;
+  border: 1px solid #ffffff1f; font-family: var(--font-mono); font-size: 8.5px;
+  letter-spacing: .18em; color: #6b7079; }
+.pw-lap b { display: block; font-family: var(--font-hero), sans-serif;
+  font-size: 20px; line-height: 1; color: var(--ink); letter-spacing: 0; }
+.pw-said b { display: block; font-family: var(--font-display), sans-serif;
+  font-weight: 600; font-size: 16.5px; letter-spacing: .04em;
+  text-transform: uppercase; }
+.pw-said small { display: block; margin-top: 3px; font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: .03em; color: #7c828c; }
+.pw-cost { text-align: right; min-width: 76px; }
+.pw-cost i { display: block; font-style: normal;
+  font-family: var(--font-hero), sans-serif; font-size: 21px; line-height: 1;
+  color: var(--ink); }
+.pw-cost i.hush { color: #2c3037; }
+.pw-cost u { display: block; margin-top: 4px; text-decoration: none;
+  font-family: var(--font-mono); font-size: 8px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--led); min-height: 10px; }
+.pw-opt:hover:not(:disabled) { border-color: var(--team); transform: translateX(2px); }
+.pw-opt:hover:not(:disabled) .pw-lap { border-color: var(--team); }
+.pw-opt:focus-visible { outline: 2px solid var(--led); outline-offset: 2px; }
+.pw-opt:disabled { cursor: default; opacity: .4; }
+.pw-opt.picked { opacity: 1; border-color: #ffffff8c; background: #14171c; }
+.pw-opt.best { opacity: 1; border-color: var(--ok); }
+.pw-opt.best .pw-said b, .pw-opt.best .pw-cost i { color: var(--ok); }
+
+.pw-out { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ffffff1a; }
+.pw-verdict { font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--led); }
+.pw-verdict.good { color: var(--ok); }
+.pw-reading { margin: 14px 0 0; padding-left: 16px;
+  border-left: 2px solid var(--team); color: #c9ced6;
+  font-family: "Agrandir", var(--font-body), sans-serif; font-size: 16px; line-height: 1.68;
+  max-width: 58ch; }
+
+/* the flag */
+.pw-terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 1px; background: #ffffff14; border: 1px solid #ffffff14; margin: 0; }
+.pw-terms > div { background: #08090b; padding: 14px 16px; }
+.pw-terms dt { font-family: var(--font-mono); font-size: 9px; letter-spacing: .2em;
+  text-transform: uppercase; color: #6b7079; margin-bottom: 7px; }
+.pw-terms dd { margin: 0; font-family: var(--font-hero), sans-serif;
+  font-size: 30px; line-height: 1; color: var(--ink); }
+.pw-terms dd small { display: block; margin-top: 5px; font-family: var(--font-mono);
+  font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
+  color: #6b7079; }
+.pw-fine { margin: 14px 0 34px; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .14em; text-transform: uppercase; color: #43474e; }
+
+.pw-result { display: flex; align-items: flex-end; gap: 34px; margin-bottom: 26px; }
+.pw-place { font-family: var(--font-hero), sans-serif; line-height: .82;
+  font-size: clamp(92px, 14vw, 190px); color: var(--team); }
+.pw-place small { font-size: .28em; color: #4a4e56; margin-right: .05em;
+  vertical-align: super; }
+.pw-final { padding-bottom: 2.6vh; }
+.pw-final b { display: block; font-family: var(--font-hero), sans-serif;
+  font-size: clamp(32px, 4.6vw, 58px); line-height: 1; color: #5c6169; }
+.pw-final b.bad { color: var(--led); }
+.pw-final b.good { color: var(--ok); }
+.pw-final span { display: block; margin-top: 6px; font-family: var(--font-mono);
+  font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase;
+  color: #6b7079; }
+
+.pw-ladder { list-style: none; margin: 0 0 38px; padding: 0;
+  border-top: 1px solid #ffffff1a; max-width: 540px; }
+.pw-ladder li { display: flex; align-items: baseline; gap: 18px; padding: 10px 12px;
+  border-bottom: 1px solid #ffffff0f; font-family: var(--font-mono);
+  font-size: 12px; color: #8a8f99; }
+.pw-ladder b { min-width: 26px; font-family: var(--font-hero), sans-serif;
+  font-size: 18px; font-weight: 400; color: #43474e; }
+.pw-ladder span { flex: 1; letter-spacing: .06em; text-transform: uppercase; }
+.pw-ladder em { font-style: normal; font-size: 11px; color: #6b7079; }
+.pw-ladder li.you { color: var(--ink);
+  background: color-mix(in srgb, var(--team) 13%, transparent); }
+.pw-ladder li.you b, .pw-ladder li.you em { color: var(--team); }
+
+@media (max-width: 980px) {
+  .pw-cover { grid-template-columns: 1fr; gap: 0; min-height: 0; }
+  .pw-cover-copy { padding: 5vh 5vw 9vh; }
+  .pw-cover .pw-shot { order: -1; min-height: 0; padding: 4vh 5vw 3vh;
+    overflow: hidden; }
+  .pw-cover .pw-glow { inset: 0; -webkit-mask-image: none; mask-image: none; }
+  .pw-cover .pw-shot img { width: min(100%, 320px); height: 42vh; }
+  .pw-stage { grid-template-columns: 1fr; }
+  .pw-rail { position: static; height: auto; order: -1; flex-direction: row;
+    align-items: flex-end; gap: 22px; border-left: 0;
+    border-bottom: 1px solid #ffffff12; padding: 3vh 5vw 2vh; }
+  .pw-rail .pw-shot { flex: none; width: 140px; }
+  .pw-rail .pw-shot img { width: 140px; height: 170px; }
+  .pw-shot figcaption { margin-top: 8px; padding-top: 10px; }
+  .pw-num { font-size: 34px; }
+  .pw-shot figcaption b { font-size: 18px; }
+  .pw-live { flex: 1; margin-top: 0; display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; }
+  .pw-live > div { border-top: 0; padding: 0; }
+  .pw-live dd { font-size: 26px; }
+  .pw-desk { padding: 4vh 5vw 10vh; }
+  .pw-opt { grid-template-columns: 44px 1fr; gap: 12px; }
+  .pw-cost { grid-column: 2; text-align: left; margin-top: 6px; }
+  .pw-cost i { display: inline-block; font-size: 17px; }
+  .pw-cost u { display: inline-block; margin: 0 0 0 10px; }
+  .pw-result { gap: 20px; }
+  .pw-ladder em { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bt-subject.lit .bt-num,
+  .bt-subject.lit .bt-plate b,
+  .bt-subject.lit .bt-plate em { animation: none; }
+  .bt-ghost, .bt-glow { transition: none; }
+  .bt-face { animation: none; }
+}
+
+/* ================================================== the glossary in place
+   A label that explains itself. Every screen here is real timing data, which
+   means every screen is full of words a broadcast uses and never defines:
+   median lap, undercut, stint, deleted lap. Honest numbers under impenetrable
+   labels is not clarity, it is homework.
+
+   The panel is CSS only, shown on hover, on tap and on keyboard focus, so
+   thirty of them on one page cost nothing to render and none of them need
+   JavaScript to open. */
+.term { position: relative; display: inline-block; }
+.term-word { border: 0; background: none; padding: 0; margin: 0; cursor: help;
+  font: inherit; letter-spacing: inherit; text-transform: inherit;
+  color: inherit; text-align: inherit;
+  border-bottom: 1px dotted currentColor; opacity: .85;
+  transition: color .15s, opacity .15s; }
+.term-word:hover, .term:focus-within .term-word { color: var(--led); opacity: 1; }
+.term-word:focus-visible { outline: 2px solid var(--led); outline-offset: 3px; }
+
+.term-pop { position: absolute; z-index: 60; left: 0; top: calc(100% + 10px);
+  width: max-content; max-width: min(300px, 74vw); padding: 13px 15px;
+  background: #0d0f13; border: 1px solid #ffffff26;
+  box-shadow: 0 18px 40px #000000cc;
+  opacity: 0; visibility: hidden; transform: translateY(-4px);
+  transition: opacity .16s, transform .16s, visibility .16s;
+  text-align: left; text-transform: none; letter-spacing: 0; }
+.term-word:hover + .term-pop, .term:focus-within .term-pop {
+  opacity: 1; visibility: visible; transform: none; }
+/* the arrow, so the panel is clearly attached to the word it explains */
+.term-pop::before { content: ""; position: absolute; top: -5px; left: 14px;
+  width: 8px; height: 8px; background: #0d0f13;
+  border-left: 1px solid #ffffff26; border-top: 1px solid #ffffff26;
+  transform: rotate(45deg); }
+.term-pop b { display: block; margin-bottom: 6px; font-family: var(--font-mono);
+  font-size: 9px; font-weight: 700; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--led); }
+.term-pop span { display: block; font-family: "Agrandir", var(--font-body), sans-serif;
+  font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+.term-pop em { display: block; margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid #ffffff14; font-style: normal;
+  font-family: "Agrandir", var(--font-body), sans-serif; font-size: 12.5px; line-height: 1.5;
+  color: #8a8f99; }
+/* the last cell of a row sits against the right edge, so its panel hangs the
+   other way rather than off the screen */
+.pw-instruments div:last-child .term-pop,
+.pw-terms div:last-child .term-pop { left: auto; right: 0; }
+.pw-instruments div:last-child .term-pop::before,
+.pw-terms div:last-child .term-pop::before { left: auto; right: 14px; }
+
+/* what the seconds in the right-hand column are measured against */
+.pw-scale { margin: 0 0 16px; max-width: 62ch; font-family: var(--font-mono);
+  font-size: 10.5px; line-height: 1.8; letter-spacing: .04em;
+  text-transform: uppercase; color: #6b7079; }
+
+@media (prefers-reduced-motion: reduce) {
+  .term-pop { transition: none; }
+}

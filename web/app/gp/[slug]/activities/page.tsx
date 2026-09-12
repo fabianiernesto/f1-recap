@@ -20,7 +20,7 @@ export default async function ActivitiesPage({
   if (!listGPs().includes(slug)) notFound();
   const weekend = loadWeekend(slug);
   const acts = activitiesFor(slug, weekend);
-  const live = acts.blind ? 1 : 0;
+  const live = (acts.blind ? 1 : 0) + (acts.pitwall ? 1 : 0);
 
   return (
     <>
@@ -42,9 +42,9 @@ export default async function ActivitiesPage({
           </h1>
           <p>
             {live
-              ? `${live} way to play with this Grand Prix, and the rest of them `
-                + "on the way. Every one is built from the same timing data as "
-                + "the weekend itself."
+              ? `${live} way${live > 1 ? "s" : ""} to play with this Grand Prix, `
+                + "and the rest of them on the way. Every one is built from the "
+                + "same timing data as the weekend itself."
               : "Nothing to play with here yet. The activities arrive with the "
                 + "timing data."}
           </p>
@@ -79,16 +79,37 @@ export default async function ActivitiesPage({
             </div>
           )}
 
-          <div className="act act-next">
-            <span className="act-n">Activity 02</span>
-            <h2>The pit wall</h2>
-            <p>
-              You take the calls this weekend actually faced: when to stop, what
-              to do when the safety car lands, whether to cover the car behind.
-              At the flag it tells you where your afternoon would have ended.
-            </p>
-            <span className="act-meta">In the works</span>
-          </div>
+          {acts.pitwall ? (
+            <Link
+              href={`/gp/${slug}/${acts.pitwall.session}/pitwall`}
+              className="act"
+            >
+              <span className="act-n">Activity 02</span>
+              <h2>The pit wall</h2>
+              <p>
+                You take {acts.pitwall.driver}&rsquo;s seat at{" "}
+                {acts.pitwall.team} and make the calls his garage made, with the
+                race frozen where they made them. At the flag it tells you where
+                your afternoon would have ended.
+              </p>
+              <span className="act-meta">
+                {acts.pitwall.calls} calls · {acts.pitwall.margin}s decided his
+                race · about 3 minutes
+              </span>
+              <span className="act-go">Play →</span>
+            </Link>
+          ) : (
+            <div className="act act-off">
+              <span className="act-n">Activity 02</span>
+              <h2>The pit wall</h2>
+              <p>
+                Needs a race whose tyre wear can be measured against what the
+                strategists actually did. This one&rsquo;s cannot, so there is
+                nothing honest to ask you here.
+              </p>
+              <span className="act-meta">Not this weekend</span>
+            </div>
+          )}
 
           <div className="act act-next">
             <span className="act-n">Activity 03</span>

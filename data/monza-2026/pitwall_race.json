@@ -1,0 +1,252 @@
+{
+  "session": "Race",
+  "laps": 53,
+  "driver": {
+    "name": "Antonelli",
+    "number": 12,
+    "team": "Mercedes",
+    "colour": "00D7B6",
+    "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
+    "start": 19,
+    "finish": 1,
+    "margin": 3.857
+  },
+  "economics": {
+    "pitLoss": 24.2,
+    "fuelTrend": -0.0253,
+    "tyres": {
+      "HARD": {
+        "deg": 0.005,
+        "base": 0.691,
+        "laps": 455
+      },
+      "SOFT": {
+        "deg": 0.0602,
+        "base": 0.01,
+        "laps": 61
+      },
+      "MEDIUM": {
+        "deg": 0.0113,
+        "base": 0.474,
+        "laps": 350
+      }
+    },
+    "typicalDeg": 0.0113
+  },
+  "calls": [
+    {
+      "lap": 28,
+      "kicker": "The first stop",
+      "question": "When do you box him?",
+      "facts": [
+        [
+          "Running",
+          "P6"
+        ],
+        [
+          "Tyre",
+          "medium, 24 laps old"
+        ],
+        [
+          "Ahead",
+          "Gasly, 2.2s up"
+        ],
+        [
+          "Behind",
+          "Verstappen"
+        ]
+      ],
+      "options": [
+        {
+          "label": "12 laps earlier",
+          "lap": 16,
+          "lost": 1.8,
+          "real": false,
+          "note": "12 laps on the mediums, then 37 on the mediums."
+        },
+        {
+          "label": "8 laps earlier",
+          "lap": 20,
+          "lost": 0.8,
+          "real": false,
+          "note": "16 laps on the mediums, then 33 on the mediums."
+        },
+        {
+          "label": "4 laps earlier",
+          "lap": 24,
+          "lost": 0.2,
+          "real": false,
+          "note": "20 laps on the mediums, then 29 on the mediums."
+        },
+        {
+          "label": "Box him now, lap 28",
+          "lap": 28,
+          "lost": 0.0,
+          "real": true,
+          "note": "24 laps on the mediums, then 25 on the mediums."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 32,
+          "lost": 0.1,
+          "real": false,
+          "note": "28 laps on the mediums, then 21 on the mediums."
+        },
+        {
+          "label": "8 laps later",
+          "lap": 36,
+          "lost": 0.6,
+          "real": false,
+          "note": "32 laps on the mediums, then 17 on the mediums."
+        },
+        {
+          "label": "12 laps later",
+          "lap": 40,
+          "lost": 1.5,
+          "real": false,
+          "note": "36 laps on the mediums, then 13 on the mediums."
+        }
+      ],
+      "reading": "The mediums lose 11ms a lap as they age, the mediums 11ms. The stint has to reach lap 53 either way."
+    },
+    {
+      "lap": 28,
+      "kicker": "The last set",
+      "question": "25 laps to the flag. What goes on the car?",
+      "facts": [
+        [
+          "Running",
+          "P6"
+        ],
+        [
+          "Tyre",
+          "medium, 24 laps old"
+        ],
+        [
+          "Ahead",
+          "Gasly, 2.2s up"
+        ],
+        [
+          "Behind",
+          "Verstappen"
+        ]
+      ],
+      "options": [
+        {
+          "label": "Medium",
+          "lap": 28,
+          "lost": 0.0,
+          "real": true,
+          "note": "11ms a lap of wear, over 25 laps."
+        },
+        {
+          "label": "Hard",
+          "lap": 28,
+          "lost": 3.4,
+          "real": false,
+          "note": "5ms a lap of wear, over 25 laps."
+        },
+        {
+          "label": "Soft",
+          "lap": 28,
+          "lost": 4.3,
+          "real": false,
+          "note": "60ms a lap of wear, over 25 laps."
+        }
+      ],
+      "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters."
+    }
+  ],
+  "ladder": [
+    {
+      "pos": 1,
+      "name": "Antonelli",
+      "team": "Mercedes",
+      "gap": 0.0
+    },
+    {
+      "pos": 2,
+      "name": "Russell",
+      "team": "Mercedes",
+      "gap": 3.857
+    },
+    {
+      "pos": 3,
+      "name": "Verstappen",
+      "team": "Red Bull Racing",
+      "gap": 14.718
+    },
+    {
+      "pos": 4,
+      "name": "Norris",
+      "team": "McLaren",
+      "gap": 19.056
+    },
+    {
+      "pos": 5,
+      "name": "Piastri",
+      "team": "McLaren",
+      "gap": 19.253
+    },
+    {
+      "pos": 6,
+      "name": "Hamilton",
+      "team": "Ferrari",
+      "gap": 24.655
+    },
+    {
+      "pos": 7,
+      "name": "Gasly",
+      "team": "Alpine",
+      "gap": 27.351
+    },
+    {
+      "pos": 8,
+      "name": "Lindblad",
+      "team": "Racing Bulls",
+      "gap": 45.136
+    },
+    {
+      "pos": 9,
+      "name": "Colapinto",
+      "team": "Alpine",
+      "gap": 47.353
+    },
+    {
+      "pos": 10,
+      "name": "Tsunoda",
+      "team": "Racing Bulls",
+      "gap": 58.187
+    },
+    {
+      "pos": 11,
+      "name": "Bortoleto",
+      "team": "Audi",
+      "gap": 65.187
+    },
+    {
+      "pos": 12,
+      "name": "Hulkenberg",
+      "team": "Audi",
+      "gap": 66.187
+    },
+    {
+      "pos": 13,
+      "name": "Sainz",
+      "team": "Williams",
+      "gap": 74.117
+    },
+    {
+      "pos": 14,
+      "name": "Lawson",
+      "team": "Red Bull Racing",
+      "gap": 75.609
+    },
+    {
+      "pos": 15,
+      "name": "Bearman",
+      "team": "Haas F1 Team",
+      "gap": 78.958
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "gp": "Spanish Grand Prix 2026",
+  "session": "Practice 1",
+  "sessionSlug": "fp1",
+  "circuit": "Barcelona",
+  "laps": 30,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Spanish Grand Prix · Practice 1",
+      "title": "Practice, honestly",
+      "text": "544 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 11",
+      "title": "Russell: 1:16.363",
+      "text": "In a Mercedes. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Beganovic racked up 29 laps",
+      "text": "Track time is the currency of a Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Beganovic",
+            29
+          ],
+          [
+            "Lindblad",
+            28
+          ],
+          [
+            "Verstappen",
+            28
+          ],
+          [
+            "Leclerc",
+            28
+          ],
+          [
+            "Piastri",
+            28
+          ],
+          [
+            "Colapinto",
+            27
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Long-run pace",
+      "title": "Piastri looked strongest over a stint",
+      "text": "Average clean lap across the session. This is the number teams actually care about on a Friday, not the headline time.",
+      "dato": {
+        "label": "Average clean lap",
+        "rows": [
+          [
+            "Piastri",
+            "1:17.640"
+          ],
+          [
+            "Leclerc",
+            "1:18.108"
+          ],
+          [
+            "Verstappen",
+            "1:18.276"
+          ],
+          [
+            "Lindblad",
+            "1:18.797"
+          ],
+          [
+            "Colapinto",
+            "1:19.349"
+          ],
+          [
+            "Bearman",
+            "1:20.018"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice on a Friday is a rehearsal for Sunday's plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "MEDIUM",
+            60
+          ],
+          [
+            "SOFT",
+            46
+          ],
+          [
+            "HARD",
+            9
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "ARON topped the trap at 342 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "7 flag calls",
+      "text": "Every interruption costs somebody a run they had planned."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 47°C and 50°C",
+      "text": "Friday conditions rarely match Sunday, which is why the times you see here mislead so often."
+    }
+  ]
+}

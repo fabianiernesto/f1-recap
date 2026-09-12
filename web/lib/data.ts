@@ -1,17 +1,33 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { BlindTest, Brain, MateThread, Story, Track, Weekend } from "./types";
+import type {
+  BlindTest, Brain, MateThread, PitWall, Story, Track, Weekend,
+} from "./types";
 
 // scripts/sync-data.mjs copies the pipeline output into web/data, and
-// scripts/dev.mjs pins cwd to web/ in dev — so this path is always right
+// scripts/dev.mjs pins cwd to web/ in dev, so this path is always right
 // and stays statically scoped for the build tracer.
 const DATA_DIR = path.join(process.cwd(), "data");
 
+/**
+ * The weekends the site shows: only the ones with at least one session built.
+ *
+ * A circuit arrives in two steps, the track shape from FastF1 first and the
+ * sessions from OpenF1 second, and OpenF1 locks itself to paying users for the
+ * whole of a live race weekend. So a folder can sit with a track and no
+ * sessions for a day, and a card on the home page promising "0 sessions · 0
+ * moments" is worse than no card at all.
+ */
 export function listGPs(): string[] {
   if (!fs.existsSync(DATA_DIR)) return [];
   return fs
     .readdirSync(DATA_DIR)
-    .filter((d) => fs.existsSync(path.join(DATA_DIR, d, "weekend.json")));
+    .filter((d) => {
+      const f = path.join(DATA_DIR, d, "weekend.json");
+      if (!fs.existsSync(f)) return false;
+      const w = JSON.parse(fs.readFileSync(f, "utf-8")) as Weekend;
+      return Array.isArray(w.sessions) && w.sessions.length > 0;
+    });
 }
 
 function readJSON<T>(...parts: string[]): T {
@@ -58,6 +74,14 @@ export function loadBlind(slug: string, session: string): BlindTest | null {
     : null;
 }
 
+/** The strategy calls one garage faced, with what each answer cost. */
+export function loadPitWall(slug: string, session: string): PitWall | null {
+  const f = path.join(DATA_DIR, slug, `pitwall_${session}.json`);
+  return fs.existsSync(f)
+    ? (JSON.parse(fs.readFileSync(f, "utf-8")) as PitWall)
+    : null;
+}
+
 /**
  * What a Grand Prix actually offers, counted once.
  *
@@ -89,6 +113,12 @@ export function activitiesFor(slug: string, weekend: Weekend) {
         }
       : null;
 
+  // the pit wall exists only where the tyre data held up, so it is asked for
+  // rather than assumed: see pipeline/pitwall.py
+  const raceWall = loadPitWall(slug, "race");
+  const wall = raceWall ?? loadPitWall(slug, "sprint");
+  const wallSession = raceWall ? "race" : "sprint";
+
   return {
     scroll: sessions.length > 0,
     sessions: sessions.length,
@@ -97,5 +127,14 @@ export function activitiesFor(slug: string, weekend: Weekend) {
     laps: weekend.laps,
     alfred,
     blind,
+    pitwall: wall
+      ? {
+          session: wallSession,
+          driver: wall.driver.name,
+          team: wall.driver.team,
+          calls: wall.calls.length,
+          margin: wall.driver.margin,
+        }
+      : null,
   };
 }

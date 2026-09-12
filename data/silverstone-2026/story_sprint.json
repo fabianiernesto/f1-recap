@@ -80,7 +80,7 @@
       "lap": 5,
       "kicker": "The one doing the passing",
       "title": "Leclerc: 4 overtakes",
-      "text": "More than anybody else out there, in a Ferrari.",
+      "text": "Level with Albon and Hadjar on the same number, in a Ferrari.",
       "bullets": [
         "P4 on the grid, P5 at the flag"
       ],
@@ -129,7 +129,7 @@
       "title": "4 incidents looked at",
       "text": "Race control saw more than it acted on.",
       "bullets": [
-        "Turn 3 Incident Involving Cars 11 (Per) And 14 (Alo) Noted - Causing A Collision"
+        "somebody, noted: causing a collision"
       ],
       "note": "Being noted is not the same as being punished. Most of these get looked at, argued over on the radio, and quietly dropped a few laps later."
     },
@@ -224,7 +224,7 @@
       "type": "moment",
       "lap": 8,
       "kicker": "Penalties",
-      "title": "1 penalty calls",
+      "title": "1 penalty handed out",
       "text": "Time added, places lost, and sometimes a result rewritten after the flag.",
       "bullets": [
         "Perez: 10s for causing a collision"
@@ -350,9 +350,8 @@
       "text": "Saturday promised one thing and Sunday delivered another.",
       "bullets": [
         "P18 on the grid, P22 at the flag",
-        "1 stops when most of the field did 1"
-      ],
-      "note": "Qualifying flatters whoever can put one lap together. A race asks for sixty of them."
+        "Qualifying flatters whoever can put one lap together. A race asks for 17 of them"
+      ]
     },
     {
       "type": "moment",

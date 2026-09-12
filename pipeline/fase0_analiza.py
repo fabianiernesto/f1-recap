@@ -1,5 +1,5 @@
 """
-Fase 0 — Análisis de la carrera piloto (Silverstone 2026, Race).
+Fase 0: Análisis de la carrera piloto (Silverstone 2026, Race).
 Lee la caché local y responde: ¿qué momentos podemos detectar y con qué calidad?
 
 Uso:  python fase0_analiza.py

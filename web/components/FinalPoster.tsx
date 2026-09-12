@@ -1,20 +1,13 @@
 import type { Story, Track } from "@/lib/types";
+import { bigPhoto } from "@/lib/photo";
 
-/**
- * The headshot URL the feed hands over ends in /1col/, which is F1's 93 pixel
- * thumbnail. Blown up to poster height that is the whole reason this section
- * looked cheap. The same path serves /9col/ at 997 pixels.
- */
-function bigPhoto(url: string): string {
-  return url.replace("/1col/", "/9col/");
-}
 
 function mmss(t: number): string {
   return `${Math.floor(t / 60)}:${(t % 60).toFixed(3).padStart(6, "0")}`;
 }
 
 /**
- * The light finale — signature element #3 (moodboard R1, Ferrari result page):
+ * The light finale: signature element #3 (moodboard R1, Ferrari result page):
  * the recap ends by flipping the world to paper white.
  *
  * Everything sits on one centre line. An earlier pass hung the name off the
@@ -92,11 +85,11 @@ export default function FinalPoster({
         </div>
         <div>
           <dt>Fastest lap</dt>
-          <dd>{r.fastest ? `${r.fastest.last} · ${mmss(r.fastest.time)}` : "—"}</dd>
+          <dd>{r.fastest ? `${r.fastest.last} · ${mmss(r.fastest.time)}` : "-"}</dd>
         </div>
         <div>
           <dt>Winning margin</dt>
-          <dd>{second?.gap ? `${second.gap.toFixed(3)}s` : "—"}</dd>
+          <dd>{second?.gap ? `${second.gap.toFixed(3)}s` : "-"}</dd>
         </div>
       </dl>
 

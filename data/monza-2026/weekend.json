@@ -1,0 +1,76 @@
+{
+  "slug": "monza-2026",
+  "gp": "Italian Grand Prix 2026",
+  "short": "Italian Grand Prix",
+  "circuit": "Monza",
+  "country": "Italy",
+  "date": "06 SEP 2026",
+  "laps": 53,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "545 laps run, no points at stake",
+      "moments": 8,
+      "laps": 29
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "618 laps run, no points at stake",
+      "moments": 8,
+      "laps": 37
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "472 laps run, no points at stake",
+      "moments": 8,
+      "laps": 29
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Gasly on pole",
+      "moments": 9,
+      "laps": 19
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "155 on-track passes, 1 safety car",
+      "moments": 31,
+      "laps": 53
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Kimi",
+      "last": "Antonelli",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 12,
+      "start": 19,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp"
+    },
+    "margin": 3.857,
+    "runnerUp": "Russell",
+    "fastest": {
+      "last": "Antonelli",
+      "time": "1:23.504"
+    },
+    "passes": 155,
+    "stops": 9,
+    "dnfs": 3,
+    "safetyCars": 1,
+    "redFlag": true,
+    "laps": 53
+  },
+  "rating": null,
+  "heat": []
+}

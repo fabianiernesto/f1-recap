@@ -60,34 +60,34 @@
       "type": "moment",
       "lap": 3,
       "kicker": "Long-run pace",
-      "title": "Sainz looked strongest over a stint",
+      "title": "Hamilton looked strongest over a stint",
       "text": "Average clean lap across the session. This is the number teams actually care about on a Friday, not the headline time.",
       "dato": {
         "label": "Average clean lap",
         "rows": [
           [
-            "Sainz",
-            "1:47.068"
+            "Hamilton",
+            "1:31.396"
           ],
           [
-            "Russell",
-            "1:47.610"
-          ],
-          [
-            "Norris",
-            "1:48.252"
-          ],
-          [
-            "Antonelli",
-            "1:48.750"
-          ],
-          [
-            "Colapinto",
-            "1:49.043"
+            "Piastri",
+            "1:31.545"
           ],
           [
             "Leclerc",
-            "1:49.469"
+            "1:31.552"
+          ],
+          [
+            "Antonelli",
+            "1:31.817"
+          ],
+          [
+            "Verstappen",
+            "1:31.965"
+          ],
+          [
+            "Norris",
+            "1:31.990"
           ]
         ]
       }

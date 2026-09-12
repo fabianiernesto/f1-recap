@@ -1,0 +1,35 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { hasSession, listGPs, loadPitWall, loadWeekend } from "@/lib/data";
+import PitWall from "@/components/PitWall";
+
+export function generateStaticParams() {
+  return listGPs().flatMap((slug) =>
+    loadWeekend(slug).sessions.map((s) => ({ slug, session: s.slug }))
+  );
+}
+
+/** The fourth way through a session: you make the calls it was decided by. */
+export default async function PitWallPage({
+  params,
+}: PageProps<"/gp/[slug]/[session]/pitwall">) {
+  const { slug, session } = await params;
+  if (!hasSession(slug, session)) notFound();
+  const wall = loadPitWall(slug, session);
+  // the pipeline only writes one where the tyre model held up against what
+  // the strategist actually did, so a missing file is the honest answer
+  if (!wall || wall.calls.length < 2) notFound();
+  const weekend = loadWeekend(slug);
+
+  return (
+    <>
+      <div className="hub-top">
+        <Link href={`/gp/${slug}/activities`} className="hub-back">
+          ← {weekend.circuit} · all activities
+        </Link>
+        <Link href="/" className="hub-home">Racing Simplified</Link>
+      </div>
+      <PitWall wall={wall} backTo={`/gp/${slug}/activities`} />
+    </>
+  );
+}

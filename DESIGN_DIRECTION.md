@@ -1,4 +1,4 @@
-# Design Direction — el look del producto
+# Design Direction: el look del producto
 **Fecha:** 7 agosto 2026 · **Estado:** v1 + moodboard (8-ago)
 **Regla madre (de Ernesto):** profesional y realista en TODO. Cero look infantil.
 
@@ -50,7 +50,7 @@ Jerarquía de card: kicker (mono 10px, tracking ancho, con pestaña lateral de c
 ## 5. El coche y la pista
 
 - **Coche:** top-view con proporciones reales de F1 (~2.6:1 largo/ancho), carbono oscuro, detalle de alerones con endplates, halo, ruedas con llanta. Una sola línea de acento en el morro. Nada de "cochecito".
-- **Pista:** asfalto `--carbon-2` con **líneas de borde blancas finas** (las pistas reales no llevan línea central discontinua — eso es una autopista). Salida con parrilla insinuada, meta a cuadros fina. Kerbs rojo/blanco solo si se puede hacer bien; si no, nada.
+- **Pista:** asfalto `--carbon-2` con **líneas de borde blancas finas** (las pistas reales no llevan línea central discontinua: eso es una autopista). Salida con parrilla insinuada, meta a cuadros fina. Kerbs rojo/blanco solo si se puede hacer bien; si no, nada.
 - El coche se inclina en las curvas (rotación por tangente) y NO rebota ni hace animaciones de juguete.
 
 ## 6. Motion

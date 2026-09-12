@@ -26,8 +26,12 @@ MIN_BRAKING_METRES = 30
 # published lap distances: telemetry follows the racing line and reads short
 OFFICIAL_LENGTH_KM = {
     "Silverstone": 5.891, "Barcelona": 4.657, "Monza": 5.793,
-    "Spa": 7.004, "Zandvoort": 4.259, "Suzuka": 5.807,
+    "Spa": 7.004, "Zandvoort": 4.259, "Suzuka": 5.807, "Hungary": 4.381,
 }
+
+# FastF1 finds an event by the name of the Grand Prix; the circuit the site
+# shows is a different word for most of them
+CIRCUIT_NAME = {"Hungary": "Hungaroring", "Spa": "Spa-Francorchamps"}
 
 # the corners worth naming, per circuit
 CORNER_NAMES = {
@@ -117,13 +121,13 @@ def main(year: int, gp: str, slug: str, name: str, country: str) -> None:
     out = DATA / slug
     out.mkdir(parents=True, exist_ok=True)
     (out / "track.json").write_text(json.dumps({
-        "circuit": gp, "view": VIEW, "start": points[0],
+        "circuit": CIRCUIT_NAME.get(gp, gp), "view": VIEW, "start": points[0],
         "points": points, "corners": corners, "stats": stats,
     }), encoding="utf-8")
 
     date = session.date.strftime("%d %b %Y").upper()
     (out / "weekend.json").write_text(json.dumps({
-        "slug": slug, "gp": f"{name} {year}", "short": name, "circuit": gp,
+        "slug": slug, "gp": f"{name} {year}", "short": name, "circuit": CIRCUIT_NAME.get(gp, gp),
         "country": country, "date": date, "laps": total_laps,
         "sessions": [], "rating": None, "heat": [],
     }, ensure_ascii=False, indent=2), encoding="utf-8")

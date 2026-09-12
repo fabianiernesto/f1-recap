@@ -86,8 +86,26 @@ export type Weekend = {
   date: string;
   laps: number;
   sessions: SessionMeta[];
+  /** The race in the numbers the home leads with. Null until the race is built. */
+  facts?: RaceFacts | null;
   rating: { score: number; verdict: string; spoiler_free: boolean } | null;
   heat: number[];
+};
+
+export type RaceFacts = {
+  winner: {
+    first: string; last: string; team: string; colour: string;
+    number: number; start: number | null; headshot: string;
+  };
+  margin: number | null;
+  runnerUp: string | null;
+  fastest: { last: string; time: string } | null;
+  passes: number;
+  stops: number;
+  dnfs: number;
+  safetyCars: number;
+  redFlag: boolean;
+  laps: number;
 };
 
 export type Track = {
@@ -139,12 +157,58 @@ export type Brain = {
   topics: { id: string; keys: string[]; say: string[] }[];
 };
 
-/** A driver's afternoon with the name taken off, for the blind test. */
+/** A driver's afternoon with the name taken off, for the blind test.
+ *  Everything after `tell` is for the reveal, never for the sheet. */
 export type BlindRound = {
   answer: string;
   options: string[];
   rows: [string, string][];
   tell: string;
+  number?: number;
+  team?: string;
+  colour?: string;
+  headshot?: string;
 };
 
 export type BlindTest = { session: string; rounds: BlindRound[] };
+
+/** One call the pit wall put in front of a garage, and what each answer cost. */
+export type PitWallOption = {
+  label: string;
+  lap: number;
+  lost: number;
+  real?: boolean;
+  note: string;
+};
+
+export type PitWallCall = {
+  lap: number;
+  kicker: string;
+  question: string;
+  facts: [string, string][];
+  options: PitWallOption[];
+  reading: string;
+};
+
+export type PitWall = {
+  session: string;
+  laps: number;
+  driver: {
+    name: string;
+    number: number;
+    team: string;
+    colour: string;
+    headshot?: string;
+    start: number | null;
+    finish: number;
+    margin: number;
+  };
+  economics: {
+    pitLoss: number;
+    fuelTrend: number;
+    tyres: Record<string, { deg: number; base: number; laps: number }>;
+    typicalDeg: number;
+  };
+  calls: PitWallCall[];
+  ladder: { pos: number; name: string; team: string; gap: number }[];
+};

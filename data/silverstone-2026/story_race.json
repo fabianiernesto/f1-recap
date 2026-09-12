@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "British Grand Prix · Race · 52 laps",
       "title": "Everything that happened, in order",
-      "text": "153 on-track passes, 51 pit stops, 3 cars that never finished and 2 safety cars."
+      "text": "153 on-track passes, 51 pit stops, 3 cars that never finished, 2 safety cars."
     },
     {
       "type": "moment",
@@ -70,7 +70,7 @@
       "title": "17 incidents looked at",
       "text": "Race control saw more than it acted on.",
       "bullets": [
-        "Turn 6 Incident Involving Cars 23 (Alb) And 87 (Bea) Noted"
+        "somebody, noted: an incident"
       ],
       "note": "Being noted is not the same as being punished. Most of these get looked at, argued over on the radio, and quietly dropped a few laps later."
     },
@@ -78,11 +78,11 @@
       "type": "moment",
       "lap": 5,
       "kicker": "Penalties",
-      "title": "11 penalty calls",
+      "title": "6 penalties handed out",
       "text": "Time added, places lost, and sometimes a result rewritten after the flag.",
       "bullets": [
         "Albon: 10s for an incident",
-        "Hamilton: 5s for false start - moving before signal",
+        "Hamilton: 5s for false start: moving before signal",
         "Stroll: 5s for track limits"
       ],
       "note": "Served at the next stop, or added to the final time when there is no stop left to serve it at."
@@ -459,9 +459,9 @@
       "text": "Saturday promised one thing and Sunday delivered another.",
       "bullets": [
         "P1 on the grid, P15 at the flag",
-        "3 stops when most of the field did 2"
-      ],
-      "note": "Qualifying flatters whoever can put one lap together. A race asks for sixty of them."
+        "3 stops when most of the field did 2",
+        "Qualifying flatters whoever can put one lap together. A race asks for 52 of them"
+      ]
     },
     {
       "type": "moment",
@@ -530,7 +530,7 @@
       "lap": 48,
       "kicker": "Lap 48 of 52 · Safety Car",
       "title": "Every gap on track, erased",
-      "text": "Every gap on track, erased in one lap.",
+      "text": "The field bunches up behind one slow car, and whatever anybody had built is gone in a lap.",
       "bullets": [
         "Leclerc was leading when it came out",
         "He dived straight in, with Hadjar, Lawson, Lindblad and 9 others",
@@ -597,7 +597,7 @@
       "lap": 51,
       "kicker": "Lap 51 of 52 · Safety Car",
       "title": "Every gap on track, erased",
-      "text": "Every gap on track, erased in one lap.",
+      "text": "The field bunches up behind one slow car, and whatever anybody had built is gone in a lap.",
       "bullets": [
         "Leclerc was leading when it came out",
         "Neutralised until lap 51"
@@ -685,7 +685,7 @@
         "last": "Leclerc",
         "team": "Ferrari",
         "colour": "ED1131",
-        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png.transform/1col/image.png",
+        "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
         "gap": null
       },
       {
@@ -695,7 +695,7 @@
         "last": "Russell",
         "team": "Mercedes",
         "colour": "00D7B6",
-        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png.transform/1col/image.png",
+        "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
         "gap": 0.427
       },
       {
@@ -705,7 +705,7 @@
         "last": "Hamilton",
         "team": "Ferrari",
         "colour": "ED1131",
-        "headshot": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png.transform/1col/image.png",
+        "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp",
         "gap": 0.772
       }
     ],

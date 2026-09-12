@@ -6,7 +6,71 @@
   "country": "Spain",
   "date": "14 JUN 2026",
   "laps": 66,
-  "sessions": [],
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "544 laps run, no points at stake",
+      "moments": 8,
+      "laps": 30
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "586 laps run, no points at stake",
+      "moments": 7,
+      "laps": 34
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "337 laps run, no points at stake",
+      "moments": 6,
+      "laps": 22
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Russell on pole",
+      "moments": 9,
+      "laps": 17
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "244 on-track passes",
+      "moments": 35,
+      "laps": 66
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Lewis",
+      "last": "Hamilton",
+      "team": "Ferrari",
+      "colour": "ED1131",
+      "number": 44,
+      "start": 2,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp"
+    },
+    "margin": 19.561,
+    "runnerUp": "Russell",
+    "fastest": {
+      "last": "Hamilton",
+      "time": "1:20.122"
+    },
+    "passes": 244,
+    "stops": 47,
+    "dnfs": 7,
+    "safetyCars": 0,
+    "redFlag": false,
+    "laps": 66
+  },
   "rating": null,
   "heat": []
 }

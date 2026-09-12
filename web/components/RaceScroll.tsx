@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { Brain, CardData, MateThread, Story, Track } from "@/lib/types";
 import { DecisionBody, GuessBody, PredictionBody } from "./CallIt";
 import RaceMate from "./RaceMate";
+import Term from "@/components/Term";
 
 /* ---------- helpers ---------- */
 
@@ -106,7 +107,9 @@ export default function RaceScroll({
         x1: p[0] + nx * 13, y1: p[1] + ny * 13,
         x2: p[0] + nx * 24, y2: p[1] + ny * 24,
         tx: p[0] + nx * 32, ty: p[1] + ny * 32 + 5,
-        anchor: nx > 0.3 ? "start" : nx < -0.3 ? "end" : "middle",
+        // widened to string without the annotation, which <text> refuses
+        anchor: (nx > 0.3 ? "start" : nx < -0.3 ? "end" : "middle") as
+          "start" | "end" | "middle",
       };
     });
 
@@ -430,12 +433,16 @@ export default function RaceScroll({
                       used to hide behind a button nobody was pressing */}
                   {c.dato && c.dato.rows.length > 0 && (
                     <div className="dato">
-                      <b>{c.dato.label}</b>
+                      <b>
+                        <Term label={c.dato.label} />
+                      </b>
                       <table>
                         <tbody>
                           {c.dato.rows.map((r) => (
                             <tr key={r[0]}>
-                              <td>{r[0]}</td>
+                              <td>
+                                <Term label={r[0]} />
+                              </td>
                               <td>{r[1]}</td>
                             </tr>
                           ))}
