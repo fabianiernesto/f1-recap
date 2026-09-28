@@ -38,7 +38,7 @@ export default function FinalPoster({
         viewBox={`0 0 ${track.view} ${track.view}`}
         aria-hidden
       >
-        <path d={d} fill="none" stroke="#1b1c22" strokeWidth={8} strokeLinejoin="round" />
+        <path d={d} fill="none" stroke="#0a0a0a" strokeWidth={8} strokeLinejoin="round" />
       </svg>
 
       <header className="poster-head">

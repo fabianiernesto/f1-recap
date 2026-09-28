@@ -63,6 +63,17 @@ const pixel = localFont({
   ],
 });
 
+// the home's one family: TT Commons Pro when its files are in public/fonts,
+// Plus Jakarta Sans until then (see public/fonts/README.md)
+const ui = localFont({
+  variable: "--font-ui",
+  src: [
+    { path: "./fonts/plus-jakarta-sans-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/plus-jakarta-sans-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/plus-jakarta-sans-700.woff2", weight: "700", style: "normal" },
+  ],
+});
+
 export const metadata: Metadata = {
   title: "Racing Simplified",
   description:
@@ -73,7 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable} ${hero.variable} ${pixel.variable} ${serif.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable} ${hero.variable} ${pixel.variable} ${serif.variable} ${ui.variable}`}
     >
       <body>
         {children}

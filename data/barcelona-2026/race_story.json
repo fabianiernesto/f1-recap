@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Spanish Grand Prix · Race · 66 laps",
       "title": "Everything that happened, in order",
-      "text": "244 on-track passes, 47 pit stops, 7 cars that never finished."
+      "text": "232 on-track passes, 47 pit stops, 7 cars that never finished, 2 virtual safety cars."
     },
     {
       "type": "moment",
@@ -116,7 +116,7 @@
         "Gasly, Lindblad and Colapinto all found a way through",
         "17 different drivers gained a place on this lap alone"
       ],
-      "note": "Cars were rejoining on new rubber alongside tyres twenty laps old, which is a free pass rather than a move."
+      "note": "Cars were rejoining on new rubber alongside tyres a whole stint older, which is a free pass rather than a move."
     },
     {
       "type": "moment",
@@ -146,7 +146,7 @@
         "Lindblad, Lawson and Colapinto all found a way through",
         "15 different drivers gained a place on this lap alone"
       ],
-      "note": "Cars were rejoining on new rubber alongside tyres twenty laps old, which is a free pass rather than a move."
+      "note": "Cars were rejoining on new rubber alongside tyres a whole stint older, which is a free pass rather than a move."
     },
     {
       "type": "moment",
@@ -158,7 +158,7 @@
         "Bearman, Lawson and Bortoleto all found a way through",
         "11 different drivers gained a place on this lap alone"
       ],
-      "note": "Cars were rejoining on new rubber alongside tyres twenty laps old, which is a free pass rather than a move."
+      "note": "Cars were rejoining on new rubber alongside tyres a whole stint older, which is a free pass rather than a move."
     },
     {
       "type": "moment",
@@ -184,37 +184,37 @@
       "type": "moment",
       "lap": 22,
       "kicker": "The one doing the passing",
-      "title": "Bortoleto: 18 overtakes",
-      "text": "More than anybody else out there, in a Audi.",
+      "title": "Bearman: 17 overtakes",
+      "text": "More than anybody else out there, in a Haas F1 Team.",
       "bullets": [
-        "P12 on the grid, P11 at the flag"
+        "P15 on the grid, P17 at the flag"
       ],
       "dato": {
         "label": "Most overtakes",
         "rows": [
           [
-            "Bortoleto",
-            18
-          ],
-          [
             "Bearman",
             17
           ],
           [
-            "Ocon",
+            "Bortoleto",
             16
           ],
           [
-            "Sainz",
-            16
+            "Ocon",
+            14
+          ],
+          [
+            "Hadjar",
+            14
           ],
           [
             "Lindblad",
-            15
+            14
           ],
           [
             "Colapinto",
-            15
+            14
           ]
         ]
       },
@@ -373,6 +373,19 @@
     },
     {
       "type": "moment",
+      "lap": 41,
+      "kicker": "Lap 41 of 66 · Virtual Safety Car",
+      "title": "Everybody slows down, nobody bunches up",
+      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
+      "bullets": [
+        "Hamilton was leading when it was called",
+        "Hamilton took a stop under it",
+        "Lifted on lap 42"
+      ],
+      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is crawling too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
+    },
+    {
+      "type": "moment",
       "lap": 44,
       "kicker": "Lap 44 · Fastest lap",
       "title": "Hamilton: 1:20.122",
@@ -441,14 +454,14 @@
       "lap": 58,
       "kicker": "Call it before it happens",
       "title": "One of these three does not see the chequered flag. Who?",
-      "text": "Nothing on the timing screens says it is coming. That is rather the point of mechanical failure.",
+      "text": "Nothing on the timing screens says it is coming, and the feed never says why it did.",
       "options": [
         "Leclerc",
         "Hamilton",
         "Russell"
       ],
       "answer": "Leclerc",
-      "reveal": "Leclerc, on lap 63 of 66, the Ferrari car stopping without warning."
+      "reveal": "Leclerc, on lap 63 of 66. The timing feed records that the Ferrari stopped, never what broke."
     },
     {
       "type": "moment",
@@ -495,9 +508,21 @@
       "title": "Gasly: P14 on the grid, P7 at the flag",
       "text": "7 places gained, and almost none of it on camera.",
       "bullets": [
-        "12 of them by passing somebody on track"
+        "11 of them by passing somebody on track"
       ],
       "note": "Nobody will mention this on Monday, because the cameras live at the front and the story of a race gets written from there. The timing sheet does not care where the cameras were pointing."
+    },
+    {
+      "type": "moment",
+      "lap": 63,
+      "kicker": "Lap 63 of 66 · Virtual Safety Car",
+      "title": "Everybody slows down, nobody bunches up",
+      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
+      "bullets": [
+        "Hamilton was leading when it was called",
+        "Lifted on lap 65"
+      ],
+      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is crawling too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },
     {
       "type": "moment",
@@ -629,7 +654,7 @@
       "step": 0.5,
       "target": 19.561,
       "close": 7.824400000000001,
-      "reveal": "19.561 seconds after 66 laps. A single trip down the pit lane costs about 23s today, which is 1 times the margin this race was decided by."
+      "reveal": "19.561 seconds after 66 laps. A single trip down the pit lane costs about 23s today, which is about the same as the margin this race was decided by."
     }
   ],
   "result": {

@@ -165,6 +165,9 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
                   "road car at half speed",
                   "if you'd built a 20 second lead it's gone. brutal when you're leading, "
                   "brilliant when you're not"] if s.sc_laps
+                 else [f"no proper safety car, just a virtual one on lap "
+                       f"{s.vsc_laps[0]}. gaps frozen, nobody bunched up"]
+                 if getattr(s, "vsc_laps", None)
                  else ["no safety car in this one, green the whole way"])},
         {"id": "overtakes",
          "keys": ["overtake", "overtaking", "passes", "adelantamiento", "adelantamientos",

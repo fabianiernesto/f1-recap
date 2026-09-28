@@ -204,7 +204,12 @@
       "lap": 8,
       "kicker": "The grid",
       "title": "How Sunday starts",
-      "text": "P1 Antonelli · P2 Leclerc · P3 Hamilton · P4 Russell · P5 Hadjar · P6 Norris"
+      "text": "P1 Antonelli · P2 Leclerc · P3 Hamilton · P4 Russell · P5 Hadjar · P6 Norris",
+      "bullets": [
+        "Gasly qualified P12 and starts P15, 3 places further back",
+        "Stroll qualified P21 and starts P22, 1 place further back",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
     }
   ]
 }

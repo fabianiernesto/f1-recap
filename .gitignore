@@ -21,3 +21,6 @@ pipeline/fastf1_cache/
 .DS_Store
 Thumbs.db
 web/.dev-server.log
+
+# licensed font files are never committed
+web/public/fonts/latin-condensed.*

@@ -26,7 +26,7 @@
       ],
       "pace": "1:25.287",
       "paceRaw": 85.287,
-      "overtakes": 13,
+      "overtakes": 12,
       "penalty": null,
       "penaltyFor": null,
       "led": 7,
@@ -85,7 +85,7 @@
       ],
       "pace": "1:25.609",
       "paceRaw": 85.609,
-      "overtakes": 10,
+      "overtakes": 9,
       "penalty": null,
       "penaltyFor": null,
       "led": 4,
@@ -113,7 +113,7 @@
       ],
       "pace": "1:26.187",
       "paceRaw": 86.187,
-      "overtakes": 12,
+      "overtakes": 10,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -141,7 +141,7 @@
       ],
       "pace": "1:26.100",
       "paceRaw": 86.1,
-      "overtakes": 13,
+      "overtakes": 11,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -169,7 +169,7 @@
       ],
       "pace": "1:26.073",
       "paceRaw": 86.073,
-      "overtakes": 12,
+      "overtakes": 10,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -197,7 +197,7 @@
       ],
       "pace": "1:26.093",
       "paceRaw": 86.093,
-      "overtakes": 6,
+      "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
       "led": 1,
@@ -258,7 +258,7 @@
       ],
       "pace": "1:26.411",
       "paceRaw": 86.411,
-      "overtakes": 8,
+      "overtakes": 6,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -375,7 +375,7 @@
       ],
       "pace": "1:26.895",
       "paceRaw": 86.895,
-      "overtakes": 9,
+      "overtakes": 8,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -495,7 +495,7 @@
       ],
       "pace": "1:27.161",
       "paceRaw": 87.161,
-      "overtakes": 10,
+      "overtakes": 7,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -527,7 +527,7 @@
       "paceRaw": 88.509,
       "overtakes": 9,
       "penalty": "5s",
-      "penaltyFor": "failing to follow the race director's instructions: practice start infringement",
+      "penaltyFor": "failing to follow the race director's instructions: escape road instructions",
       "led": 0,
       "swings": [],
       "fastestLap": false,
@@ -655,9 +655,6 @@
     }
   },
   "lapEvents": {
-    "1": [
-      "Perez picked up a 5s penalty"
-    ],
     "2": [
       "Leclerc retired"
     ],
@@ -727,7 +724,6 @@
       "Ocon pitted"
     ],
     "28": [
-      "12 overtakes",
       "Antonelli pitted",
       "Verstappen pitted"
     ],
@@ -817,7 +813,7 @@
         "how many overtakes"
       ],
       "say": [
-        "155 proper overtakes",
+        "139 proper overtakes",
         "that's not counting lap 1 or the safety car restarts. those are just the field shuffling, they'd double the number and mean nothing"
       ]
     },
@@ -904,8 +900,8 @@
         "investigation"
       ],
       "say": [
-        "2 penalties stuck",
-        "Perez 5s x2"
+        "1 penalties stuck",
+        "Perez 5s"
       ]
     },
     {
@@ -922,7 +918,7 @@
       ],
       "say": [
         "bit of both honestly",
-        "155 overtakes and the midfield was mental, the front was quieter",
+        "139 overtakes and the midfield was mental, the front was quieter",
         "watch the last 10 laps at least"
       ]
     },

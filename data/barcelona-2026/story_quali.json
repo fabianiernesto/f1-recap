@@ -200,7 +200,8 @@
       "lap": 8,
       "kicker": "The grid",
       "title": "How Sunday starts",
-      "text": "P1 Russell · P2 Hamilton · P3 Antonelli · P4 Norris · P5 Verstappen · P6 Hadjar"
+      "text": "P1 Russell · P2 Hamilton · P3 Antonelli · P4 Norris · P5 Verstappen · P6 Hadjar",
+      "bullets": []
     }
   ]
 }

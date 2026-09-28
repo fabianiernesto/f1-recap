@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "British Grand Prix · Race · 52 laps",
       "title": "Everything that happened, in order",
-      "text": "153 on-track passes, 51 pit stops, 3 cars that never finished, 2 safety cars."
+      "text": "130 on-track passes, 51 pit stops, 3 cars that never finished, 2 safety cars, 2 virtual safety cars."
     },
     {
       "type": "moment",
@@ -70,7 +70,7 @@
       "title": "17 incidents looked at",
       "text": "Race control saw more than it acted on.",
       "bullets": [
-        "somebody, noted: an incident"
+        "Albon and Bearman, noted: an incident"
       ],
       "note": "Being noted is not the same as being punished. Most of these get looked at, argued over on the radio, and quietly dropped a few laps later."
     },
@@ -109,7 +109,7 @@
       "type": "moment",
       "lap": 17,
       "kicker": "The one doing the passing",
-      "title": "Bearman: 15 overtakes",
+      "title": "Bearman: 12 overtakes",
       "text": "More than anybody else out there, in a Haas F1 Team.",
       "bullets": [
         "P13 on the grid, P12 at the flag"
@@ -119,27 +119,27 @@
         "rows": [
           [
             "Bearman",
-            15
+            12
           ],
           [
             "Hulkenberg",
-            13
-          ],
-          [
-            "Piastri",
-            13
-          ],
-          [
-            "Sainz",
             11
           ],
           [
-            "Verstappen",
-            10
+            "Sainz",
+            9
           ],
           [
             "Russell",
-            10
+            9
+          ],
+          [
+            "Perez",
+            8
+          ],
+          [
+            "Verstappen",
+            8
           ]
         ]
       },
@@ -162,14 +162,15 @@
     {
       "type": "moment",
       "lap": 22,
-      "kicker": "Lap 22 · Traffic",
-      "title": "12 overtakes on this lap alone",
-      "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
+      "kicker": "Lap 22 of 52 · Virtual Safety Car",
+      "title": "Everybody slows down, nobody bunches up",
+      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
-        "Piastri, Bearman and Sainz all found a way through",
-        "6 different drivers gained a place on this lap alone"
+        "Leclerc was leading when it was called",
+        "Colapinto took a stop under it",
+        "Lifted on lap 22"
       ],
-      "note": "Cars were rejoining on new rubber alongside tyres twenty laps old, which is a free pass rather than a move."
+      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is crawling too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },
     {
       "type": "moment",
@@ -218,7 +219,7 @@
         "Russell, Verstappen and Hamilton all found a way through",
         "7 different drivers gained a place on this lap alone"
       ],
-      "note": "Cars were rejoining on new rubber alongside tyres twenty laps old, which is a free pass rather than a move."
+      "note": "Cars were rejoining on new rubber alongside tyres a whole stint older, which is a free pass rather than a move."
     },
     {
       "type": "moment",
@@ -378,13 +379,25 @@
     {
       "type": "moment",
       "lap": 37,
+      "kicker": "Lap 37 · Traffic",
+      "title": "8 overtakes on this lap alone",
+      "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
+      "bullets": [
+        "Bearman, Ocon and Sainz all found a way through",
+        "6 different drivers gained a place on this lap alone"
+      ],
+      "note": "Cars were rejoining on new rubber alongside tyres a whole stint older, which is a free pass rather than a move."
+    },
+    {
+      "type": "moment",
+      "lap": 37,
       "kicker": "Lap 37 · Retirement",
       "title": "Hulkenberg is out",
       "text": "The Audi stops after 37 of 52 laps.",
       "bullets": [
         "Running P15 when it went",
         "Started P12",
-        "13 on-track passes before it happened"
+        "11 on-track passes before it happened"
       ],
       "note": "Teams almost never say what broke on the day, and the timing feed only records that he stopped. Zero points weekends are where title fights quietly bleed."
     },
@@ -425,18 +438,30 @@
       "text": "Three stops when the field is doing one or two means something went wrong, or somebody gambled."
     },
     {
+      "type": "moment",
+      "lap": 39,
+      "kicker": "Lap 39 of 52 · Virtual Safety Car",
+      "title": "Everybody slows down, nobody bunches up",
+      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
+      "bullets": [
+        "Leclerc was leading when it was called",
+        "Lifted on lap 39"
+      ],
+      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is crawling too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
+    },
+    {
       "type": "prediction",
       "lap": 42,
       "kicker": "Call it before it happens",
       "title": "One of these three does not see the chequered flag. Who?",
-      "text": "Nothing on the timing screens says it is coming. That is rather the point of mechanical failure.",
+      "text": "Nothing on the timing screens says it is coming, and the feed never says why it did.",
       "options": [
         "Verstappen",
         "Leclerc",
         "Russell"
       ],
       "answer": "Verstappen",
-      "reveal": "Verstappen, on lap 47 of 52, the Red Bull Racing car stopping without warning."
+      "reveal": "Verstappen, on lap 47 of 52. The timing feed records that the Red Bull Racing stopped, never what broke."
     },
     {
       "type": "moment",
@@ -446,8 +471,7 @@
       "text": "The Williams stops after 44 of 52 laps.",
       "bullets": [
         "Running P21 when it went",
-        "Started P16",
-        "1 on-track passes before it happened"
+        "Started P16"
       ],
       "note": "Teams almost never say what broke on the day, and the timing feed only records that he stopped. Zero points weekends are where title fights quietly bleed."
     },
@@ -472,7 +496,7 @@
       "bullets": [
         "Running P3 when it went",
         "Started P7",
-        "10 on-track passes before it happened"
+        "8 on-track passes before it happened"
       ],
       "note": "Teams almost never say what broke on the day, and the timing feed only records that he stopped. Zero points weekends are where title fights quietly bleed."
     },

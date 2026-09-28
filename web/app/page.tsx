@@ -1,9 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
-import { listGPs, loadBrain, loadTrack, loadWeekend } from "@/lib/data";
+import { activitiesFor, listGPs, loadBrain, loadStory, loadTrack, loadWeekend } from "@/lib/data";
 import { askAlfred } from "@/lib/alfred";
 import { GHOST, bigPhoto } from "@/lib/photo";
+import HowSwitch from "@/components/HowSwitch";
 import type { RaceFacts, Track, Weekend } from "@/lib/types";
 
 /**
@@ -81,6 +82,20 @@ function story(w: Weekend, f: RaceFacts): string {
   return `${bits.join(", ")}${tail}. ${f.passes} passes on track, ${f.stops} pit stops, ${w.laps} laps of ${w.circuit}.`;
 }
 
+/** The front-page headline: circuit first, then what the timing says
+ *  happened. Each branch only claims what its own facts support. */
+function frontPage(w: Weekend, f: RaceFacts): { circuit: string; line: string; em: string } {
+  const who = f.winner.last;
+  if (f.winner.start && f.winner.start >= 10)
+    return { circuit: w.circuit, line: `${who} wins`, em: `from P${f.winner.start}` };
+  if (f.margin !== null && f.runnerUp && f.margin < 1)
+    return { circuit: w.circuit, line: `${who} holds off ${f.runnerUp}`, em: `by ${f.margin.toFixed(3)}s` };
+  if (f.redFlag) return { circuit: w.circuit, line: `${who} wins`, em: "a race that was stopped" };
+  if (f.margin !== null) return { circuit: w.circuit, line: `${who} wins`, em: `by ${f.margin.toFixed(1)}s` };
+  return { circuit: w.circuit, line: `${who} wins`, em: "" };
+}
+
+
 export default function Home() {
   const when = (d: string) => Date.parse(d.replace(/^(\d+) (\w+) (\d+)$/, "$2 $1 $3"));
   const weekends = listGPs()
@@ -115,14 +130,29 @@ export default function Home() {
 
   const ticker = weekends.map(({ weekend }) => headline(weekend));
 
+  // the latest weekend, counted rather than described: how many calls the
+  // race hands you, how many sheets the blind test has, whose pit wall it is
+  const acts = latest ? activitiesFor(latest.weekend.slug, latest.weekend) : null;
+  const calls = latest && facts
+    ? loadStory(latest.weekend.slug, "race").cards.filter((c) =>
+        ["decision", "prediction", "guess"].includes(c.type)).length
+    : 0;
+  // the opening line of the site is the latest race, in one sentence
+  const opener = facts && latest
+    ? facts.winner.start && facts.winner.start > 3
+      ? `${facts.winner.last} started P${facts.winner.start} at ${latest.weekend.circuit} and won it` +
+        (facts.margin !== null ? ` by ${facts.margin.toFixed(3)}s.` : ".")
+      : `${facts.winner.last} won ${latest.weekend.circuit}` +
+        (facts.margin !== null ? ` by ${facts.margin.toFixed(3)}s.` : ".")
+    : null;
+
   return (
-    <main className="home">
+    <main className="home led">
       <nav className="home-nav">
         <span className="home-brand">Racing Simplified</span>
+        <a href="#how">How it works</a>
         <a href="#latest">Latest</a>
         <a href="#races">Races</a>
-        <a href="#play">Play</a>
-        <a href="#alfred">Alfred</a>
         <span className="home-season">Season 2026</span>
       </nav>
 
@@ -148,23 +178,29 @@ export default function Home() {
             <img src={figure} alt="" />
           </div>
         )}
+        <span className="home-kicker">Formula 1 · Season 2026</span>
         <h1>
           <span className="home-l1">Every race</span>
           <span className="home-l2">Simplified</span>
         </h1>
         <p className="home-lede">
-          Missed the Grand Prix? Fell asleep on lap 30? Every weekend is
-          rebuilt from the official timing data and told moment by moment,
-          with the calls handed to you along the way.
+          {opener && <span className="home-opener">{opener} </span>}
+          Every weekend, rebuilt from the official timing data. Read it as a
+          story with <b>Scrolled</b>, or play the race with <b>Simplified</b>.
         </p>
         <div className="home-cta">
           {latest && (
-            <Link href={`/gp/${latest.weekend.slug}`} className="home-go">
-              Open {latest.weekend.circuit} <i aria-hidden>→</i>
+            <Link href={`/gp/${latest.weekend.slug}/sessions`} className="home-go">
+              Scroll {latest.weekend.circuit} <i aria-hidden>→</i>
             </Link>
           )}
-          <a href="#races" className="home-more">
-            all circuits
+          {latest && (
+            <Link href={`/gp/${latest.weekend.slug}/activities`} className="home-go home-go-alt">
+              Play {latest.weekend.circuit} <i aria-hidden>→</i>
+            </Link>
+          )}
+          <a href="#how" className="home-more">
+            how it works
           </a>
         </div>
         {ticker.length > 0 && (
@@ -178,34 +214,209 @@ export default function Home() {
         )}
       </header>
 
-      {/* ------------------------------------------- 2 · the latest race */}
+      {/* ------------------------------------------ 2 · the two channels */}
+      <section className="how" id="how">
+        <div className="how-banner">
+          <div className="how-banner-text">
+            <span className="how-banner-k">Racing Simplified</span>
+            <h2>How it works</h2>
+            <p>
+              Every circuit has the same two doors. Both open on the official
+              timing feed, and when the feed cannot back a claim, the claim is
+              not made. That rule costs us cards, and we keep it.
+            </p>
+          </div>
+        </div>
+
+        <HowSwitch
+          doors={[
+            { key: "scrolled", n: "01", name: "Scrolled", line: "Read the whole weekend, first practice to the flag" },
+            { key: "simplified", n: "02", name: "Simplified", line: "Play the race: guess it, run it, rewrite it" },
+          ]}
+          scrolled={
+            <>
+              {/* ---- 01 · Scrolled: the weekend itself, with Alfred riding along */}
+              <div className="how-block how-scrolled">
+                <div className="how-copy">
+                  <span className="how-n">01 · Read it</span>
+                  <h3 className="how-title">Scrolled</h3>
+                  <p className="how-sub">The whole weekend, moment by moment</p>
+                  <p>
+                    Practice 1 to the chequered flag, told in the order it happened.
+                    The circuit draws itself under you as you scroll, the cards land
+                    as the laps go by, and every few laps the story stops and hands
+                    you the call: box or stay out, penalty or no penalty, who is not
+                    going to see the flag. Then the data shows what the team did.
+                  </p>
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/sessions` : "#races"} className="how-go">
+                    Scroll {latest?.weekend.circuit ?? "a race"} <i aria-hidden>→</i>
+                  </Link>
+                </div>
+                <div className="how-acts">
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/sessions` : "#races"} className="how-act">
+                    <span className="how-act-n">Session by session</span>
+                    <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
+                      <rect x="6" y="8" width="108" height="64" rx="3" fill="none" stroke="currentColor" strokeWidth="2" />
+                      {[0, 1, 2, 3, 4, 5, 6, 7].map((r) =>
+                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((c) => (
+                          <circle
+                            key={`${r}${c}`}
+                            cx={14 + c * 8.4}
+                            cy={16 + r * 7}
+                            r="1.6"
+                            fill="currentColor"
+                            opacity={(r === 3 || r === 4) && c > 1 && c < 10 ? 1 : 0.18}
+                          />
+                        ))
+                      )}
+                    </svg>
+                    <h4>The five sessions</h4>
+                    <p>
+                      {acts && latest
+                        ? `${acts.sessions} sessions at ${latest.weekend.circuit}, ${acts.moments} moments, Friday practice included. `
+                        : "FP1 to the race, nothing skipped. "}
+                      One card for every moment that mattered, none for the ones
+                      that did not.
+                    </p>
+                    <span className="how-act-go">Scroll it →</span>
+                  </Link>
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/race` : "#races"} className="how-act">
+                    <span className="how-act-n">Your calls</span>
+                    <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
+                      <path d="M60 70V40" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      <path d="M60 40L30 14M60 40L90 14" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      <circle cx="30" cy="14" r="6" fill="currentColor" />
+                      <circle cx="90" cy="14" r="6" fill="none" stroke="currentColor" strokeWidth="3" />
+                    </svg>
+                    <h4>Decisions, then the reveal</h4>
+                    <p>
+                      {calls && latest
+                        ? `${calls} calls to make in the ${latest.weekend.circuit} race alone. `
+                        : "Box or stay out, penalty or no penalty, who retires. "}
+                      You answer first, with the gap and the tyres in front of you,
+                      and the timing sheet answers back.
+                    </p>
+                    <span className="how-act-go">Make a call →</span>
+                  </Link>
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/race` : "#races"} className="how-act how-act-alfred">
+                    <span className="how-act-n">Alfred, riding along</span>
+                    {asks.length > 0 ? (
+                      <div className="how-chat" aria-hidden>
+                        <p className="alfred-you">{asks[0].q}</p>
+                        {asks[0].a.slice(0, 2).map((line, i) => (
+                          <p key={i} className="alfred-him">{line}</p>
+                        ))}
+                      </div>
+                    ) : (
+                      <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
+                        <rect x="10" y="14" width="100" height="52" rx="10" fill="none" stroke="currentColor" strokeWidth="3" />
+                      </svg>
+                    )}
+                    <h4>Ask him anything</h4>
+                    <p>
+                      He has the timing data for the race and nothing else, which is
+                      why he talks like a mate and not like a press release. When he
+                      does not know, he says so.
+                    </p>
+                    <span className="how-act-go">Ask him →</span>
+                  </Link>
+                </div>
+              </div>
+            </>
+          }
+          simplified={
+            <>
+              {/* ---- 02 · Simplified: the activities, ours, on the same data */}
+              <div className="how-block how-simplified">
+                <div className="how-copy">
+                  <span className="how-n">02 · Play it</span>
+                  <h3 className="how-title">Simplified</h3>
+                  <p className="how-sub">Our activities, on the same data</p>
+                  <p>
+                    The name on the door and the things you play with behind it.
+                    Every activity is built from the race that happened and stops
+                    where the data stops: the pit wall never scores a safety car,
+                    because nobody can measure one.
+                  </p>
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/activities` : "#races"} className="how-go">
+                    Play {latest?.weekend.circuit ?? "a race"} <i aria-hidden>→</i>
+                  </Link>
+                </div>
+                <div className="how-acts">
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/race/blind` : "#races"} className="how-act">
+                    <span className="how-act-n">Activity 01</span>
+                    <figure className="way-ghost" aria-hidden>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={GHOST} alt="" />
+                      <b>?</b>
+                    </figure>
+                    <h4>The blind test</h4>
+                    <p>
+                      {acts?.blind && latest
+                        ? `${acts.blind.rounds} real timing sheets from ${latest.weekend.circuit}, names struck out. `
+                        : "Real timing sheets, names struck out. "}
+                      Where he started, when he stopped, what the stewards made of
+                      him. Say who it is.
+                    </p>
+                    <span className="how-act-go">Start the test →</span>
+                  </Link>
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/race/pitwall` : "#races"} className="how-act">
+                    <span className="how-act-n">Activity 02</span>
+                    <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
+                      <path d="M30 52v-8a30 30 0 0 1 60 0v8" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      <rect x="22" y="48" width="14" height="22" rx="5" fill="currentColor" />
+                      <rect x="84" y="48" width="14" height="22" rx="5" fill="currentColor" />
+                      <path d="M91 70v3a7 7 0 0 1-7 7H70" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                    </svg>
+                    <h4>The pit wall</h4>
+                    <p>
+                      {acts?.pitwall && latest
+                        ? `${acts.pitwall.driver}'s seat at ${latest.weekend.circuit}, ${acts.pitwall.calls} calls, the race frozen where his garage chose. `
+                        : "A driver's seat, the race frozen where his garage chose. "}
+                      At the flag it tells you where your afternoon would have ended.
+                    </p>
+                    <span className="how-act-go">Take the wall →</span>
+                  </Link>
+                  <div className="how-act how-act-next">
+                    <span className="how-act-n">Activity 03</span>
+                    <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
+                      <path d="M14 60 L60 20 L106 60" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="4 6" />
+                      <circle cx="60" cy="20" r="5" fill="currentColor" />
+                    </svg>
+                    <h4>The what-if</h4>
+                    <p>
+                      Take the safety car out, hand the retirement its car back and
+                      watch the podium rearrange on the real pace. Coming only if it
+                      can be done honestly.
+                    </p>
+                    <span className="how-act-go">In the works</span>
+                  </div>
+                </div>
+              </div>
+            </>
+          }
+        />
+      </section>
+
+      {/* ------------------------------------------- 3 · the latest race */}
       {latest && facts && (
-        <section className="spread" id="latest" style={{ ["--team" as string]: tone(facts.winner.colour) }}>
+        <section
+          className="spread"
+          id="latest"
+          style={{ ["--team" as string]: tone(facts.winner.colour) }}
+        >
           <div className="spread-head">
-            <span className="spread-n">01</span>
+            <span className="spread-tag">Latest recap</span>
             <span className="spread-eyebrow">
-              The last one · {latest.weekend.short} · {latest.weekend.date}
+              {latest.weekend.short} · {latest.weekend.date}
             </span>
           </div>
-          <svg className="spread-track" viewBox={trackArt(latest.track, 20).vb} aria-hidden>
-            <path
-              d={trackArt(latest.track, 20).d}
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={18}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              vectorEffect="non-scaling-stroke"
-            />
-          </svg>
           <h2 className="spread-name">
-            <span>{facts.winner.first}</span>
-            <span>{facts.winner.last}</span>
+            <span className="spread-circuit">{frontPage(latest.weekend, facts).circuit}</span>
+            <span className="spread-line">
+              {frontPage(latest.weekend, facts).line} {frontPage(latest.weekend, facts).em}
+            </span>
           </h2>
-          <figure className="spread-shot">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={bigPhoto(facts.winner.headshot)} alt={`${facts.winner.first} ${facts.winner.last}`} />
-          </figure>
           <div className="spread-copy">
             <p className="spread-serif">{story(latest.weekend, facts)}</p>
             <dl className="spread-facts">
@@ -222,19 +433,23 @@ export default function Home() {
                 <dd>{facts.winner.start ? `P${facts.winner.start} to P1` : "-"}</dd>
               </div>
             </dl>
-            <Link href={`/gp/${latest.weekend.slug}/race`} className="spread-go">
-              Scroll the race <i aria-hidden>→</i>
-            </Link>
+            <div className="spread-ctas">
+              <Link href={`/gp/${latest.weekend.slug}/sessions`} className="spread-go">
+                Scrolled <i aria-hidden>→</i>
+              </Link>
+              <Link href={`/gp/${latest.weekend.slug}/activities`} className="spread-go spread-go-alt">
+                Simplified <i aria-hidden>→</i>
+              </Link>
+            </div>
           </div>
         </section>
       )}
 
-      {/* --------------------------------------------- 3 · the circuits */}
+      {/* --------------------------------------------- 4 · the circuits */}
       <section className="home-races" id="races">
         <div className="home-sec-head">
-          <span className="home-sec-n">02</span>
           <h2>The circuits</h2>
-          <p>Every weekend built so far. Newest first.</p>
+          <p>Every weekend built so far, newest first. Each one opens on the same two doors.</p>
         </div>
         <div className="home-grid">
           {weekends.map(({ weekend: w, track }, i) => {
@@ -248,7 +463,6 @@ export default function Home() {
                 className="home-card"
                 style={{ ["--team" as string]: tone(f?.winner.colour) }}
               >
-                <span className="home-card-i">{String(i + 1).padStart(2, "0")}</span>
                 <svg viewBox={art.vb} aria-hidden>
                   <path
                     d={art.d}
@@ -291,111 +505,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ------------------------------------------- 4 · three ways in */}
-      <section className="ways" id="play">
-        <div className="home-sec-head">
-          <span className="home-sec-n">03</span>
-          <h2>Three ways through a Grand Prix</h2>
-          <p className="ways-serif">
-            Read it, guess it, or run it yourself. All three come out of the
-            same timing feed, and none of them will tell you anything the data
-            cannot back up.
-          </p>
-        </div>
-        <div className="ways-grid">
-          <Link href={latest ? `/gp/${latest.weekend.slug}/sessions` : "#races"} className="way">
-            <span className="way-n">Scrolled</span>
-            <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
-              <rect x="6" y="8" width="108" height="64" rx="3" fill="none" stroke="currentColor" strokeWidth="2" />
-              {[0, 1, 2, 3, 4, 5, 6, 7].map((r) =>
-                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((c) => (
-                  <circle
-                    key={`${r}${c}`}
-                    cx={14 + c * 8.4}
-                    cy={16 + r * 7}
-                    r="1.6"
-                    fill="currentColor"
-                    opacity={(r === 3 || r === 4) && c > 1 && c < 10 ? 1 : 0.18}
-                  />
-                ))
-              )}
-            </svg>
-            <h3>The weekend, moment by moment</h3>
-            <p>
-              The circuit draws itself under you as you scroll. Cards land as
-              the laps go by, with predictions and pit-wall calls you make
-              before the answer shows.
-            </p>
-            <span className="way-go">Scroll a race →</span>
-          </Link>
-          <Link href={latest ? `/gp/${latest.weekend.slug}/race/blind` : "#races"} className="way">
-            <span className="way-n">The blind test</span>
-            <figure className="way-ghost" aria-hidden>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={GHOST} alt="" />
-              <b>?</b>
-            </figure>
-            <h3>Five drivers, no names</h3>
-            <p>
-              A real afternoon on a timing sheet, name struck out. Where he
-              started, how often he stopped, what the stewards made of him.
-              Work out who you are looking at.
-            </p>
-            <span className="way-go">Start the test →</span>
-          </Link>
-          <Link href={latest ? `/gp/${latest.weekend.slug}/race/pitwall` : "#races"} className="way">
-            <span className="way-n">The pit wall</span>
-            <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
-              <path d="M30 52v-8a30 30 0 0 1 60 0v8" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              <rect x="22" y="48" width="14" height="22" rx="5" fill="currentColor" />
-              <rect x="84" y="48" width="14" height="22" rx="5" fill="currentColor" />
-              <path d="M91 70v3a7 7 0 0 1-7 7H70" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-            </svg>
-            <h3>You make the calls</h3>
-            <p>
-              Take a driver&rsquo;s seat and decide when he stops, with the race
-              frozen where his garage decided. At the flag it tells you where
-              your afternoon would have ended.
-            </p>
-            <span className="way-go">Take the wall →</span>
-          </Link>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------- 5 · Alfred */}
-      {asks.length > 0 && latest && (
-        <section className="alfred" id="alfred">
-          <div className="home-sec-head">
-            <span className="home-sec-n">04</span>
-            <h2>Ask Alfred</h2>
-            <p>
-              He watched every lap so you did not have to. He talks while you
-              scroll, and answers whatever you type, from the timing data and
-              nothing else. These are his real answers about {latest.weekend.circuit}.
-            </p>
-          </div>
-          <div className="alfred-chat">
-            {asks.map(({ q, a }) => (
-              <div key={q} className="alfred-turn">
-                <p className="alfred-you">{q}</p>
-                {a.map((line, i) => (
-                  <p key={i} className="alfred-him">
-                    {line}
-                  </p>
-                ))}
-              </div>
-            ))}
-            <Link href={`/gp/${latest.weekend.slug}/race`} className="alfred-go">
-              Ask him yourself <i aria-hidden>→</i>
-            </Link>
-          </div>
-        </section>
-      )}
-
-      {/* ------------------------------------------------ 6 · the numbers */}
+      {/* ------------------------------------------------ 5 · the numbers */}
       <section className="numbers">
         <div className="home-sec-head">
-          <span className="home-sec-n">05</span>
           <h2>Built so far</h2>
         </div>
         <dl className="numbers-row">

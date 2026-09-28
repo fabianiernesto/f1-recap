@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Italian Grand Prix · Race · 53 laps",
       "title": "Everything that happened, in order",
-      "text": "155 on-track passes, 9 pit stops, 3 cars that never finished, 1 safety car and a red flag that stopped the race."
+      "text": "139 on-track passes, 9 pit stops, 3 cars that never finished, 1 safety car, 1 virtual safety car and a red flag that stopped the race."
     },
     {
       "type": "moment",
@@ -155,10 +155,22 @@
     },
     {
       "type": "moment",
+      "lap": 11,
+      "kicker": "Lap 11 · Traffic",
+      "title": "9 overtakes on this lap alone",
+      "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
+      "bullets": [
+        "Perez, Sainz and Albon all found a way through",
+        "6 different drivers gained a place on this lap alone"
+      ],
+      "note": "Nobody had stopped, so this was done the hard way, wheel to wheel."
+    },
+    {
+      "type": "moment",
       "lap": 17,
       "kicker": "The one doing the passing",
-      "title": "Antonelli: 13 overtakes",
-      "text": "Level with Piastri on the same number, in a Mercedes.",
+      "title": "Antonelli: 12 overtakes",
+      "text": "More than anybody else out there, in a Mercedes.",
       "bullets": [
         "P19 on the grid, P1 at the flag"
       ],
@@ -167,18 +179,6 @@
         "rows": [
           [
             "Antonelli",
-            13
-          ],
-          [
-            "Piastri",
-            13
-          ],
-          [
-            "Hamilton",
-            12
-          ],
-          [
-            "Norris",
             12
           ],
           [
@@ -186,8 +186,20 @@
             11
           ],
           [
-            "Albon",
+            "Piastri",
+            11
+          ],
+          [
+            "Hamilton",
             10
+          ],
+          [
+            "Norris",
+            10
+          ],
+          [
+            "Perez",
+            9
           ]
         ]
       },
@@ -210,14 +222,14 @@
       "lap": 22,
       "kicker": "Call it before it happens",
       "title": "One of these three does not see the chequered flag. Who?",
-      "text": "Nothing on the timing screens says it is coming. That is rather the point of mechanical failure.",
+      "text": "Nothing on the timing screens says it is coming, and the feed never says why it did.",
       "options": [
         "Antonelli",
         "Stroll",
         "Russell"
       ],
       "answer": "Stroll",
-      "reveal": "Stroll, on lap 27 of 53, the Aston Martin car stopping without warning."
+      "reveal": "Stroll, on lap 27 of 53. The timing feed records that the Aston Martin stopped, never what broke."
     },
     {
       "type": "moment",
@@ -370,14 +382,15 @@
     {
       "type": "moment",
       "lap": 28,
-      "kicker": "Lap 28 · Traffic",
-      "title": "12 overtakes on this lap alone",
-      "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
+      "kicker": "Lap 28 of 53 · Virtual Safety Car",
+      "title": "Everybody slows down, nobody bunches up",
+      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
-        "Albon, Piastri and Hamilton all found a way through",
-        "6 different drivers gained a place on this lap alone"
+        "Russell was leading when it was called",
+        "Antonelli and Verstappen took a stop under it",
+        "Lifted on lap 29"
       ],
-      "note": "Cars were rejoining on new rubber alongside tyres twenty laps old, which is a free pass rather than a move."
+      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is crawling too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },
     {
       "type": "moment",
@@ -409,10 +422,9 @@
       "type": "moment",
       "lap": 30,
       "kicker": "Penalties",
-      "title": "2 penalties handed out",
+      "title": "1 penalty handed out",
       "text": "Time added, places lost, and sometimes a result rewritten after the flag.",
       "bullets": [
-        "Perez: 5s for failing to follow the race director's instructions: practice start infringement",
         "Perez: 5s for failing to follow the race director's instructions: escape road instructions"
       ],
       "note": "Served at the next stop, or added to the final time when there is no stop left to serve it at."
@@ -478,7 +490,7 @@
       "title": "Antonelli: P19 on the grid, P1 at the flag",
       "text": "18 places gained, through the whole field, to the top step.",
       "bullets": [
-        "13 of them by passing somebody on track"
+        "12 of them by passing somebody on track"
       ],
       "note": "The rest came from the pit wall, the stoppage and the cars that fell away in front of him. A win from this far back happens a handful of times a decade, and it is never luck alone."
     },

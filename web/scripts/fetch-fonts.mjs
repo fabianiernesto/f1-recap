@@ -34,6 +34,10 @@ const FONTS = [
   // friendly. Drop the real files in public/fonts/ and globals.css picks
   // them up first; see the @font-face at the top of that file.
   { family: "Space Grotesk", weights: [400, 500, 700], file: "space-grotesk" },
+  // the home's single family is TT Commons Pro (TypeType), not a Google
+  // font. This is the closest free geometric grotesk, the stand-in until
+  // the real files land in public/fonts/ (see the README there).
+  { family: "Plus Jakarta Sans", weights: [400, 500, 700], file: "plus-jakarta-sans" },
 ];
 
 /** Pick the @font-face block that covers basic latin. */

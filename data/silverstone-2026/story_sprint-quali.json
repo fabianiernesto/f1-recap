@@ -133,7 +133,7 @@
       "type": "moment",
       "lap": 4,
       "kicker": "Track limits",
-      "title": "1 laps thrown in the bin",
+      "title": "1 lap thrown in the bin",
       "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
       "dato": {
         "label": "Deleted laps",
@@ -188,7 +188,11 @@
       "lap": 8,
       "kicker": "The grid",
       "title": "How Sunday starts",
-      "text": "P1 Hamilton · P2 Antonelli · P3 Verstappen · P4 Leclerc · P5 Russell · P6 Norris"
+      "text": "P1 Hamilton · P2 Antonelli · P3 Verstappen · P4 Leclerc · P5 Russell · P6 Norris",
+      "bullets": [
+        "Albon qualified P16 and starts P22, 6 places further back",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
     }
   ]
 }

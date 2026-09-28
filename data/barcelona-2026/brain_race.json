@@ -224,7 +224,7 @@
       ],
       "pace": "1:24.548",
       "paceRaw": 84.548,
-      "overtakes": 12,
+      "overtakes": 11,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -255,7 +255,7 @@
       ],
       "pace": "1:24.567",
       "paceRaw": 84.567,
-      "overtakes": 12,
+      "overtakes": 11,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -286,7 +286,7 @@
       ],
       "pace": "1:24.523",
       "paceRaw": 84.523,
-      "overtakes": 15,
+      "overtakes": 14,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -317,7 +317,7 @@
       ],
       "pace": "1:24.374",
       "paceRaw": 84.374,
-      "overtakes": 15,
+      "overtakes": 14,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -350,7 +350,7 @@
       ],
       "pace": "1:24.641",
       "paceRaw": 84.641,
-      "overtakes": 18,
+      "overtakes": 16,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -392,7 +392,7 @@
       ],
       "pace": "1:24.786",
       "paceRaw": 84.786,
-      "overtakes": 16,
+      "overtakes": 14,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -430,7 +430,7 @@
       ],
       "pace": "1:25.332",
       "paceRaw": 85.332,
-      "overtakes": 16,
+      "overtakes": 14,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -463,7 +463,7 @@
       ],
       "pace": "1:25.885",
       "paceRaw": 85.885,
-      "overtakes": 11,
+      "overtakes": 9,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -868,7 +868,6 @@
       "Antonelli retired"
     ],
     "63": [
-      "10 overtakes",
       "Leclerc retired"
     ]
   },
@@ -929,7 +928,7 @@
         "yellow"
       ],
       "say": [
-        "no safety car in this one, green the whole way"
+        "no proper safety car, just a virtual one on lap 41. gaps frozen, nobody bunched up"
       ]
     },
     {
@@ -943,7 +942,7 @@
         "how many overtakes"
       ],
       "say": [
-        "244 proper overtakes",
+        "232 proper overtakes",
         "that's not counting lap 1 or the safety car restarts. those are just the field shuffling, they'd double the number and mean nothing"
       ]
     },
@@ -1065,7 +1064,7 @@
       ],
       "say": [
         "bit of both honestly",
-        "244 overtakes and the midfield was mental, the front was quieter",
+        "232 overtakes and the midfield was mental, the front was quieter",
         "watch the last 10 laps at least"
       ]
     },

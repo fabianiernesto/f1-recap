@@ -43,8 +43,8 @@
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "244 on-track passes",
-      "moments": 35,
+      "headline": "232 on-track passes",
+      "moments": 37,
       "laps": 66
     }
   ],
@@ -64,7 +64,7 @@
       "last": "Hamilton",
       "time": "1:20.122"
     },
-    "passes": 244,
+    "passes": 232,
     "stops": 47,
     "dnfs": 7,
     "safetyCars": 0,

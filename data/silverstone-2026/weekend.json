@@ -43,8 +43,8 @@
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "153 on-track passes, 2 safety car",
-      "moments": 36,
+      "headline": "130 on-track passes, 2 safety car",
+      "moments": 38,
       "laps": 52
     }
   ],
@@ -64,7 +64,7 @@
       "last": "Antonelli",
       "time": "1:31.777"
     },
-    "passes": 153,
+    "passes": 130,
     "stops": 51,
     "dnfs": 3,
     "safetyCars": 2,

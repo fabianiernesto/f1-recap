@@ -6,7 +6,71 @@
   "country": "Hungary",
   "date": "26 JUL 2026",
   "laps": 70,
-  "sessions": [],
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "545 laps run, no points at stake",
+      "moments": 8,
+      "laps": 30
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "572 laps run, no points at stake",
+      "moments": 7,
+      "laps": 33
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "393 laps run, no points at stake",
+      "moments": 7,
+      "laps": 30
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Norris on pole",
+      "moments": 9,
+      "laps": 20
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "190 on-track passes",
+      "moments": 33,
+      "laps": 70
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Lando",
+      "last": "Norris",
+      "team": "McLaren",
+      "colour": "F47600",
+      "number": 1,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp"
+    },
+    "margin": 15.08,
+    "runnerUp": "Verstappen",
+    "fastest": {
+      "last": "Leclerc",
+      "time": "1:22.000"
+    },
+    "passes": 190,
+    "stops": 44,
+    "dnfs": 3,
+    "safetyCars": 0,
+    "redFlag": false,
+    "laps": 70
+  },
   "rating": null,
   "heat": []
 }

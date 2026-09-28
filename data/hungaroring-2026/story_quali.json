@@ -1,0 +1,215 @@
+{
+  "gp": "Hungarian Grand Prix 2026",
+  "session": "Qualifying",
+  "sessionSlug": "quali",
+  "circuit": "Hungaroring",
+  "laps": 20,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Hungarian Grand Prix · Qualifying",
+      "title": "One lap decides the whole Sunday",
+      "text": "Three rounds, five cars knocked out each time, and a grid that shapes everything the race can become."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Pole position",
+      "title": "Norris takes it",
+      "text": "By 0.012s over Hamilton. Less time than a blink.",
+      "dato": {
+        "label": "Top ten",
+        "rows": [
+          [
+            "P1 Norris",
+            "McLaren"
+          ],
+          [
+            "P2 Hamilton",
+            "Ferrari"
+          ],
+          [
+            "P3 Leclerc",
+            "Ferrari"
+          ],
+          [
+            "P4 Antonelli",
+            "Mercedes"
+          ],
+          [
+            "P5 Piastri",
+            "McLaren"
+          ],
+          [
+            "P6 Verstappen",
+            "Red Bull Racing"
+          ],
+          [
+            "P7 Russell",
+            "Mercedes"
+          ],
+          [
+            "P8 Hadjar",
+            "Red Bull Racing"
+          ],
+          [
+            "P9 Lindblad",
+            "Racing Bulls"
+          ],
+          [
+            "P10 Hulkenberg",
+            "Audi"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · The cut",
+      "title": "Out before it got serious",
+      "text": "Alonso (P16), Bearman (P17), Sainz (P18), Albon (P19), Stroll (P20).",
+      "dato": {
+        "label": "Knocked out in Q1",
+        "rows": [
+          [
+            "Alonso",
+            "P16"
+          ],
+          [
+            "Bearman",
+            "P17"
+          ],
+          [
+            "Sainz",
+            "P18"
+          ],
+          [
+            "Albon",
+            "P19"
+          ],
+          [
+            "Stroll",
+            "P20"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · The cut",
+      "title": "So close to the top ten",
+      "text": "Lawson (P11), Gasly (P12), Colapinto (P13), Bortoleto (P14), Ocon (P15).",
+      "dato": {
+        "label": "Knocked out in Q2",
+        "rows": [
+          [
+            "Lawson",
+            "P11"
+          ],
+          [
+            "Gasly",
+            "P12"
+          ],
+          [
+            "Colapinto",
+            "P13"
+          ],
+          [
+            "Bortoleto",
+            "P14"
+          ],
+          [
+            "Ocon",
+            "P15"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Deleted laps",
+      "title": "10 laps thrown in the bin",
+      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
+      "dato": {
+        "label": "Deleted laps",
+        "rows": [
+          [
+            "Sainz",
+            "1:23.576"
+          ],
+          [
+            "Leclerc",
+            "1:18.878"
+          ],
+          [
+            "Bortoleto",
+            "1:19.476"
+          ],
+          [
+            "Gasly",
+            "at turn 1"
+          ],
+          [
+            "Colapinto",
+            "at turn 7"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Colapinto was quickest through the trap: 336 km/h",
+      "text": "Qualifying trim, wings trimmed back, nothing to lose."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Sector by sector",
+      "title": "Nobody owned the whole lap",
+      "text": "The perfect lap of the day was never actually driven: it lives in three different cars.",
+      "dato": {
+        "label": "Fastest sectors",
+        "rows": [
+          [
+            "Sector 1 · Hamilton",
+            "27.329s"
+          ],
+          [
+            "Sector 2 · Norris",
+            "27.621s"
+          ],
+          [
+            "Sector 3 · Hamilton",
+            "22.048s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Interruptions",
+      "title": "7 yellow flag calls during the session",
+      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "The grid",
+      "title": "How Sunday starts",
+      "text": "P1 Norris · P2 Leclerc · P3 Piastri · P4 Verstappen · P5 Hamilton · P6 Russell",
+      "bullets": [
+        "Hamilton qualified P2 and starts P5, 3 places further back",
+        "Antonelli qualified P4 and starts P7, 3 places further back",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
+    }
+  ]
+}

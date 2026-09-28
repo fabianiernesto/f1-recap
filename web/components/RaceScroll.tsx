@@ -317,8 +317,8 @@ export default function RaceScroll({
         <svg viewBox={`0 0 ${track.view} ${track.view}`}>
           {/* a real road: kerb-gray edges around dark asphalt, with the red
               racing line lighting up as the reader drives through the story */}
-          <path d={geo.d} fill="none" stroke="#464B55" strokeWidth={21} strokeLinejoin="round" />
-          <path d={geo.d} fill="none" stroke="#1a1d24" strokeWidth={16} strokeLinejoin="round" />
+          <path d={geo.d} fill="none" stroke="#444444" strokeWidth={21} strokeLinejoin="round" />
+          <path d={geo.d} fill="none" stroke="#1a1a1a" strokeWidth={16} strokeLinejoin="round" />
           <path
             ref={traceRef}
             d={geo.d}
@@ -334,8 +334,8 @@ export default function RaceScroll({
           <g className="tk-kerbs">
             {geo.kerbs.map((d, i) => (
               <g key={i}>
-                <path d={d} fill="none" stroke="#dfe1e6" strokeWidth={6} />
-                <path d={d} fill="none" stroke="#c0261e" strokeWidth={6}
+                <path d={d} fill="none" stroke="#e6e6e6" strokeWidth={6} />
+                <path d={d} fill="none" stroke="#e10600" strokeWidth={6}
                       strokeDasharray="8 8" />
               </g>
             ))}
@@ -353,26 +353,26 @@ export default function RaceScroll({
           </g>
           <line
             x1={geo.sf.x1} y1={geo.sf.y1} x2={geo.sf.x2} y2={geo.sf.y2}
-            stroke="#F2F3F5" strokeWidth={4} strokeDasharray="4 3"
+            stroke="#ffffff" strokeWidth={4} strokeDasharray="4 3"
           />
           <g ref={carRef}>
-            <rect x="1" y="1" width="28" height="4.5" rx="1" fill="#23262E" />
-            <rect x="0.5" y="0.5" width="2.6" height="6.5" rx="1" fill="#2E323C" />
-            <rect x="26.9" y="0.5" width="2.6" height="6.5" rx="1" fill="#2E323C" />
-            <path d="M13 5 L17 5 L16.2 22 L13.8 22 Z" fill="#15171D" />
+            <rect x="1" y="1" width="28" height="4.5" rx="1" fill="#222222" />
+            <rect x="0.5" y="0.5" width="2.6" height="6.5" rx="1" fill="#2a2a2a" />
+            <rect x="26.9" y="0.5" width="2.6" height="6.5" rx="1" fill="#2a2a2a" />
+            <path d="M13 5 L17 5 L16.2 22 L13.8 22 Z" fill="#151515" />
             <rect x="13.9" y="6.5" width="2.2" height="12" rx="1" fill="#E10600" />
-            <rect x="2.5" y="10.5" width="6.2" height="12.5" rx="2.4" fill="#0D0E11" stroke="#33363E" />
-            <rect x="21.3" y="10.5" width="6.2" height="12.5" rx="2.4" fill="#0D0E11" stroke="#33363E" />
-            <path d="M11 22 L19 22 L21.5 34 L21.5 52 L19 56 L11 56 L8.5 52 L8.5 34 Z" fill="#B9BEC7" />
-            <ellipse cx="15" cy="30.5" rx="4.6" ry="3.6" fill="none" stroke="#3C404A" strokeWidth="1.6" />
-            <ellipse cx="15" cy="33.5" rx="3" ry="4.2" fill="#0D0E11" />
-            <rect x="14.3" y="38" width="1.4" height="16" rx="0.7" fill="#23262E" />
-            <rect x="1.8" y="53" width="7.4" height="13.5" rx="2.6" fill="#0D0E11" stroke="#33363E" />
-            <rect x="20.8" y="53" width="7.4" height="13.5" rx="2.6" fill="#0D0E11" stroke="#33363E" />
-            <rect x="4.5" y="69" width="21" height="5" rx="1" fill="#23262E" />
-            <rect x="4.5" y="74.6" width="21" height="1.8" rx="0.9" fill="#15171D" />
-            <rect x="3.6" y="68" width="2.2" height="9.5" rx="1" fill="#2E323C" />
-            <rect x="24.2" y="68" width="2.2" height="9.5" rx="1" fill="#2E323C" />
+            <rect x="2.5" y="10.5" width="6.2" height="12.5" rx="2.4" fill="#0d0d0d" stroke="#333333" />
+            <rect x="21.3" y="10.5" width="6.2" height="12.5" rx="2.4" fill="#0d0d0d" stroke="#333333" />
+            <path d="M11 22 L19 22 L21.5 34 L21.5 52 L19 56 L11 56 L8.5 52 L8.5 34 Z" fill="#bdbdbd" />
+            <ellipse cx="15" cy="30.5" rx="4.6" ry="3.6" fill="none" stroke="#3a3a3a" strokeWidth="1.6" />
+            <ellipse cx="15" cy="33.5" rx="3" ry="4.2" fill="#0d0d0d" />
+            <rect x="14.3" y="38" width="1.4" height="16" rx="0.7" fill="#222222" />
+            <rect x="1.8" y="53" width="7.4" height="13.5" rx="2.6" fill="#0d0d0d" stroke="#333333" />
+            <rect x="20.8" y="53" width="7.4" height="13.5" rx="2.6" fill="#0d0d0d" stroke="#333333" />
+            <rect x="4.5" y="69" width="21" height="5" rx="1" fill="#222222" />
+            <rect x="4.5" y="74.6" width="21" height="1.8" rx="0.9" fill="#151515" />
+            <rect x="3.6" y="68" width="2.2" height="9.5" rx="1" fill="#2a2a2a" />
+            <rect x="24.2" y="68" width="2.2" height="9.5" rx="1" fill="#2a2a2a" />
           </g>
         </svg>
       </div>

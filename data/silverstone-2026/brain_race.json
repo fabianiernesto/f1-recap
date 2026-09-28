@@ -59,7 +59,7 @@
       ],
       "pace": "1:34.572",
       "paceRaw": 94.572,
-      "overtakes": 10,
+      "overtakes": 9,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -124,7 +124,7 @@
       ],
       "pace": "1:34.836",
       "paceRaw": 94.836,
-      "overtakes": 8,
+      "overtakes": 6,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -157,7 +157,7 @@
       ],
       "pace": "1:34.877",
       "paceRaw": 94.877,
-      "overtakes": 7,
+      "overtakes": 6,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -350,7 +350,7 @@
       ],
       "pace": "1:35.157",
       "paceRaw": 95.157,
-      "overtakes": 13,
+      "overtakes": 8,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -382,7 +382,7 @@
       ],
       "pace": "1:37.002",
       "paceRaw": 97.002,
-      "overtakes": 15,
+      "overtakes": 12,
       "penalty": "10s",
       "penaltyFor": null,
       "led": 0,
@@ -446,7 +446,7 @@
       ],
       "pace": "1:37.231",
       "paceRaw": 97.231,
-      "overtakes": 9,
+      "overtakes": 8,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -515,7 +515,7 @@
       ],
       "pace": "1:37.890",
       "paceRaw": 97.89,
-      "overtakes": 6,
+      "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -547,7 +547,7 @@
       ],
       "pace": "1:36.560",
       "paceRaw": 96.56,
-      "overtakes": 11,
+      "overtakes": 9,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -579,7 +579,7 @@
       ],
       "pace": "1:38.792",
       "paceRaw": 98.792,
-      "overtakes": 5,
+      "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -642,7 +642,7 @@
       ],
       "pace": "1:34.233",
       "paceRaw": 94.233,
-      "overtakes": 10,
+      "overtakes": 8,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -677,7 +677,7 @@
       ],
       "pace": "1:36.420",
       "paceRaw": 96.42,
-      "overtakes": 1,
+      "overtakes": 0,
       "penalty": "10s",
       "penaltyFor": null,
       "led": 0,
@@ -709,7 +709,7 @@
       ],
       "pace": "1:35.971",
       "paceRaw": 95.971,
-      "overtakes": 13,
+      "overtakes": 11,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -767,14 +767,13 @@
       "Ocon pitted"
     ],
     "22": [
-      "12 overtakes",
       "Colapinto pitted"
     ],
     "23": [
-      "8 overtakes",
       "Russell pitted",
       "Hamilton pitted",
-      "Gasly pitted"
+      "Gasly pitted",
+      "Albon pitted"
     ],
     "24": [
       "6 overtakes"
@@ -940,7 +939,7 @@
         "how many overtakes"
       ],
       "say": [
-        "153 proper overtakes",
+        "130 proper overtakes",
         "that's not counting lap 1 or the safety car restarts. those are just the field shuffling, they'd double the number and mean nothing"
       ]
     },
@@ -1063,7 +1062,7 @@
       ],
       "say": [
         "bit of both honestly",
-        "153 overtakes and the midfield was mental, the front was quieter",
+        "130 overtakes and the midfield was mental, the front was quieter",
         "watch the last 10 laps at least"
       ]
     },

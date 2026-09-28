@@ -47,7 +47,7 @@ function draw(all: BlindRound[]): BlindRound[] {
 
 function teamTone(colour?: string): string {
   const hex = (colour || "").replace("#", "");
-  return /^[0-9a-f]{6}$/i.test(hex) ? `#${hex}` : "#ff1c12";
+  return /^[0-9a-f]{6}$/i.test(hex) ? `#${hex}` : "#e10600";
 }
 
 export default function BlindTest({ test, backTo }: { test: Test; backTo: string }) {

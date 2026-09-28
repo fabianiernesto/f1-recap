@@ -26,7 +26,7 @@
         ],
         [
           "On-track passes",
-          "6"
+          "4"
         ],
         [
           "Finished",
@@ -70,7 +70,7 @@
         ],
         [
           "On-track passes",
-          "13"
+          "12"
         ],
         [
           "Fastest lap",
@@ -250,46 +250,6 @@
       ]
     },
     {
-      "answer": "Piastri",
-      "number": 81,
-      "team": "McLaren",
-      "colour": "F47600",
-      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp",
-      "rows": [
-        [
-          "Started",
-          "P6"
-        ],
-        [
-          "Stops",
-          "0"
-        ],
-        [
-          "Tyres",
-          "medium to hard"
-        ],
-        [
-          "Median lap",
-          "1:26.100"
-        ],
-        [
-          "On-track passes",
-          "13"
-        ],
-        [
-          "Finished",
-          "P5"
-        ]
-      ],
-      "tell": "more overtakes than anyone out there",
-      "options": [
-        "Norris",
-        "Piastri",
-        "Russell",
-        "Verstappen"
-      ]
-    },
-    {
       "answer": "Perez",
       "number": 11,
       "team": "Cadillac",
@@ -318,7 +278,7 @@
         ],
         [
           "Penalty",
-          "5s, failing to follow the race director's instructions: practice start infringement"
+          "5s, failing to follow the race director's instructions: escape road instructions"
         ],
         [
           "Finished",

@@ -159,6 +159,19 @@ class Session:
                        if "SAFETY CAR DEPLOYED" in (m.get("message") or "").upper()
                        and m.get("lap_number")})
 
+    @property
+    def vsc_laps(self) -> list[int]:
+        """Lap each virtual safety car was called. Not a safety car: the
+        gaps freeze instead of vanishing, so it gets its own card and its
+        own count, and it never inflates the safety-car number."""
+        return sorted({m["lap_number"] for m in self.rc
+                       if "VSC DEPLOYED" in (m.get("message") or "").upper()
+                       and m.get("lap_number")})
+
+    def vsc_end(self, lap: int) -> int | None:
+        return next((m["lap_number"] for m in self.messages("VSC ENDING")
+                     if (m.get("lap_number") or 0) >= lap), None)
+
     def messages(self, *needles: str) -> list[dict]:
         return [m for m in self.rc
                 if any(n in (m.get("message") or "").upper() for n in needles)]
@@ -206,6 +219,10 @@ class Session:
         dead = set(self.red_laps) | set(self.restart_laps)
         for sc in self.sc_laps:
             dead.update(range(sc - 2, sc + 3))
+        # under a VSC the order only changes in the pit lane, and the position
+        # feed lands those a lap late
+        for v in self.vsc_laps:
+            dead.update(range(v, (self.vsc_end(v) or v) + 2))
         return dead
 
     @property
@@ -358,11 +375,19 @@ class Session:
                             reason)
             where = head.split("INCIDENT")[0].strip() if "INCIDENT" in head else ""
             verdict, secs = "NO ACTION", 0
+            # the offence, without the "(15:57:04)" stamp: the verdict line
+            # repeats it word for word, so it is the safest thing to match on
+            offence = re.sub(r"\(\d{2}:\d{2}:\d{2}\)", "", tail).strip(" -").split(" - ")[0].strip()
             for v in self.rc:
                 vm = (v.get("message") or "").upper()
                 if (v.get("lap_number") or 0) < lap or "STEWARDS" not in vm:
                     continue
-                if not any(f"CAR {c}" in vm for c in cars):
+                # "CARS 14 (ALO) AND 87 (BEA)": read the numbers the same way
+                # the report line was read, never as "CAR 14"
+                vcars = {int(n) for n in re.findall(r"(\d+) \([A-Z]{3}\)", vm)}
+                if not vcars & set(cars):
+                    continue
+                if offence and offence not in vm:
                     continue
                 pen = re.search(r"(\d+) SECOND TIME PENALTY", vm)
                 if pen and "SERVED" not in vm:
@@ -375,6 +400,17 @@ class Session:
                           "reason": reason.title(), "verdict": verdict, "secs": secs,
                           "raw": (m.get("message") or "")})
         return cases
+
+
+def ratio_words(r: float) -> str:
+    """22s against a 15s margin is not '1 times' anything."""
+    if r < 0.75:
+        return "well under"
+    if r < 1.25:
+        return "about the same as"
+    if r < 2:
+        return f"{r:.1f} times"
+    return f"{r:.0f} times"
 
 
 def deleted_row(s: Session, raw: str) -> list[str]:
@@ -397,7 +433,7 @@ def plain_incident(s: Session, raw: str) -> str:
     dash in it, none of which a reader needs.
     """
     text = re.sub(r"\s*\(\d{2}:\d{2}:\d{2}\)", "", raw)
-    cars = [int(n) for n in re.findall(r"CAR (\d+)", text.upper())]
+    cars = [int(n) for n in re.findall(r"(\d+) \([A-Z]{3}\)", text.upper())]
     who = names_list([s.name(n) for n in cars]) if cars else "somebody"
     # the reason is whatever follows the last separator
     parts = [p.strip(" -–—") for p in re.split(r"\s[-–—]\s", text) if p.strip(" -–—")]
@@ -492,12 +528,13 @@ def prediction_cards(s: Session) -> list[dict]:
             add({"type": "prediction", "lap": max(2, out_lap - 5),
                  "kicker": "Call it before it happens",
                  "title": "One of these three does not see the chequered flag. Who?",
-                 "text": "Nothing on the timing screens says it is coming. That is "
-                         "rather the point of mechanical failure.",
+                 "text": "Nothing on the timing screens says it is coming, and "
+                         "the feed never says why it did.",
                  "options": options([num] + decoys(num)),
                  "answer": s.name(num),
-                 "reveal": f"{s.name(num)}, on lap {out_lap} of {s.total_laps}, the "
-                           f"{s.team(num)} car stopping without warning."})
+                 "reveal": f"{s.name(num)}, on lap {out_lap} of {s.total_laps}. The "
+                           f"timing feed records that the {s.team(num)} stopped, "
+                           "never what broke."})
 
     return out
 
@@ -729,7 +766,7 @@ def decision_cards(s: Session) -> list[dict]:
                  "target": round(gap, 3), "close": max(0.3, gap * 0.4),
                  "reveal": f"{gap:.3f} seconds after {s.total_laps} laps."
                            + (f" A single trip down the pit lane costs about {lane:.0f}s "
-                              f"today, which is {lane / gap:.0f} times the margin this "
+                              f"today, which is {ratio_words(lane / gap)} the margin this "
                               "race was decided by."
                               if lane and gap else "")})
 
@@ -753,7 +790,9 @@ def mate_thread(s: Session) -> dict:
                   f"{s.total_laps} laps, {len(green)} proper overtakes and "
                   + (f"{len(s.sc_laps)} safety car"
                      f"{'s' if len(s.sc_laps) > 1 else ''}"
-                     if s.sc_laps else "no safety car")],
+                     if s.sc_laps else
+                     f"only a virtual safety car on lap {s.vsc_laps[0]}"
+                     if s.vsc_laps else "no safety car")],
          "asks": [
              {"q": "just tell me who won", "a": [
                  f"{s.name(winner)} 🏆" if winner else "nobody, weirdly",
@@ -908,6 +947,8 @@ def race_story(s: Session) -> list[dict]:
                  f"{len(s.dnfs)} cars that never finished"
                  + (f", {len(s.sc_laps)} safety car"
                     f"{'s' if len(s.sc_laps) > 1 else ''}" if s.sc_laps else "")
+                 + (f", {len(s.vsc_laps)} virtual safety car"
+                    f"{'s' if len(s.vsc_laps) > 1 else ''}" if s.vsc_laps else "")
                  + (" and a red flag that stopped the race" if s.red_laps else "")
                  + "."})
 
@@ -935,8 +976,8 @@ def race_story(s: Session) -> list[dict]:
                  f"{names_list([s.name(num) for num, _ in movers.most_common(3)])} all "
                  "found a way through",
                  f"{len(movers)} different drivers gained a place on this lap alone",
-                 ("Cars were rejoining on new rubber alongside tyres twenty laps old, "
-                  "which is a free pass rather than a move"
+                 ("Cars were rejoining on new rubber alongside tyres a whole stint "
+                  "older, which is a free pass rather than a move"
                   if lap > 8 and sum(1 for p in s.real_pits
                                      if abs(p["lap_number"] - lap) <= 1) >= 3
                   else "A couple of laps after the restart, with the field still "
@@ -1046,6 +1087,29 @@ def race_story(s: Session) -> list[dict]:
                             "And every lap you stretch is a set of tyres getting slower "
                             "underneath you. The whole afternoon is that argument, run "
                             "at 300 km/h"])})
+
+    # --- virtual safety cars: the gaps freeze, they do not vanish ---
+    for lap in s.vsc_laps:
+        ended = s.vsc_end(lap)
+        order = s.order_at_lap(lap)
+        leader = order[0][1] if order else None
+        under = [p["driver_number"] for p in s.real_pits
+                 if lap <= p["lap_number"] <= (ended or lap)]
+        add({"type": "moment", "lap": lap,
+             "kicker": f"Lap {lap} of {s.total_laps} · Virtual Safety Car",
+             "title": "Everybody slows down, nobody bunches up",
+             "text": "Every car is held to a delta time exactly where it is. The "
+                     "gaps freeze instead of vanishing, which is the whole "
+                     "difference from a real safety car.",
+             "bullets": ([f"{s.name(leader)} was leading when it was called"]
+                         if leader else [])
+                        + ([names_list([s.name(n) for n in under])
+                            + " took a stop under it"] if under else [])
+                        + ([f"Lifted on lap {ended}"] if ended else []),
+             "note": "A stop under a VSC costs less than one at racing speed, "
+                     "because everybody else is crawling too. Cheaper, not free: "
+                     "the leader keeps his gap and the queue behind him keeps "
+                     "its shape."})
 
     # --- safety cars ---
     for lap in s.sc_laps:
@@ -1353,8 +1417,11 @@ def quali_story(s: Session) -> list[dict]:
 
     deleted = s.messages("DELETED")
     if deleted:
-        add({"type": "moment", "lap": 4, "kicker": "Track limits",
-             "title": f"{len(deleted)} laps thrown in the bin",
+        add({"type": "moment", "lap": 4,
+             "kicker": ("Track limits"
+                        if all("TRACK LIMITS" in (m.get("message") or "").upper()
+                               for m in deleted) else "Deleted laps"),
+             "title": f"{len(deleted)} lap{'s' if len(deleted) > 1 else ''} thrown in the bin",
              "text": "In qualifying a deleted lap can be the difference between "
                      "Q3 and going home early.",
              "dato": {"label": "Deleted laps",
@@ -1383,10 +1450,27 @@ def quali_story(s: Session) -> list[dict]:
              "text": "A yellow in the wrong sector at the wrong moment ends "
                      "somebody's lap, and sometimes their session."})
 
-    add({"type": "moment", "lap": 8, "kicker": "The grid",
-         "title": "How Sunday starts",
-         "text": " · ".join(f"P{r['position']} {s.name(r['driver_number'])}"
-                            for r in s.result[:6])})
+    grid = sorted(((g["position"], g["driver_number"]) for g in s.grid
+                   if g.get("position") and g.get("driver_number")))
+    if grid:
+        quali_pos = {r["driver_number"]: r["position"] for r in s.result}
+        moved = [(num, quali_pos[num], pos) for pos, num in grid
+                 if num in quali_pos and quali_pos[num] < pos]
+        add({"type": "moment", "lap": 8, "kicker": "The grid",
+             "title": "How Sunday starts",
+             "text": " · ".join(f"P{pos} {s.name(num)}" for pos, num in grid[:6]),
+             "bullets": [f"{s.name(num)} qualified P{q} and starts P{p}, "
+                         f"{p - q} place{'s' if p - q > 1 else ''} further back"
+                         for num, q, p in moved[:4]]
+                        + (["The grid is not the qualifying order. A penalty moves a "
+                            "car back, whether for something on track or for a new "
+                            "engine, and everybody behind it moves up"]
+                           if moved else [])})
+    else:
+        add({"type": "moment", "lap": 8, "kicker": "The grid",
+             "title": "How Sunday starts",
+             "text": " · ".join(f"P{r['position']} {s.name(r['driver_number'])}"
+                                for r in s.result[:6])})
     return cards
 
 
@@ -1456,9 +1540,17 @@ def practice_story(s: Session) -> list[dict]:
              "text": "Early wing choices show up here before anybody admits to them."})
 
     incidents = [m for m in s.rc if m.get("flag") in ("YELLOW", "DOUBLE YELLOW", "RED")]
+    reds = [m for m in incidents if m.get("flag") == "RED"]
     add({"type": "moment", "lap": 6, "kicker": "Interruptions",
-         "title": f"{len(incidents)} flag calls" if incidents else "A clean session",
-         "text": ("Every interruption costs somebody a run they had planned."
+         "title": (f"{len(incidents)} flag calls, and the session stopped "
+                   f"{'once' if len(reds) == 1 else str(len(reds)) + ' times'}"
+                   if reds else f"{len(incidents)} flag calls"
+                   if incidents else "A clean session"),
+         "text": ("A red flag sends everybody back to the pits and the clock keeps "
+                  "running. Whatever run you were on is gone, and so is the time to "
+                  "repeat it."
+                  if reds else
+                  "Every interruption costs somebody a run they had planned."
                   if incidents else
                   "No red flags, no drama. Rare and quietly useful for everyone.")})
 

@@ -1,0 +1,141 @@
+{
+  "gp": "Hungarian Grand Prix 2026",
+  "session": "Practice 1",
+  "sessionSlug": "fp1",
+  "circuit": "Hungaroring",
+  "laps": 30,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Hungarian Grand Prix · Practice 1",
+      "title": "Practice, honestly",
+      "text": "545 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 14",
+      "title": "Leclerc: 1:19.075",
+      "text": "In a Ferrari. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Bortoleto racked up 28 laps",
+      "text": "Track time is the currency of a Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Bortoleto",
+            28
+          ],
+          [
+            "Hulkenberg",
+            27
+          ],
+          [
+            "Fornaroli",
+            27
+          ],
+          [
+            "Gasly",
+            27
+          ],
+          [
+            "Herta",
+            26
+          ],
+          [
+            "Aron",
+            26
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Long-run pace",
+      "title": "Norris looked strongest over a stint",
+      "text": "Average clean lap across the session. This is the number teams actually care about on a Friday, not the headline time.",
+      "dato": {
+        "label": "Average clean lap",
+        "rows": [
+          [
+            "Norris",
+            "1:22.807"
+          ],
+          [
+            "Fornaroli",
+            "1:23.203"
+          ],
+          [
+            "Hirakawa",
+            "1:23.631"
+          ],
+          [
+            "Gasly",
+            "1:23.693"
+          ],
+          [
+            "Albon",
+            "1:23.911"
+          ],
+          [
+            "Sainz",
+            "1:24.856"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice on a Friday is a rehearsal for Sunday's plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "MEDIUM",
+            57
+          ],
+          [
+            "SOFT",
+            42
+          ],
+          [
+            "HARD",
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Norris topped the trap at 327 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "11 flag calls, and the session stopped once",
+      "text": "A red flag sends everybody back to the pits and the clock keeps running. Whatever run you were on is gone, and so is the time to repeat it."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 38°C and 47°C",
+      "text": "Friday conditions rarely match Sunday, which is why the times you see here mislead so often."
+    }
+  ]
+}
