@@ -1,0 +1,76 @@
+{
+  "slug": "madring-2026",
+  "gp": "Spanish Grand Prix 2026",
+  "short": "Spanish Grand Prix",
+  "circuit": "Madring",
+  "country": "Spain",
+  "date": "13 SEP 2026",
+  "laps": 57,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "561 laps run, no points at stake",
+      "moments": 8,
+      "laps": 30
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "481 laps run, no points at stake",
+      "moments": 7,
+      "laps": 26
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "261 laps run, no points at stake",
+      "moments": 7,
+      "laps": 17
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Norris on pole",
+      "moments": 7,
+      "laps": 0
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "65 on-track passes",
+      "moments": 34,
+      "laps": 57
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Kimi",
+      "last": "Antonelli",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 12,
+      "start": 2,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp"
+    },
+    "margin": 4.351,
+    "runnerUp": "Verstappen",
+    "fastest": {
+      "last": "Russell",
+      "time": "1:35.587"
+    },
+    "passes": 65,
+    "stops": 25,
+    "dnfs": 4,
+    "safetyCars": 0,
+    "redFlag": false,
+    "laps": 57
+  },
+  "rating": null,
+  "heat": []
+}

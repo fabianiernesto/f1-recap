@@ -74,7 +74,9 @@ def blind_rounds(s, fmt) -> list[dict]:
             st.get("compound") for st in s.stints
             if st.get("driver_number") == num and st.get("compound")))
         pace = s.pace(num)
-        pens = [c for c in cases if num in c["cars"] and c["secs"]]
+        # the car the verdict names, not every car in the report (Baku 2026:
+        # Norris was in the incident, Colapinto got the 10s)
+        pens = [c for c in cases if c["secs"] and c.get("penalised") == num]
         moved = (start - finish) if (start and finish and not r.get("dnf")) else 0
         laps_led = led(num)
 

@@ -1,0 +1,329 @@
+{
+  "session": "Race",
+  "rounds": [
+    {
+      "answer": "Piastri",
+      "number": 81,
+      "team": "McLaren",
+      "colour": "F47600",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P3"
+        ],
+        [
+          "Stops",
+          "2 (lap 31, 36)"
+        ],
+        [
+          "Tyres",
+          "soft to medium"
+        ],
+        [
+          "Median lap",
+          "1:47.992"
+        ],
+        [
+          "On-track passes",
+          "1"
+        ],
+        [
+          "Finished",
+          "P13"
+        ]
+      ],
+      "tell": "the afternoon that got away: nobody lost more places than he did",
+      "options": [
+        "Hulkenberg",
+        "Lawson",
+        "Piastri",
+        "Sainz"
+      ]
+    },
+    {
+      "answer": "Russell",
+      "number": 63,
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P1"
+        ],
+        [
+          "Stops",
+          "2 (lap 31, 36)"
+        ],
+        [
+          "Tyres",
+          "medium to soft"
+        ],
+        [
+          "Median lap",
+          "1:47.503"
+        ],
+        [
+          "On-track passes",
+          "0"
+        ],
+        [
+          "Fastest lap",
+          "1:44.916"
+        ],
+        [
+          "Finished",
+          "P1"
+        ]
+      ],
+      "tell": "led most of it and never gave anyone a way past",
+      "options": [
+        "Hadjar",
+        "Leclerc",
+        "Russell",
+        "Verstappen"
+      ]
+    },
+    {
+      "answer": "Verstappen",
+      "number": 3,
+      "team": "Red Bull Racing",
+      "colour": "4781D7",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P8"
+        ],
+        [
+          "Stops",
+          "2 (lap 31, 36)"
+        ],
+        [
+          "Tyres",
+          "medium to soft"
+        ],
+        [
+          "Median lap",
+          "1:47.800"
+        ],
+        [
+          "On-track passes",
+          "4"
+        ],
+        [
+          "Finished",
+          "P2"
+        ]
+      ],
+      "tell": "6 places gained the hard way, without a camera in sight",
+      "options": [
+        "Hadjar",
+        "Leclerc",
+        "Russell",
+        "Verstappen"
+      ]
+    },
+    {
+      "answer": "Antonelli",
+      "number": 12,
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P16"
+        ],
+        [
+          "Stops",
+          "2 (lap 30, 36)"
+        ],
+        [
+          "Tyres",
+          "medium to soft"
+        ],
+        [
+          "Median lap",
+          "1:48.062"
+        ],
+        [
+          "On-track passes",
+          "10"
+        ],
+        [
+          "Finished",
+          "P5"
+        ]
+      ],
+      "tell": "the biggest climb of the afternoon, one pass at a time",
+      "options": [
+        "Antonelli",
+        "Hadjar",
+        "Leclerc",
+        "Verstappen"
+      ]
+    },
+    {
+      "answer": "Lindblad",
+      "number": 41,
+      "team": "Racing Bulls",
+      "colour": "6C98FF",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/racingbulls/arvlin01/2026racingbullsarvlin01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P15"
+        ],
+        [
+          "Stops",
+          "2 (lap 30, 36)"
+        ],
+        [
+          "Tyres",
+          "medium to soft"
+        ],
+        [
+          "Median lap",
+          "1:49.303"
+        ],
+        [
+          "On-track passes",
+          "3"
+        ],
+        [
+          "Finished",
+          "P7"
+        ]
+      ],
+      "tell": "8 places gained the hard way, without a camera in sight",
+      "options": [
+        "Antonelli",
+        "Hamilton",
+        "Leclerc",
+        "Lindblad"
+      ]
+    },
+    {
+      "answer": "Hulkenberg",
+      "number": 27,
+      "team": "Audi",
+      "colour": "F50537",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P18"
+        ],
+        [
+          "Stops",
+          "2 (lap 32, 36)"
+        ],
+        [
+          "Tyres",
+          "medium to soft"
+        ],
+        [
+          "Median lap",
+          "1:49.654"
+        ],
+        [
+          "On-track passes",
+          "3"
+        ],
+        [
+          "Finished",
+          "P11"
+        ]
+      ],
+      "tell": "7 places gained the hard way, without a camera in sight",
+      "options": [
+        "Bearman",
+        "Hulkenberg",
+        "Ocon",
+        "Sainz"
+      ]
+    },
+    {
+      "answer": "Perez",
+      "number": 11,
+      "team": "Cadillac",
+      "colour": "909090",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P20"
+        ],
+        [
+          "Stops",
+          "2 (lap 30, 36)"
+        ],
+        [
+          "Tyres",
+          "medium to soft"
+        ],
+        [
+          "Median lap",
+          "1:49.926"
+        ],
+        [
+          "On-track passes",
+          "5"
+        ],
+        [
+          "Finished",
+          "P14"
+        ]
+      ],
+      "tell": "6 places gained the hard way, without a camera in sight",
+      "options": [
+        "Hulkenberg",
+        "Lawson",
+        "Perez",
+        "Piastri"
+      ]
+    },
+    {
+      "answer": "Bottas",
+      "number": 77,
+      "team": "Cadillac",
+      "colour": "909090",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P19"
+        ],
+        [
+          "Stops",
+          "2 (lap 26, 36)"
+        ],
+        [
+          "Tyres",
+          "medium to soft"
+        ],
+        [
+          "Median lap",
+          "1:51.927"
+        ],
+        [
+          "On-track passes",
+          "5"
+        ],
+        [
+          "Finished",
+          "retired, lap 50"
+        ]
+      ],
+      "tell": "the car gave up on him, and the sheet just stops",
+      "options": [
+        "Bortoleto",
+        "Bottas",
+        "Perez",
+        "Piastri"
+      ]
+    }
+  ]
+}

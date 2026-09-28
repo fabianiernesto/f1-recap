@@ -1,0 +1,105 @@
+{
+  "gp": "Spanish Grand Prix 2026",
+  "session": "Practice 2",
+  "sessionSlug": "fp2",
+  "circuit": "Madring",
+  "laps": 26,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Spanish Grand Prix · Practice 2",
+      "title": "Practice, honestly",
+      "text": "481 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 11",
+      "title": "Antonelli: 1:33.662",
+      "text": "In a Mercedes. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Ocon racked up 25 laps",
+      "text": "Track time is the currency of a Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Ocon",
+            25
+          ],
+          [
+            "Bearman",
+            25
+          ],
+          [
+            "Tsunoda",
+            24
+          ],
+          [
+            "Leclerc",
+            24
+          ],
+          [
+            "Russell",
+            23
+          ],
+          [
+            "Bortoleto",
+            23
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice on a Friday is a rehearsal for Sunday's plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "MEDIUM",
+            49
+          ],
+          [
+            "SOFT",
+            40
+          ],
+          [
+            "HARD",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Bortoleto topped the trap at 311 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "34 flag calls, and the session stopped once",
+      "text": "A red flag sends everybody back to the pits and the clock keeps running. Whatever run you were on is gone, and so is the time to repeat it."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 48°C and 53°C",
+      "text": "Friday conditions rarely match Sunday, which is why the times you see here mislead so often."
+    }
+  ]
+}

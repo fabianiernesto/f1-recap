@@ -170,50 +170,6 @@
       ]
     },
     {
-      "answer": "Alonso",
-      "number": 14,
-      "team": "Aston Martin",
-      "colour": "229971",
-      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp",
-      "rows": [
-        [
-          "Started",
-          "P20"
-        ],
-        [
-          "Stops",
-          "0"
-        ],
-        [
-          "Tyres",
-          "soft"
-        ],
-        [
-          "Median lap",
-          "1:37.062"
-        ],
-        [
-          "On-track passes",
-          "2"
-        ],
-        [
-          "Penalty",
-          "10s, causing a collision"
-        ],
-        [
-          "Finished",
-          "P20"
-        ]
-      ],
-      "tell": "the stewards spent more time on him than on anybody",
-      "options": [
-        "Albon",
-        "Alonso",
-        "Bottas",
-        "Sainz"
-      ]
-    },
-    {
       "answer": "Perez",
       "number": 11,
       "team": "Cadillac",

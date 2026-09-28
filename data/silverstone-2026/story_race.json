@@ -18,7 +18,7 @@
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
       "title": "51 places changed hands before the first lap was done",
-      "text": "Twenty cars funnelling into one corner on cold tyres and full tanks.",
+      "text": "22 cars funnelling into one corner on cold tyres and full tanks.",
       "bullets": [
         "Ocon, Sainz and Gasly came out of it best",
         "Nobody has to pass cleanly here: on lap 1 the places are simply there for whoever is brave into the first braking zone"
@@ -191,6 +191,55 @@
       "text": "The lead changed hands 2 times on track today, which is rarer than it sounds."
     },
     {
+      "type": "decision",
+      "lap": 27,
+      "kicker": "Your call on the pit wall",
+      "title": "You are Russell, 1.0s behind Verstappen and going nowhere. Now what?",
+      "text": "Stuck in dirty air your tyres cook and your car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
+      "state": [
+        [
+          "Running",
+          "P5"
+        ],
+        [
+          "Gap ahead",
+          "1.0s to Verstappen"
+        ],
+        [
+          "Tyres",
+          "Hard, 3 laps old"
+        ],
+        [
+          "Pit lane costs",
+          "about 30s today"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "box",
+          "label": "Box now and undercut",
+          "sub": "Fresh tyres, clean air, two laps to make it pay"
+        },
+        {
+          "id": "wait",
+          "label": "Stay out and overcut",
+          "sub": "Let him stop first, then push on an empty track"
+        },
+        {
+          "id": "attack",
+          "label": "Forget strategy, pass him",
+          "sub": "Send it and take the risk"
+        }
+      ],
+      "actual": "wait",
+      "outcomes": {
+        "box": "You lose about 30s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
+        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both afternoons."
+      },
+      "reveal": "Russell came in on lap 34, 7 laps after this. He finished P2, Verstappen P20."
+    },
+    {
       "type": "moment",
       "lap": 28,
       "kicker": "Stuck within a second",
@@ -245,55 +294,6 @@
         "Every lap you stretch is a lap you do not lose in the pit lane",
         "And every lap you stretch is a set of tyres getting slower underneath you. The whole afternoon is that argument, run at 300 km/h"
       ]
-    },
-    {
-      "type": "decision",
-      "lap": 35,
-      "kicker": "Your call on the pit wall",
-      "title": "You are Hamilton, 0.7s behind Verstappen and going nowhere. Now what?",
-      "text": "Stuck in dirty air your tyres cook and your car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
-      "state": [
-        [
-          "Running",
-          "P4"
-        ],
-        [
-          "Gap ahead",
-          "0.7s to Verstappen"
-        ],
-        [
-          "Tyres",
-          "Hard, 11 laps old"
-        ],
-        [
-          "Pit lane costs",
-          "about 30s today"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "box",
-          "label": "Box now and undercut",
-          "sub": "Fresh tyres, clean air, two laps to make it pay"
-        },
-        {
-          "id": "wait",
-          "label": "Stay out and overcut",
-          "sub": "Let him stop first, then push on an empty track"
-        },
-        {
-          "id": "attack",
-          "label": "Forget strategy, pass him",
-          "sub": "Send it and take the risk"
-        }
-      ],
-      "actual": "wait",
-      "outcomes": {
-        "box": "You lose about 30s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
-        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
-        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both afternoons."
-      },
-      "reveal": "Hamilton came in on lap 48, 13 laps after this. He finished P3, Verstappen P20."
     },
     {
       "type": "moment",
@@ -374,7 +374,7 @@
         "5": "Five seconds gets added at the next stop, or to the final time if they never stop again. Usually one position, sometimes none.",
         "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
       },
-      "reveal": "The stewards went with no action."
+      "reveal": "The stewards took no further action."
     },
     {
       "type": "moment",

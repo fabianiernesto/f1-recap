@@ -17,7 +17,12 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     ov_by_driver = Counter(o["overtaking_driver_number"] for _, o in green)
     real_pits = s.real_pits
     cases = s.stewards()
-    penalties = [c for c in cases if c["secs"]]
+    # one verdict, one penalty, on the car the verdict names
+    penalties, _seen = [], set()
+    for c in cases:
+        if c["secs"] and c.get("verdict_msg") not in _seen:
+            _seen.add(c.get("verdict_msg"))
+            penalties.append(c)
     winner = s.result[0]["driver_number"] if s.result else None
     best = s.best_lap
 
@@ -79,7 +84,7 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
         comps = [st.get("compound") for st in s.stints
                  if st.get("driver_number") == num and st.get("compound")]
         pace = s.pace(num)
-        pens = [c for c in cases if num in c["cars"] and c["secs"]]
+        pens = [c for c in penalties if c.get("penalised") == num]
         start, finish = grid.get(num), r.get("position")
         drivers[s.name(num).lower()] = {
             "name": s.name(num),
@@ -128,7 +133,7 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
             f"{s.name(r['driver_number'])} retired")
     for c in penalties:
         lap_events[str(c["lap"])].append(
-            f"{s.name(c['cars'][0])} picked up a {c['secs']}s penalty")
+            f"{s.name(c['penalised'])} picked up a {c['secs']}s penalty")
     if best and best.get("lap_number"):
         lap_events[str(best["lap_number"])].append(
             f"{s.name(best['driver_number'])} set the fastest lap, {fmt(best['lap_duration'])}")
@@ -209,7 +214,7 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
                   " · ".join(
                       f"{n} {v}s" + (f" x{c}" if c > 1 else "")
                       for (n, v), c in Counter(
-                          (s.name(c["cars"][0]), c["secs"]) for c in penalties
+                          (s.name(c["penalised"]), c["secs"]) for c in penalties
                       ).items())[:190]]
                  if penalties else ["stewards looked at a few things and let them all go"])},
         {"id": "weather",

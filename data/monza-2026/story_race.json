@@ -18,7 +18,7 @@
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
       "title": "45 places changed hands before the first lap was done",
-      "text": "Twenty cars funnelling into one corner on cold tyres and full tanks.",
+      "text": "22 cars funnelling into one corner on cold tyres and full tanks.",
       "bullets": [
         "Antonelli, Bearman and Piastri came out of it best",
         "Nobody has to pass cleanly here: on lap 1 the places are simply there for whoever is brave into the first braking zone"
@@ -104,7 +104,7 @@
         "5": "Five seconds gets added at the next stop, or to the final time if they never stop again. Usually one position, sometimes none.",
         "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
       },
-      "reveal": "The stewards went with no action."
+      "reveal": "The stewards took no further action."
     },
     {
       "type": "moment",

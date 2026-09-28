@@ -37,8 +37,8 @@ GPS: dict[str, dict] = {
     },
     "barcelona-2026": {
         "meta": {
-            "slug": "barcelona-2026", "gp": "Spanish Grand Prix 2026",
-            "short": "Spanish Grand Prix", "circuit": "Barcelona",
+            "slug": "barcelona-2026", "gp": "Barcelona Grand Prix 2026",
+            "short": "Barcelona Grand Prix", "circuit": "Barcelona",
             "country": "Spain", "date": "14 JUN 2026", "laps": 66,
         },
         "sessions": [
@@ -75,6 +75,34 @@ GPS: dict[str, dict] = {
             (11337, "FP3", "fp3", "Practice 3", "practice"),
             (11338, "Quali", "quali", "Qualifying", "quali"),
             (11342, "Race", "race", "Race", "race"),
+        ],
+    },
+    "madring-2026": {
+        "meta": {
+            "slug": "madring-2026", "gp": "Spanish Grand Prix 2026",
+            "short": "Spanish Grand Prix", "circuit": "Madring",
+            "country": "Spain", "date": "13 SEP 2026", "laps": 57,
+        },
+        "sessions": [
+            (11362, "FP1", "fp1", "Practice 1", "practice"),
+            (11363, "FP2", "fp2", "Practice 2", "practice"),
+            (11364, "FP3", "fp3", "Practice 3", "practice"),
+            (11365, "Quali", "quali", "Qualifying", "quali"),
+            (11369, "Race", "race", "Race", "race"),
+        ],
+    },
+    "baku-2026": {
+        "meta": {
+            "slug": "baku-2026", "gp": "Azerbaijan Grand Prix 2026",
+            "short": "Azerbaijan Grand Prix", "circuit": "Baku",
+            "country": "Azerbaijan", "date": "26 SEP 2026", "laps": 51,
+        },
+        "sessions": [
+            (11370, "FP1", "fp1", "Practice 1", "practice"),
+            (11371, "FP2", "fp2", "Practice 2", "practice"),
+            (11372, "FP3", "fp3", "Practice 3", "practice"),
+            (11373, "Quali", "quali", "Qualifying", "quali"),
+            (11377, "Race", "race", "Race", "race"),
         ],
     },
 }

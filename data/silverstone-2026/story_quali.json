@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "British Grand Prix · Qualifying",
       "title": "One lap decides the whole Sunday",
-      "text": "Three rounds, five cars knocked out each time, and a grid that shapes everything the race can become."
+      "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the race can become."
     },
     {
       "type": "moment",
@@ -70,14 +70,10 @@
       "lap": 2,
       "kicker": "Q1 · The cut",
       "title": "Out before it got serious",
-      "text": "Albon (P16), Ocon (P17), Bottas (P18), Colapinto (P19), Perez (P20).",
+      "text": "Ocon (P17), Bottas (P18), Colapinto (P19), Perez (P20), Stroll (P21), Alonso (P22).",
       "dato": {
         "label": "Knocked out in Q1",
         "rows": [
-          [
-            "Albon",
-            "P16"
-          ],
           [
             "Ocon",
             "P17"
@@ -93,6 +89,14 @@
           [
             "Perez",
             "P20"
+          ],
+          [
+            "Stroll",
+            "P21"
+          ],
+          [
+            "Alonso",
+            "P22"
           ]
         ]
       }
@@ -102,7 +106,7 @@
       "lap": 3,
       "kicker": "Q2 · The cut",
       "title": "So close to the top ten",
-      "text": "Bortoleto (P11), Gasly (P12), Hulkenberg (P13), Bearman (P14), Sainz (P15).",
+      "text": "Bortoleto (P11), Gasly (P12), Hulkenberg (P13), Bearman (P14), Sainz (P15), Albon (P16).",
       "dato": {
         "label": "Knocked out in Q2",
         "rows": [
@@ -125,6 +129,10 @@
           [
             "Sainz",
             "P15"
+          ],
+          [
+            "Albon",
+            "P16"
           ]
         ]
       }

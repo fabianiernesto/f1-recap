@@ -27,11 +27,17 @@ MIN_BRAKING_METRES = 30
 OFFICIAL_LENGTH_KM = {
     "Silverstone": 5.891, "Barcelona": 4.657, "Monza": 5.793,
     "Spa": 7.004, "Zandvoort": 4.259, "Suzuka": 5.807, "Hungary": 4.381,
+    "Madrid": 5.414, "Azerbaijan": 6.003,
 }
+
+# corner counts for circuits FastF1 has no circuit info for yet. Madring: 22,
+# per Wikipedia and RacingCircuits.info, checked 28-sep-2026
+OFFICIAL_CORNERS = {"Madrid": 22}
 
 # FastF1 finds an event by the name of the Grand Prix; the circuit the site
 # shows is a different word for most of them
-CIRCUIT_NAME = {"Hungary": "Hungaroring", "Spa": "Spa-Francorchamps"}
+CIRCUIT_NAME = {"Hungary": "Hungaroring", "Spa": "Spa-Francorchamps",
+                "Madrid": "Madring", "Azerbaijan": "Baku"}
 
 # the corners worth naming, per circuit
 CORNER_NAMES = {
@@ -72,10 +78,18 @@ def main(year: int, gp: str, slug: str, name: str, country: str) -> None:
     points = [[tx(x), ty(y)] for x, y in zip(xs, ys)]
     points.append(points[0])
 
-    info = session.get_circuit_info()
+    # a circuit new to the calendar can come without FastF1's circuit info
+    # (Madring 2026 did): then no corner positions, and the corner count
+    # comes from the published figure or is left blank
+    try:
+        info = session.get_circuit_info()
+    except Exception:
+        info = None
     names = CORNER_NAMES.get(gp, {})
-    corners = [{"x": tx(c["X"]), "y": ty(c["Y"]), "label": names[int(c["Number"])]}
-               for _, c in info.corners.iterrows() if int(c["Number"]) in names]
+    corners = ([{"x": tx(c["X"]), "y": ty(c["Y"]), "label": names[int(c["Number"])]}
+                for _, c in info.corners.iterrows() if int(c["Number"]) in names]
+               if info is not None else [])
+    corner_count = len(info.corners) if info is not None else OFFICIAL_CORNERS.get(gp)
 
     # ---- circuit vitals, the same five everywhere ----
     tel = lap.get_car_data().add_distance()
@@ -108,7 +122,7 @@ def main(year: int, gp: str, slug: str, name: str, country: str) -> None:
     stats = [
         {"label": "Lap length", "value": f"{length_km:.3f} km",
          "short": f"Start line to start line, {total_laps} times over on Sunday"},
-        {"label": "Corners", "value": str(len(info.corners)),
+        {"label": "Corners", "value": str(corner_count) if corner_count else "-",
          "short": "Each one a chance to gain time, and a chance to throw the lap away"},
         {"label": "Full throttle", "value": f"{flat_out:.0f}%",
          "short": "How much of the lap is spent flat out, and how much the engine gets to decide"},

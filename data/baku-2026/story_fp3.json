@@ -1,0 +1,137 @@
+{
+  "gp": "Azerbaijan Grand Prix 2026",
+  "session": "Practice 3",
+  "sessionSlug": "fp3",
+  "circuit": "Baku",
+  "laps": 25,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Azerbaijan Grand Prix · Practice 3",
+      "title": "Practice, honestly",
+      "text": "446 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 17",
+      "title": "Verstappen: 1:43.922",
+      "text": "In a Red Bull Racing. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Bearman racked up 24 laps",
+      "text": "Track time is the currency of a Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Bearman",
+            24
+          ],
+          [
+            "Sainz",
+            23
+          ],
+          [
+            "Albon",
+            23
+          ],
+          [
+            "Lawson",
+            22
+          ],
+          [
+            "Lindblad",
+            21
+          ],
+          [
+            "Leclerc",
+            21
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Long-run pace",
+      "title": "Verstappen looked strongest over a stint",
+      "text": "Average clean lap across the session. This is the number teams actually care about on a Friday, not the headline time.",
+      "dato": {
+        "label": "Average clean lap",
+        "rows": [
+          [
+            "Verstappen",
+            "1:44.987"
+          ],
+          [
+            "Piastri",
+            "1:45.645"
+          ],
+          [
+            "Norris",
+            "1:45.952"
+          ],
+          [
+            "Hadjar",
+            "1:45.999"
+          ],
+          [
+            "Colapinto",
+            "1:46.310"
+          ],
+          [
+            "Gasly",
+            "1:46.409"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice on a Friday is a rehearsal for Sunday's plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "SOFT",
+            37
+          ],
+          [
+            "MEDIUM",
+            20
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Gasly topped the trap at 339 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "53 flag calls",
+      "text": "Every interruption costs somebody a run they had planned."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 40°C and 47°C",
+      "text": "Friday conditions rarely match Sunday, which is why the times you see here mislead so often."
+    }
+  ]
+}

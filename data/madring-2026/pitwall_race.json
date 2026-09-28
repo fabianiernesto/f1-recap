@@ -1,0 +1,196 @@
+{
+  "session": "Race",
+  "laps": 57,
+  "driver": {
+    "name": "Leclerc",
+    "number": 16,
+    "team": "Ferrari",
+    "colour": "ED1131",
+    "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
+    "start": 5,
+    "finish": 4,
+    "margin": 0.713
+  },
+  "economics": {
+    "pitLoss": 25.6,
+    "fuelTrend": -0.0698,
+    "tyres": {
+      "SOFT": {
+        "deg": 0.0717,
+        "base": 1.67,
+        "laps": 69
+      },
+      "HARD": {
+        "deg": 0.0089,
+        "base": 1.929,
+        "laps": 769
+      },
+      "MEDIUM": {
+        "deg": 0.0617,
+        "base": 1.823,
+        "laps": 153
+      }
+    },
+    "typicalDeg": 0.0617
+  },
+  "calls": [
+    {
+      "lap": 48,
+      "kicker": "The first stop",
+      "question": "When do you box him?",
+      "facts": [
+        [
+          "Running",
+          "P4"
+        ],
+        [
+          "Tyre",
+          "hard, 47 laps old"
+        ],
+        [
+          "Ahead",
+          "Norris, 25.4s up"
+        ],
+        [
+          "Behind",
+          "Russell"
+        ]
+      ],
+      "options": [
+        {
+          "label": "12 laps earlier",
+          "lap": 36,
+          "lost": 5.8,
+          "real": false,
+          "note": "35 laps on the hards, then 21 on the softs."
+        },
+        {
+          "label": "8 laps earlier",
+          "lap": 40,
+          "lost": 2.6,
+          "real": false,
+          "note": "39 laps on the hards, then 17 on the softs."
+        },
+        {
+          "label": "4 laps earlier",
+          "lap": 44,
+          "lost": 0.6,
+          "real": false,
+          "note": "43 laps on the hards, then 13 on the softs."
+        },
+        {
+          "label": "Box him now, lap 48",
+          "lap": 48,
+          "lost": 0.0,
+          "real": true,
+          "note": "47 laps on the hards, then 9 on the softs."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 52,
+          "lost": 0.6,
+          "real": false,
+          "note": "51 laps on the hards, then 5 on the softs."
+        }
+      ],
+      "reading": "The hards lose 9ms a lap as they age, the softs 72ms. The stint has to reach lap 57 either way."
+    },
+    {
+      "lap": 48,
+      "kicker": "The last set",
+      "question": "9 laps to the flag. What goes on the car?",
+      "facts": [
+        [
+          "Running",
+          "P4"
+        ],
+        [
+          "Tyre",
+          "hard, 47 laps old"
+        ],
+        [
+          "Ahead",
+          "Norris, 25.4s up"
+        ],
+        [
+          "Behind",
+          "Russell"
+        ]
+      ],
+      "options": [
+        {
+          "label": "Hard",
+          "lap": 48,
+          "lost": 0.0,
+          "real": false,
+          "note": "9ms a lap of wear, over 9 laps."
+        },
+        {
+          "label": "Soft",
+          "lap": 48,
+          "lost": 0.5,
+          "real": true,
+          "note": "72ms a lap of wear, over 9 laps."
+        },
+        {
+          "label": "Medium",
+          "lap": 48,
+          "lost": 1.4,
+          "real": false,
+          "note": "62ms a lap of wear, over 9 laps."
+        }
+      ],
+      "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters."
+    }
+  ],
+  "ladder": [
+    {
+      "pos": 1,
+      "name": "Antonelli",
+      "team": "Mercedes",
+      "gap": 0.0
+    },
+    {
+      "pos": 2,
+      "name": "Verstappen",
+      "team": "Red Bull Racing",
+      "gap": 4.351
+    },
+    {
+      "pos": 3,
+      "name": "Norris",
+      "team": "McLaren",
+      "gap": 5.089
+    },
+    {
+      "pos": 4,
+      "name": "Leclerc",
+      "team": "Ferrari",
+      "gap": 29.116
+    },
+    {
+      "pos": 5,
+      "name": "Russell",
+      "team": "Mercedes",
+      "gap": 29.829
+    },
+    {
+      "pos": 6,
+      "name": "Lawson",
+      "team": "Red Bull Racing",
+      "gap": 86.746
+    },
+    {
+      "pos": 7,
+      "name": "Colapinto",
+      "team": "Alpine",
+      "gap": 94.281
+    },
+    {
+      "pos": 8,
+      "name": "Piastri",
+      "team": "McLaren",
+      "gap": 95.839
+    }
+  ]
+}

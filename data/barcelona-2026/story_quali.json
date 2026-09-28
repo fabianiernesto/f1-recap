@@ -1,5 +1,5 @@
 {
-  "gp": "Spanish Grand Prix 2026",
+  "gp": "Barcelona Grand Prix 2026",
   "session": "Qualifying",
   "sessionSlug": "quali",
   "circuit": "Barcelona",
@@ -9,9 +9,9 @@
     {
       "type": "cover",
       "lap": 0,
-      "kicker": "Spanish Grand Prix · Qualifying",
+      "kicker": "Barcelona Grand Prix · Qualifying",
       "title": "One lap decides the whole Sunday",
-      "text": "Three rounds, five cars knocked out each time, and a grid that shapes everything the race can become."
+      "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the race can become."
     },
     {
       "type": "moment",
@@ -70,14 +70,10 @@
       "lap": 2,
       "kicker": "Q1 · The cut",
       "title": "Out before it got serious",
-      "text": "Sainz (P16), Ocon (P17), Albon (P18), Perez (P19), Bottas (P20).",
+      "text": "Ocon (P17), Albon (P18), Perez (P19), Bottas (P20), Stroll (P21), Alonso (P22).",
       "dato": {
         "label": "Knocked out in Q1",
         "rows": [
-          [
-            "Sainz",
-            "P16"
-          ],
           [
             "Ocon",
             "P17"
@@ -93,6 +89,14 @@
           [
             "Bottas",
             "P20"
+          ],
+          [
+            "Stroll",
+            "P21"
+          ],
+          [
+            "Alonso",
+            "P22"
           ]
         ]
       }
@@ -102,7 +106,7 @@
       "lap": 3,
       "kicker": "Q2 · The cut",
       "title": "So close to the top ten",
-      "text": "Lindblad (P11), Bortoleto (P12), Colapinto (P13), Gasly (P14), Bearman (P15).",
+      "text": "Lindblad (P11), Bortoleto (P12), Colapinto (P13), Gasly (P14), Bearman (P15), Sainz (P16).",
       "dato": {
         "label": "Knocked out in Q2",
         "rows": [
@@ -125,6 +129,10 @@
           [
             "Bearman",
             "P15"
+          ],
+          [
+            "Sainz",
+            "P16"
           ]
         ]
       }

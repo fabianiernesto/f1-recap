@@ -383,7 +383,7 @@
       "pace": "1:37.002",
       "paceRaw": 97.002,
       "overtakes": 12,
-      "penalty": "10s",
+      "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],

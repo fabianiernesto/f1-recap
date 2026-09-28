@@ -18,7 +18,7 @@
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
       "title": "49 places changed hands before the first lap was done",
-      "text": "Twenty cars funnelling into one corner on cold tyres and full tanks.",
+      "text": "22 cars funnelling into one corner on cold tyres and full tanks.",
       "bullets": [
         "Ocon, Bearman and Bortoleto came out of it best",
         "Nobody has to pass cleanly here: on lap 1 the places are simply there for whoever is brave into the first braking zone"
@@ -104,7 +104,7 @@
         "5": "Five seconds gets added at the next stop, or to the final time if they never stop again. Usually one position, sometimes none.",
         "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
       },
-      "reveal": "The stewards went with no action."
+      "reveal": "The stewards took no further action."
     },
     {
       "type": "moment",
@@ -210,6 +210,55 @@
       "note": "Passing looks like the whole sport on television and turns out to be the rarest thing in it. Most positions change in the pit lane, not on the road."
     },
     {
+      "type": "decision",
+      "lap": 30,
+      "kicker": "Your call on the pit wall",
+      "title": "You are Norris, 0.7s behind Piastri and going nowhere. Now what?",
+      "text": "Stuck in dirty air your tyres cook and your car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
+      "state": [
+        [
+          "Running",
+          "P2"
+        ],
+        [
+          "Gap ahead",
+          "0.7s to Piastri"
+        ],
+        [
+          "Tyres",
+          "Hard, 12 laps old"
+        ],
+        [
+          "Pit lane costs",
+          "about 22s today"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "box",
+          "label": "Box now and undercut",
+          "sub": "Fresh tyres, clean air, two laps to make it pay"
+        },
+        {
+          "id": "wait",
+          "label": "Stay out and overcut",
+          "sub": "Let him stop first, then push on an empty track"
+        },
+        {
+          "id": "attack",
+          "label": "Forget strategy, pass him",
+          "sub": "Send it and take the risk"
+        }
+      ],
+      "actual": "wait",
+      "outcomes": {
+        "box": "You lose about 22s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
+        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both afternoons."
+      },
+      "reveal": "Norris came in on lap 56, 26 laps after this. He finished P1."
+    },
+    {
       "type": "moment",
       "lap": 31,
       "kicker": "Speed trap",
@@ -246,55 +295,6 @@
         "Slowest: Sainz, 28.6s"
       ],
       "note": "That difference is a whole position, sometimes two, decided by people who never touch the steering wheel."
-    },
-    {
-      "type": "decision",
-      "lap": 33,
-      "kicker": "Your call on the pit wall",
-      "title": "You are Antonelli, 0.5s behind Leclerc and going nowhere. Now what?",
-      "text": "Stuck in dirty air your tyres cook and your car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
-      "state": [
-        [
-          "Running",
-          "P4"
-        ],
-        [
-          "Gap ahead",
-          "0.5s to Leclerc"
-        ],
-        [
-          "Tyres",
-          "Hard, 10 laps old"
-        ],
-        [
-          "Pit lane costs",
-          "about 22s today"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "box",
-          "label": "Box now and undercut",
-          "sub": "Fresh tyres, clean air, two laps to make it pay"
-        },
-        {
-          "id": "wait",
-          "label": "Stay out and overcut",
-          "sub": "Let him stop first, then push on an empty track"
-        },
-        {
-          "id": "attack",
-          "label": "Forget strategy, pass him",
-          "sub": "Send it and take the risk"
-        }
-      ],
-      "actual": "wait",
-      "outcomes": {
-        "box": "You lose about 22s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
-        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
-        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both afternoons."
-      },
-      "reveal": "Antonelli came in on lap 53, 20 laps after this. He finished P3, Leclerc P4."
     },
     {
       "type": "moment",

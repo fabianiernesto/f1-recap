@@ -1,0 +1,76 @@
+{
+  "slug": "baku-2026",
+  "gp": "Azerbaijan Grand Prix 2026",
+  "short": "Azerbaijan Grand Prix",
+  "circuit": "Baku",
+  "country": "Azerbaijan",
+  "date": "26 SEP 2026",
+  "laps": 51,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "463 laps run, no points at stake",
+      "moments": 8,
+      "laps": 29
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "457 laps run, no points at stake",
+      "moments": 8,
+      "laps": 26
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "446 laps run, no points at stake",
+      "moments": 8,
+      "laps": 25
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Russell on pole",
+      "moments": 9,
+      "laps": 26
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "69 on-track passes, 2 safety cars",
+      "moments": 38,
+      "laps": 51
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "George",
+      "last": "Russell",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 63,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp"
+    },
+    "margin": 0.196,
+    "runnerUp": "Verstappen",
+    "fastest": {
+      "last": "Russell",
+      "time": "1:44.916"
+    },
+    "passes": 69,
+    "stops": 36,
+    "dnfs": 7,
+    "safetyCars": 2,
+    "redFlag": false,
+    "laps": 51
+  },
+  "rating": null,
+  "heat": []
+}

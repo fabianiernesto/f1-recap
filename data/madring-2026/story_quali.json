@@ -1,0 +1,191 @@
+{
+  "gp": "Spanish Grand Prix 2026",
+  "session": "Qualifying",
+  "sessionSlug": "quali",
+  "circuit": "Madring",
+  "laps": 57,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Spanish Grand Prix · Qualifying",
+      "title": "One lap decides the whole Sunday",
+      "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the race can become."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Pole position",
+      "title": "Norris takes it",
+      "text": "By 0.011s over Antonelli. Less time than a blink.",
+      "dato": {
+        "label": "Top ten",
+        "rows": [
+          [
+            "P1 Norris",
+            "McLaren"
+          ],
+          [
+            "P2 Antonelli",
+            "Mercedes"
+          ],
+          [
+            "P3 Verstappen",
+            "Red Bull Racing"
+          ],
+          [
+            "P4 Hamilton",
+            "Ferrari"
+          ],
+          [
+            "P5 Leclerc",
+            "Ferrari"
+          ],
+          [
+            "P6 Russell",
+            "Mercedes"
+          ],
+          [
+            "P7 Piastri",
+            "McLaren"
+          ],
+          [
+            "P8 Lawson",
+            "Red Bull Racing"
+          ],
+          [
+            "P9 Colapinto",
+            "Alpine"
+          ],
+          [
+            "P10 Lindblad",
+            "Racing Bulls"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · The cut",
+      "title": "Out before it got serious",
+      "text": "Sainz (P17), Alonso (P18), Perez (P19), Bottas (P20), Stroll (no time set), Bearman (no time set).",
+      "dato": {
+        "label": "Knocked out in Q1",
+        "rows": [
+          [
+            "Sainz",
+            "P17"
+          ],
+          [
+            "Alonso",
+            "P18"
+          ],
+          [
+            "Perez",
+            "P19"
+          ],
+          [
+            "Bottas",
+            "P20"
+          ],
+          [
+            "Stroll",
+            "no time"
+          ],
+          [
+            "Bearman",
+            "no time"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · The cut",
+      "title": "So close to the top ten",
+      "text": "Hulkenberg (P11), Bortoleto (P12), Ocon (P13), Gasly (P14), Tsunoda (P15), Albon (P16).",
+      "dato": {
+        "label": "Knocked out in Q2",
+        "rows": [
+          [
+            "Hulkenberg",
+            "P11"
+          ],
+          [
+            "Bortoleto",
+            "P12"
+          ],
+          [
+            "Ocon",
+            "P13"
+          ],
+          [
+            "Gasly",
+            "P14"
+          ],
+          [
+            "Tsunoda",
+            "P15"
+          ],
+          [
+            "Albon",
+            "P16"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Deleted laps",
+      "title": "16 laps thrown in the bin",
+      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
+      "dato": {
+        "label": "Deleted laps",
+        "rows": [
+          [
+            "Lindblad",
+            "1:35.149"
+          ],
+          [
+            "Albon",
+            "1:37.014"
+          ],
+          [
+            "Stroll",
+            "at turn 6"
+          ],
+          [
+            "Norris",
+            "1:54.645"
+          ],
+          [
+            "Piastri",
+            "2:06.043"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Interruptions",
+      "title": "54 yellow flag calls during the session",
+      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "The grid",
+      "title": "How Sunday starts",
+      "text": "P1 Norris · P2 Antonelli · P3 Verstappen · P4 Hamilton · P5 Leclerc · P6 Russell",
+      "bullets": [
+        "Sainz qualified P17 and starts P20, 3 places further back",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
+    }
+  ]
+}
