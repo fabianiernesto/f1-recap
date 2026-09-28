@@ -10,7 +10,7 @@
       "type": "cover",
       "lap": 0,
       "kicker": "Italian Grand Prix · Qualifying",
-      "title": "One lap decides the whole Sunday",
+      "title": "One lap decides the whole race",
       "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the race can become."
     },
     {
@@ -141,7 +141,7 @@
       "type": "moment",
       "lap": 4,
       "kicker": "Track limits",
-      "title": "6 laps thrown in the bin",
+      "title": "3 laps thrown in the bin",
       "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
       "dato": {
         "label": "Deleted laps",
@@ -155,16 +155,8 @@
             "1:47.848"
           ],
           [
-            "Lawson",
-            "at turn 1"
-          ],
-          [
             "Verstappen",
             "7:27.050"
-          ],
-          [
-            "Piastri",
-            "at turn 1"
           ]
         ]
       }
@@ -174,14 +166,14 @@
       "lap": 5,
       "kicker": "Speed trap",
       "title": "Russell was quickest through the trap: 338 km/h",
-      "text": "Qualifying trim, wings trimmed back, nothing to lose."
+      "text": "Top speed says as much about wing level and the tow from the car ahead as it does about the engine."
     },
     {
       "type": "moment",
       "lap": 6,
       "kicker": "Sector by sector",
       "title": "Nobody owned the whole lap",
-      "text": "The perfect lap of the day was never actually driven: it lives in three different cars.",
+      "text": "The quickest sectors of the session were split between three drivers, so the ideal lap was never actually driven.",
       "dato": {
         "label": "Fastest sectors",
         "rows": [
@@ -202,16 +194,9 @@
     },
     {
       "type": "moment",
-      "lap": 7,
-      "kicker": "Interruptions",
-      "title": "10 yellow flag calls during the session",
-      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
-    },
-    {
-      "type": "moment",
       "lap": 8,
       "kicker": "The grid",
-      "title": "How Sunday starts",
+      "title": "How the race starts",
       "text": "P1 Gasly · P2 Russell · P3 Leclerc · P4 Hamilton · P5 Verstappen · P6 Piastri",
       "bullets": [
         "Piastri qualified P3 and starts P6, 3 places further back",

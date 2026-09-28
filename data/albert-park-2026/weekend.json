@@ -1,0 +1,76 @@
+{
+  "slug": "albert-park-2026",
+  "gp": "Australian Grand Prix 2026",
+  "short": "Australian Grand Prix",
+  "circuit": "Albert Park",
+  "country": "Australia",
+  "date": "08 MAR 2026",
+  "laps": 58,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "487 laps run, no points at stake",
+      "moments": 8,
+      "laps": 33
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "544 laps run, no points at stake",
+      "moments": 8,
+      "laps": 34
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "377 laps run, no points at stake",
+      "moments": 7,
+      "laps": 26
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Russell on pole",
+      "moments": 9,
+      "laps": 26
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "33 on-track passes",
+      "moments": 33,
+      "laps": 58
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "George",
+      "last": "Russell",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 63,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp"
+    },
+    "margin": 2.974,
+    "runnerUp": "Antonelli",
+    "fastest": {
+      "last": "Verstappen",
+      "time": "1:22.091"
+    },
+    "passes": 33,
+    "stops": 29,
+    "dnfs": 3,
+    "safetyCars": 0,
+    "redFlag": false,
+    "laps": 58
+  },
+  "rating": null,
+  "heat": []
+}

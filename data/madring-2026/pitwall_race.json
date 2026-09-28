@@ -2,142 +2,203 @@
   "session": "Race",
   "laps": 57,
   "driver": {
-    "name": "Leclerc",
-    "number": 16,
-    "team": "Ferrari",
-    "colour": "ED1131",
-    "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
-    "start": 5,
-    "finish": 4,
+    "name": "Russell",
+    "number": 63,
+    "team": "Mercedes",
+    "colour": "00D7B6",
+    "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
+    "start": 6,
+    "finish": 5,
     "margin": 0.713
   },
   "economics": {
-    "pitLoss": 25.6,
-    "fuelTrend": -0.0698,
+    "pitLoss": 28.4,
+    "fuelTrend": -0.0711,
     "tyres": {
-      "SOFT": {
-        "deg": 0.0717,
-        "base": 1.67,
-        "laps": 69
-      },
       "HARD": {
-        "deg": 0.0089,
-        "base": 1.929,
+        "deg": 0.0086,
+        "base": 2.105,
         "laps": 769
       },
       "MEDIUM": {
-        "deg": 0.0617,
-        "base": 1.823,
+        "deg": 0.06,
+        "base": 1.976,
         "laps": 153
+      },
+      "SOFT": {
+        "deg": 0.0413,
+        "base": 2.345,
+        "laps": 66
       }
     },
-    "typicalDeg": 0.0617
+    "typicalDeg": 0.0413
   },
   "calls": [
     {
-      "lap": 48,
+      "lap": 14,
       "kicker": "The first stop",
       "question": "When do you box him?",
       "facts": [
         [
           "Running",
-          "P4"
+          "P5"
         ],
         [
           "Tyre",
-          "hard, 47 laps old"
+          "hard, 13 laps old"
         ],
         [
           "Ahead",
-          "Norris, 25.4s up"
+          "Verstappen, 7.3s up"
         ],
         [
           "Behind",
-          "Russell"
+          "Lawson"
         ]
       ],
       "options": [
         {
-          "label": "12 laps earlier",
-          "lap": 36,
-          "lost": 5.8,
-          "real": false,
-          "note": "35 laps on the hards, then 21 on the softs."
-        },
-        {
           "label": "8 laps earlier",
-          "lap": 40,
-          "lost": 2.6,
+          "lap": 6,
+          "lost": 10.0,
           "real": false,
-          "note": "39 laps on the hards, then 17 on the softs."
+          "note": "5 laps on the hards, then 22 on the mediums."
         },
         {
           "label": "4 laps earlier",
-          "lap": 44,
-          "lost": 0.6,
+          "lap": 10,
+          "lost": 5.9,
           "real": false,
-          "note": "43 laps on the hards, then 13 on the softs."
+          "note": "9 laps on the hards, then 18 on the mediums."
         },
         {
-          "label": "Box him now, lap 48",
-          "lap": 48,
-          "lost": 0.0,
+          "label": "Box him now, lap 14",
+          "lap": 14,
+          "lost": 2.8,
           "real": true,
-          "note": "47 laps on the hards, then 9 on the softs."
+          "note": "13 laps on the hards, then 14 on the mediums."
         },
         {
           "label": "4 laps later",
-          "lap": 52,
-          "lost": 0.6,
+          "lap": 18,
+          "lost": 0.9,
           "real": false,
-          "note": "51 laps on the hards, then 5 on the softs."
+          "note": "17 laps on the hards, then 10 on the mediums."
+        },
+        {
+          "label": "8 laps later",
+          "lap": 22,
+          "lost": 0.0,
+          "real": false,
+          "note": "21 laps on the hards, then 6 on the mediums."
         }
       ],
-      "reading": "The hards lose 9ms a lap as they age, the softs 72ms. The stint has to reach lap 57 either way."
+      "reading": "The hards lose 9ms a lap as they age, the mediums 60ms. The stint has to reach lap 28 either way."
     },
     {
-      "lap": 48,
-      "kicker": "The last set",
-      "question": "9 laps to the flag. What goes on the car?",
+      "lap": 28,
+      "kicker": "Stop 2",
+      "question": "When do you box him?",
       "facts": [
         [
           "Running",
-          "P4"
+          "P6"
         ],
         [
           "Tyre",
-          "hard, 47 laps old"
+          "medium, 13 laps old"
         ],
         [
           "Ahead",
-          "Norris, 25.4s up"
+          "Lawson, 7.0s up"
         ],
         [
           "Behind",
-          "Russell"
+          "Piastri"
+        ]
+      ],
+      "options": [
+        {
+          "label": "8 laps earlier",
+          "lap": 20,
+          "lost": 0.0,
+          "real": false,
+          "note": "5 laps on the mediums, then 37 on the hards."
+        },
+        {
+          "label": "4 laps earlier",
+          "lap": 24,
+          "lost": 0.1,
+          "real": false,
+          "note": "9 laps on the mediums, then 33 on the hards."
+        },
+        {
+          "label": "Box him now, lap 28",
+          "lap": 28,
+          "lost": 1.2,
+          "real": true,
+          "note": "13 laps on the mediums, then 29 on the hards."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 32,
+          "lost": 3.5,
+          "real": false,
+          "note": "17 laps on the mediums, then 25 on the hards."
+        },
+        {
+          "label": "8 laps later",
+          "lap": 36,
+          "lost": 6.8,
+          "real": false,
+          "note": "21 laps on the mediums, then 21 on the hards."
+        },
+        {
+          "label": "12 laps later",
+          "lap": 40,
+          "lost": 11.3,
+          "real": false,
+          "note": "25 laps on the mediums, then 17 on the hards."
+        }
+      ],
+      "reading": "The mediums lose 60ms a lap as they age, the hards 9ms. The stint has to reach lap 57 either way."
+    },
+    {
+      "lap": 28,
+      "kicker": "The last set",
+      "question": "29 laps to the flag. What goes on the car?",
+      "facts": [
+        [
+          "Running",
+          "P6"
+        ],
+        [
+          "Tyre",
+          "medium, 13 laps old"
+        ],
+        [
+          "Ahead",
+          "Lawson, 7.0s up"
+        ],
+        [
+          "Behind",
+          "Piastri"
         ]
       ],
       "options": [
         {
           "label": "Hard",
-          "lap": 48,
+          "lap": 28,
           "lost": 0.0,
-          "real": false,
-          "note": "9ms a lap of wear, over 9 laps."
+          "real": true,
+          "note": "9ms a lap of wear, over 29 laps."
         },
         {
           "label": "Soft",
-          "lap": 48,
-          "lost": 0.5,
-          "real": true,
-          "note": "72ms a lap of wear, over 9 laps."
-        },
-        {
-          "label": "Medium",
-          "lap": 48,
-          "lost": 1.4,
+          "lap": 28,
+          "lost": 21.2,
           "real": false,
-          "note": "62ms a lap of wear, over 9 laps."
+          "note": "41ms a lap of wear, over 29 laps."
         }
       ],
       "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters."

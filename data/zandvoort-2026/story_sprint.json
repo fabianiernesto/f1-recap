@@ -1,0 +1,253 @@
+{
+  "gp": "Dutch Grand Prix 2026",
+  "session": "Sprint",
+  "sessionSlug": "sprint",
+  "circuit": "Zandvoort",
+  "laps": 24,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Dutch Grand Prix · Sprint · 24 laps",
+      "title": "Everything that happened, in order",
+      "text": "6 on-track passes, 2 pit stops, every starter at the flag."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Lap 1 · Lights out",
+      "title": "8 places changed hands on track before the first lap was done",
+      "text": "22 cars into the first corner on cold tyres and full tanks.",
+      "bullets": [
+        "Bearman, Sainz and Colapinto gained the most by the end of it, 2 places at best"
+      ],
+      "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Stewards",
+      "title": "1 incident looked at",
+      "text": "Logged by race control during the sprint.",
+      "bullets": [
+        "First up, lap 1: Sainz and Bottas, starting procedure infringement",
+        "1 in a warning"
+      ]
+    },
+    {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Alonso starts P22. Where does he finish?",
+      "text": "24 laps to make up ground from there.",
+      "options": [
+        "On the podium",
+        "Somewhere in the points",
+        "Out of the points"
+      ],
+      "answer": "Out of the points",
+      "reveal": "P22 to P18, 4 places gained."
+    },
+    {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Who has the fastest lap on the board at the flag?",
+      "text": "It usually lands late, when the car is light and the track has rubber all over it.",
+      "options": [
+        "Norris",
+        "Leclerc",
+        "Russell"
+      ],
+      "answer": "Norris",
+      "reveal": "Norris on lap 5, 1:14.881, in a McLaren."
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Lap 5 · Fastest lap",
+      "title": "Norris: 1:14.881",
+      "text": "The quickest anybody went all sprint, in a McLaren.",
+      "bullets": [
+        "Set on lap 5 of 24, early for a fastest lap, with plenty of fuel still on board",
+        "It is worth no points: the bonus point for it was dropped after 2024"
+      ],
+      "dato": {
+        "label": "Best sector times",
+        "rows": [
+          [
+            "Sector 1 · Antonelli",
+            "25.476s"
+          ],
+          [
+            "Sector 2 · Russell",
+            "26.476s"
+          ],
+          [
+            "Sector 3 · Leclerc",
+            "22.511s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track steady around 26°C all sprint",
+      "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the sprint."
+    },
+    {
+      "type": "moment",
+      "lap": 10,
+      "kicker": "Speed trap",
+      "title": "Hamilton hit 320 km/h",
+      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "bullets": [
+        "Hamilton did it in a Ferrari"
+      ],
+      "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine."
+    },
+    {
+      "type": "moment",
+      "lap": 16,
+      "kicker": "True pace",
+      "title": "Leclerc had the quickest median racing lap",
+      "text": "No lap 1, no laps in or out of the pits, nothing behind the safety car or the VSC, and the slow outliers trimmed. It does not always match the result.",
+      "dato": {
+        "label": "Median racing lap",
+        "rows": [
+          [
+            "Leclerc",
+            "1:15.961"
+          ],
+          [
+            "Antonelli",
+            "1:15.977"
+          ],
+          [
+            "Russell",
+            "1:16.028"
+          ],
+          [
+            "Norris",
+            "1:16.065"
+          ],
+          [
+            "Hamilton",
+            "1:16.195"
+          ],
+          [
+            "Piastri",
+            "1:16.284"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 17,
+      "kicker": "Within a second",
+      "title": "Stroll: 8 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the sprint, from lap 10 to lap 17, at racing speed.",
+      "bullets": [
+        "5 other drivers had a run of five laps or more like it"
+      ],
+      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
+    },
+    {
+      "type": "moment",
+      "lap": 18,
+      "kicker": "Track limits",
+      "title": "1 lap time deleted",
+      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
+      "bullets": [
+        "Keep doing it and it turns into a penalty"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 20,
+      "kicker": "A climb through the field",
+      "title": "Alonso: P22 on the grid, P18 at the flag",
+      "text": "4 places gained.",
+      "bullets": [
+        "1 on-track pass along the way"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 24,
+      "kicker": "Tyres",
+      "title": "18 of 22 cars ran the whole sprint on one set",
+      "text": "No stop at all for most of the field.",
+      "bullets": [
+        "On the mediums, lap 1 to lap 24"
+      ],
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+    },
+    {
+      "type": "moment",
+      "lap": 24,
+      "kicker": "Chequered flag",
+      "title": "Russell wins it",
+      "text": "P1 Russell · P2 Leclerc · P3 Norris.",
+      "bullets": [
+        "After 24 laps, Leclerc crossed the line 1.360s behind"
+      ],
+      "dato": {
+        "label": "Points scored",
+        "rows": [
+          [
+            "Russell",
+            "8"
+          ],
+          [
+            "Leclerc",
+            "7"
+          ],
+          [
+            "Norris",
+            "6"
+          ],
+          [
+            "Antonelli",
+            "5"
+          ],
+          [
+            "Piastri",
+            "4"
+          ],
+          [
+            "Verstappen",
+            "3"
+          ],
+          [
+            "Hamilton",
+            "2"
+          ],
+          [
+            "Gasly",
+            "1"
+          ]
+        ]
+      },
+      "note": "Less than the time it takes to read this sentence."
+    },
+    {
+      "type": "guess",
+      "lap": 24,
+      "kicker": "Guess it",
+      "title": "How far behind was Leclerc at the flag?",
+      "text": "24 laps, about 30 minutes of racing, and it comes down to this one number.",
+      "unit": "s",
+      "min": 0,
+      "max": 5.4,
+      "step": 0.1,
+      "target": 1.36,
+      "close": 0.544,
+      "reveal": "1.360 seconds after 24 laps."
+    }
+  ]
+}

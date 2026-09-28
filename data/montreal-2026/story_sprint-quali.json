@@ -1,0 +1,224 @@
+{
+  "gp": "Canadian Grand Prix 2026",
+  "session": "Sprint Qualifying",
+  "sessionSlug": "sprint-quali",
+  "circuit": "Montreal",
+  "laps": 24,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Canadian Grand Prix · Sprint Qualifying",
+      "title": "One lap decides the whole sprint",
+      "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the sprint can become."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Pole position",
+      "title": "Russell takes it",
+      "text": "By 0.068s over Antonelli. Less time than a blink.",
+      "dato": {
+        "label": "Top ten",
+        "rows": [
+          [
+            "P1 Russell",
+            "Mercedes"
+          ],
+          [
+            "P2 Antonelli",
+            "Mercedes"
+          ],
+          [
+            "P3 Norris",
+            "McLaren"
+          ],
+          [
+            "P4 Piastri",
+            "McLaren"
+          ],
+          [
+            "P5 Hamilton",
+            "Ferrari"
+          ],
+          [
+            "P6 Leclerc",
+            "Ferrari"
+          ],
+          [
+            "P7 Verstappen",
+            "Red Bull Racing"
+          ],
+          [
+            "P8 Hadjar",
+            "Red Bull Racing"
+          ],
+          [
+            "P9 Lindblad",
+            "Racing Bulls"
+          ],
+          [
+            "P10 Sainz",
+            "Williams"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · The cut",
+      "title": "Out before it got serious",
+      "text": "Perez (P17), Stroll (P18), Gasly (P19), Bottas (P20), Albon (not classified), Lawson (not classified).",
+      "dato": {
+        "label": "Knocked out in Q1",
+        "rows": [
+          [
+            "Perez",
+            "P17"
+          ],
+          [
+            "Stroll",
+            "P18"
+          ],
+          [
+            "Gasly",
+            "P19"
+          ],
+          [
+            "Bottas",
+            "P20"
+          ],
+          [
+            "Albon",
+            "not classified"
+          ],
+          [
+            "Lawson",
+            "not classified"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · The cut",
+      "title": "So close to the top ten",
+      "text": "Hulkenberg (P11), Bortoleto (P12), Colapinto (P13), Ocon (P14), Bearman (P15), Alonso (P16, no time set in this round).",
+      "dato": {
+        "label": "Knocked out in Q2",
+        "rows": [
+          [
+            "Hulkenberg",
+            "P11"
+          ],
+          [
+            "Bortoleto",
+            "P12"
+          ],
+          [
+            "Colapinto",
+            "P13"
+          ],
+          [
+            "Ocon",
+            "P14"
+          ],
+          [
+            "Bearman",
+            "P15"
+          ],
+          [
+            "Alonso",
+            "P16, no time"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Track limits",
+      "title": "10 laps thrown in the bin",
+      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
+      "dato": {
+        "label": "Deleted laps",
+        "rows": [
+          [
+            "Hamilton",
+            "1:26.505"
+          ],
+          [
+            "Leclerc",
+            "1:35.328"
+          ],
+          [
+            "Russell",
+            "1:18.246"
+          ],
+          [
+            "Russell",
+            "1:40.999"
+          ],
+          [
+            "Leclerc",
+            "1:32.072"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Lindblad and Hamilton were quickest through the trap: 330 km/h",
+      "text": "Top speed says as much about wing level and the tow from the car ahead as it does about the engine."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Sector by sector",
+      "title": "Nobody owned the whole lap",
+      "text": "The quickest sectors of the session were split between three drivers, so the ideal lap was never actually driven.",
+      "dato": {
+        "label": "Fastest sectors",
+        "rows": [
+          [
+            "Sector 1 · Hamilton",
+            "20.594s"
+          ],
+          [
+            "Sector 2 · Russell",
+            "23.066s"
+          ],
+          [
+            "Sector 3 · Antonelli",
+            "28.940s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Interruptions",
+      "title": "Yellow flags out 2 times during the session",
+      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "The grid",
+      "title": "How the sprint starts",
+      "text": "P1 Russell · P2 Antonelli · P3 Norris · P4 Piastri · P5 Hamilton · P6 Leclerc",
+      "bullets": [
+        "Bearman qualified P15 and starts P19, 4 places further back",
+        "Gasly qualified P19 and starts P20, 1 place further back",
+        "Bottas qualified P20 and starts P21, 1 place further back",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
+    }
+  ]
+}

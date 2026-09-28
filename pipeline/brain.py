@@ -16,19 +16,15 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     green = s.green_overtakes()
     ov_by_driver = Counter(o["overtaking_driver_number"] for _, o in green)
     real_pits = s.real_pits
-    cases = s.stewards()
-    # one verdict, one penalty, on the car the verdict names
-    penalties, _seen = [], set()
-    for c in cases:
-        if c["secs"] and c.get("verdict_msg") not in _seen:
-            _seen.add(c.get("verdict_msg"))
-            penalties.append(c)
+    penalties = s.penalties()
     winner = s.result[0]["driver_number"] if s.result else None
     best = s.best_lap
+    sprint = s.label.startswith("Sprint")
+    event = "sprint" if sprint else "race"
+    scs = s.sc_periods
 
-    def out_lap(num: int) -> int:
-        return max((l.get("lap_number") or 0) for l in s.laps
-                   if l.get("driver_number") == num) or 0
+    def plural(n, w, many=None):
+        return f"{n} {w if n == 1 else (many or w + 's')}"
 
     # where each driver was, lap by lap, so a collapse can be pinned to a lap
     pos_by_driver: dict[int, list[tuple[int, int]]] = defaultdict(list)
@@ -37,9 +33,8 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
         if ln and pt.get('position'):
             pos_by_driver[pt['driver_number']].append((ln, pt['position']))
 
-    # laps where a driver dropped two or more places at once
     def swings(num: int) -> list[dict]:
-        out, prev = [], None
+        out, prev = [], grid.get(num)
         for ln, pos in pos_by_driver.get(num, []):
             if prev is not None and pos - prev >= 2:
                 out.append({'lap': ln, 'lost': pos - prev})
@@ -47,24 +42,14 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
         out.sort(key=lambda x: -x['lost'])
         return out[:3]
 
-    # the position feed only records CHANGES, so counting the laps a driver
-    # appears at P1 undercounts badly: a leader who never loses the lead
-    # generates one event all race. Carry the last known position forward.
-    #
-    # The fill starts on the grid rather than on nothing. Every driver's first
-    # record is the grid order, stamped before lap one has begun, so it belongs
-    # to no lap and is dropped on the way in -- which leaves the leader unknown
-    # until he first loses or regains a place. At Barcelona that was lap 12,
-    # and the first eleven laps of the race belonged to nobody.
-    #
-    # It also stops on the lap a driver's race stopped. Forward-filling a
-    # retirement would have him still leading from the barriers while the car
-    # that inherited it is credited with the same lap.
+    # the position feed only records changes: carry the last known position
+    # forward from the grid, and stop on the last lap the car completed
     def led_laps(num: int) -> int:
         events = pos_by_driver.get(num, [])
-        last = out_lap(num) or s.total_laps or 0
+        done = s.completed_laps(num)
+        last = min(s.total_laps or 0, done if done is not None else s.total_laps or 0)
         led, i, pos = 0, 0, grid.get(num)
-        for lap in range(1, min(s.total_laps or 0, last) + 1):
+        for lap in range(1, last + 1):
             while i < len(events) and events[i][0] <= lap:
                 pos = events[i][1]
                 i += 1
@@ -75,36 +60,41 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     stop_counts = Counter(p['driver_number'] for p in real_pits)
     typical = Counter(stop_counts.values()).most_common(1)[0][0] if stop_counts else 0
     winner_pace = s.pace(winner) if winner else None
+    green_lane = [p["pit_duration"] for p in s.timed_stops
+                  if p["lap_number"] not in s.dead_laps and not s.neutralised(p["ts"])]
+    lane = median(green_lane) if len(green_lane) >= 3 else None
 
-    # ---------- every driver's afternoon ----------
+    # ---------- every driver's race ----------
     drivers: dict[str, dict] = {}
     for r in s.result:
         num = r["driver_number"]
         info = s.drivers.get(num, {})
         comps = [st.get("compound") for st in s.stints
-                 if st.get("driver_number") == num and st.get("compound")]
+                 if st.get("driver_number") == num and st.get("compound")
+                 and st.get("compound") != "UNKNOWN"]
         pace = s.pace(num)
-        pens = [c for c in penalties if c.get("penalised") == num]
-        start, finish = grid.get(num), r.get("position")
+        pens = [c for c in penalties if c["car"] == num]
+        start, finish = grid.get(num), s.finish_pos(num)
+        retired = bool(r.get("dnf")) and not r.get("dns")
         drivers[s.name(num).lower()] = {
             "name": s.name(num),
             "code": (info.get("name_acronym") or "").lower(),
             "number": num,
             "team": s.team(num),
             "start": start,
-            "finish": None if r.get("dnf") else finish,
-            "moved": (start - finish) if (start and finish and not r.get("dnf")) else None,
-            "dnf": bool(r.get("dnf")),
-            "dnfLap": out_lap(num) if r.get("dnf") else None,
+            "finish": finish,
+            "moved": (start - finish) if (start and finish) else None,
+            "dnf": retired,
+            "dns": bool(r.get("dns")),
+            "dnfLap": s.stop_lap(num) if retired else None,
             "points": round(r.get("points") or 0),
             "stops": s.pit_laps(num),
             "compounds": list(dict.fromkeys(comps)),
             "pace": fmt(pace) if pace else None,
             "paceRaw": round(pace, 3) if pace else None,
             "overtakes": ov_by_driver.get(num, 0),
-            "penalty": f"{pens[0]['secs']}s" if pens else None,
-            "penaltyFor": (pens[0]["reason"] or "").lower() or None if pens else None,
-            # the pieces a "why did he lose it" answer gets built from
+            "penalty": pens[0]["kind"] if pens else None,
+            "penaltyFor": (pens[0]["reason"] or None) if pens else None,
             "led": led_laps(num),
             "swings": swings(num),
             "fastestLap": bool(best and best.get("driver_number") == num),
@@ -119,32 +109,43 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     by_lap = Counter(ln for ln, _ in green)
     busiest = max(by_lap.values()) if by_lap else 0
     lap_events: dict[str, list[str]] = defaultdict(list)
-    for lap in s.sc_laps:
-        lap_events[str(lap)].append("safety car came out, every gap wiped")
+    for p in scs:
+        if p["lap"]:
+            lap_events[str(p["lap"])].append("safety car came out, every gap wiped")
+    for a, b in s.vsc_periods:
+        ln = s.lap_of(a)
+        if ln:
+            lap_events[str(ln)].append("virtual safety car, gaps frozen")
+    for ln in s.red_laps[:1]:
+        lap_events[str(ln)].append(f"red flag, the {event} was stopped")
     for lap, n in by_lap.most_common():
         if n >= 3:
             lap_events[str(lap)].append(
-                f"{n} overtakes, busiest lap of the race" if n == busiest
-                else f"{n} overtakes")
+                f"{n} passes on track, busiest lap of the {event}" if n == busiest
+                else f"{n} passes on track")
     for p in real_pits:
         lap_events[str(p["lap_number"])].append(f"{s.name(p['driver_number'])} pitted")
     for r in s.dnfs:
-        lap_events[str(out_lap(r["driver_number"]))].append(
+        lap_events[str(s.stop_lap(r["driver_number"]))].append(
             f"{s.name(r['driver_number'])} retired")
     for c in penalties:
-        lap_events[str(c["lap"])].append(
-            f"{s.name(c['penalised'])} picked up a {c['secs']}s penalty")
+        if c["lap"]:
+            lap_events[str(c["lap"])].append(
+                f"{s.name(c['car'])} got " + (f"a {c['kind']} penalty" if c["secs"] else c["kind"]))
     if best and best.get("lap_number"):
         lap_events[str(best["lap_number"])].append(
             f"{s.name(best['driver_number'])} set the fastest lap, {fmt(best['lap_duration'])}")
 
-    wet = any(w.get("rainfall") for w in s.weather)
-    track_t = [w["track_temperature"] for w in s.weather if w.get("track_temperature")]
-    lap1 = len([o for o in s.overtakes
-                if s.lap_of(parse_ts(o.get("date"))) in (None, 1)])
+    a0, b0 = s.race_start_ts, s.race_end_ts
+    wx = [w for w in s.weather if a0 and b0 and parse_ts(w.get("date"))
+          and a0 <= parse_ts(w["date"]) <= b0]
+    wet = any(w.get("rainfall") for w in wx)
+    track_t = [w["track_temperature"] for w in sorted(wx, key=lambda w: w.get("date") or "")
+               if (w.get("track_temperature") or 0) > 0]
+    lap1 = len(s.lap1_passes())
     quickest = sorted((d["paceRaw"], d["name"]) for d in drivers.values() if d["paceRaw"])
-    lane = median(p["pit_duration"] for p in real_pits) if real_pits else None
     used = sorted({c for d in drivers.values() for c in d["compounds"]})
+    w_led = led_laps(winner) if winner else 0
 
     # ---------- the things people actually ask ----------
     topics = [
@@ -152,7 +153,9 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
          "keys": ["who won", "winner", "won", "win", "ganador", "gano", "quien gano",
                   "first place", "p1"],
          "say": [f"{s.name(winner)} took it" if winner else "nobody, weirdly",
-                 f"{s.team(winner)}. led when it mattered" if winner else ""]},
+                 (f"{s.team(winner)}. started P{grid.get(winner)}"
+                  + (f", led {w_led} of {s.total_laps} laps" if w_led else ""))
+                 if winner and grid.get(winner) else s.team(winner) if winner else ""]},
         {"id": "podium",
          "keys": ["podium", "podio", "top 3", "top three", "second", "third", "segundo"],
          "say": [" · ".join(f"P{r['position']} {s.name(r['driver_number'])}"
@@ -161,105 +164,93 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
          "keys": ["fastest lap", "quickest lap", "vuelta rapida", "fastest time"],
          "say": [f"{s.name(best['driver_number'])}, {fmt(best['lap_duration'])} on lap "
                  f"{best.get('lap_number')}",
-                 "it's worth a point if you finish top 10, which is why you see people "
-                 "pitting at the end just to nick it"] if best else []},
+                 "no points for it anymore, that went after 2024. bragging rights only"]
+                if best else []},
         {"id": "sc",
          "keys": ["safety car", "sc", "coche de seguridad", "neutralised", "yellow"],
-         "say": ([f"safety car on lap {', '.join(str(l) for l in s.sc_laps)}",
+         "say": ([f"safety car on lap {', '.join(str(p['lap']) for p in scs if p['lap'])}",
                   "something's on track that shouldn't be, so everyone queues behind a "
-                  "road car at half speed",
-                  "if you'd built a 20 second lead it's gone. brutal when you're leading, "
-                  "brilliant when you're not"] if s.sc_laps
+                  "road car at reduced speed",
+                  "if you'd built a big lead it's gone. brutal when you're leading, "
+                  "brilliant when you're not"] if scs
                  else [f"no proper safety car, just a virtual one on lap "
                        f"{s.vsc_laps[0]}. gaps frozen, nobody bunched up"]
-                 if getattr(s, "vsc_laps", None)
-                 else ["no safety car in this one, green the whole way"])},
+                 if s.vsc_laps
+                 else [f"no safety car in this one"])},
         {"id": "overtakes",
          "keys": ["overtake", "overtaking", "passes", "adelantamiento", "adelantamientos",
                   "how many overtakes"],
-         "say": [f"{len(green)} proper overtakes",
-                 "that's not counting lap 1 or the safety car restarts. those are just the "
-                 "field shuffling, they'd double the number and mean nothing"]},
+         "say": [f"{plural(len(green), 'pass', 'passes')} on track after lap 1",
+                 "pit lane swaps and anything behind the safety car don't count, they'd "
+                 "inflate the number and mean nothing"]},
         {"id": "pits",
          "keys": ["pit", "pitstop", "pit stop", "stops", "parada", "boxes", "pitted"],
-         "say": ([f"{len(real_pits)} stops all afternoon",
-                  f"the lane costs about {lane:.0f}s here, which is why nobody stops "
-                  "unless they have to"] if real_pits else ["nobody stopped"])},
+         "say": ([f"{plural(len(real_pits), 'stop')} in the whole {event}"]
+                 + ([f"you spend about {lane:.0f}s in the pit lane here"] if lane else [])
+                 if real_pits else ["nobody stopped"])},
         {"id": "undercut",
          "keys": ["undercut", "overcut"],
-         "say": ["you pit before the guy ahead and bang in two fast laps on new tyres "
+         "say": ["you pit before the guy ahead and do fast laps on new tyres "
                  "while he's still out there on old ones",
-                 "when he finally stops he comes out behind you. you never passed him on "
-                 "track, you passed him in the pit lane"]},
+                 "if it works he comes out behind you after his stop. you never passed "
+                 "him on track, you passed him in the pit lane"]},
         {"id": "tyres",
          "keys": ["tyre", "tyres", "tire", "compound", "neumatico", "rueda", "soft",
                   "medium", "hard"],
          "say": ([f"compounds out there: {', '.join(used).lower()}",
-                  "softer is quicker and dies faster, harder lasts and is slower. the "
+                  "softer is quicker and wears faster, harder lasts and is slower. the "
                   "whole strategy is choosing which pain you want"] if used else [])},
         {"id": "drs",
          "keys": ["drs", "rear wing", "ala movil"],
-         "say": ["a flap on the rear wing that opens on the straights and makes you quicker",
-                 "you only get it within a second of the car ahead at a set point. purists "
-                 "hate it, i'm fine with it, the alternative was processions"]},
+         "say": ["no drs anymore, the 2026 cars don't have it"]},
         {"id": "points",
          "keys": ["points", "puntos", "championship", "standings", "scored"],
-         "say": ["top 10 score: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1",
+         "say": [("top 8 score in a sprint: 8, 7, 6, 5, 4, 3, 2, 1" if sprint else
+                  "top 10 score: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1"),
                  " · ".join(f"{s.name(r['driver_number'])} {round(r.get('points') or 0)}"
                             for r in s.result[:5])]},
         {"id": "penalty",
          "keys": ["penalty", "penalties", "sancion", "stewards", "fia", "punished",
                   "investigation"],
-         "say": ([f"{len(penalties)} penalties stuck",
-                  " · ".join(
-                      f"{n} {v}s" + (f" x{c}" if c > 1 else "")
-                      for (n, v), c in Counter(
-                          (s.name(c["penalised"]), c["secs"]) for c in penalties
-                      ).items())[:190]]
-                 if penalties else ["stewards looked at a few things and let them all go"])},
+         "say": ([plural(len(penalties), "penalty", "penalties") + " handed out",
+                  " · ".join(f"{s.name(c['car'])} {c['kind']}" for c in penalties)[:190]]
+                 if penalties else ["no penalties handed out"])},
         {"id": "weather",
          "keys": ["weather", "rain", "wet", "dry", "temperature", "lluvia", "tiempo",
                   "calor", "hot"],
-         "say": ([("it rained" if wet else "bone dry all afternoon"),
-                  f"track hit {max(track_t):.0f}°C and cooled to {min(track_t):.0f}°C"
-                  if track_t else ""] if s.weather else [])},
+         "say": ([("rain was recorded" if wet else "no rain recorded during it"),
+                  f"track at {track_t[0]:.0f}°C at the start and {track_t[-1]:.0f}°C at the flag"]
+                 if len(track_t) >= 2 else [])},
         {"id": "good",
          "keys": ["was it good", "worth watching", "boring", "merece la pena",
                   "estuvo bien", "any good", "should i watch", "entertaining"],
-         "say": ["bit of both honestly",
-                 f"{len(green)} overtakes and the midfield was mental, the front was quieter",
-                 "watch the last 10 laps at least"]},
+         "say": ["you tell me",
+                 f"{plural(len(green), 'pass', 'passes')} on track, "
+                 f"{plural(len(scs), 'safety car')} and {plural(len(s.dnfs), 'retirement')}"]},
         {"id": "newbie",
          "keys": ["explain", "i know nothing", "new to f1", "how does this work",
                   "no entiendo", "explicame", "beginner", "from scratch", "like im five"],
-         "say": ["ok so 20 cars, everyone starts in the order they qualified on saturday",
-                 "everyone has to stop at least once to change tyres, and that stop costs "
-                 "about 25 seconds",
-                 "the whole sport is deciding WHEN to lose those 25 seconds"]},
+         "say": [f"ok so {s.starters} cars, lined up in the order they qualified",
+                 "in a dry race everyone has to use two tyre types, so everyone stops at "
+                 "least once" + (f", about {lane:.0f} seconds in the pit lane each time" if lane else ""),
+                 "the whole sport is deciding WHEN to lose that time"]},
         {"id": "pace",
          "keys": ["fastest car", "best car", "pace", "ritmo", "quickest car",
                   "who was quickest", "who had the pace"],
-         "say": ([f"on median clean lap it was {quickest[0][1]}",
-                  "median lap strips out traffic, safety cars and one-off heroics. it's "
-                  "the honest read on who actually had the car under him"] if quickest else [])},
+         "say": ([f"on median racing lap it was {quickest[0][1]}",
+                  "that leaves out lap 1, pit laps and anything behind the safety car. "
+                  "the honest read on who had the car under him"] if quickest else [])},
         {"id": "dnf",
          "keys": ["retire", "retired", "retirement", "dnf", "abandono", "broke down",
                   "who went out", "did not finish", "crash"],
          "say": ([" · ".join(f"{d['name']} on lap {d['dnfLap']}"
                              for d in drivers.values() if d["dnf"]),
-                  "no points unless you finish, and you have to be top 10. that's how "
-                  "championships quietly bleed out"]
-                 if any(d["dnf"] for d in drivers.values()) else ["everyone finished"])},
+                  "the data says when they stopped, not why"]
+                 if any(d["dnf"] for d in drivers.values()) else ["everyone who started finished"])},
         {"id": "grid",
          "keys": ["start", "lights out", "first lap", "lap 1", "salida", "grid", "pole"],
-         "say": [f"{lap1} position changes before lap 1 was even done",
-                 "cold tyres, cold brakes, full fuel and 20 people who all think the same "
-                 "gap belongs to them"]},
-        {"id": "next",
-         "keys": ["next race", "when is", "proxima", "siguiente", "next one"],
-         "say": ["two weeks usually, they almost never go back to back",
-                 "and teams bring upgrades in between, so the order can change completely. "
-                 "that's why nobody can predict this sport"]},
+         "say": [f"{plural(lap1, 'place')} changed hands on track on lap 1",
+                 "cold tyres, cold brakes, full fuel and everybody going for the same gap"]},
     ]
 
     return {

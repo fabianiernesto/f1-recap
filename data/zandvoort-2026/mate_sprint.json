@@ -1,0 +1,122 @@
+{
+  "session": "Sprint",
+  "beats": [
+    {
+      "lap": 0,
+      "msgs": [
+        "yo",
+        "you missed the sprint",
+        "24 laps, 6 passes on track and no safety car"
+      ],
+      "asks": [
+        {
+          "q": "just tell me who won",
+          "a": [
+            "Russell 🏆",
+            "Mercedes, from P1 on the grid"
+          ]
+        },
+        {
+          "q": "was it actually good or are you being nice",
+          "a": [
+            "you tell me lol",
+            "6 passes on track, not counting the ones in the pit lane"
+          ]
+        },
+        {
+          "q": "i know nothing about f1, start there",
+          "a": [
+            "ok so 22 cars, lined up in the order they qualified",
+            "in a dry race everyone has to use two different tyre types, so everyone stops at least once",
+            "the whole sport is basically deciding WHEN to lose that time"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 1,
+      "msgs": [
+        "lights out",
+        "8 places changed hands before they even finished lap 1"
+      ],
+      "asks": [
+        {
+          "q": "why is the start always so mad",
+          "a": [
+            "cold tyres, cold brakes, full fuel tank and everybody going for the same gap",
+            "it's the only moment of the race where the whole field is that close"
+          ]
+        },
+        {
+          "q": "does the start decide the race",
+          "a": [
+            "more than anyone admits",
+            "track position is everything on most circuits, you lose 3 places on lap 1 and you can spend the next hour stuck behind someone slower"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 10,
+      "msgs": [
+        "most of the stops came around lap 10",
+        "this is the bit TV makes look boring and where a lot gets decided"
+      ],
+      "asks": [
+        {
+          "q": "why not just stop early every time",
+          "a": [
+            "new tyres are quickest for the first few laps, then they start going off",
+            "stop too early and you're on worn rubber at the end with everyone hunting you. stop too late and someone's already jumped you"
+          ]
+        },
+        {
+          "q": "what's an undercut",
+          "a": [
+            "you pit before the guy ahead, do fast laps on new tyres while he's still out there on old ones",
+            "if it works he comes out behind you after his stop. you never passed him on track, you passed him in the pit lane"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 5,
+      "msgs": [
+        "fastest lap of the race went to Norris",
+        "1:14.881, on lap 5"
+      ],
+      "asks": [
+        {
+          "q": "is fastest lap worth anything",
+          "a": [
+            "not anymore, there's been no point for it since 2025",
+            "it's bragging rights now"
+          ]
+        },
+        {
+          "q": "why so early",
+          "a": [
+            "usually it comes near the end when the car is light",
+            "an early one means somebody had fresh tyres and a clear track at the right moment"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 24,
+      "msgs": [
+        "chequered flag",
+        "P1 Russell · P2 Leclerc · P3 Norris"
+      ],
+      "asks": [
+        {
+          "q": "was the winner just in the fastest car",
+          "a": [
+            "partly, always. the median lap times are the honest read on who had the pace",
+            "the true pace card is the one i'd trust"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -26,18 +26,18 @@
         ],
         [
           "Median lap",
-          "1:38.236"
+          "1:38.161"
         ],
         [
           "On-track passes",
-          "2"
+          "1"
         ],
         [
           "Finished",
           "P1"
         ]
       ],
-      "tell": "led most of it and never gave anyone a way past",
+      "tell": "led 10 of 57 laps and took the win",
       "options": [
         "Antonelli",
         "Leclerc",
@@ -66,18 +66,18 @@
         ],
         [
           "Median lap",
-          "1:40.779"
+          "1:40.136"
         ],
         [
           "On-track passes",
-          "4"
+          "3"
         ],
         [
           "Finished",
           "P16"
         ]
       ],
-      "tell": "the biggest climb of the afternoon, one pass at a time",
+      "tell": "the biggest climb of the race, 6 places",
       "options": [
         "Albon",
         "Bearman",
@@ -106,22 +106,22 @@
         ],
         [
           "Median lap",
-          "1:43.366"
+          "1:43.256"
         ],
         [
           "On-track passes",
-          "3"
+          "0"
         ],
         [
           "Penalty",
-          "5s, "
+          "5s"
         ],
         [
           "Finished",
           "retired, lap 44"
         ]
       ],
-      "tell": "the car gave up on him, and the sheet just stops",
+      "tell": "his race ended on lap 44, and the sheet just stops",
       "options": [
         "Alonso",
         "Bearman",
@@ -150,18 +150,18 @@
         ],
         [
           "Median lap",
-          "1:43.686"
+          "1:43.654"
         ],
         [
           "On-track passes",
-          "2"
+          "0"
         ],
         [
           "Finished",
           "retired, lap 32"
         ]
       ],
-      "tell": "the car gave up on him, and the sheet just stops",
+      "tell": "his race ended on lap 32, and the sheet just stops",
       "options": [
         "Alonso",
         "Bottas",
@@ -190,18 +190,18 @@
         ],
         [
           "Median lap",
-          "1:44.242"
+          "1:44.214"
         ],
         [
           "On-track passes",
-          "2"
+          "1"
         ],
         [
           "Finished",
           "retired, lap 13"
         ]
       ],
-      "tell": "the car gave up on him, and the sheet just stops",
+      "tell": "his race ended on lap 13, and the sheet just stops",
       "options": [
         "Bottas",
         "Perez",
@@ -230,7 +230,7 @@
         ],
         [
           "Median lap",
-          "1:43.916"
+          "-"
         ],
         [
           "On-track passes",
@@ -241,7 +241,7 @@
           "retired, lap 7"
         ]
       ],
-      "tell": "the car gave up on him, and the sheet just stops",
+      "tell": "his race ended on lap 7, and the sheet just stops",
       "options": [
         "Hamilton",
         "Perez",
@@ -270,11 +270,11 @@
         ],
         [
           "Median lap",
-          "1:38.303"
+          "1:38.265"
         ],
         [
           "On-track passes",
-          "2"
+          "1"
         ],
         [
           "Fastest lap",
@@ -285,7 +285,7 @@
           "P5"
         ]
       ],
-      "tell": "more stops than anyone was planning. that is damage or a gamble, never a strategy",
+      "tell": "2 stops when most of the field made 1",
       "options": [
         "Leclerc",
         "Norris",
@@ -314,18 +314,18 @@
         ],
         [
           "Median lap",
-          "1:41.271"
+          "1:40.900"
         ],
         [
           "On-track passes",
-          "6"
+          "4"
         ],
         [
           "Finished",
           "P17"
         ]
       ],
-      "tell": "more stops than anyone was planning. that is damage or a gamble, never a strategy",
+      "tell": "2 stops when most of the field made 1",
       "options": [
         "Albon",
         "Alonso",

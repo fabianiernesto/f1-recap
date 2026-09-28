@@ -1,0 +1,76 @@
+{
+  "slug": "spa-2026",
+  "gp": "Belgian Grand Prix 2026",
+  "short": "Belgian Grand Prix",
+  "circuit": "Spa-Francorchamps",
+  "country": "Belgium",
+  "date": "19 JUL 2026",
+  "laps": 44,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "486 laps run, no points at stake",
+      "moments": 8,
+      "laps": 25
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "394 laps run, no points at stake",
+      "moments": 7,
+      "laps": 21
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "417 laps run, no points at stake",
+      "moments": 7,
+      "laps": 23
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Antonelli on pole",
+      "moments": 8,
+      "laps": 18
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "43 on-track passes, 1 safety car",
+      "moments": 34,
+      "laps": 44
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Kimi",
+      "last": "Antonelli",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 12,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp"
+    },
+    "margin": 1.952,
+    "runnerUp": "Leclerc",
+    "fastest": {
+      "last": "Norris",
+      "time": "1:48.890"
+    },
+    "passes": 43,
+    "stops": 29,
+    "dnfs": 3,
+    "safetyCars": 1,
+    "redFlag": false,
+    "laps": 44
+  },
+  "rating": null,
+  "heat": []
+}

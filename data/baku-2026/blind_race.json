@@ -22,7 +22,7 @@
         ],
         [
           "Median lap",
-          "1:47.992"
+          "1:47.838"
         ],
         [
           "On-track passes",
@@ -33,7 +33,7 @@
           "P13"
         ]
       ],
-      "tell": "the afternoon that got away: nobody lost more places than he did",
+      "tell": "nobody lost more places than he did: 10",
       "options": [
         "Hulkenberg",
         "Lawson",
@@ -53,6 +53,10 @@
           "P1"
         ],
         [
+          "Laps led",
+          "51"
+        ],
+        [
           "Stops",
           "2 (lap 31, 36)"
         ],
@@ -62,7 +66,7 @@
         ],
         [
           "Median lap",
-          "1:47.503"
+          "1:47.415"
         ],
         [
           "On-track passes",
@@ -77,7 +81,7 @@
           "P1"
         ]
       ],
-      "tell": "led most of it and never gave anyone a way past",
+      "tell": "led 51 of 51 laps and took the win",
       "options": [
         "Hadjar",
         "Leclerc",
@@ -98,7 +102,7 @@
         ],
         [
           "Stops",
-          "2 (lap 31, 36)"
+          "1 (lap 31)"
         ],
         [
           "Tyres",
@@ -106,7 +110,7 @@
         ],
         [
           "Median lap",
-          "1:47.800"
+          "1:47.659"
         ],
         [
           "On-track passes",
@@ -117,7 +121,7 @@
           "P2"
         ]
       ],
-      "tell": "6 places gained the hard way, without a camera in sight",
+      "tell": "6 places gained from P8",
       "options": [
         "Hadjar",
         "Leclerc",
@@ -138,7 +142,7 @@
         ],
         [
           "Stops",
-          "2 (lap 30, 36)"
+          "1 (lap 30)"
         ],
         [
           "Tyres",
@@ -146,7 +150,7 @@
         ],
         [
           "Median lap",
-          "1:48.062"
+          "1:47.900"
         ],
         [
           "On-track passes",
@@ -157,7 +161,7 @@
           "P5"
         ]
       ],
-      "tell": "the biggest climb of the afternoon, one pass at a time",
+      "tell": "the biggest climb of the race, 11 places",
       "options": [
         "Antonelli",
         "Hadjar",
@@ -178,7 +182,7 @@
         ],
         [
           "Stops",
-          "2 (lap 30, 36)"
+          "1 (lap 30)"
         ],
         [
           "Tyres",
@@ -186,18 +190,18 @@
         ],
         [
           "Median lap",
-          "1:49.303"
+          "1:49.198"
         ],
         [
           "On-track passes",
-          "3"
+          "1"
         ],
         [
           "Finished",
           "P7"
         ]
       ],
-      "tell": "8 places gained the hard way, without a camera in sight",
+      "tell": "8 places gained from P15",
       "options": [
         "Antonelli",
         "Hamilton",
@@ -218,7 +222,7 @@
         ],
         [
           "Stops",
-          "2 (lap 32, 36)"
+          "1 (lap 32)"
         ],
         [
           "Tyres",
@@ -226,18 +230,18 @@
         ],
         [
           "Median lap",
-          "1:49.654"
+          "1:49.510"
         ],
         [
           "On-track passes",
-          "3"
+          "1"
         ],
         [
           "Finished",
           "P11"
         ]
       ],
-      "tell": "7 places gained the hard way, without a camera in sight",
+      "tell": "7 places gained from P18",
       "options": [
         "Bearman",
         "Hulkenberg",
@@ -258,7 +262,7 @@
         ],
         [
           "Stops",
-          "2 (lap 30, 36)"
+          "1 (lap 30)"
         ],
         [
           "Tyres",
@@ -266,18 +270,18 @@
         ],
         [
           "Median lap",
-          "1:49.926"
+          "1:49.707"
         ],
         [
           "On-track passes",
-          "5"
+          "1"
         ],
         [
           "Finished",
           "P14"
         ]
       ],
-      "tell": "6 places gained the hard way, without a camera in sight",
+      "tell": "6 places gained from P20",
       "options": [
         "Hulkenberg",
         "Lawson",
@@ -298,7 +302,7 @@
         ],
         [
           "Stops",
-          "2 (lap 26, 36)"
+          "1 (lap 26)"
         ],
         [
           "Tyres",
@@ -306,18 +310,18 @@
         ],
         [
           "Median lap",
-          "1:51.927"
+          "1:51.772"
         ],
         [
           "On-track passes",
-          "5"
+          "3"
         ],
         [
           "Finished",
           "retired, lap 50"
         ]
       ],
-      "tell": "the car gave up on him, and the sheet just stops",
+      "tell": "his race ended on lap 50, and the sheet just stops",
       "options": [
         "Bortoleto",
         "Bottas",

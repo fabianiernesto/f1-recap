@@ -67,7 +67,7 @@ def _lap_times(s) -> dict[int, dict[int, float]]:
 def race_economics(s) -> dict | None:
     """What a stop cost and how each compound behaved, in this race."""
     raw = _lap_times(s)
-    sc = set(s.sc_laps)
+    sc = set(s.dead_laps)   # safety car, VSC and red flag laps
 
     # who was in the lane on which lap, so the cars still racing can be asked
     # what a normal lap looked like at that moment

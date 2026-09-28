@@ -26,11 +26,11 @@
         ],
         [
           "Median lap",
-          "1:32.330"
+          "1:32.306"
         ],
         [
           "On-track passes",
-          "2"
+          "1"
         ],
         [
           "Fastest lap",
@@ -41,50 +41,10 @@
           "P1"
         ]
       ],
-      "tell": "led most of it and never gave anyone a way past",
+      "tell": "led 10 of 17 laps and took the win",
       "options": [
         "Antonelli",
         "Hamilton",
-        "Norris",
-        "Russell"
-      ]
-    },
-    {
-      "answer": "Leclerc",
-      "number": 16,
-      "team": "Ferrari",
-      "colour": "ED1131",
-      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
-      "rows": [
-        [
-          "Started",
-          "P4"
-        ],
-        [
-          "Stops",
-          "0"
-        ],
-        [
-          "Tyres",
-          "medium"
-        ],
-        [
-          "Median lap",
-          "1:32.604"
-        ],
-        [
-          "On-track passes",
-          "4"
-        ],
-        [
-          "Finished",
-          "P5"
-        ]
-      ],
-      "tell": "more overtakes than anyone out there",
-      "options": [
-        "Hamilton",
-        "Leclerc",
         "Norris",
         "Russell"
       ]
@@ -110,7 +70,7 @@
         ],
         [
           "Median lap",
-          "1:33.539"
+          "1:33.505"
         ],
         [
           "On-track passes",
@@ -121,52 +81,12 @@
           "P9"
         ]
       ],
-      "tell": "more overtakes than anyone out there",
+      "tell": "more passes on track than anyone out there",
       "options": [
         "Hadjar",
         "Lawson",
         "Piastri",
         "Verstappen"
-      ]
-    },
-    {
-      "answer": "Albon",
-      "number": 23,
-      "team": "Williams",
-      "colour": "1868DB",
-      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp",
-      "rows": [
-        [
-          "Started",
-          "P22"
-        ],
-        [
-          "Stops",
-          "0"
-        ],
-        [
-          "Tyres",
-          "medium"
-        ],
-        [
-          "Median lap",
-          "1:34.428"
-        ],
-        [
-          "On-track passes",
-          "4"
-        ],
-        [
-          "Finished",
-          "P18"
-        ]
-      ],
-      "tell": "more overtakes than anyone out there",
-      "options": [
-        "Albon",
-        "Hulkenberg",
-        "Ocon",
-        "Sainz"
       ]
     },
     {
@@ -190,11 +110,11 @@
         ],
         [
           "Median lap",
-          "1:35.444"
+          "1:35.415"
         ],
         [
           "On-track passes",
-          "1"
+          "0"
         ],
         [
           "Penalty",
@@ -205,7 +125,7 @@
           "P22"
         ]
       ],
-      "tell": "the stewards spent more time on him than on anybody",
+      "tell": "the stewards gave him a 10s penalty",
       "options": [
         "Alonso",
         "Bottas",

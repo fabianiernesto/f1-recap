@@ -1,0 +1,130 @@
+{
+  "gp": "Belgian Grand Prix 2026",
+  "session": "Practice 3",
+  "sessionSlug": "fp3",
+  "circuit": "Spa-Francorchamps",
+  "laps": 23,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Belgian Grand Prix · Practice 3",
+      "title": "Practice, honestly",
+      "text": "417 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 2",
+      "title": "Antonelli: 1:45.990",
+      "text": "In a Mercedes. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Bearman racked up 22 laps",
+      "text": "Track time is the currency of a practice Saturday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Bearman",
+            22
+          ],
+          [
+            "Lindblad",
+            22
+          ],
+          [
+            "Lawson",
+            22
+          ],
+          [
+            "Bottas",
+            21
+          ],
+          [
+            "Ocon",
+            21
+          ],
+          [
+            "Perez",
+            20
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Consistency",
+      "title": "Norris had the best average over his quicker laps",
+      "text": "Every lap within 4% of each driver's own best, averaged. Fuel loads are unknown, so read it as a hint, not a ranking.",
+      "dato": {
+        "label": "Average of the quicker laps",
+        "rows": [
+          [
+            "Norris",
+            "1:48.400"
+          ],
+          [
+            "Hamilton",
+            "1:48.642"
+          ],
+          [
+            "Piastri",
+            "1:48.826"
+          ],
+          [
+            "Hulkenberg",
+            "1:49.130"
+          ],
+          [
+            "Lawson",
+            "1:49.131"
+          ],
+          [
+            "Lindblad",
+            "1:49.228"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "SOFT",
+            73
+          ],
+          [
+            "MEDIUM",
+            9
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Lindblad topped the trap at 317 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "Flags out 1 time",
+      "text": "Every interruption costs somebody a run they had planned."
+    }
+  ]
+}

@@ -36,15 +36,15 @@
       "label": "Qualifying",
       "kind": "quali",
       "headline": "Gasly on pole",
-      "moments": 9,
+      "moments": 8,
       "laps": 19
     },
     {
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "139 on-track passes, 1 safety car",
-      "moments": 32,
+      "headline": "102 on-track passes",
+      "moments": 31,
       "laps": 53
     }
   ],
@@ -64,10 +64,10 @@
       "last": "Antonelli",
       "time": "1:23.504"
     },
-    "passes": 139,
+    "passes": 102,
     "stops": 9,
     "dnfs": 3,
-    "safetyCars": 1,
+    "safetyCars": 0,
     "redFlag": true,
     "laps": 53
   },

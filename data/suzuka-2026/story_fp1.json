@@ -1,0 +1,141 @@
+{
+  "gp": "Japanese Grand Prix 2026",
+  "session": "Practice 1",
+  "sessionSlug": "fp1",
+  "circuit": "Suzuka",
+  "laps": 29,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Japanese Grand Prix · Practice 1",
+      "title": "Practice, honestly",
+      "text": "525 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 14",
+      "title": "Russell: 1:31.666",
+      "text": "In a Mercedes. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Lindblad racked up 28 laps",
+      "text": "Track time is the currency of a practice Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Lindblad",
+            28
+          ],
+          [
+            "Bearman",
+            26
+          ],
+          [
+            "Lawson",
+            26
+          ],
+          [
+            "Bortoleto",
+            26
+          ],
+          [
+            "Russell",
+            25
+          ],
+          [
+            "Sainz",
+            25
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Consistency",
+      "title": "Piastri had the best average over his quicker laps",
+      "text": "Every lap within 4% of each driver's own best, averaged. Fuel loads are unknown, so read it as a hint, not a ranking.",
+      "dato": {
+        "label": "Average of the quicker laps",
+        "rows": [
+          [
+            "Piastri",
+            "1:32.707"
+          ],
+          [
+            "Russell",
+            "1:33.002"
+          ],
+          [
+            "Norris",
+            "1:33.432"
+          ],
+          [
+            "Hamilton",
+            "1:33.611"
+          ],
+          [
+            "Leclerc",
+            "1:33.641"
+          ],
+          [
+            "Gasly",
+            "1:34.174"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "HARD",
+            38
+          ],
+          [
+            "SOFT",
+            31
+          ],
+          [
+            "MEDIUM",
+            24
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Lindblad and Piastri topped the trap at 297 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "A clean session",
+      "text": "No yellow or red flags logged while the session ran."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 35°C and 39°C",
+      "text": "Practice conditions rarely match the race, which is one more reason these times mislead."
+    }
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "session": "Race",
+  "laps": 78,
+  "driver": {
+    "name": "Gasly",
+    "number": 10,
+    "team": "Alpine",
+    "colour": "00A1E8",
+    "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/alpine/piegas01/2026alpinepiegas01right.webp",
+    "start": 9,
+    "finish": 7,
+    "margin": 1.359
+  },
+  "economics": {
+    "pitLoss": 22.2,
+    "fuelTrend": -0.0113,
+    "tyres": {
+      "MEDIUM": {
+        "deg": 0.0262,
+        "base": -0.022,
+        "laps": 582
+      },
+      "HARD": {
+        "deg": 0.0253,
+        "base": 0.024,
+        "laps": 326
+      },
+      "SOFT": {
+        "deg": 0.0218,
+        "base": -0.03,
+        "laps": 235
+      }
+    },
+    "typicalDeg": 0.0253
+  },
+  "calls": [
+    {
+      "lap": 45,
+      "kicker": "The first stop",
+      "question": "When do you box him?",
+      "facts": [
+        [
+          "Running",
+          "P7"
+        ],
+        [
+          "Ahead",
+          "Hadjar, 17.4s up"
+        ],
+        [
+          "Behind",
+          "Lawson"
+        ]
+      ],
+      "options": [
+        {
+          "label": "Box him now, lap 45",
+          "lap": 45,
+          "lost": 1.4,
+          "real": true,
+          "note": "0 laps on the hards, then 15 on the hards."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 49,
+          "lost": 0.3,
+          "real": false,
+          "note": "4 laps on the hards, then 11 on the hards."
+        },
+        {
+          "label": "8 laps later",
+          "lap": 53,
+          "lost": 0.0,
+          "real": false,
+          "note": "8 laps on the hards, then 7 on the hards."
+        },
+        {
+          "label": "12 laps later",
+          "lap": 57,
+          "lost": 0.5,
+          "real": false,
+          "note": "12 laps on the hards, then 3 on the hards."
+        }
+      ],
+      "reading": "The hards lose 25ms a lap as they age, the hards 25ms. The stint has to reach lap 60 either way."
+    },
+    {
+      "lap": 66,
+      "kicker": "Stop 3",
+      "question": "When do you box him?",
+      "facts": [
+        [
+          "Running",
+          "P5"
+        ],
+        [
+          "Ahead",
+          "Russell, 10.6s up"
+        ],
+        [
+          "Behind",
+          "Piastri"
+        ]
+      ],
+      "options": [
+        {
+          "label": "Box him now, lap 66",
+          "lap": 66,
+          "lost": 0.4,
+          "real": true,
+          "note": "0 laps on the hards, then 12 on the softs."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 70,
+          "lost": 0.0,
+          "real": false,
+          "note": "4 laps on the hards, then 8 on the softs."
+        },
+        {
+          "label": "8 laps later",
+          "lap": 74,
+          "lost": 0.3,
+          "real": false,
+          "note": "8 laps on the hards, then 4 on the softs."
+        }
+      ],
+      "reading": "The hards lose 25ms a lap as they age, the softs 22ms. The stint has to reach lap 78 either way."
+    },
+    {
+      "lap": 66,
+      "kicker": "The last set",
+      "question": "12 laps to the flag. What goes on the car?",
+      "facts": [
+        [
+          "Running",
+          "P5"
+        ],
+        [
+          "Ahead",
+          "Russell, 10.6s up"
+        ],
+        [
+          "Behind",
+          "Piastri"
+        ]
+      ],
+      "options": [
+        {
+          "label": "Soft",
+          "lap": 66,
+          "lost": 0.0,
+          "real": true,
+          "note": "22ms a lap of wear, over 12 laps."
+        },
+        {
+          "label": "Medium",
+          "lap": 66,
+          "lost": 0.4,
+          "real": false,
+          "note": "26ms a lap of wear, over 12 laps."
+        },
+        {
+          "label": "Hard",
+          "lap": 66,
+          "lost": 0.9,
+          "real": false,
+          "note": "25ms a lap of wear, over 12 laps."
+        }
+      ],
+      "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters."
+    }
+  ],
+  "ladder": [
+    {
+      "pos": 1,
+      "name": "Antonelli",
+      "team": "Mercedes",
+      "gap": 0.0
+    },
+    {
+      "pos": 2,
+      "name": "Hamilton",
+      "team": "Ferrari",
+      "gap": 6.271
+    },
+    {
+      "pos": 3,
+      "name": "Hadjar",
+      "team": "Red Bull Racing",
+      "gap": 23.394
+    },
+    {
+      "pos": 4,
+      "name": "Piastri",
+      "team": "McLaren",
+      "gap": 24.261
+    },
+    {
+      "pos": 5,
+      "name": "Lawson",
+      "team": "Racing Bulls",
+      "gap": 26.553
+    },
+    {
+      "pos": 6,
+      "name": "Lindblad",
+      "team": "Racing Bulls",
+      "gap": 29.01
+    },
+    {
+      "pos": 7,
+      "name": "Gasly",
+      "team": "Alpine",
+      "gap": 30.369
+    },
+    {
+      "pos": 8,
+      "name": "Albon",
+      "team": "Williams",
+      "gap": 33.413
+    },
+    {
+      "pos": 9,
+      "name": "Ocon",
+      "team": "Haas F1 Team",
+      "gap": 37.14
+    },
+    {
+      "pos": 10,
+      "name": "Alonso",
+      "team": "Aston Martin",
+      "gap": 41.899
+    },
+    {
+      "pos": 11,
+      "name": "Bortoleto",
+      "team": "Audi",
+      "gap": 42.748
+    },
+    {
+      "pos": 12,
+      "name": "Russell",
+      "team": "Mercedes",
+      "gap": 43.353
+    },
+    {
+      "pos": 13,
+      "name": "Hulkenberg",
+      "team": "Audi",
+      "gap": 44.102
+    },
+    {
+      "pos": 14,
+      "name": "Colapinto",
+      "team": "Alpine",
+      "gap": 48.964
+    },
+    {
+      "pos": 15,
+      "name": "Perez",
+      "team": "Cadillac",
+      "gap": 49.153
+    }
+  ]
+}

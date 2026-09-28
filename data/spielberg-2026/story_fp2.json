@@ -1,0 +1,133 @@
+{
+  "gp": "Austrian Grand Prix 2026",
+  "session": "Practice 2",
+  "sessionSlug": "fp2",
+  "circuit": "Spielberg",
+  "laps": 35,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Austrian Grand Prix · Practice 2",
+      "title": "Practice, honestly",
+      "text": "631 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 18",
+      "title": "Antonelli: 1:07.014",
+      "text": "In a Mercedes. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Leclerc racked up 34 laps",
+      "text": "Track time is the currency of a practice Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Leclerc",
+            34
+          ],
+          [
+            "Lawson",
+            33
+          ],
+          [
+            "Albon",
+            33
+          ],
+          [
+            "Gasly",
+            32
+          ],
+          [
+            "Hamilton",
+            32
+          ],
+          [
+            "Ocon",
+            32
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Consistency",
+      "title": "Leclerc had the best average over his quicker laps",
+      "text": "Every lap within 4% of each driver's own best, averaged. Fuel loads are unknown, so read it as a hint, not a ranking.",
+      "dato": {
+        "label": "Average of the quicker laps",
+        "rows": [
+          [
+            "Leclerc",
+            "1:08.816"
+          ],
+          [
+            "Lawson",
+            "1:09.242"
+          ],
+          [
+            "Bortoleto",
+            "1:09.765"
+          ],
+          [
+            "Stroll",
+            "1:11.776"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "MEDIUM",
+            52
+          ],
+          [
+            "SOFT",
+            43
+          ],
+          [
+            "HARD",
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Lawson topped the trap at 321 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "Flags out 3 times",
+      "text": "Every interruption costs somebody a run they had planned."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 45°C and 49°C",
+      "text": "Practice conditions rarely match the race, which is one more reason these times mislead."
+    }
+  ]
+}

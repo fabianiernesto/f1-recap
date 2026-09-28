@@ -105,6 +105,132 @@ GPS: dict[str, dict] = {
             (11377, "Race", "race", "Race", "race"),
         ],
     },
+    "albert-park-2026": {
+        "meta": {
+            "slug": "albert-park-2026", "gp": "Australian Grand Prix 2026",
+            "short": "Australian Grand Prix", "circuit": "Albert Park",
+            "country": "Australia", "date": "08 MAR 2026", "laps": 58,
+        },
+        "sessions": [
+            (11227, "FP1", "fp1", "Practice 1", "practice"),
+            (11228, "FP2", "fp2", "Practice 2", "practice"),
+            (11229, "FP3", "fp3", "Practice 3", "practice"),
+            (11230, "Quali", "quali", "Qualifying", "quali"),
+            (11234, "Race", "race", "Race", "race"),
+        ],
+    },
+    "shanghai-2026": {
+        "meta": {
+            "slug": "shanghai-2026", "gp": "Chinese Grand Prix 2026",
+            "short": "Chinese Grand Prix", "circuit": "Shanghai",
+            "country": "China", "date": "15 MAR 2026", "laps": 56,
+        },
+        "sessions": [
+            (11235, "FP1", "fp1", "Practice 1", "practice"),
+            (11236, "Sprint_Quali", "sprint-quali", "Sprint Qualifying", "quali"),
+            (11240, "Sprint", "sprint", "Sprint", "race"),
+            (11241, "Quali", "quali", "Qualifying", "quali"),
+            (11245, "Race", "race", "Race", "race"),
+        ],
+    },
+    "suzuka-2026": {
+        "meta": {
+            "slug": "suzuka-2026", "gp": "Japanese Grand Prix 2026",
+            "short": "Japanese Grand Prix", "circuit": "Suzuka",
+            "country": "Japan", "date": "29 MAR 2026", "laps": 53,
+        },
+        "sessions": [
+            (11246, "FP1", "fp1", "Practice 1", "practice"),
+            (11247, "FP2", "fp2", "Practice 2", "practice"),
+            (11248, "FP3", "fp3", "Practice 3", "practice"),
+            (11249, "Quali", "quali", "Qualifying", "quali"),
+            (11253, "Race", "race", "Race", "race"),
+        ],
+    },
+    "miami-2026": {
+        "meta": {
+            "slug": "miami-2026", "gp": "Miami Grand Prix 2026",
+            "short": "Miami Grand Prix", "circuit": "Miami",
+            "country": "United States", "date": "03 MAY 2026", "laps": 57,
+        },
+        "sessions": [
+            (11270, "FP1", "fp1", "Practice 1", "practice"),
+            (11271, "Sprint_Quali", "sprint-quali", "Sprint Qualifying", "quali"),
+            (11275, "Sprint", "sprint", "Sprint", "race"),
+            (11276, "Quali", "quali", "Qualifying", "quali"),
+            (11280, "Race", "race", "Race", "race"),
+        ],
+    },
+    "montreal-2026": {
+        "meta": {
+            "slug": "montreal-2026", "gp": "Canadian Grand Prix 2026",
+            "short": "Canadian Grand Prix", "circuit": "Montreal",
+            "country": "Canada", "date": "24 MAY 2026", "laps": 70,
+        },
+        "sessions": [
+            (11281, "FP1", "fp1", "Practice 1", "practice"),
+            (11282, "Sprint_Quali", "sprint-quali", "Sprint Qualifying", "quali"),
+            (11286, "Sprint", "sprint", "Sprint", "race"),
+            (11287, "Quali", "quali", "Qualifying", "quali"),
+            (11291, "Race", "race", "Race", "race"),
+        ],
+    },
+    "monaco-2026": {
+        "meta": {
+            "slug": "monaco-2026", "gp": "Monaco Grand Prix 2026",
+            "short": "Monaco Grand Prix", "circuit": "Monaco",
+            "country": "Monaco", "date": "07 JUN 2026", "laps": 78,
+        },
+        "sessions": [
+            (11292, "FP1", "fp1", "Practice 1", "practice"),
+            (11293, "FP2", "fp2", "Practice 2", "practice"),
+            (11294, "FP3", "fp3", "Practice 3", "practice"),
+            (11295, "Quali", "quali", "Qualifying", "quali"),
+            (11299, "Race", "race", "Race", "race"),
+        ],
+    },
+    "spielberg-2026": {
+        "meta": {
+            "slug": "spielberg-2026", "gp": "Austrian Grand Prix 2026",
+            "short": "Austrian Grand Prix", "circuit": "Spielberg",
+            "country": "Austria", "date": "28 JUN 2026", "laps": 71,
+        },
+        "sessions": [
+            (11308, "FP1", "fp1", "Practice 1", "practice"),
+            (11309, "FP2", "fp2", "Practice 2", "practice"),
+            (11310, "FP3", "fp3", "Practice 3", "practice"),
+            (11311, "Quali", "quali", "Qualifying", "quali"),
+            (11315, "Race", "race", "Race", "race"),
+        ],
+    },
+    "spa-2026": {
+        "meta": {
+            "slug": "spa-2026", "gp": "Belgian Grand Prix 2026",
+            "short": "Belgian Grand Prix", "circuit": "Spa-Francorchamps",
+            "country": "Belgium", "date": "19 JUL 2026", "laps": 44,
+        },
+        "sessions": [
+            (11327, "FP1", "fp1", "Practice 1", "practice"),
+            (11328, "FP2", "fp2", "Practice 2", "practice"),
+            (11329, "FP3", "fp3", "Practice 3", "practice"),
+            (11330, "Quali", "quali", "Qualifying", "quali"),
+            (11334, "Race", "race", "Race", "race"),
+        ],
+    },
+    "zandvoort-2026": {
+        "meta": {
+            "slug": "zandvoort-2026", "gp": "Dutch Grand Prix 2026",
+            "short": "Dutch Grand Prix", "circuit": "Zandvoort",
+            "country": "Netherlands", "date": "23 AUG 2026", "laps": 72,
+        },
+        "sessions": [
+            (11343, "FP1", "fp1", "Practice 1", "practice"),
+            (11344, "Sprint_Quali", "sprint-quali", "Sprint Qualifying", "quali"),
+            (11348, "Sprint", "sprint", "Sprint", "race"),
+            (11349, "Quali", "quali", "Qualifying", "quali"),
+            (11353, "Race", "race", "Race", "race"),
+        ],
+    },
 }
 
 DEFAULT = "silverstone-2026"

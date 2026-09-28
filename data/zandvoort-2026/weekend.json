@@ -1,0 +1,76 @@
+{
+  "slug": "zandvoort-2026",
+  "gp": "Dutch Grand Prix 2026",
+  "short": "Dutch Grand Prix",
+  "circuit": "Zandvoort",
+  "country": "Netherlands",
+  "date": "23 AUG 2026",
+  "laps": 72,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "693 laps run, no points at stake",
+      "moments": 8,
+      "laps": 39
+    },
+    {
+      "slug": "sprint-quali",
+      "label": "Sprint Qualifying",
+      "kind": "quali",
+      "headline": "Russell on pole",
+      "moments": 8,
+      "laps": 17
+    },
+    {
+      "slug": "sprint",
+      "label": "Sprint",
+      "kind": "race",
+      "headline": "6 on-track passes",
+      "moments": 15,
+      "laps": 24
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Norris on pole",
+      "moments": 8,
+      "laps": 25
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "47 on-track passes",
+      "moments": 36,
+      "laps": 72
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Lando",
+      "last": "Norris",
+      "team": "McLaren",
+      "colour": "F47600",
+      "number": 1,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp"
+    },
+    "margin": 11.536,
+    "runnerUp": "Antonelli",
+    "fastest": {
+      "last": "Leclerc",
+      "time": "1:14.230"
+    },
+    "passes": 47,
+    "stops": 42,
+    "dnfs": 6,
+    "safetyCars": 0,
+    "redFlag": true,
+    "laps": 72
+  },
+  "rating": null,
+  "heat": []
+}

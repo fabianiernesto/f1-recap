@@ -1,0 +1,76 @@
+{
+  "slug": "montreal-2026",
+  "gp": "Canadian Grand Prix 2026",
+  "short": "Canadian Grand Prix",
+  "circuit": "Montreal",
+  "country": "Canada",
+  "date": "24 MAY 2026",
+  "laps": 68,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "619 laps run, no points at stake",
+      "moments": 8,
+      "laps": 36
+    },
+    {
+      "slug": "sprint-quali",
+      "label": "Sprint Qualifying",
+      "kind": "quali",
+      "headline": "Russell on pole",
+      "moments": 9,
+      "laps": 24
+    },
+    {
+      "slug": "sprint",
+      "label": "Sprint",
+      "kind": "race",
+      "headline": "25 on-track passes",
+      "moments": 23,
+      "laps": 23
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Russell on pole",
+      "moments": 8,
+      "laps": 29
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "46 on-track passes",
+      "moments": 36,
+      "laps": 68
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Kimi",
+      "last": "Antonelli",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 12,
+      "start": 2,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp"
+    },
+    "margin": 10.768,
+    "runnerUp": "Hamilton",
+    "fastest": {
+      "last": "Antonelli",
+      "time": "1:14.210"
+    },
+    "passes": 46,
+    "stops": 33,
+    "dnfs": 5,
+    "safetyCars": 0,
+    "redFlag": false,
+    "laps": 68
+  },
+  "rating": null,
+  "heat": []
+}

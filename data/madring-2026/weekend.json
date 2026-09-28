@@ -36,15 +36,15 @@
       "label": "Qualifying",
       "kind": "quali",
       "headline": "Norris on pole",
-      "moments": 7,
-      "laps": 0
+      "moments": 9,
+      "laps": 22
     },
     {
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "65 on-track passes",
-      "moments": 34,
+      "headline": "18 on-track passes",
+      "moments": 30,
       "laps": 57
     }
   ],
@@ -64,7 +64,7 @@
       "last": "Russell",
       "time": "1:35.587"
     },
-    "passes": 65,
+    "passes": 18,
     "stops": 25,
     "dnfs": 4,
     "safetyCars": 0,

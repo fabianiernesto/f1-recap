@@ -10,7 +10,7 @@
       "type": "cover",
       "lap": 0,
       "kicker": "Azerbaijan Grand Prix · Qualifying",
-      "title": "One lap decides the whole Sunday",
+      "title": "One lap decides the whole race",
       "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the race can become."
     },
     {
@@ -18,7 +18,7 @@
       "lap": 1,
       "kicker": "Pole position",
       "title": "Russell takes it",
-      "text": "By 0.837s over Leclerc. Less time than a blink.",
+      "text": "By 0.837s over Leclerc.",
       "dato": {
         "label": "Top ten",
         "rows": [
@@ -141,7 +141,7 @@
       "type": "moment",
       "lap": 4,
       "kicker": "Deleted laps",
-      "title": "22 laps thrown in the bin",
+      "title": "15 laps thrown in the bin",
       "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
       "dato": {
         "label": "Deleted laps",
@@ -174,14 +174,14 @@
       "lap": 5,
       "kicker": "Speed trap",
       "title": "Ocon was quickest through the trap: 330 km/h",
-      "text": "Qualifying trim, wings trimmed back, nothing to lose."
+      "text": "Top speed says as much about wing level and the tow from the car ahead as it does about the engine."
     },
     {
       "type": "moment",
       "lap": 6,
       "kicker": "Sector by sector",
-      "title": "Nobody owned the whole lap",
-      "text": "The perfect lap of the day was never actually driven: it lives in three different cars.",
+      "title": "Russell owned the whole lap",
+      "text": "Quickest in all three sectors.",
       "dato": {
         "label": "Fastest sectors",
         "rows": [
@@ -204,14 +204,14 @@
       "type": "moment",
       "lap": 7,
       "kicker": "Interruptions",
-      "title": "33 yellow flag calls during the session",
+      "title": "Yellow flags out 10 times during the session",
       "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
     },
     {
       "type": "moment",
       "lap": 8,
       "kicker": "The grid",
-      "title": "How Sunday starts",
+      "title": "How the race starts",
       "text": "P1 Russell · P2 Leclerc · P3 Piastri · P4 Hadjar · P5 Norris · P6 Hamilton",
       "bullets": [
         "Sainz qualified P9 and starts P14, 5 places further back",

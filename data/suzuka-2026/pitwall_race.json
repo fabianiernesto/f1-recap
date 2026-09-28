@@ -1,0 +1,252 @@
+{
+  "session": "Race",
+  "laps": 53,
+  "driver": {
+    "name": "Leclerc",
+    "number": 16,
+    "team": "Ferrari",
+    "colour": "ED1131",
+    "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
+    "start": 4,
+    "finish": 3,
+    "margin": 0.484
+  },
+  "economics": {
+    "pitLoss": 23.0,
+    "fuelTrend": -0.0484,
+    "tyres": {
+      "MEDIUM": {
+        "deg": 0.0261,
+        "base": 1.345,
+        "laps": 431
+      },
+      "HARD": {
+        "deg": 0.0118,
+        "base": 1.36,
+        "laps": 474
+      }
+    },
+    "typicalDeg": 0.019
+  },
+  "calls": [
+    {
+      "lap": 17,
+      "kicker": "The first stop",
+      "question": "When do you box him?",
+      "facts": [
+        [
+          "Running",
+          "P7"
+        ],
+        [
+          "Tyre",
+          "medium, 16 laps old"
+        ],
+        [
+          "Ahead",
+          "Verstappen, 7.4s up"
+        ],
+        [
+          "Behind",
+          "Norris"
+        ]
+      ],
+      "options": [
+        {
+          "label": "12 laps earlier",
+          "lap": 5,
+          "lost": 2.9,
+          "real": false,
+          "note": "4 laps on the mediums, then 48 on the hards."
+        },
+        {
+          "label": "8 laps earlier",
+          "lap": 9,
+          "lost": 1.3,
+          "real": false,
+          "note": "8 laps on the mediums, then 44 on the hards."
+        },
+        {
+          "label": "4 laps earlier",
+          "lap": 13,
+          "lost": 0.4,
+          "real": false,
+          "note": "12 laps on the mediums, then 40 on the hards."
+        },
+        {
+          "label": "Box him now, lap 17",
+          "lap": 17,
+          "lost": 0.0,
+          "real": true,
+          "note": "16 laps on the mediums, then 36 on the hards."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 21,
+          "lost": 0.2,
+          "real": false,
+          "note": "20 laps on the mediums, then 32 on the hards."
+        },
+        {
+          "label": "8 laps later",
+          "lap": 25,
+          "lost": 1.1,
+          "real": false,
+          "note": "24 laps on the mediums, then 28 on the hards."
+        },
+        {
+          "label": "12 laps later",
+          "lap": 29,
+          "lost": 2.5,
+          "real": false,
+          "note": "28 laps on the mediums, then 24 on the hards."
+        }
+      ],
+      "reading": "The mediums lose 26ms a lap as they age, the hards 12ms. The stint has to reach lap 53 either way."
+    },
+    {
+      "lap": 17,
+      "kicker": "The last set",
+      "question": "36 laps to the flag. What goes on the car?",
+      "facts": [
+        [
+          "Running",
+          "P7"
+        ],
+        [
+          "Tyre",
+          "medium, 16 laps old"
+        ],
+        [
+          "Ahead",
+          "Verstappen, 7.4s up"
+        ],
+        [
+          "Behind",
+          "Norris"
+        ]
+      ],
+      "options": [
+        {
+          "label": "Hard",
+          "lap": 17,
+          "lost": 0.0,
+          "real": true,
+          "note": "12ms a lap of wear, over 36 laps."
+        },
+        {
+          "label": "Medium",
+          "lap": 17,
+          "lost": 9.0,
+          "real": false,
+          "note": "26ms a lap of wear, over 36 laps."
+        }
+      ],
+      "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters."
+    }
+  ],
+  "ladder": [
+    {
+      "pos": 1,
+      "name": "Antonelli",
+      "team": "Mercedes",
+      "gap": 0.0
+    },
+    {
+      "pos": 2,
+      "name": "Piastri",
+      "team": "McLaren",
+      "gap": 13.722
+    },
+    {
+      "pos": 3,
+      "name": "Leclerc",
+      "team": "Ferrari",
+      "gap": 15.27
+    },
+    {
+      "pos": 4,
+      "name": "Russell",
+      "team": "Mercedes",
+      "gap": 15.754
+    },
+    {
+      "pos": 5,
+      "name": "Norris",
+      "team": "McLaren",
+      "gap": 23.479
+    },
+    {
+      "pos": 6,
+      "name": "Hamilton",
+      "team": "Ferrari",
+      "gap": 25.037
+    },
+    {
+      "pos": 7,
+      "name": "Gasly",
+      "team": "Alpine",
+      "gap": 32.34
+    },
+    {
+      "pos": 8,
+      "name": "Verstappen",
+      "team": "Red Bull Racing",
+      "gap": 32.677
+    },
+    {
+      "pos": 9,
+      "name": "Lawson",
+      "team": "Racing Bulls",
+      "gap": 50.18
+    },
+    {
+      "pos": 10,
+      "name": "Ocon",
+      "team": "Haas F1 Team",
+      "gap": 51.216
+    },
+    {
+      "pos": 11,
+      "name": "Hulkenberg",
+      "team": "Audi",
+      "gap": 52.28
+    },
+    {
+      "pos": 12,
+      "name": "Hadjar",
+      "team": "Red Bull Racing",
+      "gap": 56.154
+    },
+    {
+      "pos": 13,
+      "name": "Bortoleto",
+      "team": "Audi",
+      "gap": 59.078
+    },
+    {
+      "pos": 14,
+      "name": "Lindblad",
+      "team": "Racing Bulls",
+      "gap": 59.848
+    },
+    {
+      "pos": 15,
+      "name": "Sainz",
+      "team": "Williams",
+      "gap": 65.008
+    },
+    {
+      "pos": 16,
+      "name": "Colapinto",
+      "team": "Alpine",
+      "gap": 65.773
+    },
+    {
+      "pos": 17,
+      "name": "Perez",
+      "team": "Cadillac",
+      "gap": 92.453
+    }
+  ]
+}

@@ -20,15 +20,15 @@
       "label": "Sprint Qualifying",
       "kind": "quali",
       "headline": "Hamilton on pole",
-      "moments": 9,
+      "moments": 8,
       "laps": 15
     },
     {
       "slug": "sprint",
       "label": "Sprint",
       "kind": "race",
-      "headline": "42 on-track passes",
-      "moments": 26,
+      "headline": "28 on-track passes",
+      "moments": 22,
       "laps": 17
     },
     {
@@ -43,8 +43,8 @@
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "130 on-track passes, 2 safety cars",
-      "moments": 38,
+      "headline": "60 on-track passes, 1 safety car",
+      "moments": 32,
       "laps": 52
     }
   ],
@@ -64,10 +64,10 @@
       "last": "Antonelli",
       "time": "1:31.777"
     },
-    "passes": 130,
-    "stops": 51,
+    "passes": 60,
+    "stops": 50,
     "dnfs": 3,
-    "safetyCars": 2,
+    "safetyCars": 1,
     "redFlag": false,
     "laps": 52
   },

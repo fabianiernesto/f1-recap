@@ -1,0 +1,93 @@
+{
+  "session": "Sprint",
+  "rounds": [
+    {
+      "answer": "Russell",
+      "number": 63,
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P1"
+        ],
+        [
+          "Laps led",
+          "24"
+        ],
+        [
+          "Stops",
+          "0"
+        ],
+        [
+          "Tyres",
+          "medium"
+        ],
+        [
+          "Median lap",
+          "1:16.028"
+        ],
+        [
+          "On-track passes",
+          "0"
+        ],
+        [
+          "Finished",
+          "P1"
+        ]
+      ],
+      "tell": "led 24 of 24 laps and took the win",
+      "options": [
+        "Antonelli",
+        "Leclerc",
+        "Norris",
+        "Russell"
+      ]
+    },
+    {
+      "answer": "Norris",
+      "number": 1,
+      "team": "McLaren",
+      "colour": "F47600",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P2"
+        ],
+        [
+          "Stops",
+          "0"
+        ],
+        [
+          "Tyres",
+          "medium"
+        ],
+        [
+          "Median lap",
+          "1:16.065"
+        ],
+        [
+          "On-track passes",
+          "0"
+        ],
+        [
+          "Fastest lap",
+          "1:14.881"
+        ],
+        [
+          "Finished",
+          "P3"
+        ]
+      ],
+      "tell": "the fastest lap of the sprint is his",
+      "options": [
+        "Antonelli",
+        "Leclerc",
+        "Norris",
+        "Russell"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "monaco-2026",
+  "gp": "Monaco Grand Prix 2026",
+  "short": "Monaco Grand Prix",
+  "circuit": "Monaco",
+  "country": "Monaco",
+  "date": "07 JUN 2026",
+  "laps": 78,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "620 laps run, no points at stake",
+      "moments": 8,
+      "laps": 34
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "711 laps run, no points at stake",
+      "moments": 8,
+      "laps": 39
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "518 laps run, no points at stake",
+      "moments": 8,
+      "laps": 32
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Antonelli on pole",
+      "moments": 9,
+      "laps": 32
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "4 on-track passes, 1 safety car",
+      "moments": 35,
+      "laps": 78
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Kimi",
+      "last": "Antonelli",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 12,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp"
+    },
+    "margin": 6.271,
+    "runnerUp": "Hamilton",
+    "fastest": {
+      "last": "Antonelli",
+      "time": "1:13.481"
+    },
+    "passes": 4,
+    "stops": 42,
+    "dnfs": 7,
+    "safetyCars": 1,
+    "redFlag": true,
+    "laps": 78
+  },
+  "rating": null,
+  "heat": []
+}

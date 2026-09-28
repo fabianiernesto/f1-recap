@@ -1,0 +1,219 @@
+{
+  "gp": "Monaco Grand Prix 2026",
+  "session": "Qualifying",
+  "sessionSlug": "quali",
+  "circuit": "Monaco",
+  "laps": 32,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Monaco Grand Prix · Qualifying",
+      "title": "One lap decides the whole race",
+      "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the race can become."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Pole position",
+      "title": "Antonelli takes it",
+      "text": "By 0.043s over Verstappen. Less time than a blink.",
+      "dato": {
+        "label": "Top ten",
+        "rows": [
+          [
+            "P1 Antonelli",
+            "Mercedes"
+          ],
+          [
+            "P2 Verstappen",
+            "Red Bull Racing"
+          ],
+          [
+            "P3 Hamilton",
+            "Ferrari"
+          ],
+          [
+            "P4 Leclerc",
+            "Ferrari"
+          ],
+          [
+            "P5 Hadjar",
+            "Red Bull Racing"
+          ],
+          [
+            "P6 Russell",
+            "Mercedes"
+          ],
+          [
+            "P7 Piastri",
+            "McLaren"
+          ],
+          [
+            "P8 Norris",
+            "McLaren"
+          ],
+          [
+            "P9 Gasly",
+            "Alpine"
+          ],
+          [
+            "P10 Lawson",
+            "Racing Bulls"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · The cut",
+      "title": "Out before it got serious",
+      "text": "Ocon (P17), Perez (P18), Bearman (P19), Bottas (P20), Alonso (P21), Stroll (P22).",
+      "dato": {
+        "label": "Knocked out in Q1",
+        "rows": [
+          [
+            "Ocon",
+            "P17"
+          ],
+          [
+            "Perez",
+            "P18"
+          ],
+          [
+            "Bearman",
+            "P19"
+          ],
+          [
+            "Bottas",
+            "P20"
+          ],
+          [
+            "Alonso",
+            "P21"
+          ],
+          [
+            "Stroll",
+            "P22"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · The cut",
+      "title": "So close to the top ten",
+      "text": "Albon (P11), Sainz (P12), Hulkenberg (P13), Colapinto (P14), Lindblad (P15), Bortoleto (P16, no time set in this round).",
+      "dato": {
+        "label": "Knocked out in Q2",
+        "rows": [
+          [
+            "Albon",
+            "P11"
+          ],
+          [
+            "Sainz",
+            "P12"
+          ],
+          [
+            "Hulkenberg",
+            "P13"
+          ],
+          [
+            "Colapinto",
+            "P14"
+          ],
+          [
+            "Lindblad",
+            "P15"
+          ],
+          [
+            "Bortoleto",
+            "P16, no time"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Track limits",
+      "title": "18 laps thrown in the bin",
+      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
+      "dato": {
+        "label": "Deleted laps",
+        "rows": [
+          [
+            "Russell",
+            "1:35.179"
+          ],
+          [
+            "Russell",
+            "1:33.532"
+          ],
+          [
+            "Perez",
+            "1:30.897"
+          ],
+          [
+            "Russell",
+            "1:39.599"
+          ],
+          [
+            "Perez",
+            "at turn 10"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Albon and Sainz were quickest through the trap: 285 km/h",
+      "text": "Top speed says as much about wing level and the tow from the car ahead as it does about the engine."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Sector by sector",
+      "title": "Nobody owned the whole lap",
+      "text": "The quickest sectors of the session were split between two drivers, so the ideal lap was never actually driven.",
+      "dato": {
+        "label": "Fastest sectors",
+        "rows": [
+          [
+            "Sector 1 · Verstappen",
+            "18.827s"
+          ],
+          [
+            "Sector 2 · Hamilton",
+            "33.957s"
+          ],
+          [
+            "Sector 3 · Verstappen",
+            "19.083s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Interruptions",
+      "title": "Yellow flags out 2 times during the session",
+      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "The grid",
+      "title": "How the race starts",
+      "text": "P1 Antonelli · P2 Verstappen · P3 Hamilton · P4 Leclerc · P5 Hadjar · P6 Russell",
+      "bullets": []
+    }
+  ]
+}

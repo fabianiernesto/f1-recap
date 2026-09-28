@@ -1,0 +1,137 @@
+{
+  "session": "Sprint",
+  "rounds": [
+    {
+      "answer": "Norris",
+      "number": 1,
+      "team": "McLaren",
+      "colour": "F47600",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P1"
+        ],
+        [
+          "Laps led",
+          "19"
+        ],
+        [
+          "Stops",
+          "0"
+        ],
+        [
+          "Tyres",
+          "medium"
+        ],
+        [
+          "Median lap",
+          "1:32.219"
+        ],
+        [
+          "On-track passes",
+          "0"
+        ],
+        [
+          "Fastest lap",
+          "1:31.885"
+        ],
+        [
+          "Finished",
+          "P1"
+        ]
+      ],
+      "tell": "led 19 of 19 laps and took the win",
+      "options": [
+        "Leclerc",
+        "Norris",
+        "Piastri",
+        "Russell"
+      ]
+    },
+    {
+      "answer": "Alonso",
+      "number": 14,
+      "team": "Aston Martin",
+      "colour": "229971",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P20"
+        ],
+        [
+          "Stops",
+          "0"
+        ],
+        [
+          "Tyres",
+          "soft"
+        ],
+        [
+          "Median lap",
+          "1:35.829"
+        ],
+        [
+          "On-track passes",
+          "4"
+        ],
+        [
+          "Finished",
+          "P15"
+        ]
+      ],
+      "tell": "more passes on track than anyone out there",
+      "options": [
+        "Alonso",
+        "Bearman",
+        "Lawson",
+        "Sainz"
+      ]
+    },
+    {
+      "answer": "Antonelli",
+      "number": 12,
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P2"
+        ],
+        [
+          "Stops",
+          "0"
+        ],
+        [
+          "Tyres",
+          "medium"
+        ],
+        [
+          "Median lap",
+          "1:32.571"
+        ],
+        [
+          "On-track passes",
+          "1"
+        ],
+        [
+          "Penalty",
+          "5s, track limits"
+        ],
+        [
+          "Finished",
+          "P6"
+        ]
+      ],
+      "tell": "the stewards gave him a 5s penalty",
+      "options": [
+        "Antonelli",
+        "Leclerc",
+        "Russell",
+        "Verstappen"
+      ]
+    }
+  ]
+}

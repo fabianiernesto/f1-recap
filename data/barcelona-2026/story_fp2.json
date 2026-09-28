@@ -25,7 +25,7 @@
       "lap": 2,
       "kicker": "Who did the work",
       "title": "Perez racked up 33 laps",
-      "text": "Track time is the currency of a Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "text": "Track time is the currency of a practice Friday. Whoever runs most learns most, and burns the most rubber doing it.",
       "dato": {
         "label": "Laps completed",
         "rows": [
@@ -61,7 +61,7 @@
       "lap": 4,
       "kicker": "Tyres",
       "title": "What they ran, and on what",
-      "text": "Compound choice on a Friday is a rehearsal for Sunday's plan.",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
       "dato": {
         "label": "Stints by compound",
         "rows": [
@@ -91,7 +91,7 @@
       "type": "moment",
       "lap": 6,
       "kicker": "Interruptions",
-      "title": "12 flag calls",
+      "title": "Flags out 3 times",
       "text": "Every interruption costs somebody a run they had planned."
     },
     {
@@ -99,7 +99,7 @@
       "lap": 7,
       "kicker": "Conditions",
       "title": "Track between 44°C and 50°C",
-      "text": "Friday conditions rarely match Sunday, which is why the times you see here mislead so often."
+      "text": "Practice conditions rarely match the race, which is one more reason these times mislead."
     }
   ]
 }

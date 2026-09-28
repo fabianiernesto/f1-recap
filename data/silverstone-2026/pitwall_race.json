@@ -12,21 +12,21 @@
     "margin": 0.425
   },
   "economics": {
-    "pitLoss": 24.9,
-    "fuelTrend": -0.041,
+    "pitLoss": 24.2,
+    "fuelTrend": -0.0408,
     "tyres": {
       "HARD": {
-        "deg": 0.0589,
-        "base": -0.133,
+        "deg": 0.0593,
+        "base": -0.041,
         "laps": 388
       },
       "MEDIUM": {
-        "deg": 0.0342,
-        "base": 0.313,
+        "deg": 0.0357,
+        "base": 0.403,
         "laps": 467
       }
     },
-    "typicalDeg": 0.0466
+    "typicalDeg": 0.0475
   },
   "calls": [
     {
@@ -83,26 +83,26 @@
         {
           "label": "4 laps later",
           "lap": 23,
-          "lost": 0.5,
+          "lost": 0.6,
           "real": false,
           "note": "22 laps on the mediums, then 15 on the hards."
         },
         {
           "label": "8 laps later",
           "lap": 27,
-          "lost": 2.4,
+          "lost": 2.6,
           "real": false,
           "note": "26 laps on the mediums, then 11 on the hards."
         },
         {
           "label": "12 laps later",
           "lap": 31,
-          "lost": 5.9,
+          "lost": 6.2,
           "real": false,
           "note": "30 laps on the mediums, then 7 on the hards."
         }
       ],
-      "reading": "The mediums lose 34ms a lap as they age, the hards 59ms. The stint has to reach lap 38 either way."
+      "reading": "The mediums lose 36ms a lap as they age, the hards 59ms. The stint has to reach lap 38 either way."
     },
     {
       "lap": 38,
@@ -130,7 +130,7 @@
         {
           "label": "12 laps earlier",
           "lap": 26,
-          "lost": 3.4,
+          "lost": 3.6,
           "real": false,
           "note": "6 laps on the hards, then 21 on the mediums."
         },
@@ -163,7 +163,7 @@
           "note": "22 laps on the hards, then 5 on the mediums."
         }
       ],
-      "reading": "The hards lose 59ms a lap as they age, the mediums 34ms. The stint has to reach lap 47 either way."
+      "reading": "The hards lose 59ms a lap as they age, the mediums 36ms. The stint has to reach lap 47 either way."
     }
   ],
   "ladder": [

@@ -25,7 +25,7 @@
       "lap": 2,
       "kicker": "Who did the work",
       "title": "Hulkenberg racked up 20 laps",
-      "text": "Track time is the currency of a Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "text": "Track time is the currency of a practice Saturday. Whoever runs most learns most, and burns the most rubber doing it.",
       "dato": {
         "label": "Laps completed",
         "rows": [
@@ -61,7 +61,7 @@
       "lap": 4,
       "kicker": "Tyres",
       "title": "What they ran, and on what",
-      "text": "Compound choice on a Friday is a rehearsal for Sunday's plan.",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
       "dato": {
         "label": "Stints by compound",
         "rows": [
@@ -87,7 +87,7 @@
       "type": "moment",
       "lap": 6,
       "kicker": "Interruptions",
-      "title": "13 flag calls, and the session stopped once",
+      "title": "Flags out 3 times, and the session stopped once",
       "text": "A red flag sends everybody back to the pits and the clock keeps running. Whatever run you were on is gone, and so is the time to repeat it."
     }
   ]

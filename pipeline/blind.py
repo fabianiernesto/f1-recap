@@ -20,31 +20,32 @@ from photos import photo
 def blind_rounds(s, fmt) -> list[dict]:
     if not s.result:
         return []
+    from build_weekend import parse_ts  # same clock as everything else
 
     grid = s.start_grid()
     green = s.green_overtakes()
     ov = Counter(o["overtaking_driver_number"] for _, o in green)
-    cases = s.stewards()
+    penalties = s.penalties()
     best = s.best_lap
     fastest_num = best["driver_number"] if best else None
     stop_counts = Counter(p["driver_number"] for p in s.real_pits)
     typical = Counter(stop_counts.values()).most_common(1)[0][0] if stop_counts else 0
     most_passes = max(ov.values()) if ov else 0
+    top_passers = [d for d, c in ov.items() if c == most_passes]
+    event = "sprint" if s.label.startswith("Sprint") else "race"
 
-    # who led, carried forward, because the feed only records changes
     pos_events: dict[int, list[tuple[int, int]]] = {}
     for pt in sorted(s.position, key=lambda x: x.get("date") or ""):
-        from build_weekend import parse_ts  # same clock as everything else
         ln = s.lap_of(parse_ts(pt.get("date")))
         if ln and pt.get("position"):
             pos_events.setdefault(pt["driver_number"], []).append((ln, pt["position"]))
 
     def led(num: int) -> int:
         ev = pos_events.get(num, [])
-        if not ev:
-            return 0
-        total, i, pos = 0, 0, None
-        for lap in range(1, (s.total_laps or 0) + 1):
+        done = s.completed_laps(num)
+        last = min(s.total_laps or 0, done if done is not None else s.total_laps or 0)
+        total, i, pos = 0, 0, grid.get(num)
+        for lap in range(1, last + 1):
             while i < len(ev) and ev[i][0] <= lap:
                 pos = ev[i][1]
                 i += 1
@@ -52,60 +53,56 @@ def blind_rounds(s, fmt) -> list[dict]:
                 total += 1
         return total
 
-    def out_lap(num: int) -> int:
-        return max((l.get("lap_number") or 0) for l in s.laps
-                   if l.get("driver_number") == num) or 0
-
     # the superlatives have to belong to exactly one driver, or they are lies
     # on every sheet but one
     swing = {}
     for r in s.result:
-        st, fi = grid.get(r["driver_number"]), r.get("position")
-        swing[r["driver_number"]] = (st - fi) if (st and fi and not r.get("dnf")) else 0
+        st, fi = grid.get(r["driver_number"]), s.finish_pos(r["driver_number"])
+        swing[r["driver_number"]] = (st - fi) if (st and fi) else 0
     best_climb = max(swing.values(), default=0)
     worst_fall = min(swing.values(), default=0)
+    unique = lambda v: list(swing.values()).count(v) == 1
 
     candidates: list[tuple[int, dict]] = []
     for r in s.result:
         num = r["driver_number"]
-        start, finish = grid.get(num), r.get("position")
+        if r.get("dns"):
+            continue
+        start, finish = grid.get(num), s.finish_pos(num)
+        retired = bool(r.get("dnf"))
         stops = s.pit_laps(num)
         comps = list(dict.fromkeys(
             st.get("compound") for st in s.stints
-            if st.get("driver_number") == num and st.get("compound")))
+            if st.get("driver_number") == num and st.get("compound")
+            and st.get("compound") != "UNKNOWN"))
         pace = s.pace(num)
-        # the car the verdict names, not every car in the report (Baku 2026:
-        # Norris was in the incident, Colapinto got the 10s)
-        pens = [c for c in cases if c["secs"] and c.get("penalised") == num]
-        moved = (start - finish) if (start and finish and not r.get("dnf")) else 0
+        pens = [c for c in penalties if c["car"] == num]
+        moved = swing.get(num, 0)
         laps_led = led(num)
 
-        # what makes this afternoon worth asking about, and the line that
-        # explains the answer once it is given
         tell, weight = None, 0
-        if r.get("dnf"):
-            tell, weight = "the car gave up on him, and the sheet just stops", 5
+        if retired:
+            tell, weight = f"his {event} ended on lap {s.stop_lap(num)}, and the sheet just stops", 5
         elif finish == 1:
-            tell, weight = "led most of it and never gave anyone a way past", 5
+            tell, weight = ((f"led {laps_led} of {s.total_laps} laps and took the win"
+                             if laps_led else "took the win"), 5)
         elif moved <= -6:
-            tell, weight = (
-                ("the afternoon that got away: nobody lost more places than he did"
-                 if moved == worst_fall else
-                 f"started near the front and threw {abs(moved)} places away"), 6)
+            tell, weight = ((f"nobody lost more places than he did: {abs(moved)}"
+                             if moved == worst_fall and unique(moved) else
+                             f"started P{start} and lost {abs(moved)} places"), 6)
         elif moved >= 6:
-            tell, weight = (
-                ("the biggest climb of the afternoon, one pass at a time"
-                 if moved == best_climb else
-                 f"{moved} places gained the hard way, without a camera in sight"), 5)
-        elif len(stops) > typical:
-            tell, weight = ("more stops than anyone was planning. that is damage or "
-                            "a gamble, never a strategy"), 4
+            tell, weight = ((f"the biggest climb of the {event}, {moved} places"
+                             if moved == best_climb and unique(moved) else
+                             f"{moved} places gained from P{start}"), 5)
+        elif typical and len(stops) > typical:
+            tell, weight = f"{len(stops)} stops when most of the field made {typical}", 4
         elif num == fastest_num:
-            tell, weight = "the fastest lap of the race is his", 4
+            tell, weight = f"the fastest lap of the {event} is his", 4
         elif pens:
-            tell, weight = "the stewards spent more time on him than on anybody", 3
-        elif ov.get(num, 0) == most_passes and most_passes:
-            tell, weight = "more overtakes than anyone out there", 4
+            what = f"a {pens[0]['kind']} penalty" if pens[0]["secs"] else pens[0]["kind"]
+            tell, weight = f"the stewards gave him {what}", 3
+        elif most_passes and top_passers == [num]:
+            tell, weight = "more passes on track than anyone out there", 4
 
         if not tell:
             continue
@@ -122,19 +119,15 @@ def blind_rounds(s, fmt) -> list[dict]:
         if num == fastest_num and best:
             rows.append(["Fastest lap", fmt(best["lap_duration"])])
         if pens:
-            rows.append(["Penalty", f"{pens[0]['secs']}s, {(pens[0]['reason'] or '').lower()}"])
+            rows.append(["Penalty", pens[0]["kind"] + (f", {pens[0]['reason']}" if pens[0]["reason"] else "")])
         rows.append(["Finished",
-                     f"retired, lap {out_lap(num)}" if r.get("dnf") else f"P{finish}"])
+                     f"retired, lap {s.stop_lap(num)}" if retired else
+                     f"P{finish}" if finish else "not classified"])
 
         candidates.append((weight, {
             "answer": s.name(num),
             "number": num,
-            # Carried for the reveal. The sheet you read is anonymous; the
-            # moment the answer lands, the page has a car number, a team and
-            # a colour to put a face to it. This used to be deleted on the way
-            # out on the grounds that a car number gives the driver away --
-            # which it does, and so does the "answer" field sitting next to it
-            # in the same payload. Hiding one of the two protected nothing.
+            # carried for the reveal: the answer is in the payload anyway
             "team": s.team(num),
             "colour": (s.drivers.get(num, {}).get("team_colour") or "").lstrip("#"),
             "headshot": photo(s.drivers.get(num, {})),
@@ -147,15 +140,17 @@ def blind_rounds(s, fmt) -> list[dict]:
 
     # decoys come from nearby on the results sheet: a wrong answer has to be
     # believable or the round answers itself
-    order = [r["driver_number"] for r in s.result]
+    order = [r["driver_number"] for r in s.result if not r.get("dns")]
     for rnd in picked:
         i = order.index(rnd["number"])
         near = [n for n in order[max(0, i - 3): i + 4] if n != rnd["number"]]
         decoys = [s.name(n) for n in near[:3]]
-        while len(decoys) < 3:
-            extra = s.name(order[len(decoys) % len(order)])
+        j = 0
+        while len(decoys) < 3 and j < len(order):
+            extra = s.name(order[j])
             if extra not in decoys and extra != rnd["answer"]:
                 decoys.append(extra)
+            j += 1
         rnd["options"] = sorted([rnd["answer"], *decoys])
 
     return picked

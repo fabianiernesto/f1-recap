@@ -28,6 +28,9 @@ OFFICIAL_LENGTH_KM = {
     "Silverstone": 5.891, "Barcelona": 4.657, "Monza": 5.793,
     "Spa": 7.004, "Zandvoort": 4.259, "Suzuka": 5.807, "Hungary": 4.381,
     "Madrid": 5.414, "Azerbaijan": 6.003,
+    "Australia": 5.278, "China": 5.451, "Japan": 5.807, "Miami": 5.412,
+    "Canada": 4.361, "Monaco": 3.337, "Austria": 4.326, "Belgium": 7.004,
+    "Netherlands": 4.259,
 }
 
 # corner counts for circuits FastF1 has no circuit info for yet. Madring: 22,
@@ -37,7 +40,10 @@ OFFICIAL_CORNERS = {"Madrid": 22}
 # FastF1 finds an event by the name of the Grand Prix; the circuit the site
 # shows is a different word for most of them
 CIRCUIT_NAME = {"Hungary": "Hungaroring", "Spa": "Spa-Francorchamps",
-                "Madrid": "Madring", "Azerbaijan": "Baku"}
+                "Madrid": "Madring", "Azerbaijan": "Baku",
+                "Australia": "Albert Park", "China": "Shanghai", "Japan": "Suzuka",
+                "Canada": "Montreal", "Austria": "Spielberg", "Belgium": "Spa-Francorchamps",
+                "Netherlands": "Zandvoort"}
 
 # the corners worth naming, per circuit
 CORNER_NAMES = {
@@ -57,8 +63,19 @@ def main(year: int, gp: str, slug: str, name: str, country: str) -> None:
     session = fastf1.get_session(year, gp, "R")
     session.load(laps=True, telemetry=True, weather=False, messages=False)
 
-    lap = session.laps.pick_fastest()
-    pos = lap.get_pos_data()
+    # the fastest lap first, then the next quickest, until one has position
+    # data (Monaco 2026: the fastest lap came back without X and Y)
+    lap, pos = None, None
+    for _, cand in session.laps.pick_quicklaps().sort_values("LapTime").iterlaps():
+        try:
+            p = cand.get_pos_data()
+        except Exception:
+            continue
+        if "X" in p.columns and len(p) > 100 and cand.get_car_data() is not None:
+            lap, pos = cand, p
+            break
+    if lap is None:
+        raise SystemExit("no lap in this race carries position data")
     xs, ys = pos["X"].to_numpy(), pos["Y"].to_numpy()
 
     step = max(1, len(xs) // MAX_POINTS)

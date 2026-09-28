@@ -1,0 +1,76 @@
+{
+  "slug": "spielberg-2026",
+  "gp": "Austrian Grand Prix 2026",
+  "short": "Austrian Grand Prix",
+  "circuit": "Spielberg",
+  "country": "Austria",
+  "date": "28 JUN 2026",
+  "laps": 71,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "502 laps run, no points at stake",
+      "moments": 8,
+      "laps": 31
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "631 laps run, no points at stake",
+      "moments": 8,
+      "laps": 35
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "462 laps run, no points at stake",
+      "moments": 7,
+      "laps": 29
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Russell on pole",
+      "moments": 9,
+      "laps": 20
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "44 on-track passes",
+      "moments": 33,
+      "laps": 71
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "George",
+      "last": "Russell",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 63,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp"
+    },
+    "margin": 1.611,
+    "runnerUp": "Verstappen",
+    "fastest": {
+      "last": "Antonelli",
+      "time": "1:10.374"
+    },
+    "passes": 44,
+    "stops": 41,
+    "dnfs": 4,
+    "safetyCars": 0,
+    "redFlag": false,
+    "laps": 71
+  },
+  "rating": null,
+  "heat": []
+}

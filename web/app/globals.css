@@ -2141,7 +2141,9 @@ a.act:hover .act-go { background: var(--led); color: #000; }
   -webkit-mask-image: radial-gradient(ellipse 58% 68% at 56% 50%, #000 42%, transparent 74%);
   mask-image: radial-gradient(ellipse 58% 68% at 56% 50%, #000 42%, transparent 74%);
   -webkit-mask-composite: source-over; mask-composite: add; }
-.home.led .numbers-row dd { font-size: clamp(48px, 6vw, 96px); line-height: .9; }
+/* sized for four digits at 150% width: a season of races reaches 1,000+ */
+.home.led .numbers-row dd { font-size: clamp(32px, 3.9vw, 72px); line-height: .9; white-space: nowrap; }
+.home.led .numbers-row > div { min-width: 0; }
 /* the kickers and labels: the same family, medium, small, tracked */
 .home.led .home-kicker, .home.led .how-banner-k, .home.led .how-n, .home.led .spread-tag,
 .home.led .spread-eyebrow, .home.led .how-act-n, .home.led .how-act-go, .home.led .how-go,

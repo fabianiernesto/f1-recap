@@ -15,6 +15,7 @@
       "finish": 1,
       "moved": 1,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 25,
       "stops": [
@@ -27,9 +28,9 @@
         "HARD",
         "MEDIUM"
       ],
-      "pace": "1:21.679",
-      "paceRaw": 81.679,
-      "overtakes": 11,
+      "pace": "1:21.410",
+      "paceRaw": 81.41,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 31,
@@ -48,6 +49,7 @@
       "finish": 2,
       "moved": -1,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 18,
       "stops": [
@@ -58,16 +60,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:22.477",
-      "paceRaw": 82.477,
-      "overtakes": 6,
+      "pace": "1:22.271",
+      "paceRaw": 82.271,
+      "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
       "led": 31,
       "swings": [],
       "fastestLap": false,
       "gap": 19.561,
-      "vsWinner": 0.797,
+      "vsWinner": 0.861,
       "extraStops": 0
     },
     "norris": {
@@ -79,6 +81,7 @@
       "finish": 3,
       "moved": 1,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 15,
       "stops": [
@@ -89,16 +92,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:22.433",
-      "paceRaw": 82.433,
-      "overtakes": 8,
+      "pace": "1:22.354",
+      "paceRaw": 82.354,
+      "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": 23.719,
-      "vsWinner": 0.754,
+      "vsWinner": 0.944,
       "extraStops": 0
     },
     "verstappen": {
@@ -110,6 +113,7 @@
       "finish": 4,
       "moved": 1,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 12,
       "stops": [
@@ -122,16 +126,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:22.487",
-      "paceRaw": 82.487,
-      "overtakes": 11,
+      "pace": "1:22.109",
+      "paceRaw": 82.109,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": 40.497,
-      "vsWinner": 0.808,
+      "vsWinner": 0.7,
       "extraStops": 1
     },
     "piastri": {
@@ -143,6 +147,7 @@
       "finish": 5,
       "moved": 2,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 10,
       "stops": [
@@ -153,16 +158,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:22.922",
-      "paceRaw": 82.922,
-      "overtakes": 10,
+      "pace": "1:22.850",
+      "paceRaw": 82.85,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": 58.661,
-      "vsWinner": 1.243,
+      "vsWinner": 1.44,
       "extraStops": 0
     },
     "hadjar": {
@@ -174,6 +179,7 @@
       "finish": 6,
       "moved": 0,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 8,
       "stops": [
@@ -186,9 +192,9 @@
         "HARD",
         "SOFT"
       ],
-      "pace": "1:23.277",
-      "paceRaw": 83.277,
-      "overtakes": 14,
+      "pace": "1:23.033",
+      "paceRaw": 83.033,
+      "overtakes": 6,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -200,7 +206,7 @@
       ],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 1.598,
+      "vsWinner": 1.623,
       "extraStops": 1
     },
     "gasly": {
@@ -212,6 +218,7 @@
       "finish": 7,
       "moved": 7,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 6,
       "stops": [
@@ -222,16 +229,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:24.548",
-      "paceRaw": 84.548,
-      "overtakes": 11,
+      "pace": "1:24.527",
+      "paceRaw": 84.527,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 2.869,
+      "vsWinner": 3.117,
       "extraStops": 0
     },
     "lawson": {
@@ -243,6 +250,7 @@
       "finish": 8,
       "moved": 0,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 4,
       "stops": [
@@ -253,16 +261,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:24.567",
-      "paceRaw": 84.567,
-      "overtakes": 11,
+      "pace": "1:24.390",
+      "paceRaw": 84.39,
+      "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 2.888,
+      "vsWinner": 2.98,
       "extraStops": 0
     },
     "lindblad": {
@@ -274,6 +282,7 @@
       "finish": 9,
       "moved": 2,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 2,
       "stops": [
@@ -284,16 +293,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:24.523",
-      "paceRaw": 84.523,
-      "overtakes": 14,
+      "pace": "1:24.326",
+      "paceRaw": 84.326,
+      "overtakes": 3,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 2.844,
+      "vsWinner": 2.916,
       "extraStops": 0
     },
     "colapinto": {
@@ -305,6 +314,7 @@
       "finish": 10,
       "moved": 3,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 1,
       "stops": [
@@ -315,16 +325,16 @@
         "SOFT",
         "HARD"
       ],
-      "pace": "1:24.374",
-      "paceRaw": 84.374,
-      "overtakes": 14,
+      "pace": "1:24.335",
+      "paceRaw": 84.335,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 2.695,
+      "vsWinner": 2.926,
       "extraStops": 0
     },
     "bortoleto": {
@@ -336,6 +346,7 @@
       "finish": 11,
       "moved": 1,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 0,
       "stops": [
@@ -348,9 +359,9 @@
         "HARD",
         "SOFT"
       ],
-      "pace": "1:24.641",
-      "paceRaw": 84.641,
-      "overtakes": 16,
+      "pace": "1:24.195",
+      "paceRaw": 84.195,
+      "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -366,7 +377,7 @@
       ],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 2.962,
+      "vsWinner": 2.785,
       "extraStops": 1
     },
     "sainz": {
@@ -378,6 +389,7 @@
       "finish": 12,
       "moved": 4,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 0,
       "stops": [
@@ -390,9 +402,9 @@
         "HARD",
         "MEDIUM"
       ],
-      "pace": "1:24.786",
-      "paceRaw": 84.786,
-      "overtakes": 14,
+      "pace": "1:24.660",
+      "paceRaw": 84.66,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -404,7 +416,7 @@
       ],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 3.107,
+      "vsWinner": 3.25,
       "extraStops": 1
     },
     "ocon": {
@@ -416,6 +428,7 @@
       "finish": 13,
       "moved": 4,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 0,
       "stops": [
@@ -428,16 +441,16 @@
         "HARD",
         "MEDIUM"
       ],
-      "pace": "1:25.332",
-      "paceRaw": 85.332,
-      "overtakes": 14,
+      "pace": "1:25.125",
+      "paceRaw": 85.125,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 3.653,
+      "vsWinner": 3.715,
       "extraStops": 1
     },
     "perez": {
@@ -449,6 +462,7 @@
       "finish": 14,
       "moved": 5,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 0,
       "stops": [
@@ -461,16 +475,16 @@
         "HARD",
         "MEDIUM"
       ],
-      "pace": "1:25.885",
-      "paceRaw": 85.885,
-      "overtakes": 9,
+      "pace": "1:25.740",
+      "paceRaw": 85.74,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 4.206,
+      "vsWinner": 4.33,
       "extraStops": 1
     },
     "leclerc": {
@@ -482,6 +496,7 @@
       "finish": null,
       "moved": null,
       "dnf": true,
+      "dns": false,
       "dnfLap": 63,
       "points": 0,
       "stops": [
@@ -492,16 +507,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:22.810",
-      "paceRaw": 82.81,
-      "overtakes": 12,
+      "pace": "1:22.768",
+      "paceRaw": 82.768,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 2,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 1.131,
+      "vsWinner": 1.358,
       "extraStops": 0
     },
     "antonelli": {
@@ -513,6 +528,7 @@
       "finish": null,
       "moved": null,
       "dnf": true,
+      "dns": false,
       "dnfLap": 62,
       "points": 0,
       "stops": [
@@ -523,16 +539,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:22.271",
-      "paceRaw": 82.271,
-      "overtakes": 7,
+      "pace": "1:22.141",
+      "paceRaw": 82.141,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 2,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 0.592,
+      "vsWinner": 0.731,
       "extraStops": 0
     },
     "bearman": {
@@ -544,10 +560,12 @@
       "finish": null,
       "moved": null,
       "dnf": true,
+      "dns": false,
       "dnfLap": 61,
       "points": 0,
       "stops": [
         18,
+        28,
         39
       ],
       "compounds": [
@@ -555,17 +573,17 @@
         "HARD",
         "SOFT"
       ],
-      "pace": "1:25.013",
-      "paceRaw": 85.013,
-      "overtakes": 17,
+      "pace": "1:24.941",
+      "paceRaw": 84.941,
+      "overtakes": 5,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 3.334,
-      "extraStops": 0
+      "vsWinner": 3.531,
+      "extraStops": 1
     },
     "albon": {
       "name": "Albon",
@@ -576,11 +594,13 @@
       "finish": null,
       "moved": null,
       "dnf": false,
+      "dns": false,
       "dnfLap": null,
       "points": 0,
       "stops": [
         13,
         29,
+        34,
         50
       ],
       "compounds": [
@@ -588,17 +608,17 @@
         "HARD",
         "SOFT"
       ],
-      "pace": "1:25.320",
-      "paceRaw": 85.32,
-      "overtakes": 9,
+      "pace": "1:25.259",
+      "paceRaw": 85.259,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 3.641,
-      "extraStops": 1
+      "vsWinner": 3.849,
+      "extraStops": 2
     },
     "alonso": {
       "name": "Alonso",
@@ -609,6 +629,7 @@
       "finish": null,
       "moved": null,
       "dnf": true,
+      "dns": false,
       "dnfLap": 38,
       "points": 0,
       "stops": [
@@ -617,16 +638,16 @@
       "compounds": [
         "HARD"
       ],
-      "pace": "1:26.374",
-      "paceRaw": 86.374,
-      "overtakes": 12,
+      "pace": "1:26.306",
+      "paceRaw": 86.306,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 4.695,
+      "vsWinner": 4.896,
       "extraStops": -1
     },
     "hulkenberg": {
@@ -638,6 +659,7 @@
       "finish": null,
       "moved": null,
       "dnf": true,
+      "dns": false,
       "dnfLap": 30,
       "points": 0,
       "stops": [
@@ -647,16 +669,16 @@
         "SOFT",
         "HARD"
       ],
-      "pace": "1:24.776",
-      "paceRaw": 84.776,
-      "overtakes": 8,
+      "pace": "1:24.672",
+      "paceRaw": 84.672,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 3.097,
+      "vsWinner": 3.262,
       "extraStops": -1
     },
     "bottas": {
@@ -668,6 +690,7 @@
       "finish": null,
       "moved": null,
       "dnf": true,
+      "dns": false,
       "dnfLap": 16,
       "points": 0,
       "stops": [
@@ -677,16 +700,16 @@
         "MEDIUM",
         "HARD"
       ],
-      "pace": "1:27.458",
-      "paceRaw": 87.458,
-      "overtakes": 4,
+      "pace": "1:26.925",
+      "paceRaw": 86.925,
+      "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 5.779,
+      "vsWinner": 5.516,
       "extraStops": -1
     },
     "stroll": {
@@ -698,14 +721,15 @@
       "finish": null,
       "moved": null,
       "dnf": true,
+      "dns": false,
       "dnfLap": 6,
       "points": 0,
       "stops": [],
       "compounds": [
         "HARD"
       ],
-      "pace": "1:26.430",
-      "paceRaw": 86.43,
+      "pace": null,
+      "paceRaw": null,
       "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
@@ -713,63 +737,52 @@
       "swings": [],
       "fastestLap": false,
       "gap": null,
-      "vsWinner": 4.751,
+      "vsWinner": null,
       "extraStops": -2
     }
   },
   "lapEvents": {
     "6": [
-      "4 overtakes",
       "Stroll retired"
     ],
-    "10": [
-      "3 overtakes"
-    ],
     "11": [
-      "7 overtakes",
       "Hamilton pitted",
       "Lawson pitted"
     ],
     "12": [
-      "18 overtakes",
       "Russell pitted",
       "Verstappen pitted",
-      "Colapinto pitted"
+      "Colapinto pitted",
+      "Perez pitted"
     ],
     "13": [
-      "17 overtakes",
       "Norris pitted",
       "Hulkenberg pitted",
-      "Ocon pitted"
+      "Ocon pitted",
+      "Albon pitted"
     ],
     "14": [
-      "22 overtakes, busiest lap of the race",
       "Antonelli pitted",
       "Piastri pitted",
-      "Gasly pitted"
+      "Gasly pitted",
+      "Sainz pitted"
     ],
     "15": [
-      "19 overtakes",
       "Hadjar pitted",
       "Bortoleto pitted"
     ],
     "16": [
-      "15 overtakes",
       "Leclerc pitted",
       "Bottas retired"
     ],
     "17": [
-      "3 overtakes"
+      "3 passes on track, busiest lap of the race"
     ],
     "18": [
-      "3 overtakes",
       "Bearman pitted"
     ],
-    "19": [
-      "10 overtakes"
-    ],
     "20": [
-      "3 overtakes"
+      "3 passes on track, busiest lap of the race"
     ],
     "21": [
       "Alonso pitted"
@@ -777,25 +790,21 @@
     "22": [
       "Lindblad pitted"
     ],
-    "23": [
-      "6 overtakes"
-    ],
     "27": [
-      "5 overtakes",
       "Hamilton pitted"
     ],
+    "28": [
+      "Bearman pitted"
+    ],
     "29": [
-      "5 overtakes",
       "Verstappen pitted",
       "Albon pitted"
     ],
     "30": [
-      "10 overtakes",
       "Sainz pitted",
       "Hulkenberg retired"
     ],
     "31": [
-      "5 overtakes",
       "Perez pitted"
     ],
     "32": [
@@ -805,17 +814,16 @@
       "Bortoleto pitted"
     ],
     "34": [
-      "3 overtakes",
       "Colapinto pitted",
-      "Ocon pitted"
+      "Ocon pitted",
+      "Albon pitted"
     ],
     "35": [
-      "11 overtakes",
+      "3 passes on track, busiest lap of the race",
       "Norris pitted",
       "Lawson pitted"
     ],
     "36": [
-      "8 overtakes",
       "Russell pitted",
       "Piastri pitted"
     ],
@@ -824,16 +832,15 @@
       "Lindblad pitted"
     ],
     "38": [
-      "8 overtakes",
       "Alonso retired"
     ],
     "39": [
+      "virtual safety car, gaps frozen",
       "Leclerc pitted",
       "Bearman pitted",
       "Perez pitted"
     ],
     "40": [
-      "5 overtakes",
       "Verstappen pitted",
       "Gasly pitted"
     ],
@@ -852,19 +859,15 @@
     "55": [
       "Sainz pitted"
     ],
-    "56": [
-      "3 overtakes"
-    ],
     "58": [
       "Hadjar pitted",
       "Ocon pitted"
     ],
     "61": [
-      "8 overtakes",
+      "virtual safety car, gaps frozen",
       "Bearman retired"
     ],
     "62": [
-      "8 overtakes",
       "Antonelli retired"
     ],
     "63": [
@@ -887,7 +890,7 @@
       ],
       "say": [
         "Hamilton took it",
-        "Ferrari. led when it mattered"
+        "Ferrari. started P2, led 31 of 66 laps"
       ]
     },
     {
@@ -915,7 +918,7 @@
       ],
       "say": [
         "Hamilton, 1:20.122 on lap 44",
-        "it's worth a point if you finish top 10, which is why you see people pitting at the end just to nick it"
+        "no points for it anymore, that went after 2024. bragging rights only"
       ]
     },
     {
@@ -942,8 +945,8 @@
         "how many overtakes"
       ],
       "say": [
-        "232 proper overtakes",
-        "that's not counting lap 1 or the safety car restarts. those are just the field shuffling, they'd double the number and mean nothing"
+        "39 passes on track after lap 1",
+        "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
     {
@@ -958,8 +961,8 @@
         "pitted"
       ],
       "say": [
-        "47 stops all afternoon",
-        "the lane costs about 23s here, which is why nobody stops unless they have to"
+        "49 stops in the whole race",
+        "you spend about 23s in the pit lane here"
       ]
     },
     {
@@ -969,8 +972,8 @@
         "overcut"
       ],
       "say": [
-        "you pit before the guy ahead and bang in two fast laps on new tyres while he's still out there on old ones",
-        "when he finally stops he comes out behind you. you never passed him on track, you passed him in the pit lane"
+        "you pit before the guy ahead and do fast laps on new tyres while he's still out there on old ones",
+        "if it works he comes out behind you after his stop. you never passed him on track, you passed him in the pit lane"
       ]
     },
     {
@@ -988,7 +991,7 @@
       ],
       "say": [
         "compounds out there: hard, medium, soft",
-        "softer is quicker and dies faster, harder lasts and is slower. the whole strategy is choosing which pain you want"
+        "softer is quicker and wears faster, harder lasts and is slower. the whole strategy is choosing which pain you want"
       ]
     },
     {
@@ -999,8 +1002,7 @@
         "ala movil"
       ],
       "say": [
-        "a flap on the rear wing that opens on the straights and makes you quicker",
-        "you only get it within a second of the car ahead at a set point. purists hate it, i'm fine with it, the alternative was processions"
+        "no drs anymore, the 2026 cars don't have it"
       ]
     },
     {
@@ -1029,7 +1031,7 @@
         "investigation"
       ],
       "say": [
-        "stewards looked at a few things and let them all go"
+        "no penalties handed out"
       ]
     },
     {
@@ -1046,8 +1048,8 @@
         "hot"
       ],
       "say": [
-        "bone dry all afternoon",
-        "track hit 52°C and cooled to 48°C"
+        "no rain recorded during it",
+        "track at 52°C at the start and 50°C at the flag"
       ]
     },
     {
@@ -1063,9 +1065,8 @@
         "entertaining"
       ],
       "say": [
-        "bit of both honestly",
-        "232 overtakes and the midfield was mental, the front was quieter",
-        "watch the last 10 laps at least"
+        "you tell me",
+        "39 passes on track, 0 safety cars and 7 retirements"
       ]
     },
     {
@@ -1082,9 +1083,9 @@
         "like im five"
       ],
       "say": [
-        "ok so 20 cars, everyone starts in the order they qualified on saturday",
-        "everyone has to stop at least once to change tyres, and that stop costs about 25 seconds",
-        "the whole sport is deciding WHEN to lose those 25 seconds"
+        "ok so 22 cars, lined up in the order they qualified",
+        "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 23 seconds in the pit lane each time",
+        "the whole sport is deciding WHEN to lose that time"
       ]
     },
     {
@@ -1099,8 +1100,8 @@
         "who had the pace"
       ],
       "say": [
-        "on median clean lap it was Hamilton",
-        "median lap strips out traffic, safety cars and one-off heroics. it's the honest read on who actually had the car under him"
+        "on median racing lap it was Hamilton",
+        "that leaves out lap 1, pit laps and anything behind the safety car. the honest read on who had the car under him"
       ]
     },
     {
@@ -1118,7 +1119,7 @@
       ],
       "say": [
         "Leclerc on lap 63 · Antonelli on lap 62 · Bearman on lap 61 · Alonso on lap 38 · Hulkenberg on lap 30 · Bottas on lap 16 · Stroll on lap 6",
-        "no points unless you finish, and you have to be top 10. that's how championships quietly bleed out"
+        "the data says when they stopped, not why"
       ]
     },
     {
@@ -1133,22 +1134,8 @@
         "pole"
       ],
       "say": [
-        "52 position changes before lap 1 was even done",
-        "cold tyres, cold brakes, full fuel and 20 people who all think the same gap belongs to them"
-      ]
-    },
-    {
-      "id": "next",
-      "keys": [
-        "next race",
-        "when is",
-        "proxima",
-        "siguiente",
-        "next one"
-      ],
-      "say": [
-        "two weeks usually, they almost never go back to back",
-        "and teams bring upgrades in between, so the order can change completely. that's why nobody can predict this sport"
+        "23 places changed hands on track on lap 1",
+        "cold tyres, cold brakes, full fuel and everybody going for the same gap"
       ]
     }
   ]

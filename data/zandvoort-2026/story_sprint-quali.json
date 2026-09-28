@@ -1,0 +1,207 @@
+{
+  "gp": "Dutch Grand Prix 2026",
+  "session": "Sprint Qualifying",
+  "sessionSlug": "sprint-quali",
+  "circuit": "Zandvoort",
+  "laps": 17,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Dutch Grand Prix · Sprint Qualifying",
+      "title": "One lap decides the whole sprint",
+      "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the sprint can become."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Pole position",
+      "title": "Russell takes it",
+      "text": "By 0.041s over Norris. Less time than a blink.",
+      "dato": {
+        "label": "Top ten",
+        "rows": [
+          [
+            "P1 Russell",
+            "Mercedes"
+          ],
+          [
+            "P2 Norris",
+            "McLaren"
+          ],
+          [
+            "P3 Leclerc",
+            "Ferrari"
+          ],
+          [
+            "P4 Piastri",
+            "McLaren"
+          ],
+          [
+            "P5 Antonelli",
+            "Mercedes"
+          ],
+          [
+            "P6 Verstappen",
+            "Red Bull Racing"
+          ],
+          [
+            "P7 Hamilton",
+            "Ferrari"
+          ],
+          [
+            "P8 Gasly",
+            "Alpine"
+          ],
+          [
+            "P9 Bortoleto",
+            "Audi"
+          ],
+          [
+            "P10 Lindblad",
+            "Racing Bulls"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · The cut",
+      "title": "Out before it got serious",
+      "text": "Bearman (P17), Sainz (P18), Stroll (P19), Bottas (P20), Perez (P21), Alonso (P22).",
+      "dato": {
+        "label": "Knocked out in Q1",
+        "rows": [
+          [
+            "Bearman",
+            "P17"
+          ],
+          [
+            "Sainz",
+            "P18"
+          ],
+          [
+            "Stroll",
+            "P19"
+          ],
+          [
+            "Bottas",
+            "P20"
+          ],
+          [
+            "Perez",
+            "P21"
+          ],
+          [
+            "Alonso",
+            "P22"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · The cut",
+      "title": "So close to the top ten",
+      "text": "Lawson (P11), Tsunoda (P12), Colapinto (P13), Hulkenberg (P14), Ocon (P15), Albon (P16).",
+      "dato": {
+        "label": "Knocked out in Q2",
+        "rows": [
+          [
+            "Lawson",
+            "P11"
+          ],
+          [
+            "Tsunoda",
+            "P12"
+          ],
+          [
+            "Colapinto",
+            "P13"
+          ],
+          [
+            "Hulkenberg",
+            "P14"
+          ],
+          [
+            "Ocon",
+            "P15"
+          ],
+          [
+            "Albon",
+            "P16"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Track limits",
+      "title": "3 laps thrown in the bin",
+      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
+      "dato": {
+        "label": "Deleted laps",
+        "rows": [
+          [
+            "Antonelli",
+            "at turn 13"
+          ],
+          [
+            "Alonso",
+            "1:34.349"
+          ],
+          [
+            "Albon",
+            "at turn 3"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Albon was quickest through the trap: 324 km/h",
+      "text": "Top speed says as much about wing level and the tow from the car ahead as it does about the engine."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Sector by sector",
+      "title": "Nobody owned the whole lap",
+      "text": "The quickest sectors of the session were split between two drivers, so the ideal lap was never actually driven.",
+      "dato": {
+        "label": "Fastest sectors",
+        "rows": [
+          [
+            "Sector 1 · Russell",
+            "24.381s"
+          ],
+          [
+            "Sector 2 · Norris",
+            "24.983s"
+          ],
+          [
+            "Sector 3 · Russell",
+            "21.752s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "The grid",
+      "title": "How the sprint starts",
+      "text": "P1 Russell · P2 Norris · P3 Leclerc · P4 Piastri · P5 Antonelli · P6 Verstappen",
+      "bullets": [
+        "Sainz qualified P18 and starts P21, 3 places further back",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
+    }
+  ]
+}

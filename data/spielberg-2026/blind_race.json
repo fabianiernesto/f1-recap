@@ -1,0 +1,337 @@
+{
+  "session": "Race",
+  "rounds": [
+    {
+      "answer": "Leclerc",
+      "number": 16,
+      "team": "Ferrari",
+      "colour": "ED1131",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P2"
+        ],
+        [
+          "Stops",
+          "3 (lap 13, 37, 59)"
+        ],
+        [
+          "Tyres",
+          "medium to hard to soft"
+        ],
+        [
+          "Median lap",
+          "1:11.983"
+        ],
+        [
+          "On-track passes",
+          "1"
+        ],
+        [
+          "Finished",
+          "P8"
+        ]
+      ],
+      "tell": "nobody lost more places than he did: 6",
+      "options": [
+        "Hadjar",
+        "Hamilton",
+        "Leclerc",
+        "Norris"
+      ]
+    },
+    {
+      "answer": "Russell",
+      "number": 63,
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P1"
+        ],
+        [
+          "Laps led",
+          "58"
+        ],
+        [
+          "Stops",
+          "2 (lap 19, 43)"
+        ],
+        [
+          "Tyres",
+          "medium to hard"
+        ],
+        [
+          "Median lap",
+          "1:11.662"
+        ],
+        [
+          "On-track passes",
+          "0"
+        ],
+        [
+          "Finished",
+          "P1"
+        ]
+      ],
+      "tell": "led 58 of 71 laps and took the win",
+      "options": [
+        "Antonelli",
+        "Piastri",
+        "Russell",
+        "Verstappen"
+      ]
+    },
+    {
+      "answer": "Stroll",
+      "number": 18,
+      "team": "Aston Martin",
+      "colour": "229971",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/astonmartin/lanstr01/2026astonmartinlanstr01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P22"
+        ],
+        [
+          "Stops",
+          "1 (lap 24)"
+        ],
+        [
+          "Tyres",
+          "medium to soft"
+        ],
+        [
+          "Median lap",
+          "1:15.455"
+        ],
+        [
+          "On-track passes",
+          "1"
+        ],
+        [
+          "Finished",
+          "retired, lap 46"
+        ]
+      ],
+      "tell": "his race ended on lap 46, and the sheet just stops",
+      "options": [
+        "Albon",
+        "Alonso",
+        "Ocon",
+        "Stroll"
+      ]
+    },
+    {
+      "answer": "Sainz",
+      "number": 55,
+      "team": "Williams",
+      "colour": "1868DB",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/carsai01/2026williamscarsai01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P17"
+        ],
+        [
+          "Stops",
+          "1 (lap 14)"
+        ],
+        [
+          "Tyres",
+          "soft to medium"
+        ],
+        [
+          "Median lap",
+          "1:14.280"
+        ],
+        [
+          "On-track passes",
+          "2"
+        ],
+        [
+          "Finished",
+          "retired, lap 24"
+        ]
+      ],
+      "tell": "his race ended on lap 24, and the sheet just stops",
+      "options": [
+        "Albon",
+        "Alonso",
+        "Sainz",
+        "Stroll"
+      ]
+    },
+    {
+      "answer": "Perez",
+      "number": 11,
+      "team": "Cadillac",
+      "colour": "909090",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P19"
+        ],
+        [
+          "Stops",
+          "0"
+        ],
+        [
+          "Tyres",
+          "medium"
+        ],
+        [
+          "Median lap",
+          "-"
+        ],
+        [
+          "On-track passes",
+          "0"
+        ],
+        [
+          "Finished",
+          "retired, lap 5"
+        ]
+      ],
+      "tell": "his race ended on lap 5, and the sheet just stops",
+      "options": [
+        "Alonso",
+        "Perez",
+        "Sainz",
+        "Stroll"
+      ]
+    },
+    {
+      "answer": "Bottas",
+      "number": 77,
+      "team": "Cadillac",
+      "colour": "909090",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P20"
+        ],
+        [
+          "Stops",
+          "0"
+        ],
+        [
+          "Tyres",
+          "medium"
+        ],
+        [
+          "Median lap",
+          "-"
+        ],
+        [
+          "On-track passes",
+          "1"
+        ],
+        [
+          "Finished",
+          "retired, lap 3"
+        ]
+      ],
+      "tell": "his race ended on lap 3, and the sheet just stops",
+      "options": [
+        "Bottas",
+        "Perez",
+        "Sainz",
+        "Stroll"
+      ]
+    },
+    {
+      "answer": "Antonelli",
+      "number": 12,
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P4"
+        ],
+        [
+          "Laps led",
+          "8"
+        ],
+        [
+          "Stops",
+          "2 (lap 24, 51)"
+        ],
+        [
+          "Tyres",
+          "medium to hard"
+        ],
+        [
+          "Median lap",
+          "1:11.734"
+        ],
+        [
+          "On-track passes",
+          "3"
+        ],
+        [
+          "Fastest lap",
+          "1:10.374"
+        ],
+        [
+          "Finished",
+          "P3"
+        ]
+      ],
+      "tell": "the fastest lap of the race is his",
+      "options": [
+        "Antonelli",
+        "Piastri",
+        "Russell",
+        "Verstappen"
+      ]
+    },
+    {
+      "answer": "Hamilton",
+      "number": 44,
+      "team": "Ferrari",
+      "colour": "ED1131",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P3"
+        ],
+        [
+          "Stops",
+          "3 (lap 12, 25, 42)"
+        ],
+        [
+          "Tyres",
+          "medium to hard to soft"
+        ],
+        [
+          "Median lap",
+          "1:11.932"
+        ],
+        [
+          "On-track passes",
+          "6"
+        ],
+        [
+          "Finished",
+          "P5"
+        ]
+      ],
+      "tell": "3 stops when most of the field made 2",
+      "options": [
+        "Antonelli",
+        "Hamilton",
+        "Piastri",
+        "Verstappen"
+      ]
+    }
+  ]
+}

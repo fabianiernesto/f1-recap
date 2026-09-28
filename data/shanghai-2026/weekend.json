@@ -1,0 +1,76 @@
+{
+  "slug": "shanghai-2026",
+  "gp": "Chinese Grand Prix 2026",
+  "short": "Chinese Grand Prix",
+  "circuit": "Shanghai",
+  "country": "China",
+  "date": "15 MAR 2026",
+  "laps": 56,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "540 laps run, no points at stake",
+      "moments": 8,
+      "laps": 31
+    },
+    {
+      "slug": "sprint-quali",
+      "label": "Sprint Qualifying",
+      "kind": "quali",
+      "headline": "Russell on pole",
+      "moments": 8,
+      "laps": 17
+    },
+    {
+      "slug": "sprint",
+      "label": "Sprint",
+      "kind": "race",
+      "headline": "40 on-track passes, 1 safety car",
+      "moments": 29,
+      "laps": 19
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Antonelli on pole",
+      "moments": 9,
+      "laps": 21
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "68 on-track passes, 1 safety car",
+      "moments": 30,
+      "laps": 56
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Kimi",
+      "last": "Antonelli",
+      "team": "Mercedes",
+      "colour": "00D7B6",
+      "number": 12,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp"
+    },
+    "margin": 5.515,
+    "runnerUp": "Russell",
+    "fastest": {
+      "last": "Antonelli",
+      "time": "1:35.275"
+    },
+    "passes": 68,
+    "stops": 19,
+    "dnfs": 3,
+    "safetyCars": 1,
+    "redFlag": false,
+    "laps": 56
+  },
+  "rating": null,
+  "heat": []
+}

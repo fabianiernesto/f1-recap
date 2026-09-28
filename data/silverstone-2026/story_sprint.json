@@ -11,138 +11,75 @@
       "lap": 0,
       "kicker": "British Grand Prix · Sprint · 17 laps",
       "title": "Everything that happened, in order",
-      "text": "42 on-track passes, 2 pit stops, 0 cars that never finished."
+      "text": "28 on-track passes, 2 pit stops, every starter at the flag."
     },
     {
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "52 places changed hands before the first lap was done",
-      "text": "22 cars funnelling into one corner on cold tyres and full tanks.",
+      "title": "23 places changed hands on track before the first lap was done",
+      "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Russell, Gasly and Colapinto came out of it best",
-        "Nobody has to pass cleanly here: on lap 1 the places are simply there for whoever is brave into the first braking zone"
+        "Bearman, Colapinto and Gasly gained the most by the end of it, 4 places at best"
       ],
-      "note": "Most of this is the pack sorting itself out. Some of it decides the afternoon."
+      "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Stewards",
+      "title": "3 incidents looked at",
+      "text": "Every one of them logged by race control during the sprint.",
+      "bullets": [
+        "First up, lap 1: Hulkenberg, leaving the track and gaining an advantage",
+        "1 ended in a penalty and 2 left for after the sprint"
+      ]
     },
     {
       "type": "moment",
       "lap": 2,
       "kicker": "Lap 2 · Traffic",
-      "title": "16 overtakes on this lap alone",
-      "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
+      "title": "10 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "Bottas, Albon and Verstappen all found a way through",
-        "10 different drivers gained a place on this lap alone"
+        "7 different drivers gained a place on this lap"
       ],
-      "note": "Cold tyres, full tanks, and everybody still working out where they belong."
+      "note": "Early on, with full tanks and the order still settling."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Yellow flags",
+      "title": "Yellow flags out 1 time",
+      "text": "Race control waves a yellow for anything on or near the track that should not be there.",
+      "bullets": [
+        "A yellow means slow down and do not overtake in that part of the track"
+      ]
     },
     {
       "type": "prediction",
       "lap": 2,
       "kicker": "Call it before it happens",
       "title": "Albon starts P22. Where does he finish?",
-      "text": "He is in a car that belongs further up the road than this, and he has the whole afternoon to prove it.",
+      "text": "17 laps to make up ground from there.",
       "options": [
         "On the podium",
         "Somewhere in the points",
         "Out of the points"
       ],
       "answer": "Out of the points",
-      "reveal": "P22 to P18, 4 places, and almost none of it on television. This is the drive nobody will talk about on Monday."
-    },
-    {
-      "type": "moment",
-      "lap": 3,
-      "kicker": "Lap 3 · Traffic",
-      "title": "7 overtakes on this lap alone",
-      "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
-      "bullets": [
-        "Bortoleto, Alonso and Hadjar all found a way through",
-        "7 different drivers gained a place on this lap alone"
-      ],
-      "note": "Cold tyres, full tanks, and everybody still working out where they belong."
-    },
-    {
-      "type": "moment",
-      "lap": 4,
-      "kicker": "Lap 4 · Traffic",
-      "title": "4 overtakes on this lap alone",
-      "text": "Everybody had a go on the same lap, which almost never happens by coincidence.",
-      "bullets": [
-        "Leclerc, Piastri and Lawson all found a way through",
-        "3 different drivers gained a place on this lap alone"
-      ],
-      "note": "Cold tyres, full tanks, and everybody still working out where they belong."
-    },
-    {
-      "type": "moment",
-      "lap": 5,
-      "kicker": "The one doing the passing",
-      "title": "Leclerc: 4 overtakes",
-      "text": "Level with Albon and Hadjar on the same number, in a Ferrari.",
-      "bullets": [
-        "P4 on the grid, P5 at the flag"
-      ],
-      "dato": {
-        "label": "Most overtakes",
-        "rows": [
-          [
-            "Leclerc",
-            4
-          ],
-          [
-            "Albon",
-            4
-          ],
-          [
-            "Hadjar",
-            4
-          ],
-          [
-            "Verstappen",
-            3
-          ],
-          [
-            "Bottas",
-            3
-          ],
-          [
-            "Piastri",
-            3
-          ]
-        ]
-      },
-      "note": "Passing looks like the whole sport on television and turns out to be the rarest thing in it. Most positions change in the pit lane, not on the road."
-    },
-    {
-      "type": "moment",
-      "lap": 5,
-      "kicker": "Conditions",
-      "title": "Track at 41°C, and falling to 32°C",
-      "text": "Hot tarmac punishes tyres and rewards whoever is gentlest with them. As it cools, the picture flips. It stayed dry."
-    },
-    {
-      "type": "moment",
-      "lap": 6,
-      "kicker": "Stewards",
-      "title": "4 incidents looked at",
-      "text": "Race control saw more than it acted on.",
-      "bullets": [
-        "Perez and Alonso, noted: causing a collision"
-      ],
-      "note": "Being noted is not the same as being punished. Most of these get looked at, argued over on the radio, and quietly dropped a few laps later."
+      "reveal": "P22 to P18, 4 places gained."
     },
     {
       "type": "decision",
-      "lap": 6,
+      "lap": 2,
       "kicker": "You are the steward",
-      "title": "Lap 6: contact between Perez and Alonso at Turn 3. What do you give?",
-      "text": "Race control has flagged it and the whole thing lands on your desk while the cars keep circulating. Same call the stewards had to make, same three seconds to think about it.",
+      "title": "Lap 2: contact between Perez and Alonso at Turn 3. What do you give?",
+      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
       "state": [
         [
           "Lap",
-          "6 of 17"
+          "2 of 17"
         ],
         [
           "Cars involved",
@@ -150,7 +87,7 @@
         ],
         [
           "Reported as",
-          "Incident at Turn 3, 2 cars"
+          "Causing A Collision at Turn 3"
         ]
       ],
       "choices": [
@@ -172,132 +109,105 @@
       ],
       "actual": "10",
       "outcomes": {
-        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the afternoon on the radio.",
-        "5": "Five seconds gets added at the next stop, or to the final time if they never stop again. Usually one position, sometimes none.",
+        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the race on the radio.",
+        "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.",
         "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
       },
-      "reveal": "The stewards gave Perez a 10s penalty. Perez still finished P22."
+      "reveal": "The stewards gave Perez a 10s penalty. He still finished P22."
     },
     {
       "type": "moment",
-      "lap": 7,
-      "kicker": "Lap 7 · For the lead",
-      "title": "Antonelli takes the lead from Hamilton",
-      "text": "The lead changed hands 3 times on track today, which is rarer than it sounds."
+      "lap": 5,
+      "kicker": "The one doing the passing",
+      "title": "Hadjar: 4 passes",
+      "text": "More than anybody else out there, in a Red Bull.",
+      "bullets": [
+        "P8 on the grid, P9 at the flag"
+      ],
+      "dato": {
+        "label": "Most passes",
+        "rows": [
+          [
+            "Hadjar",
+            4
+          ],
+          [
+            "Verstappen",
+            3
+          ],
+          [
+            "Albon",
+            3
+          ],
+          [
+            "Russell",
+            3
+          ],
+          [
+            "Leclerc",
+            2
+          ],
+          [
+            "Piastri",
+            2
+          ]
+        ]
+      },
+      "note": "Only moves made on track count, with the car ahead at racing speed."
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Conditions",
+      "title": "Track steady around 37°C all sprint",
+      "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the sprint."
     },
     {
       "type": "moment",
       "lap": 7,
       "kicker": "Track limits",
-      "title": "9 lap times deleted",
+      "title": "7 lap times deleted",
       "text": "The white line is the track, and the lap simply stops counting if you leave it.",
       "bullets": [
-        "Stroll lost 3 laps that way, more than anybody"
+        "Piastri and Stroll lost 2 each, the most of anybody"
       ],
-      "note": "Keep doing it and it turns into a penalty. It sounds pedantic until you picture the alternative: everybody finding their own edge of the circuit."
+      "note": "Keep doing it and it turns into a penalty."
     },
     {
       "type": "moment",
       "lap": 7,
       "kicker": "Speed trap",
       "title": "Hadjar hit 340 km/h",
-      "text": "The fastest car in a straight line is almost never the fastest car over a lap.",
+      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
-        "Hadjar did it in a Red Bull Racing"
+        "Hadjar did it in a Red Bull"
       ],
-      "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine. Less wing means more speed here and less grip everywhere else, which is a trade you pay for in the corners."
+      "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine."
     },
     {
       "type": "moment",
       "lap": 8,
-      "kicker": "Lap 8 · Pit window",
-      "title": "2 stops, and the busiest lap saw 1 of them",
-      "text": "Once one car blinks, the rest have to answer.",
-      "bullets": [
-        "Busiest single lap was 2, with 1 cars in on the same tour",
-        "Quickest trip down the lane: Stroll, 30.9s",
-        "Slowest: Perez, 48.6s"
-      ],
-      "note": "That difference is a whole position, sometimes two, decided by people who never touch the steering wheel."
+      "kicker": "Lap 8 · For the lead",
+      "title": "Antonelli takes the lead from Hamilton",
+      "text": "The only time the lead changed hands on track all sprint."
     },
     {
       "type": "moment",
       "lap": 8,
       "kicker": "Penalties",
       "title": "1 penalty handed out",
-      "text": "Time added, places lost, and sometimes a result rewritten after the flag.",
+      "text": "Given by the stewards during the sprint.",
       "bullets": [
-        "Perez: 10s for causing a collision"
+        "Perez: a 10s penalty for causing a collision"
       ],
-      "note": "Served at the next stop, or added to the final time when there is no stop left to serve it at."
-    },
-    {
-      "type": "decision",
-      "lap": 8,
-      "kicker": "Your call on the pit wall",
-      "title": "You are Hamilton, 1.0s behind Antonelli and going nowhere. Now what?",
-      "text": "Stuck in dirty air your tyres cook and your car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
-      "state": [
-        [
-          "Running",
-          "P2"
-        ],
-        [
-          "Gap ahead",
-          "1.0s to Antonelli"
-        ],
-        [
-          "Tyres",
-          "Medium, 7 laps old"
-        ],
-        [
-          "Pit lane costs",
-          "about 40s today"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "box",
-          "label": "Box now and undercut",
-          "sub": "Fresh tyres, clean air, two laps to make it pay"
-        },
-        {
-          "id": "wait",
-          "label": "Stay out and overcut",
-          "sub": "Let him stop first, then push on an empty track"
-        },
-        {
-          "id": "attack",
-          "label": "Forget strategy, pass him",
-          "sub": "Send it and take the risk"
-        }
-      ],
-      "actual": "wait",
-      "outcomes": {
-        "box": "You lose about 40s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
-        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
-        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both afternoons."
-      },
-      "reveal": "Hamilton never stopped again from here. He finished P2, Antonelli P1."
-    },
-    {
-      "type": "moment",
-      "lap": 9,
-      "kicker": "Stuck within a second",
-      "title": "Hadjar spent the race in somebody's mirrors",
-      "text": "Close enough for DRS for long stretches, and still no way through.",
-      "bullets": [
-        "It happened to 6 drivers today",
-        "Following closely wrecks your front tyres and takes the downforce out of the car, so the longer you sit there the less able you are to do anything about it",
-        "This is what modern F1 traffic actually looks like"
-      ]
+      "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."
     },
     {
       "type": "prediction",
       "lap": 9,
       "kicker": "Call it before it happens",
       "title": "Who has the fastest lap on the board at the flag?",
-      "text": "It almost always lands late, when the car is light and the track has rubber all over it, and it is worth a point to whoever finishes in the top ten.",
+      "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
         "Norris",
         "Antonelli",
@@ -310,34 +220,34 @@
       "type": "moment",
       "lap": 11,
       "kicker": "True pace",
-      "title": "Antonelli had the quickest car underneath him",
-      "text": "Ranked on median clean lap, which strips out traffic, safety cars and one-off heroics. It does not always match the result.",
+      "title": "Antonelli had the quickest median racing lap",
+      "text": "No lap 1, no laps in or out of the pits, nothing behind the safety car or the VSC, and the slow outliers trimmed. It does not always match the result.",
       "dato": {
-        "label": "Median clean lap",
+        "label": "Median racing lap",
         "rows": [
           [
             "Antonelli",
-            "1:32.330"
+            "1:32.306"
           ],
           [
             "Hamilton",
-            "1:32.418"
+            "1:32.405"
           ],
           [
             "Russell",
-            "1:32.456"
+            "1:32.448"
           ],
           [
             "Leclerc",
-            "1:32.604"
+            "1:32.601"
           ],
           [
             "Norris",
-            "1:32.663"
+            "1:32.613"
           ],
           [
             "Piastri",
-            "1:32.954"
+            "1:32.936"
           ]
         ]
       }
@@ -347,57 +257,54 @@
       "lap": 11,
       "kicker": "Backwards",
       "title": "Perez went the other way: 4 places lost",
-      "text": "Saturday promised one thing and Sunday delivered another.",
+      "text": "Qualifying promised one thing and the sprint delivered another.",
       "bullets": [
         "P18 on the grid, P22 at the flag",
-        "Qualifying flatters whoever can put one lap together. A race asks for 17 of them"
+        "Qualifying rewards whoever can put one lap together. A sprint asks for 17 of them"
       ]
     },
     {
       "type": "moment",
       "lap": 13,
-      "kicker": "The drive nobody talked about",
+      "kicker": "A climb through the field",
       "title": "Albon: P22 on the grid, P18 at the flag",
-      "text": "4 places gained, and almost none of it on camera.",
+      "text": "4 places gained.",
       "bullets": [
-        "4 of them by passing somebody on track"
+        "3 on-track passes along the way"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 15,
+      "kicker": "Within a second",
+      "title": "Sainz: 6 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the sprint, from lap 10 to lap 15, at racing speed.",
+      "bullets": [
+        "1 other driver had a run of five laps or more like it"
       ],
-      "note": "Nobody will mention this on Monday, because the cameras live at the front and the story of a race gets written from there. The timing sheet does not care where the cameras were pointing."
+      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
     {
       "type": "moment",
       "lap": 17,
       "kicker": "Tyres",
-      "title": "Lawson nursed one set for 16 laps",
-      "text": "The longest anybody stayed out on one set.",
+      "title": "20 of 22 cars ran the whole sprint on one set",
+      "text": "No stop at all for most of the field.",
       "bullets": [
-        "On the mediums, lap 1 to lap 17",
-        "Every lap you stretch is a lap you do not lose in the pit lane",
-        "And every lap you stretch is a set of tyres getting slower underneath you. The whole afternoon is that argument, run at 300 km/h"
-      ]
-    },
-    {
-      "type": "moment",
-      "lap": 17,
-      "kicker": "Yellow flags",
-      "title": "32 yellow flag calls",
-      "text": "Debris, spins, and cars parked where they should not be.",
-      "bullets": [
-        "A yellow means lift and do not overtake",
-        "It costs real lap time to whoever arrives at that corner while it is out, and nothing at all to the car half a lap ahead",
-        "Most were waved around marshalling post 3, which usually means one corner kept catching people out"
-      ]
+        "On the mediums, lap 1 to lap 17"
+      ],
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
     },
     {
       "type": "moment",
       "lap": 17,
       "kicker": "Lap 17 · Fastest lap",
       "title": "Antonelli: 1:31.607",
-      "text": "The quickest anybody went all afternoon, in a Mercedes.",
+      "text": "The quickest anybody went all sprint, in a Mercedes.",
       "bullets": [
-        "Set on lap 17 of 17, which is where they almost always land",
-        "By then the fuel is nearly gone and the car is at its lightest of the day",
-        "The track has an afternoon of rubber laid into it, so a lap 1 time and a lap 50 time are barely the same sport"
+        "Set on lap 17 of 17, late on, where they usually land",
+        "By then the fuel is nearly gone and the car is at its lightest",
+        "It is worth no points: the bonus point for it was dropped after 2024"
       ],
       "dato": {
         "label": "Best sector times",
@@ -460,32 +367,23 @@
           [
             "Lawson",
             "1"
-          ],
-          [
-            "Hadjar",
-            "0"
-          ],
-          [
-            "Lindblad",
-            "0"
           ]
         ]
-      },
-      "note": "The gaps at the end of a race almost never reflect the gaps during it."
+      }
     },
     {
       "type": "guess",
       "lap": 17,
       "kicker": "Guess it",
       "title": "How far behind was Hamilton at the flag?",
-      "text": "17 laps, the best part of two hours of racing, and the whole thing comes down to this one number.",
+      "text": "17 laps, about 26 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
       "max": 11.0,
       "step": 0.1,
       "target": 2.745,
       "close": 1.098,
-      "reveal": "2.745 seconds after 17 laps. A single trip down the pit lane costs about 40s today, which is 14 times the margin this race was decided by."
+      "reveal": "2.745 seconds after 17 laps."
     }
   ]
 }
