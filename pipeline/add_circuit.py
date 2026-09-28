@@ -138,7 +138,8 @@ def main(year: int, gp: str, slug: str, name: str, country: str) -> None:
     total_laps = int(session.laps["LapNumber"].max())
     stats = [
         {"label": "Lap length", "value": f"{length_km:.3f} km",
-         "short": f"Start line to start line, {total_laps} times over on Sunday"},
+         # the race day from the session itself: Baku 2026 raced on a Saturday
+         "short": f"Start line to start line, {total_laps} times over on {session.date.strftime('%A')}"},
         {"label": "Corners", "value": str(corner_count) if corner_count else "-",
          "short": "Each one a chance to gain time, and a chance to throw the lap away"},
         {"label": "Full throttle", "value": f"{flat_out:.0f}%",
