@@ -6,7 +6,7 @@
       "msgs": [
         "yo",
         "you missed the sprint",
-        "19 laps, 40 passes on track and 1 safety car"
+        "19 laps, 39 passes on track and 1 safety car"
       ],
       "asks": [
         {
@@ -20,15 +20,14 @@
           "q": "was it actually good or are you being nice",
           "a": [
             "you tell me lol",
-            "40 passes on track, not counting the ones in the pit lane"
+            "39 passes on track, not counting the ones in the pit lane"
           ]
         },
         {
           "q": "i know nothing about f1, start there",
           "a": [
-            "ok so 22 cars, lined up in the order they qualified",
-            "in a dry race everyone has to use two different tyre types, so everyone stops at least once",
-            "the whole sport is basically deciding WHEN to lose that time"
+            "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
+            "there's no compulsory stop in a sprint, so plenty of cars go the distance on one set"
           ]
         }
       ]
@@ -44,14 +43,14 @@
           "q": "why is the start always so mad",
           "a": [
             "cold tyres, cold brakes, full fuel tank and everybody going for the same gap",
-            "it's the only moment of the race where the whole field is that close"
+            "it's the only moment of the sprint where the whole field is that close"
           ]
         },
         {
-          "q": "does the start decide the race",
+          "q": "does the start decide the sprint",
           "a": [
             "more than anyone admits",
-            "track position is everything on most circuits, you lose 3 places on lap 1 and you can spend the next hour stuck behind someone slower"
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
           ]
         }
       ]
@@ -59,8 +58,8 @@
     {
       "lap": 2,
       "msgs": [
-        "lap 2 was the busiest of the whole race",
-        "9 passes on that lap alone"
+        "lap 2 was the busiest of the whole sprint",
+        "7 passes on that lap alone"
       ],
       "asks": [
         {
@@ -122,7 +121,7 @@
       "lap": 13,
       "msgs": [
         "and Hulkenberg is out",
-        "lap 13, his race ended there"
+        "lap 13, his sprint ended there"
       ],
       "asks": [
         {
@@ -143,19 +142,18 @@
     {
       "lap": 18,
       "msgs": [
-        "fastest lap of the race went to Leclerc",
+        "fastest lap of the sprint went to Leclerc",
         "1:34.753, on lap 18"
       ],
       "asks": [
         {
           "q": "is fastest lap worth anything",
           "a": [
-            "not anymore, there's been no point for it since 2025",
-            "it's bragging rights now"
+            "no points for it in a sprint, never has been"
           ]
         },
         {
-          "q": "why is it late in the race",
+          "q": "why is it late in the sprint",
           "a": [
             "car's light, almost no fuel left, and the track has rubber all over it by then"
           ]

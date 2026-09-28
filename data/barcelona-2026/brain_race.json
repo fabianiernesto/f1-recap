@@ -26,14 +26,15 @@
       "compounds": [
         "SOFT",
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "HARD"
       ],
       "pace": "1:21.410",
       "paceRaw": 81.41,
       "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
-      "led": 31,
+      "led": 29,
       "swings": [],
       "fastestLap": true,
       "gap": 0,
@@ -65,7 +66,7 @@
       "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
-      "led": 31,
+      "led": 32,
       "swings": [],
       "fastestLap": false,
       "gap": 19.561,
@@ -124,7 +125,8 @@
       "compounds": [
         "SOFT",
         "MEDIUM",
-        "HARD"
+        "HARD",
+        "MEDIUM"
       ],
       "pace": "1:22.109",
       "paceRaw": 82.109,
@@ -160,7 +162,7 @@
       ],
       "pace": "1:22.850",
       "paceRaw": 82.85,
-      "overtakes": 2,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -198,12 +200,7 @@
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
-      "swings": [
-        {
-          "lap": 1,
-          "lost": 2
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": null,
       "vsWinner": 1.623,
@@ -365,16 +362,7 @@
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
-      "swings": [
-        {
-          "lap": 1,
-          "lost": 2
-        },
-        {
-          "lap": 1,
-          "lost": 2
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": null,
       "vsWinner": 2.785,
@@ -408,12 +396,7 @@
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
-      "swings": [
-        {
-          "lap": 31,
-          "lost": 11
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": null,
       "vsWinner": 3.25,
@@ -439,7 +422,8 @@
       "compounds": [
         "SOFT",
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:25.125",
       "paceRaw": 85.125,
@@ -512,7 +496,7 @@
       "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
-      "led": 2,
+      "led": 1,
       "swings": [],
       "fastestLap": false,
       "gap": null,
@@ -544,7 +528,7 @@
       "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
-      "led": 2,
+      "led": 4,
       "swings": [],
       "fastestLap": false,
       "gap": null,
@@ -565,8 +549,7 @@
       "points": 0,
       "stops": [
         18,
-        28,
-        39
+        28
       ],
       "compounds": [
         "MEDIUM",
@@ -583,7 +566,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 3.531,
-      "extraStops": 1
+      "extraStops": 0
     },
     "albon": {
       "name": "Albon",
@@ -600,7 +583,6 @@
       "stops": [
         13,
         29,
-        34,
         50
       ],
       "compounds": [
@@ -618,7 +600,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 3.849,
-      "extraStops": 2
+      "extraStops": 1
     },
     "alonso": {
       "name": "Alonso",
@@ -776,15 +758,13 @@
       "Bottas retired"
     ],
     "17": [
-      "3 passes on track, busiest lap of the race"
+      "3 passes on track"
     ],
     "18": [
       "Bearman pitted"
     ],
-    "20": [
-      "3 passes on track, busiest lap of the race"
-    ],
     "21": [
+      "4 passes on track, busiest lap of the race",
       "Alonso pitted"
     ],
     "22": [
@@ -815,15 +795,14 @@
     ],
     "34": [
       "Colapinto pitted",
-      "Ocon pitted",
-      "Albon pitted"
+      "Ocon pitted"
     ],
     "35": [
-      "3 passes on track, busiest lap of the race",
       "Norris pitted",
       "Lawson pitted"
     ],
     "36": [
+      "3 passes on track",
       "Russell pitted",
       "Piastri pitted"
     ],
@@ -835,9 +814,7 @@
       "Alonso retired"
     ],
     "39": [
-      "virtual safety car, gaps frozen",
       "Leclerc pitted",
-      "Bearman pitted",
       "Perez pitted"
     ],
     "40": [
@@ -845,6 +822,7 @@
       "Gasly pitted"
     ],
     "41": [
+      "virtual safety car, gaps frozen",
       "Hamilton pitted"
     ],
     "44": [
@@ -864,13 +842,13 @@
       "Ocon pitted"
     ],
     "61": [
-      "virtual safety car, gaps frozen",
       "Bearman retired"
     ],
     "62": [
       "Antonelli retired"
     ],
     "63": [
+      "virtual safety car, gaps frozen",
       "Leclerc retired"
     ]
   },
@@ -890,7 +868,7 @@
       ],
       "say": [
         "Hamilton took it",
-        "Ferrari. started P2, led 31 of 66 laps"
+        "Ferrari. started P2, led 29 of 66 laps"
       ]
     },
     {
@@ -931,7 +909,9 @@
         "yellow"
       ],
       "say": [
-        "no proper safety car, just a virtual one on lap 41. gaps frozen, nobody bunched up"
+        "2 virtual safety cars in this one",
+        "virtual safety car on lap 41, 63",
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -945,7 +925,7 @@
         "how many overtakes"
       ],
       "say": [
-        "39 passes on track after lap 1",
+        "38 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -961,7 +941,7 @@
         "pitted"
       ],
       "say": [
-        "49 stops in the whole race",
+        "47 stops in the whole race",
         "you spend about 23s in the pit lane here"
       ]
     },
@@ -1049,7 +1029,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 52°C at the start and 50°C at the flag"
+        "track between 48°C and 52°C, 52°C at the start and 50°C at the flag"
       ]
     },
     {
@@ -1066,7 +1046,7 @@
       ],
       "say": [
         "you tell me",
-        "39 passes on track, 0 safety cars and 7 retirements"
+        "38 passes on track, 0 safety cars and 7 retirements"
       ]
     },
     {
@@ -1083,7 +1063,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 23 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]

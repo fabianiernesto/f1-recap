@@ -61,7 +61,7 @@
       "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
-      "led": 14,
+      "led": 15,
       "swings": [],
       "fastestLap": true,
       "gap": 3.264,
@@ -92,7 +92,7 @@
       "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
-      "led": 1,
+      "led": 0,
       "swings": [],
       "fastestLap": false,
       "gap": 27.092,
@@ -151,7 +151,7 @@
       ],
       "pace": "1:33.587",
       "paceRaw": 93.587,
-      "overtakes": 10,
+      "overtakes": 11,
       "penalty": null,
       "penaltyFor": null,
       "led": 1,
@@ -306,7 +306,7 @@
       ],
       "pace": "1:34.361",
       "paceRaw": 94.361,
-      "overtakes": 0,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -524,7 +524,7 @@
       ],
       "pace": "1:35.773",
       "paceRaw": 95.773,
-      "overtakes": 1,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -552,7 +552,8 @@
       ],
       "compounds": [
         "MEDIUM",
-        "SOFT"
+        "SOFT",
+        "MEDIUM"
       ],
       "pace": "1:37.618",
       "paceRaw": 97.618,
@@ -578,7 +579,9 @@
       "dns": false,
       "dnfLap": 8,
       "points": 0,
-      "stops": [],
+      "stops": [
+        1
+      ],
       "compounds": [
         "MEDIUM"
       ],
@@ -592,7 +595,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": null,
-      "extraStops": -1
+      "extraStops": 0
     },
     "lawson": {
       "name": "Lawson",
@@ -668,7 +671,7 @@
       ],
       "pace": null,
       "paceRaw": null,
-      "overtakes": 3,
+      "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -680,8 +683,11 @@
     }
   },
   "lapEvents": {
+    "1": [
+      "Hulkenberg pitted"
+    ],
     "2": [
-      "4 passes on track"
+      "7 passes on track, busiest lap of the race"
     ],
     "3": [
       "3 passes on track"
@@ -702,10 +708,13 @@
       "Hulkenberg retired"
     ],
     "13": [
-      "6 passes on track, busiest lap of the race"
+      "5 passes on track"
     ],
     "15": [
-      "4 passes on track"
+      "3 passes on track"
+    ],
+    "16": [
+      "3 passes on track"
     ],
     "20": [
       "Russell pitted"
@@ -715,11 +724,10 @@
       "Bottas pitted",
       "Stroll pitted"
     ],
-    "24": [
+    "23": [
       "3 passes on track"
     ],
     "26": [
-      "3 passes on track",
       "Antonelli pitted",
       "Bearman pitted"
     ],
@@ -755,7 +763,7 @@
     "41": [
       "Alonso pitted"
     ],
-    "46": [
+    "47": [
       "4 passes on track"
     ]
   },
@@ -816,9 +824,9 @@
         "yellow"
       ],
       "say": [
+        "1 safety car in this one",
         "safety car on lap 6",
-        "something's on track that shouldn't be, so everyone queues behind a road car at reduced speed",
-        "if you'd built a big lead it's gone. brutal when you're leading, brilliant when you're not"
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -832,7 +840,7 @@
         "how many overtakes"
       ],
       "say": [
-        "50 passes on track after lap 1",
+        "54 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -848,7 +856,7 @@
         "pitted"
       ],
       "say": [
-        "20 stops in the whole race",
+        "21 stops in the whole race",
         "you spend about 23s in the pit lane here"
       ]
     },
@@ -937,7 +945,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 37°C at the start and 37°C at the flag"
+        "track between 36°C and 42°C, 37°C at the start and 37°C at the flag"
       ]
     },
     {
@@ -954,7 +962,7 @@
       ],
       "say": [
         "you tell me",
-        "50 passes on track, 1 safety car and 4 retirements"
+        "54 passes on track, 1 safety car and 4 retirements"
       ]
     },
     {
@@ -971,7 +979,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 23 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]
@@ -1022,7 +1030,7 @@
         "pole"
       ],
       "say": [
-        "30 places changed hands on track on lap 1",
+        "29 places changed hands on track on lap 1",
         "cold tyres, cold brakes, full fuel and everybody going for the same gap"
       ]
     }

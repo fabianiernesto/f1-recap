@@ -11,16 +11,16 @@
       "lap": 0,
       "kicker": "Italian Grand Prix · Race · 53 laps",
       "title": "Everything that happened, in order",
-      "text": "102 on-track passes, 9 pit stops, 3 cars that never finished, 1 virtual safety car and a red flag that stopped the race."
+      "text": "103 on-track passes, 9 pit stops, 3 cars that never finished, 1 virtual safety car and a red flag that stopped the race."
     },
     {
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "28 places changed hands on track before the first lap was done",
+      "title": "27 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Antonelli, Lawson and Bearman gained the most by the end of it, 5 places at best"
+        "Antonelli gained the most by the end of it, 5 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -87,7 +87,7 @@
       "title": "12 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "11 different drivers gained a place on this lap"
+        "12 different drivers gained a place on this lap"
       ],
       "note": "Early on, with full tanks and the order still settling."
     },
@@ -98,10 +98,9 @@
       "title": "Leclerc is out",
       "text": "His race ends on lap 2 of 53, in a Ferrari.",
       "bullets": [
-        "Running P3 when that lap began",
         "Started P3",
         "1 on-track pass before it happened",
-        "Race control logged an incident with Leclerc and Hamilton at Turn 2 on that lap"
+        "Race control logged an incident with Leclerc and Hamilton at Turn 2 on lap 1"
       ]
     },
     {
@@ -126,7 +125,7 @@
       "text": "A safety car first, then the red flag: everybody into the pit lane and a wait for the track to be made safe.",
       "bullets": [
         "Russell was leading when it happened",
-        "Standing restart on lap 4"
+        "Standing restart on lap 5"
       ],
       "note": "Teams can change tyres while the cars wait, which rewrites the strategies on the grid."
     },
@@ -134,7 +133,7 @@
       "type": "moment",
       "lap": 6,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 4 times",
+      "title": "Yellow flags out 3 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track"
@@ -155,7 +154,7 @@
       "type": "moment",
       "lap": 7,
       "kicker": "Track limits",
-      "title": "19 lap times deleted",
+      "title": "20 lap times deleted",
       "text": "The white line is the track, and the lap simply stops counting if you leave it.",
       "bullets": [
         "Albon lost 3 that way, more than anybody"
@@ -164,9 +163,9 @@
     },
     {
       "type": "moment",
-      "lap": 10,
-      "kicker": "Lap 10 · Traffic",
-      "title": "7 passes on this lap alone",
+      "lap": 16,
+      "kicker": "Lap 16 · Traffic",
+      "title": "8 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
         "7 different drivers gained a place on this lap"
@@ -190,15 +189,15 @@
             12
           ],
           [
-            "Lawson",
-            9
-          ],
-          [
             "Bortoleto",
             9
           ],
           [
-            "Norris",
+            "Lawson",
+            8
+          ],
+          [
+            "Verstappen",
             7
           ],
           [
@@ -215,12 +214,12 @@
     },
     {
       "type": "moment",
-      "lap": 19,
+      "lap": 20,
       "kicker": "Within a second",
-      "title": "Norris: 10 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the race, from lap 10 to lap 19, at racing speed.",
+      "title": "Norris: 11 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the race, from lap 10 to lap 20, at racing speed.",
       "bullets": [
-        "4 other drivers had a run of five laps or more like it"
+        "3 other drivers had a run of five laps or more like it"
       ],
       "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
@@ -256,7 +255,7 @@
       "title": "Alonso is out",
       "text": "His race ends on lap 24 of 53, in an Aston Martin.",
       "bullets": [
-        "Running P17 when that lap began",
+        "P17 at the start of lap 23",
         "Started P21",
         "5 on-track passes before it happened"
       ],
@@ -278,25 +277,13 @@
     {
       "type": "moment",
       "lap": 27,
-      "kicker": "Lap 27 of 53 · Virtual Safety Car",
-      "title": "Everybody slows down, nobody bunches up",
-      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
-      "bullets": [
-        "Russell was leading when it was called",
-        "Hulkenberg, Sainz, Ocon and 4 others stopped under it",
-        "Lifted on lap 28"
-      ],
-      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
-    },
-    {
-      "type": "moment",
-      "lap": 27,
       "kicker": "Lap 27 · Retirement",
       "title": "Stroll is out",
       "text": "His race ends on lap 27 of 53, in an Aston Martin.",
       "bullets": [
-        "Running P20 when that lap began",
-        "Started P18"
+        "P20 at the start of lap 26",
+        "Started P18",
+        "1 on-track pass before it happened"
       ],
       "note": "The timing feed records that he stopped, not why."
     },
@@ -304,7 +291,7 @@
       "type": "decision",
       "lap": 27,
       "kicker": "What if",
-      "title": "Stroll was running P20 when his race ended on lap 27. Where does he finish if it had not?",
+      "title": "Stroll was P20 a lap before his race ended on lap 27. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -312,7 +299,7 @@
           "27 of 53"
         ],
         [
-          "Running",
+          "Start of lap 26",
           "P20"
         ],
         [
@@ -348,6 +335,19 @@
         "drop": "Tyres or traffic get him."
       },
       "reveal": "Our read from his own lap times, not a fact. He was lapping 4.14s a lap slower than Antonelli, who went on to win it. With 26 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check."
+    },
+    {
+      "type": "moment",
+      "lap": 28,
+      "kicker": "Lap 28 of 53 · Virtual Safety Car",
+      "title": "Everybody slows down, nobody bunches up",
+      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
+      "bullets": [
+        "Russell was leading when it was called",
+        "Hulkenberg, Sainz, Ocon and 4 others stopped under it",
+        "Lifted on lap 29"
+      ],
+      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },
     {
       "type": "prediction",
@@ -443,12 +443,12 @@
       "type": "moment",
       "lap": 53,
       "kicker": "Tyres",
-      "title": "Russell, Gasly, Colapinto and 7 others ran one set for 50 laps each",
-      "text": "The longest anybody stayed out on one set.",
+      "title": "10 of 22 cars never stopped",
+      "text": "One set of tyres took most of the field to the flag.",
       "bullets": [
-        "On the hards, lap 4 to lap 53"
+        "On one set the whole way: Mediums for 6, softs for 3, hards for Tsunoda"
       ],
-      "note": "Fitted while the race was stopped under the red flag, and then never changed."
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane."
     },
     {
       "type": "moment",
@@ -539,7 +539,7 @@
       "lap": 53,
       "kicker": "Guess it",
       "title": "How far behind was Russell at the flag?",
-      "text": "53 laps, 1 hour 51 minutes of racing, and it comes down to this one number.",
+      "text": "53 laps, 1 hour 20 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
       "max": 15.4,

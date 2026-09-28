@@ -62,7 +62,7 @@
         ],
         [
           "Tyres",
-          "hard to medium"
+          "hard to medium to hard"
         ],
         [
           "Median lap",
@@ -106,7 +106,7 @@
         ],
         [
           "Tyres",
-          "soft to hard to medium"
+          "soft to hard to medium to soft"
         ],
         [
           "Median lap",
@@ -158,10 +158,10 @@
         ],
         [
           "Finished",
-          "retired, lap 22"
+          "retired, lap 21"
         ]
       ],
-      "tell": "his race ended on lap 22, and the sheet just stops",
+      "tell": "his race ended on lap 21, and the sheet just stops",
       "options": [
         "Alonso",
         "Perez",
@@ -198,10 +198,10 @@
         ],
         [
           "Finished",
-          "retired, lap 16"
+          "retired, lap 15"
         ]
       ],
-      "tell": "his race ended on lap 16, and the sheet just stops",
+      "tell": "his race ended on lap 15, and the sheet just stops",
       "options": [
         "Alonso",
         "Bottas",
@@ -238,10 +238,10 @@
         ],
         [
           "Finished",
-          "retired, lap 11"
+          "retired, lap 10"
         ]
       ],
-      "tell": "his race ended on lap 11, and the sheet just stops",
+      "tell": "his race ended on lap 10, and the sheet just stops",
       "options": [
         "Alonso",
         "Bottas",
@@ -266,7 +266,7 @@
         ],
         [
           "Tyres",
-          "medium to hard"
+          "medium to hard to medium"
         ],
         [
           "Median lap",

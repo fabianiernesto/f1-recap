@@ -351,7 +351,7 @@
       ],
       "pace": "1:39.285",
       "paceRaw": 99.285,
-      "overtakes": 1,
+      "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -379,7 +379,7 @@
       ],
       "pace": "1:39.125",
       "paceRaw": 99.125,
-      "overtakes": 2,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -469,7 +469,7 @@
       ],
       "pace": "1:39.148",
       "paceRaw": 99.148,
-      "overtakes": 2,
+      "overtakes": 3,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -654,13 +654,13 @@
   },
   "lapEvents": {
     "2": [
-      "9 passes on track, busiest lap of the sprint"
+      "7 passes on track, busiest lap of the sprint"
     ],
     "3": [
-      "4 passes on track"
+      "5 passes on track"
     ],
     "4": [
-      "3 passes on track"
+      "4 passes on track"
     ],
     "5": [
       "3 passes on track"
@@ -681,9 +681,12 @@
       "Norris pitted"
     ],
     "18": [
-      "7 passes on track",
+      "5 passes on track",
       "Perez got a 5s penalty",
       "Leclerc set the fastest lap, 1:34.753"
+    ],
+    "19": [
+      "5 passes on track"
     ]
   },
   "topics": [
@@ -730,7 +733,7 @@
       ],
       "say": [
         "Leclerc, 1:34.753 on lap 18",
-        "no points for it anymore, that went after 2024. bragging rights only"
+        "a sprint has never paid a point for it"
       ]
     },
     {
@@ -743,9 +746,9 @@
         "yellow"
       ],
       "say": [
+        "1 safety car in this one",
         "safety car on lap 13",
-        "something's on track that shouldn't be, so everyone queues behind a road car at reduced speed",
-        "if you'd built a big lead it's gone. brutal when you're leading, brilliant when you're not"
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -759,7 +762,7 @@
         "how many overtakes"
       ],
       "say": [
-        "40 passes on track after lap 1",
+        "39 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -862,7 +865,7 @@
       ],
       "say": [
         "you tell me",
-        "40 passes on track, 1 safety car and 3 retirements"
+        "39 passes on track, 1 safety car and 3 retirements"
       ]
     },
     {
@@ -879,9 +882,8 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
-        "in a dry race everyone has to use two tyre types, so everyone stops at least once",
-        "the whole sport is deciding WHEN to lose that time"
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
+        "there's no compulsory stop in a sprint, so plenty go the distance on one set"
       ]
     },
     {

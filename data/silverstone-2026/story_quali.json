@@ -141,7 +141,7 @@
       "type": "moment",
       "lap": 4,
       "kicker": "Track limits",
-      "title": "5 laps thrown in the bin",
+      "title": "9 laps thrown in the bin",
       "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
       "dato": {
         "label": "Deleted laps",
@@ -159,12 +159,12 @@
             "at turn 7"
           ],
           [
-            "Hulkenberg",
-            "1:29.945"
+            "Colapinto",
+            "at turn 13"
           ],
           [
-            "Antonelli",
-            "1:56.749"
+            "Perez",
+            "1:31.451"
           ]
         ]
       }

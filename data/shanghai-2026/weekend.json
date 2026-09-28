@@ -20,14 +20,14 @@
       "label": "Sprint Qualifying",
       "kind": "quali",
       "headline": "Russell on pole",
-      "moments": 8,
+      "moments": 7,
       "laps": 17
     },
     {
       "slug": "sprint",
       "label": "Sprint",
       "kind": "race",
-      "headline": "40 on-track passes, 1 safety car",
+      "headline": "39 on-track passes, 1 safety car",
       "moments": 29,
       "laps": 19
     },
@@ -36,7 +36,7 @@
       "label": "Qualifying",
       "kind": "quali",
       "headline": "Antonelli on pole",
-      "moments": 9,
+      "moments": 8,
       "laps": 21
     },
     {

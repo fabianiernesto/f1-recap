@@ -11,16 +11,16 @@
       "lap": 0,
       "kicker": "Miami Grand Prix · Sprint · 19 laps",
       "title": "Everything that happened, in order",
-      "text": "22 on-track passes, 1 pit stop, every starter at the flag."
+      "text": "24 on-track passes, 1 pit stop, every starter at the flag."
     },
     {
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "15 places changed hands on track before the first lap was done",
+      "title": "13 places changed hands on track before the first lap was done",
       "text": "20 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Ocon, Stroll and Perez gained the most by the end of it, 3 places at best"
+        "Ocon gained the most by the end of it, 3 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
     },
@@ -48,17 +48,6 @@
       ],
       "answer": "Out of the points",
       "reveal": "P16 to P11, 5 places gained."
-    },
-    {
-      "type": "moment",
-      "lap": 3,
-      "kicker": "Track limits",
-      "title": "13 lap times deleted",
-      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
-      "bullets": [
-        "Antonelli lost 3 that way, more than anybody"
-      ],
-      "note": "Keep doing it and it turns into a penalty."
     },
     {
       "type": "moment",
@@ -98,6 +87,10 @@
             4
           ],
           [
+            "Albon",
+            3
+          ],
+          [
             "Hadjar",
             3
           ],
@@ -106,16 +99,12 @@
             3
           ],
           [
-            "Albon",
+            "Hamilton",
             2
           ],
           [
             "Verstappen",
             2
-          ],
-          [
-            "Bearman",
-            1
           ]
         ]
       },
@@ -139,8 +128,8 @@
       "title": "Norris: 1:31.885",
       "text": "The quickest anybody went all sprint, in a McLaren.",
       "bullets": [
-        "Set on lap 10 of 19, early for a fastest lap, with plenty of fuel still on board",
-        "It is worth no points: the bonus point for it was dropped after 2024"
+        "Set on lap 10 of 19, in the second half, with the car already lighter than at the start",
+        "A sprint has never paid a point for it"
       ],
       "dato": {
         "label": "Best sector times",
@@ -162,12 +151,12 @@
     },
     {
       "type": "moment",
-      "lap": 11,
+      "lap": 12,
       "kicker": "Within a second",
-      "title": "Sainz: 6 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the sprint, from lap 6 to lap 11, at racing speed.",
+      "title": "Sainz: 7 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the sprint, from lap 6 to lap 12, at racing speed.",
       "bullets": [
-        "3 other drivers had a run of five laps or more like it"
+        "2 other drivers had a run of five laps or more like it"
       ],
       "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
@@ -232,12 +221,22 @@
       "type": "moment",
       "lap": 19,
       "kicker": "Tyres",
-      "title": "19 of 20 cars ran the whole sprint on one set",
-      "text": "No stop at all for most of the field.",
+      "title": "19 of 20 cars never stopped",
+      "text": "One set of tyres took most of the field to the flag.",
       "bullets": [
-        "On the mediums, lap 1 to lap 19"
+        "On one set the whole way: Mediums for 15, softs for Alonso and Stroll, hards for Perez and Bottas"
       ],
-      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane."
+    },
+    {
+      "type": "moment",
+      "lap": 19,
+      "kicker": "Stewards",
+      "title": "1 incident looked at",
+      "text": "Logged by race control during the sprint.",
+      "bullets": [
+        "1 ended in a penalty"
+      ]
     },
     {
       "type": "moment",

@@ -41,7 +41,7 @@
       "facts": [
         [
           "Running",
-          "P6"
+          "P3"
         ],
         [
           "Tyre",
@@ -49,11 +49,11 @@
         ],
         [
           "Ahead",
-          "Piastri, 5.9s up"
+          "Norris, 7.9s up"
         ],
         [
           "Behind",
-          "Albon"
+          "Hamilton"
         ]
       ],
       "options": [
@@ -116,7 +116,7 @@
       "facts": [
         [
           "Running",
-          "P6"
+          "P3"
         ],
         [
           "Tyre",
@@ -124,11 +124,11 @@
         ],
         [
           "Ahead",
-          "Russell, 6.5s up"
+          "Hamilton, 12.1s up"
         ],
         [
           "Behind",
-          "Lawson"
+          "Antonelli"
         ]
       ],
       "options": [
@@ -192,7 +192,7 @@
         ],
         [
           "Ahead",
-          "Hamilton, 9.0s up"
+          "Russell, 1.7s up"
         ],
         [
           "Behind",
@@ -260,7 +260,7 @@
         ],
         [
           "Ahead",
-          "Hamilton, 9.0s up"
+          "Russell, 1.7s up"
         ],
         [
           "Behind",

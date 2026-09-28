@@ -30,7 +30,7 @@
       "overtakes": 3,
       "penalty": null,
       "penaltyFor": null,
-      "led": 47,
+      "led": 46,
       "swings": [],
       "fastestLap": true,
       "gap": 0,
@@ -148,7 +148,8 @@
       ],
       "compounds": [
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:16.300",
       "paceRaw": 76.3,
@@ -436,7 +437,8 @@
       ],
       "compounds": [
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:18.562",
       "paceRaw": 78.562,
@@ -503,6 +505,8 @@
       "compounds": [
         "INTERMEDIATE",
         "SOFT",
+        "MEDIUM",
+        "SOFT",
         "MEDIUM"
       ],
       "pace": "1:19.490",
@@ -537,7 +541,8 @@
       "compounds": [
         "INTERMEDIATE",
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:18.568",
       "paceRaw": 78.568,
@@ -604,7 +609,7 @@
       "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
-      "led": 20,
+      "led": 21,
       "swings": [],
       "fastestLap": false,
       "gap": null,
@@ -703,29 +708,24 @@
       "Piastri pitted"
     ],
     "2": [
-      "5 passes on track, busiest lap of the race",
+      "4 passes on track",
       "Norris pitted",
       "Hulkenberg pitted",
       "Sainz pitted"
     ],
     "3": [
-      "3 passes on track",
+      "4 passes on track",
       "Bottas pitted"
     ],
-    "6": [
-      "4 passes on track"
-    ],
-    "8": [
-      "5 passes on track, busiest lap of the race"
+    "7": [
+      "5 passes on track"
     ],
     "9": [
+      "4 passes on track",
       "Bottas pitted"
     ],
-    "11": [
-      "3 passes on track"
-    ],
     "12": [
-      "4 passes on track",
+      "6 passes on track, busiest lap of the race",
       "Piastri pitted",
       "Albon retired"
     ],
@@ -760,16 +760,16 @@
       "Bottas pitted"
     ],
     "30": [
-      "virtual safety car, gaps frozen",
       "Colapinto pitted",
       "Lawson pitted",
-      "Gasly pitted"
+      "Gasly pitted",
+      "Sainz pitted"
     ],
     "31": [
+      "virtual safety car, gaps frozen",
       "Antonelli pitted",
       "Verstappen pitted",
-      "Hamilton pitted",
-      "Hadjar pitted"
+      "Hamilton pitted"
     ],
     "39": [
       "Norris retired"
@@ -780,7 +780,7 @@
     "44": [
       "Hadjar got a 10s penalty"
     ],
-    "45": [
+    "46": [
       "virtual safety car, gaps frozen"
     ],
     "47": [
@@ -791,11 +791,13 @@
       "Bottas pitted"
     ],
     "51": [
-      "virtual safety car, gaps frozen",
       "Piastri pitted"
     ],
     "52": [
       "Hadjar pitted"
+    ],
+    "53": [
+      "virtual safety car, gaps frozen"
     ],
     "62": [
       "Hadjar got a stop-and-go"
@@ -821,7 +823,7 @@
       ],
       "say": [
         "Antonelli took it",
-        "Mercedes. started P2, led 47 of 68 laps"
+        "Mercedes. started P2, led 46 of 68 laps"
       ]
     },
     {
@@ -862,7 +864,9 @@
         "yellow"
       ],
       "say": [
-        "no proper safety car, just a virtual one on lap 31. gaps frozen, nobody bunched up"
+        "3 virtual safety cars in this one",
+        "virtual safety car on lap 31, 46, 53",
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -981,7 +985,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 17°C at the start and 19°C at the flag"
+        "track between 17°C and 19°C, 17°C at the start and 19°C at the flag"
       ]
     },
     {
@@ -1015,9 +1019,8 @@
         "like im five"
       ],
       "say": [
-        "ok so 21 cars, lined up in the order they qualified",
-        "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 25 seconds in the pit lane each time",
-        "the whole sport is deciding WHEN to lose that time"
+        "ok so 21 cars, lined up roughly in qualifying order, less any grid penalties",
+        "it started wet, so the usual two-compound rule didn't apply"
       ]
     },
     {

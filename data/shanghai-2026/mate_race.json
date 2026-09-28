@@ -26,7 +26,7 @@
         {
           "q": "i know nothing about f1, start there",
           "a": [
-            "ok so 18 cars, lined up in the order they qualified",
+            "ok so 18 cars, lined up roughly in qualifying order, less any grid penalties",
             "in a dry race everyone has to use two different tyre types, so everyone stops at least once, and you spend about 23 seconds in the pit lane when you do",
             "the whole sport is basically deciding WHEN to lose that time"
           ]
@@ -51,7 +51,7 @@
           "q": "does the start decide the race",
           "a": [
             "more than anyone admits",
-            "track position is everything on most circuits, you lose 3 places on lap 1 and you can spend the next hour stuck behind someone slower"
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
           ]
         }
       ]
@@ -60,7 +60,7 @@
       "lap": 2,
       "msgs": [
         "lap 2 was the busiest of the whole race",
-        "8 passes on that lap alone"
+        "6 passes on that lap alone"
       ],
       "asks": [
         {

@@ -20,7 +20,7 @@
       "title": "35 places changed hands on track before the first lap was done",
       "text": "18 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Alonso, Lindblad and Lawson gained the most by the end of it, 8 places at best"
+        "Alonso gained the most by the end of it, 8 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -28,10 +28,10 @@
       "type": "moment",
       "lap": 2,
       "kicker": "Lap 2 · Traffic",
-      "title": "8 passes on this lap alone",
+      "title": "6 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "6 different drivers gained a place on this lap"
+        "5 different drivers gained a place on this lap"
       ],
       "note": "Early on, with full tanks and the order still settling."
     },
@@ -40,7 +40,7 @@
       "lap": 2,
       "kicker": "Lap 2 · For the lead",
       "title": "Antonelli takes the lead from Hamilton",
-      "text": "The only time the lead changed hands on track all race."
+      "text": "A pass for the lead, made on track at racing speed."
     },
     {
       "type": "prediction",
@@ -55,17 +55,6 @@
       ],
       "answer": "Somewhere in the points",
       "reveal": "P17 to P9, 8 places gained."
-    },
-    {
-      "type": "moment",
-      "lap": 7,
-      "kicker": "Track limits",
-      "title": "5 lap times deleted",
-      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
-      "bullets": [
-        "Lindblad lost 2 that way, more than anybody"
-      ],
-      "note": "Keep doing it and it turns into a penalty."
     },
     {
       "type": "moment",
@@ -97,7 +86,7 @@
       "type": "moment",
       "lap": 10,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 9 times",
+      "title": "Yellow flags out 7 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track",
@@ -111,7 +100,7 @@
       "title": "Stroll is out",
       "text": "His race ends on lap 10 of 56, in an Aston Martin.",
       "bullets": [
-        "Running P16 when that lap began",
+        "P16 at the start of lap 9",
         "Started P20"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -219,10 +208,10 @@
     },
     {
       "type": "moment",
-      "lap": 20,
+      "lap": 22,
       "kicker": "Within a second",
-      "title": "Sainz: 6 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the race, from lap 15 to lap 20, at racing speed.",
+      "title": "Gasly: 6 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the race, from lap 17 to lap 22, at racing speed.",
       "bullets": [
         "4 other drivers had a run of five laps or more like it"
       ],
@@ -254,10 +243,21 @@
       "reveal": "Antonelli on lap 52, 1:35.275, in a Mercedes."
     },
     {
+      "type": "moment",
+      "lap": 29,
+      "kicker": "Lap 29 · Traffic",
+      "title": "5 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "4 different drivers gained a place on this lap"
+      ],
+      "note": "Every one of them on track, with no stops around it."
+    },
+    {
       "type": "decision",
       "lap": 32,
       "kicker": "Your call on the pit wall",
-      "title": "You are Leclerc, 1.6s behind Russell and going nowhere. Now what?",
+      "title": "You are Leclerc, 0.9s behind Russell and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -266,7 +266,7 @@
         ],
         [
           "Gap ahead",
-          "1.6s to Russell"
+          "0.9s to Russell"
         ],
         [
           "Tyres",
@@ -309,7 +309,7 @@
       "title": "Alonso is out",
       "text": "His race ends on lap 33 of 56, in an Aston Martin.",
       "bullets": [
-        "Running P17 when that lap began",
+        "P17 at the start of lap 32",
         "Started P18",
         "1 on-track pass before it happened"
       ],
@@ -383,7 +383,7 @@
       "title": "Verstappen is out",
       "text": "His race ends on lap 46 of 56, in a Red Bull.",
       "bullets": [
-        "Running P11 when that lap began",
+        "P6 at the start of lap 45",
         "Started P8",
         "8 on-track passes before it happened"
       ],
@@ -393,7 +393,7 @@
       "type": "decision",
       "lap": 46,
       "kicker": "What if",
-      "title": "Verstappen was running P11 when his race ended on lap 46. Where does he finish if it had not?",
+      "title": "Verstappen was P6 a lap before his race ended on lap 46. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -401,8 +401,8 @@
           "46 of 56"
         ],
         [
-          "Running",
-          "P11"
+          "Start of lap 45",
+          "P6"
         ],
         [
           "His median racing lap",
@@ -415,28 +415,28 @@
       ],
       "choices": [
         {
-          "id": "points",
-          "label": "He fights into the points",
-          "sub": "A climb from there"
+          "id": "podium",
+          "label": "He reaches the podium",
+          "sub": "Enough pace to climb"
         },
         {
-          "id": "hold",
-          "label": "He stays about where he was",
-          "sub": "No pace to move"
+          "id": "points",
+          "label": "He keeps it in the points",
+          "sub": "Holds roughly where he was"
         },
         {
           "id": "drop",
-          "label": "He drops further back",
+          "label": "He drops out of the points",
           "sub": "Tyres or traffic get him"
         }
       ],
       "actual": "",
       "outcomes": {
-        "points": "A climb from there.",
-        "hold": "No pace to move.",
+        "podium": "Enough pace to climb.",
+        "points": "Holds roughly where he was.",
         "drop": "Tyres or traffic get him."
       },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 1.29s a lap slower than Antonelli, who went on to win it. With 10 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check."
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 1.29s a lap slower than Antonelli, who went on to win it. With 10 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check."
     },
     {
       "type": "moment",

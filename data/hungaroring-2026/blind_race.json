@@ -14,7 +14,7 @@
         ],
         [
           "Laps led",
-          "35"
+          "36"
         ],
         [
           "Stops",
@@ -37,7 +37,7 @@
           "P1"
         ]
       ],
-      "tell": "led 35 of 70 laps and took the win",
+      "tell": "led 36 of 70 laps and took the win",
       "options": [
         "Antonelli",
         "Leclerc",
@@ -62,7 +62,7 @@
         ],
         [
           "Tyres",
-          "soft to medium"
+          "soft to medium to soft"
         ],
         [
           "Median lap",
@@ -98,7 +98,7 @@
         ],
         [
           "Laps led",
-          "26"
+          "25"
         ],
         [
           "Stops",
@@ -142,7 +142,7 @@
         ],
         [
           "Stops",
-          "2 (lap 21, 46)"
+          "1 (lap 46)"
         ],
         [
           "Tyres",
@@ -194,7 +194,7 @@
         ],
         [
           "On-track passes",
-          "1"
+          "2"
         ],
         [
           "Finished",
@@ -226,7 +226,7 @@
         ],
         [
           "Tyres",
-          "soft to hard"
+          "soft to hard to soft"
         ],
         [
           "Median lap",
@@ -270,7 +270,7 @@
         ],
         [
           "Tyres",
-          "soft to hard"
+          "soft to hard to soft"
         ],
         [
           "Median lap",

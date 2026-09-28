@@ -141,7 +141,7 @@
       "type": "moment",
       "lap": 4,
       "kicker": "Track limits",
-      "title": "1 lap thrown in the bin",
+      "title": "2 laps thrown in the bin",
       "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
       "dato": {
         "label": "Deleted laps",
@@ -149,6 +149,10 @@
           [
             "Hamilton",
             "at turn 3"
+          ],
+          [
+            "Colapinto",
+            "at turn 1"
           ]
         ]
       }

@@ -58,7 +58,7 @@
         ],
         [
           "Laps led",
-          "7"
+          "9"
         ],
         [
           "Stops",
@@ -85,7 +85,7 @@
           "P1"
         ]
       ],
-      "tell": "led 7 of 53 laps and took the win",
+      "tell": "led 9 of 53 laps and took the win",
       "options": [
         "Antonelli",
         "Norris",
@@ -110,7 +110,7 @@
         ],
         [
           "Tyres",
-          "medium to hard"
+          "medium to hard to medium"
         ],
         [
           "Median lap",
@@ -118,7 +118,7 @@
         ],
         [
           "On-track passes",
-          "9"
+          "8"
         ],
         [
           "Finished",
@@ -158,7 +158,7 @@
         ],
         [
           "On-track passes",
-          "0"
+          "1"
         ],
         [
           "Finished",

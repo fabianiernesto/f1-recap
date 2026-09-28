@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Monaco Grand Prix · Race · 78 laps",
       "title": "Everything that happened, in order",
-      "text": "4 on-track passes, 42 pit stops, 7 cars that never finished, 1 safety car and a red flag that stopped the race."
+      "text": "4 on-track passes, 32 pit stops, 7 cars that never finished, 1 safety car and a red flag that stopped the race."
     },
     {
       "type": "moment",
@@ -20,7 +20,7 @@
       "title": "9 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Alonso, Perez and Stroll gained the most by the end of it, 4 places at best"
+        "Alonso and Perez gained the most by the end of it, 4 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -28,11 +28,11 @@
       "type": "moment",
       "lap": 1,
       "kicker": "Stewards",
-      "title": "18 incidents looked at",
+      "title": "19 incidents looked at",
       "text": "Every one of them logged by race control during the race.",
       "bullets": [
         "First up, lap 1: Perez, false start",
-        "9 ended in a penalty, 8 in no further action and 1 left for after the race"
+        "10 ended in a penalty, 8 in no further action and 1 left for after the race"
       ]
     },
     {
@@ -69,7 +69,8 @@
       "bullets": [
         "Perez: a drive-through for out of position",
         "Hamilton: a 5s penalty for speeding in the pit lane",
-        "Russell: a 5s penalty for speeding in the pit lane"
+        "Russell: a 5s penalty for speeding in the pit lane",
+        "And 7 more"
       ],
       "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left. A drive-through is a trip down the pit lane at the speed limit without stopping."
     },
@@ -91,7 +92,7 @@
       "title": "Bottas is out",
       "text": "His race ends on lap 16 of 78, in a Cadillac.",
       "bullets": [
-        "Running P19 when that lap began",
+        "P19 at the start of lap 15",
         "Started P20"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -110,36 +111,25 @@
       "title": "Bearman is out",
       "text": "His race ends on lap 28 of 78, in a Haas.",
       "bullets": [
-        "Running P20 when that lap began",
+        "P20 at the start of lap 27",
         "Started P19"
       ],
       "note": "The timing feed records that he stopped, not why."
     },
     {
-      "type": "moment",
-      "lap": 31,
-      "kicker": "Within a second",
-      "title": "Russell: 14 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the race, from lap 18 to lap 31, at racing speed.",
-      "bullets": [
-        "5 other drivers had a run of five laps or more like it"
-      ],
-      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
-    },
-    {
       "type": "decision",
       "lap": 31,
       "kicker": "Your call on the pit wall",
-      "title": "You are Piastri, 2.5s behind Hadjar and going nowhere. Now what?",
+      "title": "You are Piastri, 2.2s behind Russell and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
           "Running",
-          "P5"
+          "P6"
         ],
         [
           "Gap ahead",
-          "2.5s to Hadjar"
+          "2.2s to Russell"
         ],
         [
           "Tyres",
@@ -173,7 +163,18 @@
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Piastri came in on lap 48, 17 laps after this. He finished P4, Hadjar P3."
+      "reveal": "Piastri came in on lap 48, 17 laps after this. He finished P4, Russell P12."
+    },
+    {
+      "type": "moment",
+      "lap": 32,
+      "kicker": "Within a second",
+      "title": "Russell: 15 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the race, from lap 18 to lap 32, at racing speed.",
+      "bullets": [
+        "5 other drivers had a run of five laps or more like it"
+      ],
+      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
     {
       "type": "moment",
@@ -202,12 +203,25 @@
     },
     {
       "type": "moment",
+      "lap": 43,
+      "kicker": "Lap 43 · Pit window",
+      "title": "32 stops, and the busiest lap saw 3 of them",
+      "text": "Once one car stops, the cars around it have to answer.",
+      "bullets": [
+        "3 cars in on each of laps 1, 58 and 60",
+        "Shortest time in the pit lane: Gasly, 19.8s",
+        "Longest: Russell, 35.2s"
+      ],
+      "note": "Pit lane time runs from the entry line to the exit line, stop included."
+    },
+    {
+      "type": "moment",
       "lap": 44,
       "kicker": "Lap 44 · Retirement",
       "title": "Norris is out",
       "text": "His race ends on lap 44 of 78, in a McLaren.",
       "bullets": [
-        "Running P7 when that lap began",
+        "P6 at the start of lap 43",
         "Started P8"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -218,6 +232,17 @@
       "kicker": "Blue flags",
       "title": "126 blue flags waved",
       "text": "That is how often a lapped car was told to let the leaders through."
+    },
+    {
+      "type": "moment",
+      "lap": 47,
+      "kicker": "Off the script",
+      "title": "Bortoleto stopped 4 times",
+      "text": "Four stops when most of the field made 1.",
+      "bullets": [
+        "In on laps 1, 43, 58 and 65",
+        "2 of them under a safety car or VSC"
+      ]
     },
     {
       "type": "moment",
@@ -262,23 +287,10 @@
       "title": "Stroll is out",
       "text": "His race ends on lap 57 of 78, in an Aston Martin.",
       "bullets": [
-        "Running P16 when that lap began",
+        "P16 at the start of lap 56",
         "Started P22"
       ],
       "note": "The timing feed records that he stopped, not why."
-    },
-    {
-      "type": "moment",
-      "lap": 58,
-      "kicker": "Lap 58 · Pit window",
-      "title": "42 stops, and the busiest lap saw 6 of them",
-      "text": "Once one car stops, the cars around it have to answer.",
-      "bullets": [
-        "Busiest single lap was 67, with 6 cars in",
-        "Shortest time in the pit lane: Gasly, 19.8s",
-        "Longest: Russell, 35.2s"
-      ],
-      "note": "Pit lane time runs from the entry line to the exit line, stop included."
     },
     {
       "type": "moment",
@@ -288,8 +300,8 @@
       "text": "The field bunches up behind the safety car, and whatever anybody had built is gone.",
       "bullets": [
         "Antonelli was leading when it came out",
-        "He took a stop under it, and so did Hulkenberg, Alonso, Bortoleto and 9 others",
-        "It ended in a red flag on lap 67"
+        "He took a stop under it, and so did Hulkenberg, Alonso, Bortoleto and 6 others",
+        "It ended in a red flag on lap 68"
       ]
     },
     {
@@ -337,20 +349,9 @@
     },
     {
       "type": "moment",
-      "lap": 62,
-      "kicker": "Off the script",
-      "title": "Bortoleto stopped 5 times",
-      "text": "Five stops when most of the field made 2.",
-      "bullets": [
-        "In on laps 1, 43, 58, 59 and 65",
-        "3 of them under a safety car or VSC"
-      ]
-    },
-    {
-      "type": "moment",
       "lap": 65,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 6 times",
+      "title": "Yellow flags out 4 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track",
@@ -364,7 +365,7 @@
       "title": "Leclerc is out",
       "text": "His race ends on lap 65 of 78, in a Ferrari.",
       "bullets": [
-        "Running P5 when that lap began",
+        "P3 at the start of lap 64",
         "Started P4"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -376,7 +377,8 @@
       "title": "Ocon and Lindblad ran one set for 58 laps each",
       "text": "The longest anybody stayed out on one set.",
       "bullets": [
-        "On the hards, lap 9 to lap 66"
+        "Ocon: hards, lap 9 to 66",
+        "Lindblad: mediums, lap 1 to 58"
       ],
       "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
     },
@@ -392,12 +394,12 @@
         "Sainz"
       ],
       "answer": "Sainz",
-      "reveal": "Sainz, on lap 71 of 78. Race control had logged an incident involving Colapinto and Sainz at Turn 8 on that lap."
+      "reveal": "Sainz, on lap 71 of 78. Race control had logged an incident involving Colapinto and Sainz at Turn 8 on lap 71."
     },
     {
       "type": "moment",
-      "lap": 67,
-      "kicker": "Lap 67 of 78 · Red flag",
+      "lap": 68,
+      "kicker": "Lap 68 of 78 · Red flag",
       "title": "The race was stopped",
       "text": "A safety car first, then the red flag: everybody into the pit lane and a wait for the track to be made safe.",
       "bullets": [
@@ -413,10 +415,10 @@
       "title": "Sainz is out",
       "text": "His race ends on lap 71 of 78, in a Williams.",
       "bullets": [
-        "Running P10 when that lap began",
+        "P10 at the start of lap 70",
         "Started P12",
         "1 on-track pass before it happened",
-        "Race control logged an incident with Colapinto and Sainz at Turn 8 on that lap"
+        "Race control logged an incident with Colapinto and Sainz at Turn 8 on lap 71"
       ]
     },
     {
@@ -468,7 +470,7 @@
       "type": "decision",
       "lap": 71,
       "kicker": "What if",
-      "title": "Sainz was running P10 when his race ended on lap 71. Where does he finish if it had not?",
+      "title": "Sainz was P10 a lap before his race ended on lap 71. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -476,7 +478,7 @@
           "71 of 78"
         ],
         [
-          "Running",
+          "Start of lap 70",
           "P10"
         ],
         [
@@ -511,7 +513,7 @@
         "points": "Holds roughly where he was.",
         "drop": "Tyres or traffic get him."
       },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 2.45s a lap slower than Antonelli, who went on to win it. With 7 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check. Race control had logged an incident involving Colapinto and Sainz on that lap."
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 2.45s a lap slower than Antonelli, who went on to win it. With 7 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check. Race control had logged an incident involving Colapinto and Sainz on lap 71."
     },
     {
       "type": "moment",
@@ -521,6 +523,7 @@
       "text": "Qualifying promised one thing and the race delivered another.",
       "bullets": [
         "P6 on the grid, P12 at the flag",
+        "2 stops when most of the field made 1",
         "Qualifying rewards whoever can put one lap together. A race asks for 78 of them"
       ]
     },
@@ -623,7 +626,7 @@
       "lap": 78,
       "kicker": "Guess it",
       "title": "How far behind was Hamilton at the flag?",
-      "text": "78 laps, 2 hours 24 minutes of racing, and it comes down to this one number.",
+      "text": "78 laps, 1 hour 47 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
       "max": 25.1,

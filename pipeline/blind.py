@@ -71,10 +71,13 @@ def blind_rounds(s, fmt) -> list[dict]:
         start, finish = grid.get(num), s.finish_pos(num)
         retired = bool(r.get("dnf"))
         stops = s.pit_laps(num)
-        comps = list(dict.fromkeys(
-            st.get("compound") for st in s.stints
-            if st.get("driver_number") == num and st.get("compound")
-            and st.get("compound") != "UNKNOWN"))
+        comps = []
+        for st in sorted((st for st in s.stints if st.get("driver_number") == num),
+                         key=lambda st: st.get("lap_start") or 0):
+            c = st.get("compound")
+            # medium, hard, medium stays three sets: only back-to-back repeats fold
+            if c and c != "UNKNOWN" and (not comps or comps[-1] != c):
+                comps.append(c)
         pace = s.pace(num)
         pens = [c for c in penalties if c["car"] == num]
         moved = swing.get(num, 0)

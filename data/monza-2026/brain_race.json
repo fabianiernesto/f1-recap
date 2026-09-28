@@ -30,7 +30,7 @@
       "overtakes": 12,
       "penalty": null,
       "penaltyFor": null,
-      "led": 7,
+      "led": 9,
       "swings": [],
       "fastestLap": true,
       "gap": 0,
@@ -59,7 +59,7 @@
       "overtakes": 5,
       "penalty": null,
       "penaltyFor": null,
-      "led": 41,
+      "led": 40,
       "swings": [],
       "fastestLap": false,
       "gap": 3.857,
@@ -88,10 +88,10 @@
       ],
       "pace": "1:25.467",
       "paceRaw": 85.467,
-      "overtakes": 6,
+      "overtakes": 7,
       "penalty": null,
       "penaltyFor": null,
-      "led": 4,
+      "led": 3,
       "swings": [],
       "fastestLap": false,
       "gap": 14.718,
@@ -117,7 +117,7 @@
       ],
       "pace": "1:26.070",
       "paceRaw": 86.07,
-      "overtakes": 7,
+      "overtakes": 6,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -175,7 +175,7 @@
       ],
       "pace": "1:26.047",
       "paceRaw": 86.047,
-      "overtakes": 4,
+      "overtakes": 5,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -267,7 +267,7 @@
       ],
       "pace": "1:26.326",
       "paceRaw": 86.326,
-      "overtakes": 6,
+      "overtakes": 5,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -296,7 +296,7 @@
       ],
       "pace": "1:26.733",
       "paceRaw": 86.733,
-      "overtakes": 3,
+      "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -352,7 +352,8 @@
       ],
       "compounds": [
         "MEDIUM",
-        "HARD"
+        "HARD",
+        "MEDIUM"
       ],
       "pace": "1:26.403",
       "paceRaw": 86.403,
@@ -415,11 +416,12 @@
       ],
       "compounds": [
         "MEDIUM",
-        "HARD"
+        "HARD",
+        "MEDIUM"
       ],
       "pace": "1:26.160",
       "paceRaw": 86.16,
-      "overtakes": 9,
+      "overtakes": 8,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -570,7 +572,8 @@
       ],
       "compounds": [
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:28.549",
       "paceRaw": 88.549,
@@ -603,16 +606,11 @@
       ],
       "pace": "1:29.347",
       "paceRaw": 89.347,
-      "overtakes": 0,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
-      "swings": [
-        {
-          "lap": 1,
-          "lost": 2
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": null,
       "vsWinner": 4.144,
@@ -691,50 +689,51 @@
       "4 passes on track"
     ],
     "9": [
-      "5 passes on track"
+      "4 passes on track"
     ],
     "10": [
       "7 passes on track"
     ],
     "12": [
-      "4 passes on track",
+      "5 passes on track",
       "Lawson pitted"
     ],
-    "15": [
-      "3 passes on track"
-    ],
     "16": [
-      "7 passes on track"
+      "8 passes on track"
     ],
     "19": [
-      "4 passes on track"
+      "3 passes on track"
     ],
     "20": [
-      "3 passes on track"
+      "4 passes on track"
     ],
     "21": [
       "3 passes on track"
     ],
     "22": [
-      "4 passes on track"
+      "3 passes on track"
+    ],
+    "23": [
+      "3 passes on track"
     ],
     "24": [
       "Alonso retired"
     ],
     "27": [
-      "virtual safety car, gaps frozen",
       "Hulkenberg pitted",
       "Sainz pitted",
-      "Ocon pitted"
+      "Ocon pitted",
+      "Perez pitted"
     ],
     "28": [
+      "virtual safety car, gaps frozen",
       "Antonelli pitted",
       "Verstappen pitted"
     ],
     "30": [
       "Perez got a 5s penalty"
     ],
-    "41": [
+    "37": [
       "3 passes on track"
     ],
     "46": [
@@ -760,7 +759,7 @@
       ],
       "say": [
         "Antonelli took it",
-        "Mercedes. started P19, led 7 of 53 laps"
+        "Mercedes. started P19, led 9 of 53 laps"
       ]
     },
     {
@@ -801,7 +800,9 @@
         "yellow"
       ],
       "say": [
-        "no proper safety car, just a virtual one on lap 28. gaps frozen, nobody bunched up"
+        "1 safety car, a virtual safety car and a red flag in this one",
+        "virtual safety car on lap 28",
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -815,7 +816,7 @@
         "how many overtakes"
       ],
       "say": [
-        "102 passes on track after lap 1",
+        "103 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -918,7 +919,7 @@
       ],
       "say": [
         "you tell me",
-        "102 passes on track, 0 safety cars and 3 retirements"
+        "103 passes on track, 0 safety cars and 3 retirements"
       ]
     },
     {
@@ -935,7 +936,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once",
         "the whole sport is deciding WHEN to lose that time"
       ]
@@ -986,7 +987,7 @@
         "pole"
       ],
       "say": [
-        "28 places changed hands on track on lap 1",
+        "27 places changed hands on track on lap 1",
         "cold tyres, cold brakes, full fuel and everybody going for the same gap"
       ]
     }

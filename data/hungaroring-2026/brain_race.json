@@ -33,7 +33,7 @@
       "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
-      "led": 35,
+      "led": 36,
       "swings": [],
       "fastestLap": false,
       "gap": 0,
@@ -98,7 +98,7 @@
       "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
-      "led": 9,
+      "led": 10,
       "swings": [],
       "fastestLap": false,
       "gap": 18.728,
@@ -124,7 +124,8 @@
       ],
       "compounds": [
         "SOFT",
-        "HARD"
+        "HARD",
+        "SOFT"
       ],
       "pace": "1:24.898",
       "paceRaw": 84.898,
@@ -157,7 +158,8 @@
       ],
       "compounds": [
         "SOFT",
-        "HARD"
+        "HARD",
+        "SOFT"
       ],
       "pace": "1:24.745",
       "paceRaw": 84.745,
@@ -415,7 +417,8 @@
       ],
       "compounds": [
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:26.919",
       "paceRaw": 86.919,
@@ -447,7 +450,8 @@
       ],
       "compounds": [
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:27.312",
       "paceRaw": 87.312,
@@ -577,7 +581,8 @@
       ],
       "compounds": [
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:27.779",
       "paceRaw": 87.779,
@@ -653,7 +658,7 @@
       "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
-      "led": 26,
+      "led": 25,
       "swings": [],
       "fastestLap": false,
       "gap": null,
@@ -673,7 +678,6 @@
       "dnfLap": 49,
       "points": 0,
       "stops": [
-        21,
         46
       ],
       "compounds": [
@@ -690,7 +694,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 4.547,
-      "extraStops": 0
+      "extraStops": -1
     },
     "bottas": {
       "name": "Bottas",
@@ -710,7 +714,7 @@
       ],
       "pace": "1:28.969",
       "paceRaw": 88.969,
-      "overtakes": 1,
+      "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -723,7 +727,7 @@
   },
   "lapEvents": {
     "2": [
-      "3 passes on track, busiest lap of the race"
+      "3 passes on track"
     ],
     "8": [
       "Stroll pitted"
@@ -739,12 +743,12 @@
       "Colapinto pitted"
     ],
     "16": [
+      "4 passes on track, busiest lap of the race",
       "Piastri pitted",
       "Leclerc pitted",
       "Gasly pitted"
     ],
     "17": [
-      "3 passes on track, busiest lap of the race",
       "Norris pitted",
       "Ocon pitted"
     ],
@@ -752,6 +756,7 @@
       "Sainz pitted"
     ],
     "19": [
+      "3 passes on track",
       "Hadjar pitted",
       "Hulkenberg pitted"
     ],
@@ -759,15 +764,13 @@
       "Lindblad pitted"
     ],
     "21": [
-      "Lawson pitted",
-      "Perez pitted"
+      "Lawson pitted"
     ],
     "22": [
       "Antonelli pitted",
       "Bearman pitted"
     ],
     "26": [
-      "3 passes on track, busiest lap of the race",
       "Albon pitted"
     ],
     "27": [
@@ -795,10 +798,8 @@
       "Stroll pitted",
       "Colapinto pitted"
     ],
-    "38": [
-      "3 passes on track, busiest lap of the race"
-    ],
     "39": [
+      "3 passes on track",
       "Hulkenberg pitted",
       "Gasly pitted",
       "Norris pitted"
@@ -832,15 +833,14 @@
       "Sainz pitted"
     ],
     "55": [
-      "virtual safety car, gaps frozen",
       "Gasly pitted",
       "Alonso pitted"
     ],
     "56": [
+      "virtual safety car, gaps frozen",
       "Norris pitted",
       "Hamilton pitted",
-      "Leclerc pitted",
-      "Piastri retired"
+      "Leclerc pitted"
     ],
     "58": [
       "Bearman got a 5s penalty",
@@ -866,7 +866,7 @@
       ],
       "say": [
         "Norris took it",
-        "McLaren. started P1, led 35 of 70 laps"
+        "McLaren. started P1, led 36 of 70 laps"
       ]
     },
     {
@@ -907,7 +907,9 @@
         "yellow"
       ],
       "say": [
-        "no proper safety car, just a virtual one on lap 56. gaps frozen, nobody bunched up"
+        "a virtual safety car in this one",
+        "virtual safety car on lap 56",
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -921,7 +923,7 @@
         "how many overtakes"
       ],
       "say": [
-        "53 passes on track after lap 1",
+        "54 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -937,7 +939,7 @@
         "pitted"
       ],
       "say": [
-        "45 stops in the whole race",
+        "44 stops in the whole race",
         "you spend about 22s in the pit lane here"
       ]
     },
@@ -1026,7 +1028,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 53°C at the start and 46°C at the flag"
+        "track between 46°C and 53°C, 53°C at the start and 46°C at the flag"
       ]
     },
     {
@@ -1043,7 +1045,7 @@
       ],
       "say": [
         "you tell me",
-        "53 passes on track, 0 safety cars and 3 retirements"
+        "54 passes on track, 0 safety cars and 3 retirements"
       ]
     },
     {
@@ -1060,7 +1062,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 22 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]

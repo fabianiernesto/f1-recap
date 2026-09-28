@@ -6,7 +6,7 @@
       "msgs": [
         "yo",
         "you missed the race",
-        "71 laps, 44 passes on track and a virtual safety car on lap 25"
+        "71 laps, 44 passes on track and 2 virtual safety cars"
       ],
       "asks": [
         {
@@ -26,7 +26,7 @@
         {
           "q": "i know nothing about f1, start there",
           "a": [
-            "ok so 22 cars, lined up in the order they qualified",
+            "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
             "in a dry race everyone has to use two different tyre types, so everyone stops at least once, and you spend about 22 seconds in the pit lane when you do",
             "the whole sport is basically deciding WHEN to lose that time"
           ]
@@ -37,7 +37,7 @@
       "lap": 1,
       "msgs": [
         "lights out",
-        "18 places changed hands before they even finished lap 1"
+        "17 places changed hands before they even finished lap 1"
       ],
       "asks": [
         {
@@ -51,7 +51,7 @@
           "q": "does the start decide the race",
           "a": [
             "more than anyone admits",
-            "track position is everything on most circuits, you lose 3 places on lap 1 and you can spend the next hour stuck behind someone slower"
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
           ]
         }
       ]
@@ -68,29 +68,6 @@
           "a": [
             "yeah, only moves made on track count here",
             "swaps in the pit lane and stuff behind the safety car are left out"
-          ]
-        }
-      ]
-    },
-    {
-      "lap": 25,
-      "msgs": [
-        "most of the stops came around lap 25",
-        "this is the bit TV makes look boring and where a lot gets decided"
-      ],
-      "asks": [
-        {
-          "q": "why not just stop early every time",
-          "a": [
-            "new tyres are quickest for the first few laps, then they start going off",
-            "stop too early and you're on worn rubber at the end with everyone hunting you. stop too late and someone's already jumped you"
-          ]
-        },
-        {
-          "q": "what's an undercut",
-          "a": [
-            "you pit before the guy ahead, do fast laps on new tyres while he's still out there on old ones",
-            "if it works he comes out behind you after his stop. you never passed him on track, you passed him in the pit lane"
           ]
         }
       ]

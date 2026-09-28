@@ -12,7 +12,7 @@
     "margin": 2.374
   },
   "economics": {
-    "pitLoss": 20.1,
+    "pitLoss": 20.6,
     "fuelTrend": -0.0195,
     "tyres": {
       "MEDIUM": {
@@ -41,7 +41,7 @@
       "facts": [
         [
           "Running",
-          "P8"
+          "P3"
         ],
         [
           "Tyre",
@@ -49,11 +49,11 @@
         ],
         [
           "Ahead",
-          "Sainz, 5.0s up"
+          "Antonelli, 4.9s up"
         ],
         [
           "Behind",
-          "Albon"
+          "Piastri"
         ]
       ],
       "options": [
@@ -116,7 +116,7 @@
       "facts": [
         [
           "Running",
-          "P8"
+          "P3"
         ],
         [
           "Tyre",
@@ -124,11 +124,11 @@
         ],
         [
           "Ahead",
-          "Sainz, 5.0s up"
+          "Antonelli, 4.9s up"
         ],
         [
           "Behind",
-          "Albon"
+          "Piastri"
         ]
       ],
       "options": [

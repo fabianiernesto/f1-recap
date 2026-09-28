@@ -54,7 +54,7 @@
         ],
         [
           "Laps led",
-          "58"
+          "57"
         ],
         [
           "Stops",
@@ -77,7 +77,7 @@
           "P1"
         ]
       ],
-      "tell": "led 58 of 71 laps and took the win",
+      "tell": "led 57 of 71 laps and took the win",
       "options": [
         "Antonelli",
         "Piastri",
@@ -310,7 +310,7 @@
         ],
         [
           "Tyres",
-          "medium to hard to soft"
+          "medium to hard to soft to hard"
         ],
         [
           "Median lap",
@@ -318,7 +318,7 @@
         ],
         [
           "On-track passes",
-          "6"
+          "5"
         ],
         [
           "Finished",

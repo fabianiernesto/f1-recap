@@ -36,15 +36,15 @@
       "label": "Qualifying",
       "kind": "quali",
       "headline": "Antonelli on pole",
-      "moments": 8,
+      "moments": 7,
       "laps": 21
     },
     {
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "58 on-track passes, 1 safety car",
-      "moments": 31,
+      "headline": "57 on-track passes, 1 safety car",
+      "moments": 30,
       "laps": 53
     }
   ],
@@ -64,7 +64,7 @@
       "last": "Antonelli",
       "time": "1:32.432"
     },
-    "passes": 58,
+    "passes": 57,
     "stops": 26,
     "dnfs": 2,
     "safetyCars": 1,

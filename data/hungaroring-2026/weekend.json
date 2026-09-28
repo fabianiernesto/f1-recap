@@ -43,7 +43,7 @@
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "53 on-track passes",
+      "headline": "54 on-track passes",
       "moments": 29,
       "laps": 70
     }
@@ -64,8 +64,8 @@
       "last": "Leclerc",
       "time": "1:22.000"
     },
-    "passes": 53,
-    "stops": 45,
+    "passes": 54,
+    "stops": 44,
     "dnfs": 3,
     "safetyCars": 0,
     "redFlag": false,

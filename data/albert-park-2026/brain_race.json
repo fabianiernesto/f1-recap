@@ -147,7 +147,8 @@
       ],
       "compounds": [
         "MEDIUM",
-        "HARD"
+        "HARD",
+        "MEDIUM"
       ],
       "pace": "1:23.435",
       "paceRaw": 83.435,
@@ -179,7 +180,8 @@
       ],
       "compounds": [
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "HARD"
       ],
       "pace": "1:23.491",
       "paceRaw": 83.491,
@@ -214,7 +216,7 @@
       ],
       "pace": "1:24.692",
       "paceRaw": 84.692,
-      "overtakes": 3,
+      "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -249,12 +251,7 @@
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
-      "swings": [
-        {
-          "lap": 17,
-          "lost": 16
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": null,
       "vsWinner": 1.76,
@@ -414,10 +411,6 @@
         {
           "lap": 1,
           "lost": 2
-        },
-        {
-          "lap": 1,
-          "lost": 2
         }
       ],
       "fastestLap": false,
@@ -446,16 +439,11 @@
       ],
       "pace": "1:25.670",
       "paceRaw": 85.67,
-      "overtakes": 3,
+      "overtakes": 1,
       "penalty": "a stop-and-go",
       "penaltyFor": "starting procedure infringement",
       "led": 0,
-      "swings": [
-        {
-          "lap": 1,
-          "lost": 2
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": null,
       "vsWinner": 2.567,
@@ -481,7 +469,8 @@
       "compounds": [
         "SOFT",
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:25.974",
       "paceRaw": 85.974,
@@ -542,7 +531,6 @@
       "stops": [
         11,
         26,
-        34,
         39
       ],
       "compounds": [
@@ -560,7 +548,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 4.361,
-      "extraStops": 3
+      "extraStops": 2
     },
     "alonso": {
       "name": "Alonso",
@@ -572,7 +560,7 @@
       "moved": null,
       "dnf": true,
       "dns": false,
-      "dnfLap": 22,
+      "dnfLap": 21,
       "points": 0,
       "stops": [
         11
@@ -602,7 +590,7 @@
       "moved": null,
       "dnf": true,
       "dns": false,
-      "dnfLap": 16,
+      "dnfLap": 15,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -630,7 +618,7 @@
       "moved": null,
       "dnf": true,
       "dns": false,
-      "dnfLap": 11,
+      "dnfLap": 10,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -669,10 +657,6 @@
       "penaltyFor": null,
       "led": 0,
       "swings": [
-        {
-          "lap": 1,
-          "lost": 2
-        },
         {
           "lap": 1,
           "lost": 2
@@ -721,30 +705,33 @@
     "2": [
       "6 passes on track, busiest lap of the race"
     ],
+    "4": [
+      "3 passes on track"
+    ],
     "5": [
       "5 passes on track"
     ],
     "7": [
-      "3 passes on track"
+      "4 passes on track"
     ],
     "8": [
       "Colapinto got a stop-and-go"
     ],
     "10": [
-      "virtual safety car, gaps frozen"
+      "Hadjar retired"
     ],
     "11": [
+      "virtual safety car, gaps frozen",
       "Norris pitted",
       "Ocon pitted",
-      "Gasly pitted",
-      "Sainz pitted"
+      "Gasly pitted"
     ],
     "12": [
       "Russell pitted",
       "Antonelli pitted",
       "Albon pitted"
     ],
-    "16": [
+    "15": [
       "Bottas retired"
     ],
     "17": [
@@ -757,7 +744,7 @@
       "Verstappen pitted",
       "Perez pitted"
     ],
-    "22": [
+    "21": [
       "Alonso retired"
     ],
     "25": [
@@ -769,18 +756,17 @@
     "28": [
       "Hamilton pitted"
     ],
-    "32": [
-      "virtual safety car, gaps frozen"
-    ],
     "33": [
-      "3 passes on track",
+      "virtual safety car, gaps frozen",
       "Bortoleto pitted",
       "Albon pitted",
       "Lawson pitted"
     ],
     "34": [
-      "Norris pitted",
-      "Stroll pitted"
+      "Norris pitted"
+    ],
+    "37": [
+      "3 passes on track"
     ],
     "39": [
       "Stroll pitted"
@@ -858,7 +844,9 @@
         "yellow"
       ],
       "say": [
-        "no proper safety car, just a virtual one on lap 12. gaps frozen, nobody bunched up"
+        "3 virtual safety cars in this one",
+        "virtual safety car on lap 11, 17, 33",
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -872,7 +860,7 @@
         "how many overtakes"
       ],
       "say": [
-        "33 passes on track after lap 1",
+        "32 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -888,7 +876,7 @@
         "pitted"
       ],
       "say": [
-        "29 stops in the whole race",
+        "28 stops in the whole race",
         "you spend about 19s in the pit lane here"
       ]
     },
@@ -977,7 +965,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 37°C at the start and 34°C at the flag"
+        "track between 34°C and 39°C, 37°C at the start and 34°C at the flag"
       ]
     },
     {
@@ -994,7 +982,7 @@
       ],
       "say": [
         "you tell me",
-        "33 passes on track, 0 safety cars and 3 retirements"
+        "32 passes on track, 0 safety cars and 3 retirements"
       ]
     },
     {
@@ -1011,7 +999,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 20 cars, lined up in the order they qualified",
+        "ok so 20 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 19 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]
@@ -1046,7 +1034,7 @@
         "crash"
       ],
       "say": [
-        "Alonso on lap 22 · Bottas on lap 16 · Hadjar on lap 11",
+        "Alonso on lap 21 · Bottas on lap 15 · Hadjar on lap 10",
         "the data says when they stopped, not why"
       ]
     },
@@ -1062,7 +1050,7 @@
         "pole"
       ],
       "say": [
-        "25 places changed hands on track on lap 1",
+        "24 places changed hands on track on lap 1",
         "cold tyres, cold brakes, full fuel and everybody going for the same gap"
       ]
     }

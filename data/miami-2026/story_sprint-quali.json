@@ -141,26 +141,14 @@
       "type": "moment",
       "lap": 4,
       "kicker": "Deleted laps",
-      "title": "8 laps thrown in the bin",
+      "title": "2 laps thrown in the bin",
       "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
       "dato": {
         "label": "Deleted laps",
         "rows": [
           [
-            "Hulkenberg",
-            "at turn 5"
-          ],
-          [
-            "Stroll",
-            "2:09.082"
-          ],
-          [
             "Leclerc",
             "2:03.388"
-          ],
-          [
-            "Alonso",
-            "1:32.490"
           ],
           [
             "Colapinto",
@@ -204,7 +192,7 @@
       "type": "moment",
       "lap": 7,
       "kicker": "Interruptions",
-      "title": "Yellow flags out 3 times during the session",
+      "title": "Yellow flags out 2 times during the session",
       "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
     },
     {

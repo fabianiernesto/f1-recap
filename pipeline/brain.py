@@ -22,22 +22,34 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     sprint = s.label.startswith("Sprint")
     event = "sprint" if sprint else "race"
     scs = s.sc_periods
+    from build_weekend import neutral_summary  # the same words as the mate
+    wet_start = any((st.get("lap_start") or 0) == 1 and st.get("compound") in ("INTERMEDIATE", "WET")
+                    for st in s.stints)
 
     def plural(n, w, many=None):
         return f"{n} {w if n == 1 else (many or w + 's')}"
 
     # where each driver was, lap by lap, so a collapse can be pinned to a lap
     pos_by_driver: dict[int, list[tuple[int, int]]] = defaultdict(list)
+    pos_ts: dict[int, list[tuple]] = defaultdict(list)
     for pt in sorted(s.position, key=lambda x: x.get('date') or ''):
-        ln = s.lap_of(parse_ts(pt.get('date')))
+        t = parse_ts(pt.get('date'))
+        ln = s.lap_of(t)
         if ln and pt.get('position'):
             pos_by_driver[pt['driver_number']].append((ln, pt['position']))
+            pos_ts[pt['driver_number']].append((t, ln, pt['position']))
 
     def swings(num: int) -> list[dict]:
+        """Places lost at once, unless he had them back within a minute: the
+        feed sometimes drops a car to the back for a few seconds (Suzuka 2026)."""
+        ev = pos_ts.get(num, [])
         out, prev = [], grid.get(num)
-        for ln, pos in pos_by_driver.get(num, []):
+        for i, (t, ln, pos) in enumerate(ev):
             if prev is not None and pos - prev >= 2:
-                out.append({'lap': ln, 'lost': pos - prev})
+                back = any((t2 - t).total_seconds() <= 60 and p2 <= prev + 1
+                           for t2, _, p2 in ev[i + 1:i + 12])
+                if not back and not any(o['lap'] == ln for o in out):
+                    out.append({'lap': ln, 'lost': pos - prev})
             prev = pos
         out.sort(key=lambda x: -x['lost'])
         return out[:3]
@@ -69,9 +81,12 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     for r in s.result:
         num = r["driver_number"]
         info = s.drivers.get(num, {})
-        comps = [st.get("compound") for st in s.stints
-                 if st.get("driver_number") == num and st.get("compound")
-                 and st.get("compound") != "UNKNOWN"]
+        comps = []
+        for st in sorted((st for st in s.stints if st.get("driver_number") == num),
+                         key=lambda st: st.get("lap_start") or 0):
+            c = st.get("compound")
+            if c and c != "UNKNOWN" and (not comps or comps[-1] != c):
+                comps.append(c)
         pace = s.pace(num)
         pens = [c for c in penalties if c["car"] == num]
         start, finish = grid.get(num), s.finish_pos(num)
@@ -89,7 +104,7 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
             "dnfLap": s.stop_lap(num) if retired else None,
             "points": round(r.get("points") or 0),
             "stops": s.pit_laps(num),
-            "compounds": list(dict.fromkeys(comps)),
+            "compounds": comps,
             "pace": fmt(pace) if pace else None,
             "paceRaw": round(pace, 3) if pace else None,
             "overtakes": ov_by_driver.get(num, 0),
@@ -164,19 +179,17 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
          "keys": ["fastest lap", "quickest lap", "vuelta rapida", "fastest time"],
          "say": [f"{s.name(best['driver_number'])}, {fmt(best['lap_duration'])} on lap "
                  f"{best.get('lap_number')}",
-                 "no points for it anymore, that went after 2024. bragging rights only"]
+                 ("a sprint has never paid a point for it" if sprint else
+                  "no points for it anymore, that went after 2024. bragging rights only")]
                 if best else []},
         {"id": "sc",
          "keys": ["safety car", "sc", "coche de seguridad", "neutralised", "yellow"],
-         "say": ([f"safety car on lap {', '.join(str(p['lap']) for p in scs if p['lap'])}",
-                  "something's on track that shouldn't be, so everyone queues behind a "
-                  "road car at reduced speed",
-                  "if you'd built a big lead it's gone. brutal when you're leading, "
-                  "brilliant when you're not"] if scs
-                 else [f"no proper safety car, just a virtual one on lap "
-                       f"{s.vsc_laps[0]}. gaps frozen, nobody bunched up"]
-                 if s.vsc_laps
-                 else [f"no safety car in this one"])},
+         "say": [neutral_summary(s) + " in this one"]
+                + (["safety car on lap " + ", ".join(str(p['lap']) for p in scs if p['lap'])] if scs else [])
+                + (["virtual safety car on lap " + ", ".join(str(s.lap_of(a)) for a, _ in s.vsc_periods)]
+                   if s.vsc_periods else [])
+                + (["a safety car wipes every gap. a virtual one freezes them where they are"]
+                   if scs or s.vsc_periods else [])},
         {"id": "overtakes",
          "keys": ["overtake", "overtaking", "passes", "adelantamiento", "adelantamientos",
                   "how many overtakes"],
@@ -219,7 +232,8 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
          "keys": ["weather", "rain", "wet", "dry", "temperature", "lluvia", "tiempo",
                   "calor", "hot"],
          "say": ([("rain was recorded" if wet else "no rain recorded during it"),
-                  f"track at {track_t[0]:.0f}°C at the start and {track_t[-1]:.0f}°C at the flag"]
+                  f"track between {min(track_t):.0f}°C and {max(track_t):.0f}°C, "
+                  f"{track_t[0]:.0f}°C at the start and {track_t[-1]:.0f}°C at the flag"]
                  if len(track_t) >= 2 else [])},
         {"id": "good",
          "keys": ["was it good", "worth watching", "boring", "merece la pena",
@@ -230,10 +244,13 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
         {"id": "newbie",
          "keys": ["explain", "i know nothing", "new to f1", "how does this work",
                   "no entiendo", "explicame", "beginner", "from scratch", "like im five"],
-         "say": [f"ok so {s.starters} cars, lined up in the order they qualified",
-                 "in a dry race everyone has to use two tyre types, so everyone stops at "
-                 "least once" + (f", about {lane:.0f} seconds in the pit lane each time" if lane else ""),
-                 "the whole sport is deciding WHEN to lose that time"]},
+         "say": [f"ok so {s.starters} cars, lined up roughly in qualifying order, less any grid penalties"]
+                + (["there's no compulsory stop in a sprint, so plenty go the distance on one set"]
+                   if sprint else
+                   ["it started wet, so the usual two-compound rule didn't apply"] if wet_start else
+                   ["in a dry race everyone has to use two tyre types, so everyone stops at "
+                    "least once" + (f", about {lane:.0f} seconds in the pit lane each time" if lane else ""),
+                    "the whole sport is deciding WHEN to lose that time"])},
         {"id": "pace",
          "keys": ["fastest car", "best car", "pace", "ritmo", "quickest car",
                   "who was quickest", "who had the pace"],
@@ -246,7 +263,10 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
          "say": ([" · ".join(f"{d['name']} on lap {d['dnfLap']}"
                              for d in drivers.values() if d["dnf"]),
                   "the data says when they stopped, not why"]
-                 if any(d["dnf"] for d in drivers.values()) else ["everyone who started finished"])},
+                 if any(d["dnf"] for d in drivers.values()) else
+                 [" · ".join(s.name(r["driver_number"]) for r in s.unclassified)
+                  + " running at the end but not classified"] if s.unclassified else
+                 ["everyone who started finished"])},
         {"id": "grid",
          "keys": ["start", "lights out", "first lap", "lap 1", "salida", "grid", "pole"],
          "say": [f"{plural(lap1, 'place')} changed hands on track on lap 1",

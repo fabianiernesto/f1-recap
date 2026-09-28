@@ -141,7 +141,7 @@
       "type": "moment",
       "lap": 4,
       "kicker": "Track limits",
-      "title": "3 laps thrown in the bin",
+      "title": "6 laps thrown in the bin",
       "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
       "dato": {
         "label": "Deleted laps",
@@ -155,8 +155,16 @@
             "1:47.848"
           ],
           [
+            "Lawson",
+            "at turn 1"
+          ],
+          [
             "Verstappen",
             "7:27.050"
+          ],
+          [
+            "Piastri",
+            "at turn 1"
           ]
         ]
       }

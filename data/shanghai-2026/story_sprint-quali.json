@@ -139,34 +139,6 @@
     },
     {
       "type": "moment",
-      "lap": 4,
-      "kicker": "Track limits",
-      "title": "4 laps thrown in the bin",
-      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
-      "dato": {
-        "label": "Deleted laps",
-        "rows": [
-          [
-            "Stroll",
-            "1:38.378"
-          ],
-          [
-            "Bortoleto",
-            "1:38.344"
-          ],
-          [
-            "Bearman",
-            "1:35.160"
-          ],
-          [
-            "Verstappen",
-            "1:37.553"
-          ]
-        ]
-      }
-    },
-    {
-      "type": "moment",
       "lap": 5,
       "kicker": "Speed trap",
       "title": "Sainz and Albon were quickest through the trap: 325 km/h",

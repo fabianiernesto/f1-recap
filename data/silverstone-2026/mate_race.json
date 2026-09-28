@@ -6,7 +6,7 @@
       "msgs": [
         "yo",
         "you missed the race",
-        "52 laps, 60 passes on track and 1 safety car"
+        "52 laps, 59 passes on track and 1 safety car and 2 virtual safety cars"
       ],
       "asks": [
         {
@@ -20,13 +20,13 @@
           "q": "was it actually good or are you being nice",
           "a": [
             "you tell me lol",
-            "60 passes on track, not counting the ones in the pit lane"
+            "59 passes on track, not counting the ones in the pit lane"
           ]
         },
         {
           "q": "i know nothing about f1, start there",
           "a": [
-            "ok so 22 cars, lined up in the order they qualified",
+            "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
             "in a dry race everyone has to use two different tyre types, so everyone stops at least once, and you spend about 29 seconds in the pit lane when you do",
             "the whole sport is basically deciding WHEN to lose that time"
           ]
@@ -37,7 +37,7 @@
       "lap": 1,
       "msgs": [
         "lights out",
-        "29 places changed hands before they even finished lap 1"
+        "27 places changed hands before they even finished lap 1"
       ],
       "asks": [
         {
@@ -51,53 +51,46 @@
           "q": "does the start decide the race",
           "a": [
             "more than anyone admits",
-            "track position is everything on most circuits, you lose 3 places on lap 1 and you can spend the next hour stuck behind someone slower"
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
           ]
         }
       ]
     },
     {
-      "lap": 48,
+      "lap": 26,
       "msgs": [
-        "SAFETY CAR on lap 48",
-        "4 laps left and every gap just got deleted"
+        "lap 26 was the busiest of the whole race",
+        "5 passes on that lap alone"
       ],
       "asks": [
         {
-          "q": "explain safety car like i'm five",
+          "q": "why do they all overtake at the same time",
           "a": [
-            "something's on track that shouldn't be, so a road car comes out and everyone has to queue up behind it at reduced speed",
-            "if you'd built a big lead, it's gone. the guy in P2 is now right behind you"
+            "3 cars had just stopped around then",
+            "you come out on new tyres next to someone on old ones and passing gets a lot easier"
           ]
         },
         {
-          "q": "so is pitting under it free",
+          "q": "are those real passes",
           "a": [
-            "close to it. everyone's going slow so you lose way less time stopping",
-            "the catch is everyone behind you can do the same thing, and whoever doesn't follow you inherits the lead"
+            "yeah, only moves made on track count here",
+            "swaps in the pit lane and stuff behind the safety car are left out"
           ]
         }
       ]
     },
     {
-      "lap": 34,
+      "lap": 37,
       "msgs": [
-        "most of the stops came around lap 34",
-        "this is the bit TV makes look boring and where a lot gets decided"
+        "fastest lap of the race went to Antonelli",
+        "1:31.777, on lap 37"
       ],
       "asks": [
         {
-          "q": "why not just stop early every time",
+          "q": "is fastest lap worth anything",
           "a": [
-            "new tyres are quickest for the first few laps, then they start going off",
-            "stop too early and you're on worn rubber at the end with everyone hunting you. stop too late and someone's already jumped you"
-          ]
-        },
-        {
-          "q": "what's an undercut",
-          "a": [
-            "you pit before the guy ahead, do fast laps on new tyres while he's still out there on old ones",
-            "if it works he comes out behind you after his stop. you never passed him on track, you passed him in the pit lane"
+            "not anymore, there's been no point for it since 2025",
+            "it's bragging rights now"
           ]
         }
       ]
@@ -125,23 +118,24 @@
       ]
     },
     {
-      "lap": 37,
+      "lap": 48,
       "msgs": [
-        "fastest lap of the race went to Antonelli",
-        "1:31.777, on lap 37"
+        "SAFETY CAR on lap 48",
+        "4 laps left and every gap just got deleted"
       ],
       "asks": [
         {
-          "q": "is fastest lap worth anything",
+          "q": "explain safety car like i'm five",
           "a": [
-            "not anymore, there's been no point for it since 2025",
-            "it's bragging rights now"
+            "something's on track that shouldn't be, so a road car comes out and everyone has to queue up behind it at reduced speed",
+            "if you'd built a big lead, it's gone. the guy in P2 is now right behind you"
           ]
         },
         {
-          "q": "why is it late in the race",
+          "q": "so is pitting under it free",
           "a": [
-            "car's light, almost no fuel left, and the track has rubber all over it by then"
+            "close to it. everyone's going slow so you lose way less time stopping",
+            "the catch is everyone behind you can do the same thing, and whoever doesn't follow you inherits the lead"
           ]
         }
       ]

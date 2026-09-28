@@ -139,38 +139,6 @@
     },
     {
       "type": "moment",
-      "lap": 4,
-      "kicker": "Track limits",
-      "title": "7 laps thrown in the bin",
-      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
-      "dato": {
-        "label": "Deleted laps",
-        "rows": [
-          [
-            "Colapinto",
-            "1:23.393"
-          ],
-          [
-            "Lawson",
-            "at turn 2"
-          ],
-          [
-            "Hamilton",
-            "1:36.101"
-          ],
-          [
-            "Russell",
-            "2:19.248"
-          ],
-          [
-            "Albon",
-            "at turn 9"
-          ]
-        ]
-      }
-    },
-    {
-      "type": "moment",
       "lap": 5,
       "kicker": "Speed trap",
       "title": "Lindblad was quickest through the trap: 315 km/h",
@@ -204,8 +172,8 @@
       "type": "moment",
       "lap": 7,
       "kicker": "Interruptions",
-      "title": "Yellow flags out 1 time during the session",
-      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
+      "title": "Yellow flags out 1 time, and the session stopped 2 times",
+      "text": "A red flag stops the session and sends everybody back to the pits."
     },
     {
       "type": "moment",

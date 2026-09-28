@@ -11,18 +11,29 @@
       "lap": 0,
       "kicker": "Miami Grand Prix · Race · 57 laps",
       "title": "Everything that happened, in order",
-      "text": "50 on-track passes, 20 pit stops, 4 cars that never finished, 1 safety car."
+      "text": "54 on-track passes, 21 pit stops, 4 cars that never finished, 1 safety car."
     },
     {
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "30 places changed hands on track before the first lap was done",
+      "title": "29 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Albon, Piastri and Lawson gained the most by the end of it, 5 places at best"
+        "Sainz, Albon and Perez gained the most by the end of it, 4 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · Traffic",
+      "title": "7 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "6 different drivers gained a place on this lap"
+      ],
+      "note": "Early on, with full tanks and the order still settling."
     },
     {
       "type": "prediction",
@@ -57,7 +68,7 @@
       "lap": 4,
       "kicker": "Lap 4 · For the lead",
       "title": "Antonelli takes the lead from Leclerc",
-      "text": "The lead changed hands 3 times on track."
+      "text": "A pass for the lead, made on track at racing speed."
     },
     {
       "type": "moment",
@@ -66,7 +77,7 @@
       "title": "Gasly is out",
       "text": "His race ends on lap 5 of 57, in an Alpine.",
       "bullets": [
-        "Running P11 when that lap began",
+        "P11 at the start of lap 4",
         "Started P9",
         "1 on-track pass before it happened"
       ],
@@ -79,9 +90,9 @@
       "title": "Hadjar is out",
       "text": "His race ends on lap 5 of 57, in a Red Bull.",
       "bullets": [
-        "Running P16 when that lap began",
+        "P16 at the start of lap 4",
         "Started P22",
-        "3 on-track passes before it happened"
+        "4 on-track passes before it happened"
       ],
       "note": "The timing feed records that he stopped, not why."
     },
@@ -148,7 +159,7 @@
       "title": "Lawson is out",
       "text": "His race ends on lap 7 of 57, in a Racing Bulls car.",
       "bullets": [
-        "Running P19 when that lap began",
+        "P19 at the start of lap 6",
         "Started P11"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -160,27 +171,16 @@
       "title": "Hulkenberg is out",
       "text": "His race ends on lap 8 of 57, in an Audi.",
       "bullets": [
-        "Running P19 when that lap began",
+        "P19 at the start of lap 7",
         "Started P10"
       ],
       "note": "The timing feed records that he stopped, not why."
     },
     {
       "type": "moment",
-      "lap": 9,
-      "kicker": "Track limits",
-      "title": "13 lap times deleted",
-      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
-      "bullets": [
-        "Alonso lost 4 that way, more than anybody"
-      ],
-      "note": "Keep doing it and it turns into a penalty."
-    },
-    {
-      "type": "moment",
       "lap": 10,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 13 times",
+      "title": "Yellow flags out 8 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track",
@@ -191,10 +191,10 @@
       "type": "moment",
       "lap": 13,
       "kicker": "Lap 13 · Traffic",
-      "title": "6 passes on this lap alone",
+      "title": "5 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "5 different drivers gained a place on this lap"
+        "4 different drivers gained a place on this lap"
       ],
       "note": "Every one of them on track, with no stops around it."
     },
@@ -202,14 +202,14 @@
       "type": "moment",
       "lap": 17,
       "kicker": "Conditions",
-      "title": "Track steady around 37°C all race",
+      "title": "Track between 36°C and 42°C during the race",
       "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the race."
     },
     {
       "type": "moment",
       "lap": 19,
       "kicker": "The one doing the passing",
-      "title": "Verstappen: 10 passes",
+      "title": "Verstappen: 11 passes",
       "text": "More than anybody else out there, in a Red Bull.",
       "bullets": [
         "P2 on the grid, P5 at the flag"
@@ -219,7 +219,7 @@
         "rows": [
           [
             "Verstappen",
-            10
+            11
           ],
           [
             "Leclerc",
@@ -230,16 +230,16 @@
             7
           ],
           [
+            "Hadjar",
+            4
+          ],
+          [
             "Antonelli",
             4
           ],
           [
             "Piastri",
             4
-          ],
-          [
-            "Hadjar",
-            3
           ]
         ]
       },
@@ -274,12 +274,12 @@
       "type": "moment",
       "lap": 27,
       "kicker": "Lap 27 · Pit window",
-      "title": "20 stops, and the busiest lap saw 3 of them",
+      "title": "21 stops, and the busiest lap saw 3 of them",
       "text": "Once one car stops, the cars around it have to answer.",
       "bullets": [
         "3 cars in on each of laps 21, 27 and 28",
         "Shortest time in the pit lane: Russell, 22.0s",
-        "Longest: Ocon and Bortoleto, 24.0s"
+        "Longest: Hulkenberg, 33.7s"
       ],
       "note": "Pit lane time runs from the entry line to the exit line, stop included."
     },
@@ -287,20 +287,20 @@
       "type": "decision",
       "lap": 27,
       "kicker": "Your call on the pit wall",
-      "title": "You are Norris, 0.1s behind Antonelli and going nowhere. Now what?",
+      "title": "You are Verstappen, 0.5s behind Hamilton and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
           "Running",
-          "P4"
+          "P5"
         ],
         [
           "Gap ahead",
-          "0.1s to Antonelli"
+          "0.5s to Hamilton"
         ],
         [
           "Tyres",
-          "Medium, 26 laps old"
+          "Hard, 20 laps old"
         ],
         [
           "Time in the pit lane",
@@ -324,13 +324,13 @@
           "sub": "Send it and take the risk"
         }
       ],
-      "actual": "box",
+      "actual": "wait",
       "outcomes": {
         "box": "You spend about 23s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Norris came in that same lap. He finished P2, Antonelli P1."
+      "reveal": "Verstappen did not stop again. He finished P5, Hamilton P6."
     },
     {
       "type": "moment",
@@ -357,8 +357,7 @@
       "title": "Norris: 1:31.869",
       "text": "The quickest anybody went all race, in a McLaren.",
       "bullets": [
-        "Set on lap 35 of 57, late on, where they usually land",
-        "By then the fuel is nearly gone and the car is at its lightest",
+        "Set on lap 35 of 57, in the second half, with the car already lighter than at the start",
         "It is worth no points: the bonus point for it was dropped after 2024"
       ],
       "dato": {
@@ -417,10 +416,10 @@
     },
     {
       "type": "moment",
-      "lap": 46,
+      "lap": 47,
       "kicker": "Within a second",
       "title": "Bortoleto: 5 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the race, from lap 42 to lap 46, at racing speed.",
+      "text": "The longest unbroken run like it in the race, from lap 43 to lap 47, at racing speed.",
       "bullets": [
         "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks"
       ]
@@ -462,10 +461,10 @@
       "type": "moment",
       "lap": 57,
       "kicker": "Stewards",
-      "title": "9 incidents looked at",
+      "title": "14 incidents looked at",
       "text": "Every one of them logged by race control during the race.",
       "bullets": [
-        "1 ended in a penalty, 6 in no further action and 2 left for after the race"
+        "1 ended in a penalty, 7 in no further action and 6 left for after the race"
       ]
     },
     {

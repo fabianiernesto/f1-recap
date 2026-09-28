@@ -11,16 +11,16 @@
       "lap": 0,
       "kicker": "British Grand Prix · Sprint · 17 laps",
       "title": "Everything that happened, in order",
-      "text": "28 on-track passes, 2 pit stops, every starter at the flag."
+      "text": "30 on-track passes, 2 pit stops, every starter at the flag."
     },
     {
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "23 places changed hands on track before the first lap was done",
+      "title": "22 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Bearman, Colapinto and Gasly gained the most by the end of it, 4 places at best"
+        "Bearman and Colapinto gained the most by the end of it, 4 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
     },
@@ -39,10 +39,10 @@
       "type": "moment",
       "lap": 2,
       "kicker": "Lap 2 · Traffic",
-      "title": "10 passes on this lap alone",
+      "title": "8 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "7 different drivers gained a place on this lap"
+        "8 different drivers gained a place on this lap"
       ],
       "note": "Early on, with full tanks and the order still settling."
     },
@@ -117,6 +117,17 @@
     },
     {
       "type": "moment",
+      "lap": 3,
+      "kicker": "Lap 3 · Traffic",
+      "title": "8 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "7 different drivers gained a place on this lap"
+      ],
+      "note": "Early on, with full tanks and the order still settling."
+    },
+    {
+      "type": "moment",
       "lap": 5,
       "kicker": "The one doing the passing",
       "title": "Hadjar: 4 passes",
@@ -132,6 +143,10 @@
             4
           ],
           [
+            "Bortoleto",
+            3
+          ],
+          [
             "Verstappen",
             3
           ],
@@ -144,11 +159,7 @@
             3
           ],
           [
-            "Leclerc",
-            2
-          ],
-          [
-            "Piastri",
+            "Lindblad",
             2
           ]
         ]
@@ -159,17 +170,28 @@
       "type": "moment",
       "lap": 5,
       "kicker": "Conditions",
-      "title": "Track steady around 37°C all sprint",
+      "title": "Track between 37°C and 41°C during the sprint",
       "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the sprint."
     },
     {
       "type": "moment",
       "lap": 7,
+      "kicker": "Within a second",
+      "title": "Bortoleto: 6 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the sprint, from lap 2 to lap 7, at racing speed.",
+      "bullets": [
+        "2 other drivers had a run of five laps or more like it"
+      ],
+      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
       "kicker": "Track limits",
-      "title": "7 lap times deleted",
+      "title": "9 lap times deleted",
       "text": "The white line is the track, and the lap simply stops counting if you leave it.",
       "bullets": [
-        "Piastri and Stroll lost 2 each, the most of anybody"
+        "Stroll lost 3 that way, more than anybody"
       ],
       "note": "Keep doing it and it turns into a penalty."
     },
@@ -189,7 +211,7 @@
       "lap": 8,
       "kicker": "Lap 8 · For the lead",
       "title": "Antonelli takes the lead from Hamilton",
-      "text": "The only time the lead changed hands on track all sprint."
+      "text": "A pass for the lead, made on track at racing speed."
     },
     {
       "type": "moment",
@@ -260,6 +282,7 @@
       "text": "Qualifying promised one thing and the sprint delivered another.",
       "bullets": [
         "P18 on the grid, P22 at the flag",
+        "1 stop when most of the field made none",
         "Qualifying rewards whoever can put one lap together. A sprint asks for 17 of them"
       ]
     },
@@ -275,25 +298,14 @@
     },
     {
       "type": "moment",
-      "lap": 15,
-      "kicker": "Within a second",
-      "title": "Sainz: 6 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the sprint, from lap 10 to lap 15, at racing speed.",
-      "bullets": [
-        "1 other driver had a run of five laps or more like it"
-      ],
-      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
-    },
-    {
-      "type": "moment",
       "lap": 17,
       "kicker": "Tyres",
-      "title": "20 of 22 cars ran the whole sprint on one set",
-      "text": "No stop at all for most of the field.",
+      "title": "20 of 22 cars never stopped",
+      "text": "One set of tyres took most of the field to the flag.",
       "bullets": [
-        "On the mediums, lap 1 to lap 17"
+        "On one set the whole way: Mediums for 18, softs for Alonso and Bottas"
       ],
-      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane."
     },
     {
       "type": "moment",
@@ -304,7 +316,7 @@
       "bullets": [
         "Set on lap 17 of 17, late on, where they usually land",
         "By then the fuel is nearly gone and the car is at its lightest",
-        "It is worth no points: the bonus point for it was dropped after 2024"
+        "A sprint has never paid a point for it"
       ],
       "dato": {
         "label": "Best sector times",

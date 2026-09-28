@@ -12,7 +12,7 @@
     "margin": 19.561
   },
   "economics": {
-    "pitLoss": 24.6,
+    "pitLoss": 24.4,
     "fuelTrend": -0.0265,
     "tyres": {
       "MEDIUM": {
@@ -41,7 +41,7 @@
       "facts": [
         [
           "Running",
-          "P7"
+          "P2"
         ],
         [
           "Tyre",
@@ -49,11 +49,11 @@
         ],
         [
           "Ahead",
-          "Piastri, 3.6s up"
+          "Russell, 3.6s up"
         ],
         [
           "Behind",
-          "Hulkenberg"
+          "Antonelli"
         ]
       ],
       "options": [
@@ -102,7 +102,7 @@
       "facts": [
         [
           "Running",
-          "P7"
+          "P2"
         ],
         [
           "Tyre",
@@ -110,11 +110,11 @@
         ],
         [
           "Ahead",
-          "Piastri, 2.2s up"
+          "Russell, 2.8s up"
         ],
         [
           "Behind",
-          "Hadjar"
+          "Antonelli"
         ]
       ],
       "options": [

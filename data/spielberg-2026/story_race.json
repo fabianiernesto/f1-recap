@@ -17,10 +17,10 @@
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "18 places changed hands on track before the first lap was done",
+      "title": "17 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Ocon, Alonso and Piastri gained the most by the end of it, 3 places at best"
+        "Ocon gained the most by the end of it, 3 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -67,7 +67,7 @@
       "title": "Bottas is out",
       "text": "His race ends on lap 3 of 71, in a Cadillac.",
       "bullets": [
-        "Running P22 when that lap began",
+        "P21 at the start of lap 2",
         "Started P20",
         "1 on-track pass before it happened"
       ],
@@ -91,7 +91,7 @@
       "title": "Perez is out",
       "text": "His race ends on lap 5 of 71, in a Cadillac.",
       "bullets": [
-        "Running P20 when that lap began",
+        "P18 at the start of lap 4",
         "Started P19"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -154,13 +154,13 @@
     },
     {
       "type": "moment",
-      "lap": 20,
-      "kicker": "Lap 20 · Traffic",
+      "lap": 21,
+      "kicker": "Lap 21 · Traffic",
       "title": "6 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "4 different drivers gained a place on this lap",
-        "6 cars stopped within a lap of it, and new tyres against old ones make passing far easier"
+        "5 different drivers gained a place on this lap",
+        "3 cars stopped within a lap of it, and new tyres against old ones make passing far easier"
       ]
     },
     {
@@ -174,20 +174,20 @@
       "type": "moment",
       "lap": 23,
       "kicker": "The one doing the passing",
-      "title": "Hamilton: 6 passes",
-      "text": "More than anybody else out there, in a Ferrari.",
+      "title": "Colapinto: 6 passes",
+      "text": "More than anybody else out there, in an Alpine.",
       "bullets": [
-        "P3 on the grid, P5 at the flag"
+        "P16 on the grid, P15 at the flag"
       ],
       "dato": {
         "label": "Most passes",
         "rows": [
           [
-            "Hamilton",
+            "Colapinto",
             6
           ],
           [
-            "Colapinto",
+            "Hamilton",
             5
           ],
           [
@@ -213,24 +213,11 @@
     {
       "type": "moment",
       "lap": 24,
-      "kicker": "Lap 24 of 71 · Virtual Safety Car",
-      "title": "Everybody slows down, nobody bunches up",
-      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
-      "bullets": [
-        "Russell was leading when it was called",
-        "Antonelli, Bearman, Alonso and 2 others stopped under it",
-        "Lifted on lap 26"
-      ],
-      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
-    },
-    {
-      "type": "moment",
-      "lap": 24,
       "kicker": "Lap 24 · Retirement",
       "title": "Sainz is out",
       "text": "His race ends on lap 24 of 71, in a Williams.",
       "bullets": [
-        "Running P14 when that lap began",
+        "P14 at the start of lap 23",
         "Started P17",
         "2 on-track passes before it happened"
       ],
@@ -251,9 +238,22 @@
     },
     {
       "type": "moment",
+      "lap": 25,
+      "kicker": "Lap 25 of 71 · Virtual Safety Car",
+      "title": "Everybody slows down, nobody bunches up",
+      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
+      "bullets": [
+        "Russell was leading when it was called",
+        "Antonelli, Bearman, Alonso and 2 others stopped under it",
+        "Lifted on lap 26"
+      ],
+      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
+    },
+    {
+      "type": "moment",
       "lap": 26,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 5 times",
+      "title": "Yellow flags out 3 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track"
@@ -287,7 +287,7 @@
       "type": "decision",
       "lap": 37,
       "kicker": "Your call on the pit wall",
-      "title": "You are Verstappen, 1.9s behind Russell and going nowhere. Now what?",
+      "title": "You are Verstappen, 2.4s behind Russell and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -296,7 +296,7 @@
         ],
         [
           "Gap ahead",
-          "1.9s to Russell"
+          "2.4s to Russell"
         ],
         [
           "Tyres",
@@ -371,7 +371,7 @@
       "title": "Stroll is out",
       "text": "His race ends on lap 46 of 71, in an Aston Martin.",
       "bullets": [
-        "Running P18 when that lap began",
+        "P18 at the start of lap 45",
         "Started P22",
         "1 on-track pass before it happened"
       ],
@@ -381,7 +381,7 @@
       "type": "decision",
       "lap": 46,
       "kicker": "What if",
-      "title": "Stroll was running P18 when his race ended on lap 46. Where does he finish if it had not?",
+      "title": "Stroll was P18 a lap before his race ended on lap 46. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -389,7 +389,7 @@
           "46 of 71"
         ],
         [
-          "Running",
+          "Start of lap 45",
           "P18"
         ],
         [
@@ -464,14 +464,14 @@
     },
     {
       "type": "moment",
-      "lap": 51,
-      "kicker": "Lap 51 of 71 · Virtual Safety Car",
+      "lap": 52,
+      "kicker": "Lap 52 of 71 · Virtual Safety Car",
       "title": "Everybody slows down, nobody bunches up",
       "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
         "Russell was leading when it was called",
         "Gasly took a stop under it",
-        "Lifted on lap 52"
+        "Lifted on lap 53"
       ],
       "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },

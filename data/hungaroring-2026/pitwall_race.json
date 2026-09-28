@@ -12,7 +12,7 @@
     "margin": 0.7
   },
   "economics": {
-    "pitLoss": 21.2,
+    "pitLoss": 21.1,
     "fuelTrend": -0.0355,
     "tyres": {
       "SOFT": {
@@ -41,7 +41,7 @@
       "facts": [
         [
           "Running",
-          "P7"
+          "P3"
         ],
         [
           "Tyre",
@@ -49,11 +49,11 @@
         ],
         [
           "Ahead",
-          "Hamilton, 6.4s up"
+          "Piastri, 6.4s up"
         ],
         [
           "Behind",
-          "Lawson"
+          "Antonelli"
         ]
       ],
       "options": [
@@ -116,7 +116,7 @@
       "facts": [
         [
           "Running",
-          "P7"
+          "P3"
         ],
         [
           "Tyre",
@@ -124,11 +124,11 @@
         ],
         [
           "Ahead",
-          "Hadjar, 1.5s up"
+          "Verstappen, 6.6s up"
         ],
         [
           "Behind",
-          "Russell"
+          "Antonelli"
         ]
       ],
       "options": [
@@ -191,7 +191,7 @@
       "facts": [
         [
           "Running",
-          "P5"
+          "P4"
         ],
         [
           "Tyre",
@@ -199,11 +199,11 @@
         ],
         [
           "Ahead",
-          "Antonelli, 9.2s up"
+          "Verstappen, 11.2s up"
         ],
         [
           "Behind",
-          "Hadjar"
+          "Antonelli"
         ]
       ],
       "options": [
@@ -259,7 +259,7 @@
       "facts": [
         [
           "Running",
-          "P5"
+          "P4"
         ],
         [
           "Tyre",
@@ -267,11 +267,11 @@
         ],
         [
           "Ahead",
-          "Antonelli, 9.2s up"
+          "Verstappen, 11.2s up"
         ],
         [
           "Behind",
-          "Hadjar"
+          "Antonelli"
         ]
       ],
       "options": [

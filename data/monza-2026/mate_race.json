@@ -6,7 +6,7 @@
       "msgs": [
         "yo",
         "you missed the race",
-        "53 laps, 102 passes on track and a virtual safety car on lap 28"
+        "53 laps, 103 passes on track and 1 safety car, a virtual safety car and a red flag"
       ],
       "asks": [
         {
@@ -20,13 +20,13 @@
           "q": "was it actually good or are you being nice",
           "a": [
             "you tell me lol",
-            "102 passes on track, not counting the ones in the pit lane"
+            "103 passes on track, not counting the ones in the pit lane"
           ]
         },
         {
           "q": "i know nothing about f1, start there",
           "a": [
-            "ok so 22 cars, lined up in the order they qualified",
+            "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
             "in a dry race everyone has to use two different tyre types, so everyone stops at least once",
             "the whole sport is basically deciding WHEN to lose that time"
           ]
@@ -37,7 +37,7 @@
       "lap": 1,
       "msgs": [
         "lights out",
-        "28 places changed hands before they even finished lap 1"
+        "27 places changed hands before they even finished lap 1"
       ],
       "asks": [
         {
@@ -51,7 +51,7 @@
           "q": "does the start decide the race",
           "a": [
             "more than anyone admits",
-            "track position is everything on most circuits, you lose 3 places on lap 1 and you can spend the next hour stuck behind someone slower"
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
           ]
         }
       ]

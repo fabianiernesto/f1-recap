@@ -19,8 +19,7 @@
       "dnfLap": null,
       "points": 25,
       "stops": [
-        18,
-        44
+        18
       ],
       "compounds": [
         "MEDIUM",
@@ -37,7 +36,7 @@
       "fastestLap": false,
       "gap": 0,
       "vsWinner": null,
-      "extraStops": 1
+      "extraStops": 0
     },
     "leclerc": {
       "name": "Leclerc",
@@ -60,7 +59,7 @@
       ],
       "pace": "1:50.157",
       "paceRaw": 110.157,
-      "overtakes": 0,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 13,
@@ -182,11 +181,12 @@
       ],
       "compounds": [
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "HARD"
       ],
       "pace": "1:50.199",
       "paceRaw": 110.199,
-      "overtakes": 5,
+      "overtakes": 6,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -557,7 +557,8 @@
       ],
       "compounds": [
         "SOFT",
-        "HARD"
+        "HARD",
+        "SOFT"
       ],
       "pace": "1:54.445",
       "paceRaw": 114.445,
@@ -589,7 +590,8 @@
       ],
       "compounds": [
         "HARD",
-        "SOFT"
+        "SOFT",
+        "HARD"
       ],
       "pace": "1:55.958",
       "paceRaw": 115.958,
@@ -652,7 +654,8 @@
       ],
       "compounds": [
         "HARD",
-        "SOFT"
+        "SOFT",
+        "HARD"
       ],
       "pace": "1:53.776",
       "paceRaw": 113.776,
@@ -688,12 +691,7 @@
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
-      "swings": [
-        {
-          "lap": 1,
-          "lost": 2
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": null,
       "vsWinner": null,
@@ -711,10 +709,10 @@
       "Hadjar pitted"
     ],
     "6": [
-      "7 passes on track, busiest lap of the race"
+      "6 passes on track, busiest lap of the race"
     ],
     "7": [
-      "4 passes on track"
+      "6 passes on track, busiest lap of the race"
     ],
     "9": [
       "3 passes on track",
@@ -770,7 +768,6 @@
       "Bottas pitted"
     ],
     "44": [
-      "Antonelli pitted",
       "Norris set the fastest lap, 1:48.890"
     ]
   },
@@ -831,9 +828,10 @@
         "yellow"
       ],
       "say": [
+        "1 safety car and 2 virtual safety cars in this one",
         "safety car on lap 1",
-        "something's on track that shouldn't be, so everyone queues behind a road car at reduced speed",
-        "if you'd built a big lead it's gone. brutal when you're leading, brilliant when you're not"
+        "virtual safety car on lap 18, 20",
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -847,7 +845,7 @@
         "how many overtakes"
       ],
       "say": [
-        "43 passes on track after lap 1",
+        "45 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -863,7 +861,7 @@
         "pitted"
       ],
       "say": [
-        "29 stops in the whole race",
+        "28 stops in the whole race",
         "you spend about 25s in the pit lane here"
       ]
     },
@@ -952,7 +950,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 34°C at the start and 30°C at the flag"
+        "track between 28°C and 34°C, 34°C at the start and 30°C at the flag"
       ]
     },
     {
@@ -969,7 +967,7 @@
       ],
       "say": [
         "you tell me",
-        "43 passes on track, 1 safety car and 3 retirements"
+        "45 passes on track, 1 safety car and 3 retirements"
       ]
     },
     {
@@ -986,7 +984,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 25 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]

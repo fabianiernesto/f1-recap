@@ -92,7 +92,7 @@
       "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
-      "led": 14,
+      "led": 15,
       "swings": [],
       "fastestLap": false,
       "gap": 5.089,
@@ -123,7 +123,7 @@
       "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
-      "led": 33,
+      "led": 32,
       "swings": [],
       "fastestLap": false,
       "gap": 29.116,
@@ -148,7 +148,8 @@
       ],
       "compounds": [
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "HARD"
       ],
       "pace": "1:38.265",
       "paceRaw": 98.265,
@@ -490,7 +491,8 @@
       ],
       "compounds": [
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "HARD"
       ],
       "pace": "1:40.136",
       "paceRaw": 100.136,
@@ -522,11 +524,12 @@
       ],
       "compounds": [
         "HARD",
-        "SOFT"
+        "SOFT",
+        "HARD"
       ],
       "pace": "1:40.900",
       "paceRaw": 100.9,
-      "overtakes": 4,
+      "overtakes": 3,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -586,7 +589,8 @@
       ],
       "compounds": [
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "HARD"
       ],
       "pace": "1:43.256",
       "paceRaw": 103.256,
@@ -690,7 +694,7 @@
   },
   "lapEvents": {
     "2": [
-      "4 passes on track, busiest lap of the race"
+      "3 passes on track, busiest lap of the race"
     ],
     "7": [
       "Hamilton retired"
@@ -818,7 +822,9 @@
         "yellow"
       ],
       "say": [
-        "no proper safety car, just a virtual one on lap 14. gaps frozen, nobody bunched up"
+        "a virtual safety car in this one",
+        "virtual safety car on lap 14",
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -832,7 +838,7 @@
         "how many overtakes"
       ],
       "say": [
-        "18 passes on track after lap 1",
+        "17 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -937,7 +943,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 54°C at the start and 54°C at the flag"
+        "track between 53°C and 55°C, 54°C at the start and 54°C at the flag"
       ]
     },
     {
@@ -954,7 +960,7 @@
       ],
       "say": [
         "you tell me",
-        "18 passes on track, 0 safety cars and 4 retirements"
+        "17 passes on track, 0 safety cars and 4 retirements"
       ]
     },
     {
@@ -971,7 +977,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 31 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]

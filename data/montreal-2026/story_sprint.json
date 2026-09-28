@@ -20,7 +20,7 @@
       "title": "12 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Perez, Colapinto and Ocon gained the most by the end of it, 3 places at best"
+        "Perez gained the most by the end of it, 3 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
     },
@@ -96,10 +96,10 @@
       "type": "moment",
       "lap": 7,
       "kicker": "Track limits",
-      "title": "10 lap times deleted",
+      "title": "17 lap times deleted",
       "text": "The white line is the track, and the lap simply stops counting if you leave it.",
       "bullets": [
-        "Hulkenberg lost 2 that way, more than anybody"
+        "Antonelli, Bortoleto, Hulkenberg and 1 other lost 2 each, the most of anybody"
       ],
       "note": "Keep doing it and it turns into a penalty."
     },
@@ -116,23 +116,12 @@
     {
       "type": "moment",
       "lap": 11,
-      "kicker": "Stewards",
-      "title": "4 incidents looked at",
-      "text": "Every one of them logged by race control during the sprint.",
-      "bullets": [
-        "First up, lap 11: Hulkenberg, leaving the track and gaining an advantage",
-        "2 ended in a penalty and 2 in no further action"
-      ]
-    },
-    {
-      "type": "moment",
-      "lap": 11,
       "kicker": "Lap 11 · Fastest lap",
       "title": "Antonelli: 1:14.380",
       "text": "The quickest anybody went all sprint, in a Mercedes.",
       "bullets": [
         "Set on lap 11 of 23, early for a fastest lap, with plenty of fuel still on board",
-        "It is worth no points: the bonus point for it was dropped after 2024"
+        "A sprint has never paid a point for it"
       ],
       "dato": {
         "label": "Best sector times",
@@ -167,10 +156,21 @@
       "reveal": "Alonso, on lap 16 of 23. The timing feed records that he stopped, not why."
     },
     {
+      "type": "moment",
+      "lap": 12,
+      "kicker": "Stewards",
+      "title": "5 incidents looked at",
+      "text": "Every one of them logged by race control during the sprint.",
+      "bullets": [
+        "First up, lap 12: Hulkenberg, leaving the track and gaining an advantage",
+        "2 ended in a penalty, 2 in no further action and 1 left for after the sprint"
+      ]
+    },
+    {
       "type": "decision",
       "lap": 14,
       "kicker": "Your call on the pit wall",
-      "title": "You are Norris, 0.8s behind Russell and going nowhere. Now what?",
+      "title": "You are Norris, 0.5s behind Russell and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -179,7 +179,7 @@
         ],
         [
           "Gap ahead",
-          "0.8s to Russell"
+          "0.5s to Russell"
         ],
         [
           "Tyres",
@@ -213,7 +213,7 @@
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Norris did not stop again. He finished P2, Russell P1."
+      "reveal": "Norris did not stop. He finished P2, Russell P1."
     },
     {
       "type": "moment",
@@ -222,7 +222,7 @@
       "title": "Alonso is out",
       "text": "His sprint ends on lap 16 of 23, in an Aston Martin.",
       "bullets": [
-        "Running P18 when that lap began",
+        "P18 at the start of lap 15",
         "Started P15"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -267,7 +267,7 @@
       "type": "decision",
       "lap": 16,
       "kicker": "What if",
-      "title": "Alonso was running P18 when his sprint ended on lap 16. Where does he finish if it had not?",
+      "title": "Alonso was P18 a lap before his sprint ended on lap 16. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -275,7 +275,7 @@
           "16 of 23"
         ],
         [
-          "Running",
+          "Start of lap 15",
           "P18"
         ],
         [
@@ -315,17 +315,6 @@
     {
       "type": "moment",
       "lap": 17,
-      "kicker": "Within a second",
-      "title": "Perez: 10 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the sprint, from lap 8 to lap 17, at racing speed.",
-      "bullets": [
-        "6 other drivers had a run of five laps or more like it"
-      ],
-      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
-    },
-    {
-      "type": "moment",
-      "lap": 17,
       "kicker": "Yellow flags",
       "title": "Yellow flags out 1 time",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
@@ -341,9 +330,20 @@
       "text": "Qualifying promised one thing and the sprint delivered another.",
       "bullets": [
         "P8 on the grid, P21 at the flag",
-        "2 stops when most of the field made 1",
+        "2 stops when most of the field made none",
         "Qualifying rewards whoever can put one lap together. A sprint asks for 23 of them"
       ]
+    },
+    {
+      "type": "moment",
+      "lap": 18,
+      "kicker": "Within a second",
+      "title": "Perez: 10 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the sprint, from lap 9 to lap 18, at racing speed.",
+      "bullets": [
+        "7 other drivers had a run of five laps or more like it"
+      ],
+      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
     {
       "type": "moment",
@@ -370,14 +370,14 @@
     },
     {
       "type": "decision",
-      "lap": 20,
+      "lap": 21,
       "kicker": "You are the steward",
-      "title": "Lap 20: an incident between Perez and Lawson at Turn 13. What do you give?",
+      "title": "Lap 21: an incident between Perez and Lawson at Turn 13. What do you give?",
       "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
       "state": [
         [
           "Lap",
-          "20 of 23"
+          "21 of 23"
         ],
         [
           "Cars involved",
@@ -417,12 +417,12 @@
       "type": "moment",
       "lap": 23,
       "kicker": "Tyres",
-      "title": "15 of 22 cars ran the whole sprint on one set",
-      "text": "No stop at all for most of the field.",
+      "title": "17 of 22 cars never stopped",
+      "text": "One set of tyres took most of the field to the flag.",
       "bullets": [
-        "On the mediums, lap 1 to lap 23"
+        "On one set the whole way: Mediums for 13, softs for 3, hards for Lindblad"
       ],
-      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane."
     },
     {
       "type": "moment",

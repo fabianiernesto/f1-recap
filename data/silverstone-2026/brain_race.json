@@ -57,7 +57,8 @@
       ],
       "compounds": [
         "MEDIUM",
-        "HARD"
+        "HARD",
+        "MEDIUM"
       ],
       "pace": "1:34.497",
       "paceRaw": 94.497,
@@ -124,6 +125,7 @@
       "compounds": [
         "MEDIUM",
         "HARD",
+        "MEDIUM",
         "SOFT"
       ],
       "pace": "1:34.723",
@@ -158,6 +160,7 @@
       "compounds": [
         "MEDIUM",
         "HARD",
+        "MEDIUM",
         "SOFT"
       ],
       "pace": "1:34.802",
@@ -357,11 +360,12 @@
       "compounds": [
         "MEDIUM",
         "HARD",
+        "MEDIUM",
         "SOFT"
       ],
       "pace": "1:34.996",
       "paceRaw": 94.996,
-      "overtakes": 6,
+      "overtakes": 7,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -394,7 +398,7 @@
       ],
       "pace": "1:36.996",
       "paceRaw": 96.996,
-      "overtakes": 5,
+      "overtakes": 4,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -460,7 +464,7 @@
       ],
       "pace": "1:36.989",
       "paceRaw": 96.989,
-      "overtakes": 2,
+      "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -488,7 +492,8 @@
       ],
       "compounds": [
         "MEDIUM",
-        "HARD"
+        "HARD",
+        "MEDIUM"
       ],
       "pace": "1:34.066",
       "paceRaw": 94.066,
@@ -657,7 +662,8 @@
       ],
       "compounds": [
         "MEDIUM",
-        "HARD"
+        "HARD",
+        "MEDIUM"
       ],
       "pace": "1:34.176",
       "paceRaw": 94.176,
@@ -693,6 +699,7 @@
       "compounds": [
         "MEDIUM",
         "HARD",
+        "MEDIUM",
         "SOFT"
       ],
       "pace": "1:36.420",
@@ -746,19 +753,22 @@
       "Albon pitted"
     ],
     "2": [
-      "4 passes on track, busiest lap of the race",
+      "3 passes on track",
       "Piastri pitted"
     ],
     "3": [
-      "3 passes on track"
+      "4 passes on track"
     ],
     "5": [
-      "4 passes on track, busiest lap of the race",
+      "3 passes on track",
       "Albon got a 10s penalty"
     ],
     "7": [
       "3 passes on track",
       "Hamilton got a 5s penalty"
+    ],
+    "8": [
+      "3 passes on track"
     ],
     "14": [
       "Albon pitted"
@@ -778,12 +788,11 @@
       "Alonso pitted"
     ],
     "21": [
-      "virtual safety car, gaps frozen",
-      "3 passes on track",
       "Perez pitted",
       "Ocon pitted"
     ],
     "22": [
+      "virtual safety car, gaps frozen",
       "Colapinto pitted"
     ],
     "23": [
@@ -793,10 +802,10 @@
       "Albon pitted"
     ],
     "25": [
-      "3 passes on track",
       "Leclerc pitted"
     ],
     "26": [
+      "5 passes on track, busiest lap of the race",
       "Bortoleto pitted"
     ],
     "27": [
@@ -808,16 +817,18 @@
       "Lawson pitted"
     ],
     "29": [
-      "3 passes on track",
       "Bearman pitted",
       "Bottas pitted"
     ],
+    "30": [
+      "3 passes on track"
+    ],
     "34": [
-      "4 passes on track, busiest lap of the race",
       "Russell pitted",
       "Hulkenberg pitted"
     ],
     "35": [
+      "4 passes on track",
       "Antonelli pitted",
       "Albon pitted"
     ],
@@ -829,10 +840,13 @@
       "Antonelli set the fastest lap, 1:31.777"
     ],
     "38": [
-      "virtual safety car, gaps frozen",
       "Verstappen pitted",
       "Norris pitted",
-      "Hadjar pitted"
+      "Hadjar pitted",
+      "Stroll got a 5s penalty"
+    ],
+    "39": [
+      "virtual safety car, gaps frozen"
     ],
     "40": [
       "Albon pitted",
@@ -923,9 +937,10 @@
         "yellow"
       ],
       "say": [
+        "1 safety car and 2 virtual safety cars in this one",
         "safety car on lap 48",
-        "something's on track that shouldn't be, so everyone queues behind a road car at reduced speed",
-        "if you'd built a big lead it's gone. brutal when you're leading, brilliant when you're not"
+        "virtual safety car on lap 22, 39",
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -939,7 +954,7 @@
         "how many overtakes"
       ],
       "say": [
-        "60 passes on track after lap 1",
+        "59 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -1044,7 +1059,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 41°C at the start and 40°C at the flag"
+        "track between 38°C and 44°C, 41°C at the start and 40°C at the flag"
       ]
     },
     {
@@ -1061,7 +1076,7 @@
       ],
       "say": [
         "you tell me",
-        "60 passes on track, 1 safety car and 3 retirements"
+        "59 passes on track, 1 safety car and 3 retirements"
       ]
     },
     {
@@ -1078,7 +1093,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 29 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]
@@ -1129,7 +1144,7 @@
         "pole"
       ],
       "say": [
-        "29 places changed hands on track on lap 1",
+        "27 places changed hands on track on lap 1",
         "cold tyres, cold brakes, full fuel and everybody going for the same gap"
       ]
     }

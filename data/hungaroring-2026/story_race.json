@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Hungarian Grand Prix · Race · 70 laps",
       "title": "Everything that happened, in order",
-      "text": "53 on-track passes, 45 pit stops, 3 cars that never finished, 1 virtual safety car."
+      "text": "54 on-track passes, 44 pit stops, 3 cars that never finished, 1 virtual safety car."
     },
     {
       "type": "moment",
@@ -20,7 +20,7 @@
       "title": "27 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Ocon, Lawson and Piastri gained the most by the end of it, 3 places at best"
+        "Ocon and Lawson gained the most by the end of it, 3 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -108,26 +108,26 @@
     {
       "type": "moment",
       "lap": 14,
-      "kicker": "Within a second",
-      "title": "Bortoleto: 9 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the race, from lap 6 to lap 14, at racing speed.",
-      "bullets": [
-        "8 other drivers had a run of five laps or more like it"
-      ],
-      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
-    },
-    {
-      "type": "moment",
-      "lap": 14,
       "kicker": "Lap 14 · Retirement",
       "title": "Bottas is out",
       "text": "His race ends on lap 14 of 70, in a Cadillac.",
       "bullets": [
-        "Running P20 when that lap began",
+        "P20 at the start of lap 13",
         "Started P21",
-        "1 on-track pass before it happened"
+        "2 on-track passes before it happened"
       ],
       "note": "The timing feed records that he stopped, not why."
+    },
+    {
+      "type": "moment",
+      "lap": 15,
+      "kicker": "Within a second",
+      "title": "Bortoleto: 10 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the race, from lap 6 to lap 15, at racing speed.",
+      "bullets": [
+        "7 other drivers had a run of five laps or more like it"
+      ],
+      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
     {
       "type": "moment",
@@ -178,9 +178,9 @@
     },
     {
       "type": "decision",
-      "lap": 27,
+      "lap": 28,
       "kicker": "Your call on the pit wall",
-      "title": "You are Norris, 0.9s behind Piastri and going nowhere. Now what?",
+      "title": "You are Norris, 0.8s behind Piastri and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -189,11 +189,11 @@
         ],
         [
           "Gap ahead",
-          "0.9s to Piastri"
+          "0.8s to Piastri"
         ],
         [
           "Tyres",
-          "Hard, 9 laps old"
+          "Hard, 10 laps old"
         ],
         [
           "Time in the pit lane",
@@ -223,7 +223,7 @@
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Norris came in on lap 39, 12 laps after this. He finished P1."
+      "reveal": "Norris came in on lap 39, 11 laps after this. He finished P1."
     },
     {
       "type": "moment",
@@ -254,7 +254,7 @@
       "type": "moment",
       "lap": 34,
       "kicker": "Lap 34 · Pit window",
-      "title": "45 stops, and the busiest lap saw 3 of them",
+      "title": "44 stops, and the busiest lap saw 3 of them",
       "text": "Once one car stops, the cars around it have to answer.",
       "bullets": [
         "3 cars in on each of laps 16, 39, 42, 54 and 56",
@@ -278,10 +278,10 @@
     },
     {
       "type": "moment",
-      "lap": 45,
-      "kicker": "Lap 45 · For the lead",
+      "lap": 46,
+      "kicker": "Lap 46 · For the lead",
       "title": "Norris takes the lead from Antonelli",
-      "text": "The only time the lead changed hands on track all race."
+      "text": "A pass for the lead, made on track at racing speed."
     },
     {
       "type": "moment",
@@ -290,7 +290,7 @@
       "title": "Perez is out",
       "text": "His race ends on lap 49 of 70, in a Cadillac.",
       "bullets": [
-        "Running P21 when that lap began",
+        "P21 at the start of lap 48",
         "Started P22"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -347,14 +347,14 @@
     },
     {
       "type": "moment",
-      "lap": 55,
-      "kicker": "Lap 55 of 70 · Virtual Safety Car",
+      "lap": 56,
+      "kicker": "Lap 56 of 70 · Virtual Safety Car",
       "title": "Everybody slows down, nobody bunches up",
       "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
         "Norris was leading when it was called",
         "Albon, Sainz, Gasly and 4 others stopped under it",
-        "Lifted on lap 56"
+        "Lifted on lap 57"
       ],
       "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },
@@ -362,7 +362,7 @@
       "type": "moment",
       "lap": 56,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 5 times",
+      "title": "Yellow flags out 3 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track",
@@ -376,7 +376,7 @@
       "title": "Piastri is out",
       "text": "His race ends on lap 56 of 70, in a McLaren.",
       "bullets": [
-        "Running P7 when that lap began",
+        "P2 at the start of lap 55",
         "Started P3",
         "1 on-track pass before it happened"
       ],
@@ -386,7 +386,7 @@
       "type": "decision",
       "lap": 56,
       "kicker": "What if",
-      "title": "Piastri was running P7 when his race ended on lap 56. Where does he finish if it had not?",
+      "title": "Piastri was P2 a lap before his race ended on lap 56. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -394,8 +394,8 @@
           "56 of 70"
         ],
         [
-          "Running",
-          "P7"
+          "Start of lap 55",
+          "P2"
         ],
         [
           "His median racing lap",
@@ -408,28 +408,28 @@
       ],
       "choices": [
         {
-          "id": "podium",
-          "label": "He reaches the podium",
-          "sub": "Enough pace to climb"
+          "id": "win",
+          "label": "He wins it",
+          "sub": "The pace was there"
         },
         {
-          "id": "points",
-          "label": "He keeps it in the points",
-          "sub": "Holds roughly where he was"
+          "id": "podium",
+          "label": "Podium, not the win",
+          "sub": "Close, but not enough"
         },
         {
           "id": "drop",
-          "label": "He drops out of the points",
+          "label": "He drops back",
           "sub": "Tyres or traffic get him"
         }
       ],
       "actual": "",
       "outcomes": {
-        "podium": "Enough pace to climb.",
-        "points": "Holds roughly where he was.",
+        "win": "The pace was there.",
+        "podium": "Close, but not enough.",
         "drop": "Tyres or traffic get him."
       },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.41s a lap slower than Norris, who went on to win it. With 14 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check."
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.41s a lap slower than Norris, who went on to win it. With 14 laps left, \"podium, not the win\" is the honest guess, and nobody gets to check."
     },
     {
       "type": "moment",

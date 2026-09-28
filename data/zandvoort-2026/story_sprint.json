@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Dutch Grand Prix · Sprint · 24 laps",
       "title": "Everything that happened, in order",
-      "text": "6 on-track passes, 2 pit stops, every starter at the flag."
+      "text": "6 on-track passes, 1 pit stop, 1 car not classified."
     },
     {
       "type": "moment",
@@ -20,7 +20,7 @@
       "title": "8 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Bearman, Sainz and Colapinto gained the most by the end of it, 2 places at best"
+        "Bearman gained the most by the end of it, 2 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
     },
@@ -71,7 +71,7 @@
       "text": "The quickest anybody went all sprint, in a McLaren.",
       "bullets": [
         "Set on lap 5 of 24, early for a fastest lap, with plenty of fuel still on board",
-        "It is worth no points: the bonus point for it was dropped after 2024"
+        "A sprint has never paid a point for it"
       ],
       "dato": {
         "label": "Best sector times",
@@ -95,7 +95,7 @@
       "type": "moment",
       "lap": 7,
       "kicker": "Conditions",
-      "title": "Track steady around 26°C all sprint",
+      "title": "Track between 24°C and 30°C during the sprint",
       "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the sprint."
     },
     {
@@ -180,12 +180,12 @@
       "type": "moment",
       "lap": 24,
       "kicker": "Tyres",
-      "title": "18 of 22 cars ran the whole sprint on one set",
-      "text": "No stop at all for most of the field.",
+      "title": "21 of 22 cars never stopped",
+      "text": "One set of tyres took most of the field to the flag.",
       "bullets": [
-        "On the mediums, lap 1 to lap 24"
+        "On one set the whole way: Mediums for 19, softs for Leclerc and Bearman"
       ],
-      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane."
     },
     {
       "type": "moment",

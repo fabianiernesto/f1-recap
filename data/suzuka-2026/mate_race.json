@@ -6,7 +6,7 @@
       "msgs": [
         "yo",
         "you missed the race",
-        "53 laps, 58 passes on track and 1 safety car"
+        "53 laps, 57 passes on track and 1 safety car"
       ],
       "asks": [
         {
@@ -20,13 +20,13 @@
           "q": "was it actually good or are you being nice",
           "a": [
             "you tell me lol",
-            "58 passes on track, not counting the ones in the pit lane"
+            "57 passes on track, not counting the ones in the pit lane"
           ]
         },
         {
           "q": "i know nothing about f1, start there",
           "a": [
-            "ok so 22 cars, lined up in the order they qualified",
+            "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
             "in a dry race everyone has to use two different tyre types, so everyone stops at least once, and you spend about 24 seconds in the pit lane when you do",
             "the whole sport is basically deciding WHEN to lose that time"
           ]
@@ -51,7 +51,7 @@
           "q": "does the start decide the race",
           "a": [
             "more than anyone admits",
-            "track position is everything on most circuits, you lose 3 places on lap 1 and you can spend the next hour stuck behind someone slower"
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
           ]
         }
       ]
@@ -68,29 +68,6 @@
           "a": [
             "yeah, only moves made on track count here",
             "swaps in the pit lane and stuff behind the safety car are left out"
-          ]
-        }
-      ]
-    },
-    {
-      "lap": 22,
-      "msgs": [
-        "SAFETY CAR on lap 22",
-        "31 laps left and every gap just got deleted"
-      ],
-      "asks": [
-        {
-          "q": "explain safety car like i'm five",
-          "a": [
-            "something's on track that shouldn't be, so a road car comes out and everyone has to queue up behind it at reduced speed",
-            "if you'd built a big lead, it's gone. the guy in P2 is now right behind you"
-          ]
-        },
-        {
-          "q": "so is pitting under it free",
-          "a": [
-            "close to it. everyone's going slow so you lose way less time stopping",
-            "the catch is everyone behind you can do the same thing, and whoever doesn't follow you inherits the lead"
           ]
         }
       ]
@@ -114,6 +91,29 @@
           "a": [
             "you pit before the guy ahead, do fast laps on new tyres while he's still out there on old ones",
             "if it works he comes out behind you after his stop. you never passed him on track, you passed him in the pit lane"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 22,
+      "msgs": [
+        "SAFETY CAR on lap 22",
+        "31 laps left and every gap just got deleted"
+      ],
+      "asks": [
+        {
+          "q": "explain safety car like i'm five",
+          "a": [
+            "something's on track that shouldn't be, so a road car comes out and everyone has to queue up behind it at reduced speed",
+            "if you'd built a big lead, it's gone. the guy in P2 is now right behind you"
+          ]
+        },
+        {
+          "q": "so is pitting under it free",
+          "a": [
+            "close to it. everyone's going slow so you lose way less time stopping",
+            "the catch is everyone behind you can do the same thing, and whoever doesn't follow you inherits the lead"
           ]
         }
       ]

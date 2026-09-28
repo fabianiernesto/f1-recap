@@ -11,16 +11,16 @@
       "lap": 0,
       "kicker": "Dutch Grand Prix · Race · 72 laps",
       "title": "Everything that happened, in order",
-      "text": "47 on-track passes, 42 pit stops, 6 cars that never finished, 2 virtual safety cars and a red flag that stopped the race."
+      "text": "45 on-track passes, 42 pit stops, 6 cars that never finished, 2 virtual safety cars and a red flag that stopped the race."
     },
     {
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "21 places changed hands on track before the first lap was done",
+      "title": "19 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Colapinto, Bearman and Lindblad gained the most by the end of it, 4 places at best"
+        "4 drivers gained 2 places each, the most of anybody"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -79,10 +79,10 @@
       "title": "Bearman is out",
       "text": "His race ends on lap 3 of 72, in a Haas.",
       "bullets": [
-        "Running P16 when that lap began",
-        "Started P20"
-      ],
-      "note": "Race control logged an incident with Bearman on that lap."
+        "P16 at the start of lap 2",
+        "Started P20",
+        "Race control logged an incident with Bearman on lap 3"
+      ]
     },
     {
       "type": "moment",
@@ -100,13 +100,13 @@
       "lap": 5,
       "kicker": "Lap 5 · For the lead",
       "title": "Antonelli takes the lead from Norris",
-      "text": "The lead changed hands 2 times on track."
+      "text": "A pass for the lead, made on track at racing speed."
     },
     {
       "type": "moment",
       "lap": 5,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 8 times",
+      "title": "Yellow flags out 5 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track"
@@ -121,7 +121,8 @@
       "bullets": [
         "Lindblad: a drive-through for yellow flag infringement",
         "Colapinto: a drive-through for yellow flag infringement",
-        "Colapinto: a 10s penalty for yellow flag infringement"
+        "Colapinto: a 10s penalty for yellow flag infringement",
+        "And 2 more"
       ],
       "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left. A drive-through is a trip down the pit lane at the speed limit without stopping."
     },
@@ -172,11 +173,11 @@
             4
           ],
           [
-            "Antonelli",
+            "Piastri",
             3
           ],
           [
-            "Piastri",
+            "Stroll",
             3
           ]
         ]
@@ -211,53 +212,8 @@
     {
       "type": "decision",
       "lap": 34,
-      "kicker": "You are the steward",
-      "title": "Lap 34: an incident between Piastri and Hamilton at Turn 1. What do you give?",
-      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
-      "state": [
-        [
-          "Lap",
-          "34 of 72"
-        ],
-        [
-          "Cars involved",
-          "Piastri and Hamilton"
-        ],
-        [
-          "Reported as",
-          "Driving Erratically at Turn 1"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "none",
-          "label": "No further action",
-          "sub": "Racing incident, let them race"
-        },
-        {
-          "id": "5",
-          "label": "5 second penalty",
-          "sub": "Mild advantage gained"
-        },
-        {
-          "id": "10",
-          "label": "10 second penalty",
-          "sub": "Clearly at fault"
-        }
-      ],
-      "actual": "none",
-      "outcomes": {
-        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the race on the radio.",
-        "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.",
-        "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
-      },
-      "reveal": "The stewards took no further action."
-    },
-    {
-      "type": "decision",
-      "lap": 34,
       "kicker": "Your call on the pit wall",
-      "title": "You are Norris, 1.0s behind Antonelli and going nowhere. Now what?",
+      "title": "You are Norris, 1.1s behind Antonelli and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -266,7 +222,7 @@
         ],
         [
           "Gap ahead",
-          "1.0s to Antonelli"
+          "1.1s to Antonelli"
         ],
         [
           "Tyres",
@@ -327,6 +283,51 @@
       "note": "Pit lane time runs from the entry line to the exit line, stop included."
     },
     {
+      "type": "decision",
+      "lap": 35,
+      "kicker": "You are the steward",
+      "title": "Lap 35: an incident between Piastri and Hamilton at Turn 1. What do you give?",
+      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
+      "state": [
+        [
+          "Lap",
+          "35 of 72"
+        ],
+        [
+          "Cars involved",
+          "Piastri and Hamilton"
+        ],
+        [
+          "Reported as",
+          "Driving Erratically at Turn 1"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "none",
+          "label": "No further action",
+          "sub": "Racing incident, let them race"
+        },
+        {
+          "id": "5",
+          "label": "5 second penalty",
+          "sub": "Mild advantage gained"
+        },
+        {
+          "id": "10",
+          "label": "10 second penalty",
+          "sub": "Clearly at fault"
+        }
+      ],
+      "actual": "none",
+      "outcomes": {
+        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the race on the radio.",
+        "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.",
+        "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
+      },
+      "reveal": "The stewards took no further action."
+    },
+    {
       "type": "moment",
       "lap": 43,
       "kicker": "Blue flags",
@@ -340,7 +341,7 @@
       "title": "Stroll is out",
       "text": "His race ends on lap 46 of 72, in an Aston Martin.",
       "bullets": [
-        "Running P18 when that lap began",
+        "P18 at the start of lap 45",
         "Started P19",
         "3 on-track passes before it happened"
       ],
@@ -389,7 +390,7 @@
       "title": "Ocon is out",
       "text": "His race ends on lap 53 of 72, in a Haas.",
       "bullets": [
-        "Running P14 when that lap began",
+        "P14 at the start of lap 52",
         "Started P15",
         "6 on-track passes before it happened"
       ],
@@ -397,14 +398,14 @@
     },
     {
       "type": "moment",
-      "lap": 54,
-      "kicker": "Lap 54 of 72 · Virtual Safety Car",
+      "lap": 55,
+      "kicker": "Lap 55 of 72 · Virtual Safety Car",
       "title": "Everybody slows down, nobody bunches up",
       "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
         "Norris was leading when it was called",
         "Bortoleto, Hamilton, Leclerc and 2 others stopped under it",
-        "Lifted on lap 56"
+        "Lifted on lap 57"
       ],
       "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },
@@ -444,7 +445,7 @@
       "title": "Bottas is out",
       "text": "His race ends on lap 62 of 72, in a Cadillac.",
       "bullets": [
-        "Running P18 when that lap began",
+        "P18 at the start of lap 61",
         "Started P21"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -482,7 +483,7 @@
       "title": "Albon is out",
       "text": "His race ends on lap 67 of 72, in a Williams.",
       "bullets": [
-        "Running P15 when that lap began",
+        "P15 at the start of lap 66",
         "Started P16",
         "1 on-track pass before it happened"
       ],
@@ -492,7 +493,7 @@
       "type": "decision",
       "lap": 67,
       "kicker": "What if",
-      "title": "Albon was running P15 when his race ended on lap 67. Where does he finish if it had not?",
+      "title": "Albon was P15 a lap before his race ended on lap 67. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -500,7 +501,7 @@
           "67 of 72"
         ],
         [
-          "Running",
+          "Start of lap 66",
           "P15"
         ],
         [
@@ -540,18 +541,6 @@
     {
       "type": "moment",
       "lap": 68,
-      "kicker": "Lap 68 of 72 · Virtual Safety Car",
-      "title": "Everybody slows down, nobody bunches up",
-      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
-      "bullets": [
-        "Norris was leading when it was called",
-        "Lifted on lap 69"
-      ],
-      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
-    },
-    {
-      "type": "moment",
-      "lap": 68,
       "kicker": "A climb through the field",
       "title": "Alonso: P18 on the grid, P9 at the flag",
       "text": "9 places gained.",
@@ -559,6 +548,18 @@
         "2 on-track passes along the way",
         "3 cars that started ahead of him retired"
       ]
+    },
+    {
+      "type": "moment",
+      "lap": 70,
+      "kicker": "Lap 70 of 72 · Virtual Safety Car",
+      "title": "Everybody slows down, nobody bunches up",
+      "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
+      "bullets": [
+        "Norris was leading when it was called",
+        "Lifted on lap 70"
+      ],
+      "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },
     {
       "type": "moment",
@@ -631,7 +632,7 @@
       "lap": 72,
       "kicker": "Guess it",
       "title": "How far behind was Antonelli at the flag?",
-      "text": "72 laps, 2 hours 5 minutes of racing, and it comes down to this one number.",
+      "text": "72 laps, 1 hour 37 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
       "max": 46.1,

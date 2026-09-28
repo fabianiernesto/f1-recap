@@ -139,22 +139,6 @@
     },
     {
       "type": "moment",
-      "lap": 4,
-      "kicker": "Track limits",
-      "title": "1 lap thrown in the bin",
-      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
-      "dato": {
-        "label": "Deleted laps",
-        "rows": [
-          [
-            "Stroll",
-            "1:33.438"
-          ]
-        ]
-      }
-    },
-    {
-      "type": "moment",
       "lap": 5,
       "kicker": "Speed trap",
       "title": "Hamilton was quickest through the trap: 308 km/h",

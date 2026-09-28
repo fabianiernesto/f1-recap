@@ -58,7 +58,7 @@
         ],
         [
           "Laps led",
-          "47"
+          "46"
         ],
         [
           "Stops",
@@ -85,7 +85,7 @@
           "P1"
         ]
       ],
-      "tell": "led 47 of 68 laps and took the win",
+      "tell": "led 46 of 68 laps and took the win",
       "options": [
         "Antonelli",
         "Hamilton",
@@ -270,7 +270,7 @@
         ],
         [
           "Tyres",
-          "intermediate to soft to medium"
+          "intermediate to soft to medium to soft"
         ],
         [
           "Median lap",

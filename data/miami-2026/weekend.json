@@ -27,7 +27,7 @@
       "slug": "sprint",
       "label": "Sprint",
       "kind": "race",
-      "headline": "22 on-track passes",
+      "headline": "24 on-track passes",
       "moments": 18,
       "laps": 19
     },
@@ -36,14 +36,14 @@
       "label": "Qualifying",
       "kind": "quali",
       "headline": "Antonelli on pole",
-      "moments": 8,
+      "moments": 7,
       "laps": 21
     },
     {
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "50 on-track passes, 1 safety car",
+      "headline": "54 on-track passes, 1 safety car",
       "moments": 31,
       "laps": 57
     }
@@ -64,8 +64,8 @@
       "last": "Norris",
       "time": "1:31.869"
     },
-    "passes": 50,
-    "stops": 20,
+    "passes": 54,
+    "stops": 21,
     "dnfs": 4,
     "safetyCars": 1,
     "redFlag": false,

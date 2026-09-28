@@ -139,30 +139,6 @@
     },
     {
       "type": "moment",
-      "lap": 4,
-      "kicker": "Track limits",
-      "title": "3 laps thrown in the bin",
-      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
-      "dato": {
-        "label": "Deleted laps",
-        "rows": [
-          [
-            "Sainz",
-            "1:36.698"
-          ],
-          [
-            "Russell",
-            "at turn 2"
-          ],
-          [
-            "Hamilton",
-            "at turn 14"
-          ]
-        ]
-      }
-    },
-    {
-      "type": "moment",
       "lap": 5,
       "kicker": "Speed trap",
       "title": "Bortoleto was quickest through the trap: 322 km/h",

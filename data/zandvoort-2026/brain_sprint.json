@@ -608,9 +608,7 @@
       "dns": false,
       "dnfLap": null,
       "points": 0,
-      "stops": [
-        5
-      ],
+      "stops": [],
       "compounds": [
         "MEDIUM"
       ],
@@ -624,12 +622,11 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": null,
-      "extraStops": 0
+      "extraStops": -1
     }
   },
   "lapEvents": {
     "5": [
-      "Hulkenberg pitted",
       "Norris set the fastest lap, 1:14.881"
     ],
     "16": [
@@ -680,7 +677,7 @@
       ],
       "say": [
         "Norris, 1:14.881 on lap 5",
-        "no points for it anymore, that went after 2024. bragging rights only"
+        "a sprint has never paid a point for it"
       ]
     },
     {
@@ -723,7 +720,7 @@
         "pitted"
       ],
       "say": [
-        "2 stops in the whole sprint"
+        "1 stop in the whole sprint"
       ]
     },
     {
@@ -810,7 +807,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 26°C at the start and 27°C at the flag"
+        "track between 24°C and 30°C, 26°C at the start and 27°C at the flag"
       ]
     },
     {
@@ -844,9 +841,8 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
-        "in a dry race everyone has to use two tyre types, so everyone stops at least once",
-        "the whole sport is deciding WHEN to lose that time"
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
+        "there's no compulsory stop in a sprint, so plenty go the distance on one set"
       ]
     },
     {
@@ -879,7 +875,7 @@
         "crash"
       ],
       "say": [
-        "everyone who started finished"
+        "Hulkenberg running at the end but not classified"
       ]
     },
     {

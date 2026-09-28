@@ -43,8 +43,8 @@
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "39 on-track passes, 2 safety cars",
-      "moments": 34,
+      "headline": "37 on-track passes, 2 safety cars",
+      "moments": 33,
       "laps": 51
     }
   ],
@@ -64,8 +64,8 @@
       "last": "Russell",
       "time": "1:44.916"
     },
-    "passes": 39,
-    "stops": 25,
+    "passes": 37,
+    "stops": 21,
     "dnfs": 7,
     "safetyCars": 2,
     "redFlag": false,

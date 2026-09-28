@@ -19,8 +19,7 @@
       "dnfLap": null,
       "points": 25,
       "stops": [
-        31,
-        36
+        31
       ],
       "compounds": [
         "MEDIUM",
@@ -36,7 +35,7 @@
       "fastestLap": true,
       "gap": 0,
       "vsWinner": null,
-      "extraStops": 1
+      "extraStops": 0
     },
     "verstappen": {
       "name": "Verstappen",
@@ -152,7 +151,7 @@
       ],
       "pace": "1:47.900",
       "paceRaw": 107.9,
-      "overtakes": 10,
+      "overtakes": 9,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -237,8 +236,7 @@
       "dnfLap": null,
       "points": 4,
       "stops": [
-        30,
-        36
+        30
       ],
       "compounds": [
         "SOFT",
@@ -254,7 +252,7 @@
       "fastestLap": false,
       "gap": 31.189,
       "vsWinner": 1.555,
-      "extraStops": 1
+      "extraStops": 0
     },
     "bearman": {
       "name": "Bearman",
@@ -301,8 +299,7 @@
       "points": 1,
       "stops": [
         20,
-        30,
-        36
+        30
       ],
       "compounds": [
         "MEDIUM",
@@ -318,7 +315,7 @@
       "fastestLap": false,
       "gap": 32.416,
       "vsWinner": 1.662,
-      "extraStops": 2
+      "extraStops": 1
     },
     "hulkenberg": {
       "name": "Hulkenberg",
@@ -369,7 +366,8 @@
       ],
       "compounds": [
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:48.928",
       "paceRaw": 108.928,
@@ -396,8 +394,7 @@
       "dnfLap": null,
       "points": 0,
       "stops": [
-        31,
-        36
+        31
       ],
       "compounds": [
         "SOFT",
@@ -413,7 +410,7 @@
       "fastestLap": false,
       "gap": 36.401,
       "vsWinner": 0.423,
-      "extraStops": 1
+      "extraStops": 0
     },
     "perez": {
       "name": "Perez",
@@ -560,7 +557,7 @@
       ],
       "pace": "1:48.547",
       "paceRaw": 108.547,
-      "overtakes": 1,
+      "overtakes": 0,
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
@@ -688,16 +685,19 @@
   },
   "lapEvents": {
     "2": [
-      "6 passes on track, busiest lap of the race"
+      "5 passes on track, busiest lap of the race"
+    ],
+    "3": [
+      "3 passes on track"
     ],
     "4": [
-      "4 passes on track"
-    ],
-    "6": [
       "3 passes on track"
     ],
     "8": [
       "Stroll retired"
+    ],
+    "17": [
+      "3 passes on track"
     ],
     "20": [
       "Sainz pitted"
@@ -725,9 +725,9 @@
     ],
     "36": [
       "safety car came out, every gap wiped",
-      "Russell pitted",
-      "Piastri pitted",
-      "Ocon pitted"
+      "Lawson pitted",
+      "Gasly retired",
+      "Norris retired"
     ],
     "37": [
       "Colapinto retired"
@@ -799,9 +799,9 @@
         "yellow"
       ],
       "say": [
+        "2 safety cars in this one",
         "safety car on lap 31, 36",
-        "something's on track that shouldn't be, so everyone queues behind a road car at reduced speed",
-        "if you'd built a big lead it's gone. brutal when you're leading, brilliant when you're not"
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -815,7 +815,7 @@
         "how many overtakes"
       ],
       "say": [
-        "39 passes on track after lap 1",
+        "37 passes on track after lap 1",
         "pit lane swaps and anything behind the safety car don't count, they'd inflate the number and mean nothing"
       ]
     },
@@ -831,7 +831,7 @@
         "pitted"
       ],
       "say": [
-        "25 stops in the whole race"
+        "21 stops in the whole race"
       ]
     },
     {
@@ -919,7 +919,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 45°C at the start and 40°C at the flag"
+        "track between 40°C and 46°C, 45°C at the start and 40°C at the flag"
       ]
     },
     {
@@ -936,7 +936,7 @@
       ],
       "say": [
         "you tell me",
-        "39 passes on track, 2 safety cars and 7 retirements"
+        "37 passes on track, 2 safety cars and 7 retirements"
       ]
     },
     {
@@ -953,7 +953,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once",
         "the whole sport is deciding WHEN to lose that time"
       ]

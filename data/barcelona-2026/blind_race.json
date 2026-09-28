@@ -14,7 +14,7 @@
         ],
         [
           "Laps led",
-          "31"
+          "29"
         ],
         [
           "Stops",
@@ -22,7 +22,7 @@
         ],
         [
           "Tyres",
-          "soft to hard to medium"
+          "soft to hard to medium to hard"
         ],
         [
           "Median lap",
@@ -41,7 +41,7 @@
           "P1"
         ]
       ],
-      "tell": "led 31 of 66 laps and took the win",
+      "tell": "led 29 of 66 laps and took the win",
       "options": [
         "Hamilton",
         "Norris",
@@ -102,7 +102,7 @@
         ],
         [
           "Laps led",
-          "2"
+          "1"
         ],
         [
           "Stops",
@@ -146,7 +146,7 @@
         ],
         [
           "Laps led",
-          "2"
+          "4"
         ],
         [
           "Stops",
@@ -190,7 +190,7 @@
         ],
         [
           "Stops",
-          "3 (lap 18, 28, 39)"
+          "2 (lap 18, 28)"
         ],
         [
           "Tyres",

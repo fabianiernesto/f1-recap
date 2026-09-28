@@ -139,38 +139,6 @@
     },
     {
       "type": "moment",
-      "lap": 4,
-      "kicker": "Track limits",
-      "title": "5 laps thrown in the bin",
-      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
-      "dato": {
-        "label": "Deleted laps",
-        "rows": [
-          [
-            "Albon",
-            "1:42.439"
-          ],
-          [
-            "Colapinto",
-            "2:10.089"
-          ],
-          [
-            "Colapinto",
-            "2:16.950"
-          ],
-          [
-            "Norris",
-            "at turn 6"
-          ],
-          [
-            "Antonelli",
-            "at turn 5"
-          ]
-        ]
-      }
-    },
-    {
-      "type": "moment",
       "lap": 5,
       "kicker": "Speed trap",
       "title": "Gasly, Colapinto and Antonelli were quickest through the trap: 327 km/h",

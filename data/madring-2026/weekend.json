@@ -43,7 +43,7 @@
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "18 on-track passes",
+      "headline": "17 on-track passes",
       "moments": 30,
       "laps": 57
     }
@@ -64,7 +64,7 @@
       "last": "Russell",
       "time": "1:35.587"
     },
-    "passes": 18,
+    "passes": 17,
     "stops": 25,
     "dnfs": 4,
     "safetyCars": 0,

@@ -141,7 +141,7 @@
       "type": "moment",
       "lap": 4,
       "kicker": "Deleted laps",
-      "title": "15 laps thrown in the bin",
+      "title": "21 laps thrown in the bin",
       "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
       "dato": {
         "label": "Deleted laps",
@@ -204,7 +204,7 @@
       "type": "moment",
       "lap": 7,
       "kicker": "Interruptions",
-      "title": "Yellow flags out 10 times during the session",
+      "title": "Yellow flags out 7 times during the session",
       "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
     },
     {

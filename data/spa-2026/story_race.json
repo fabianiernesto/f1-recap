@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Belgian Grand Prix · Race · 44 laps",
       "title": "Everything that happened, in order",
-      "text": "43 on-track passes, 29 pit stops, 3 cars that never finished, 1 safety car, 2 virtual safety cars."
+      "text": "45 on-track passes, 28 pit stops, 3 cars that never finished, 1 safety car, 2 virtual safety cars."
     },
     {
       "type": "moment",
@@ -20,7 +20,7 @@
       "title": "22 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Hadjar, Sainz and Colapinto gained the most by the end of it, 6 places at best"
+        "Hadjar gained the most by the end of it, 6 places"
       ],
       "note": "The safety car came out on the opening lap. Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -56,7 +56,7 @@
       "text": "His race ends on lap 1 of 44, in a Mercedes.",
       "bullets": [
         "Started P3",
-        "Race control logged an incident with Hamilton and Russell at Turn 6 on that lap"
+        "Race control logged an incident with Hamilton and Russell at Turn 6 on lap 1"
       ]
     },
     {
@@ -77,7 +77,7 @@
       "type": "moment",
       "lap": 3,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 11 times",
+      "title": "Yellow flags out 6 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track",
@@ -88,10 +88,10 @@
       "type": "moment",
       "lap": 6,
       "kicker": "Lap 6 · Traffic",
-      "title": "7 passes on this lap alone",
+      "title": "6 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "5 different drivers gained a place on this lap"
+        "6 different drivers gained a place on this lap"
       ],
       "note": "Early on, with full tanks and the order still settling."
     },
@@ -105,6 +105,17 @@
         "Antonelli lost 2 that way, more than anybody"
       ],
       "note": "Keep doing it and it turns into a penalty."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Lap 7 · Traffic",
+      "title": "6 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "5 different drivers gained a place on this lap"
+      ],
+      "note": "Early on, with full tanks and the order still settling."
     },
     {
       "type": "decision",
@@ -198,7 +209,7 @@
           ],
           [
             "Hadjar",
-            5
+            6
           ],
           [
             "Norris",
@@ -227,7 +238,7 @@
       "title": "Perez is out",
       "text": "His race ends on lap 14 of 44, in a Cadillac.",
       "bullets": [
-        "Running P21 when that lap began",
+        "P21 at the start of lap 13",
         "Started P18",
         "2 on-track passes before it happened"
       ],
@@ -237,7 +248,7 @@
       "type": "decision",
       "lap": 16,
       "kicker": "Your call on the pit wall",
-      "title": "You are Verstappen, 2.7s behind Antonelli and going nowhere. Now what?",
+      "title": "You are Verstappen, 2.1s behind Antonelli and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -246,7 +257,7 @@
         ],
         [
           "Gap ahead",
-          "2.7s to Antonelli"
+          "2.1s to Antonelli"
         ],
         [
           "Tyres",
@@ -286,10 +297,10 @@
       "type": "moment",
       "lap": 17,
       "kicker": "Lap 17 · Pit window",
-      "title": "29 stops, and the busiest lap saw 7 of them",
+      "title": "28 stops, and the busiest lap saw 7 of them",
       "text": "Once one car stops, the cars around it have to answer.",
       "bullets": [
-        "Busiest single lap was 20, with 7 cars in under the virtual safety car",
+        "Busiest single lap was 20, with 7 cars in, 6 of them under the virtual safety car",
         "Shortest time in the pit lane: Albon, 22.6s",
         "Longest: Sainz, 34.8s"
       ],
@@ -328,7 +339,7 @@
       "bullets": [
         "Leclerc was leading when it was called",
         "Alonso, Leclerc, Piastri and 4 others stopped under it",
-        "Lifted on lap 20"
+        "Lifted on lap 21"
       ],
       "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
     },
@@ -358,6 +369,13 @@
       "reveal": "Stroll, on lap 26 of 44. The timing feed records that he stopped, not why."
     },
     {
+      "type": "moment",
+      "lap": 23,
+      "kicker": "Lap 23 · For the lead",
+      "title": "Leclerc takes the lead from Norris",
+      "text": "A pass for the lead, made on track at racing speed."
+    },
+    {
       "type": "prediction",
       "lap": 24,
       "kicker": "Call it before it happens",
@@ -385,7 +403,7 @@
       "title": "Stroll is out",
       "text": "His race ends on lap 26 of 44, in an Aston Martin.",
       "bullets": [
-        "Running P20 when that lap began",
+        "P20 at the start of lap 25",
         "Started P20"
       ],
       "note": "The timing feed records that he stopped, not why."
@@ -394,7 +412,7 @@
       "type": "decision",
       "lap": 26,
       "kicker": "What if",
-      "title": "Stroll was running P20 when his race ended on lap 26. Where does he finish if it had not?",
+      "title": "Stroll was P20 a lap before his race ended on lap 26. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -402,7 +420,7 @@
           "26 of 44"
         ],
         [
-          "Running",
+          "Start of lap 25",
           "P20"
         ],
         [
@@ -488,13 +506,6 @@
     },
     {
       "type": "moment",
-      "lap": 33,
-      "kicker": "Lap 33 · For the lead",
-      "title": "Antonelli takes the lead from Leclerc",
-      "text": "The only time the lead changed hands on track all race."
-    },
-    {
-      "type": "moment",
       "lap": 38,
       "kicker": "Backwards",
       "title": "Lawson went the other way: 3 places lost",
@@ -511,7 +522,7 @@
       "title": "Hadjar: P21 on the grid, P6 at the flag",
       "text": "15 places gained.",
       "bullets": [
-        "5 on-track passes along the way",
+        "6 on-track passes along the way",
         "3 cars that started ahead of him retired"
       ]
     },

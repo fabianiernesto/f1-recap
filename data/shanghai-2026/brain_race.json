@@ -682,10 +682,10 @@
       "Hadjar pitted"
     ],
     "2": [
-      "8 passes on track, busiest lap of the race"
+      "6 passes on track, busiest lap of the race"
     ],
     "3": [
-      "3 passes on track"
+      "4 passes on track"
     ],
     "9": [
       "Lawson pitted",
@@ -707,17 +707,14 @@
     "16": [
       "5 passes on track"
     ],
-    "17": [
-      "3 passes on track"
-    ],
-    "21": [
+    "18": [
       "3 passes on track"
     ],
     "22": [
-      "3 passes on track"
+      "4 passes on track"
     ],
     "29": [
-      "3 passes on track",
+      "5 passes on track",
       "Ocon pitted"
     ],
     "31": [
@@ -730,14 +727,13 @@
       "Alonso retired"
     ],
     "35": [
-      "4 passes on track",
       "Hulkenberg pitted"
+    ],
+    "36": [
+      "3 passes on track"
     ],
     "37": [
       "Ocon got a 10s penalty"
-    ],
-    "39": [
-      "3 passes on track"
     ],
     "42": [
       "Lindblad pitted"
@@ -807,9 +803,9 @@
         "yellow"
       ],
       "say": [
+        "1 safety car in this one",
         "safety car on lap 10",
-        "something's on track that shouldn't be, so everyone queues behind a road car at reduced speed",
-        "if you'd built a big lead it's gone. brutal when you're leading, brilliant when you're not"
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -928,7 +924,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 23°C at the start and 20°C at the flag"
+        "track between 20°C and 23°C, 23°C at the start and 20°C at the flag"
       ]
     },
     {
@@ -962,7 +958,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 18 cars, lined up in the order they qualified",
+        "ok so 18 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 23 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]

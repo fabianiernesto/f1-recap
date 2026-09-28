@@ -1,5 +1,5 @@
 {
-  "typicalStops": 2,
+  "typicalStops": 1,
   "pitLoss": 25,
   "session": "Race",
   "circuit": "Monaco",
@@ -37,7 +37,7 @@
       "fastestLap": true,
       "gap": 0,
       "vsWinner": null,
-      "extraStops": 0
+      "extraStops": 1
     },
     "hamilton": {
       "name": "Hamilton",
@@ -52,8 +52,7 @@
       "dnfLap": null,
       "points": 18,
       "stops": [
-        28,
-        60
+        28
       ],
       "compounds": [
         "MEDIUM",
@@ -102,7 +101,7 @@
       "fastestLap": false,
       "gap": 23.394,
       "vsWinner": 1.193,
-      "extraStops": -1
+      "extraStops": 0
     },
     "piastri": {
       "name": "Piastri",
@@ -117,8 +116,7 @@
       "dnfLap": null,
       "points": 12,
       "stops": [
-        48,
-        59
+        48
       ],
       "compounds": [
         "MEDIUM",
@@ -167,7 +165,7 @@
       "fastestLap": false,
       "gap": 26.553,
       "vsWinner": 2.021,
-      "extraStops": 0
+      "extraStops": 1
     },
     "lindblad": {
       "name": "Lindblad",
@@ -182,8 +180,7 @@
       "dnfLap": null,
       "points": 8,
       "stops": [
-        59,
-        67
+        59
       ],
       "compounds": [
         "MEDIUM",
@@ -233,7 +230,7 @@
       "fastestLap": false,
       "gap": 30.369,
       "vsWinner": 1.738,
-      "extraStops": 1
+      "extraStops": 2
     },
     "albon": {
       "name": "Albon",
@@ -248,8 +245,7 @@
       "dnfLap": null,
       "points": 4,
       "stops": [
-        43,
-        67
+        43
       ],
       "compounds": [
         "MEDIUM",
@@ -280,8 +276,7 @@
       "dnfLap": null,
       "points": 2,
       "stops": [
-        9,
-        67
+        9
       ],
       "compounds": [
         "MEDIUM",
@@ -330,7 +325,7 @@
       "fastestLap": false,
       "gap": 41.899,
       "vsWinner": 2.653,
-      "extraStops": 0
+      "extraStops": 1
     },
     "bortoleto": {
       "name": "Bortoleto",
@@ -348,13 +343,13 @@
         1,
         43,
         58,
-        59,
         65
       ],
       "compounds": [
         "SOFT",
         "HARD",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:19.671",
       "paceRaw": 79.671,
@@ -399,7 +394,7 @@
       "fastestLap": false,
       "gap": 43.353,
       "vsWinner": 1.281,
-      "extraStops": 0
+      "extraStops": 1
     },
     "hulkenberg": {
       "name": "Hulkenberg",
@@ -415,8 +410,7 @@
       "points": 0,
       "stops": [
         12,
-        58,
-        67
+        58
       ],
       "compounds": [
         "MEDIUM",
@@ -454,8 +448,7 @@
       "points": 0,
       "stops": [
         35,
-        65,
-        67
+        65
       ],
       "compounds": [
         "MEDIUM",
@@ -468,12 +461,7 @@
       "penalty": "5s",
       "penaltyFor": "speeding in the pit lane",
       "led": 0,
-      "swings": [
-        {
-          "lap": 36,
-          "lost": 10
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": 48.964,
       "vsWinner": 2.91,
@@ -497,7 +485,8 @@
       ],
       "compounds": [
         "SOFT",
-        "MEDIUM"
+        "MEDIUM",
+        "SOFT"
       ],
       "pace": "1:19.775",
       "paceRaw": 79.775,
@@ -509,7 +498,7 @@
       "fastestLap": false,
       "gap": 49.153,
       "vsWinner": 3.052,
-      "extraStops": 0
+      "extraStops": 1
     },
     "sainz": {
       "name": "Sainz",
@@ -524,8 +513,7 @@
       "dnfLap": 71,
       "points": 0,
       "stops": [
-        52,
-        67
+        52
       ],
       "compounds": [
         "MEDIUM",
@@ -556,8 +544,7 @@
       "dnfLap": 65,
       "points": 0,
       "stops": [
-        35,
-        60
+        35
       ],
       "compounds": [
         "MEDIUM",
@@ -570,12 +557,7 @@
       "penalty": null,
       "penaltyFor": null,
       "led": 0,
-      "swings": [
-        {
-          "lap": 66,
-          "lost": 8
-        }
-      ],
+      "swings": [],
       "fastestLap": false,
       "gap": null,
       "vsWinner": 0.347,
@@ -610,7 +592,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 2.608,
-      "extraStops": -1
+      "extraStops": 0
     },
     "norris": {
       "name": "Norris",
@@ -638,7 +620,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 1.748,
-      "extraStops": -2
+      "extraStops": -1
     },
     "bearman": {
       "name": "Bearman",
@@ -669,7 +651,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 3.762,
-      "extraStops": -1
+      "extraStops": 0
     },
     "bottas": {
       "name": "Bottas",
@@ -700,7 +682,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 4.57,
-      "extraStops": -1
+      "extraStops": 0
     },
     "verstappen": {
       "name": "Verstappen",
@@ -728,7 +710,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": null,
-      "extraStops": -2
+      "extraStops": -1
     }
   },
   "lapEvents": {
@@ -812,16 +794,14 @@
       "Bortoleto pitted"
     ],
     "59": [
-      "Piastri pitted",
       "Lindblad pitted",
-      "Perez pitted",
-      "Bortoleto pitted"
+      "Perez pitted"
     ],
     "60": [
       "safety car came out, every gap wiped",
-      "Hamilton pitted",
-      "Leclerc pitted",
-      "Russell pitted"
+      "Russell pitted",
+      "Gasly pitted",
+      "Lawson pitted"
     ],
     "61": [
       "Antonelli pitted"
@@ -833,12 +813,6 @@
     ],
     "66": [
       "Gasly pitted"
-    ],
-    "67": [
-      "Lindblad pitted",
-      "Albon pitted",
-      "Sainz pitted",
-      "Ocon pitted"
     ],
     "68": [
       "red flag, the race was stopped",
@@ -912,9 +886,9 @@
         "yellow"
       ],
       "say": [
+        "2 safety cars and a red flag in this one",
         "safety car on lap 60",
-        "something's on track that shouldn't be, so everyone queues behind a road car at reduced speed",
-        "if you'd built a big lead it's gone. brutal when you're leading, brilliant when you're not"
+        "a safety car wipes every gap. a virtual one freezes them where they are"
       ]
     },
     {
@@ -944,7 +918,7 @@
         "pitted"
       ],
       "say": [
-        "42 stops in the whole race",
+        "32 stops in the whole race",
         "you spend about 25s in the pit lane here"
       ]
     },
@@ -1033,7 +1007,7 @@
       ],
       "say": [
         "no rain recorded during it",
-        "track at 43°C at the start and 32°C at the flag"
+        "track between 32°C and 44°C, 43°C at the start and 32°C at the flag"
       ]
     },
     {
@@ -1067,7 +1041,7 @@
         "like im five"
       ],
       "say": [
-        "ok so 22 cars, lined up in the order they qualified",
+        "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
         "in a dry race everyone has to use two tyre types, so everyone stops at least once, about 25 seconds in the pit lane each time",
         "the whole sport is deciding WHEN to lose that time"
       ]

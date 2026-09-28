@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Japanese Grand Prix · Race · 53 laps",
       "title": "Everything that happened, in order",
-      "text": "58 on-track passes, 26 pit stops, 2 cars that never finished, 1 safety car."
+      "text": "57 on-track passes, 26 pit stops, 2 cars that never finished, 1 safety car."
     },
     {
       "type": "moment",
@@ -20,7 +20,7 @@
       "title": "24 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Bearman, Piastri and Lawson gained the most by the end of it, 2 places at best"
+        "5 drivers gained 2 places each, the most of anybody"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -53,7 +53,7 @@
       "type": "moment",
       "lap": 3,
       "kicker": "Lap 3 · Traffic",
-      "title": "6 passes on this lap alone",
+      "title": "5 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
         "5 different drivers gained a place on this lap"
@@ -62,20 +62,10 @@
     },
     {
       "type": "moment",
-      "lap": 4,
-      "kicker": "Track limits",
-      "title": "7 lap times deleted",
-      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
-      "bullets": [
-        "Keep doing it and it turns into a penalty"
-      ]
-    },
-    {
-      "type": "moment",
       "lap": 8,
       "kicker": "Lap 8 · For the lead",
       "title": "Russell takes the lead from Piastri",
-      "text": "The lead changed hands 2 times on track."
+      "text": "A pass for the lead, made on track at racing speed."
     },
     {
       "type": "moment",
@@ -128,7 +118,7 @@
       "type": "decision",
       "lap": 18,
       "kicker": "Your call on the pit wall",
-      "title": "You are Antonelli, 2.8s behind Russell and going nowhere. Now what?",
+      "title": "You are Russell, 1.8s behind Piastri and going nowhere. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -137,7 +127,7 @@
         ],
         [
           "Gap ahead",
-          "2.8s to Russell"
+          "1.8s to Piastri"
         ],
         [
           "Tyres",
@@ -171,7 +161,7 @@
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Antonelli came in on lap 22, 4 laps after this, under the safety car. He finished P1, Russell P4."
+      "reveal": "Russell came in on lap 21, 3 laps after this. He finished P4, Piastri P2."
     },
     {
       "type": "moment",
@@ -193,7 +183,7 @@
       "title": "Bearman is out",
       "text": "His race ends on lap 21 of 53, in a Haas.",
       "bullets": [
-        "Running P18 when that lap began",
+        "P18 at the start of lap 20",
         "Started P18",
         "3 on-track passes before it happened"
       ],
@@ -259,7 +249,7 @@
       "type": "moment",
       "lap": 23,
       "kicker": "Yellow flags",
-      "title": "Yellow flags out 3 times",
+      "title": "Yellow flags out 2 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track"
@@ -283,7 +273,7 @@
       "title": "Albon stopped 3 times",
       "text": "Three stops when most of the field made 1.",
       "bullets": [
-        "In on laps 22, 45 and 46",
+        "In on laps 22, 45 and 49",
         "One of them under a safety car or VSC"
       ]
     },
@@ -322,7 +312,7 @@
       "title": "Stroll is out",
       "text": "His race ends on lap 31 of 53, in an Aston Martin.",
       "bullets": [
-        "Running P19 when that lap began",
+        "P19 at the start of lap 30",
         "Started P22",
         "2 on-track passes before it happened"
       ],
@@ -332,7 +322,7 @@
       "type": "decision",
       "lap": 31,
       "kicker": "What if",
-      "title": "Stroll was running P19 when his race ended on lap 31. Where does he finish if it had not?",
+      "title": "Stroll was P19 a lap before his race ended on lap 31. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -340,7 +330,7 @@
           "31 of 53"
         ],
         [
-          "Running",
+          "Start of lap 30",
           "P19"
         ],
         [
@@ -384,7 +374,7 @@
       "title": "Russell: 8 laps within a second of the car ahead",
       "text": "The longest unbroken run like it in the race, from lap 29 to lap 36, at racing speed.",
       "bullets": [
-        "8 other drivers had a run of five laps or more like it"
+        "9 other drivers had a run of five laps or more like it"
       ],
       "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
@@ -426,8 +416,8 @@
     },
     {
       "type": "moment",
-      "lap": 45,
-      "kicker": "Lap 45 · Traffic",
+      "lap": 46,
+      "kicker": "Lap 46 · Traffic",
       "title": "5 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [

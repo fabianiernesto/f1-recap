@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Chinese Grand Prix · Sprint · 19 laps",
       "title": "Everything that happened, in order",
-      "text": "40 on-track passes, 12 pit stops, 3 cars that never finished, 1 safety car."
+      "text": "39 on-track passes, 12 pit stops, 3 cars that never finished, 1 safety car."
     },
     {
       "type": "moment",
@@ -20,7 +20,7 @@
       "title": "39 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Albon, Colapinto and Sainz gained the most by the end of it, 5 places at best"
+        "Colapinto, Albon and Perez gained the most by the end of it, 4 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
     },
@@ -28,19 +28,12 @@
       "type": "moment",
       "lap": 2,
       "kicker": "Lap 2 · Traffic",
-      "title": "9 passes on this lap alone",
+      "title": "7 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "8 different drivers gained a place on this lap"
+        "5 different drivers gained a place on this lap"
       ],
       "note": "Early on, with full tanks and the order still settling."
-    },
-    {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Lap 2 · For the lead",
-      "title": "Hamilton takes the lead from Russell",
-      "text": "The lead changed hands 4 times on track."
     },
     {
       "type": "prediction",
@@ -55,6 +48,24 @@
       ],
       "answer": "Somewhere in the points",
       "reveal": "P13 to P7, 6 places gained."
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Lap 3 · Traffic",
+      "title": "5 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "4 different drivers gained a place on this lap"
+      ],
+      "note": "Early on, with full tanks and the order still settling."
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Lap 3 · For the lead",
+      "title": "Russell takes the lead from Hamilton",
+      "text": "A pass for the lead, made on track at racing speed."
     },
     {
       "type": "moment",
@@ -77,6 +88,10 @@
             5
           ],
           [
+            "Albon",
+            3
+          ],
+          [
             "Alonso",
             3
           ],
@@ -87,10 +102,6 @@
           [
             "Lawson",
             3
-          ],
-          [
-            "Hamilton",
-            2
           ]
         ]
       },
@@ -151,10 +162,10 @@
       "type": "moment",
       "lap": 11,
       "kicker": "Within a second",
-      "title": "Sainz: 10 laps within a second of the car ahead",
+      "title": "Lawson: 10 laps within a second of the car ahead",
       "text": "The longest unbroken run like it in the sprint, from lap 2 to lap 11, at racing speed.",
       "bullets": [
-        "6 other drivers had a run of five laps or more like it"
+        "7 other drivers had a run of five laps or more like it"
       ],
       "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
@@ -165,7 +176,7 @@
       "title": "Lindblad is out",
       "text": "His sprint ends on lap 12 of 19, in a Racing Bulls car.",
       "bullets": [
-        "Running P21 when that lap began",
+        "P22 at the start of lap 11",
         "Started P15",
         "1 on-track pass before it happened"
       ],
@@ -214,7 +225,7 @@
       "title": "Hulkenberg is out",
       "text": "His sprint ends on lap 13 of 19, in an Audi.",
       "bullets": [
-        "Running P16 when that lap began",
+        "P16 at the start of lap 12",
         "Started P11",
         "3 on-track passes before it happened"
       ],
@@ -227,7 +238,7 @@
       "title": "Bottas is out",
       "text": "His sprint ends on lap 13 of 19, in a Cadillac.",
       "bullets": [
-        "Running P21 when that lap began",
+        "P21 at the start of lap 12",
         "Started P20",
         "1 on-track pass before it happened"
       ],
@@ -323,7 +334,7 @@
       "type": "decision",
       "lap": 13,
       "kicker": "What if",
-      "title": "Hulkenberg was running P16 when his sprint ended on lap 13. Where does he finish if it had not?",
+      "title": "Hulkenberg was P16 a lap before his sprint ended on lap 13. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
       "state": [
         [
@@ -331,7 +342,7 @@
           "13 of 19"
         ],
         [
-          "Running",
+          "Start of lap 12",
           "P16"
         ],
         [
@@ -371,16 +382,6 @@
     {
       "type": "moment",
       "lap": 15,
-      "kicker": "Track limits",
-      "title": "1 lap time deleted",
-      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
-      "bullets": [
-        "Keep doing it and it turns into a penalty"
-      ]
-    },
-    {
-      "type": "moment",
-      "lap": 15,
       "kicker": "A climb through the field",
       "title": "Lawson: P13 on the grid, P7 at the flag",
       "text": "6 places gained.",
@@ -393,10 +394,10 @@
       "type": "moment",
       "lap": 18,
       "kicker": "Lap 18 · Traffic",
-      "title": "7 passes on this lap alone",
+      "title": "5 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
-        "5 different drivers gained a place on this lap"
+        "4 different drivers gained a place on this lap"
       ],
       "note": "Every one of them on track, with no stops around it."
     },
@@ -409,7 +410,7 @@
       "bullets": [
         "Set on lap 18 of 19, late on, where they usually land",
         "By then the fuel is nearly gone and the car is at its lightest",
-        "It is worth no points: the bonus point for it was dropped after 2024"
+        "A sprint has never paid a point for it"
       ],
       "dato": {
         "label": "Best sector times",
@@ -433,10 +434,13 @@
       "type": "moment",
       "lap": 19,
       "kicker": "Tyres",
-      "title": "7 of 22 cars ran the whole sprint on one set",
+      "title": "Sainz, Gasly, Bearman and 4 others ran one set for 19 laps each",
       "text": "The longest anybody stayed out on one set.",
       "bullets": [
-        "On the hards, lap 1 to lap 19"
+        "Sainz: hards, lap 1 to 19",
+        "Gasly: mediums, lap 1 to 19",
+        "Bearman: mediums, lap 1 to 19",
+        "Lawson: hards, lap 1 to 19"
       ],
       "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
     },

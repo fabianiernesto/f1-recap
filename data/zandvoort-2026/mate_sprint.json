@@ -26,9 +26,8 @@
         {
           "q": "i know nothing about f1, start there",
           "a": [
-            "ok so 22 cars, lined up in the order they qualified",
-            "in a dry race everyone has to use two different tyre types, so everyone stops at least once",
-            "the whole sport is basically deciding WHEN to lose that time"
+            "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
+            "there's no compulsory stop in a sprint, so plenty of cars go the distance on one set"
           ]
         }
       ]
@@ -44,37 +43,14 @@
           "q": "why is the start always so mad",
           "a": [
             "cold tyres, cold brakes, full fuel tank and everybody going for the same gap",
-            "it's the only moment of the race where the whole field is that close"
+            "it's the only moment of the sprint where the whole field is that close"
           ]
         },
         {
-          "q": "does the start decide the race",
+          "q": "does the start decide the sprint",
           "a": [
             "more than anyone admits",
-            "track position is everything on most circuits, you lose 3 places on lap 1 and you can spend the next hour stuck behind someone slower"
-          ]
-        }
-      ]
-    },
-    {
-      "lap": 10,
-      "msgs": [
-        "most of the stops came around lap 10",
-        "this is the bit TV makes look boring and where a lot gets decided"
-      ],
-      "asks": [
-        {
-          "q": "why not just stop early every time",
-          "a": [
-            "new tyres are quickest for the first few laps, then they start going off",
-            "stop too early and you're on worn rubber at the end with everyone hunting you. stop too late and someone's already jumped you"
-          ]
-        },
-        {
-          "q": "what's an undercut",
-          "a": [
-            "you pit before the guy ahead, do fast laps on new tyres while he's still out there on old ones",
-            "if it works he comes out behind you after his stop. you never passed him on track, you passed him in the pit lane"
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
           ]
         }
       ]
@@ -82,22 +58,14 @@
     {
       "lap": 5,
       "msgs": [
-        "fastest lap of the race went to Norris",
+        "fastest lap of the sprint went to Norris",
         "1:14.881, on lap 5"
       ],
       "asks": [
         {
           "q": "is fastest lap worth anything",
           "a": [
-            "not anymore, there's been no point for it since 2025",
-            "it's bragging rights now"
-          ]
-        },
-        {
-          "q": "why so early",
-          "a": [
-            "usually it comes near the end when the car is light",
-            "an early one means somebody had fresh tyres and a clear track at the right moment"
+            "no points for it in a sprint, never has been"
           ]
         }
       ]

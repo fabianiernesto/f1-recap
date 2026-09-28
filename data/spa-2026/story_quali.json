@@ -172,8 +172,8 @@
       "type": "moment",
       "lap": 7,
       "kicker": "Interruptions",
-      "title": "Yellow flags out 1 time during the session",
-      "text": "A yellow in the wrong sector at the wrong moment ends somebody's lap, and sometimes their session."
+      "title": "Yellow flags out 1 time, and the session stopped once",
+      "text": "A red flag stops the session and sends everybody back to the pits."
     },
     {
       "type": "moment",
