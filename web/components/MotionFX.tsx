@@ -92,12 +92,17 @@ export default function MotionFX() {
         if (e.pointerType !== "mouse" || e.button !== 0) return;
         const x0 = e.clientX, s0 = track.scrollLeft;
         dragged = false;
-        track.style.scrollSnapType = "none";
-        track.classList.add("is-grab");
+        // nothing changes on a press: a plain click has to reach the card's
+        // link. Only once the mouse has really moved is it a drag, and only
+        // then do the cards stop taking clicks.
         const move = (ev: PointerEvent) => {
           const dx = ev.clientX - x0;
-          if (Math.abs(dx) > 5) dragged = true;
-          track.scrollLeft = s0 - dx;
+          if (!dragged && Math.abs(dx) > 5) {
+            dragged = true;
+            track.style.scrollSnapType = "none";
+            track.classList.add("is-grab");
+          }
+          if (dragged) track.scrollLeft = s0 - dx;
         };
         const up = () => {
           window.removeEventListener("pointermove", move);
