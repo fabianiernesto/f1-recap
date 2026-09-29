@@ -462,7 +462,7 @@ export default function RaceScroll({
           );
         })}
         <div className="credits">
-          Built from OpenF1 + FastF1 data · {story.generated}
+          Built from the OpenF1 and FastF1 timing data
         </div>
       </div>
       {mate && <RaceMate thread={mate} lap={lap} brain={brain ?? null} />}

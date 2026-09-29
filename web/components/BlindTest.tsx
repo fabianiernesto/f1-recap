@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import type { BlindRound, BlindTest as Test } from "@/lib/types";
 import { GHOST, bigPhoto } from "@/lib/photo";
 import Term from "@/components/Term";
-import { Speedlines } from "@/components/Mood";
+import { Blur, MOOD, Speedlines } from "@/components/Mood";
 
 /**
  * Five drivers with their names taken off.
@@ -110,7 +110,11 @@ export default function BlindTest({ test, backTo }: { test: Test; backTo: string
   const done = at >= rounds.length;
   if (done)
     return (
-      <main className="bt bt-cover">
+      <main className="bt bt-cover bt-fx bt-done">
+        <Speedlines n={6} />
+        <div className="bt-done-run" aria-hidden>
+          <Blur src={MOOD.horse} className="mood-horse" />
+        </div>
         <div className="bt-cover-copy">
           <span className="bt-eyebrow">Result</span>
           <div className="bt-score">

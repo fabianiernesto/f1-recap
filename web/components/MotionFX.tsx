@@ -29,6 +29,18 @@ export default function MotionFX() {
       { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
     );
     document.querySelectorAll("[data-fx]").forEach((el) => io.observe(el));
+    // screens that appear later (a result after a game) arrive too: anything
+    // with data-fx added to the page is watched the moment it lands, or it
+    // would sit there invisible
+    const mo = new MutationObserver((records) => {
+      for (const r of records)
+        r.addedNodes.forEach((n) => {
+          if (!(n instanceof Element)) return;
+          if (n.matches("[data-fx]")) io.observe(n);
+          n.querySelectorAll("[data-fx]").forEach((el) => io.observe(el));
+        });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
 
     const par = still ? [] : Array.from(document.querySelectorAll<HTMLElement>("[data-par]"));
     let raf = 0;
@@ -135,6 +147,7 @@ export default function MotionFX() {
       offs.forEach((f) => f());
       window.removeEventListener("click", eatClick, true);
       io.disconnect();
+      mo.disconnect();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);

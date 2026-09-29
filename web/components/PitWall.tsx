@@ -146,8 +146,9 @@ export default function PitWall({ wall, backTo }: { wall: Wall; backTo: string }
     const { place, rows } = standings(wall, gap);
     const moved = place - driver.finish;
     return (
-      <main className="pw pw-cover" style={tone}>
-        <div className="pw-cover-copy">
+      <main className="pw pw-cover pw-fx pw-done" style={tone}>
+        <Speedlines n={6} />
+        <div className="pw-cover-copy" data-fx="left">
           <span className="pw-eyebrow">At the flag</span>
           <div className="pw-result">
             <div className="pw-place">

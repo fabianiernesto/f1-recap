@@ -12,6 +12,7 @@ import {
 } from "@/lib/data";
 import FinalPoster from "@/components/FinalPoster";
 import RaceScroll from "@/components/RaceScroll";
+import SessionNext from "@/components/SessionNext";
 
 export function generateStaticParams() {
   return listGPs().flatMap((slug) =>
@@ -43,6 +44,7 @@ export default async function SessionPage({
       <RaceScroll story={story} track={track} mate={mate} brain={brain} />
 
       {session === "race" && <FinalPoster story={story} track={track} />}
+      <SessionNext weekend={loadWeekend(slug)} current={session} />
     </>
   );
 }

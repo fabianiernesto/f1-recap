@@ -2559,3 +2559,75 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
   .acts.fx-page .acts-grid > :nth-child(n) { translate: none; }
   .bt-fx::before { width: 100vw; right: -30vw; opacity: .5; }
 }
+
+/* ---- a wrong turn: the helmet, lit, and the way back */
+.lost { position: relative; min-height: 100vh; overflow: hidden; isolation: isolate; background: #0a0a0a;
+  display: flex; align-items: center; padding: 10vh 6vw; }
+.lost-helmet { position: absolute; z-index: -1; right: -4vw; top: 50%; transform: translateY(-50%);
+  width: min(70vw, 1200px); aspect-ratio: 736 / 414; }
+.lost-copy { position: relative; z-index: 2; max-width: 720px; }
+.lost-k { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: .3em; color: var(--led); }
+.lost h1 { margin: 16px 0 26px; font-family: "Anybody", var(--font-ui), sans-serif; font-weight: 800;
+  font-stretch: 150%; text-transform: uppercase; font-size: clamp(48px, 7vw, 120px); line-height: .92; color: #fff; }
+.lost h1 span { display: block; }
+.lost p { margin: 0 0 34px; max-width: 46ch; color: #cfcfcf; font-size: 18px; line-height: 1.6; }
+.lost-go { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.lost-alt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: #cfcfcf; text-decoration: none; }
+.lost-alt:hover { color: #fff; }
+
+/* ---- the end of a session hands over to the next one */
+.snext { position: relative; z-index: 30; background: #0a0a0a; overflow: hidden; isolation: isolate;
+  padding: 16vh 0 8vh; }
+.snext-band { position: relative; z-index: 2; margin: 0 0 0 0; padding: 14vh 6vw 12vh;
+  background: linear-gradient(115deg, #6e0703 0%, #a50b06 38%, #d20e08 100%);
+  clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%); }
+.snext-k { display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase; color: #ffffffcc; margin-bottom: 22px; }
+.snext-main { display: grid; grid-template-columns: 1fr auto; column-gap: 4vw; align-items: end;
+  text-decoration: none; color: #fff; }
+.snext-up { grid-column: 1; font-family: var(--font-mono); font-size: 11px; letter-spacing: .26em;
+  text-transform: uppercase; color: #ffffffb3; font-weight: 700; }
+.snext-name { grid-column: 1; margin-top: 10px; font-family: "Anybody", var(--font-ui), sans-serif; font-weight: 800;
+  font-stretch: 150%; text-transform: uppercase; font-size: clamp(40px, 6.4vw, 110px); line-height: .92;
+  text-shadow: 0 6px 40px #5a0300aa; transition: letter-spacing .35s ease; }
+.snext-head { grid-column: 1; margin-top: 16px; font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: .14em; text-transform: uppercase; color: #ffe3dd; }
+.snext-main i { grid-column: 2; grid-row: 1 / span 3; align-self: center; font-style: normal;
+  font-size: clamp(40px, 5vw, 90px); color: #fff; transition: transform .3s ease; }
+.snext-main:hover i { transform: translateX(14px); }
+.snext-main:hover .snext-name { letter-spacing: .02em; }
+.snext-row { position: relative; z-index: 2; display: flex; gap: 34px; flex-wrap: wrap; padding: 7vh 6vw 0; }
+.snext-row a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: #8c8c8c; text-decoration: none; }
+.snext-row a:hover { color: #fff; }
+@media (max-width: 700px) { .snext-band { padding: 10vh 6vw 9vh; } .lost-helmet { width: 130vw; right: -50vw; opacity: .55; } }
+
+/* ---- the blind test, in play and at the end */
+.bt-subject { isolation: isolate; }
+.bt-subject::before { content: ""; position: absolute; z-index: -1; left: -10%; right: -10%; bottom: 4%; height: 70%;
+  background: radial-gradient(ellipse 46% 50% at 50% 62%, #d20e0866 0%, #8a080426 45%, transparent 72%);
+  pointer-events: none; }
+.bt-done::before { display: none; }
+.bt-done-run { position: absolute; z-index: -1; right: -4vw; top: 0; bottom: 0; width: 58vw; }
+.bt-done .bt-cover-copy { position: relative; z-index: 2; }
+.bt-done .bt-score { color: #ff2415;
+  text-shadow: 0 0 2px #ff7a62, 0 0 14px #ff2415, 0 0 40px #e10600cc, 0 0 110px #e1060080; animation: glow-hum 5s ease-in-out infinite; }
+.bt-done .bt-score small { text-shadow: none; color: #6b6f78; }
+@media (max-width: 900px) { .bt-done-run { width: 100vw; right: 0; opacity: .35; } }
+
+/* ---- the pit wall at the flag: the place you finished, lit */
+.pw-done .pw-place { color: #ff2415;
+  text-shadow: 0 0 2px #ff7a62, 0 0 14px #ff2415, 0 0 40px #e10600cc, 0 0 110px #e1060080; animation: glow-hum 5s ease-in-out infinite; }
+.pw-done .pw-place small, .pw-done .pw-place span { text-shadow: none; }
+
+/* ---- phones: Alfred inside the screen, the lap counter whole, one-line top bar */
+@media (max-width: 600px) {
+  .mate { right: 10px; left: 10px; width: auto; max-width: none; }
+  .mate-ask button { width: 40px; }
+  .hud { justify-content: flex-end; }
+  .lapbox { padding: 12px 12px; }
+  .hub-top { gap: 12px; }
+  .hub-back, .hub-home { font-size: 9px; letter-spacing: .12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hub-home { flex: none; }
+}
