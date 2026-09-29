@@ -52,7 +52,8 @@
       "dnfLap": null,
       "points": 18,
       "stops": [
-        28
+        28,
+        60
       ],
       "compounds": [
         "MEDIUM",
@@ -69,7 +70,7 @@
       "fastestLap": false,
       "gap": 6.271,
       "vsWinner": 0.329,
-      "extraStops": 0
+      "extraStops": 1
     },
     "hadjar": {
       "name": "Hadjar",
@@ -116,7 +117,8 @@
       "dnfLap": null,
       "points": 12,
       "stops": [
-        48
+        48,
+        59
       ],
       "compounds": [
         "MEDIUM",
@@ -133,7 +135,7 @@
       "fastestLap": false,
       "gap": 24.261,
       "vsWinner": 1.564,
-      "extraStops": 0
+      "extraStops": 1
     },
     "lawson": {
       "name": "Lawson",
@@ -148,8 +150,7 @@
       "dnfLap": null,
       "points": 10,
       "stops": [
-        44,
-        60
+        44
       ],
       "compounds": [
         "MEDIUM",
@@ -165,7 +166,7 @@
       "fastestLap": false,
       "gap": 26.553,
       "vsWinner": 2.021,
-      "extraStops": 1
+      "extraStops": 0
     },
     "lindblad": {
       "name": "Lindblad",
@@ -179,9 +180,7 @@
       "dns": false,
       "dnfLap": null,
       "points": 8,
-      "stops": [
-        59
-      ],
+      "stops": [],
       "compounds": [
         "MEDIUM",
         "SOFT"
@@ -196,7 +195,7 @@
       "fastestLap": false,
       "gap": 29.01,
       "vsWinner": 2.577,
-      "extraStops": 0
+      "extraStops": -1
     },
     "gasly": {
       "name": "Gasly",
@@ -211,9 +210,7 @@
       "dnfLap": null,
       "points": 6,
       "stops": [
-        45,
-        60,
-        66
+        45
       ],
       "compounds": [
         "MEDIUM",
@@ -230,7 +227,7 @@
       "fastestLap": false,
       "gap": 30.369,
       "vsWinner": 1.738,
-      "extraStops": 2
+      "extraStops": 0
     },
     "albon": {
       "name": "Albon",
@@ -342,8 +339,7 @@
       "stops": [
         1,
         43,
-        58,
-        65
+        59
       ],
       "compounds": [
         "SOFT",
@@ -361,7 +357,7 @@
       "fastestLap": false,
       "gap": 42.748,
       "vsWinner": 2.948,
-      "extraStops": 3
+      "extraStops": 2
     },
     "russell": {
       "name": "Russell",
@@ -409,8 +405,7 @@
       "dnfLap": null,
       "points": 0,
       "stops": [
-        12,
-        58
+        12
       ],
       "compounds": [
         "MEDIUM",
@@ -432,7 +427,7 @@
       "fastestLap": false,
       "gap": 44.102,
       "vsWinner": 3.007,
-      "extraStops": 1
+      "extraStops": 0
     },
     "colapinto": {
       "name": "Colapinto",
@@ -447,8 +442,7 @@
       "dnfLap": null,
       "points": 0,
       "stops": [
-        35,
-        65
+        35
       ],
       "compounds": [
         "MEDIUM",
@@ -465,7 +459,7 @@
       "fastestLap": false,
       "gap": 48.964,
       "vsWinner": 2.91,
-      "extraStops": 1
+      "extraStops": 0
     },
     "perez": {
       "name": "Perez",
@@ -544,7 +538,8 @@
       "dnfLap": 65,
       "points": 0,
       "stops": [
-        35
+        35,
+        60
       ],
       "compounds": [
         "MEDIUM",
@@ -561,7 +556,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 0.347,
-      "extraStops": 0
+      "extraStops": 1
     },
     "stroll": {
       "name": "Stroll",
@@ -789,30 +784,24 @@
       "Stroll retired"
     ],
     "58": [
-      "Hulkenberg pitted",
-      "Alonso pitted",
-      "Bortoleto pitted"
+      "Alonso pitted"
     ],
     "59": [
-      "Lindblad pitted",
-      "Perez pitted"
+      "Piastri pitted",
+      "Perez pitted",
+      "Bortoleto pitted"
     ],
     "60": [
       "safety car came out, every gap wiped",
-      "Russell pitted",
-      "Gasly pitted",
-      "Lawson pitted"
+      "Hamilton pitted",
+      "Leclerc pitted",
+      "Russell pitted"
     ],
     "61": [
       "Antonelli pitted"
     ],
     "65": [
-      "Colapinto pitted",
-      "Bortoleto pitted",
       "Leclerc retired"
-    ],
-    "66": [
-      "Gasly pitted"
     ],
     "68": [
       "red flag, the race was stopped",
@@ -918,7 +907,7 @@
         "pitted"
       ],
       "say": [
-        "32 stops in the whole race",
+        "28 stops in the whole race",
         "you spend about 25s in the pit lane here"
       ]
     },

@@ -33,7 +33,7 @@
       "overtakes": 1,
       "penalty": null,
       "penaltyFor": null,
-      "led": 36,
+      "led": 34,
       "swings": [],
       "fastestLap": false,
       "gap": 0,
@@ -66,7 +66,7 @@
       "overtakes": 2,
       "penalty": null,
       "penaltyFor": null,
-      "led": 0,
+      "led": 1,
       "swings": [],
       "fastestLap": false,
       "gap": 15.08,
@@ -866,7 +866,7 @@
       ],
       "say": [
         "Norris took it",
-        "McLaren. started P1, led 36 of 70 laps"
+        "McLaren. started P1, led 34 of 70 laps"
       ]
     },
     {

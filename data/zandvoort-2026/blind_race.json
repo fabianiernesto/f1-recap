@@ -14,7 +14,7 @@
         ],
         [
           "Laps led",
-          "31"
+          "30"
         ],
         [
           "Stops",
@@ -37,7 +37,7 @@
           "P1"
         ]
       ],
-      "tell": "led 31 of 72 laps and took the win",
+      "tell": "led 30 of 72 laps and took the win",
       "options": [
         "Antonelli",
         "Hamilton",

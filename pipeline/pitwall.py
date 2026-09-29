@@ -284,11 +284,11 @@ def _stop_call(s, econ, seat, i, stop, window, comp, nxt) -> dict | None:
         "lap": x,
         "lost": round(c - floor, 1),
         "real": x == stop,
-        "note": (f"{x - w0} laps on the {(comp or 'first').lower()}s, then "
+        "note": (f"{x - w0 + 1} laps on the {(comp or 'first').lower()}s, then "
                  f"{w1 - x} on the {(nxt or 'next').lower()}s."),
     } for x, c in scored]
 
-    age = stop - w0
+    age = stop - w0   # laps completed on the set when the call is made, as in the other cards
     return {
         "lap": stop,
         "kicker": "The first stop" if i == 0 else f"Stop {i + 1}",

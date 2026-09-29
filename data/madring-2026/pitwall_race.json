@@ -62,35 +62,35 @@
           "lap": 6,
           "lost": 10.0,
           "real": false,
-          "note": "5 laps on the hards, then 22 on the mediums."
+          "note": "6 laps on the hards, then 22 on the mediums."
         },
         {
           "label": "4 laps earlier",
           "lap": 10,
           "lost": 5.9,
           "real": false,
-          "note": "9 laps on the hards, then 18 on the mediums."
+          "note": "10 laps on the hards, then 18 on the mediums."
         },
         {
           "label": "Box him now, lap 14",
           "lap": 14,
           "lost": 2.8,
           "real": true,
-          "note": "13 laps on the hards, then 14 on the mediums."
+          "note": "14 laps on the hards, then 14 on the mediums."
         },
         {
           "label": "4 laps later",
           "lap": 18,
           "lost": 0.9,
           "real": false,
-          "note": "17 laps on the hards, then 10 on the mediums."
+          "note": "18 laps on the hards, then 10 on the mediums."
         },
         {
           "label": "8 laps later",
           "lap": 22,
           "lost": 0.0,
           "real": false,
-          "note": "21 laps on the hards, then 6 on the mediums."
+          "note": "22 laps on the hards, then 6 on the mediums."
         }
       ],
       "reading": "The hards lose 9ms a lap as they age, the mediums 60ms. The stint has to reach lap 28 either way."
@@ -123,42 +123,42 @@
           "lap": 20,
           "lost": 0.0,
           "real": false,
-          "note": "5 laps on the mediums, then 37 on the hards."
+          "note": "6 laps on the mediums, then 37 on the hards."
         },
         {
           "label": "4 laps earlier",
           "lap": 24,
           "lost": 0.1,
           "real": false,
-          "note": "9 laps on the mediums, then 33 on the hards."
+          "note": "10 laps on the mediums, then 33 on the hards."
         },
         {
           "label": "Box him now, lap 28",
           "lap": 28,
           "lost": 1.2,
           "real": true,
-          "note": "13 laps on the mediums, then 29 on the hards."
+          "note": "14 laps on the mediums, then 29 on the hards."
         },
         {
           "label": "4 laps later",
           "lap": 32,
           "lost": 3.5,
           "real": false,
-          "note": "17 laps on the mediums, then 25 on the hards."
+          "note": "18 laps on the mediums, then 25 on the hards."
         },
         {
           "label": "8 laps later",
           "lap": 36,
           "lost": 6.8,
           "real": false,
-          "note": "21 laps on the mediums, then 21 on the hards."
+          "note": "22 laps on the mediums, then 21 on the hards."
         },
         {
           "label": "12 laps later",
           "lap": 40,
           "lost": 11.3,
           "real": false,
-          "note": "25 laps on the mediums, then 17 on the hards."
+          "note": "26 laps on the mediums, then 17 on the hards."
         }
       ],
       "reading": "The mediums lose 60ms a lap as they age, the hards 9ms. The stint has to reach lap 57 either way."

@@ -6,7 +6,7 @@
       "msgs": [
         "yo",
         "you missed the race",
-        "58 laps, 32 passes on track and 3 virtual safety cars"
+        "58 laps, 34 passes on track and 3 virtual safety cars"
       ],
       "asks": [
         {
@@ -20,7 +20,7 @@
           "q": "was it actually good or are you being nice",
           "a": [
             "you tell me lol",
-            "32 passes on track, not counting the ones in the pit lane"
+            "34 passes on track, not counting the ones in the pit lane"
           ]
         },
         {
@@ -57,9 +57,9 @@
       ]
     },
     {
-      "lap": 2,
+      "lap": 3,
       "msgs": [
-        "lap 2 was the busiest of the whole race",
+        "lap 3 was the busiest of the whole race",
         "6 passes on that lap alone"
       ],
       "asks": [
@@ -73,10 +73,10 @@
       ]
     },
     {
-      "lap": 21,
+      "lap": 22,
       "msgs": [
         "and Alonso is out",
-        "lap 21, his race ended there"
+        "lap 22, his race ended there"
       ],
       "asks": [
         {
@@ -95,10 +95,10 @@
       ]
     },
     {
-      "lap": 42,
+      "lap": 43,
       "msgs": [
         "fastest lap of the race went to Verstappen",
-        "1:22.091, on lap 42"
+        "1:22.091, on lap 43"
       ],
       "asks": [
         {

@@ -41,6 +41,9 @@ def blind_rounds(s, fmt) -> list[dict]:
             pos_events.setdefault(pt["driver_number"], []).append((ln, pt["position"]))
 
     def led(num: int) -> int:
+        return sum(1 for d in s.leader_by_lap().values() if d == num)
+
+    def _old_led(num: int) -> int:
         ev = pos_events.get(num, [])
         done = s.completed_laps(num)
         last = min(s.total_laps or 0, done if done is not None else s.total_laps or 0)

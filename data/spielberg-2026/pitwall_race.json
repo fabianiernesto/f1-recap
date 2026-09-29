@@ -62,49 +62,49 @@
           "lap": 6,
           "lost": 16.9,
           "real": false,
-          "note": "5 laps on the mediums, then 43 on the hards."
+          "note": "6 laps on the mediums, then 43 on the hards."
         },
         {
           "label": "8 laps earlier",
           "lap": 10,
           "lost": 10.0,
           "real": false,
-          "note": "9 laps on the mediums, then 39 on the hards."
+          "note": "10 laps on the mediums, then 39 on the hards."
         },
         {
           "label": "4 laps earlier",
           "lap": 14,
           "lost": 4.8,
           "real": false,
-          "note": "13 laps on the mediums, then 35 on the hards."
+          "note": "14 laps on the mediums, then 35 on the hards."
         },
         {
           "label": "Box him now, lap 18",
           "lap": 18,
           "lost": 1.5,
           "real": true,
-          "note": "17 laps on the mediums, then 31 on the hards."
+          "note": "18 laps on the mediums, then 31 on the hards."
         },
         {
           "label": "4 laps later",
           "lap": 22,
           "lost": 0.0,
           "real": false,
-          "note": "21 laps on the mediums, then 27 on the hards."
+          "note": "22 laps on the mediums, then 27 on the hards."
         },
         {
           "label": "8 laps later",
           "lap": 26,
           "lost": 0.3,
           "real": false,
-          "note": "25 laps on the mediums, then 23 on the hards."
+          "note": "26 laps on the mediums, then 23 on the hards."
         },
         {
           "label": "12 laps later",
           "lap": 30,
           "lost": 2.5,
           "real": false,
-          "note": "29 laps on the mediums, then 19 on the hards."
+          "note": "30 laps on the mediums, then 19 on the hards."
         }
       ],
       "reading": "The mediums lose 56ms a lap as they age, the hards 58ms. The stint has to reach lap 49 either way."
@@ -137,49 +137,49 @@
           "lap": 37,
           "lost": 3.7,
           "real": false,
-          "note": "18 laps on the hards, then 34 on the hards."
+          "note": "19 laps on the hards, then 34 on the hards."
         },
         {
           "label": "8 laps earlier",
           "lap": 41,
           "lost": 0.9,
           "real": false,
-          "note": "22 laps on the hards, then 30 on the hards."
+          "note": "23 laps on the hards, then 30 on the hards."
         },
         {
           "label": "4 laps earlier",
           "lap": 45,
           "lost": 0.0,
           "real": false,
-          "note": "26 laps on the hards, then 26 on the hards."
+          "note": "27 laps on the hards, then 26 on the hards."
         },
         {
           "label": "Box him now, lap 49",
           "lap": 49,
           "lost": 0.9,
           "real": true,
-          "note": "30 laps on the hards, then 22 on the hards."
+          "note": "31 laps on the hards, then 22 on the hards."
         },
         {
           "label": "4 laps later",
           "lap": 53,
           "lost": 3.7,
           "real": false,
-          "note": "34 laps on the hards, then 18 on the hards."
+          "note": "35 laps on the hards, then 18 on the hards."
         },
         {
           "label": "8 laps later",
           "lap": 57,
           "lost": 8.4,
           "real": false,
-          "note": "38 laps on the hards, then 14 on the hards."
+          "note": "39 laps on the hards, then 14 on the hards."
         },
         {
           "label": "12 laps later",
           "lap": 61,
           "lost": 14.8,
           "real": false,
-          "note": "42 laps on the hards, then 10 on the hards."
+          "note": "43 laps on the hards, then 10 on the hards."
         }
       ],
       "reading": "The hards lose 58ms a lap as they age, the hards 58ms. The stint has to reach lap 71 either way."

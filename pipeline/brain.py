@@ -57,6 +57,9 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     # the position feed only records changes: carry the last known position
     # forward from the grid, and stop on the last lap the car completed
     def led_laps(num: int) -> int:
+        return sum(1 for d in s.leader_by_lap().values() if d == num)
+
+    def _old_led_laps(num: int) -> int:
         events = pos_by_driver.get(num, [])
         done = s.completed_laps(num)
         last = min(s.total_laps or 0, done if done is not None else s.total_laps or 0)

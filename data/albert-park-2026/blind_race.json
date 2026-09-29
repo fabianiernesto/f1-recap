@@ -14,11 +14,11 @@
         ],
         [
           "Laps led",
-          "33"
+          "31"
         ],
         [
           "Stops",
-          "1 (lap 12)"
+          "1 (lap 13)"
         ],
         [
           "Tyres",
@@ -26,7 +26,7 @@
         ],
         [
           "Median lap",
-          "1:23.103"
+          "1:23.093"
         ],
         [
           "On-track passes",
@@ -37,7 +37,7 @@
           "P1"
         ]
       ],
-      "tell": "led 33 of 58 laps and took the win",
+      "tell": "led 31 of 58 laps and took the win",
       "options": [
         "Antonelli",
         "Hamilton",
@@ -58,7 +58,7 @@
         ],
         [
           "Stops",
-          "2 (lap 18, 41)"
+          "2 (lap 19, 42)"
         ],
         [
           "Tyres",
@@ -66,7 +66,7 @@
         ],
         [
           "Median lap",
-          "1:23.491"
+          "1:23.510"
         ],
         [
           "On-track passes",
@@ -102,7 +102,7 @@
         ],
         [
           "Stops",
-          "3 (lap 11, 33, 45)"
+          "3 (lap 12, 34, 46)"
         ],
         [
           "Tyres",
@@ -110,11 +110,11 @@
         ],
         [
           "Median lap",
-          "1:25.974"
+          "1:25.704"
         ],
         [
           "On-track passes",
-          "1"
+          "2"
         ],
         [
           "Finished",
@@ -142,7 +142,7 @@
         ],
         [
           "Stops",
-          "1 (lap 11)"
+          "1 (lap 12)"
         ],
         [
           "Tyres",
@@ -158,10 +158,10 @@
         ],
         [
           "Finished",
-          "retired, lap 21"
+          "retired, lap 22"
         ]
       ],
-      "tell": "his race ended on lap 21, and the sheet just stops",
+      "tell": "his race ended on lap 22, and the sheet just stops",
       "options": [
         "Alonso",
         "Perez",
@@ -198,10 +198,10 @@
         ],
         [
           "Finished",
-          "retired, lap 15"
+          "retired, lap 16"
         ]
       ],
-      "tell": "his race ended on lap 15, and the sheet just stops",
+      "tell": "his race ended on lap 16, and the sheet just stops",
       "options": [
         "Alonso",
         "Bottas",
@@ -221,6 +221,10 @@
           "P3"
         ],
         [
+          "Laps led",
+          "1"
+        ],
+        [
           "Stops",
           "0"
         ],
@@ -238,10 +242,10 @@
         ],
         [
           "Finished",
-          "retired, lap 10"
+          "retired, lap 11"
         ]
       ],
-      "tell": "his race ended on lap 10, and the sheet just stops",
+      "tell": "his race ended on lap 11, and the sheet just stops",
       "options": [
         "Alonso",
         "Bottas",
@@ -262,7 +266,7 @@
         ],
         [
           "Stops",
-          "2 (lap 11, 34)"
+          "2 (lap 12, 35)"
         ],
         [
           "Tyres",
@@ -270,7 +274,7 @@
         ],
         [
           "Median lap",
-          "1:23.435"
+          "1:23.448"
         ],
         [
           "On-track passes",
@@ -302,7 +306,7 @@
         ],
         [
           "Stops",
-          "2 (lap 17, 33)"
+          "2 (lap 18, 34)"
         ],
         [
           "Tyres",
@@ -310,7 +314,7 @@
         ],
         [
           "Median lap",
-          "1:24.541"
+          "1:24.535"
         ],
         [
           "On-track passes",

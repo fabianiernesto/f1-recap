@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Monaco Grand Prix · Race · 78 laps",
       "title": "Everything that happened, in order",
-      "text": "4 on-track passes, 32 pit stops, 7 cars that never finished, 1 safety car and a red flag that stopped the race."
+      "text": "4 on-track passes, 28 pit stops, 7 cars that never finished, 1 safety car and a red flag that stopped the race."
     },
     {
       "type": "moment",
@@ -31,7 +31,7 @@
       "title": "19 incidents looked at",
       "text": "Every one of them logged by race control during the race.",
       "bullets": [
-        "First up, lap 1: Perez, false start",
+        "Lap 1: Perez, false start",
         "10 ended in a penalty, 8 in no further action and 1 left for after the race"
       ]
     },
@@ -188,6 +188,19 @@
       "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine."
     },
     {
+      "type": "moment",
+      "lap": 40,
+      "kicker": "Lap 40 · Pit window",
+      "title": "28 stops, and the busiest lap saw 3 of them",
+      "text": "Once one car stops, the cars around it have to answer.",
+      "bullets": [
+        "3 cars in on each of laps 1, 59 and 60",
+        "Shortest time in the pit lane: Russell, 24.0s",
+        "Longest: Russell, 35.2s"
+      ],
+      "note": "Pit lane time runs from the entry line to the exit line, stop included."
+    },
+    {
       "type": "prediction",
       "lap": 41,
       "kicker": "Call it before it happens",
@@ -203,16 +216,14 @@
     },
     {
       "type": "moment",
-      "lap": 43,
-      "kicker": "Lap 43 · Pit window",
-      "title": "32 stops, and the busiest lap saw 3 of them",
-      "text": "Once one car stops, the cars around it have to answer.",
+      "lap": 44,
+      "kicker": "Off the script",
+      "title": "Bortoleto stopped 3 times",
+      "text": "Three stops when most of the field made 1.",
       "bullets": [
-        "3 cars in on each of laps 1, 58 and 60",
-        "Shortest time in the pit lane: Gasly, 19.8s",
-        "Longest: Russell, 35.2s"
-      ],
-      "note": "Pit lane time runs from the entry line to the exit line, stop included."
+        "In on laps 1, 43 and 59",
+        "One of them under a safety car or VSC"
+      ]
     },
     {
       "type": "moment",
@@ -232,17 +243,6 @@
       "kicker": "Blue flags",
       "title": "126 blue flags waved",
       "text": "That is how often a lapped car was told to let the leaders through."
-    },
-    {
-      "type": "moment",
-      "lap": 47,
-      "kicker": "Off the script",
-      "title": "Bortoleto stopped 4 times",
-      "text": "Four stops when most of the field made 1.",
-      "bullets": [
-        "In on laps 1, 43, 58 and 65",
-        "2 of them under a safety car or VSC"
-      ]
     },
     {
       "type": "moment",
@@ -300,7 +300,7 @@
       "text": "The field bunches up behind the safety car, and whatever anybody had built is gone.",
       "bullets": [
         "Antonelli was leading when it came out",
-        "He took a stop under it, and so did Hulkenberg, Alonso, Bortoleto and 6 others",
+        "He took a stop under it, and so did Alonso, Piastri, Perez and 4 others",
         "It ended in a red flag on lap 68"
       ]
     },

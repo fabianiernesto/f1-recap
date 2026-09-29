@@ -181,6 +181,48 @@ class Session:
             ts = sorted(ts)
             return ts[1] if len(ts) >= 2 and (ts[1] - ts[0]).total_seconds() > 60 else ts[0]
         self.lap_index = sorted((ln, lead(t)) for ln, t in starts.items())
+        self._align_laps(lead)
+
+    def _align_laps(self, lead) -> None:
+        """Albert Park 2026: the laps feed skips its lap 2 and every row after
+        it is one lap behind race control (the winner's "lap 58" starts at the
+        chequered flag). When race control disagrees by the same lap on nearly
+        every message, the rows are renumbered to match it."""
+        if self.kind != "race" or not self.rc or not self.lap_index:
+            return
+        diff = Counter()
+        for m in self.rc:
+            t, ln = parse_ts(m.get("date")), m.get("lap_number")
+            if t and ln and ln >= 4:
+                raw = self.lap_of(t)
+                if raw:
+                    diff[ln - raw] += 1
+        if not diff:
+            return
+        off, n = diff.most_common(1)[0]
+        if off == 0 or n < 0.9 * sum(diff.values()) or n < 20:
+            return
+        for l in self.laps:
+            if (l.get("lap_number") or 0) > 1:
+                l["lap_number"] += off
+        # the pit and stints feeds count with the same rows
+        for p in self.pits:
+            if (p.get("lap_number") or 0) > 1:
+                p["lap_number"] += off
+        for st in self.stints:
+            for key in ("lap_start", "lap_end"):
+                if (st.get(key) or 0) > 1:
+                    st[key] += off
+        starts = defaultdict(list)
+        for l in self.laps:
+            ts = parse_ts(l.get("date_start"))
+            if l.get("lap_number") and ts:
+                starts[l["lap_number"]].append(ts)
+        self.lap_index = sorted((ln, lead(t)) for ln, t in starts.items())
+        fed = max((l.get("lap_number") or 0) for l in self.laps)
+        classified = next((r.get("number_of_laps") for r in self.result
+                           if r.get("position") == 1 and r.get("number_of_laps")), None)
+        self.total_laps = min(fed, classified) if classified else fed
 
     # ---------- helpers ----------
     def name(self, num: int | None) -> str:
@@ -242,17 +284,28 @@ class Session:
         """The lap a retired car stopped on: the one after the last he finished."""
         done = self.completed_laps(num)
         if done is not None:
-            mine = {l.get("lap_number"): l for l in self.laps if l.get("driver_number") == num}
-            last = max(mine, default=0)
-            # Albert Park 2026 counts the untimed lap he stopped on as done
-            if last == done and done in mine and not mine[done].get("lap_duration"):
-                return done
             return done + 1
         return max(((l.get("lap_number") or 0) for l in self.laps
                     if l.get("driver_number") == num), default=0)
 
     def lap_start_ts(self, lap: int):
         return next((t for ln, t in self.lap_index if ln == lap), None)
+
+    def leader_by_lap(self) -> dict[int, int]:
+        """Who led each lap: the first car to start the next one. The winner
+        leads the last. Straight from the timing, not the position feed."""
+        if getattr(self, "_lead", None) is not None:
+            return self._lead
+        first: dict[int, tuple] = {}
+        for l in self.laps:
+            ts, ln = parse_ts(l.get("date_start")), l.get("lap_number")
+            if ts and ln and (ln not in first or ts < first[ln][0]):
+                first[ln] = (ts, l["driver_number"])
+        out = {n: first[n + 1][1] for n in range(1, self.total_laps) if n + 1 in first}
+        if self.result and self.total_laps:
+            out[self.total_laps] = self.result[0]["driver_number"]
+        self._lead = out
+        return out
 
     def own_lap_ts(self, num: int, lap: int):
         """When this driver began that lap (not the field's start of it)."""
@@ -632,6 +685,16 @@ class Session:
             return False
         return None
 
+    def _compound_changed(self, d: int, ln: int) -> bool:
+        sts = sorted((st for st in self.stints if st.get("driver_number") == d),
+                     key=lambda st: st.get("lap_start") or 0)
+        for i, nxt in enumerate(sts):
+            if i and (nxt.get("lap_start") or 0) in (ln, ln + 1, ln + 2):
+                a, b = sts[i - 1].get("compound"), nxt.get("compound")
+                if a not in (None, "UNKNOWN") and b not in (None, "UNKNOWN") and a != b:
+                    return True
+        return False
+
     @property
     def penalty_serves(self) -> list[tuple]:
         """(driver, called at) for every drive-through and stop-and-go: the
@@ -673,14 +736,25 @@ class Session:
         if getattr(self, "_real", None) is not None:
             return self._real
         red = set(self.red_laps)
-        through = {m.get("lap_number") for m in self.messages("ALL CARS THROUGH THE PIT LANE")
-                   if m.get("lap_number")}
+        # "ALL CARS THROUGH THE PIT LANE" until "WILL USE START/FINISH STRAIGHT":
+        # a time window, since lapped cars carry another lap number (Monaco 2026)
+        windows = []
+        for m in sorted(self.messages("ALL CARS THROUGH THE PIT LANE"), key=lambda x: x.get("date") or ""):
+            t = parse_ts(m.get("date"))
+            if not t:
+                continue
+            end = min((parse_ts(x.get("date")) for x in self.messages("START/FINISH STRAIGHT")
+                       if parse_ts(x.get("date")) and parse_ts(x.get("date")) > t),
+                      default=t + timedelta(minutes=6))
+            windows.append((t - timedelta(seconds=120), end))
         serves = list(self.penalty_serves)
         used: set = set()
-        base: dict[int, float] = {}
-        for p in self.lane_visits:
-            if p["lap_number"] in through or p["lap_number"] - 1 in through:
-                base[p["lap_number"]] = min(base.get(p["lap_number"], 999), p["pit_duration"])
+        in_win = lambda ts: next((w for w in windows if ts and w[0] <= ts <= w[1]), None)
+        base: dict = {}
+        for w in windows:
+            durs = sorted(p["pit_duration"] for p in self.lane_visits if p["ts"] and w[0] <= p["ts"] <= w[1])
+            if durs:
+                base[w] = durs[len(durs) // 2]
         out = []
         for p in self.lane_visits:
             d, ln, ts = p["driver_number"], p["lap_number"], p["ts"]
@@ -688,16 +762,18 @@ class Session:
                 continue
             if p["pit_duration"] >= 300:
                 continue      # a red-flag wait or a garage repair, not a pit stop
-            if ln in base and p["pit_duration"] < base[ln] + 3:
-                continue      # everybody through the lane, and this one never stopped
+            w = in_win(ts)
+            if w and p["pit_duration"] < base[w] + 4:
+                continue      # the field routed through the lane, and this one never stopped
             served = next((sv for sv in serves if sv[0] == d and sv[1] and ts and ts >= sv[1]), None)
             if served:
                 serves.remove(served)
                 continue
+            if w:
+                out.append(p)  # clearly stationary while the field went through
+                continue
             changed = self._tyres_changed(d, ln, used)
             if changed is False:
-                continue
-            if changed is None and (ln in through or ln - 1 in through):
                 continue
             if p["pit_duration"] >= 120 and changed is not True:
                 continue
@@ -1207,7 +1283,13 @@ def deleted_row(s: Session, raw: str) -> list[str]:
     who = s.name(int(car.group(1))) if car else "Somebody"
     t = re.search(r"TIME (\d+:\d\d\.\d+)", raw.upper())
     turn = re.search(r"TURN (\d+)", raw.upper())
-    what = t.group(1) if t else (f"at turn {turn.group(1)}" if turn else "a lap")
+    secs = None
+    if t:
+        mm, ss = t.group(1).split(":")
+        secs = int(mm) * 60 + float(ss)
+    # a "7:27.050" is an out-lap or a crawl back, not a flying lap anybody lost
+    what = (t.group(1) if t and secs < 150 else
+            f"at turn {turn.group(1)}" if turn else "a lap")
     return [who, what]
 
 
@@ -1774,9 +1856,9 @@ def merged_stints(s: Session) -> list[dict]:
             if cur and st.get("compound") == cur["compound"] and \
                     (st.get("tyre_age_at_start") or 0) >= cur["age"] + (cur["end"] - cur["start"] + 1) - 2 \
                     and a <= cur["end"] + 1:
-                cur["end"] = b
+                cur["end"] = min(b, s.total_laps)
                 continue
-            cur = {"driver_number": d, "compound": st.get("compound"), "start": a, "end": b,
+            cur = {"driver_number": d, "compound": st.get("compound"), "start": a, "end": min(b, s.total_laps),
                    "age": st.get("tyre_age_at_start") or 0}
             out.append(cur)
     return out
@@ -2131,7 +2213,7 @@ def race_story(s: Session) -> list[dict]:
              "kicker": "Stewards", "title": f"{plural(len(cases), 'incident')} looked at",
              "text": ("Every one of them logged" if len(cases) > 1 else "Logged")
                      + " by race control during the " + event + ".",
-             "bullets": ([f"First up, lap {first['lap']}: "
+             "bullets": ([f"Lap {first['lap']}: "
                           f"{names_list([s.name(n) for n in first['cars']])}, "
                           f"{(first['offence'] or 'an incident').lower()}"] if first else [])
                         + ([", ".join(tally[:-1]) + (" and " if len(tally) > 1 else "") + tally[-1]]
