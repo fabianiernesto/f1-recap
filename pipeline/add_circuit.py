@@ -35,7 +35,7 @@ OFFICIAL_LENGTH_KM = {
 
 # corner counts for circuits FastF1 has no circuit info for yet. Madring: 22,
 # per Wikipedia and RacingCircuits.info, checked 28-sep-2026
-OFFICIAL_CORNERS = {"Madrid": 22}
+OFFICIAL_CORNERS = {"Madrid": 22, "Monaco": 19}
 
 # FastF1 finds an event by the name of the Grand Prix; the circuit the site
 # shows is a different word for most of them
@@ -106,7 +106,7 @@ def main(year: int, gp: str, slug: str, name: str, country: str) -> None:
     corners = ([{"x": tx(c["X"]), "y": ty(c["Y"]), "label": names[int(c["Number"])]}
                 for _, c in info.corners.iterrows() if int(c["Number"]) in names]
                if info is not None else [])
-    corner_count = len(info.corners) if info is not None else OFFICIAL_CORNERS.get(gp)
+    corner_count = OFFICIAL_CORNERS.get(gp) or (len(info.corners) if info is not None else None)
 
     # ---- circuit vitals, the same five everywhere ----
     tel = lap.get_car_data().add_distance()
