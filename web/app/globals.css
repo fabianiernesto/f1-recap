@@ -2631,3 +2631,6 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
   .hub-back, .hub-home { font-size: 9px; letter-spacing: .12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .hub-home { flex: none; }
 }
+/* decorations drawn past the edge (the tube, the ghost circuit) must never widen the page:
+   on a phone that pushed the fixed lap counter and Alfred off the screen */
+html, body { overflow-x: clip; }
