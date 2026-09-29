@@ -5,6 +5,7 @@ import { activitiesFor, listGPs, loadBrain, loadStory, loadTrack, loadWeekend } 
 import { askAlfred } from "@/lib/alfred";
 import { GHOST, bigPhoto } from "@/lib/photo";
 import HowSwitch from "@/components/HowSwitch";
+import MotionFX from "@/components/MotionFX";
 import type { RaceFacts, Track, Weekend } from "@/lib/types";
 
 /**
@@ -31,6 +32,37 @@ function homeFigure(): string | null {
       return `/home/driver.${ext}`;
   }
   return null;
+}
+
+/** The moodboard: red and black, shot at speed. */
+const MOOD = {
+  helmet: "/home/mood/helmet.jpg",
+  car: "/home/mood/car-top.jpg",
+  horse: "/home/mood/horse.jpg",
+  tyre: "/home/mood/tyre.jpg",
+};
+
+/** A photograph with a smeared copy of itself dragging behind it. */
+function Blur({ src, className = "" }: { src: string; className?: string }) {
+  return (
+    <div className={`mood ${className}`} aria-hidden>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="mood-trail" src={src} alt="" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="mood-img" src={src} alt="" />
+    </div>
+  );
+}
+
+/** A red line that tears across the page between two sections. */
+function Streak({ flip = false }: { flip?: boolean }) {
+  return (
+    <div className={`streak${flip ? " streak-flip" : ""}`} data-fx="streak" aria-hidden>
+      <i />
+      <i />
+      <i />
+    </div>
+  );
 }
 
 function trackArt(track: Track, pad = 40) {
@@ -104,7 +136,7 @@ export default function Home() {
 
   const latest = weekends.find((w) => w.weekend.facts) ?? weekends[0];
   const facts = latest?.weekend.facts ?? null;
-  const figure = homeFigure();
+  void homeFigure;
 
   // totals across everything built, for the numbers section
   const totals = weekends.reduce(
@@ -147,7 +179,8 @@ export default function Home() {
     : null;
 
   return (
-    <main className="home led">
+    <main className="home led fx-home">
+      <MotionFX />
       <nav className="home-nav">
         <span className="home-brand">Racing Simplified</span>
         <a href="#how">How it works</a>
@@ -172,16 +205,18 @@ export default function Home() {
             />
           </svg>
         )}
-        {figure && (
-          <div className="home-figure" aria-hidden>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={figure} alt="" />
-          </div>
-        )}
+        <div className="hero-helmet" data-par="0.12">
+          <Blur src={MOOD.helmet} className="mood-helmet" />
+        </div>
+        <div className="speedlines" aria-hidden>
+          {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+            <i key={i} style={{ ["--i" as string]: i }} />
+          ))}
+        </div>
         <span className="home-kicker">Formula 1 · Season 2026</span>
         <h1>
           <span className="home-l1">Every race</span>
-          <span className="home-l2">Simplified</span>
+          <span className="home-l2 glow">Simplified</span>
         </h1>
         <p className="home-lede">
           {opener && <span className="home-opener">{opener} </span>}
@@ -214,12 +249,16 @@ export default function Home() {
         )}
       </header>
 
+      <div className="cross-car" data-par="0.28" aria-hidden>
+        <Blur src={MOOD.car} className="mood-car" />
+      </div>
+
       {/* ------------------------------------------ 2 · the two channels */}
       <section className="how" id="how">
         <div className="how-banner">
           <div className="how-banner-text">
             <span className="how-banner-k">Racing Simplified</span>
-            <h2>How it works</h2>
+            <h2 data-fx="left">How it works</h2>
             <p>
               Every circuit has the same two doors. Both open on the official
               timing feed, and when the feed cannot back a claim, the claim is
@@ -398,23 +437,29 @@ export default function Home() {
         />
       </section>
 
+      <Streak />
+
       {/* ------------------------------------------- 3 · the latest race */}
       {latest && facts && (
         <section
-          className="spread"
+          className="spread spread-horse"
           id="latest"
           style={{ ["--team" as string]: tone(facts.winner.colour) }}
         >
+          <div className="spread-run" data-fx="left">
+            <Blur src={MOOD.horse} className="mood-horse" />
+          </div>
           <div className="spread-head">
             <span className="spread-tag">Latest recap</span>
             <span className="spread-eyebrow">
               {latest.weekend.short} · {latest.weekend.date}
             </span>
           </div>
-          <h2 className="spread-name">
+          <h2 className="spread-name" data-fx="right">
             <span className="spread-circuit">{frontPage(latest.weekend, facts).circuit}</span>
             <span className="spread-line">
-              {frontPage(latest.weekend, facts).line} {frontPage(latest.weekend, facts).em}
+              {frontPage(latest.weekend, facts).line}{" "}
+              <span className="glow">{frontPage(latest.weekend, facts).em}</span>
             </span>
           </h2>
           <div className="spread-copy">
@@ -445,13 +490,15 @@ export default function Home() {
         </section>
       )}
 
+      <Streak flip />
+
       {/* --------------------------------------------- 4 · the circuits */}
-      <section className="home-races" id="races">
+      <section className="home-races races-run" id="races">
         <div className="home-sec-head">
-          <h2>The circuits</h2>
+          <h2 data-fx="left">The circuits</h2>
           <p>Every weekend built so far, newest first. Each one opens on the same two doors.</p>
         </div>
-        <div className="home-grid">
+        <div className="home-grid races-track" data-fx="right">
           {weekends.map(({ weekend: w, track }, i) => {
             const art = trackArt(track);
             const moments = w.sessions.reduce((n, s) => n + s.moments, 0);
@@ -506,29 +553,37 @@ export default function Home() {
       </section>
 
       {/* ------------------------------------------------ 5 · the numbers */}
-      <section className="numbers">
-        <div className="home-sec-head">
-          <h2>Built so far</h2>
+      <section className="numbers numbers-fire">
+        <div className="numbers-tyre">
+          <Blur src={MOOD.tyre} className="mood-tyre" />
         </div>
-        <dl className="numbers-row">
+        <div className="cross-beam" data-fx="beam" aria-hidden>
+          <i className="beam-tube" />
+          <i className="beam-haze" />
+          <i className="beam-pulse" />
+        </div>
+        <div className="home-sec-head">
+          <h2 data-fx="left">Built so far</h2>
+        </div>
+        <dl className="numbers-row numbers-stagger" data-fx="right">
           <div>
-            <dd>{totals.races}</dd>
+            <dd className="glow">{totals.races}</dd>
             <dt>Grands Prix</dt>
           </div>
           <div>
-            <dd>{totals.moments}</dd>
+            <dd className="glow">{totals.moments}</dd>
             <dt>moments told</dt>
           </div>
           <div>
-            <dd>{totals.laps}</dd>
+            <dd className="glow">{totals.laps}</dd>
             <dt>race laps</dt>
           </div>
           <div>
-            <dd>{totals.passes}</dd>
+            <dd className="glow">{totals.passes}</dd>
             <dt>passes on track</dt>
           </div>
           <div>
-            <dd>{totals.stops}</dd>
+            <dd className="glow">{totals.stops}</dd>
             <dt>pit stops</dt>
           </div>
         </dl>
