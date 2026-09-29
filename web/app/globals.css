@@ -2321,9 +2321,9 @@ a.act:hover .act-go { background: var(--led); color: #000; }
 /* the band the car lands in is red, cut on a diagonal: the board ends where
    the black ends, and the car glows harder crossing into it */
 .fx-home .how-banner { position: relative; color: #fff !important; padding-top: 22vh !important;
-  background:
-    radial-gradient(ellipse 60% 90% at 85% 30%, #ff2a1a 0%, transparent 60%),
-    linear-gradient(115deg, #8a0500 0%, #c80600 45%, #e10600 100%) !important;
+  /* the red behind the horse (#d20e08, sampled from the photograph), going
+     dark toward the left the way the horse fades into the black */
+  background: linear-gradient(115deg, #6e0703 0%, #a50b06 38%, #d20e08 78%, #d20e08 100%) !important;
   clip-path: polygon(0 0, 100% 12vh, 100% 100%, 0 100%); }
 .fx-home .how-banner::before { content: ""; position: absolute; inset: 0; pointer-events: none;
   background: repeating-linear-gradient(90deg, transparent 0 60px, #0000000d 60px 62px);
