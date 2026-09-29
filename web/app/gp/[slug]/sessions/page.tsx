@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import MotionFX from "@/components/MotionFX";
 import { listGPs, loadWeekend } from "@/lib/data";
 import WeekendHub from "@/components/WeekendHub";
 
@@ -22,6 +23,7 @@ export default async function SessionsPage({
         </Link>
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
+      <MotionFX />
       <WeekendHub weekend={weekend} />
     </>
   );

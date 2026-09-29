@@ -2457,3 +2457,105 @@ a.act:hover .act-go { background: var(--led); color: #000; }
   .cross-car .mood-car { top: -12vh; right: -4vw; width: 38vw; }
   .home.led .home-cta { flex-wrap: wrap; gap: 14px; }
 }
+/* ===================================================================
+   THE SPEED KIT ON EVERY PAGE (29-sep-2026). The home's language carried
+   through: lit type, photographs with their smear dragging behind, blocks
+   that arrive from the side, red tears and a neon tube. A circuit's own
+   front door (the LED board) stays exactly as it is.
+   =================================================================== */
+/* lit type anywhere, not only on the home */
+.glow {
+  color: #ff2415 !important;
+  text-shadow: 0 0 2px #ff7a62, 0 0 10px #ff2415, 0 0 26px #e10600cc,
+    0 0 60px #e1060080, 0 0 120px #e1060040 !important;
+  animation: glow-hum 5s ease-in-out infinite; }
+.fx-page { overflow-x: clip; }
+.fx-page .speedlines, .bt-fx .speedlines, .pw-fx .speedlines { z-index: 0; }
+
+/* ---- the sessions: a stepped line-up, the race on the red band */
+.hub.fx-page { overflow: hidden; align-items: stretch; gap: 0; padding: 12vh 0 16vh; isolation: isolate; }
+.hub-car { position: absolute; z-index: -1; right: 4vw; top: 6vh;
+  width: clamp(240px, 26vw, 460px); aspect-ratio: 1080 / 1350; mix-blend-mode: screen;
+  transform: translate3d(0, var(--par, 0px), 0) rotate(-14deg); }
+.hub-car .mood { -webkit-mask-image: radial-gradient(ellipse 60% 64% at 50% 50%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 60% 64% at 50% 50%, #000 55%, transparent 100%); }
+.hub-car .mood-trail { transform: translateY(12%) scaleY(1.2); animation: car-drag 4s ease-in-out infinite alternate; }
+.hub.fx-page .hub-head { position: relative; z-index: 2; text-align: left; max-width: none; padding: 0 5vw 9vh; }
+.hub.fx-page .hub-eyebrow { text-align: left; }
+.hub.fx-page .hub-head h2 { font-family: "Anybody", var(--font-ui), sans-serif; font-weight: 800;
+  font-stretch: 150%; line-height: .92; margin: 0 0 22px;
+  /* as big as the page allows, and never wider than it: Spa-Francorchamps
+     is sixteen letters at 150% width */
+  font-size: min(108px, 6.2vw, calc(86vw / (var(--len, 10) * 1.02))); }
+.hub.fx-page .hub-head h2 span { display: block; }
+.hub.fx-page .hub-head p { max-width: 60ch; }
+.hub.fx-page .hub-sessions { position: relative; z-index: 2; width: auto; margin-top: 9vh; padding: 0 5vw; }
+.hub.fx-page .hub-session { width: min(78vw, 900px); margin-left: calc(var(--step) * 4.2vw);
+  border: 0; border-top: 1px solid #ffffff14; background: #000000b0; backdrop-filter: blur(2px); }
+.hub.fx-page .hub-session:hover { background: #1a0302; padding-left: 26px; }
+.hub.fx-page .hub-session-label { font-family: "Anybody", var(--font-ui), sans-serif; font-weight: 800;
+  font-stretch: 140%; font-size: clamp(20px, 2vw, 30px); }
+/* the race: the red band the home uses for a change of section */
+.hub.fx-page .hub-session-race { margin-top: 5vh; padding: 34px 28px; border: 0;
+  background: linear-gradient(115deg, #6e0703 0%, #a50b06 38%, #d20e08 100%);
+  clip-path: polygon(0 14%, 100% 0, 100% 86%, 0 100%); }
+.hub.fx-page .hub-session-race:hover { background: linear-gradient(115deg, #7d0804 0%, #b80c06 38%, #e0120a 100%); padding-left: 36px; }
+.hub.fx-page .hub-session-race .hub-session-n, .hub.fx-page .hub-session-race .hub-session-go { color: #fff; }
+.hub.fx-page .hub-session-race .hub-session-head, .hub.fx-page .hub-session-race .hub-session-meta { color: #ffe3dd; }
+.hub.fx-page .hub-session-race .hub-session-label { font-size: clamp(26px, 2.8vw, 44px); }
+
+/* ---- the activities: photographs behind every door, the cards off the line */
+.acts.fx-page { position: relative; overflow: hidden; isolation: isolate; }
+.acts.fx-page .acts-head { position: relative; z-index: 2; }
+.acts-beam i { left: 58vw !important; top: -8vh !important; height: 140vh !important; }
+.acts.fx-page .acts-grid { position: relative; z-index: 2; gap: 26px; align-items: start; }
+.act-photo { overflow: hidden; isolation: isolate; background: #0a0a0a !important; min-height: 380px; }
+.act-photo .act-bg { position: absolute !important; inset: 0; z-index: -1; opacity: .68; transition: opacity .3s, transform .6s; }
+.act-photo .act-bg .mood-img { object-position: 60% 40%; }
+.act-photo::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, #0a0a0acc 0%, #0a0a0a55 45%, #0a0a0ae6 100%); }
+a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
+.act-off.act-photo .act-bg, .act-next.act-photo .act-bg { opacity: .22; filter: grayscale(.6); }
+.acts.fx-page .acts-grid > :nth-child(2) { translate: 0 7vh; }
+.acts.fx-page .acts-grid > :nth-child(3) { translate: 0 14vh; }
+.acts.fx-page { padding-bottom: 26vh; }
+
+/* ---- the blind test and the pit wall: lit from behind like the helmet */
+.bt-fx, .pw-fx { position: relative; overflow: hidden; isolation: isolate; }
+.bt-fx::before { content: ""; position: absolute; z-index: -1; right: -6vw; top: 8vh; width: 62vw; height: 86vh;
+  background: radial-gradient(ellipse 50% 56% at 55% 55%, #d20e08 0%, #8a0804 34%, transparent 70%);
+  opacity: .85; filter: blur(10px); }
+.bt-fx .bt-crowd img { filter: brightness(0); }
+.bt-fx .bt-cover-copy, .bt-fx .bt-crowd, .pw-fx .pw-cover-copy { position: relative; z-index: 2; }
+.bt-fx .bt-h1 span.glow, .pw-fx .pw-h1 span.glow { display: block; }
+
+/* ---- the story: a red light under the track, cards arriving at speed */
+.story-haze { position: fixed; z-index: 0; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 42% 46% at 52% 56%, #d20e0826 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, #d20e081f 0%, transparent 70%); }
+.v-cover h2 { color: #ff2415 !important;
+  text-shadow: 0 0 2px #ff7a62, 0 0 10px #ff2415, 0 0 26px #e10600cc, 0 0 60px #e1060080 !important;
+  animation: glow-hum 5s ease-in-out infinite; }
+.biglap { color: transparent; -webkit-text-stroke: 1.5px #d20e0866;
+  text-shadow: 0 0 30px #e1060030; }
+@media (min-width: 1100px) {
+  .stop.s-left .card:not(.seen) { transform: translate3d(-9vw, 0, 0) skewX(-14deg); filter: blur(16px); }
+  .stop.s-right .card:not(.seen) { transform: translate3d(9vw, 0, 0) skewX(14deg); filter: blur(16px); }
+  .stop .card { transition: opacity .6s ease-out, transform .95s cubic-bezier(.16, .84, .2, 1),
+    filter .95s cubic-bezier(.16, .84, .2, 1); }
+  .stop .card.seen { filter: none; }
+}
+
+/* ---- the poster: the neon tube cuts behind the winner, as it cuts from the
+   circuits into the numbers on the home */
+.poster-beam { z-index: 1 !important; }
+.poster-beam i { left: -4vw !important; top: -12vh !important; height: 150vh !important; }
+.poster-beam .beam-haze { display: none; }
+
+@media (max-width: 900px) {
+  .hub.fx-page .hub-session { width: auto; margin-left: 0; }
+  .hub-car { width: 50vw; right: -8vw; opacity: .5; }
+  .acts.fx-page .acts-grid > :nth-child(n) { translate: none; }
+  .bt-fx::before { width: 100vw; right: -30vw; opacity: .5; }
+}

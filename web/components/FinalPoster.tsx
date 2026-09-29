@@ -1,5 +1,6 @@
 import type { Story, Track } from "@/lib/types";
 import { bigPhoto } from "@/lib/photo";
+import { Beam } from "@/components/Mood";
 
 
 function mmss(t: number): string {
@@ -32,6 +33,7 @@ export default function FinalPoster({
 
   return (
     <section className="poster">
+      <Beam className="poster-beam" />
       {/* the circuit is the watermark on the paper, centred like the rest */}
       <svg
         className="poster-ghost"

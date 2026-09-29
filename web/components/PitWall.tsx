@@ -5,6 +5,7 @@ import { useState } from "react";
 import type { PitWall as Wall, PitWallCall } from "@/lib/types";
 import { bigPhoto } from "@/lib/photo";
 import Term from "@/components/Term";
+import { Speedlines } from "@/components/Mood";
 
 /**
  * You take the calls, and the calls cost what they cost.
@@ -87,12 +88,13 @@ export default function PitWall({ wall, backTo }: { wall: Wall; backTo: string }
 
   if (!started)
     return (
-      <main className="pw pw-cover" style={tone}>
-        <div className="pw-cover-copy">
+      <main className="pw pw-cover pw-fx" style={tone}>
+        <Speedlines n={6} />
+        <div className="pw-cover-copy" data-fx="left">
           <span className="pw-eyebrow">The pit wall · {wall.session}</span>
           <h1 className="pw-h1">
             You are on
-            <span>{driver.name}&rsquo;s radio</span>
+            <span className="glow">{driver.name}&rsquo;s radio</span>
           </h1>
           <p className="pw-lede">
             He started P{driver.start} and finished P{driver.finish}, with{" "}

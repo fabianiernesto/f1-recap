@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import MotionFX from "@/components/MotionFX";
 import { hasSession, listGPs, loadPitWall, loadWeekend } from "@/lib/data";
 import PitWall from "@/components/PitWall";
 
@@ -29,6 +30,7 @@ export default async function PitWallPage({
         </Link>
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
+      <MotionFX />
       <PitWall wall={wall} backTo={`/gp/${slug}/activities`} />
     </>
   );

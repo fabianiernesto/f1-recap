@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import type { BlindRound, BlindTest as Test } from "@/lib/types";
 import { GHOST, bigPhoto } from "@/lib/photo";
 import Term from "@/components/Term";
+import { Speedlines } from "@/components/Mood";
 
 /**
  * Five drivers with their names taken off.
@@ -76,12 +77,13 @@ export default function BlindTest({ test, backTo }: { test: Test; backTo: string
      on the server and in the browser until somebody asks for one */
   if (!rounds) {
     return (
-      <main className="bt bt-cover">
-        <div className="bt-cover-copy">
+      <main className="bt bt-cover bt-fx">
+        <Speedlines n={6} />
+        <div className="bt-cover-copy" data-fx="left">
           <span className="bt-eyebrow">The blind test · {test.session}</span>
           <h1 className="bt-h1">
             Five drivers.
-            <span>No names.</span>
+            <span className="glow">No names.</span>
           </h1>
           <p className="bt-lede">
             Every sheet is somebody&rsquo;s real afternoon: where they started,
@@ -95,7 +97,7 @@ export default function BlindTest({ test, backTo }: { test: Test; backTo: string
             back to the activities
           </Link>
         </div>
-        <div className="bt-crowd" aria-hidden>
+        <div className="bt-crowd" data-fx="right" aria-hidden>
           {[0, 1, 2, 3, 4].map((i) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img key={i} src={GHOST} alt="" style={{ zIndex: 5 - i }} />

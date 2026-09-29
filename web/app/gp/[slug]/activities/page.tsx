@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { activitiesFor, listGPs, loadWeekend } from "@/lib/data";
+import MotionFX from "@/components/MotionFX";
+import { Beam, Blur, MOOD, Speedlines } from "@/components/Mood";
 
 export function generateStaticParams() {
   return listGPs().map((slug) => ({ slug }));
@@ -31,14 +33,17 @@ export default async function ActivitiesPage({
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
 
-      <main className="acts">
-        <header className="acts-head">
+      <main className="acts fx-page">
+        <MotionFX />
+        <Speedlines n={5} />
+        <Beam className="acts-beam" />
+        <header className="acts-head" data-fx="left">
           <span className="acts-eyebrow">
             {weekend.short} · {weekend.date}
           </span>
           <h1>
             <span>{weekend.circuit}</span>
-            <span>Simplified</span>
+            <span className="glow">Simplified</span>
           </h1>
           <p>
             {live
@@ -54,8 +59,10 @@ export default async function ActivitiesPage({
           {acts.blind ? (
             <Link
               href={`/gp/${slug}/${acts.blind.session}/blind`}
-              className="act"
+              className="act act-photo"
+              data-fx="left"
             >
+              <Blur src={MOOD.helmet} className="act-bg" />
               <span className="act-n">Activity 01</span>
               <h2>The blind test</h2>
               <p>
@@ -69,7 +76,8 @@ export default async function ActivitiesPage({
               <span className="act-go">Play →</span>
             </Link>
           ) : (
-            <div className="act act-off">
+            <div className="act act-off act-photo" data-fx="left">
+              <Blur src={MOOD.helmet} className="act-bg" />
               <span className="act-n">Activity 01</span>
               <h2>The blind test</h2>
               <p>
@@ -82,8 +90,10 @@ export default async function ActivitiesPage({
           {acts.pitwall ? (
             <Link
               href={`/gp/${slug}/${acts.pitwall.session}/pitwall`}
-              className="act"
+              className="act act-photo"
+              data-fx="right"
             >
+              <Blur src={MOOD.tyre} className="act-bg" />
               <span className="act-n">Activity 02</span>
               <h2>The pit wall</h2>
               <p>
@@ -99,7 +109,8 @@ export default async function ActivitiesPage({
               <span className="act-go">Play →</span>
             </Link>
           ) : (
-            <div className="act act-off">
+            <div className="act act-off act-photo" data-fx="right">
+              <Blur src={MOOD.tyre} className="act-bg" />
               <span className="act-n">Activity 02</span>
               <h2>The pit wall</h2>
               <p>
@@ -111,7 +122,8 @@ export default async function ActivitiesPage({
             </div>
           )}
 
-          <div className="act act-next">
+          <div className="act act-next act-photo" data-fx="left">
+            <Blur src={MOOD.horse} className="act-bg" />
             <span className="act-n">Activity 03</span>
             <h2>The what-if</h2>
             <p>

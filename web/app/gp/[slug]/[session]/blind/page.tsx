@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import MotionFX from "@/components/MotionFX";
 import { hasSession, listGPs, loadBlind, loadWeekend } from "@/lib/data";
 import BlindTest from "@/components/BlindTest";
 
@@ -27,6 +28,7 @@ export default async function BlindPage({
         </Link>
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
+      <MotionFX />
       <BlindTest test={test} backTo={`/gp/${slug}/activities`} />
     </>
   );

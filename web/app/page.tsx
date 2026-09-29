@@ -6,6 +6,7 @@ import { askAlfred } from "@/lib/alfred";
 import { GHOST, bigPhoto } from "@/lib/photo";
 import HowSwitch from "@/components/HowSwitch";
 import MotionFX from "@/components/MotionFX";
+import { Beam, Blur, MOOD, Speedlines, Streak } from "@/components/Mood";
 import type { RaceFacts, Track, Weekend } from "@/lib/types";
 
 /**
@@ -32,37 +33,6 @@ function homeFigure(): string | null {
       return `/home/driver.${ext}`;
   }
   return null;
-}
-
-/** The moodboard: red and black, shot at speed. */
-const MOOD = {
-  helmet: "/home/mood/helmet.jpg",
-  car: "/home/mood/car-top.jpg",
-  horse: "/home/mood/horse.jpg",
-  tyre: "/home/mood/tyre.jpg",
-};
-
-/** A photograph with a smeared copy of itself dragging behind it. */
-function Blur({ src, className = "" }: { src: string; className?: string }) {
-  return (
-    <div className={`mood ${className}`} aria-hidden>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="mood-trail" src={src} alt="" />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="mood-img" src={src} alt="" />
-    </div>
-  );
-}
-
-/** A red line that tears across the page between two sections. */
-function Streak({ flip = false }: { flip?: boolean }) {
-  return (
-    <div className={`streak${flip ? " streak-flip" : ""}`} data-fx="streak" aria-hidden>
-      <i />
-      <i />
-      <i />
-    </div>
-  );
 }
 
 function trackArt(track: Track, pad = 40) {
@@ -208,11 +178,7 @@ export default function Home() {
         <div className="hero-helmet" data-par="0.12">
           <Blur src={MOOD.helmet} className="mood-helmet" />
         </div>
-        <div className="speedlines" aria-hidden>
-          {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-            <i key={i} style={{ ["--i" as string]: i }} />
-          ))}
-        </div>
+        <Speedlines />
         <span className="home-kicker">Formula 1 · Season 2026</span>
         <h1>
           <span className="home-l1">Every race</span>
@@ -562,11 +528,7 @@ export default function Home() {
         <div className="numbers-tyre">
           <Blur src={MOOD.tyre} className="mood-tyre" />
         </div>
-        <div className="cross-beam" data-fx="beam" aria-hidden>
-          <i className="beam-tube" />
-          <i className="beam-haze" />
-          <i className="beam-pulse" />
-        </div>
+        <Beam />
         <div className="home-sec-head">
           <h2 data-fx="left">Built so far</h2>
         </div>

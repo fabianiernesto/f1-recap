@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import MotionFX from "@/components/MotionFX";
 import {
   hasSession,
   listGPs,
@@ -37,6 +38,8 @@ export default async function SessionPage({
         </Link>
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
+      <MotionFX />
+      <div className="story-haze" aria-hidden />
       <RaceScroll story={story} track={track} mate={mate} brain={brain} />
 
       {session === "race" && <FinalPoster story={story} track={track} />}
