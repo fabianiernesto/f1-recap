@@ -498,7 +498,8 @@ export default function Home() {
           <h2 data-fx="left">The circuits</h2>
           <p>Every weekend built so far, newest first. Each one opens on the same two doors.</p>
         </div>
-        <div className="home-grid races-track" data-fx="right">
+        <div className="races-wrap" data-fx="right">
+        <div className="home-grid races-track" data-strip>
           {weekends.map(({ weekend: w, track }, i) => {
             const art = trackArt(track);
             const moments = w.sessions.reduce((n, s) => n + s.moments, 0);
@@ -549,6 +550,10 @@ export default function Home() {
               </Link>
             );
           })}
+        </div>
+        <div className="races-bar" data-strip-bar aria-hidden>
+          <i className="races-thumb" />
+        </div>
         </div>
       </section>
 

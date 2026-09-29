@@ -2370,9 +2370,26 @@ a.act:hover .act-go { background: var(--led); color: #000; }
 
 /* ---- 4 · the circuits run sideways, on a tilt, off both edges */
 .fx-home .races-run { overflow: hidden; }
+/* the tilt lives on the wrapper, so the strip and its bar lean together */
+.fx-home .races-wrap { rotate: -2.2deg; margin: 0 -5vw; }
 .fx-home .races-track { display: flex !important; gap: 22px; overflow-x: auto; overflow-y: visible;
-  scroll-snap-type: x mandatory; padding: 6vh 5vw 12vh; margin: 0 -5vw;
-  rotate: -2.2deg; scrollbar-width: thin; scrollbar-color: var(--brand) transparent; }
+  scroll-snap-type: x mandatory; padding: 6vh 5vw 10vh; cursor: grab;
+  scrollbar-width: none; -ms-overflow-style: none; }
+.fx-home .races-track::-webkit-scrollbar { display: none; }
+.fx-home .races-track.is-grab { cursor: grabbing; }
+.fx-home .races-track.is-grab .home-card { pointer-events: none; }
+/* our own bar: a hairline rail and a lit tube riding it. The browser's bar,
+   tilted, rendered as a staircase; a soft glowing tube has no edge to step. */
+.races-bar { position: relative; height: 28px; margin: 0 5vw 4vh; cursor: pointer;
+  touch-action: none; --w: .3; --p: 0; }
+.races-bar::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+  background: linear-gradient(90deg, transparent, #0a0a0a2e 8%, #0a0a0a2e 92%, transparent); }
+.races-thumb { position: absolute; top: 50%; height: 5px; border-radius: 5px;
+  width: calc(var(--w) * 100%); left: calc(var(--p) * (1 - var(--w)) * 100%);
+  transform: translateY(-50%); backface-visibility: hidden;
+  background: linear-gradient(90deg, #d20e08, #ff2415 55%, #ff6a1a);
+  box-shadow: 0 0 8px #ff2415aa, 0 0 22px #e1060055; transition: height .2s; }
+.races-bar:hover .races-thumb { height: 7px; }
 .fx-home .races-track > .home-card { flex: 0 0 clamp(260px, 23vw, 340px); scroll-snap-align: start; }
 .fx-home .races-track > .home-card:nth-child(even) { translate: 0 6vh; }
 
@@ -2400,7 +2417,7 @@ a.act:hover .act-go { background: var(--led); color: #000; }
   .spread-run { width: 100vw; right: 0; opacity: .4; }
   .numbers-tyre { width: 120vw; opacity: .45; }
   .fx-home .numbers-stagger > div { translate: none !important; }
-  .fx-home .races-track { rotate: 0deg; }
+  .fx-home .races-wrap { rotate: 0deg; }
   .fx-home .races-track > .home-card:nth-child(even) { translate: none; }
 }
 @media (prefers-reduced-motion: reduce) {
