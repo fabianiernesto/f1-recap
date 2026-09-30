@@ -2634,3 +2634,10 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
 /* decorations drawn past the edge (the tube, the ghost circuit) must never widen the page:
    on a phone that pushed the fixed lap counter and Alfred off the screen */
 html, body { overflow-x: clip; }
+.mood-pilot .mood-img { object-position: 60% 28%; }
+/* a photograph lit right to its edges: fade the sides on the photo and the
+   top and bottom on its frame, so the two masks multiply */
+.mood-soft { -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 45%); }
+.lost-helmet { -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 36%, #000 62%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 36%, #000 62%, transparent 100%); }

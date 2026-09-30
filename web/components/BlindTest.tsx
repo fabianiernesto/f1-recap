@@ -113,7 +113,7 @@ export default function BlindTest({ test, backTo }: { test: Test; backTo: string
       <main className="bt bt-cover bt-fx bt-done">
         <Speedlines n={6} />
         <div className="bt-done-run" aria-hidden>
-          <Blur src={MOOD.horse} className="mood-horse" />
+          <Blur src={MOOD.pilot} className="mood-horse mood-pilot" />
         </div>
         <div className="bt-cover-copy">
           <span className="bt-eyebrow">Result</span>

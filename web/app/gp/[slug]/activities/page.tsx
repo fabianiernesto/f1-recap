@@ -62,7 +62,7 @@ export default async function ActivitiesPage({
               className="act act-photo"
               data-fx="left"
             >
-              <Blur src={MOOD.helmet} className="act-bg" />
+              <Blur src={MOOD.gloves} className="act-bg" />
               <span className="act-n">Activity 01</span>
               <h2>The blind test</h2>
               <p>
@@ -77,7 +77,7 @@ export default async function ActivitiesPage({
             </Link>
           ) : (
             <div className="act act-off act-photo" data-fx="left">
-              <Blur src={MOOD.helmet} className="act-bg" />
+              <Blur src={MOOD.gloves} className="act-bg" />
               <span className="act-n">Activity 01</span>
               <h2>The blind test</h2>
               <p>
@@ -93,7 +93,7 @@ export default async function ActivitiesPage({
               className="act act-photo"
               data-fx="right"
             >
-              <Blur src={MOOD.tyre} className="act-bg" />
+              <Blur src={MOOD.rain} className="act-bg" />
               <span className="act-n">Activity 02</span>
               <h2>The pit wall</h2>
               <p>
@@ -110,7 +110,7 @@ export default async function ActivitiesPage({
             </Link>
           ) : (
             <div className="act act-off act-photo" data-fx="right">
-              <Blur src={MOOD.tyre} className="act-bg" />
+              <Blur src={MOOD.rain} className="act-bg" />
               <span className="act-n">Activity 02</span>
               <h2>The pit wall</h2>
               <p>

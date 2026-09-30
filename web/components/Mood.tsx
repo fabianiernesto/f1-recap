@@ -12,6 +12,11 @@ export const MOOD = {
   car: "/home/mood/car-top.jpg",
   horse: "/home/mood/horse.jpg",
   tyre: "/home/mood/tyre.jpg",
+  // the second shoot, so no page wears the same photograph as the home
+  gloves: "/home/mood/nuevas/helmet-guantes-a.webp",
+  glovesSmoke: "/home/mood/nuevas/helmet-guantes-c.webp",
+  pilot: "/home/mood/nuevas/helmet-guantes-vertical.webp",
+  rain: "/home/mood/nuevas/coche-lluvia-trasera.webp",
 };
 
 /** A photograph with a smeared copy of itself dragging behind it. */
