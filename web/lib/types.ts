@@ -172,6 +172,68 @@ export type BlindRound = {
 
 export type BlindTest = { session: string; rounds: BlindRound[] };
 
+/** The race, replayable (pipeline/replay.py): when every car crossed the line
+ *  at the end of every lap, in seconds from the start, stoppages cut out. */
+export type ReplayCar = {
+  num: number; code: string; name: string; team: string; colour: string; photo: string;
+  grid: number | null; finish: number | null; out: number | null; cross: number[];
+};
+export type RaceCall = {
+  kind: string; lap: number; reveal: number; flag?: string;
+  q: string; ctx: string; options: { id: string; label: string; sub?: string }[];
+  answer: string; why: string;
+};
+export type Replay = {
+  laps: number; lapTime: number; field: ReplayCar[];
+  neutral: { kind: "SC" | "VSC"; from: number; to: number }[];
+  red: number[]; pits: [number, number][];
+  fastest: { num: number; lap: number } | null;
+  calls: RaceCall[];
+};
+
+/** The ghost (pipeline/muro.py): the strategy calls a driver's garage faced,
+ *  each option priced against what they really did. */
+export type GhostOption = {
+  label: string; lap: number; lost: number; real: boolean; note: string; delta?: number;
+  rejoin?: { pos: number; ahead?: [string, number]; behind?: [string, number] };
+};
+export type GhostCall = {
+  lap: number; kicker: string; question: string; facts: [string, string][];
+  options: GhostOption[]; reading: string; scored: boolean; moved?: number | null;
+};
+export type GhostSeat = {
+  name: string; number: number; team: string; colour: string; headshot: string;
+  start: number | null; finish: number; margin: number; calls: GhostCall[];
+  /** the live ghost: every lap of each trusted stop window, priced */
+  windows?: GhostWindow[];
+  stints?: [string | null, number, number | null][];
+};
+export type GhostWindow = {
+  stop: number; lo: number; hi: number; from: number; comp: string; next: string; deg: number;
+  laps: Record<string, { d: number; rejoin?: { pos: number; ahead?: [string, number]; behind?: [string, number] } }>;
+};
+export type GhostRace = {
+  session: string; laps: number;
+  economics: { pitLoss: number; tyres: Record<string, { deg: number }> };
+  ladder: { pos: number; name: string; team: string; gap: number }[];
+  seats: GhostSeat[];
+};
+
+/** The mystery driver: one driver per race, the same for everybody, guessed
+ *  from clues that go from vague to damning (pipeline/mystery.py). */
+export type MysteryDriverRow = {
+  name: string; number: number; team: string;
+  start: number | null; stops: number; passes: number;
+  colour?: string; headshot?: string;
+};
+export type Mystery = {
+  session: string;
+  answer: MysteryDriverRow & { colour: string; headshot: string; tell: string };
+  /** k: what it is; big: the figure; say: the clue as a sentence about him */
+  clues: { k: string; big: string; say: string; kind?: "tyres" | "tell" | "purple" }[];
+  field: MysteryDriverRow[];
+};
+
 /** One call the pit wall put in front of a garage, and what each answer cost. */
 export type PitWallOption = {
   label: string;

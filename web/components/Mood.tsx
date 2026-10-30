@@ -19,14 +19,36 @@ export const MOOD = {
   rain: "/home/mood/nuevas/coche-lluvia-trasera.webp",
 };
 
-/** A photograph with a smeared copy of itself dragging behind it. */
-export function Blur({ src, className = "" }: { src: string; className?: string }) {
+/** Trails baked by scripts/bake_trails.py: the same blur, colour and
+ *  brightness as the live filter, drawn once instead of every frame. Only
+ *  photographs shown at their own proportions are here (see the script). */
+const BAKED: Record<string, string> = {
+  [MOOD.helmet]: "/home/mood/trails/helmet",
+  [MOOD.car]: "/home/mood/trails/car-top",
+  [MOOD.glovesSmoke]: "/home/mood/trails/helmet-guantes-c",
+};
+
+/** A photograph with a smeared copy of itself dragging behind it. `lazy`
+ *  keeps a photograph out of the page's preloads: the 404's was being
+ *  preloaded on every page of the site, because Next ships that page with
+ *  all of them. */
+export function Blur({ src, className = "", lazy = false }: { src: string; className?: string; lazy?: boolean }) {
+  const loading = lazy ? "lazy" : undefined;
+  const baked = BAKED[src];
   return (
     <div className={`mood ${className}`} aria-hidden>
+      {baked ? (
+        <picture>
+          <source media="(max-width: 900px)" srcSet={`${baked}-m.webp`} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="mood-trail is-baked" src={`${baked}-d.webp`} alt="" loading={loading} decoding="async" />
+        </picture>
+      ) : (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img className="mood-trail" src={src} alt="" loading={loading} />
+      )}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="mood-trail" src={src} alt="" />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="mood-img" src={src} alt="" />
+      <img className="mood-img" src={src} alt="" loading={loading} />
     </div>
   );
 }

@@ -13,6 +13,13 @@ import {
 import FinalPoster from "@/components/FinalPoster";
 import RaceScroll from "@/components/RaceScroll";
 import SessionNext from "@/components/SessionNext";
+import type { Metadata } from "next";
+import { gpMeta } from "@/lib/meta";
+
+export async function generateMetadata({ params }: PageProps<"/gp/[slug]/[session]">): Promise<Metadata> {
+  const { slug, session } = await params;
+  return gpMeta(slug, "session", session);
+}
 
 export function generateStaticParams() {
   return listGPs().flatMap((slug) =>

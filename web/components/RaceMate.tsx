@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Brain, MateThread } from "@/lib/types";
 import { askAlfred, STARTERS } from "@/lib/alfred";
-import { SFX_RADIO, loadSfx, playSfx } from "@/lib/sfx";
+import { SFX_RADIO, loadSfx, playSfx, warmSfx } from "@/lib/sfx";
 
 /**
  * The mate who watched the race and is texting you about it.
@@ -117,6 +117,9 @@ export default function RaceMate({
         /* the sound is fired here and not inside the state updater, which
            React is free to call twice and did */
         onClick={() => { if (!open) radioOn(); setOpen((o) => !o); }}
+        onPointerEnter={() => { if (sound) warmSfx(); }}
+        onPointerDown={() => { if (sound) warmSfx(); }}
+        onFocus={() => { if (sound) warmSfx(); }}
         aria-label={open ? "Close the chat" : `Chat with ${MATE}`}
       >
         <span className="mate-fab-dot" />

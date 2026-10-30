@@ -10,9 +10,10 @@ To switch the real thing on, drop the files in this folder with these names:
     agrandir-medium.woff2
     agrandir-bold.woff2
 
-`app/globals.css` already declares `@font-face` rules for them and lists
-"Agrandir" ahead of the stand-in in the body stack, so nothing else changes.
-A missing file fails silently and the stand-in stays.
+`app/globals.css` holds the `@font-face` rules for them, commented out so
+pages do not request files that are not there (each request was a 404).
+Take the comment marks off once the files are in, and "Agrandir" wins the
+body stack over the stand-in.
 
 # Latin Condensed
 

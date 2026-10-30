@@ -1,6 +1,13 @@
 import { notFound } from "next/navigation";
 import { listGPs, loadTrack, loadWeekend } from "@/lib/data";
 import GPHeroLED from "@/components/GPHeroLED";
+import type { Metadata } from "next";
+import { gpMeta } from "@/lib/meta";
+
+export async function generateMetadata({ params }: PageProps<"/gp/[slug]">): Promise<Metadata> {
+  const { slug } = await params;
+  return gpMeta(slug, "hub");
+}
 
 export function generateStaticParams() {
   return listGPs().map((slug) => ({ slug }));

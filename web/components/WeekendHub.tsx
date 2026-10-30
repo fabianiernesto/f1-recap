@@ -14,6 +14,9 @@ import { Blur, MOOD, Speedlines, Streak } from "@/components/Mood";
 export default function WeekendHub({ weekend }: { weekend: Weekend }) {
   const total = weekend.sessions.reduce((n, s) => n + s.moments, 0);
   const name = weekend.short.replace(/ Grand Prix$/, "");
+  // Monaco, Miami, Barcelona: the race is named after its circuit, and
+  // "MONACO MONACO" reads like a typo, so the second line says what it is
+  const second = name === weekend.circuit ? "Grand Prix" : weekend.circuit;
 
   return (
     <section className="hub fx-page">
@@ -23,9 +26,9 @@ export default function WeekendHub({ weekend }: { weekend: Weekend }) {
       <Speedlines n={5} />
       <header className="hub-head" data-fx="left">
         <span className="hub-eyebrow">The weekend, session by session</span>
-        <h2 style={{ ["--len" as string]: Math.max(name.length, weekend.circuit.length) }}>
+        <h2 style={{ ["--len" as string]: Math.max(name.length, second.length) }}>
           <span>{name}</span>
-          <span className="glow">{weekend.circuit}</span>
+          <span className="glow">{second}</span>
         </h2>
         <p>
           {weekend.date} · {weekend.sessions.length} sessions, {total} moments,

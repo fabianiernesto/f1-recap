@@ -31,6 +31,15 @@ function variant(c: CardData): string {
   // chequered before red: "chequered flag" contains the substring "red flag",
   // and the finish was being dressed as a stoppage
   if (k.includes("chequered")) return "v-final";
+  /* practice and qualifying fold their flags into one "Interruptions" card:
+     red when the session was stopped (a red flag), yellow when only yellows
+     flew ("Flags out" counts yellows and reds, so without "stopped" it is
+     yellows only), plain when it was clean */
+  if (k.includes("interruptions")) {
+    const t = (c.title || "").toLowerCase();
+    if (t.includes("stopped")) return "v-red";
+    if (t.includes("flags out")) return "v-yellow";
+  }
   if (k.includes("safety")) return "v-sc";
   if (k.includes("red flag")) return "v-red";
   if (k.includes("yellow")) return "v-yellow";
@@ -173,6 +182,18 @@ export default function RaceScroll({
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     let lastTick = 0;
     let raf = 0;
+    let sraf = 0;
+    /* 25/10/2026: the cards' document positions used to be read on every
+       scroll event, card by card, which made the browser redo the layout of
+       the whole page several times a frame. They only move when the page
+       changes size, so they are measured once and again after a resize. */
+    let anchorCache: { y: number; h: number; lap: number }[] | null = null;
+    const measureAnchors = () => cardRefs.current
+      .map((el, i) => el
+        ? { y: el.getBoundingClientRect().top + scrollY,
+            h: el.offsetHeight, lap: cards[i]?.lap ?? 0 }
+        : null)
+      .filter((a): a is { y: number; h: number; lap: number } => !!a);
 
     const setCar = () => {
       carRef.current?.setAttribute(
@@ -188,10 +209,13 @@ export default function RaceScroll({
 
       target = trackPoint(prog * (total - 0.01));
       traceRef.current?.setAttribute("stroke-dashoffset", String(total * (1 - prog)));
-      if (performance.now() - lastTick > 200) {
+      // a running loop that has stopped ticking (a throttled tab) snaps the
+      // car into place; an idle loop is simply woken up to ease it there
+      if (raf && performance.now() - lastTick > 200) {
         cur.x = target.x; cur.y = target.y; cur.angle = target.angle;
         setCar();
       }
+      if (!raf) { lastTick = performance.now(); raf = requestAnimationFrame(tick); }
 
       let nearest = -1, nd = 1e9;
       labels.forEach((L, i) => {
@@ -203,12 +227,7 @@ export default function RaceScroll({
       /* offsetTop is measured against the offsetParent, and every card sits
          inside its own position:relative .stop, so it reads 0 for all of them.
          Document coordinates are the only thing comparable with scrollY. */
-      const anchors = cardRefs.current
-        .map((el, i) => el
-          ? { y: el.getBoundingClientRect().top + scrollY,
-              h: el.offsetHeight, lap: cards[i]?.lap ?? 0 }
-          : null)
-        .filter((a): a is { y: number; h: number; lap: number } => !!a);
+      const anchors = anchorCache ?? (anchorCache = measureAnchors());
 
       const mid = scrollY + innerHeight / 2;
       let best = 0, bd = 1e9;
@@ -261,6 +280,13 @@ export default function RaceScroll({
       let da = target.angle - cur.angle;
       da = ((da + 540) % 360) - 180;
       cur.angle += da * k;
+      // once the car has arrived the loop goes to sleep until the next scroll
+      if (Math.abs(target.x - cur.x) < 0.05 && Math.abs(target.y - cur.y) < 0.05 && Math.abs(da) < 0.05) {
+        cur.x = target.x; cur.y = target.y; cur.angle = target.angle;
+        setCar();
+        raf = 0;
+        return;
+      }
       setCar();
       raf = requestAnimationFrame(tick);
     };
@@ -285,14 +311,24 @@ export default function RaceScroll({
     );
     cardRefs.current.forEach((el) => el && io.observe(el));
 
+    // one pass per frame, however many scroll events the frame brings
+    const onScrollFrame = () => {
+      if (!sraf) sraf = requestAnimationFrame(() => { sraf = 0; onScroll(); });
+    };
+    // anything that changes the page's height (a resize, an image arriving,
+    // a card opening) moves the cards, so the positions are measured again
+    const ro = new ResizeObserver(() => { anchorCache = null; onScrollFrame(); });
+    ro.observe(document.body);
+
     onScroll();
-    raf = requestAnimationFrame(tick);
-    addEventListener("scroll", onScroll, { passive: true });
-    addEventListener("resize", onScroll);
+    addEventListener("scroll", onScrollFrame, { passive: true });
+    addEventListener("resize", onScrollFrame);
     return () => {
       cancelAnimationFrame(raf);
-      removeEventListener("scroll", onScroll);
-      removeEventListener("resize", onScroll);
+      cancelAnimationFrame(sraf);
+      removeEventListener("scroll", onScrollFrame);
+      removeEventListener("resize", onScrollFrame);
+      ro.disconnect();
       io.disconnect();
     };
   }, [geo, cards, track.points]);
@@ -415,8 +451,8 @@ export default function RaceScroll({
                   {c.text && <p>{c.text}</p>}
                   {c.bullets && c.bullets.length > 0 && (
                     <ul className="pts">
-                      {c.bullets.map((b) => (
-                        <li key={b}>{b}</li>
+                      {c.bullets.map((b, i) => (
+                        <li key={`${i}-${b}`}>{b}</li>
                       ))}
                     </ul>
                   )}
@@ -438,8 +474,8 @@ export default function RaceScroll({
                       </b>
                       <table>
                         <tbody>
-                          {c.dato.rows.map((r) => (
-                            <tr key={r[0]}>
+                          {c.dato.rows.map((r, i) => (
+                            <tr key={`${i}-${r[0]}`}>
                               <td>
                                 <Term label={r[0]} />
                               </td>

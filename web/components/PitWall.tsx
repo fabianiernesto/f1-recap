@@ -48,6 +48,29 @@ function standings(wall: Wall, gap: number) {
   return { place: mine.pos, rows: top.some((r) => r.you) ? top : [...top, mine] };
 }
 
+/** The driver whose radio you are on. Lives outside PitWall so a pick does
+ * not hand React a new component and remount the photo on every click. */
+function Portrait({ driver, shot, className = "" }: { driver: Wall["driver"]; shot: string | null; className?: string }) {
+  return (
+    <figure className={`pw-shot ${className}`}>
+      <span className="pw-glow" aria-hidden />
+      {shot ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={shot} alt={driver.name} />
+      ) : (
+        <span className="pw-noshot" aria-hidden>
+          {driver.number}
+        </span>
+      )}
+      <figcaption>
+        <span className="pw-num">{driver.number}</span>
+        <b>{driver.name}</b>
+        <em>{driver.team}</em>
+      </figcaption>
+    </figure>
+  );
+}
+
 export default function PitWall({ wall, backTo }: { wall: Wall; backTo: string }) {
   const [started, setStarted] = useState(false);
   const [at, setAt] = useState(0);
@@ -67,24 +90,6 @@ export default function PitWall({ wall, backTo }: { wall: Wall; backTo: string }
   const tone = { ["--team" as string]: `#${hex}` };
   const shot = driver.headshot ? bigPhoto(driver.headshot) : null;
 
-  const Portrait = ({ className = "" }: { className?: string }) => (
-    <figure className={`pw-shot ${className}`}>
-      <span className="pw-glow" aria-hidden />
-      {shot ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={shot} alt={driver.name} />
-      ) : (
-        <span className="pw-noshot" aria-hidden>
-          {driver.number}
-        </span>
-      )}
-      <figcaption>
-        <span className="pw-num">{driver.number}</span>
-        <b>{driver.name}</b>
-        <em>{driver.team}</em>
-      </figcaption>
-    </figure>
-  );
 
   if (!started)
     return (
@@ -137,7 +142,7 @@ export default function PitWall({ wall, backTo }: { wall: Wall; backTo: string }
             back to the activities
           </Link>
         </div>
-        <Portrait className="cover" />
+        <Portrait driver={driver} shot={shot} className="cover" />
       </main>
     );
 
@@ -191,7 +196,7 @@ export default function PitWall({ wall, backTo }: { wall: Wall; backTo: string }
             back to the activities
           </Link>
         </div>
-        <Portrait className="cover" />
+        <Portrait driver={driver} shot={shot} className="cover" />
       </main>
     );
   }
@@ -300,7 +305,7 @@ export default function PitWall({ wall, backTo }: { wall: Wall; backTo: string }
         </section>
 
         <aside className="pw-rail">
-          <Portrait />
+          <Portrait driver={driver} shot={shot} />
           <div className="pw-live">
             <div>
               <dt>Lap</dt>

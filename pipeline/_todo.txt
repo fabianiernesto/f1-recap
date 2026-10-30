@@ -1,0 +1,9 @@
+albert-park-2026|Australia|Australian Grand Prix|Australia
+shanghai-2026|China|Chinese Grand Prix|China
+suzuka-2026|Japan|Japanese Grand Prix|Japan
+miami-2026|Miami|Miami Grand Prix|United States
+montreal-2026|Canada|Canadian Grand Prix|Canada
+monaco-2026|Monaco|Monaco Grand Prix|Monaco
+spielberg-2026|Austria|Austrian Grand Prix|Austria
+spa-2026|Belgium|Belgian Grand Prix|Belgium
+zandvoort-2026|Netherlands|Dutch Grand Prix|Netherlands

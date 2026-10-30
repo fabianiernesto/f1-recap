@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { preload } from "react-dom";
 import "./globals.css";
 import PageFX from "@/components/PageFX";
+import { SITE } from "@/lib/site";
 
 /**
  * Fonts are served from app/fonts, fetched once by scripts/fetch-fonts.mjs.
@@ -52,6 +54,8 @@ const serif = localFont({
     { path: "./fonts/instrument-serif-400.woff2", weight: "400", style: "normal" },
     { path: "./fonts/instrument-serif-400-italic.woff2", weight: "400", style: "italic" },
   ],
+  // no page sets it today (25/10/2026), so it is not preloaded on every visit
+  preload: false,
 });
 
 // pixel face, used on the hero headline only
@@ -72,15 +76,26 @@ const ui = localFont({
     { path: "./fonts/plus-jakarta-sans-500.woff2", weight: "500", style: "normal" },
     { path: "./fonts/plus-jakarta-sans-700.woff2", weight: "700", style: "normal" },
   ],
+  // only a fallback behind Anybody, so it is fetched if a page ever needs it
+  preload: false,
 });
 
+const description =
+  "Every Grand Prix told as a story you scroll: the real track, the real moments, none of the homework.";
+
 export const metadata: Metadata = {
-  title: "Racing Simplified",
-  description:
-    "Every Grand Prix told as a story you scroll: the real track, the real moments, none of the homework.",
+  metadataBase: new URL(SITE),
+  title: { default: "Racing Simplified", template: "%s · Racing Simplified" },
+  description,
+  openGraph: { siteName: "Racing Simplified", type: "website", title: "Racing Simplified", description },
+  twitter: { card: "summary_large_image", title: "Racing Simplified", description },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  // Anybody sets every title on the site but is declared in globals.css, so
+  // the browser only found it once the page had been styled and the titles
+  // arrived in a stand-in face first. Asked for up front, it lands with them.
+  preload("/fonts/anybody-variable.woff2", { as: "font", type: "font/woff2", crossOrigin: "" });
   return (
     <html
       lang="en"

@@ -274,7 +274,7 @@ export default function GPBoard({
 
       <span className="ledhero-l2" key={active.word}>
         {[...active.word].map((c, i) => (
-          <b key={i} style={{ ["--i" as string]: i }}>
+          <b key={i} style={{ ["--i" as string]: i }} data-t={c}>
             {c === " " ? " " : c}
           </b>
         ))}
@@ -288,7 +288,7 @@ export default function GPBoard({
         <div className="ledhero-rail" {...swipe}>
           {channels.map((c, i) => (
             <Fragment key={c.n}>
-              {i > 0 && <em aria-hidden>//</em>}
+              {i > 0 && <em aria-hidden>{"//"}</em>}
               <button
                 type="button"
                 aria-pressed={shown === i}

@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paddock Exchange · mockup</title>
+<style>
+@font-face { font-family: "Anybody"; font-weight: 100 900; font-stretch: 50% 150%; src: url(fonts/anybody-variable.woff2) format("woff2"); }
+@font-face { font-family: "JB"; font-weight: 500; src: url(fonts/jetbrains-mono-500.woff2) format("woff2"); }
+@font-face { font-family: "JB"; font-weight: 700; src: url(fonts/jetbrains-mono-700.woff2) format("woff2"); }
+@font-face { font-family: "SG"; font-weight: 400; src: url(fonts/space-grotesk-400.woff2) format("woff2"); }
+@font-face { font-family: "SG"; font-weight: 500; src: url(fonts/space-grotesk-500.woff2) format("woff2"); }
+:root { --red: #e10600; --lit: #ff2415; --up: #2fd06a; --down: #ff5a4a; --ink: #fff; --mute: #8c8c8c; --line: #ffffff14; --yellow: #ffd12e; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #0a0a0a; color: var(--ink); font-family: "SG", sans-serif; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.k { font-family: "JB"; font-weight: 700; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; }
+.wide { font-family: "Anybody"; font-weight: 800; font-stretch: 150%; text-transform: uppercase; line-height: .92; }
+.glow { color: var(--lit); text-shadow: 0 0 2px #ff7a62, 0 0 12px var(--lit), 0 0 40px #e10600aa; }
+.num { font-family: "JB"; font-weight: 700; font-variant-numeric: tabular-nums; }
+.go { display: inline-flex; align-items: center; gap: 14px; padding: 18px 28px; border: 0; background: var(--red); color: #fff;
+  font-family: "JB"; font-weight: 700; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; }
+.go:hover { background: var(--lit); }
+
+/* ---------- 1 · the rules */
+.intro { min-height: 100vh; display: grid; place-items: center; padding: 48px 6vw; }
+.intro-in { width: min(1100px, 100%); }
+.intro .k.gp { color: var(--red); }
+.intro h1 { margin: 14px 0 10px; font-size: clamp(44px, 7.4vw, 112px); }
+.intro .lede { margin: 0 0 46px; max-width: 54ch; color: #c9ced6; font-size: 18px; line-height: 1.5; }
+.rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin: 0 0 48px; }
+.rule .k { color: var(--red); display: block; margin-bottom: 12px; }
+.rule h2 { margin: 0 0 10px; font-family: "Anybody"; font-weight: 800; font-stretch: 130%; font-size: 24px; line-height: 1.05; text-transform: uppercase; }
+.rule p { margin: 0; color: #b9bec6; font-size: 15px; line-height: 1.5; }
+.ladder { display: grid; grid-template-columns: repeat(22, 1fr); gap: 3px; margin: 0 0 12px; align-items: end; }
+.ladder div { display: grid; gap: 4px; justify-items: center; }
+.ladder i { display: block; width: 100%; background: #2a2a2a; border-radius: 2px 2px 0 0; }
+.ladder i.top { background: var(--red); box-shadow: 0 0 12px #e1060088; }
+.ladder span { font-family: "JB"; font-size: 9px; color: var(--mute); }
+.ladder-cap { color: var(--mute); font-size: 13px; margin: 0 0 40px; }
+@media (max-width: 860px) {
+  .rules { grid-template-columns: 1fr; gap: 26px; }
+  .ladder span { font-size: 7px; }
+  .ladder div:nth-child(even) span { visibility: hidden; }
+}
+
+/* ---------- 2 · the race */
+.play { display: none; min-height: 100vh; grid-template-columns: minmax(320px, 40%) 1fr; }
+.play.on { display: grid; }
+.left { position: sticky; top: 0; height: 100vh; padding: 28px 30px; display: flex; flex-direction: column; gap: 18px; border-right: 1px solid var(--line); }
+.top { display: flex; justify-content: space-between; align-items: flex-end; }
+.lap .k { color: var(--mute); }
+.lap b { display: block; font-family: "Anybody"; font-weight: 900; font-stretch: 150%; font-size: 52px; line-height: .9; }
+.lap b small { font-size: 18px; color: #6f6f6f; }
+.flag { text-align: right; min-height: 34px; }
+.flag b { display: block; font-family: "Anybody"; font-weight: 900; font-stretch: 140%; font-size: 20px; text-transform: uppercase; color: var(--yellow); }
+.flag span { font-size: 12px; color: #c9ced6; }
+.track { flex: 1; min-height: 160px; position: relative; }
+.track svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.wallet { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 10px; }
+.wallet div { padding: 12px 14px; background: #111; border-radius: 6px; }
+.wallet .k { color: var(--mute); font-size: 8px; display: block; margin-bottom: 6px; }
+.wallet b { font-size: 22px; }
+.wallet .total { background: #1a0201; box-shadow: inset 0 0 0 1px #e1060055; }
+.wallet .total b { font-family: "Anybody"; font-weight: 900; font-stretch: 140%; font-size: 30px; }
+.wallet em { display: block; font-style: normal; font-family: "JB"; font-size: 11px; margin-top: 4px; }
+.coach { min-height: 48px; padding: 12px 14px; border-left: 3px solid var(--red); background: #111; font-size: 14px; line-height: 1.45; color: #e6e8eb; }
+.coach b { color: #fff; }
+
+.board { padding: 24px 28px 60px; }
+.board-head { display: grid; grid-template-columns: 34px 1fr 92px 120px 220px; gap: 12px; padding: 0 12px 10px; color: var(--mute); }
+.board-head .k { font-size: 8px; }
+.rows { position: relative; }
+.row { position: absolute; left: 0; right: 0; height: 50px; display: grid; grid-template-columns: 34px 1fr 92px 120px 220px; gap: 12px;
+  align-items: center; padding: 0 12px; border-bottom: 1px solid var(--line); transition: transform .5s cubic-bezier(.2,.8,.2,1), background .3s; }
+.row.mine { background: #140403; }
+.row .p { font-family: "JB"; font-weight: 700; color: var(--mute); font-size: 13px; }
+.row .who { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.row .who i { width: 4px; height: 26px; border-radius: 2px; flex: none; }
+.row .who b { font-family: "Anybody"; font-weight: 800; font-stretch: 125%; font-size: 15px; text-transform: uppercase; white-space: nowrap; }
+.row .who span { color: var(--mute); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row .who em { font-style: normal; font-family: "JB"; font-weight: 700; font-size: 10px; letter-spacing: .14em; color: var(--yellow); }
+.row .price { text-align: right; }
+.row .price b { font-size: 20px; }
+.row .price small { display: block; font-family: "JB"; font-size: 11px; height: 14px; }
+.up { color: var(--up); } .down { color: var(--down); }
+.row .hold { text-align: right; font-family: "JB"; font-size: 12px; color: var(--mute); }
+.row .hold b { display: block; color: #fff; font-size: 14px; }
+.row .acts { display: flex; gap: 8px; justify-content: flex-end; }
+.row .acts button { height: 34px; padding: 0 14px; border: 0; border-radius: 3px; font-family: "JB"; font-weight: 700; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+.buy { background: #fff; color: #0a0a0a !important; }
+.buy:hover { background: #ffd9d6; }
+.sell { background: var(--red); }
+.sell:hover { background: var(--lit); }
+.row .acts button:disabled { background: #1c1c1c; color: #4a4a4a !important; cursor: default; }
+.row.out { opacity: .45; }
+.row.flash-up { background: #0b2414; } .row.flash-down { background: #2a0907; }
+.feed { margin-top: 14px; font-size: 13px; color: var(--mute); min-height: 20px; }
+
+@media (max-width: 860px) {
+  .play { grid-template-columns: 1fr; }
+  .left { position: sticky; top: 0; z-index: 5; height: auto; padding: 10px 12px 8px; gap: 8px; background: #0a0a0a; border-right: 0;
+    border-bottom: 1px solid var(--line); display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "top track wallet" "coach coach coach"; align-items: center; }
+  .top { grid-area: top; display: block; }
+  .lap b { font-size: 30px; }
+  .flag { text-align: left; min-height: 0; } .flag b { font-size: 11px; } .flag span { display: none; }
+  .track { grid-area: track; min-height: 0; height: 70px; flex: none; }
+  .wallet { grid-area: wallet; grid-template-columns: 1fr; gap: 0; }
+  .wallet div:not(.total) { display: none; }
+  .wallet .total { padding: 6px 10px; } .wallet .total b { font-size: 20px; } .wallet em { font-size: 9px; }
+  .coach { grid-area: coach; font-size: 12px; min-height: 0; padding: 7px 10px; }
+  .board { padding: 8px 8px 40px; }
+  .board-head { display: none; }
+  .row { grid-template-columns: 22px 1fr 54px 132px; height: 54px; gap: 6px; padding: 0 6px; }
+  .row .hold { display: none; }
+  .row .who span { display: none; }
+  .row .price b { font-size: 16px; }
+  .row .acts button { padding: 0 9px; height: 36px; }
+}
+
+/* ---------- 3 · the result */
+.done { display: none; min-height: 100vh; padding: 60px 6vw; }
+.done.on { display: block; }
+.done h1 { margin: 12px 0 8px; font-size: clamp(40px, 6vw, 90px); }
+.done .k.gp { color: var(--red); }
+.done .verdict { font-size: 20px; color: #c9ced6; max-width: 60ch; line-height: 1.45; margin: 0 0 40px; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 0 0 44px; }
+.facts div { padding: 22px; background: #111; border-radius: 8px; }
+.facts .k { color: var(--red); display: block; margin-bottom: 10px; }
+.facts b { display: block; font-family: "Anybody"; font-weight: 900; font-stretch: 140%; font-size: 30px; text-transform: uppercase; line-height: 1; margin-bottom: 8px; }
+.facts p { margin: 0; color: #b9bec6; font-size: 14px; line-height: 1.45; }
+.trades { max-width: 760px; }
+.trades .k { color: var(--mute); display: block; margin-bottom: 10px; }
+.trades li { list-style: none; display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.trades ul { margin: 0 0 40px; padding: 0; }
+@media (max-width: 860px) { .facts { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<section class="intro" id="intro">
+  <div class="intro-in">
+    <span class="k gp" id="gp"></span>
+    <h1 class="wide">Paddock <span class="glow">exchange</span></h1>
+    <p class="lede" id="lede"></p>
+    <div class="rules">
+      <div class="rule"><span class="k">01 · The price</span><h2>A driver is worth his place</h2>
+        <p>Last place is worth 5. Every place he gains adds 5, so the leader is worth 110. Prices change at the end of every lap, with the real race.</p></div>
+      <div class="rule"><span class="k">02 · The trade</span><h2>Buy low. Sell high.</h2>
+        <p><b>Invest 100</b> in a driver when he is cheap. When he has climbed, <b>cash out</b>. You start with 1,000.</p></div>
+      <div class="rule"><span class="k">03 · The risk</span><h2>If he retires, you lose it</h2>
+        <p>A driver who retires is worth nothing, and so are your shares in him. Whatever you still hold at the flag is paid at his final place.</p></div>
+    </div>
+    <div class="ladder" id="ladder"></div>
+    <p class="ladder-cap">The price of every place on the grid, from the leader to last.</p>
+    <button class="go" id="start">Lights out <span>→</span></button>
+  </div>
+</section>
+
+<section class="play" id="play">
+  <aside class="left">
+    <div class="top">
+      <div class="lap"><span class="k">Lap</span><b><span id="lapN">0</span><small> / <span id="lapT"></span></small></b></div>
+      <div class="flag" id="flag"></div>
+    </div>
+    <div class="track"><svg id="svg"></svg></div>
+    <div class="wallet">
+      <div><span class="k">Cash</span><b class="num" id="cash">1000</b></div>
+      <div><span class="k">In drivers</span><b class="num" id="held">0</b></div>
+      <div class="total"><span class="k">Your total</span><b class="num" id="total">1000</b><em id="totalD"></em></div>
+    </div>
+    <div class="coach" id="coach"></div>
+  </aside>
+  <main class="board">
+    <div class="board-head"><span class="k">Pos</span><span class="k">Driver</span><span class="k" style="text-align:right">Price</span><span class="k" style="text-align:right">You hold</span><span></span></div>
+    <div class="rows" id="rows"></div>
+    <div class="feed" id="feed"></div>
+  </main>
+</section>
+
+<section class="done" id="done"></section>
+
+<script src="data.js"></script>
+<script>
+const R = window.RACE, N = R.field.length, START = 1000, STAKE = 100;
+// two minutes for the whole race; ?s= changes the seconds per lap (for testing)
+const SEC_PER_LAP = +(new URLSearchParams(location.search).get("s") || 2.3);
+const priceOf = (pos) => (N + 1 - pos) * 5;
+const $ = (id) => document.getElementById(id);
+const hex = (c) => "#" + c;
+const fmt = (v) => Math.round(v).toLocaleString("en-GB");
+
+// ---------- intro
+$("gp").textContent = `${R.gp} · the real race, ${R.laps} laps in two minutes`;
+$("lede").textContent = `Every driver in ${R.circuit} is a share on the market. The race runs on the real track, lap by lap as it happened, and the prices move with it. Make more than 1,000 by the flag.`;
+$("ladder").innerHTML = Array.from({ length: N }, (_, i) => {
+  const p = i + 1, v = priceOf(p);
+  return `<div><i class="${p === 1 ? "top" : ""}" style="height:${v * 0.6}px"></i><span>P${p}</span><span>${v}</span></div>`;
+}).join("");
+$("lapT").textContent = R.laps;
+
+// ---------- the race, as it happened
+const leader = R.field.find((c) => c.finish === 1);
+const endT = leader.cross[R.laps];
+// standings at race time t: laps completed, then who completed it first; retired at the back
+function standings(t, leaderLap) {
+  return R.field.map((c) => {
+    let done = 0; while (done + 1 < c.cross.length && c.cross[done + 1] <= t) done++;
+    const out = c.out != null && leaderLap >= c.out;
+    return { c, done, last: c.cross[done], out };
+  }).sort((a, b) => (a.out - b.out) || (b.done - a.done) || (a.last - b.last) || (a.c.grid - b.c.grid));
+}
+const pitsAt = {}; for (const [num, lap] of R.pits) (pitsAt[lap] ||= new Set()).add(num);
+const neutralAt = (lap) => R.neutral.find((n) => lap >= n.from && lap <= n.to);
+
+// ---------- the track
+const pts = R.points;
+const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+const pad = 40, x0 = Math.min(...xs) - pad, y0 = Math.min(...ys) - pad;
+const svg = $("svg");
+svg.setAttribute("viewBox", `${x0} ${y0} ${Math.max(...xs) + pad - x0} ${Math.max(...ys) + pad - y0}`);
+const cum = [0]; for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+const L = cum[cum.length - 1];
+function pointAt(f) {
+  const d = ((f % 1) + 1) % 1 * L; let i = 1; while (i < cum.length - 1 && cum[i] < d) i++;
+  const t = (d - cum[i - 1]) / (cum[i] - cum[i - 1] || 1);
+  return [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * t, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * t];
+}
+const road = "M " + pts.map((p) => p.join(" ")).join(" L ") + " Z";
+svg.innerHTML = `<path d="${road}" fill="none" stroke="#1c1c1c" stroke-width="26" stroke-linejoin="round"/>
+  <path d="${road}" fill="none" stroke="#ffffff40" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round"/>` +
+  R.field.map((c) => `<g id="car${c.num}"><circle r="15" fill="${hex(c.colour)}" opacity=".3"/><circle r="8.5" fill="${hex(c.colour)}" stroke="#000" stroke-width="2.5"/></g>`).join("");
+const carEl = Object.fromEntries(R.field.map((c) => [c.num, document.getElementById("car" + c.num)]));
+
+// ---------- the market
+let cash = START, held = {}, cost = {}, trades = [], history = {}, prev = {}, lapNow = 0, order = [], firstBuy = false;
+R.field.forEach((c) => { history[c.num] = []; });
+const ROW = () => (matchMedia("(max-width: 860px)").matches ? 54 : 50);
+const rowsEl = $("rows");
+rowsEl.innerHTML = R.field.map((c) => `
+  <div class="row" id="row${c.num}">
+    <span class="p"></span>
+    <span class="who"><i style="background:${hex(c.colour)}"></i><b>${c.code}</b><span>${c.name} · ${c.team}</span><em></em></span>
+    <span class="price"><b class="num"></b><small></small></span>
+    <span class="hold"></span>
+    <span class="acts"><button class="buy" data-n="${c.num}">Invest 100</button><button class="sell" data-n="${c.num}">Cash out</button></span>
+  </div>`).join("");
+rowsEl.style.height = N * ROW() + "px";
+const rowEl = Object.fromEntries(R.field.map((c) => [c.num, document.getElementById("row" + c.num)]));
+const posOf = {}, priceNow = {};
+
+function setPrices(lap) {
+  const t = lap === 0 ? 0 : (leader.cross[lap] ?? endT);
+  const st = lap === 0 ? [...R.field].sort((a, b) => a.grid - b.grid).map((c) => ({ c, out: false }))
+                       : standings(t + 0.001, lap);
+  st.forEach((s, i) => {
+    const n = s.c.num, pos = i + 1;
+    prev[n] = priceNow[n];
+    posOf[n] = s.out ? null : pos;
+    priceNow[n] = s.out ? 0 : priceOf(pos);
+    history[n].push([lap, priceNow[n]]);
+  });
+  order = st.map((s) => s.c.num);
+}
+
+function render() {
+  const h = ROW();
+  rowsEl.style.height = N * h + "px";
+  order.forEach((n, i) => {
+    const el = rowEl[n], c = R.field.find((x) => x.num === n);
+    el.style.transform = `translateY(${i * h}px)`;
+    const out = posOf[n] == null;
+    el.classList.toggle("out", out);
+    el.querySelector(".p").textContent = out ? "" : posOf[n];
+    const d = prev[n] == null ? 0 : priceNow[n] - prev[n];
+    el.querySelector(".price b").textContent = out ? "0" : priceNow[n];
+    const sm = el.querySelector(".price small");
+    sm.textContent = out ? "OUT" : d > 0 ? `▲ +${d}` : d < 0 ? `▼ ${d}` : "";
+    sm.className = out || d < 0 ? "down" : d > 0 ? "up" : "";
+    const pit = pitsAt[lapNow]?.has(n);
+    el.querySelector(".who em").textContent = out ? "RETIRED" : pit ? "PIT" : "";
+    const sh = held[n] || 0, val = sh * priceNow[n];
+    el.classList.toggle("mine", sh > 0);
+    el.querySelector(".hold").innerHTML = sh > 0 ? `<b class="${val >= cost[n] ? "up" : "down"}">${fmt(val)}</b>paid ${fmt(cost[n])}` : "";
+    el.querySelector(".buy").disabled = out || cash < 1 || lapNow >= R.laps;
+    el.querySelector(".sell").disabled = !(sh > 0) || lapNow >= R.laps;
+  });
+  const inDrivers = Object.keys(held).reduce((s, n) => s + held[n] * priceNow[n], 0);
+  $("cash").textContent = fmt(cash);
+  $("held").textContent = fmt(inDrivers);
+  const tot = cash + inDrivers;
+  $("total").textContent = fmt(tot);
+  const dd = tot - START;
+  $("totalD").textContent = dd === 0 ? "" : `${dd > 0 ? "+" : ""}${fmt(dd)} on the start`;
+  $("totalD").className = dd > 0 ? "up" : dd < 0 ? "down" : "";
+}
+
+function flash(n, up) {
+  const el = rowEl[n]; el.classList.remove("flash-up", "flash-down"); void el.offsetWidth;
+  el.classList.add(up ? "flash-up" : "flash-down"); setTimeout(() => el.classList.remove("flash-up", "flash-down"), 600);
+}
+
+rowsEl.addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b || b.disabled) return;
+  const n = +b.dataset.n, p = priceNow[n];
+  if (b.classList.contains("buy")) {
+    const amt = Math.min(STAKE, cash); if (amt <= 0 || !p) return;
+    cash -= amt; held[n] = (held[n] || 0) + amt / p; cost[n] = (cost[n] || 0) + amt;
+    if (!firstBuy) { firstBuy = true; coach(`You own a piece of <b>${R.field.find((c) => c.num === n).name}</b> at ${p}. If he climbs, his price climbs with him. When you like the number, <b>cash out</b>.`); }
+  } else {
+    const val = held[n] * p; cash += val;
+    trades.push({ n, paid: cost[n], got: val, lap: lapNow });
+    delete held[n]; delete cost[n];
+  }
+  render();
+});
+
+function coach(html) { $("coach").innerHTML = html; }
+
+// ---------- the clock
+let t = 0, last = 0, running = false;
+function step(now) {
+  if (!running) return;
+  const dt = Math.min(0.1, (now - last) / 1000); last = now;
+  t = Math.min(endT, t + dt * (endT / R.laps) / SEC_PER_LAP);
+  // cars on the track
+  for (const c of R.field) {
+    let k = 0; while (k + 1 < c.cross.length && c.cross[k + 1] <= t) k++;
+    const gone = c.out != null && k >= c.cross.length - 1 && t > c.cross[c.cross.length - 1] + 60;
+    if (gone || k >= R.laps) { carEl[c.num].style.display = gone ? "none" : ""; if (gone) continue; }
+    const a = c.cross[k], b = c.cross[k + 1];
+    const f = b ? (t - a) / (b - a) : 0;
+    const [x, y] = pointAt(k >= R.laps ? 0 : Math.min(1, f));
+    carEl[c.num].setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+  }
+  // a lap is complete: the market moves
+  let lap = 0; while (lap + 1 <= R.laps && leader.cross[lap + 1] <= t) lap++;
+  if (lap !== lapNow) { lapNow = lap; onLap(lap); }
+  if (t >= endT) return finish();
+  requestAnimationFrame(step);
+}
+
+function onLap(lap) {
+  setPrices(lap);
+  $("lapN").textContent = lap;
+  const nt = neutralAt(lap + 1) || neutralAt(lap);
+  $("flag").innerHTML = nt ? `<b>${nt.kind === "SC" ? "Safety car" : "Virtual safety car"}</b><span>The field is bunched up. Places will shuffle.</span>` : "";
+  // what moved, in words
+  const moved = order.filter((n) => prev[n] != null && priceNow[n] !== prev[n]);
+  moved.forEach((n) => flash(n, priceNow[n] > prev[n]));
+  const pits = [...(pitsAt[lap] || [])].map((n) => R.field.find((c) => c.num === n));
+  const outs = R.field.filter((c) => c.out === lap);
+  let msg = "";
+  if (outs.length) msg = `${outs.map((c) => c.name).join(" and ")} ${outs.length > 1 ? "are" : "is"} out. ${outs.length > 1 ? "Their" : "His"} shares are worth nothing now.`;
+  else if (pits.length) {
+    const many = pits.length > 1, who = pits.map((c) => c.name).join(", ");
+    const fell = pits.filter((c) => prev[c.num] != null && priceNow[c.num] < prev[c.num]);
+    msg = nt ? `${who} ${many ? "stop" : "stops"} under the safety car. A stop costs far less now, so ${many ? "they barely lose" : "he barely loses"} places.`
+      : fell.length ? `${who} ${many ? "stop" : "stops"} for tyres and ${fell.length > 1 ? "drop" : "drops"} down the order. Cheap for a lap or two, while ${fell.length > 1 ? "they climb" : "he climbs"} back.`
+      : `${who} ${many ? "stop" : "stops"} for tyres.`;
+  }
+  $("feed").textContent = msg ? `Lap ${lap} · ${msg}` : "";
+  if (!firstBuy && lap >= 1) coach(`Prices move at the end of every lap. Pick a driver and press <b>Invest 100</b>. Somebody cheap who should be further up is the best buy.`);
+  if (pits.length && firstBuy) coach(nt ? `<b>Stops under the safety car.</b> Everybody slows down, so stopping now costs little: watch who comes out ahead.`
+    : `<b>Pit stops.</b> A driver who just stopped loses places for a lap or two, so his price drops. Buy him there and sell when he is back up.`);
+  const lost = outs.filter((c) => held[c.num]);
+  for (const c of lost) { trades.push({ n: c.num, paid: cost[c.num], got: 0, lap, retired: true }); delete held[c.num]; delete cost[c.num]; }
+  if (lost.length) coach(`<b>Retirement.</b> ${lost.map((c) => c.name).join(" and ")} retired with your money in ${lost.length > 1 ? "them" : "him"}: <b>${fmt(lost.reduce((x, c) => x + trades.find((t) => t.n === c.num && t.retired).paid, 0))} gone</b>.`);
+  if (lap === R.laps - 3) coach(`<b>Three laps to go.</b> At the flag, whatever you still hold is paid at the driver's final place.`);
+  render();
+}
+
+function finish() {
+  running = false;
+  // everything still held is paid at the final place
+  for (const n of Object.keys(held)) { const v = held[n] * priceNow[n]; cash += v; trades.push({ n: +n, paid: cost[n], got: v, lap: R.laps, flag: true }); }
+  held = {};
+  const name = (n) => R.field.find((c) => c.num === n).name;
+  const best = [...trades].sort((a, b) => (b.got - b.paid) - (a.got - a.paid))[0];
+  // the trade of the race: the cheapest any finisher ever was, held to the flag
+  let star = null;
+  for (const c of R.field) {
+    if (c.out != null) continue;
+    const h = history[c.num], end = h[h.length - 1][1];
+    const low = h.reduce((m, x) => (x[1] < m[1] ? x : m), h[0]);
+    const x = end / low[1];
+    if (!star || x > star.x) star = { c, low, end, x };
+  }
+  const d = cash - START;
+  $("play").classList.remove("on");
+  $("done").classList.add("on");
+  $("done").innerHTML = `
+    <span class="k gp">${R.gp} · at the flag</span>
+    <h1 class="wide">${d >= 0 ? "You made" : "You lost"} <span class="glow">${fmt(Math.abs(d))}</span></h1>
+    <p class="verdict">You started with 1,000 and finished with <b>${fmt(cash)}</b>. ${trades.length ? `${trades.length} trade${trades.length > 1 ? "s" : ""}.` : "You never traded: the 1,000 is still in your pocket."}</p>
+    <div class="facts">
+      <div><span class="k">Your best trade</span>${best && best.got > best.paid ? `<b>${name(best.n)}</b><p>Paid ${fmt(best.paid)}, got ${fmt(best.got)}${best.flag ? " at the flag" : ` on lap ${best.lap}`}.</p>` : `<b>None</b><p>${trades.length ? "No trade made money this time." : "No trades."}</p>`}</div>
+      <div><span class="k">The trade of the race</span><b>${star.c.name}</b><p>Cheapest at ${star.low[1]} on ${star.low[0] ? `lap ${star.low[0]}` : "the grid"}, worth ${star.end} at the flag: ${star.x.toFixed(1)} times the money.</p></div>
+      <div><span class="k">The winner</span><b>${leader.name}</b><p>From P${leader.grid} on the grid. Worth ${priceOf(1)} at the flag.</p></div>
+    </div>
+    <div class="trades"><span class="k">Your trades</span><ul>${trades.map((tr) => `<li><span>${name(tr.n)} · ${tr.retired ? `retired on lap ${tr.lap}` : tr.flag ? "held to the flag" : `cashed out on lap ${tr.lap}`}</span><span class="num ${tr.got >= tr.paid ? "up" : "down"}">${tr.got >= tr.paid ? "+" : ""}${fmt(tr.got - tr.paid)}</span></li>`).join("") || "<li><span>No trades</span><span></span></li>"}</ul></div>
+    <button class="go" onclick="location.reload()">Run it again <span>→</span></button>`;
+  scrollTo(0, 0);
+}
+
+$("start").onclick = () => {
+  $("intro").style.display = "none";
+  $("play").classList.add("on");
+  setPrices(0);
+  const pole = R.field.find((c) => c.grid === 1);
+  coach(`The grid sets the first prices. <b>${pole.name} starts on pole: ${priceOf(1)}.</b> Lights out in a moment. Pick somebody and press <b>Invest 100</b>.`);
+  render();
+  running = true; last = performance.now();
+  setTimeout(() => requestAnimationFrame(step), 1800);
+};
+addEventListener("resize", render);
+</script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+{
+ "session": "Race",
+ "answer": {
+  "name": "Piastri",
+  "number": 81,
+  "team": "McLaren",
+  "colour": "F47600",
+  "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp",
+  "start": 4,
+  "stops": 3,
+  "passes": 6,
+  "tell": "nobody lost more places than he did: 7"
+ },
+ "clues": [
+  {
+   "k": "Penalty",
+   "big": "10s",
+   "say": "The stewards gave him a 10-second penalty for causing a collision"
+  },
+  {
+   "k": "Pit stops",
+   "big": "3",
+   "say": "He stopped 3 times"
+  },
+  {
+   "k": "Tyres",
+   "kind": "tyres",
+   "big": "intermediate to medium to soft",
+   "say": "He ran intermediate, then medium, then soft"
+  },
+  {
+   "k": "Overtakes",
+   "big": "6",
+   "say": "He passed 6 cars on track"
+  },
+  {
+   "k": "Grid slot",
+   "big": "P4",
+   "say": "He started P4"
+  },
+  {
+   "k": "The giveaway",
+   "kind": "tell",
+   "big": "",
+   "say": "Nobody lost more places than he did: 7"
+  },
+  {
+   "k": "Finish",
+   "big": "P11",
+   "say": "He finished P11"
+  }
+ ],
+ "field": [
+  {
+   "name": "Albon",
+   "number": 23,
+   "team": "Williams",
+   "start": 18,
+   "stops": 0,
+   "passes": 4,
+   "colour": "1868DB",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp"
+  },
+  {
+   "name": "Alonso",
+   "number": 14,
+   "team": "Aston Martin",
+   "start": 19,
+   "stops": 1,
+   "passes": 3,
+   "colour": "229971",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp"
+  },
+  {
+   "name": "Antonelli",
+   "number": 12,
+   "team": "Mercedes",
+   "start": 2,
+   "stops": 1,
+   "passes": 3,
+   "colour": "00D7B6",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp"
+  },
+  {
+   "name": "Bearman",
+   "number": 87,
+   "team": "Haas F1 Team",
+   "start": 16,
+   "stops": 1,
+   "passes": 0,
+   "colour": "9C9FA2",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/haasf1team/olibea01/2026haasf1teamolibea01right.webp"
+  },
+  {
+   "name": "Bortoleto",
+   "number": 5,
+   "team": "Audi",
+   "start": 13,
+   "stops": 2,
+   "passes": 4,
+   "colour": "F50537",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/audi/gabbor01/2026audigabbor01right.webp"
+  },
+  {
+   "name": "Bottas",
+   "number": 77,
+   "team": "Cadillac",
+   "start": 21,
+   "stops": 4,
+   "passes": 0,
+   "colour": "909090",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp"
+  },
+  {
+   "name": "Colapinto",
+   "number": 43,
+   "team": "Alpine",
+   "start": 10,
+   "stops": 1,
+   "passes": 0,
+   "colour": "00A1E8",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/alpine/fracol01/2026alpinefracol01right.webp"
+  },
+  {
+   "name": "Gasly",
+   "number": 10,
+   "team": "Alpine",
+   "start": 14,
+   "stops": 1,
+   "passes": 2,
+   "colour": "00A1E8",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/alpine/piegas01/2026alpinepiegas01right.webp"
+  },
+  {
+   "name": "Hadjar",
+   "number": 6,
+   "team": "Red Bull Racing",
+   "start": 7,
+   "stops": 2,
+   "passes": 0,
+   "colour": "4781D7",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp"
+  },
+  {
+   "name": "Hamilton",
+   "number": 44,
+   "team": "Ferrari",
+   "start": 5,
+   "stops": 1,
+   "passes": 1,
+   "colour": "ED1131",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp"
+  },
+  {
+   "name": "Hulkenberg",
+   "number": 27,
+   "team": "Audi",
+   "start": 11,
+   "stops": 2,
+   "passes": 2,
+   "colour": "F50537",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp"
+  },
+  {
+   "name": "Lawson",
+   "number": 30,
+   "team": "Racing Bulls",
+   "start": 12,
+   "stops": 1,
+   "passes": 0,
+   "colour": "6C98FF",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp"
+  },
+  {
+   "name": "Leclerc",
+   "number": 16,
+   "team": "Ferrari",
+   "start": 8,
+   "stops": 1,
+   "passes": 1,
+   "colour": "ED1131",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp"
+  },
+  {
+   "name": "Norris",
+   "number": 1,
+   "team": "McLaren",
+   "start": 3,
+   "stops": 2,
+   "passes": 8,
+   "colour": "F47600",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp"
+  },
+  {
+   "name": "Ocon",
+   "number": 31,
+   "team": "Haas F1 Team",
+   "start": 17,
+   "stops": 2,
+   "passes": 0,
+   "colour": "9C9FA2",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/haasf1team/estoco01/2026haasf1teamestoco01right.webp"
+  },
+  {
+   "name": "Perez",
+   "number": 11,
+   "team": "Cadillac",
+   "start": 20,
+   "stops": 3,
+   "passes": 2,
+   "colour": "909090",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp"
+  },
+  {
+   "name": "Piastri",
+   "number": 81,
+   "team": "McLaren",
+   "start": 4,
+   "stops": 3,
+   "passes": 6,
+   "colour": "F47600",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp"
+  },
+  {
+   "name": "Russell",
+   "number": 63,
+   "team": "Mercedes",
+   "start": 1,
+   "stops": 0,
+   "passes": 4,
+   "colour": "00D7B6",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp"
+  },
+  {
+   "name": "Sainz",
+   "number": 55,
+   "team": "Williams",
+   "start": 15,
+   "stops": 2,
+   "passes": 4,
+   "colour": "1868DB",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/carsai01/2026williamscarsai01right.webp"
+  },
+  {
+   "name": "Stroll",
+   "number": 18,
+   "team": "Aston Martin",
+   "start": 22,
+   "stops": 2,
+   "passes": 1,
+   "colour": "229971",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/astonmartin/lanstr01/2026astonmartinlanstr01right.webp"
+  },
+  {
+   "name": "Verstappen",
+   "number": 3,
+   "team": "Red Bull Racing",
+   "start": 6,
+   "stops": 1,
+   "passes": 1,
+   "colour": "4781D7",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp"
+  }
+ ]
+}

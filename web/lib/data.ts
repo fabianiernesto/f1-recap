@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type {
-  BlindTest, Brain, MateThread, PitWall, Story, Track, Weekend,
+  BlindTest, Brain, GhostRace, MateThread, Mystery, PitWall, Replay, Story, Track, Weekend,
 } from "./types";
 
 // scripts/sync-data.mjs copies the pipeline output into web/data, and
@@ -74,6 +74,26 @@ export function loadBlind(slug: string, session: string): BlindTest | null {
     : null;
 }
 
+/** The race, replayable: the engine under Call the race and The ghost. */
+export function loadReplay(slug: string, session: string): Replay | null {
+  const f = path.join(DATA_DIR, slug, `replay_${session}.json`);
+  return fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, "utf-8")) as Replay) : null;
+}
+
+/** The ghost's seats, where the tyre model can price a driver's calls. */
+export function loadGhost(slug: string): GhostRace | null {
+  const f = path.join(DATA_DIR, slug, "muro_race.json");
+  return fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, "utf-8")) as GhostRace) : null;
+}
+
+/** The race's mystery driver, the same puzzle for everybody. */
+export function loadMystery(slug: string, session: string): Mystery | null {
+  const f = path.join(DATA_DIR, slug, `mystery_${session}.json`);
+  return fs.existsSync(f)
+    ? (JSON.parse(fs.readFileSync(f, "utf-8")) as Mystery)
+    : null;
+}
+
 /** The strategy calls one garage faced, with what each answer cost. */
 export function loadPitWall(slug: string, session: string): PitWall | null {
   const f = path.join(DATA_DIR, slug, `pitwall_${session}.json`);
@@ -113,6 +133,10 @@ export function activitiesFor(slug: string, weekend: Weekend) {
         }
       : null;
 
+  // the mystery driver lives on the same page as the blind test, which is
+  // its free mode once the puzzle is done
+  const mystery = loadMystery(slug, blindSession);
+
   // the pit wall exists only where the tyre data held up, so it is asked for
   // rather than assumed: see pipeline/pitwall.py
   const raceWall = loadPitWall(slug, "race");
@@ -127,6 +151,20 @@ export function activitiesFor(slug: string, weekend: Weekend) {
     laps: weekend.laps,
     alfred,
     blind,
+    mystery: mystery ? { session: blindSession, clues: mystery.clues.length } : null,
+    call: (() => {
+      const r = loadReplay(slug, "race");
+      const sp = loadReplay(slug, "sprint");
+      return r && r.calls.length >= 3
+        ? { session: "race", calls: r.calls.length, laps: r.laps, sprint: !!(sp && sp.calls.length >= 3) }
+        : null;
+    })(),
+    // the exchange needs only the race replayed: every race has one
+    exchange: (() => {
+      const r = loadReplay(slug, "race");
+      const sp = loadReplay(slug, "sprint");
+      return r ? { session: "race", drivers: r.field.length, laps: r.laps, sprint: !!sp } : null;
+    })(),
     pitwall: wall
       ? {
           session: wallSession,

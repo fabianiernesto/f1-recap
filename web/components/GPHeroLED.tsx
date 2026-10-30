@@ -20,7 +20,9 @@ function carFor(slug: string): string {
     if (fs.existsSync(path.join(process.cwd(), "public", "cars", `${slug}.${ext}`)))
       return `/cars/${slug}.${ext}`;
   }
-  return "/cars/default.png";
+  // the same picture as default.png, pixel for pixel (lossless WebP, 25/10/2026):
+  // 612KB instead of 1MB, which was the hitch on arriving at a hub
+  return "/cars/default.webp";
 }
 
 /** Shown when a circuit has not been measured yet, so the panel never lies. */
@@ -125,15 +127,15 @@ export default function GPHeroLED({
       {/* our own mark, in the same LED face the sting lands on, rather than a
           logo that belongs to Formula One Licensing BV */}
       <div className="ledhero-logo">
-        <span className="ledhero-mark">R//S</span>
+        <span className="ledhero-mark" data-t="R//S">R//S</span>
       </div>
 
       <div className="ledhero-car">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={carFor(weekend.slug)} alt="" />
+        <img src={carFor(weekend.slug)} alt="" decoding="async" />
       </div>
 
-      <span className="ledhero-l1">{track.circuit}</span>
+      <span className="ledhero-l1" data-t={track.circuit}>{track.circuit}</span>
 
       {/* the way back out, above the tag so it reads as part of the same
           bottom-left block instead of floating on its own */}

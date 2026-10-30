@@ -133,7 +133,7 @@ export default function Home() {
   const ticker = weekends.map(({ weekend }) => headline(weekend));
 
   // the latest weekend, counted rather than described: how many calls the
-  // race hands you, how many sheets the blind test has, whose pit wall it is
+  // race hands you, how many calls the replay asks, how many seats the ghost has
   const acts = latest ? activitiesFor(latest.weekend.slug, latest.weekend) : null;
   const calls = latest && facts
     ? loadStory(latest.weekend.slug, "race").cards.filter((c) =>
@@ -340,62 +340,45 @@ export default function Home() {
                   <p>
                     The name on the door and the things you play with behind it.
                     Every activity is built from the race that happened and stops
-                    where the data stops: the pit wall never scores a safety car,
-                    because nobody can measure one.
+                    where the data stops: on the exchange a price is a place, and
+                    every place is the one the timing gave at the line.
                   </p>
                   <Link href={latest ? `/gp/${latest.weekend.slug}/activities` : "#races"} className="how-go">
                     Play {latest?.weekend.circuit ?? "a race"} <i aria-hidden>→</i>
                   </Link>
                 </div>
                 <div className="how-acts">
-                  <Link href={latest ? `/gp/${latest.weekend.slug}/race/blind` : "#races"} className="how-act">
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/race/call` : "#races"} className="how-act">
                     <span className="how-act-n">Activity 01</span>
-                    <figure className="way-ghost" aria-hidden>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={GHOST} alt="" />
-                      <b>?</b>
-                    </figure>
-                    <h4>The blind test</h4>
+                    <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
+                      <path d="M16 58 C 16 20, 52 16, 62 30 S 104 28, 104 52 S 70 70, 40 66 Z" fill="none" stroke="currentColor" strokeWidth="2.5" strokeDasharray="1 6" strokeLinecap="round" />
+                      <circle cx="62" cy="30" r="5" fill="currentColor" />
+                      <circle cx="96" cy="40" r="4" fill="currentColor" opacity=".5" />
+                    </svg>
+                    <h4>Call the race</h4>
                     <p>
-                      {acts?.blind && latest
-                        ? `${acts.blind.rounds} real timing sheets from ${latest.weekend.circuit}, names struck out. `
-                        : "Real timing sheets, names struck out. "}
-                      Where he started, when he stopped, what the stewards made of
-                      him. Say who it is.
+                      {acts?.call && latest
+                        ? `${latest.weekend.circuit} replayed in three minutes on the real track, ${acts.call.calls} calls along the way. `
+                        : "The race replayed in three minutes on the real track. "}
+                      It stops when the race turns and asks you what happens next.
                     </p>
-                    <span className="how-act-go">Start the test →</span>
+                    <span className="how-act-go">Lights out →</span>
                   </Link>
-                  <Link href={latest ? `/gp/${latest.weekend.slug}/race/pitwall` : "#races"} className="how-act">
+                  <Link href={latest ? `/gp/${latest.weekend.slug}/race/exchange` : "#races"} className="how-act">
                     <span className="how-act-n">Activity 02</span>
                     <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
-                      <path d="M30 52v-8a30 30 0 0 1 60 0v8" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                      <rect x="22" y="48" width="14" height="22" rx="5" fill="currentColor" />
-                      <rect x="84" y="48" width="14" height="22" rx="5" fill="currentColor" />
-                      <path d="M91 70v3a7 7 0 0 1-7 7H70" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      <path d="M10 62 H 30 V 54 H 50 V 58 H 66 V 34 H 84 V 26 H 110" fill="none" stroke="currentColor" strokeWidth="2.5" />
+                      <path d="M10 30 H 34 V 40 H 58 V 66 H 110" fill="none" stroke="currentColor" strokeWidth="2.5" opacity=".45" />
                     </svg>
-                    <h4>The pit wall</h4>
+                    <h4>Paddock exchange</h4>
                     <p>
-                      {acts?.pitwall && latest
-                        ? `${acts.pitwall.driver}'s seat at ${latest.weekend.circuit}, ${acts.pitwall.calls} calls, the race frozen where his garage chose. `
-                        : "A driver's seat, the race frozen where his garage chose. "}
-                      At the flag it tells you where your afternoon would have ended.
+                      {acts?.exchange && latest
+                        ? `${acts.exchange.drivers} drivers at ${latest.weekend.circuit}, each a share priced by his place. `
+                        : "Every driver a share, priced by his place. "}
+                      Buy low, sell high, lap by lap as the race really went.
                     </p>
-                    <span className="how-act-go">Take the wall →</span>
+                    <span className="how-act-go">Open the market →</span>
                   </Link>
-                  <div className="how-act how-act-next">
-                    <span className="how-act-n">Activity 03</span>
-                    <svg viewBox="0 0 120 80" className="way-art" aria-hidden>
-                      <path d="M14 60 L60 20 L106 60" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeDasharray="4 6" />
-                      <circle cx="60" cy="20" r="5" fill="currentColor" />
-                    </svg>
-                    <h4>The what-if</h4>
-                    <p>
-                      Take the safety car out, hand the retirement its car back and
-                      watch the podium rearrange on the real pace. Coming only if it
-                      can be done honestly.
-                    </p>
-                    <span className="how-act-go">In the works</span>
-                  </div>
                 </div>
               </div>
             </>
@@ -466,7 +449,7 @@ export default function Home() {
         </div>
         <div className="races-wrap" data-fx="right">
         <div className="home-grid races-track" data-strip>
-          {weekends.map(({ weekend: w, track }, i) => {
+          {weekends.map(({ weekend: w, track }) => {
             const art = trackArt(track);
             const moments = w.sessions.reduce((n, s) => n + s.moments, 0);
             const f = w.facts;
@@ -492,7 +475,9 @@ export default function Home() {
                 {f && (
                   <figure className="home-card-face" aria-hidden>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={bigPhoto(f.winner.headshot)} alt="" />
+                    {/* drawn at 200px wide, and below the fold: the 420px cut,
+                        fetched when the grid comes near (25/10/2026) */}
+                    <img src={bigPhoto(f.winner.headshot).replace("w_1000", "w_420")} alt="" loading="lazy" />
                   </figure>
                 )}
                 <span className="home-card-name">{w.circuit}</span>

@@ -1,0 +1,22 @@
+{
+  "name": "racing-simplified-video",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render Showcase out/racing-simplified-9x16.mp4",
+    "still": "remotion still",
+    "record": "node scripts/record.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.532",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.532"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "playwright-core": "^1.63.0",
+    "typescript": "^7.0.2"
+  }
+}

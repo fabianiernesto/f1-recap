@@ -1,8 +1,16 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import MotionFX from "@/components/MotionFX";
-import { hasSession, listGPs, loadBlind, loadWeekend } from "@/lib/data";
+import { hasSession, listGPs, loadBlind, loadMystery, loadWeekend } from "@/lib/data";
 import BlindTest from "@/components/BlindTest";
+import MysteryDriver from "@/components/MysteryDriver";
+import type { Metadata } from "next";
+import { gpMeta } from "@/lib/meta";
+
+export async function generateMetadata({ params }: PageProps<"/gp/[slug]/[session]/blind">): Promise<Metadata> {
+  const { slug, session } = await params;
+  return gpMeta(slug, "blind", session);
+}
 
 export function generateStaticParams() {
   return listGPs().flatMap((slug) =>
@@ -17,7 +25,8 @@ export default async function BlindPage({
   const { slug, session } = await params;
   if (!hasSession(slug, session)) notFound();
   const test = loadBlind(slug, session);
-  if (!test || test.rounds.length < 3) notFound();
+  const mystery = loadMystery(slug, session);
+  if (!mystery && (!test || test.rounds.length < 3)) notFound();
   const weekend = loadWeekend(slug);
 
   return (
@@ -29,7 +38,17 @@ export default async function BlindPage({
         <Link href="/" className="hub-home">Racing Simplified</Link>
       </div>
       <MotionFX />
-      <BlindTest test={test} backTo={`/gp/${slug}/activities`} />
+      {mystery ? (
+        <MysteryDriver
+          mystery={mystery}
+          test={test}
+          gp={weekend.short.replace(/ Grand Prix$/, " GP")}
+          storyHref={`/gp/${slug}/${session}`}
+          storageKey={`rs-mystery-${slug}-${session}`}
+        />
+      ) : (
+        <BlindTest test={test!} backTo={`/gp/${slug}/activities`} />
+      )}
     </>
   );
 }

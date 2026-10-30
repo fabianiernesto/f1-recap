@@ -3,6 +3,13 @@ import { notFound } from "next/navigation";
 import MotionFX from "@/components/MotionFX";
 import { hasSession, listGPs, loadPitWall, loadWeekend } from "@/lib/data";
 import PitWall from "@/components/PitWall";
+import type { Metadata } from "next";
+import { gpMeta } from "@/lib/meta";
+
+export async function generateMetadata({ params }: PageProps<"/gp/[slug]/[session]/pitwall">): Promise<Metadata> {
+  const { slug, session } = await params;
+  return gpMeta(slug, "pitwall", session);
+}
 
 export function generateStaticParams() {
   return listGPs().flatMap((slug) =>

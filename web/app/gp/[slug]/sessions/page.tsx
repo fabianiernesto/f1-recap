@@ -3,6 +3,13 @@ import { notFound } from "next/navigation";
 import MotionFX from "@/components/MotionFX";
 import { listGPs, loadWeekend } from "@/lib/data";
 import WeekendHub from "@/components/WeekendHub";
+import type { Metadata } from "next";
+import { gpMeta } from "@/lib/meta";
+
+export async function generateMetadata({ params }: PageProps<"/gp/[slug]/sessions">): Promise<Metadata> {
+  const { slug } = await params;
+  return gpMeta(slug, "sessions");
+}
 
 export function generateStaticParams() {
   return listGPs().map((slug) => ({ slug }));

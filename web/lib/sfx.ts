@@ -50,7 +50,7 @@ function audibleSpan(buffer: AudioBuffer): { offset: number; audible: number } {
   const peak = env.reduce((m, v) => Math.max(m, v), 0);
   if (peak === 0) return { offset: 0, audible: buffer.duration };
   const gate = peak * 0.05;
-  let first = env.findIndex((v) => v > gate);
+  const first = env.findIndex((v) => v > gate);
   let last = env.length - 1;
   while (last > first && env[last] <= gate) last--;
   if (first < 0) return { offset: 0, audible: buffer.duration };
@@ -60,9 +60,35 @@ function audibleSpan(buffer: AudioBuffer): { offset: number; audible: number } {
   return { offset, audible: Math.max(0.05, end - offset) };
 }
 
-/** Fetches and decodes once. Safe to call on mount; it needs no gesture. */
+/** A context that only decodes. It never opens the sound card, so making one
+ *  costs nothing, and the buffers it decodes play in the real context. */
+let decoder: OfflineAudioContext | null = null;
+function decodingContext(): BaseAudioContext | null {
+  if (typeof window === "undefined") return null;
+  if (ctx) return ctx;
+  if (!decoder && typeof OfflineAudioContext !== "undefined") decoder = new OfflineAudioContext(1, 1, 44100);
+  return decoder;
+}
+
+/**
+ * Opens the real context ahead of the click that needs it.
+ *
+ * 25/10/2026: opening it is the sound card waking up, which on Windows froze
+ * the page for about 230ms the first time in a session. Done on mount, that
+ * freeze landed on the arrival at every race page; done when idle, it could
+ * land on whatever the visitor clicked next. So it is paid when the pointer
+ * reaches the button that plays the sound (or a finger lands on it), a beat
+ * before the click, and only by someone about to hear it.
+ */
+export function warmSfx(): void {
+  if (typeof window === "undefined" || ctx) return;
+  context();
+}
+
+/** Fetches and decodes once. Safe to call on mount; it needs no gesture and
+ *  does not open the sound card. */
 export function loadSfx(url: string): Promise<Clip> | null {
-  const ac = context();
+  const ac = decodingContext();
   if (!ac) return null;
   let clip = clips.get(url);
   if (!clip) {

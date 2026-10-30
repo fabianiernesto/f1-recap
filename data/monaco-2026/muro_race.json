@@ -1,0 +1,1427 @@
+{
+ "session": "Race",
+ "laps": 78,
+ "economics": {
+  "pitLoss": 22.2,
+  "fuelTrend": -0.0113,
+  "tyres": {
+   "MEDIUM": {
+    "deg": 0.0262,
+    "base": -0.022,
+    "laps": 582
+   },
+   "HARD": {
+    "deg": 0.0253,
+    "base": 0.024,
+    "laps": 326
+   },
+   "SOFT": {
+    "deg": 0.0218,
+    "base": -0.03,
+    "laps": 235
+   }
+  },
+  "typicalDeg": 0.0253
+ },
+ "ladder": [
+  {
+   "pos": 1,
+   "name": "Antonelli",
+   "team": "Mercedes",
+   "gap": 0.0
+  },
+  {
+   "pos": 2,
+   "name": "Hamilton",
+   "team": "Ferrari",
+   "gap": 6.271
+  },
+  {
+   "pos": 3,
+   "name": "Hadjar",
+   "team": "Red Bull Racing",
+   "gap": 23.394
+  },
+  {
+   "pos": 4,
+   "name": "Piastri",
+   "team": "McLaren",
+   "gap": 24.261
+  },
+  {
+   "pos": 5,
+   "name": "Lawson",
+   "team": "Racing Bulls",
+   "gap": 26.553
+  },
+  {
+   "pos": 6,
+   "name": "Lindblad",
+   "team": "Racing Bulls",
+   "gap": 29.01
+  },
+  {
+   "pos": 7,
+   "name": "Gasly",
+   "team": "Alpine",
+   "gap": 30.369
+  },
+  {
+   "pos": 8,
+   "name": "Albon",
+   "team": "Williams",
+   "gap": 33.413
+  },
+  {
+   "pos": 9,
+   "name": "Ocon",
+   "team": "Haas F1 Team",
+   "gap": 37.14
+  },
+  {
+   "pos": 10,
+   "name": "Alonso",
+   "team": "Aston Martin",
+   "gap": 41.899
+  },
+  {
+   "pos": 11,
+   "name": "Bortoleto",
+   "team": "Audi",
+   "gap": 42.748
+  },
+  {
+   "pos": 12,
+   "name": "Russell",
+   "team": "Mercedes",
+   "gap": 43.353
+  },
+  {
+   "pos": 13,
+   "name": "Hulkenberg",
+   "team": "Audi",
+   "gap": 44.102
+  },
+  {
+   "pos": 14,
+   "name": "Colapinto",
+   "team": "Alpine",
+   "gap": 48.964
+  },
+  {
+   "pos": 15,
+   "name": "Perez",
+   "team": "Cadillac",
+   "gap": 49.153
+  }
+ ],
+ "seats": [
+  {
+   "name": "Antonelli",
+   "number": 12,
+   "team": "Mercedes",
+   "colour": "00D7B6",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
+   "start": 1,
+   "finish": 1,
+   "margin": 6.271,
+   "calls": [
+    {
+     "lap": 37,
+     "kicker": "The first stop",
+     "question": "When do you box him?",
+     "facts": [
+      [
+       "Running",
+       "P1"
+      ],
+      [
+       "Behind",
+       "Hamilton"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him now, lap 37",
+       "lap": 37,
+       "lost": 2.2,
+       "real": true,
+       "note": "1 laps on the hards, then 24 on the softs.",
+       "delta": 0.0,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         12.4
+        ]
+       }
+      },
+      {
+       "label": "4 laps later",
+       "lap": 41,
+       "lost": 0.7,
+       "real": false,
+       "note": "5 laps on the hards, then 20 on the softs.",
+       "delta": -1.5,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         17.1
+        ]
+       }
+      },
+      {
+       "label": "8 laps later",
+       "lap": 45,
+       "lost": 0.0,
+       "real": false,
+       "note": "9 laps on the hards, then 16 on the softs.",
+       "delta": -2.2,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         18.1
+        ]
+       }
+      },
+      {
+       "label": "12 laps later",
+       "lap": 49,
+       "lost": 0.0,
+       "real": false,
+       "note": "13 laps on the hards, then 12 on the softs.",
+       "delta": -2.2,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         21.7
+        ]
+       }
+      }
+     ],
+     "reading": "The hards lose 25ms a lap as they age, the softs 22ms. The stint has to reach lap 61 either way.",
+     "scored": true
+    },
+    {
+     "lap": 60,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 60. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P1"
+      ],
+      [
+       "Tyre",
+       "hard, 23 laps old"
+      ],
+      [
+       "Laps left",
+       "18"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 60,
+       "lost": 0,
+       "real": true,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 60,
+       "lost": 0,
+       "real": false,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "4 of 17 cars boxed under it. His garage boxed: P1 when it came out, P1 three laps after the restart. The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 0
+    }
+   ],
+   "windows": [
+    {
+     "stop": 37,
+     "lo": 40,
+     "hi": 49,
+     "from": 37,
+     "comp": "HARD",
+     "next": "SOFT",
+     "deg": 0.0253,
+     "laps": {
+      "40": {
+       "d": -1.2,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         16.4
+        ]
+       }
+      },
+      "41": {
+       "d": -1.5,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         17.1
+        ]
+       }
+      },
+      "42": {
+       "d": -1.7,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         17.3
+        ]
+       }
+      },
+      "43": {
+       "d": -2.0,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         18.7
+        ]
+       }
+      },
+      "44": {
+       "d": -2.1,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         18.3
+        ]
+       }
+      },
+      "45": {
+       "d": -2.2,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         18.1
+        ]
+       }
+      },
+      "46": {
+       "d": -2.3,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         19.3
+        ]
+       }
+      },
+      "47": {
+       "d": -2.3,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         20.2
+        ]
+       }
+      },
+      "48": {
+       "d": -2.3,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         21.4
+        ]
+       }
+      },
+      "49": {
+       "d": -2.2,
+       "rejoin": {
+        "pos": 1,
+        "behind": [
+         "Hamilton",
+         21.7
+        ]
+       }
+      }
+     }
+    }
+   ],
+   "stints": [
+    [
+     "MEDIUM",
+     1,
+     36
+    ],
+    [
+     "HARD",
+     37,
+     60
+    ],
+    [
+     "SOFT",
+     61,
+     65
+    ],
+    [
+     "SOFT",
+     66,
+     67
+    ],
+    [
+     "SOFT",
+     68,
+     78
+    ]
+   ]
+  },
+  {
+   "name": "Piastri",
+   "number": 81,
+   "team": "McLaren",
+   "colour": "F47600",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp",
+   "start": 7,
+   "finish": 4,
+   "margin": 0.867,
+   "calls": [
+    {
+     "lap": 48,
+     "kicker": "The first stop",
+     "question": "When do you box him?",
+     "facts": [
+      [
+       "Running",
+       "P4"
+      ],
+      [
+       "Ahead",
+       "Leclerc, 38.0s up"
+      ],
+      [
+       "Behind",
+       "Russell"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him now, lap 48",
+       "lap": 48,
+       "lost": 0.4,
+       "real": true,
+       "note": "1 laps on the hards, then 11 on the softs.",
+       "delta": 0.0,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         13.7
+        ],
+        "behind": [
+         "Gasly",
+         7.9
+        ]
+       }
+      },
+      {
+       "label": "4 laps later",
+       "lap": 52,
+       "lost": 0.0,
+       "real": false,
+       "note": "5 laps on the hards, then 7 on the softs.",
+       "delta": -0.4,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         11.8
+        ],
+        "behind": [
+         "Gasly",
+         12.1
+        ]
+       }
+      },
+      {
+       "label": "8 laps later",
+       "lap": 56,
+       "lost": 0.4,
+       "real": false,
+       "note": "9 laps on the hards, then 3 on the softs.",
+       "delta": 0.0,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         8.3
+        ],
+        "behind": [
+         "Gasly",
+         14.3
+        ]
+       }
+      }
+     ],
+     "reading": "The hards lose 25ms a lap as they age, the softs 22ms. The stint has to reach lap 59 either way.",
+     "scored": true
+    },
+    {
+     "lap": 60,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 60. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P6"
+      ],
+      [
+       "Tyre",
+       "soft, 5 laps old"
+      ],
+      [
+       "Laps left",
+       "18"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 60,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 60,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "4 of 17 cars boxed under it. His garage kept him out: P6 when it came out, P6 three laps after the restart. The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 0
+    }
+   ],
+   "windows": [
+    {
+     "stop": 48,
+     "lo": 51,
+     "hi": 56,
+     "from": 48,
+     "comp": "HARD",
+     "next": "SOFT",
+     "deg": 0.0253,
+     "laps": {
+      "51": {
+       "d": -0.3,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         13.0
+        ],
+        "behind": [
+         "Gasly",
+         11.6
+        ]
+       }
+      },
+      "52": {
+       "d": -0.4,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         11.8
+        ],
+        "behind": [
+         "Gasly",
+         12.1
+        ]
+       }
+      },
+      "53": {
+       "d": -0.3,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         10.3
+        ],
+        "behind": [
+         "Gasly",
+         12.1
+        ]
+       }
+      },
+      "54": {
+       "d": -0.3,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         9.4
+        ],
+        "behind": [
+         "Gasly",
+         12.5
+        ]
+       }
+      },
+      "55": {
+       "d": -0.1,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         8.5
+        ],
+        "behind": [
+         "Gasly",
+         13.4
+        ]
+       }
+      },
+      "56": {
+       "d": 0.0,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Hadjar",
+         8.3
+        ],
+        "behind": [
+         "Gasly",
+         14.3
+        ]
+       }
+      }
+     }
+    }
+   ],
+   "stints": [
+    [
+     "MEDIUM",
+     1,
+     47
+    ],
+    [
+     "HARD",
+     48,
+     58
+    ],
+    [
+     "SOFT",
+     59,
+     59
+    ],
+    [
+     "SOFT",
+     60,
+     65
+    ],
+    [
+     "SOFT",
+     66,
+     67
+    ],
+    [
+     "SOFT",
+     68,
+     78
+    ]
+   ]
+  },
+  {
+   "name": "Lawson",
+   "number": 30,
+   "team": "Racing Bulls",
+   "colour": "6C98FF",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp",
+   "start": 10,
+   "finish": 5,
+   "margin": 2.292,
+   "calls": [
+    {
+     "lap": 44,
+     "kicker": "The last set",
+     "question": "34 laps to the flag. What goes on the car?",
+     "facts": [
+      [
+       "Running",
+       "P9"
+      ],
+      [
+       "Tyre",
+       "soft, 4 laps old"
+      ],
+      [
+       "Ahead",
+       "Hadjar, 12.1s up"
+      ],
+      [
+       "Behind",
+       "Albon"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Soft",
+       "lap": 44,
+       "lost": 0.0,
+       "real": true,
+       "note": "22ms a lap of wear, over 34 laps."
+      },
+      {
+       "label": "Medium",
+       "lap": 44,
+       "lost": 2.9,
+       "real": false,
+       "note": "26ms a lap of wear, over 34 laps."
+      },
+      {
+       "label": "Hard",
+       "lap": 44,
+       "lost": 3.9,
+       "real": false,
+       "note": "25ms a lap of wear, over 34 laps."
+      }
+     ],
+     "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters.",
+     "scored": true
+    },
+    {
+     "lap": 60,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 60. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P8"
+      ],
+      [
+       "Laps left",
+       "18"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 60,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 60,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "4 of 17 cars boxed under it. His garage kept him out: P8 when it came out, P7 three laps after the restart (+1 place). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 1
+    }
+   ],
+   "windows": [],
+   "stints": [
+    [
+     "MEDIUM",
+     1,
+     43
+    ],
+    [
+     "SOFT",
+     44,
+     59
+    ],
+    [
+     "SOFT",
+     60,
+     65
+    ],
+    [
+     "SOFT",
+     66,
+     67
+    ],
+    [
+     "SOFT",
+     68,
+     78
+    ]
+   ]
+  },
+  {
+   "name": "Albon",
+   "number": 23,
+   "team": "Williams",
+   "colour": "1868DB",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp",
+   "start": 11,
+   "finish": 8,
+   "margin": 3.044,
+   "calls": [
+    {
+     "lap": 43,
+     "kicker": "The last set",
+     "question": "35 laps to the flag. What goes on the car?",
+     "facts": [
+      [
+       "Running",
+       "P10"
+      ],
+      [
+       "Ahead",
+       "Lawson, 13.0s up"
+      ],
+      [
+       "Behind",
+       "Sainz"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Soft",
+       "lap": 43,
+       "lost": 0.0,
+       "real": true,
+       "note": "22ms a lap of wear, over 35 laps."
+      },
+      {
+       "label": "Medium",
+       "lap": 43,
+       "lost": 3.1,
+       "real": false,
+       "note": "26ms a lap of wear, over 35 laps."
+      },
+      {
+       "label": "Hard",
+       "lap": 43,
+       "lost": 4.1,
+       "real": false,
+       "note": "25ms a lap of wear, over 35 laps."
+      }
+     ],
+     "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters.",
+     "scored": true
+    },
+    {
+     "lap": 60,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 60. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P10"
+      ],
+      [
+       "Tyre",
+       "soft, 17 laps old"
+      ],
+      [
+       "Laps left",
+       "18"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 60,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 60,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "4 of 17 cars boxed under it. His garage kept him out: P10 when it came out, P9 three laps after the restart (+1 place). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 1
+    }
+   ],
+   "windows": [],
+   "stints": [
+    [
+     "MEDIUM",
+     1,
+     42
+    ],
+    [
+     "SOFT",
+     43,
+     58
+    ],
+    [
+     "SOFT",
+     59,
+     64
+    ],
+    [
+     "SOFT",
+     65,
+     66
+    ],
+    [
+     "SOFT",
+     67,
+     67
+    ],
+    [
+     "SOFT",
+     68,
+     78
+    ]
+   ]
+  },
+  {
+   "name": "Alonso",
+   "number": 14,
+   "team": "Aston Martin",
+   "colour": "229971",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp",
+   "start": 21,
+   "finish": 10,
+   "margin": 0.849,
+   "calls": [
+    {
+     "lap": 58,
+     "kicker": "Stop 2",
+     "question": "When do you box him?",
+     "facts": [
+      [
+       "Running",
+       "P15"
+      ],
+      [
+       "Ahead",
+       "Colapinto, 3.7s up"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him now, lap 58",
+       "lap": 58,
+       "lost": 2.1,
+       "real": true,
+       "note": "1 laps on the softs, then 20 on the softs.",
+       "delta": 0.0
+      },
+      {
+       "label": "4 laps later",
+       "lap": 62,
+       "lost": 0.7,
+       "real": false,
+       "note": "5 laps on the softs, then 16 on the softs.",
+       "delta": -1.4
+      },
+      {
+       "label": "8 laps later",
+       "lap": 66,
+       "lost": 0.0,
+       "real": false,
+       "note": "9 laps on the softs, then 12 on the softs.",
+       "delta": -2.1
+      },
+      {
+       "label": "12 laps later",
+       "lap": 70,
+       "lost": 0.0,
+       "real": false,
+       "note": "13 laps on the softs, then 8 on the softs.",
+       "delta": -2.1
+      }
+     ],
+     "reading": "The softs lose 22ms a lap as they age, the softs 22ms. The stint has to reach lap 78 either way.",
+     "scored": true
+    },
+    {
+     "lap": 58,
+     "kicker": "The last set",
+     "question": "20 laps to the flag. What goes on the car?",
+     "facts": [
+      [
+       "Running",
+       "P15"
+      ],
+      [
+       "Ahead",
+       "Colapinto, 3.7s up"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Soft",
+       "lap": 58,
+       "lost": 0.0,
+       "real": true,
+       "note": "22ms a lap of wear, over 20 laps."
+      },
+      {
+       "label": "Medium",
+       "lap": 58,
+       "lost": 1.1,
+       "real": false,
+       "note": "26ms a lap of wear, over 20 laps."
+      },
+      {
+       "label": "Hard",
+       "lap": 58,
+       "lost": 1.8,
+       "real": false,
+       "note": "25ms a lap of wear, over 20 laps."
+      }
+     ],
+     "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters.",
+     "scored": true
+    },
+    {
+     "lap": 60,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 60. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P15"
+      ],
+      [
+       "Tyre",
+       "soft, 1 laps old"
+      ],
+      [
+       "Laps left",
+       "18"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 60,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 60,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "4 of 17 cars boxed under it. His garage kept him out: P15 when it came out, P13 three laps after the restart (+2 places). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 2
+    }
+   ],
+   "windows": [
+    {
+     "stop": 58,
+     "lo": 61,
+     "hi": 70,
+     "from": 58,
+     "comp": "SOFT",
+     "next": "SOFT",
+     "deg": 0.0218,
+     "laps": {}
+    }
+   ],
+   "stints": [
+    [
+     "MEDIUM",
+     1,
+     2
+    ],
+    [
+     "SOFT",
+     3,
+     57
+    ],
+    [
+     "SOFT",
+     58,
+     58
+    ],
+    [
+     "SOFT",
+     59,
+     64
+    ],
+    [
+     "SOFT",
+     65,
+     66
+    ],
+    [
+     "SOFT",
+     67,
+     67
+    ],
+    [
+     "SOFT",
+     68,
+     78
+    ]
+   ]
+  },
+  {
+   "name": "Bortoleto",
+   "number": 5,
+   "team": "Audi",
+   "colour": "F50537",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/audi/gabbor01/2026audigabbor01right.webp",
+   "start": 16,
+   "finish": 11,
+   "margin": 0.605,
+   "calls": [
+    {
+     "lap": 43,
+     "kicker": "Stop 2",
+     "question": "When do you box him?",
+     "facts": [
+      [
+       "Running",
+       "P19"
+      ],
+      [
+       "Ahead",
+       "Perez, 1.2s up"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him now, lap 43",
+       "lap": 43,
+       "lost": 1.7,
+       "real": true,
+       "note": "1 laps on the mediums, then 16 on the mediums.",
+       "delta": 0.0,
+       "rejoin": {
+        "pos": 17,
+        "ahead": [
+         "Stroll",
+         14.6
+        ],
+        "behind": [
+         "Perez",
+         3.8
+        ]
+       }
+      },
+      {
+       "label": "4 laps later",
+       "lap": 47,
+       "lost": 0.4,
+       "real": false,
+       "note": "5 laps on the mediums, then 12 on the mediums.",
+       "delta": -1.3,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         8.5
+        ],
+        "behind": [
+         "Stroll",
+         1.8
+        ]
+       }
+      },
+      {
+       "label": "8 laps later",
+       "lap": 51,
+       "lost": 0.0,
+       "real": false,
+       "note": "9 laps on the mediums, then 8 on the mediums.",
+       "delta": -1.7,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         4.5
+        ],
+        "behind": [
+         "Stroll",
+         1.0
+        ]
+       }
+      },
+      {
+       "label": "12 laps later",
+       "lap": 55,
+       "lost": 0.4,
+       "real": false,
+       "note": "13 laps on the mediums, then 4 on the mediums.",
+       "delta": -1.3,
+       "rejoin": {
+        "pos": 17,
+        "ahead": [
+         "Stroll",
+         3.4
+        ],
+        "behind": [
+         "Perez",
+         16.7
+        ]
+       }
+      }
+     ],
+     "reading": "The mediums lose 26ms a lap as they age, the mediums 26ms. The stint has to reach lap 59 either way.",
+     "scored": true
+    },
+    {
+     "lap": 60,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 60. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P18"
+      ],
+      [
+       "Tyre",
+       "soft, 1 laps old"
+      ],
+      [
+       "Laps left",
+       "18"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 60,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 60,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "4 of 17 cars boxed under it. His garage kept him out: P18 when it came out, P14 three laps after the restart (+4 places). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 4
+    }
+   ],
+   "windows": [
+    {
+     "stop": 43,
+     "lo": 46,
+     "hi": 55,
+     "from": 43,
+     "comp": "MEDIUM",
+     "next": "MEDIUM",
+     "deg": 0.0262,
+     "laps": {
+      "46": {
+       "d": -1.0,
+       "rejoin": {
+        "pos": 17,
+        "ahead": [
+         "Stroll",
+         4.8
+        ],
+        "behind": [
+         "Perez",
+         10.5
+        ]
+       }
+      },
+      "47": {
+       "d": -1.3,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         8.5
+        ],
+        "behind": [
+         "Stroll",
+         1.8
+        ]
+       }
+      },
+      "48": {
+       "d": -1.4,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         6.3
+        ],
+        "behind": [
+         "Stroll",
+         2.4
+        ]
+       }
+      },
+      "49": {
+       "d": -1.6,
+       "rejoin": {
+        "pos": 17,
+        "ahead": [
+         "Stroll",
+         1.2
+        ],
+        "behind": [
+         "Perez",
+         15.0
+        ]
+       }
+      },
+      "50": {
+       "d": -1.7,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         5.5
+        ],
+        "behind": [
+         "Stroll",
+         0.3
+        ]
+       }
+      },
+      "51": {
+       "d": -1.7,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         4.5
+        ],
+        "behind": [
+         "Stroll",
+         1.0
+        ]
+       }
+      },
+      "52": {
+       "d": -1.7,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         5.9
+        ],
+        "behind": [
+         "Stroll",
+         1.0
+        ]
+       }
+      },
+      "53": {
+       "d": -1.6,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         5.6
+        ],
+        "behind": [
+         "Stroll",
+         4.5
+        ]
+       }
+      },
+      "54": {
+       "d": -1.4,
+       "rejoin": {
+        "pos": 16,
+        "ahead": [
+         "Alonso",
+         6.6
+        ],
+        "behind": [
+         "Stroll",
+         2.2
+        ]
+       }
+      },
+      "55": {
+       "d": -1.3,
+       "rejoin": {
+        "pos": 17,
+        "ahead": [
+         "Stroll",
+         3.4
+        ],
+        "behind": [
+         "Perez",
+         16.7
+        ]
+       }
+      }
+     }
+    }
+   ],
+   "stints": [
+    [
+     "SOFT",
+     1,
+     0
+    ],
+    [
+     "HARD",
+     1,
+     42
+    ],
+    [
+     "MEDIUM",
+     43,
+     57
+    ],
+    [
+     "MEDIUM",
+     58,
+     58
+    ],
+    [
+     "SOFT",
+     59,
+     64
+    ],
+    [
+     "SOFT",
+     65,
+     66
+    ],
+    [
+     "SOFT",
+     67,
+     67
+    ],
+    [
+     "SOFT",
+     68,
+     78
+    ]
+   ]
+  }
+ ]
+}

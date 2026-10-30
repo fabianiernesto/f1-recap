@@ -1,0 +1,177 @@
+##### monza-2026 · Italian Grand Prix 2026 · 06 SEP 2026 · 53 laps
+WEEKEND facts: {"winner": {"first": "Kimi", "last": "Antonelli", "team": "Mercedes", "colour": "00D7B6", "number": 12, "start": 19, "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp"}, "margin": 3.857, "runnerUp": "Russell", "fastest": {"last": "Antonelli", "time": "1:23.504"}, "passes": 102, "stops": 9, "dnfs": 3, "safetyCars": 0, "redFlag": true, "laps": 53}
+WEEKEND sessions: [["Practice 1", "545 laps run, no points at stake", 8, 29], ["Practice 2", "618 laps run, no points at stake", 8, 37], ["Practice 3", "472 laps run, no points at stake", 8, 29], ["Qualifying", "Gasly on pole", 8, 19], ["Race", "102 on-track passes", 31, 53]]
+
+==================== Practice 1 (practice) · session 11354
+-- CARDS (8)
+  [0] {"type": "cover", "lap": 0, "kicker": "Italian Grand Prix · Practice 1", "title": "Practice, honestly", "text": "545 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."}
+  [1] {"type": "moment", "lap": 1, "kicker": "Fastest of the session · lap 12", "title": "Leclerc: 1:23.008", "text": "In a Ferrari. Take practice times with salt: fuel loads are secret and nobody shows their hand."}
+  [2] {"type": "moment", "lap": 2, "kicker": "Who did the work", "title": "Lindblad racked up 28 laps", "text": "Track time is the currency of a practice Friday. Whoever runs most learns most, and burns the most rubber doing it.", "dato": {"label": "Laps completed", "rows": [["Lindblad", 28], ["Leclerc", 28], ["Bearman", 26], ["Bottas", 26], ["Russell", 26], ["Tsunoda", 26]]}}
+  [3] {"type": "moment", "lap": 3, "kicker": "Consistency", "title": "Lawson had the best average over his quicker laps", "text": "Every lap within 4% of each driver's own best, averaged. Fuel loads are unknown, so read it as a hint, not a ranking.", "dato": {"label": "Average of the quicker laps", "rows": [["Lawson", "1:24.511"], ["Aron", "1:24.729"], ["Lindblad", "1:24.801"], ["Leclerc", "1:24.981"], ["Browning", "1:25.278"], ["Russell", "1:25.466"]]}}
+  [4] {"type": "moment", "lap": 4, "kicker": "Tyres", "title": "What they ran, and on what", "text": "Compound choice in practice is a rehearsal for the race plan.", "dato": {"label": "Stints by compound", "rows": [["MEDIUM", 35], ["HARD", 33], ["SOFT", 28]]}}
+  [5] {"type": "moment", "lap": 5, "kicker": "Speed trap", "title": "Aron topped the trap at 341 km/h", "text": "Early wing choices show up here before anybody admits to them."}
+  [6] {"type": "moment", "lap": 6, "kicker": "Interruptions", "title": "Flags out 2 times, and the session stopped once", "text": "A red flag sends everybody back to the pits and the clock keeps running. Whatever run you were on is gone, and so is the time to repeat it."}
+  [7] {"type": "moment", "lap": 7, "kicker": "Conditions", "title": "Track between 50°C and 54°C", "text": "Practice conditions rarely match the race, which is one more reason these times mislead."}
+-- RAW result: P1 Leclerc · P2 Hamilton · P3 Russell · P4 Lawson · P5 Antonelli · P6 Norris · P7 Lindblad · P8 Bortoleto · P9 Colapinto · P10 Aron · P11 Piastri · P12 Tsunoda · P13 Hulkenberg · P14 Bearman · P15 Browning · P16 Sainz · P17 Iwasa · P18 Ocon · P19 Bottas · P20 Stroll · P21 Alonso · P22 Herta
+-- RAW laps: 545 rows, max lap 29, best Leclerc 83.008 on lap 12, top st_speed 341
+-- RAW laps per driver (top 6): Lindblad 28, Leclerc 28, Bearman 26, Bottas 26, Russell 26, Tsunoda 26
+-- RAW race_control (73 msgs), the ones cards lean on:
+     LNone SessionStatus/None | SESSION STARTED
+     LNone SafetyCar/None | VSC DEPLOYED
+     LNone SessionStatus/None | SESSION ABORTED
+     LNone Flag/RED | RED FLAG
+     LNone Other/None | SESSION WILL RESUME AT 12:56
+     LNone SessionStatus/None | SESSION STARTED
+     LNone Other/None | FIA STEWARDS: TURN 4 INCIDENT INVOLVING CARS 43 (COL) AND 87 (BEA) REVIEWED NO FURTHER INVESTIGATION (13:05:31)
+     LNone SessionStatus/None | SESSION FINISHED
+     LNone Flag/CHEQUERED | CHEQUERED FLAG
+     flag counts: {'GREEN': 2, 'CLEAR': 9, 'YELLOW': 14, 'DOUBLE YELLOW': 2, 'RED': 1, 'CHEQUERED': 1}
+     deleted laps: 30
+-- RAW weather: track 47.1-53.8C, rainfall samples 0/80
+
+==================== Practice 2 (practice) · session 11355
+-- CARDS (8)
+  [0] {"type": "cover", "lap": 0, "kicker": "Italian Grand Prix · Practice 2", "title": "Practice, honestly", "text": "618 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."}
+  [1] {"type": "moment", "lap": 1, "kicker": "Fastest of the session · lap 14", "title": "Russell: 1:22.559", "text": "In a Mercedes. Take practice times with salt: fuel loads are secret and nobody shows their hand."}
+  [2] {"type": "moment", "lap": 2, "kicker": "Who did the work", "title": "Lawson racked up 36 laps", "text": "Track time is the currency of a practice Friday. Whoever runs most learns most, and burns the most rubber doing it.", "dato": {"label": "Laps completed", "rows": [["Lawson", 36], ["Antonelli", 31], ["Albon", 30], ["Russell", 30], ["Ocon", 29], ["Sainz", 29]]}}
+  [3] {"type": "moment", "lap": 3, "kicker": "Consistency", "title": "Russell had the best average over his quicker laps", "text": "Every lap within 4% of each driver's own best, averaged. Fuel loads are unknown, so read it as a hint, not a ranking.", "dato": {"label": "Average of the quicker laps", "rows": [["Russell", "1:23.541"], ["Piastri", "1:24.153"], ["Lindblad", "1:24.446"], ["Tsunoda", "1:24.604"], ["Bortoleto", "1:24.712"], ["Hamilton", "1:25.146"]]}}
+  [4] {"type": "moment", "lap": 4, "kicker": "Tyres", "title": "What they ran, and on what", "text": "Compound choice in practice is a rehearsal for the race plan.", "dato": {"label": "Stints by compound", "rows": [["SOFT", 50], ["MEDIUM", 29], ["HARD", 18]]}}
+  [5] {"type": "moment", "lap": 5, "kicker": "Speed trap", "title": "Sainz topped the trap at 334 km/h", "text": "Early wing choices show up here before anybody admits to them."}
+  [6] {"type": "moment", "lap": 6, "kicker": "Interruptions", "title": "A clean session", "text": "No yellow or red flags logged while the session ran."}
+  [7] {"type": "moment", "lap": 7, "kicker": "Conditions", "title": "Track between 52°C and 57°C", "text": "Practice conditions rarely match the race, which is one more reason these times mislead."}
+-- RAW result: P1 Russell · P2 Leclerc · P3 Antonelli · P4 Norris · P5 Hamilton · P6 Piastri · P7 Lindblad · P8 Bearman · P9 Verstappen · P10 Tsunoda · P11 Colapinto · P12 Lawson · P13 Hulkenberg · P14 Gasly · P15 Bortoleto · P16 Albon · P17 Sainz · P18 Ocon · P19 Alonso · P20 Perez · P21 Bottas · P22 Stroll
+-- RAW laps: 618 rows, max lap 37, best Russell 82.559 on lap 14, top st_speed 334
+-- RAW laps per driver (top 6): Lawson 36, Antonelli 31, Albon 30, Russell 30, Ocon 29, Sainz 29
+-- RAW race_control (34 msgs), the ones cards lean on:
+     LNone SessionStatus/None | SESSION STARTED
+     LNone Other/None | FIA STEWARDS: TURN 1 INCIDENT INVOLVING CARS 18 (STR) AND 1 (NOR) WILL BE INVESTIGATED AFTER THE SESSION - IMPEDING (16:12:24)
+     LNone SessionStatus/None | SESSION FINISHED
+     LNone Flag/CHEQUERED | CHEQUERED FLAG
+     flag counts: {'GREEN': 1, 'CHEQUERED': 1, 'YELLOW': 8, 'CLEAR': 3}
+     deleted laps: 15
+-- RAW weather: track 51.8-57.5C, rainfall samples 0/83
+
+==================== Practice 3 (practice) · session 11356
+-- CARDS (8)
+  [0] {"type": "cover", "lap": 0, "kicker": "Italian Grand Prix · Practice 3", "title": "Practice, honestly", "text": "472 laps run and nothing at stake. What it does tell you is who looks comfortable and who is fighting the car."}
+  [1] {"type": "moment", "lap": 1, "kicker": "Fastest of the session · lap 12", "title": "Russell: 1:22.219", "text": "In a Mercedes. Take practice times with salt: fuel loads are secret and nobody shows their hand."}
+  [2] {"type": "moment", "lap": 2, "kicker": "Who did the work", "title": "Albon racked up 28 laps", "text": "Track time is the currency of a practice Saturday. Whoever runs most learns most, and burns the most rubber doing it.", "dato": {"label": "Laps completed", "rows": [["Albon", 28], ["Sainz", 27], ["Ocon", 24], ["Gasly", 23], ["Verstappen", 23], ["Colapinto", 22]]}}
+  [3] {"type": "moment", "lap": 3, "kicker": "Consistency", "title": "Leclerc had the best average over his quicker laps", "text": "Every lap within 4% of each driver's own best, averaged. Fuel loads are unknown, so read it as a hint, not a ranking.", "dato": {"label": "Average of the quicker laps", "rows": [["Leclerc", "1:23.030"], ["Verstappen", "1:23.179"], ["Norris", "1:23.217"], ["Hulkenberg", "1:24.158"], ["Gasly", "1:24.320"], ["Lindblad", "1:24.330"]]}}
+  [4] {"type": "moment", "lap": 4, "kicker": "Tyres", "title": "What they ran, and on what", "text": "Compound choice in practice is a rehearsal for the race plan.", "dato": {"label": "Stints by compound", "rows": [["SOFT", 78], ["MEDIUM", 32]]}}
+  [5] {"type": "moment", "lap": 5, "kicker": "Speed trap", "title": "Piastri topped the trap at 337 km/h", "text": "Early wing choices show up here before anybody admits to them."}
+  [6] {"type": "moment", "lap": 6, "kicker": "Interruptions", "title": "Flags out 3 times", "text": "Every interruption costs somebody a run they had planned."}
+  [7] {"type": "moment", "lap": 7, "kicker": "Conditions", "title": "Track between 49°C and 54°C", "text": "Practice conditions rarely match the race, which is one more reason these times mislead."}
+-- RAW result: P1 Russell · P2 Hamilton · P3 Verstappen · P4 Antonelli · P5 Norris · P6 Leclerc · P7 Lindblad · P8 Piastri · P9 Gasly · P10 Colapinto · P11 Hulkenberg · P12 Lawson · P13 Bortoleto · P14 Bearman · P15 Tsunoda · P16 Sainz · P17 Ocon · P18 Albon · P19 Alonso · P20 Bottas · P21 Perez · P22 Stroll
+-- RAW laps: 472 rows, max lap 29, best Russell 82.219 on lap 12, top st_speed 337
+-- RAW laps per driver (top 6): Albon 28, Sainz 27, Ocon 24, Gasly 23, Verstappen 23, Colapinto 22
+-- RAW race_control (68 msgs), the ones cards lean on:
+     LNone SessionStatus/None | SESSION STARTED
+     LNone Other/None | FIA STEWARDS: UPDATE: TURN 4 INCIDENT INVOLVING CAR 23 (ALB) UNDER INVESTIGATION - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS – ESCAPE ROAD INSTRUCTIONS (12:41:57)
+     LNone Other/None | FIA STEWARDS: WARNING FOR CAR 23 (ALB) - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS – ESCAPE ROAD INSTRUCTIONS (12:41:57)
+     LNone Other/None | FIA STEWARDS: INCIDENT INVOLVING CAR 55 (SAI) WILL BE INVESTIGATED AFTER THE SESSION - YELLOW FLAG INFRINGEMENT (13:02:25)
+     LNone Other/None | FIA STEWARDS: INCIDENT INVOLVING CAR 23 (ALB) WILL BE INVESTIGATED AFTER THE SESSION - YELLOW FLAG INFRINGEMENT (13:02:25)
+     LNone Other/None | FIA STEWARDS: TURN 6 INCIDENT INVOLVING CARS 63 (RUS) AND 81 (PIA) REVIEWED NO FURTHER INVESTIGATION - IMPEDING (13:20:45)
+     LNone SessionStatus/None | SESSION FINISHED
+     LNone Flag/CHEQUERED | CHEQUERED FLAG
+     LNone Other/None | FIA STEWARDS: TURN 11 INCIDENT INVOLVING CARS 3 (VER) AND 44 (HAM) REVIEWED NO FURTHER INVESTIGATION (13:31:27)
+     flag counts: {'GREEN': 1, 'DOUBLE YELLOW': 3, 'YELLOW': 10, 'CLEAR': 8, 'CHEQUERED': 1}
+     deleted laps: 29
+-- RAW weather: track 48.8-54.0C, rainfall samples 0/80
+
+==================== Qualifying (quali) · session 11357
+-- CARDS (8)
+  [0] {"type": "cover", "lap": 0, "kicker": "Italian Grand Prix · Qualifying", "title": "One lap decides the whole race", "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the race can become."}
+  [1] {"type": "moment", "lap": 1, "kicker": "Pole position", "title": "Gasly takes it", "text": "By 0.060s over Russell. Less time than a blink.", "dato": {"label": "Top ten", "rows": [["P1 Gasly", "Alpine"], ["P2 Russell", "Mercedes"], ["P3 Piastri", "McLaren"], ["P4 Leclerc", "Ferrari"], ["P5 Hamilton", "Ferrari"], ["P6 Verstappen", "Red Bull Racing"], ["P7 Antonelli", "Mercedes"], ["P8 Colapinto", "Alpine"], ["P9 Norris", "McLaren"], ["P10 Lindblad", "Racing Bulls"]]}}
+  [2] {"type": "moment", "lap": 2, "kicker": "Q1 · The cut", "title": "Out before it got serious", "text": "Tsunoda (P17), Albon (P18), Bottas (P19), Perez (P20), Alonso (P21), Stroll (P22).", "dato": {"label": "Knocked out in Q1", "rows": [["Tsunoda", "P17"], ["Albon", "P18"], ["Bottas", "P19"], ["Perez", "P20"], ["Alonso", "P21"], ["Stroll", "P22"]]}}
+  [3] {"type": "moment", "lap": 3, "kicker": "Q2 · The cut", "title": "So close to the top ten", "text": "Bortoleto (P11), Bearman (P12), Hulkenberg (P13), Lawson (P14), Sainz (P15), Ocon (P16).", "dato": {"label": "Knocked out in Q2", "rows": [["Bortoleto", "P11"], ["Bearman", "P12"], ["Hulkenberg", "P13"], ["Lawson", "P14"], ["Sainz", "P15"], ["Ocon", "P16"]]}}
+  [4] {"type": "moment", "lap": 4, "kicker": "Track limits", "title": "3 laps thrown in the bin", "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.", "dato": {"label": "Deleted laps", "rows": [["Norris", "1:39.935"], ["Piastri", "1:47.848"], ["Verstappen", "7:27.050"]]}}
+  [5] {"type": "moment", "lap": 5, "kicker": "Speed trap", "title": "Russell was quickest through the trap: 338 km/h", "text": "Top speed says as much about wing level and the tow from the car ahead as it does about the engine."}
+  [6] {"type": "moment", "lap": 6, "kicker": "Sector by sector", "title": "Nobody owned the whole lap", "text": "The quickest sectors of the session were split between three drivers, so the ideal lap was never actually driven.", "dato": {"label": "Fastest sectors", "rows": [["Sector 1 · Colapinto", "26.779s"], ["Sector 2 · Russell", "27.596s"], ["Sector 3 · Leclerc", "27.081s"]]}}
+  [7] {"type": "moment", "lap": 8, "kicker": "The grid", "title": "How the race starts", "text": "P1 Gasly · P2 Russell · P3 Leclerc · P4 Hamilton · P5 Verstappen · P6 Piastri", "bullets": ["Piastri qualified P3 and starts P6, 3 places further back", "Antonelli qualified P7 and starts P19, 12 places further back", "Albon qualified P18 and starts P20, 2 places further back", "Lawson qualified P14 and starts P22, 8 places further back", "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"]}
+-- RAW result: P1 Gasly dur=[82.612, 82.077, 81.786] · P2 Russell dur=[82.779, 82.161, 81.846] · P3 Piastri dur=[82.924, 82.017, 81.966] · P4 Leclerc · P5 Hamilton · P6 Verstappen · P7 Antonelli · P8 Colapinto · P9 Norris · P10 Lindblad · P11 Bortoleto · P12 Bearman · P13 Hulkenberg · P14 Lawson · P15 Sainz · P16 Ocon · P17 Tsunoda · P18 Albon · P19 Bottas · P20 Perez · P21 Alonso · P22 Stroll
+-- RAW starting_grid (from this session's file): P1 Gasly · P2 Russell · P3 Leclerc · P4 Hamilton · P5 Verstappen · P6 Piastri · P7 Colapinto · P8 Norris · P9 Lindblad · P10 Bortoleto · P11 Bearman · P12 Hulkenberg · P13 Sainz · P14 Ocon · P15 Tsunoda · P16 Bottas · P17 Perez · P18 Stroll · P19 Antonelli · P20 Albon · P21 Alonso · P22 Lawson
+-- RAW laps: 307 rows, max lap 19, best Gasly 81.786 on lap 17, top st_speed 338
+-- RAW laps per driver (top 6): Norris 17, Lawson 16, Leclerc 16, Piastri 16, Antonelli 16, Lindblad 16
+-- RAW race_control (53 msgs), the ones cards lean on:
+     LNone SessionStatus/None | SESSION STARTED
+     LNone SessionStatus/None | SESSION FINISHED
+     LNone Flag/CHEQUERED | CHEQUERED FLAG
+     LNone Other/None | FIA STEWARDS: Q1 INCIDENT INVOLVING CARS 12 (ANT) AND 30 (LAW) NOTED - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS - MAXIMUM DELTA TIME
+     LNone Other/None | FIA STEWARDS: Q1 INCIDENT INVOLVING CARS 12 (ANT) AND 30 (LAW) WILL BE INVESTIGATED AFTER THE SESSION - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS - MAXIMUM DELTA TIME
+     LNone SessionStatus/None | SESSION STARTED
+     LNone SessionStatus/None | SESSION FINISHED
+     LNone Flag/CHEQUERED | CHEQUERED FLAG
+     LNone Other/None | FIA STEWARDS: INCIDENT INVOLVING CARS 81 (PIA) AND 27 (HUL) REVIEWED NO FURTHER INVESTIGATION - PIT LANE INFRINGEMENT (16:29:34)
+     LNone Other/None | FIA STEWARDS: Q2 INCIDENT INVOLVING CAR 30 (LAW) NOTED - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS - MAXIMUM DELTA TIME
+     LNone Other/None | FIA STEWARDS: TURN 1 INCIDENT INVOLVING CARS 81 (PIA) AND 30 (LAW) WILL BE INVESTIGATED AFTER THE SESSION - IMPEDING (16:38:00)
+     LNone Other/None | FIA STEWARDS: Q2 INCIDENT INVOLVING CAR 30 (LAW) WILL BE INVESTIGATED AFTER THE SESSION - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS - MAXIMUM DELTA TIME
+     LNone SessionStatus/None | SESSION STARTED
+     LNone SessionStatus/None | SESSION FINISHED
+     LNone Flag/CHEQUERED | CHEQUERED FLAG
+     LNone Other/None | FIA STEWARDS: Q1 INCIDENT INVOLVING CARS 12 (ANT) AND 30 (LAW) NO FURTHER ACTION - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS - MAXIMUM DELTA TIME
+     LNone Other/None | FIA STEWARDS: Q2 INCIDENT INVOLVING CAR 30 (LAW) NO FURTHER ACTION - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS - MAXIMUM DELTA TIME
+     flag counts: {'CLEAR': 12, 'GREEN': 3, 'CHEQUERED': 3, 'YELLOW': 10}
+     deleted laps: 6
+-- RAW weather: track 51.3-56.2C, rainfall samples 0/77
+
+==================== Race (race) · session 11361
+-- CARDS (31)
+  [0] {"type": "cover", "lap": 0, "kicker": "Italian Grand Prix · Race · 53 laps", "title": "Everything that happened, in order", "text": "102 on-track passes, 9 pit stops, 3 cars that never finished, 1 virtual safety car and a red flag that stopped the race."}
+  [1] {"type": "moment", "lap": 1, "kicker": "Lap 1 · Lights out", "title": "28 places changed hands on track before the first lap was done", "text": "22 cars into the first corner on cold tyres and full tanks.", "bullets": ["Antonelli, Lawson and Bearman gained the most by the end of it, 5 places at best"], "note": "Most of this is the pack sorting itself out. Some of it decides the race."}
+  [2] {"type": "moment", "lap": 1, "kicker": "Stewards", "title": "5 incidents looked at", "text": "Every one of them logged by race control during the race.", "bullets": ["First up, lap 1: Leclerc and Hamilton, an incident", "1 ended in a penalty, 2 in no further action and 2 left for after the race"]}
+  [3] {"type": "decision", "lap": 1, "kicker": "You are the steward", "title": "Lap 1: an incident between Leclerc and Hamilton at Turn 2. What do you give?", "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.", "reveal": "The stewards took no further action.", "actual": "none", "state": [["Lap", "1 of 53"], ["Cars involved", "Leclerc and Hamilton"], ["Reported as", "Incident at Turn 2"]], "choices": [{"id": "none", "label": "No further action", "sub": "Racing incident, let them race"}, {"id": "5", "label": "5 second penalty", "sub": "Mild advantage gained"}, {"id": "10", "label": "10 second penalty", "sub": "Clearly at fault"}], "outcomes": {"none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the race on the radio.", "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.", "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."}}
+  [4] {"type": "moment", "lap": 2, "kicker": "Lap 2 · Traffic", "title": "12 passes on this lap alone", "text": "Only moves made on track count here, at racing speed.", "bullets": ["11 different drivers gained a place on this lap"], "note": "Early on, with full tanks and the order still settling."}
+  [5] {"type": "moment", "lap": 2, "kicker": "Lap 2 · Retirement", "title": "Leclerc is out", "text": "His race ends on lap 2 of 53, in a Ferrari.", "bullets": ["Running P3 when that lap began", "Started P3", "1 on-track pass before it happened", "Race control logged an incident with Leclerc and Hamilton at Turn 2 on that lap"]}
+  [6] {"type": "prediction", "lap": 2, "kicker": "Call it before it happens", "title": "Antonelli starts P19. Where does he finish?", "text": "53 laps to make up ground from there.", "options": ["On the podium", "Somewhere in the points", "Out of the points"], "answer": "On the podium", "reveal": "P19 to P1, 18 places gained."}
+  [7] {"type": "moment", "lap": 3, "kicker": "Lap 3 of 53 · Red flag", "title": "The race was stopped", "text": "A safety car first, then the red flag: everybody into the pit lane and a wait for the track to be made safe.", "bullets": ["Russell was leading when it happened", "Standing restart on lap 4"], "note": "Teams can change tyres while the cars wait, which rewrites the strategies on the grid."}
+  [8] {"type": "moment", "lap": 6, "kicker": "Yellow flags", "title": "Yellow flags out 4 times", "text": "Race control waves a yellow for anything on or near the track that should not be there.", "bullets": ["A yellow means slow down and do not overtake in that part of the track"]}
+  [9] {"type": "moment", "lap": 7, "kicker": "Lap 7 · Traffic", "title": "12 passes on this lap alone", "text": "Only moves made on track count here, at racing speed.", "bullets": ["10 different drivers gained a place on this lap"], "note": "A couple of laps after the restart, with the field still sorting itself out."}
+  [10] {"type": "moment", "lap": 7, "kicker": "Track limits", "title": "19 lap times deleted", "text": "The white line is the track, and the lap simply stops counting if you leave it.", "bullets": ["Albon lost 3 that way, more than anybody"], "note": "Keep doing it and it turns into a penalty."}
+  [11] {"type": "moment", "lap": 10, "kicker": "Lap 10 · Traffic", "title": "7 passes on this lap alone", "text": "Only moves made on track count here, at racing speed.", "bullets": ["7 different drivers gained a place on this lap"], "note": "Every one of them on track, with no stops around it."}
+  [12] {"type": "moment", "lap": 17, "kicker": "The one doing the passing", "title": "Antonelli: 12 passes", "text": "More than anybody else out there, in a Mercedes.", "bullets": ["P19 on the grid, P1 at the flag"], "note": "Only moves made on track count, with the car ahead at racing speed.", "dato": {"label": "Most passes", "rows": [["Antonelli", 12], ["Lawson", 9], ["Bortoleto", 9], ["Norris", 7], ["Piastri", 7], ["Sainz", 6]]}}
+  [13] {"type": "moment", "lap": 19, "kicker": "Within a second", "title": "Norris: 10 laps within a second of the car ahead", "text": "The longest unbroken run like it in the race, from lap 10 to lap 19, at racing speed.", "bullets": ["4 other drivers had a run of five laps or more like it"], "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."}
+  [14] {"type": "prediction", "lap": 22, "kicker": "Call it before it happens", "title": "One of these three does not see the chequered flag. Who?", "text": "Nothing on the timing screens says it is coming.", "options": ["Antonelli", "Stroll", "Russell"], "answer": "Stroll", "reveal": "Stroll, on lap 27 of 53. The timing feed records that he stopped, not why."}
+  [15] {"type": "moment", "lap": 23, "kicker": "Speed trap", "title": "Norris hit 338 km/h", "text": "The fastest car in a straight line is often not the fastest car over a lap.", "bullets": ["Norris did it in a McLaren"], "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine."}
+  [16] {"type": "moment", "lap": 24, "kicker": "Lap 24 · Retirement", "title": "Alonso is out", "text": "His race ends on lap 24 of 53, in an Aston Martin.", "bullets": ["Running P17 when that lap began", "Started P21", "5 on-track passes before it happened"], "note": "The timing feed records that he stopped, not why."}
+  [17] {"type": "moment", "lap": 27, "kicker": "Lap 27 · Pit window", "title": "9 stops, and the busiest lap saw 5 of them", "text": "Once one car stops, the cars around it have to answer.", "bullets": ["Busiest single lap was 27, with 5 cars in under the virtual safety car", "Shortest time in the pit lane: Hulkenberg, 24.2s", "Longest: Bottas, 35.2s"], "note": "Pit lane time runs from the entry line to the exit line, stop included."}
+  [18] {"type": "moment", "lap": 27, "kicker": "Lap 27 of 53 · Virtual Safety Car", "title": "Everybody slows down, nobody bunches up", "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.", "bullets": ["Russell was leading when it was called", "Hulkenberg, Sainz, Ocon and 4 others stopped under it", "Lifted on lap 28"], "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."}
+  [19] {"type": "moment", "lap": 27, "kicker": "Lap 27 · Retirement", "title": "Stroll is out", "text": "His race ends on lap 27 of 53, in an Aston Martin.", "bullets": ["Running P20 when that lap began", "Started P18"], "note": "The timing feed records that he stopped, not why."}
+  [20] {"type": "decision", "lap": 27, "kicker": "What if", "title": "Stroll was running P20 when his race ended on lap 27. Where does he finish if it had not?", "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.", "reveal": "Our read from his own lap times, not a fact. He was lapping 4.14s a lap slower than Antonelli, who went on to win it. With 26 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check.", "actual": "", "state": [["Out on lap", "27 of 53"], ["Running", "P20"], ["His median racing lap", "1:29.347"], ["Quicker than", "0 of the eventual top five"]], "choices": [{"id": "points", "label": "He fights into the points", "sub": "A climb from there"}, {"id": "hold", "label": "He stays about where he was", "sub": "No pace to move"}, {"id": "drop", "label": "He drops further back", "sub": "Tyres or traffic get him"}], "outcomes": {"points": "A climb from there.", "hold": "No pace to move.", "drop": "Tyres or traffic get him."}}
+  [21] {"type": "prediction", "lap": 29, "kicker": "Call it before it happens", "title": "Who has the fastest lap on the board at the flag?", "text": "It usually lands late, when the car is light and the track has rubber all over it.", "options": ["Verstappen", "Antonelli", "Russell"], "answer": "Antonelli", "reveal": "Antonelli on lap 53, 1:23.504, in a Mercedes."}
+  [22] {"type": "moment", "lap": 30, "kicker": "Penalties", "title": "1 penalty handed out", "text": "Given by the stewards during the race.", "bullets": ["Perez: a 5s penalty for escape road instructions"], "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."}
+  [23] {"type": "moment", "lap": 31, "kicker": "Blue flags", "title": "29 blue flags waved", "text": "That is how often a lapped car was told to let the leaders through."}
+  [24] {"type": "moment", "lap": 37, "kicker": "True pace", "title": "Antonelli had the quickest median racing lap", "text": "No lap 1, no laps in or out of the pits, nothing behind the safety car or the VSC, and the slow outliers trimmed. It does not always match the result.", "dato": {"label": "Median racing lap", "rows": [["Antonelli", "1:25.203"], ["Verstappen", "1:25.467"], ["Russell", "1:25.517"], ["Gasly", "1:25.998"], ["Hamilton", "1:26.047"], ["Norris", "1:26.070"]]}}
+  [25] {"type": "moment", "lap": 47, "kicker": "Backwards", "title": "Gasly went the other way: 6 places lost", "text": "Qualifying promised one thing and the race delivered another.", "bullets": ["P1 on the grid, P7 at the flag", "Qualifying rewards whoever can put one lap together. A race asks for 53 of them"]}
+  [26] {"type": "moment", "lap": 49, "kicker": "The drive of the day", "title": "Antonelli: P19 on the grid, P1 at the flag", "text": "18 places gained, all the way to the top step.", "bullets": ["12 on-track passes along the way", "2 cars that started ahead of him retired"]}
+  [27] {"type": "moment", "lap": 53, "kicker": "Tyres", "title": "Russell, Gasly, Colapinto and 7 others ran one set for 50 laps each", "text": "The longest anybody stayed out on one set.", "bullets": ["On the hards, lap 4 to lap 53"], "note": "Fitted while the race was stopped under the red flag, and then never changed."}
+  [28] {"type": "moment", "lap": 53, "kicker": "Lap 53 · Fastest lap", "title": "Antonelli: 1:23.504", "text": "The quickest anybody went all race, in a Mercedes.", "bullets": ["Set on lap 53 of 53, late on, where they usually land", "By then the fuel is nearly gone and the car is at its lightest", "It is worth no points: the bonus point for it was dropped after 2024"], "dato": {"label": "Best sector times", "rows": [["Sector 1 · Antonelli", "27.225s"], ["Sector 2 · Hulkenberg", "28.585s"], ["Sector 3 · Antonelli", "27.484s"]]}}
+  [29] {"type": "moment", "lap": 53, "kicker": "Chequered flag", "title": "Antonelli wins it", "text": "P1 Antonelli · P2 Russell · P3 Verstappen.", "bullets": ["After 53 laps, Russell crossed the line 3.857s behind"], "dato": {"label": "Points scored", "rows": [["Antonelli", "25"], ["Russell", "18"], ["Verstappen", "15"], ["Norris", "12"], ["Piastri", "10"], ["Hamilton", "8"], ["Gasly", "6"], ["Lindblad", "4"], ["Colapinto", "2"], ["Tsunoda", "1"]]}}
+  [30] {"type": "guess", "lap": 53, "kicker": "Guess it", "title": "How far behind was Russell at the flag?", "text": "53 laps, 1 hour 51 minutes of racing, and it comes down to this one number.", "reveal": "3.857 seconds after 53 laps.", "target": 3.857, "unit": "s"}
+-- RAW result: P1 Antonelli gap=0 · P2 Russell gap=3.857 · P3 Verstappen gap=14.718 · P4 Norris · P5 Piastri · P6 Hamilton · P7 Gasly · P8 Lindblad · P9 Colapinto · P10 Tsunoda · P11 Bortoleto · P12 Hulkenberg · P13 Sainz · P14 Lawson · P15 Bearman · P16 Ocon · P17 Albon · P18 Perez · P19 Bottas · PNone Stroll DNF · PNone Alonso DNF · PNone Leclerc DNF
+-- RAW laps: 1055 rows, max lap 53, best Antonelli 83.504 on lap 53, top st_speed 338
+-- RAW laps per driver (top 6): Gasly 53, Russell 53, Verstappen 53, Piastri 53, Colapinto 53, Norris 53
+-- RAW pit: L3 Russell 1846.2, L3 Gasly 1844.6, L3 Verstappen 1844.1, L3 Colapinto 1844.9, L3 Piastri 1840.4, L3 Norris 1840.7, L3 Lindblad 1842.6, L3 Hamilton 1845.2, L3 Bearman 1843.4, L3 Ocon 1842.6, L3 Bortoleto 1842.7, L3 Antonelli 1842.6, L3 Hulkenberg 1844.1, L3 Tsunoda 1840.0, L3 Lawson 1841.5, L3 Sainz 1842.7, L3 Perez 1842.5, L3 Albon 1842.5, L3 Bottas 1841.8, L3 Stroll 1842.0, L3 Alonso 1839.4, L12 Lawson 31.1, L27 Hulkenberg 24.2, L27 Sainz 24.5, L27 Ocon 27.2, L27 Perez 28.4, L27 Bottas 35.2, L28 Antonelli 24.9, L28 Verstappen 24.9, L46 Albon 26.3
+-- RAW stints: Leclerc ['SOFT:1-1'] | Russell ['MEDIUM:1-3', 'HARD:4-53'] | Gasly ['MEDIUM:1-3', 'HARD:4-53'] | Verstappen ['SOFT:1-3', 'MEDIUM:4-28', 'HARD:29-53'] | Colapinto ['MEDIUM:1-3', 'HARD:4-53'] | Piastri ['MEDIUM:1-3', 'HARD:4-53'] | Norris ['MEDIUM:1-3', 'HARD:4-53'] | Lindblad ['MEDIUM:1-3', 'HARD:4-53'] | Hamilton ['SOFT:1-3', 'MEDIUM:4-53'] | Bearman ['SOFT:1-3', 'HARD:4-53'] | Ocon ['SOFT:1-3', 'HARD:4-27', 'MEDIUM:28-52'] | Bortoleto ['SOFT:1-3', 'MEDIUM:4-53'] | Antonelli ['HARD:1-3', 'MEDIUM:4-28', 'MEDIUM:29-53'] | Hulkenberg ['MEDIUM:1-3', 'HARD:4-27', 'MEDIUM:28-53'] | Tsunoda ['HARD:1-3', 'MEDIUM:4-53'] | Lawson ['MEDIUM:1-3', 'HARD:4-12', 'MEDIUM:13-53'] | Sainz ['SOFT:1-3', 'HARD:4-27', 'MEDIUM:28-53'] | Perez ['SOFT:1-3', 'SOFT:4-27', 'MEDIUM:28-52'] | Albon ['MEDIUM:1-3', 'HARD:4-46', 'SOFT:47-52'] | Bottas ['SOFT:1-3', 'MEDIUM:4-27', 'SOFT:28-51'] | Stroll ['SOFT:1-3', 'HARD:4-26'] | Alonso ['HARD:1-3', 'SOFT:4-23']
+-- RAW race_control (158 msgs), the ones cards lean on:
+     L1 Other/None | FIA STEWARDS: INCIDENT INVOLVING CAR 11 (PER) WILL BE INVESTIGATED AFTER THE RACE - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS – PRACTICE START INFRINGEMENT (14:20:30)
+     L1 Other/None | FIA STEWARDS: INCIDENT INVOLVING CAR 43 (COL) WILL BE INVESTIGATED AFTER THE RACE - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS – PRACTICE START INFRINGEMENT (14:27:01)
+     L1 Other/None | RISK OF RAIN FOR THE F1 RACE IS 0%
+     L1 SessionStatus/None | SESSION STARTED
+     L3 SafetyCar/None | SAFETY CAR DEPLOYED
+     L3 SessionStatus/None | SESSION ABORTED
+     L3 Other/None | RED FLAG - RACE SUSPENDED
+     L4 Other/None | FIA STEWARDS: TURN 2 INCIDENT INVOLVING CARS 16 (LEC) AND 44 (HAM) REVIEWED NO FURTHER INVESTIGATION (15:03:44)
+     L4 Other/None | RACE WILL RESUME AT 15:39
+     L4 SessionStatus/None | SESSION STARTED
+     L11 Other/None | FIA STEWARDS: INCIDENT INVOLVING CAR 22 (TSU) WILL BE INVESTIGATED AFTER THE RACE - STARTING PROCEDURE INFRINGEMENT (15:41:47)
+     L19 Other/None | FIA STEWARDS: TURN 4 INCIDENT INVOLVING CARS 30 (LAW) AND 27 (HUL) UNDER INVESTIGATION (15:53:37)
+     L28 Other/None | FIA STEWARDS: TURN 1 INCIDENT INVOLVING CAR 11 (PER) UNDER INVESTIGATION - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS – ESCAPE ROAD INSTRUCTIONS (16:09:46)
+     L28 SafetyCar/None | VSC DEPLOYED
+     L29 SafetyCar/None | VSC ENDING
+     L30 Other/None | FIA STEWARDS: 5 SECOND TIME PENALTY FOR CAR 11 (PER) - FAILING TO FOLLOW RACE DIRECTORS INSTRUCTIONS – ESCAPE ROAD INSTRUCTIONS
+     L37 Other/None | FIA STEWARDS: INCIDENT INVOLVING CAR 63 (RUS) UNDER INVESTIGATION - YELLOW FLAG INFRINGEMENT (16:17:30)
+     L40 Other/None | FIA STEWARDS: INCIDENT INVOLVING CAR 63 (RUS) NO FURTHER ACTION - YELLOW FLAG INFRINGEMENT (16:17:30)
+     L53 Flag/CHEQUERED | CHEQUERED FLAG
+     L53 SessionStatus/None | SESSION FINISHED
+     flag counts: {'CLEAR': 31, 'GREEN': 1, 'YELLOW': 24, 'DOUBLE YELLOW': 5, 'BLUE': 29, 'CHEQUERED': 1}
+     deleted laps: 21

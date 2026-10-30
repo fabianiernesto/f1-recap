@@ -1,0 +1,336 @@
+{
+ "session": "Race",
+ "laps": 58,
+ "economics": {
+  "pitLoss": 6.7,
+  "fuelTrend": -0.0249,
+  "tyres": {
+   "HARD": {
+    "deg": 0.019,
+    "base": 0.688,
+    "laps": 502
+   },
+   "MEDIUM": {
+    "deg": 0.005,
+    "base": 1.091,
+    "laps": 155
+   },
+   "SOFT": {
+    "deg": 0.0568,
+    "base": -0.066,
+    "laps": 103
+   }
+  },
+  "typicalDeg": 0.019
+ },
+ "ladder": [
+  {
+   "pos": 1,
+   "name": "Russell",
+   "team": "Mercedes",
+   "gap": 0.0
+  },
+  {
+   "pos": 2,
+   "name": "Antonelli",
+   "team": "Mercedes",
+   "gap": 2.974
+  },
+  {
+   "pos": 3,
+   "name": "Leclerc",
+   "team": "Ferrari",
+   "gap": 15.519
+  },
+  {
+   "pos": 4,
+   "name": "Hamilton",
+   "team": "Ferrari",
+   "gap": 16.144
+  },
+  {
+   "pos": 5,
+   "name": "Norris",
+   "team": "McLaren",
+   "gap": 51.741
+  },
+  {
+   "pos": 6,
+   "name": "Verstappen",
+   "team": "Red Bull Racing",
+   "gap": 54.617
+  }
+ ],
+ "seats": [
+  {
+   "name": "Verstappen",
+   "number": 3,
+   "team": "Red Bull Racing",
+   "colour": "4781D7",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
+   "start": 20,
+   "finish": 6,
+   "margin": 2.876,
+   "calls": [
+    {
+     "lap": 19,
+     "kicker": "The first stop",
+     "question": "When do you box him?",
+     "facts": [
+      [
+       "Running",
+       "P7"
+      ],
+      [
+       "Ahead",
+       "Lindblad, 1.5s up"
+      ],
+      [
+       "Behind",
+       "Bearman"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him now, lap 19",
+       "lap": 19,
+       "lost": 0.0,
+       "real": true,
+       "note": "1 laps on the mediums, then 23 on the hards.",
+       "delta": 0.0
+      },
+      {
+       "label": "4 laps later",
+       "lap": 23,
+       "lost": 0.0,
+       "real": false,
+       "note": "5 laps on the mediums, then 19 on the hards.",
+       "delta": 0.0,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         4.6
+        ],
+        "behind": [
+         "Lindblad",
+         5.9
+        ]
+       }
+      },
+      {
+       "label": "8 laps later",
+       "lap": 27,
+       "lost": 0.4,
+       "real": false,
+       "note": "9 laps on the mediums, then 15 on the hards.",
+       "delta": 0.4,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         3.8
+        ],
+        "behind": [
+         "Lindblad",
+         9.0
+        ]
+       }
+      },
+      {
+       "label": "12 laps later",
+       "lap": 31,
+       "lost": 1.2,
+       "real": false,
+       "note": "13 laps on the mediums, then 11 on the hards.",
+       "delta": 1.2,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         1.6
+        ],
+        "behind": [
+         "Lindblad",
+         13.7
+        ]
+       }
+      }
+     ],
+     "reading": "The mediums lose 5ms a lap as they age, the hards 19ms. The stint has to reach lap 42 either way.",
+     "scored": true
+    }
+   ],
+   "windows": [
+    {
+     "stop": 19,
+     "lo": 22,
+     "hi": 31,
+     "from": 19,
+     "comp": "MEDIUM",
+     "next": "HARD",
+     "deg": 0.005,
+     "laps": {
+      "22": {
+       "d": -0.0,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         4.5
+        ],
+        "behind": [
+         "Lindblad",
+         4.6
+        ]
+       }
+      },
+      "23": {
+       "d": 0.0,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         4.6
+        ],
+        "behind": [
+         "Lindblad",
+         5.9
+        ]
+       }
+      },
+      "24": {
+       "d": 0.1,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         4.5
+        ],
+        "behind": [
+         "Lindblad",
+         6.4
+        ]
+       }
+      },
+      "25": {
+       "d": 0.2,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         4.7
+        ],
+        "behind": [
+         "Lindblad",
+         7.1
+        ]
+       }
+      },
+      "26": {
+       "d": 0.3,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         4.5
+        ],
+        "behind": [
+         "Lindblad",
+         8.0
+        ]
+       }
+      },
+      "27": {
+       "d": 0.4,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         3.8
+        ],
+        "behind": [
+         "Lindblad",
+         9.0
+        ]
+       }
+      },
+      "28": {
+       "d": 0.6,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         3.2
+        ],
+        "behind": [
+         "Lindblad",
+         10.4
+        ]
+       }
+      },
+      "29": {
+       "d": 0.8,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         2.6
+        ],
+        "behind": [
+         "Lindblad",
+         11.3
+        ]
+       }
+      },
+      "30": {
+       "d": 1.0,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         2.1
+        ],
+        "behind": [
+         "Lindblad",
+         12.5
+        ]
+       }
+      },
+      "31": {
+       "d": 1.2,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         1.6
+        ],
+        "behind": [
+         "Lindblad",
+         13.7
+        ]
+       }
+      }
+     }
+    }
+   ],
+   "stints": [
+    [
+     "HARD",
+     1,
+     18
+    ],
+    [
+     "MEDIUM",
+     19,
+     41
+    ],
+    [
+     "HARD",
+     42,
+     59
+    ]
+   ]
+  }
+ ]
+}

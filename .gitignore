@@ -24,3 +24,6 @@ web/.dev-server.log
 
 # licensed font files are never committed
 web/public/fonts/latin-condensed.*
+
+# logs del pipeline
+pipeline/*.log

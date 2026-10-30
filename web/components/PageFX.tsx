@@ -17,8 +17,15 @@ import { usePathname, useRouter } from "next/navigation";
    its 210ms rise, the white frame on its peak, the mark holding through the
    sustain, the whip out over the decay. The sound is gone and the timing
    stayed, because it was the version that finally moved as one thing. */
-const COVER = 640;
-const REVEAL = 340;
+const COVER = 400;
+const REVEAL = 250;
+/* 25/10/2026: the route used to be pushed only once the cover had finished,
+   so every navigation paid the animation AND the load, one after the other.
+   Now it is fetched the moment the link is clicked and pushed as soon as the
+   bars have closed (they are in by 150ms), so the load happens behind the
+   curtain while the mark is still arriving. The whole sting also runs at
+   about 0.7x its old length (globals.css, "the sting"). */
+const PUSH_AT = 150;
 
 export default function PageFX() {
   const router = useRouter();
@@ -35,11 +42,11 @@ export default function PageFX() {
     (href: string) => {
       pending.current = href;
       holdUntil.current = performance.now() + COVER;
+      router.prefetch(href);
       setPhase("cover");
-      setTimeout(() => {
-        setPhase("hold");
-        router.push(href);
-      }, COVER);
+      setTimeout(() => router.push(href), PUSH_AT);
+      // only a route that is still loading once the mark is in holds on it
+      setTimeout(() => setPhase((p) => (p === "cover" ? "hold" : p)), COVER);
     },
     [router]
   );
@@ -72,9 +79,8 @@ export default function PageFX() {
     from.current = pathname;
     if (pending.current) {
       pending.current = null;
-      const wait = Math.max(0, holdUntil.current - performance.now());
-      let t = 0, t2 = 0;
-      const lift = setTimeout(() => {
+      let t = 0, t2 = 0, lift = 0, f1 = 0;
+      const reveal = () => {
         setPhase("reveal");
         // the arriving page settles in under the curtain rather than just
         // being there; the class is what the page-in animation hangs off
@@ -84,8 +90,28 @@ export default function PageFX() {
           () => document.documentElement.classList.remove("fx-in"),
           REVEAL + 420
         );
-      }, wait);
-      return () => { clearTimeout(lift); clearTimeout(t); clearTimeout(t2); };
+      };
+      /* the curtain lifts once frames are flowing again. A new page's first
+         paint can keep a laptop GPU busy for half a second (a hub's LED
+         headline, the first time in a session), and frames simply stop
+         arriving while it does; lifting then froze the bars halfway. So it
+         waits for two quick frames in a row: on a fast machine that is
+         immediate, on a slow one the mark holds a moment longer and the
+         lift itself always runs smooth. Never more than 1.5s. */
+      const t0 = performance.now();
+      let last = t0, quick = 0;
+      const settle = (now: number) => {
+        quick = now - last < 50 ? quick + 1 : 0;
+        last = now;
+        if (quick >= 2 || now - t0 > 1500)
+          lift = window.setTimeout(reveal, Math.max(0, holdUntil.current - performance.now()));
+        else f1 = requestAnimationFrame(settle);
+      };
+      f1 = requestAnimationFrame(settle);
+      return () => {
+        cancelAnimationFrame(f1);
+        clearTimeout(lift); clearTimeout(t); clearTimeout(t2);
+      };
     }
   }, [pathname]);
 

@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <main className="lost">
       <div className="lost-helmet" aria-hidden>
-        <Blur src={MOOD.glovesSmoke} className="mood-helmet mood-soft" />
+        <Blur src={MOOD.glovesSmoke} className="mood-helmet mood-soft" lazy />
       </div>
       <Speedlines n={6} />
       <div className="lost-copy">
