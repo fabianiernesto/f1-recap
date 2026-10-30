@@ -101,7 +101,7 @@ const NODES = [
   { v: "OpenF1 + FastF1", l: "The official timing data", big: false },
   { v: TOTALS.cacheJson.toLocaleString("en-US"), l: "Timing files", big: true },
   { v: TOTALS.pythonLines.toLocaleString("en-US"), l: "Lines of Python", big: true },
-  { v: "35", l: "Animations inside the site", big: true },
+  { v: String(TOTALS.animations), l: "Animations inside the site", big: true },
 ];
 
 const Pipeline: React.FC = () => {
@@ -164,13 +164,15 @@ const Pipeline: React.FC = () => {
 
 /* ---------- beats 12-24: the season, stacking into a timing tower ---------- */
 
+// (30/10/2026) from the data, not typed in: the moments and the calls changed
+// when the season's cards were rebuilt, and a written number would have lied
 const SEASON = [
-  { n: 15, l: "Grands Prix" },
-  { n: 1027, l: "Moments told" },
-  { n: 906, l: "Race laps" },
-  { n: 705, l: "Passes on track" },
-  { n: 462, l: "Pit stops" },
-  { n: 125, l: "Calls to make" },
+  { n: TOTALS.gps, l: "Grands Prix" },
+  { n: TOTALS.cards, l: "Moments told" },
+  { n: TOTALS.laps, l: "Race laps" },
+  { n: TOTALS.passes, l: "Passes on track" },
+  { n: TOTALS.stops, l: "Pit stops" },
+  { n: TOTALS.interactive, l: "Calls to make" },
 ];
 
 const Tower: React.FC = () => {

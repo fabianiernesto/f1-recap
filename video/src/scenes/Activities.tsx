@@ -11,7 +11,7 @@ import { AbsoluteFill, Easing, interpolate } from "remotion";
 import { useFrame, X } from "../time";
 import ACT from "../activities.json";
 import { Clip } from "../Clip";
-import { at, BODY, C, clamp, Flash, GLOW, LED, MONO, out, ring, shake, smear, WIDE } from "../kit";
+import { at, BODY, C, clamp, Flash, GLOW, MONO, out, ring, shake, smear, WIDE } from "../kit";
 
 const K0 = 80 + X;
 
@@ -49,19 +49,22 @@ export const CallInfo: React.FC = () => {
   const lx = (lap: number) => X0 + ((lap - 1) / (CALL.laps - 1)) * (X1 - X0);
   // the race runs to the question, freezes, then runs on to the flag once you have called it
   const toCall = interpolate(f, [b(0.6), b(2.4)], [1, CALL.lap], { ...clamp, easing: Easing.inOut(Easing.quad) });
-  const toFlag = interpolate(f, [b(6.8), b(7.8)], [CALL.lap, CALL.laps], { ...clamp, easing: Easing.inOut(Easing.quad) });
-  const cur = f < b(6.8) ? toCall : toFlag;
-  const frozen = f >= b(2.4) && f < b(6.8);
-  const outLap = OUT_OPT >= 0 ? CALL.options[OUT_OPT].out ?? 0 : 0;
-  const outAt = b(6.8) + ((outLap - CALL.lap) / (CALL.laps - CALL.lap)) * (b(7.8) - b(6.8));
-  const flag = f >= b(7.8);
+  // (30/10/2026) every hit lands on the song's grid: the race resumes on beat
+  // 108.5, the retirement flashes on 109, the flag and the win on 110
+  const B = at(K0 + 4);
+  const resume = B(8.5), outAt = B(9), flagAt = B(10);
+  const outLap = OUT_OPT >= 0 ? CALL.options[OUT_OPT].out ?? CALL.lap + 1 : CALL.lap + 1;
+  const toFlag = interpolate(f, [resume, outAt, flagAt], [CALL.lap, outLap, CALL.laps], clamp);
+  const cur = f < resume ? toCall : toFlag;
+  const frozen = f >= b(2.4) && f < resume;
+  const flag = f >= flagAt;
   const s = shake(f, [b(2.4), outAt], 10, 6);
   // a cursor reads the three, hesitates, settles on the answer
   const OY = 1000, OH = 104, OG = 16;
   const scan = [b(4.4), b(4.8), b(5.1), b(5.5)];
   const cy = interpolate(f, scan, [0, 1, 2, ANSWER], ease3);
   const picked = f >= b(5.6);
-  const staked = f >= b(6.2);
+  const staked = f >= B(7.5);
   // the whip into the exchange: this file leaves to the left
   const len = at(K0 + 4)(13);
   const exit = interpolate(f, [len - 10, len], [0, 1], { ...clamp, easing: Easing.in(Easing.cubic) });
@@ -88,7 +91,8 @@ export const CallInfo: React.FC = () => {
         <div style={{ position: "absolute", left: X0, right: 1080 - X1, top: BAR + 34, display: "flex", justifyContent: "space-between",
           ...MONO, fontSize: 24, color: C.muted, whiteSpace: "nowrap", opacity: f >= b(0.6) ? 1 : 0 }}>
           <span>Lap {Math.round(cur)}</span>
-          <span style={{ ...LED, fontSize: 40, opacity: frozen ? 1 : 0, filter: `brightness(${1 + ring(f, [b(2.4)], 6)})` }}>Frozen on lap {CALL.lap}</span>
+          <span style={{ ...MONO, fontSize: 30, color: C.lit, textShadow: `0 0 18px ${C.lit}`, opacity: frozen ? 1 : 0,
+            filter: `brightness(${1 + ring(f, [b(2.4)], 6)})` }}>Frozen on lap {CALL.lap}</span>
           <span style={{ color: flag ? "#fff" : C.muted }}>{flag ? "Chequered flag" : `${CALL.laps}`}</span>
         </div>
 
@@ -109,7 +113,7 @@ export const CallInfo: React.FC = () => {
             <div key={o.id} style={{ position: "absolute", left: 60, right: 60, top: OY + i * (OH + OG), height: OH, boxSizing: "border-box",
               display: "flex", alignItems: "center", gap: 26, padding: "0 30px",
               background: won ? "#0f2a18" : CARD, border: `3px solid ${won ? C.ok : mine ? "#fff" : EDGE}`,
-              boxShadow: won ? `0 0 ${50 * (0.5 + ring(f, [b(7.8)], 12))}px ${C.ok}88` : "none",
+              boxShadow: won ? `0 0 ${50 * (0.5 + ring(f, [flagAt], 12))}px ${C.ok}88` : "none",
               opacity: p * (gone ? 0.45 : picked && !mine && !gone ? 0.6 : 1), transform: `translateY(${(1 - p) * 40}px)` }}>
               <span style={{ width: 12, alignSelf: "stretch", margin: "20px 0", background: team }} />
               <span style={{ ...WIDE, fontSize: 42, color: won ? C.ok : "#fff", textDecoration: gone ? "line-through" : "none" }}>{o.label}</span>
@@ -132,7 +136,7 @@ export const CallInfo: React.FC = () => {
             return (
               <div key={v} style={{ flex: 1, height: 96, boxSizing: "border-box", border: `3px solid ${lit ? C.lit : EDGE}`, background: lit ? "#3a0603" : CARD,
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 16, opacity: p, transform: `translateY(${(1 - p) * 30}px)`,
-                boxShadow: lit ? `0 0 ${40 * (0.4 + ring(f, [b(6.2)], 10))}px ${C.lit}88` : "none" }}>
+                boxShadow: lit ? `0 0 ${40 * (0.4 + ring(f, [B(7.5)], 10))}px ${C.lit}88` : "none" }}>
                 <span style={{ ...WIDE, fontSize: 44, color: lit ? "#fff" : "#ffffffb0" }}>{v}</span>
                 <span style={{ ...MONO, fontSize: 18, color: lit ? "#fff" : C.muted, letterSpacing: "0.12em" }}>{k}</span>
               </div>
@@ -159,14 +163,19 @@ export const ExchangeInfo: React.FC = () => {
   const px = (lap: number) => X0 + (lap / EX.laps) * (X1 - X0);
   const py = (v: number) => Y1 - (v / TOP) * (Y1 - Y0);
   // the race plays through the chart, the grid to the flag
-  const lap = interpolate(f, [b(0.9), b(5.2)], [0, EX.laps], { ...clamp, easing: Easing.inOut(Easing.sin) });
-  const crashAt = b(0.9) + (Math.acos(1 - 2 * ((EX.verOut ?? EX.laps) / EX.laps)) / Math.PI) * (b(5.2) - b(0.9));
-  const done = f >= b(5.2);
-  const sold = f >= b(5.5);
+  // the race plays through the chart; Verstappen's retirement hits on beat 119
+  // and the flag on 120, both on the song's grid (30/10/2026)
+  const BX = at(K0 + 17);
+  const crashAt = BX(6), flagAt = BX(7);
+  const crashLap = EX.verOut ?? EX.laps;
+  const lap = interpolate(f, [b(0.9), crashAt, flagAt], [0, crashLap, EX.laps], { ...clamp, easing: Easing.inOut(Easing.sin) });
+  const done = f >= flagAt;
+  const soldAt = at(K0 + 17)(7.5);
+  const sold = f >= soldAt;
   const s = shake(f, [crashAt], 12, 6);
   const buy = EX.buy, sell = EX.sell;
   const stake = 100, after = Math.round(1000 - stake + (stake / buy.price) * sell.price);
-  const wallet = interpolate(f, [b(5.6), b(6.6)], [1000, after], { ...clamp, easing: out });
+  const wallet = interpolate(f, [soldAt, soldAt + 26], [1000, after], { ...clamp, easing: out });
   const path = (prices: number[]) => {
     const n = Math.floor(lap);
     let d = `M ${px(0)} ${py(prices[0])}`;
@@ -210,7 +219,7 @@ export const ExchangeInfo: React.FC = () => {
           {/* the cash out, at the flag */}
           {sold && (
             <circle cx={px(sell.lap)} cy={py(sell.price)} r={16} fill={C.ok}
-              style={{ filter: `drop-shadow(0 0 ${14 + 30 * ring(f, [b(5.5)], 10)}px ${C.ok})` }} />
+              style={{ filter: `drop-shadow(0 0 ${14 + 30 * ring(f, [soldAt], 10)}px ${C.ok})` }} />
           )}
         </svg>
         {f >= b(1) && (
@@ -224,7 +233,7 @@ export const ExchangeInfo: React.FC = () => {
           const y = py(v) - 14 + (d.role === "crash" ? -10 : d.role === "climb" ? 6 : -6);
           return (
             <div key={d.code} style={{ position: "absolute", left: X1 + 22, top: y, ...MONO, fontSize: 24, color: d.role === "climb" && sold ? C.ok : "#fff",
-              letterSpacing: "0.08em", ...smear(f, b(5.2), "left", 8, 40) }}>{d.code} {v}</div>
+              letterSpacing: "0.08em", ...smear(f, flagAt, "left", 8, 40) }}>{d.code} {v}</div>
           );
         })}
         {f >= crashAt && (
@@ -235,7 +244,7 @@ export const ExchangeInfo: React.FC = () => {
         )}
 
         {/* the wallet */}
-        <div style={{ position: "absolute", left: 72, right: 60, top: 1270, ...smear(f, b(5.5), "up", 10, 50) }}>
+        <div style={{ position: "absolute", left: 72, right: 60, top: 1270, ...smear(f, soldAt, "up", 10, 50) }}>
           <div style={{ ...MONO, fontSize: 26, color: C.muted }}>Your 1,000</div>
           <div style={{ display: "flex", alignItems: "baseline", gap: 26, marginTop: 10 }}>
             <span style={{ ...WIDE, fontWeight: 900, fontSize: 120, lineHeight: 1, ...GLOW }}>{Math.round(wallet).toLocaleString("en-GB")}</span>
