@@ -25,8 +25,8 @@ const k = at(K0);
 const BUILT = [
   { src: () => clipFrame("home", 0), at: 3, x: 190, y: 1010, r: -9 },
   { src: () => clipFrame("race", 1.4), at: 4, x: 420, y: 960, r: -3 },
-  { src: () => clipFrame("blind", 999), at: 5, x: 650, y: 990, r: 4 },
-  { src: () => clipFrame("pitwall", 999), at: 6, x: 875, y: 1050, r: 10 },
+  { src: () => clipFrame("call", 999), at: 5, x: 650, y: 990, r: 4 },
+  { src: () => clipFrame("exchange", 999), at: 6, x: 875, y: 1050, r: 10 },
 ];
 const SW = 260, SH = 462;
 
@@ -259,7 +259,7 @@ export const Built: React.FC = () => (
 /** the screens the film showed, for the carousel the end card turns */
 const ORBIT = [
   () => clipFrame("home", 0), () => clipFrame("race", 1.2), () => clipFrame("race", 7.4), () => clipFrame("race", 9.6),
-  () => clipFrame("race", 999), () => clipFrame("blind", 999), () => clipFrame("pitwall", 0.4), () => clipFrame("pitwall", 999),
+  () => clipFrame("race", 999), () => clipFrame("call", 999), () => clipFrame("exchange", 0.4), () => clipFrame("exchange", 999),
 ];
 
 export const EndCard: React.FC = () => {

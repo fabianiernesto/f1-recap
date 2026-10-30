@@ -8,7 +8,7 @@ import React from "react";
 import { AbsoluteFill, Easing, interpolate, Freeze } from "remotion";
 import { Clip, ClipFrame } from "../Clip";
 import { HowItWorks } from "./HowItWorks";
-import { BlindInfo, PitInfo } from "./Activities";
+import { CallInfo, ExchangeInfo } from "./Activities";
 import {
   at, Beam, Blur, BODY, C, clamp, ease, Flash, GLOW, GPS, hum, MONO, out, ring, shake, smear, Speedlines, Track, WIDE,
 } from "../kit";
@@ -175,7 +175,7 @@ const Circuits: React.FC = () => {
 const ROW = 427, MINI = { w: 240, h: 427, x: 1080 - 72 - 240 };
 const DOOR_TOP = Math.round((960 - 167 - 34 - ROW) / 2);
 /** what Simplified shows in its mini screen: the two games, as they end */
-const GAMES = [<Freeze key="b" frame={(span(84, 97) - 14) * SCALE}><BlindInfo /></Freeze>, <Freeze key="p" frame={(span(97, 112) - 4) * SCALE}><PitInfo /></Freeze>];
+const GAMES = [<Freeze key="c" frame={(span(84, 97) - 14) * SCALE}><CallInfo /></Freeze>, <Freeze key="x" frame={(span(97, 112) - 4) * SCALE}><ExchangeInfo /></Freeze>];
 
 const Mini: React.FC<{ top: number; op: number; ry: number; children: React.ReactNode }> = ({ top, op, ry, children }) => (
   <div style={{ position: "absolute", inset: 0, perspective: 1600, perspectiveOrigin: `${MINI.x + MINI.w / 2}px ${top + MINI.h / 2}px`, opacity: op, pointerEvents: "none" }}>
@@ -226,9 +226,9 @@ const Doors: React.FC = () => {
         <div style={{ ...MONO, fontSize: 30, color: "#fff", ...smear(f, b(4.7), "left", 10) }}>02</div>
         <div style={{ ...WIDE, fontSize: 112, color: "#0a0a0a", marginTop: 26, ...smear(f, b(4.9), "left", 10) }}>Simplified</div>
         <div style={{ ...BODY, fontSize: 46, color: "#0a0a0a", marginTop: 34, lineHeight: 1.22, ...smear(f, b(5.4), "left", 10) }}>
-          Play the race,
+          Call the race,
           <br />
-          call by call
+          trade the drivers
         </div>
       </div>
 

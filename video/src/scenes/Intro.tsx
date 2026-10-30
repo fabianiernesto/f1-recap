@@ -2,8 +2,8 @@
  * Beats 8-16, four seconds: a flight through the site. Five real screens
  * hang in a dark red space, staggered left and right down a corridor; the
  * camera is already moving on the first frame, passes the home close
- * enough to touch, and flies on past the race, Alfred, the blind test and
- * the pit wall while a red light sweeps each one. Then the space goes dark,
+ * enough to touch, and flies on past the race, Alfred, Call the race and
+ * the exchange while a red light sweeps each one. Then the space goes dark,
  * one line of light crosses it, and the neon of SIMPLIFIED catches where
  * the title lands on beat 16.
  */
@@ -21,8 +21,8 @@ const SCREENS = [
   { src: () => clipFrame("home", 0), x: 0, y: 0, z: -420, ry: 0 },
   { src: () => clipFrame("race", 3.4), x: -360, y: -40, z: 1200, ry: 22 },
   { src: () => clipFrame("race", 999), x: 360, y: 30, z: 2700, ry: -22 },
-  { src: () => clipFrame("blind", 999), x: -340, y: -20, z: 4200, ry: 20 },
-  { src: () => clipFrame("pitwall", 0.4), x: 0, y: 0, z: 5700, ry: 0 },
+  { src: () => clipFrame("call", 999), x: -340, y: -20, z: 4200, ry: 20 },
+  { src: () => clipFrame("exchange", 0.4), x: 0, y: 0, z: 5700, ry: 0 },
 ];
 const W = 640, H = 1138; // each screen, 9:16
 

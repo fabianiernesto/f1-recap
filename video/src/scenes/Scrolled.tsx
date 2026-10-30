@@ -18,47 +18,50 @@ import strips from "../../public/clips/strips/strips.json";
 const K0 = 32;
 const S = PHONE.w / 432; // CSS px of the capture -> px of the phone
 
-type Clip = "sWeek" | "sTrack" | "sMoment" | "sPurple" | "sYellow" | "sPred" | "sSteward" | "sGuess" | "sMate";
+type Clip = "sWeek" | "sTrack" | "sMoment" | "sPurple" | "sYellow" | "sRed" | "sPred" | "sSteward" | "sGuess" | "sMate";
 type Shot = { clip: Clip; from: number; to: number; z: number; cam: number; dim?: number; fan?: boolean };
 /** the shots, in film beats; `cam` is the beat whose focus rect the camera frames */
 const SHOTS: Shot[] = [
   { clip: "sWeek", from: 32, to: 38, z: 1.08, cam: 35 },
   { clip: "sTrack", from: 38, to: 44.5, z: 1, cam: 40, dim: 0 },
-  { clip: "sMoment", from: 44.5, to: 51, z: 1.14, cam: 46.5 },
-  { clip: "sPurple", from: 51, to: 55, z: 1.14, cam: 52.5 },
-  { clip: "sYellow", from: 55, to: 59.5, z: 1.14, cam: 57 },
-  { clip: "sPred", from: 59.5, to: 67.5, z: 1.12, cam: 64 },
+  { clip: "sMoment", from: 44.5, to: 50.5, z: 1.14, cam: 46.5 },
+  { clip: "sPurple", from: 50.5, to: 54.5, z: 1.14, cam: 52 },
+  { clip: "sYellow", from: 54.5, to: 58.5, z: 1.14, cam: 56 },
+  // (30/10/2026) the red flag: a real stoppage, Monaco's, lap 68
+  { clip: "sRed", from: 58.5, to: 62.5, z: 1.14, cam: 60 },
+  { clip: "sPred", from: 62.5, to: 69.5, z: 1.12, cam: 66.6 },
   // the three kinds of call: the last shot dims under three strips
-  { clip: "sPred", from: 67.5, to: 72, z: 1.12, cam: 64, fan: true },
-  { clip: "sSteward", from: 72, to: 77.5, z: 1.08, cam: 76 },
-  { clip: "sGuess", from: 77.5, to: 83.5, z: 1.12, cam: 81 },
-  { clip: "sMate", from: 83.5, to: 92, z: 1, cam: 87 },
+  { clip: "sPred", from: 69.5, to: 73.5, z: 1.12, cam: 66.6, fan: true },
+  { clip: "sSteward", from: 73.5, to: 78.5, z: 1.08, cam: 77.5 },
+  { clip: "sGuess", from: 78.5, to: 84, z: 1.12, cam: 82 },
+  { clip: "sMate", from: 84, to: 92, z: 1, cam: 87.5 },
 ];
 /** the beat a clip's first frame belongs to */
 const START: Record<Clip, number> = {
-  sWeek: 32, sTrack: 38, sMoment: 44.5, sPurple: 51, sYellow: 55, sPred: 59.5, sSteward: 72, sGuess: 77.5, sMate: 83.5,
+  sWeek: 32, sTrack: 38, sMoment: 44.5, sPurple: 50.5, sYellow: 54.5, sRed: 58.5, sPred: 62.5, sSteward: 73.5, sGuess: 78.5, sMate: 84,
 };
 
 /** the lines under the header, in film beats: a big one and a small one */
 const LINES: { from: number; to: number; big: string; small?: string }[] = [
   { from: 32.8, to: 38, big: "Pick any session", small: "Practice, qualifying, sprint, race" },
   { from: 38.4, to: 44.5, big: "Scroll, and the car drives the real track", small: "Lap by lap" },
-  { from: 44.9, to: 51, big: "Every moment of the race, explained", small: "In the order it happened" },
-  { from: 51.4, to: 55, big: "Purple: the fastest lap" },
-  { from: 55.4, to: 59.5, big: "Yellow: safety car and flags" },
-  { from: 59.9, to: 63, big: "Guess what happens next", small: "Colapinto starts P19. Where does he finish?" },
-  { from: 63, to: 67.5, big: "Guess what happens next", small: "You called it: P19 to P9" },
-  { from: 67.7, to: 77.5, big: "Make the call yourself", small: "As the pit wall · the steward · what if" },
-  { from: 77.9, to: 83.5, big: "Guess the number", small: "How far behind was Russell at the flag?" },
-  { from: 83.9, to: 92, big: "Ask Alfred anything about the race" },
+  { from: 44.9, to: 50.5, big: "Every moment of the race, explained", small: "In the order it happened" },
+  { from: 50.9, to: 54.5, big: "Purple: the fastest lap" },
+  { from: 54.9, to: 58.5, big: "Yellow: safety car and flags" },
+  { from: 58.9, to: 62.5, big: "Red: the race is stopped", small: "Monaco, lap 68 of 78" },
+  { from: 62.9, to: 65.9, big: "Guess what happens next", small: "Colapinto starts P19. Where does he finish?" },
+  { from: 65.9, to: 69.5, big: "Guess what happens next", small: "You called it: P19 to P9" },
+  { from: 69.7, to: 78.5, big: "Make the call yourself", small: "As the pit wall · the steward · what if" },
+  { from: 78.9, to: 84, big: "Guess the number", small: "How far behind was Russell at the flag?" },
+  { from: 84.4, to: 92, big: "Ask Alfred anything about the race" },
 ];
 const bigText = (s: string) =>
   s.includes("Alfred") ? <>Ask <span style={GLOW}>Alfred</span> anything about the race</> : s;
 
 const STRIPS = [
-  { key: "pit", at: 67.9, r: -1.2, x: -14 },
-  { key: "steward", at: 68.5, r: 0.8, x: 16 },
-  { key: "whatif", at: 69.1, r: -0.6, x: -6 },
+  { key: "pit", at: 69.9, r: -1.2, x: -14 },
+  { key: "steward", at: 70.5, r: 0.8, x: 16 },
+  { key: "whatif", at: 71.1, r: -0.6, x: -6 },
 ] as const;
 
 const smooth = { ...clamp, easing: Easing.inOut(Easing.sin) };
@@ -130,7 +133,7 @@ export const Scrolled: React.FC = () => {
   const into = rises ? interpolate(f, [b(cur.from - K0), b(cur.from - K0) + WHIP], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) }) : 1;
   const pushAt = b(38 - K0);
   const push = si === 0 ? interpolate(f, [pushAt - 12, pushAt], [0, 1], io) : 0;
-  const fanDim = cur.fan ? interpolate(f, [b(67.5 - K0), b(68.2 - K0)], [0, 1], io) : 0;
+  const fanDim = cur.fan ? interpolate(f, [b(69.5 - K0), b(70.2 - K0)], [0, 1], io) : 0;
 
   return (
     <AbsoluteFill style={{ background: C.night, overflow: "hidden" }}>
@@ -161,7 +164,7 @@ export const Scrolled: React.FC = () => {
 
       {/* the three kinds of call: each card's own kicker and question */}
       {cur.fan && (() => {
-        const gone = interpolate(f, [b(71.5 - K0), b(72 - K0)], [0, 1], io);
+        const gone = interpolate(f, [b(73 - K0), b(73.5 - K0)], [0, 1], io);
         const sw = 960, gap = 30;
         const hs = STRIPS.map((s) => (strips[s.key].h / strips[s.key].w) * sw);
         const total = hs.reduce((p, q) => p + q, 0) + gap * 2;

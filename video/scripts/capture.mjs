@@ -451,9 +451,9 @@ const CLIPS = {
   },
 
   /** a card held still, with a short drift onto it; `act` adds clicks */
-  async hold(name, a, z, card, k, act = () => ({}), more = () => 0, css = "") {
+  async hold(name, a, z, card, k, act = () => ({}), more = () => 0, css = "", url = GP + "/race") {
     const f = (beat) => span(a, beat);
-    const frames = await record(name, GP + "/race", f(z) + PAD, async (i, page, c) => {
+    const frames = await record(name, url, f(z) + PAD, async (i, page, c) => {
       const y = c.y - 40 * (1 - glide((i - f(a + 0.1)) / (f(a + 1.4) - f(a + 0.1)), 0.1, 0.6)) + more(i, f);
       return { y, ...act(i, f) };
     }, async (page) => {
@@ -466,38 +466,45 @@ const CLIPS = {
   },
 
   // every moment explained: lap 1, 27 places changed hands (44.5-51)
-  async sMoment() { return CLIPS.hold("sMoment", 44.5, 51, 1, 0.24); },
-  // purple: the fastest lap (51-55)
-  async sPurple() { return CLIPS.hold("sPurple", 51, 55, 20, 0.24); },
-  // yellow: the virtual safety car (55-59.5)
-  async sYellow() { return CLIPS.hold("sYellow", 55, 59.5, 22, 0.2); },
-  // guess what happens next: Colapinto from P19, the right answer (59.5-67.5)
+  async sMoment() { return CLIPS.hold("sMoment", 44.5, 50.5, 1, 0.24); },
+  // purple: the fastest lap (50.5-54.5)
+  async sPurple() { return CLIPS.hold("sPurple", 50.5, 54.5, 20, 0.24); },
+  // yellow: the virtual safety car (54.5-58.5)
+  async sYellow() { return CLIPS.hold("sYellow", 54.5, 58.5, 22, 0.2); },
+  // red: the race stopped. Silverstone had no red flag, so it is Monaco's,
+  // lap 68, the most complete one of the season (58.5-62.5)
+  async sRed() {
+    const story = JSON.parse(fs.readFileSync(path.resolve("../data/monaco-2026/story_race.json"), "utf8"));
+    const card = story.cards.findIndex((c) => /red flag/i.test(c.kicker) && !/chequered/i.test(c.kicker));
+    return CLIPS.hold("sRed", 58.5, 62.5, card, 0.2, () => ({}), () => 0, "", "/gp/monaco-2026/race");
+  },
+  // guess what happens next: Colapinto from P19, the right answer (62.5-69.5)
   async sPred() {
     const story = JSON.parse(fs.readFileSync(path.resolve("../data/silverstone-2026/story_race.json"), "utf8"));
-    return CLIPS.hold("sPred", 59.5, 67.5, 3, 0.16, (i, f) => (i === f(62.6) ? { clickText: [".call .call-opt", story.cards[3].answer] } : {}));
+    return CLIPS.hold("sPred", 62.5, 69.5, 3, 0.16, (i, f) => (i === f(65.3) ? { clickText: [".call .call-opt", story.cards[3].answer] } : {}));
   },
-  // make the call: the steward's card, no further action, what they did (72-77.5)
+  // make the call: the steward's card, no further action, what they did (73.5-78.5)
   async sSteward() {
-    return CLIPS.hold("sSteward", 72, 77.5, 17, 0.06,
-      (i, f) => (i === f(73.4) ? { clickText: [".call .call-opt", "No further action"] } : {}),
-      (i, f) => 330 * glide((i - f(74)) / (f(75.6) - f(74)), 0.35, 0.45));
+    return CLIPS.hold("sSteward", 73.5, 78.5, 17, 0.06,
+      (i, f) => (i === f(74.9) ? { clickText: [".call .call-opt", "No further action"] } : {}),
+      (i, f) => 330 * glide((i - f(75.5)) / (f(77.1) - f(75.5)), 0.35, 0.45));
   },
-  // guess the number: the slider pulled to 0.45, locked, spot on (77.5-83.5)
+  // guess the number: the slider pulled to 0.45, locked, spot on (78.5-84)
   async sGuess() {
-    const r = await CLIPS.hold("sGuess", 77.5, 83.5, 33, 0.1, (i, f) => (i === f(80.6) ? { click: ".guess .lock" } : {}),
-      (i, f) => { SLIDE.v = Math.round((1 + (0.45 - 1) * glide((i - f(78.2)) / (f(79.9) - f(78.2)), 0.3, 0.4)) / 0.05) * 0.05; return 0; },
+    const r = await CLIPS.hold("sGuess", 78.5, 84, 33, 0.1, (i, f) => (i === f(81.6) ? { click: ".guess .lock" } : {}),
+      (i, f) => { SLIDE.v = Math.round((1 + (0.45 - 1) * glide((i - f(79.2)) / (f(80.9) - f(79.2)), 0.3, 0.4)) / 0.05) * 0.05; return 0; },
       // the race poster under the last card is a white block that pulls the eye
       ".poster{visibility:hidden}");
     return r;
   },
-  // ask Alfred: at the flag, opened, asked (83.5-91)
+  // ask Alfred: at the flag, opened, asked (84-91)
   async sMate() {
-    const [a, z] = [83.5, 91];
+    const [a, z] = [84, 91];
     const f = (beat) => span(a, beat);
     const frames = await record("sMate", GP + "/race", f(z) + PAD, async (i) => {
       const act = {};
-      if (i === f(84.2)) act.click = ".mate-fab";
-      if (i === f(86.2)) act.click = ".mate-asks button";
+      if (i === f(84.7)) act.click = ".mate-fab";
+      if (i === f(86.7)) act.click = ".mate-asks button";
       return act;
     }, async (page) => {
       const y = await cardY(page, 32, 0.2);
@@ -572,6 +579,40 @@ const CLIPS = {
       await page.waitForTimeout(1500);
       const opts = (await yOf(page, ".pw-opts", 0.2)) ?? 600;
       return { opts, out: opts + 700 };
+    });
+  },
+
+  // (30/10/2026) Call the race, on the site: the first question frozen on the
+  // grid, Leclerc picked, all in. The film uses its frames as screens.
+  async call() {
+    const n = span(96, 98) + 4;
+    return record("call", GP + "/race/call", n, async (i) => {
+      const act = {};
+      if (i === 10) act.clickText = [".cr-opt", "Leclerc"];
+      if (i === 26) act.click = ".cr-stake button:last-child";
+      return act;
+    }, async (page) => {
+      await page.locator(".bt-go").first().click();
+      await page.waitForSelector(".cr-sheet", { timeout: 20000 });
+      await page.waitForTimeout(1200);
+      return {};
+    });
+  },
+
+  // Paddock exchange, on the site: the market twenty seconds in, two drivers
+  // bought on the grid, one cashed out on camera
+  async exchange() {
+    const n = span(110, 112) + 4;
+    return record("exchange", GP + "/race/exchange", n, async (i) => {
+      const act = {};
+      if (i === 30) act.click = ".px-row.is-mine .px-sell";
+      return act;
+    }, async (page) => {
+      await page.locator(".px-cover .bt-go").click();
+      await page.waitForSelector(".px-row");
+      for (const code of ["COL", "LEC"]) await page.locator(`.px-row:has(b:text-is("${code}")) .px-buy`).click();
+      await page.waitForTimeout(20000);
+      return {};
     });
   },
 };

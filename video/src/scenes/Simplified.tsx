@@ -7,7 +7,7 @@
 import React from "react";
 import { AbsoluteFill, Easing, Freeze, Img, interpolate } from "remotion";
 import { clipFrame } from "../Clip";
-import { BlindInfo, PitInfo, WORLD as WORLD_RED } from "./Activities";
+import { CallInfo, ExchangeInfo, WORLD as WORLD_RED } from "./Activities";
 import { at, Blur, BODY, C, clamp, Flash, GLOW, GPS, hum, MONO, out, ring, smear, Track, WIDE } from "../kit";
 import { span, useFrame, Seq, SCALE, X } from "../time";
 
@@ -72,9 +72,9 @@ export const Breakdown: React.FC = () => {
 const K0 = 80 + X;
 const k = at(K0);
 
-/** the two drawings the act is about to show, as they end: Antonelli named, the pit call priced */
-const BLIND_DONE = <Freeze frame={(span(84, 97) - 14) * SCALE}><BlindInfo /></Freeze>;
-const PIT_DONE = <Freeze frame={(span(97, 112) - 4) * SCALE}><PitInfo /></Freeze>;
+/** the two drawings the act is about to show, as they end: the call made, the market closed */
+const CALL_DONE = <Freeze frame={(span(84, 97) - 14) * SCALE}><CallInfo /></Freeze>;
+const EXCHANGE_DONE = <Freeze frame={(span(97, 112) - 4) * SCALE}><ExchangeInfo /></Freeze>;
 
 const Drop: React.FC = () => {
   const f = useFrame();
@@ -87,8 +87,8 @@ const Drop: React.FC = () => {
   // the two games arrive from deep in the red, one after the other
   const CARD = { w: 420, h: 747, top: 760 };
   const cards = [
-    { scene: BLIND_DONE, cx: 300, ry: 14, at: 0.6, label: "Guess the driver" },
-    { scene: PIT_DONE, cx: 780, ry: -14, at: 0.9, label: "Call the pit stop" },
+    { scene: CALL_DONE, cx: 300, ry: 14, at: 0.6, label: "Call the race" },
+    { scene: EXCHANGE_DONE, cx: 780, ry: -14, at: 0.9, label: "Paddock exchange" },
   ];
   // and the camera dives into the first one: it fills the frame exactly (420x747 is 9:16)
   const dive = interpolate(f, [b(2.9), b(4)], [0, 1], { ...clamp, easing: Easing.in(Easing.cubic) });
@@ -109,9 +109,9 @@ const Drop: React.FC = () => {
           <div style={{ ...MONO, fontSize: 30, color: "#fff" }}>03 / 03 · Simplified</div>
           <div style={{ ...WIDE, fontSize: 112, color: "#0a0a0a", marginTop: 26 }}>Play it.</div>
           <div style={{ ...BODY, fontSize: 46, color: "#0a0a0a", lineHeight: 1.22, marginTop: 34, ...smear(f, b(0.7), "left", 10) }}>
-            Guess the driver,
+            Call the race,
             <br />
-            call the pit stop
+            trade the drivers
           </div>
         </div>
         <div style={{ position: "absolute", inset: 0, perspective: 1800 }}>
@@ -140,7 +140,7 @@ const Drop: React.FC = () => {
 export const Simplified: React.FC = () => (
   <AbsoluteFill>
     <Seq durationInFrames={k(4)}><Drop /></Seq>
-    <Seq from={k(4)} durationInFrames={span(K0 + 4, K0 + 17)}><BlindInfo /></Seq>
-    <Seq from={k(17)} durationInFrames={span(K0 + 17, K0 + 32)}><PitInfo /></Seq>
+    <Seq from={k(4)} durationInFrames={span(K0 + 4, K0 + 17)}><CallInfo /></Seq>
+    <Seq from={k(17)} durationInFrames={span(K0 + 17, K0 + 32)}><ExchangeInfo /></Seq>
   </AbsoluteFill>
 );

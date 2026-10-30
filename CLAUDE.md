@@ -42,6 +42,7 @@ Todo cambio de la web hasta la v1 definitiva se traslada al vídeo de presentaci
 | 23/10/2026 | Las actividades definitivas: **Call the race** (`components/CallTheRace.tsx`, ruta `/gp/<slug>/race/call`, datos `pipeline/replay.py`) y **The ghost** (`components/TheGhost.tsx`, ruta `/gp/<slug>/race/ghost`, datos `pipeline/muro.py`), sobre un motor común: la carrera repetida en el trazado real (`components/ReplayTrack.tsx`, `lib/replay.ts`). Sustituyen al blind test, al pit wall y al piloto misterio en Actividades y en la home | 03 Play it entero se rehace con estas dos: la carrera corriendo en el circuito, una pregunta congelada y su respuesta; el fantasma blanco contra el piloto real |
 | 22/10/2026 (descartada el 23/10) | Actividad 01 "The mystery driver" (`components/MysteryDriver.tsx`, datos de `pipeline/mystery.py`): un piloto misterio por carrera, 6 intentos, pistas de vagas a delatoras, flechas por fallo, veredicto y cuadrados para compartir; el blind test pasa a modo libre | Play it: el plano del blind test pasa a ser el del piloto misterio (clips `blind`, `blindplay`) |
 | 25/10/2026 | Velocidad: la cortina entre secciones dura ~0,7 de lo que duraba y la página nueva se carga detrás de ella; el hub y Alfred ya no se congelan | Si algún plano del vídeo graba una transición entre páginas (`navhome`), se regraba con el nuevo ritmo |
+| 30/10/2026 | **Vídeo regenerado con toda la cola anterior**: plano rojo en Read it (Mónaco, vuelta 68, sin alargar el acto: medio pulso menos a seis planos), 03 Play it con Call the race y Paddock exchange dibujados con datos reales de Silverstone (`video/scripts/activities.mjs`), pantallas nuevas en la intro, Built y la miniatura, todos los clips regrabados desde la web actual | Hecho. Pendiente solo la canción con licencia |
 | 26/10/2026 | **The ghost se retira** ("esperar media hora y dar un click no es una actividad") y entra **Paddock exchange** (`components/PaddockExchange.tsx`, ruta `/gp/<slug>/<race|sprint>/exchange`): cada piloto es una acción que vale su posición (último 5, +5 por puesto), la carrera real vuelta a vuelta en ~2 min, 1.000 de inicio, «Invest 100» / «Cash out», un abandono vale 0. Tarjeta de Actividades con la gráfica real de precios (`ExchangeArt`) | 03 Play it: el plano de The ghost pasa a ser la bolsa: el tablero moviéndose vuelta a vuelta, una compra barata y el «cash out» con ganancia |
 | pendiente | Actividad 02 "Tu muro" (aprobada, por construir) y el tercer hueco (abierto) | 03 Play it entero: las tarjetas del drop, las infografías de Activities y las capturas `blind`, `blindplay` y `pitwall` |
 
@@ -81,9 +82,14 @@ Todo cambio de la web hasta la v1 definitiva se traslada al vídeo de presentaci
 ## 6. Estado y pendientes (actualizar al cerrar cada sesión)
 
 **Git:**
-- Repositorio en esta carpeta, rama `home-redesign-sep26`. El último commit es del 30/09/2026.
-- A 22/10 hay cambios de la web sin commitear (unos 15 archivos) y `video/` no está en git.
-- Los mensajes de commit desde PowerShell van por archivo (`git commit -F`).
+- Repositorio en esta carpeta, rama `home-redesign-sep26`, con copia en GitHub (`fabianiernesto/f1-recap`). Desde el 30/10/2026 todo está commiteado en local (`9f73090`, `f8f70c4` y los del vídeo); a GitHub no se ha subido nada: subir es publicar y lo decide Ernesto.
+- `video/` entra en git sin su música, sus clips ni sus renders (`video/.gitignore`).
+- Los mensajes de commit van por archivo (`git commit -F`).
+
+**Auditoría del 30/10/2026 (`scratchpad`: audit, perf_all, card_shots):**
+- Las 322 páginas (161, escritorio y móvil): sin textos rotos, desbordes, imágenes caídas ni errores.
+- Velocidad: todas las páginas cargan en 0,2–0,8 s y en reposo no pasan de ~30–70 ms/s medidas de una en una.
+- Contenido corregido en el pipeline: el «What if» elige el abandono mejor colocado (y no sale si todos iban detrás de P12); «Guess it» ya no deja la respuesta siempre al 25 % de la barra; Call the race no repite la misma pregunta dos veces; libres y clasificación cuentan «MOMENT x / y», no vueltas.
 
 **Web:**
 - Pendiente: what-if (actividad 03), decidir los headshots y la foto Ferrari del hero, fuentes de pago (slots en `web/public/fonts/README.md`).

@@ -11,8 +11,8 @@ import { BODY, C, GLOW, LED, MONO, WIDE } from "./kit";
 const SCREENS = [
   { src: () => clipFrame("home", 0), x: 210, y: 960, r: -11, z: 1 },
   { src: () => clipFrame("race", 1.4), x: 420, y: 900, r: -4, z: 3 },
-  { src: () => clipFrame("blind", 999), x: 660, y: 910, r: 4, z: 2 },
-  { src: () => clipFrame("pitwall", 999), x: 870, y: 970, r: 11, z: 1 },
+  { src: () => clipFrame("call", 999), x: 660, y: 910, r: 4, z: 2 },
+  { src: () => clipFrame("exchange", 999), x: 870, y: 970, r: 11, z: 1 },
 ];
 const W = 280, H = 498;
 
