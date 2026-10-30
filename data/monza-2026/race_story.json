@@ -288,55 +288,6 @@
       "note": "The timing feed records that he stopped, not why."
     },
     {
-      "type": "decision",
-      "lap": 27,
-      "kicker": "What if",
-      "title": "Stroll was P20 a lap before his race ended on lap 27. Where does he finish if it had not?",
-      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
-      "state": [
-        [
-          "Out on lap",
-          "27 of 53"
-        ],
-        [
-          "Start of lap 26",
-          "P20"
-        ],
-        [
-          "His median racing lap",
-          "1:29.347"
-        ],
-        [
-          "Quicker than",
-          "0 of the eventual top five"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "points",
-          "label": "He fights into the points",
-          "sub": "A climb from there"
-        },
-        {
-          "id": "hold",
-          "label": "He stays about where he was",
-          "sub": "No pace to move"
-        },
-        {
-          "id": "drop",
-          "label": "He drops further back",
-          "sub": "Tyres or traffic get him"
-        }
-      ],
-      "actual": "",
-      "outcomes": {
-        "points": "A climb from there.",
-        "hold": "No pace to move.",
-        "drop": "Tyres or traffic get him."
-      },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 4.14s a lap slower than Antonelli, who went on to win it. With 26 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check."
-    },
-    {
       "type": "moment",
       "lap": 28,
       "kicker": "Lap 28 of 53 · Virtual Safety Car",
@@ -542,7 +493,7 @@
       "text": "53 laps, 1 hour 20 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 15.4,
+      "max": 12,
       "step": 0.1,
       "target": 3.857,
       "close": 1.5428000000000002,

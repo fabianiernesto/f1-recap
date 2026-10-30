@@ -371,6 +371,55 @@
       "note": "The timing feed records that he stopped, not why."
     },
     {
+      "type": "decision",
+      "lap": 65,
+      "kicker": "What if",
+      "title": "Leclerc was P3 a lap before his race ended on lap 65. Where does he finish if it had not?",
+      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
+      "state": [
+        [
+          "Out on lap",
+          "65 of 78"
+        ],
+        [
+          "Start of lap 64",
+          "P3"
+        ],
+        [
+          "His median racing lap",
+          "1:17.070"
+        ],
+        [
+          "Quicker than",
+          "3 of the eventual top five"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "win",
+          "label": "He wins it",
+          "sub": "The pace was there"
+        },
+        {
+          "id": "podium",
+          "label": "Podium, not the win",
+          "sub": "Close, but not enough"
+        },
+        {
+          "id": "drop",
+          "label": "He drops back",
+          "sub": "Tyres or traffic get him"
+        }
+      ],
+      "actual": "",
+      "outcomes": {
+        "win": "The pace was there.",
+        "podium": "Close, but not enough.",
+        "drop": "Tyres or traffic get him."
+      },
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.35s a lap slower than Antonelli, who went on to win it. With 13 laps left, \"podium, not the win\" is the honest guess, and nobody gets to check."
+    },
+    {
       "type": "moment",
       "lap": 66,
       "kicker": "Tyres",
@@ -465,55 +514,6 @@
         "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
       },
       "reveal": "The stewards took no further action."
-    },
-    {
-      "type": "decision",
-      "lap": 71,
-      "kicker": "What if",
-      "title": "Sainz was P10 a lap before his race ended on lap 71. Where does he finish if it had not?",
-      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
-      "state": [
-        [
-          "Out on lap",
-          "71 of 78"
-        ],
-        [
-          "Start of lap 70",
-          "P10"
-        ],
-        [
-          "His median racing lap",
-          "1:19.171"
-        ],
-        [
-          "Quicker than",
-          "0 of the eventual top five"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "podium",
-          "label": "He reaches the podium",
-          "sub": "Enough pace to climb"
-        },
-        {
-          "id": "points",
-          "label": "He keeps it in the points",
-          "sub": "Holds roughly where he was"
-        },
-        {
-          "id": "drop",
-          "label": "He drops out of the points",
-          "sub": "Tyres or traffic get him"
-        }
-      ],
-      "actual": "",
-      "outcomes": {
-        "podium": "Enough pace to climb.",
-        "points": "Holds roughly where he was.",
-        "drop": "Tyres or traffic get him."
-      },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 2.45s a lap slower than Antonelli, who went on to win it. With 7 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check. Race control had logged an incident involving Colapinto and Sainz on lap 71."
     },
     {
       "type": "moment",
@@ -629,8 +629,8 @@
       "text": "78 laps, 1 hour 47 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 25.1,
-      "step": 0.5,
+      "max": 12,
+      "step": 0.1,
       "target": 6.271,
       "close": 2.5084,
       "reveal": "6.271 seconds after 78 laps. A trip down the pit lane took about 25s today, which is 4 times the margin this race was decided by."

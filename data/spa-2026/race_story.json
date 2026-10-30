@@ -81,7 +81,7 @@
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track",
-        "Track sectors 7 and 15 saw 4 each, the most of anywhere"
+        "Track sectors 7 and 15 saw 4 calls each, more than anywhere else"
       ]
     },
     {
@@ -409,55 +409,6 @@
       "note": "The timing feed records that he stopped, not why."
     },
     {
-      "type": "decision",
-      "lap": 26,
-      "kicker": "What if",
-      "title": "Stroll was P20 a lap before his race ended on lap 26. Where does he finish if it had not?",
-      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
-      "state": [
-        [
-          "Out on lap",
-          "26 of 44"
-        ],
-        [
-          "Start of lap 25",
-          "P20"
-        ],
-        [
-          "His median racing lap",
-          "1:56.030"
-        ],
-        [
-          "Quicker than",
-          "0 of the eventual top five"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "points",
-          "label": "He fights into the points",
-          "sub": "A climb from there"
-        },
-        {
-          "id": "hold",
-          "label": "He stays about where he was",
-          "sub": "No pace to move"
-        },
-        {
-          "id": "drop",
-          "label": "He drops further back",
-          "sub": "Tyres or traffic get him"
-        }
-      ],
-      "actual": "",
-      "outcomes": {
-        "points": "A climb from there.",
-        "hold": "No pace to move.",
-        "drop": "Tyres or traffic get him."
-      },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 6.12s a lap slower than Antonelli, who went on to win it. With 18 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check."
-    },
-    {
       "type": "moment",
       "lap": 30,
       "kicker": "True pace",
@@ -619,7 +570,7 @@
       "text": "44 laps, 1 hour 25 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 7.8,
+      "max": 6,
       "step": 0.1,
       "target": 1.952,
       "close": 0.7808,

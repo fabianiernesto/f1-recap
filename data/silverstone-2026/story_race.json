@@ -413,7 +413,7 @@
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track",
-        "Track sectors 10 and 15 saw 3 each, the most of anywhere"
+        "Track sectors 10 and 15 saw 3 calls each, more than anywhere else"
       ]
     },
     {
@@ -644,7 +644,7 @@
       "text": "52 laps, 1 hour 27 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 2.0,
+      "max": 2,
       "step": 0.05,
       "target": 0.427,
       "close": 0.3,

@@ -1564,12 +1564,24 @@ def decision_cards(s: Session) -> list[dict]:
                               if s.finish_pos(ahead) else ".")})
 
     # --- what if: the counterfactual, labelled as one
-    if s.dnfs:
-        r = s.dnfs[0]
-        num = r["driver_number"]
+    # (30/10/2026) the retirement that was running highest, not the first one
+    # in the list: "Stroll was P20, where does he finish?" has an obvious
+    # answer and asks nothing. If every retirement was at the back, no card.
+    def _was(num):
         stop = s.stop_lap(num)
-        t_was = s.own_lap_ts(num, stop - 1) if stop > 2 else None
-        was = next((p for p, n in s.order_at_ts(t_was) if n == num), None) if t_was else None
+        t = s.own_lap_ts(num, stop - 1) if stop and stop > 2 else None
+        return next((p for p, n in s.order_at_ts(t) if n == num), None) if t else None
+    pool = []
+    for r in s.dnfs:
+        n = r["driver_number"]
+        w, st = _was(n), s.stop_lap(n)
+        if w and st and s.total_laps - st >= 3 and s.pace(n):
+            pool.append((w, n))
+    pool.sort()
+    if pool and pool[0][0] <= (10 if sprint else 12):
+        num = pool[0][1]
+        stop = s.stop_lap(num)
+        was = pool[0][0]
         left = s.total_laps - stop
         his = s.pace(num)
         rivals = [(s.pace(x["driver_number"]), x["driver_number"]) for x in s.result[:5]
@@ -1603,7 +1615,8 @@ def decision_cards(s: Session) -> list[dict]:
                  "state": [["Out on lap", f"{stop} of {s.total_laps}"],
                            [f"Start of lap {stop - 1}", f"P{was}"],
                            ["His median racing lap", fmt(his)],
-                           ["Quicker than", f"{len(beaten)} of the eventual top five"]],
+                           (["Quicker than", f"{len(beaten)} of the eventual top five"] if beaten
+                            else ["Pace", "Slower than all of the eventual top five"])],
                  "choices": [{"id": i, "label": l, "sub": sub} for i, l, sub in choices],
                  "actual": "",
                  "outcomes": {i: sub + "." for i, l, sub in choices},
@@ -1623,7 +1636,16 @@ def decision_cards(s: Session) -> list[dict]:
     if len(s.result) > 1:
         gap = q_gap(s.result[1])
         if gap:
-            top = max(2.0, round(gap * 4, 1))
+            # (30/10/2026) the end of the slider used to be four times the
+            # answer, so the answer sat at a quarter of the bar in every race
+            # and anybody who played two learned it. Now the headroom changes
+            # from race to race (fixed per race, the same for everybody who
+            # plays it) and the end is rounded to a number a person would pick,
+            # so the answer lands anywhere from about a fifth to three quarters.
+            import hashlib
+            k = 1.3 + int(hashlib.md5(f"{SLUG}-{s.total_laps}-{sprint}".encode()).hexdigest(), 16) % 1000 / 1000 * 2.4
+            top = next((n for n in (2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60, 75, 90, 120, 150, 200, 300, 600)
+                        if n >= max(2.0, gap * k)), round(gap * k))
             step = 0.05 if top <= 5 else (0.1 if top <= 20 else 0.5)
             lane = median(p["pit_duration"] for p in green_pits) if len(green_pits) >= 3 else None
             dur = s.racing_time()
@@ -2188,7 +2210,7 @@ def race_story(s: Session) -> list[dict]:
                         + ([f"Track sector {top_s[0]} saw {plural(top_n, 'call')}, more than anywhere else"]
                            if len(top_s) == 1 and top_n >= 3 else
                            [f"Track sectors {names_list([str(x) for x in sorted(top_s)])} saw "
-                            f"{top_n} each, the most of anywhere"]
+                            f"{top_n} calls each, more than anywhere else"]
                            if len(top_s) > 1 and top_n >= 3 else [])})
 
     blues = [m for m in in_race if m.get("flag") == "BLUE"]

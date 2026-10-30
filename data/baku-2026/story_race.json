@@ -307,7 +307,7 @@
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track",
-        "Track sectors 1 and 2 saw 4 each, the most of anywhere"
+        "Track sectors 1 and 2 saw 4 calls each, more than anywhere else"
       ]
     },
     {
@@ -389,6 +389,55 @@
         "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
       },
       "reveal": "The stewards gave Colapinto a 10s penalty. He did not reach the flag."
+    },
+    {
+      "type": "decision",
+      "lap": 36,
+      "kicker": "What if",
+      "title": "Gasly was P7 a lap before his race ended on lap 36. Where does he finish if it had not?",
+      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
+      "state": [
+        [
+          "Out on lap",
+          "36 of 51"
+        ],
+        [
+          "Start of lap 35",
+          "P7"
+        ],
+        [
+          "His median racing lap",
+          "1:48.547"
+        ],
+        [
+          "Pace",
+          "Slower than all of the eventual top five"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "podium",
+          "label": "He reaches the podium",
+          "sub": "Enough pace to climb"
+        },
+        {
+          "id": "points",
+          "label": "He keeps it in the points",
+          "sub": "Holds roughly where he was"
+        },
+        {
+          "id": "drop",
+          "label": "He drops out of the points",
+          "sub": "Tyres or traffic get him"
+        }
+      ],
+      "actual": "",
+      "outcomes": {
+        "podium": "Enough pace to climb.",
+        "points": "Holds roughly where he was.",
+        "drop": "Tyres or traffic get him."
+      },
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 1.13s a lap slower than Russell, who went on to win it. With 15 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check. Race control had logged an incident involving Norris, Gasly and Colapinto on lap 36."
     },
     {
       "type": "moment",
@@ -566,7 +615,7 @@
       "text": "51 laps, 1 hour 38 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 2.0,
+      "max": 2,
       "step": 0.05,
       "target": 0.196,
       "close": 0.3,

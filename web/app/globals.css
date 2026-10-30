@@ -1373,6 +1373,10 @@ a.how-act:hover { background: #f3f3f3; }
 .v-yellow .pts li::before { background: var(--yellow); }
 .v-red .pts li::before { background: #fff; }
 .v-sc .pts li::before { background: var(--yellow); }
+/* the flag card is centred: its dash sits with the line instead of out at the
+   left edge, a whole column away from the words it belongs to (30/10/2026) */
+.v-final .pts li { padding-left: 0; }
+.v-final .pts li::before { position: static; display: inline-block; vertical-align: middle; margin: -2px 9px 0 0; }
 
 /* the closing thought, which is a reflection rather than a fact and so reads
    as prose under the list instead of as one more item in it */

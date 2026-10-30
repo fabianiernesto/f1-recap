@@ -557,7 +557,7 @@
       "text": "70 laps, 1 hour 40 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 60.3,
+      "max": 40,
       "step": 0.5,
       "target": 15.08,
       "close": 6.032,

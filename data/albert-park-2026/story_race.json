@@ -101,6 +101,55 @@
       "note": "The timing feed records that he stopped, not why."
     },
     {
+      "type": "decision",
+      "lap": 11,
+      "kicker": "What if",
+      "title": "Hadjar was P5 a lap before his race ended on lap 11. Where does he finish if it had not?",
+      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
+      "state": [
+        [
+          "Out on lap",
+          "11 of 58"
+        ],
+        [
+          "Start of lap 10",
+          "P5"
+        ],
+        [
+          "His median racing lap",
+          "1:25.359"
+        ],
+        [
+          "Pace",
+          "Slower than all of the eventual top five"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "podium",
+          "label": "He reaches the podium",
+          "sub": "Enough pace to climb"
+        },
+        {
+          "id": "points",
+          "label": "He keeps it in the points",
+          "sub": "Holds roughly where he was"
+        },
+        {
+          "id": "drop",
+          "label": "He drops out of the points",
+          "sub": "Tyres or traffic get him"
+        }
+      ],
+      "actual": "",
+      "outcomes": {
+        "podium": "Enough pace to climb.",
+        "points": "Holds roughly where he was.",
+        "drop": "Tyres or traffic get him."
+      },
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 2.27s a lap slower than Russell, who went on to win it. With 47 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check."
+    },
+    {
       "type": "moment",
       "lap": 12,
       "kicker": "Lap 12 of 58 · Virtual Safety Car",
@@ -234,55 +283,6 @@
         "Started P17"
       ],
       "note": "The timing feed records that he stopped, not why."
-    },
-    {
-      "type": "decision",
-      "lap": 22,
-      "kicker": "What if",
-      "title": "Alonso was P18 a lap before his race ended on lap 22. Where does he finish if it had not?",
-      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
-      "state": [
-        [
-          "Out on lap",
-          "22 of 58"
-        ],
-        [
-          "Start of lap 21",
-          "P18"
-        ],
-        [
-          "His median racing lap",
-          "1:27.450"
-        ],
-        [
-          "Quicker than",
-          "0 of the eventual top five"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "points",
-          "label": "He fights into the points",
-          "sub": "A climb from there"
-        },
-        {
-          "id": "hold",
-          "label": "He stays about where he was",
-          "sub": "No pace to move"
-        },
-        {
-          "id": "drop",
-          "label": "He drops further back",
-          "sub": "Tyres or traffic get him"
-        }
-      ],
-      "actual": "",
-      "outcomes": {
-        "points": "A climb from there.",
-        "hold": "No pace to move.",
-        "drop": "Tyres or traffic get him."
-      },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 4.36s a lap slower than Russell, who went on to win it. With 36 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check."
     },
     {
       "type": "prediction",
@@ -500,7 +500,7 @@
       "text": "58 laps, 1 hour 23 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 11.9,
+      "max": 10,
       "step": 0.1,
       "target": 2.974,
       "close": 1.1896000000000002,

@@ -340,13 +340,26 @@ export default function RaceScroll({
       {/* the badge only repeated what the bar above already says, and both
           it and the lap counter were hidden behind that bar anyway */}
       <div className="hud">
-        <div className="lapbox">
-          <span className="lbl">LAP</span>
-          <span className="n">
-            {lap}
-            <small> / {story.laps}</small>
-          </span>
-        </div>
+        {/* (30/10/2026) only a race counts laps. Practice and qualifying cards
+            are numbered moments, not laps, and "LAP 3 / 36" there was the card
+            index over the most laps anybody ran: it counts the moments instead */}
+        {story.sessionSlug === "race" || story.sessionSlug === "sprint" ? (
+          <div className="lapbox">
+            <span className="lbl">LAP</span>
+            <span className="n">
+              {lap}
+              <small> / {story.laps}</small>
+            </span>
+          </div>
+        ) : (
+          <div className="lapbox">
+            <span className="lbl">MOMENT</span>
+            <span className="n">
+              {activeIdx + 1}
+              <small> / {cards.length}</small>
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="trackwrap">

@@ -378,55 +378,6 @@
       "note": "The timing feed records that he stopped, not why."
     },
     {
-      "type": "decision",
-      "lap": 46,
-      "kicker": "What if",
-      "title": "Stroll was P18 a lap before his race ended on lap 46. Where does he finish if it had not?",
-      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
-      "state": [
-        [
-          "Out on lap",
-          "46 of 71"
-        ],
-        [
-          "Start of lap 45",
-          "P18"
-        ],
-        [
-          "His median racing lap",
-          "1:15.455"
-        ],
-        [
-          "Quicker than",
-          "0 of the eventual top five"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "points",
-          "label": "He fights into the points",
-          "sub": "A climb from there"
-        },
-        {
-          "id": "hold",
-          "label": "He stays about where he was",
-          "sub": "No pace to move"
-        },
-        {
-          "id": "drop",
-          "label": "He drops further back",
-          "sub": "Tyres or traffic get him"
-        }
-      ],
-      "actual": "",
-      "outcomes": {
-        "points": "A climb from there.",
-        "hold": "No pace to move.",
-        "drop": "Tyres or traffic get him."
-      },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 3.79s a lap slower than Russell, who went on to win it. With 25 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check."
-    },
-    {
       "type": "moment",
       "lap": 49,
       "kicker": "True pace",
@@ -601,8 +552,8 @@
       "text": "71 laps, 1 hour 27 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 6.4,
-      "step": 0.1,
+      "max": 4,
+      "step": 0.05,
       "target": 1.611,
       "close": 0.6444000000000001,
       "reveal": "1.611 seconds after 71 laps. A trip down the pit lane took about 22s today, which is 13 times the margin this race was decided by."

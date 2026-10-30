@@ -324,6 +324,55 @@
       "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine."
     },
     {
+      "type": "decision",
+      "lap": 30,
+      "kicker": "What if",
+      "title": "Russell was P1 a lap before his race ended on lap 30. Where does he finish if it had not?",
+      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
+      "state": [
+        [
+          "Out on lap",
+          "30 of 68"
+        ],
+        [
+          "Start of lap 29",
+          "P1"
+        ],
+        [
+          "His median racing lap",
+          "1:16.273"
+        ],
+        [
+          "Quicker than",
+          "1 of the eventual top five"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "win",
+          "label": "He wins it",
+          "sub": "The pace was there"
+        },
+        {
+          "id": "podium",
+          "label": "Podium, not the win",
+          "sub": "Close, but not enough"
+        },
+        {
+          "id": "drop",
+          "label": "He drops back",
+          "sub": "Tyres or traffic get him"
+        }
+      ],
+      "actual": "",
+      "outcomes": {
+        "win": "The pace was there.",
+        "podium": "Close, but not enough.",
+        "drop": "Tyres or traffic get him."
+      },
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.70s a lap slower than Antonelli, who went on to win it. With 38 laps left, \"podium, not the win\" is the honest guess, and nobody gets to check. Race control had logged an incident involving Russell on lap 30."
+    },
+    {
       "type": "moment",
       "lap": 31,
       "kicker": "Lap 31 of 68 · Virtual Safety Car",
@@ -407,55 +456,6 @@
         "2 on-track passes before it happened"
       ],
       "note": "The timing feed records that he stopped, not why."
-    },
-    {
-      "type": "decision",
-      "lap": 40,
-      "kicker": "What if",
-      "title": "Perez was P15 a lap before his race ended on lap 40. Where does he finish if it had not?",
-      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
-      "state": [
-        [
-          "Out on lap",
-          "40 of 68"
-        ],
-        [
-          "Start of lap 39",
-          "P15"
-        ],
-        [
-          "His median racing lap",
-          "1:18.568"
-        ],
-        [
-          "Quicker than",
-          "0 of the eventual top five"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "points",
-          "label": "He fights into the points",
-          "sub": "A climb from there"
-        },
-        {
-          "id": "hold",
-          "label": "He stays about where he was",
-          "sub": "No pace to move"
-        },
-        {
-          "id": "drop",
-          "label": "He drops further back",
-          "sub": "Tyres or traffic get him"
-        }
-      ],
-      "actual": "",
-      "outcomes": {
-        "points": "A climb from there.",
-        "hold": "No pace to move.",
-        "drop": "Tyres or traffic get him."
-      },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 2.99s a lap slower than Antonelli, who went on to win it. With 28 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check."
     },
     {
       "type": "moment",
@@ -644,7 +644,7 @@
       "text": "68 laps, 1 hour 28 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 43.1,
+      "max": 30,
       "step": 0.5,
       "target": 10.768,
       "close": 4.307200000000001,

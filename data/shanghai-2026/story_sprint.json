@@ -331,55 +331,6 @@
       "reveal": "Russell came in. At the flag it was P1 Russell, P2 Leclerc, P3 Hamilton."
     },
     {
-      "type": "decision",
-      "lap": 13,
-      "kicker": "What if",
-      "title": "Hulkenberg was P16 a lap before his sprint ended on lap 13. Where does he finish if it had not?",
-      "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
-      "state": [
-        [
-          "Out on lap",
-          "13 of 19"
-        ],
-        [
-          "Start of lap 12",
-          "P16"
-        ],
-        [
-          "His median racing lap",
-          "1:38.966"
-        ],
-        [
-          "Quicker than",
-          "0 of the eventual top five"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "points",
-          "label": "He fights into the points",
-          "sub": "A climb from there"
-        },
-        {
-          "id": "hold",
-          "label": "He stays about where he was",
-          "sub": "No pace to move"
-        },
-        {
-          "id": "drop",
-          "label": "He drops further back",
-          "sub": "Tyres or traffic get him"
-        }
-      ],
-      "actual": "",
-      "outcomes": {
-        "points": "A climb from there.",
-        "hold": "No pace to move.",
-        "drop": "Tyres or traffic get him."
-      },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 2.06s a lap slower than Russell, who went on to win it. With 6 laps left, \"he stays about where he was\" is the honest guess, and nobody gets to check."
-    },
-    {
       "type": "moment",
       "lap": 15,
       "kicker": "A climb through the field",
@@ -510,7 +461,7 @@
       "text": "19 laps, about 34 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 2.7,
+      "max": 2,
       "step": 0.05,
       "target": 0.674,
       "close": 0.3,

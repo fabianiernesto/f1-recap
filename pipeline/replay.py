@@ -233,8 +233,11 @@ def build(s, bw, photo) -> dict | None:
             continue
         if sum(1 for pl, pn in nxt if pl == first_lap) > 1:
             continue
+        # the second round reads as the second round, not the same line again
+        again = any(c["kind"] == "stops" for c in calls)
         calls.append({"kind": "stops", "lap": L, "reveal": first_lap + 1,
-                      "q": "Who of the top three stops first?",
+                      "q": ("Next round of stops. Who of the top three blinks first?" if again
+                            else "Who of the top three stops first?"),
                       "ctx": f"Lap {L}. " + ", ".join(
                           f"{name(n)} on {(s.tyre_at_lap(n, L)[0] or 'his').lower()}s, {s.tyre_at_lap(n, L)[1] or '?'} laps old"
                           for n in top3) + ".",
@@ -257,8 +260,10 @@ def build(s, bw, photo) -> dict | None:
         if len(near) < 2:
             continue
         ids = sorted([num] + near, key=lambda n: o.index(n))
+        again = any(c["kind"] == "retire" for c in calls)
         calls.append({"kind": "retire", "lap": L, "reveal": out_lap,
-                      "q": "One of these three does not see the flag. Who?",
+                      "q": ("Another car will not make it home. Which of these three?" if again
+                            else "One of these three does not see the flag. Who?"),
                       "ctx": f"Lap {L}, {total - L} to go. All three are running.",
                       "options": [opt(n, L) for n in ids], "answer": str(num),
                       "why": f"{name(num)} stopped on lap {out_lap}."})

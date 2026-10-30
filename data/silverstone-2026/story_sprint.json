@@ -391,7 +391,7 @@
       "text": "17 laps, about 26 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 11.0,
+      "max": 6,
       "step": 0.1,
       "target": 2.745,
       "close": 1.098,

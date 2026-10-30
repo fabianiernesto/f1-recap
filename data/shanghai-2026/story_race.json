@@ -409,8 +409,8 @@
           "1:37.672"
         ],
         [
-          "Quicker than",
-          "0 of the eventual top five"
+          "Pace",
+          "Slower than all of the eventual top five"
         ]
       ],
       "choices": [
@@ -562,8 +562,8 @@
       "text": "56 laps, 1 hour 33 minutes of racing, and it comes down to this one number.",
       "unit": "s",
       "min": 0,
-      "max": 22.1,
-      "step": 0.5,
+      "max": 20,
+      "step": 0.1,
       "target": 5.515,
       "close": 2.206,
       "reveal": "5.515 seconds after 56 laps. A trip down the pit lane took about 23s today, which is 4 times the margin this race was decided by."
