@@ -9,9 +9,10 @@ import { Sequence, useCurrentFrame } from "remotion";
  *   beats   8-16   the intro flight
  *   beats  16-24   what it is: Racing Simplified, the website that explains every F1 race
  *   beats  24-32   01 Pick a race (the drums come in on 32)
- *   beats  32-91   02 Read it (Scrolled), one idea per shot
+ *   beats  32-69   02 Scrolled: every part of the weekend, its cards, and above all the decisions
+ *   beats  64-91   03 Play it: game 1, Call the race, played on camera
  *   beats  91-96   the breakdown (the bass drops out)
- *   beats  96-128  the drop: 03 Play it, drawn as infographics
+ *   beats  96-128  the drop: game 2, Paddock exchange, played on camera
  *   beats 128-160  the last phrase of the song: how it was built
  *   beats 160-     the end card, while the song rings out
  */

@@ -7,7 +7,7 @@
 | Carpeta | Qué es |
 |---|---|
 | `pipeline/` | Python. Lee FastF1 y OpenF1 y genera los JSON de cada GP en `data/<slug>/` |
-| `data/` | Los JSON finales, uno por GP (15 en 2026, de Albert Park a Bakú) |
+| `data/` | Los JSON finales, uno por GP (19 en 2026, de Albert Park a Ciudad de México) |
 | `web/` | Next.js (versión con cambios incompatibles: leer `web/AGENTS.md` y la guía en `web/node_modules/next/dist/docs/` antes de tocar código). `web/scripts/sync-data.mjs` copia `data/` en `web/data/` |
 | `video/` | Remotion. Vídeo 9:16 de 92 s a 60 fps, cortado al golpe de 110 BPM. Lo graba de la web real (`video/scripts/capture.mjs`) |
 | raíz | Documentos de concepto: `MVP.md`, `PRODUCT_MAP.md`, `DESIGN_DIRECTION.md`, moodboards |
@@ -18,7 +18,7 @@
 - **Web publicada (desde el 26/10/2026):** https://racing-simplified.vercel.app, proyecto `racing-simplified` en la cuenta de Vercel de Ernesto (plan Hobby). Se sube desde `web/` con `vercel deploy --prod --yes` en su terminal (la sesión de Vercel vive ahí, no en el Bash de Claude). `web/vercel.json` fija `framework: nextjs`: sin él Vercel servía solo `public/` y todas las páginas daban 404. Vercel no ve `../data`: antes de subir, `node web/scripts/sync-data.mjs` para que `web/data` esté al día. Sin Git conectado: cada cambio se sube a mano.
 - **Web como la verá la gente:** `node web/scripts/prod.mjs` sincroniza los datos, construye y sirve en el 3006; la configuración `f1-web-prod` sirve la última construcción sin rehacerla. Para enseñar la web a Ernesto o medir velocidad, siempre esta.
 - **Vídeo:** desde `video/`, `npx remotion studio` para previsualizar y `npx remotion render Showcase out/racing-simplified-9x16.mp4` para el MP4. Hay que renderizar de uno en uno: dos renders a la vez escriben el mismo MP4. Si Chrome no conecta a tiempo, se añade `--timeout=120000`. Antes de dar un MP4 por bueno, comprobar que la fecha del archivo es la nueva.
-- **Capturas del vídeo:** con la web levantada en el 3005, `node video/scripts/capture.mjs <clip...>` desde `video/`.
+- **Capturas del vídeo:** con la web levantada en el 3005, `node video/scripts/capture.mjs <clip...>` desde `video/`. Con un build de producción en otro puerto: `WEB=http://localhost:3006 node scripts/capture.mjs <clip...>`.
 
 ## 3. Cómo encaja una cosa con la otra
 
@@ -26,9 +26,11 @@ El vídeo enseña la web real: cada plano es una captura de una página. **Un ca
 
 | Página de la web | Clips del vídeo |
 |---|---|
-| Home (`/`) | `home`, `navhome` |
-| Sesiones (`/gp/<slug>/sessions`) | `sWeek` |
-| Carrera (`/gp/<slug>/race`): tarjetas, decisiones, guess y Alfred | `sTrack`, `sMoment`, `sPurple`, `sYellow`, `sPred`, `sSteward`, `sGuess`, `sMate`, `strips`, `race` |
+| Home (`/`) | `home`, `navhome`, `pNav` |
+| Sesiones (`/gp/<slug>/sessions`) | `sWeek`, `pWeek` |
+| Carrera (`/gp/<slug>/race`): tarjetas y decisiones | `sRaceCard`, `boxes`, `sSteward`, `sWall`, `sGuess`, `race` (Alfred, `sMate`, ya no sale); PC: `pRaceCard`, `pSteward`, `pWall`, `pGuess` |
+| Call the race (`/gp/<slug>/race/call`) | `playCall`, `pPlayCall` |
+| Paddock exchange (`/gp/<slug>/race/exchange`) | `playExchange`, `pPlayExchange` |
 | Blind test | `blind`, `blindplay` |
 | Pit wall | `pitwall` |
 
@@ -44,6 +46,7 @@ Todo cambio de la web hasta la v1 definitiva se traslada al vídeo de presentaci
 | 25/10/2026 | Velocidad: la cortina entre secciones dura ~0,7 de lo que duraba y la página nueva se carga detrás de ella; el hub y Alfred ya no se congelan | Si algún plano del vídeo graba una transición entre páginas (`navhome`), se regraba con el nuevo ritmo |
 | 30/10/2026 | **Vídeo regenerado con toda la cola anterior**: plano rojo en Read it (Mónaco, vuelta 68, sin alargar el acto: medio pulso menos a seis planos), 03 Play it con Call the race y Paddock exchange dibujados con datos reales de Silverstone (`video/scripts/activities.mjs`), pantallas nuevas en la intro, Built y la miniatura, todos los clips regrabados desde la web actual | Hecho. Pendiente solo la canción con licencia |
 | 26/10/2026 | **The ghost se retira** ("esperar media hora y dar un click no es una actividad") y entra **Paddock exchange** (`components/PaddockExchange.tsx`, ruta `/gp/<slug>/<race|sprint>/exchange`): cada piloto es una acción que vale su posición (último 5, +5 por puesto), la carrera real vuelta a vuelta en ~2 min, 1.000 de inicio, «Invest 100» / «Cash out», un abandono vale 0. Tarjeta de Actividades con la gráfica real de precios (`ExchangeArt`) | 03 Play it: el plano de The ghost pasa a ser la bolsa: el tablero moviéndose vuelta a vuelta, una compra barata y el «cash out» con ganancia |
+| 02/11/2026 | Fallo de datos corregido en local, sin commit ni despliegue: `standings()` de `lib/replay.ts` desempata por parrilla (antes de la primera pasada del líder salía la clasificación final, que destripaba la torre de Call the race y fijaba los precios de la vuelta 1 de Paddock exchange), y el precio de la bandera espera a que crucen todos | Hecho: `playCall` y `playExchange` grabados con el arreglo (v36) |
 | pendiente | Actividad 02 "Tu muro" (aprobada, por construir) y el tercer hueco (abierto) | 03 Play it entero: las tarjetas del drop, las infografías de Activities y las capturas `blind`, `blindplay` y `pitwall` |
 
 ## 4. Reglas que valen para todo
@@ -57,15 +60,43 @@ Todo cambio de la web hasta la v1 definitiva se traslada al vídeo de presentaci
   - su foto;
   - la tipografía pixel en el clímax;
   - "Coming soon";
-  - planos de 2 s en los que no se lee nada.
+  - planos de 2 s en los que no se lee nada;
+  - tiras inclinadas y marcos de móvil vacíos (v35: "super cutre");
+  - explicar las actividades con infografías en vez de jugarlas.
 - **Vídeo, lo que funciona:**
   - una idea por pantalla, quieta 2,5 s como mínimo;
+  - la web real a ancho completo bajo un solo titular, sin marco de móvil;
+  - titulares a 15-17 caracteres por segundo como máximo;
+  - las actividades jugadas en pantalla, con cuentas que cuadran;
   - zoom a lo que importa con el resto atenuado;
   - frase grande y línea pequeña;
   - cuchillas de luz en los cortes secos.
 - **El final del vídeo (Built from scratch y el end card) está aprobado y no se toca.**
 - **La música es provisional:** un rip de YouTube que no se puede publicar. Repetir trozos de la canción se oye roto. Cuando llegue la canción con licencia, se mide su tempo y se monta la banda nueva.
 - **Forma de trabajar con Ernesto:** "bro", en español, directo. Una petición cada vez. No tocar lo que no ha pedido. Verificar con capturas o tira de fotogramas antes de entregar y contar con honestidad qué se ha comprobado y qué no.
+
+### Disco y renders del vídeo (Ernesto, 03/11/2026)
+
+En octubre el disco bajó a 62 GB libres porque los renders dejaron unos 50 GB de basura. Son las mismas reglas que las del sistema de vídeo de José Collado.
+
+**Antes de renderizar**
+1. Se revisa con fotogramas sueltos o tramos cortos a media resolución. El render completo solo se lanza cuando el vídeo está listo para entregar, nunca para probar un cambio.
+2. Antes de cada render completo se mira el espacio libre y se le dice a Ernesto. Con menos de 50 GB libres, se para y se le avisa.
+3. No se lanza un render completo si un cambio ya previsto lo va a dejar obsoleto. Tampoco se para uno a medias sin motivo. Si se corta, se limpia en ese momento.
+
+**Después de cada tanda**
+4. Se mira en `%LOCALAPPDATA%\Temp` cuánto ocupan `react-motion-render*` y `remotion-webpack-bundle*` y se le dice a Ernesto. Antes de quitarlas se comprueba que no siga ningún render en marcha, tampoco de otro chat. Un render que termina bien borra las suyas; lo que queda es de renders cortados o fallidos.
+5. Al terminar se le dicen a Ernesto los GB libres antes y después.
+
+**Qué se guarda**
+6. En `video/out/`, solo el MP4 (y el máster, si lo hay) de la última versión entregada y de la aprobada. Fotogramas de revisión, tiras, logs y versiones anteriores se van en cuanto se entrega la siguiente.
+7. Los scripts y fotogramas de prueba van en el scratchpad o en una carpeta de revisión que se vacía al cerrar la versión. Nada de copias sueltas por el proyecto.
+
+**Cómo se borra**
+8. Siempre a la Papelera, nunca de forma permanente. Admite unos 26 GB: si se pasa, Windows borra en duro lo que no cabe, así que se manda por tandas y se avisa a Ernesto para vaciarla entre una y otra. El disco no se libera hasta que él la vacíe.
+9. `Temp\claude` no se borra a ciegas: ahí puede estar el único original de un trabajo.
+10. Si un `node_modules` es una unión a otro proyecto, se quita solo el enlace con `rmdir`, nunca el contenido. Ojo: el Chrome de Remotion de `video/node_modules` lo usan también los renders de José Collado.
+11. Antes de borrar, se mira qué es. Si un script lo usa o hay dudas, no se borra y se pregunta a Ernesto.
 
 ## 5. Trampas conocidas
 
@@ -76,13 +107,13 @@ Todo cambio de la web hasta la v1 definitiva se traslada al vídeo de presentaci
 - "CHEQUERED FLAG" contiene "RED FLAG".
 - Los heredocs de Bash se comen las barras invertidas: los parches se escriben con Write y luego se ejecutan.
 - El panel del navegador a veces pinta negro: se verifica con Chrome headless (Playwright desde `video/`).
-- Los renders de Remotion llenan `%TEMP%`.
+- Los renders de Remotion llenan `%TEMP%`: reglas en la sección 4, «Disco y renders del vídeo».
 - No editar `web/AGENTS.md`.
 
 ## 6. Estado y pendientes (actualizar al cerrar cada sesión)
 
 **Git:**
-- Repositorio en esta carpeta, rama `home-redesign-sep26`, con copia en GitHub (`fabianiernesto/f1-recap`). Desde el 30/10/2026 todo está commiteado en local (`9f73090`, `f8f70c4` y los del vídeo); a GitHub no se ha subido nada: subir es publicar y lo decide Ernesto.
+- Repositorio en esta carpeta, rama `home-redesign-sep26`, con copia en GitHub (`fabianiernesto/f1-recap`). Desde el 30/10/2026 todo está commiteado en local (`9f73090`, `f8f70c4` y los del vídeo); a GitHub no se ha subido nada: subir es publicar y lo decide Ernesto. Sin commit desde el 02/11/2026: la v36 del vídeo, los arreglos de `web/lib/replay.ts` y `web/components/PaddockExchange.tsx`, y la ronda del vídeo PC del 10-11/11.
 - `video/` entra en git sin su música, sus clips ni sus renders (`video/.gitignore`).
 - Los mensajes de commit van por archivo (`git commit -F`).
 
@@ -101,9 +132,28 @@ Todo cambio de la web hasta la v1 definitiva se traslada al vídeo de presentaci
   - Call the race: de 12 a 16 preguntas por carrera y de 5 a 9 por sprint (desde el 24/10). Se eligen por importancia y luego se ordenan por vuelta.
   - Tarjetas de Actividades: sin fotos de moodboard ("cutre, IA"); llevan el circuito con los coches reales y la foto oficial del piloto (`components/ActArt.tsx`).
   - Tras `build_weekend.py` de un GP: `python pipeline/replay.py <slug>`, `python pipeline/muro.py <slug>` y `node web/scripts/sync-data.mjs`.
-- GPs desde Singapur sin construir. El flujo por GP está en la memoria del proyecto y en `pipeline/`.
+- **Pasada de lanzamiento (02/11/2026):** auditoría contra formula1.com (DNS, salidas desde el pit lane, DSQ, sanciones de después de la carrera, paradas por reloj), juegos jugados en todas las sesiones, arreglos de iPhone, móvil y velocidad. Paddock exchange paga en la bandera la clasificación oficial (decisión del 02/11, avisada a Ernesto).
+- GPs construidos hasta México (1 nov). Sepang es el «Bahrain Grand Prix in Malaysia»; `official.py` no lo encuentra por país. Desde Interlagos (8 nov): `pipeline/add_circuit_openf1.py` (FastF1 da 401), luego `official.py <slug>` y `ff1laps.py <slug>` antes de `build_weekend.py`; `_run_all.py` ya los lleva.
+- **Decisiones del 03/11:** en Call the race fallar resta los puntos que le diste a la respuesta y el marcador puede bajar de cero; en Paddock exchange el botón es «Sell», no «Cash out».
+- **Hub LED en móvil, con su permiso (03/11):** por debajo de 900 px cada línea cabe entera (`--n` en `.ledhero-l1` lleva la longitud del nombre) y los botones van apilados, en fila si el móvil está en horizontal. **Sin R//S en móvil** («queda muy mal en formato móvil, eso fuera»): ni en el hub ni en la cortina entre páginas (`.ledhero-logo` y `.sting-mark` ocultos); el coche y el nombre llenan la pantalla. Por encima de 900 px no cambia nada: el escritorio sigue intocable sin permiso y conserva el R//S.
+- **Cursor de la web (03/11), pedido por él:** el de su portfolio, en `components/CustomCursor.tsx`: punto de 10 px que crece a 40 sobre lo pulsable. Solo con ratón; el móvil no lo lleva y el cursor nativo se oculta cuando se mueve el ratón (`html.has-cursor`). Invierte en grises (`backdrop-filter`), porque `difference` sale cian sobre el rojo de la web.
+- **Revisión de actividades (04/11):** Call the race da el veredicto «Too sure» con marcador negativo y al menos la mitad de aciertos. En Paddock exchange con ratón, las filas se quedan quietas sobre un botón y la compra cuenta al pulsar. Con ratón, «Challenge your group» copia el enlace; en móvil abre el panel nativo. Móvil en horizontal (`orientation: landscape` y `max-height: 500px`): cada juego cabe en una pantalla, con pregunta y respuestas lado a lado.
+- Pendiente de su permiso, hub en escritorio: panel sobre la S en Bakú, Marina Bay, Austin y México. `cars/default.webp` pesa 612 KB y hay un candidato de 131 KB en el scratchpad.
 
 **Vídeo:**
-- La v34 está aprobada (13/10/2026). El guion de Read it está en `video/GUION_INICIO.md`.
+- **v41 entregada el 03/11/2026, pendiente de su visto bueno.** Copias: `out/racing-simplified-9x16_v34.mp4` (la última aprobada, 13/10/2026), `_v35.mp4` (rechazada), `_v36.mp4`, `_v37.mp4`, `_v38.mp4`, `_v39.mp4`, `_v40.mp4` y `_v41.mp4`. Los rótulos respiran: títulos a 52 y 78, más aire entre etiqueta, título y explicación, y las pantallas empiezan en 490 (`GAME.y`, `PHONE.y`). Scrolled se queda en la carrera, sin saltar entre sesiones (saltar «marea mucho»): lista de sesiones, toque en Race y scroll por su página hasta dos tarjetas, y sin la fila de sesiones bajo el rótulo. En Call the race se juega la parada de Leclerc de la vuelta 24: es la pregunta cuya respuesta llega sola y antes de la siguiente, así que el marcador pasa de 0 a 50 con la respuesta real. Línea de tiempo en golpes: Intro 8-16, 01 Pick a race 16-32, 02 Scrolled 32-69 (las sesiones del fin de semana 32-36,5, la página de Race 36,5-47, 1,4 s de colores, «you decide» y muro, comisario y Guess jugados; clips `sWeek`, `sRaceCard`, `boxes`, `sWall`, `sSteward`, `sGuess`), 03 Play it 69-128 (Call the race 71-92, inmersión en el trazado 92-96, tarjeta y puertas 96-98,8, Paddock exchange desde 98; `scenes/Play.tsx`, clips `playCall` y `playExchange`), Built y end card con su diseño aprobado; solo cambian sus cifras de temporada (`node scripts/data.mjs`). La música es idéntica a la v34 (diferencia 0) y el drop sigue en el golpe 96; el golpe 64, donde entra el bombo, cae en el corte a Guess. Alfred salió del vídeo para dar tiempo a las decisiones.
+- **Vídeo PC aprobado el 11/11/2026** («Sí, cerrado»): `out/racing-simplified-16x9.mp4`, render del 11/11 a las 14:37, con 5.532 fotogramas, 92,2 s y el audio idéntico al de la v34 (diferencia 0). La ronda de cambios del 10-11/11 se hizo segundo a segundo, con un tramo y su sí en cada cambio:
+  - **Segundo 24:** sin «You decide». `pWall` empieza en el golpe 49,5 con la página bajando hasta la tarjeta del muro (`sWall` en `capture.mjs` admite `a` y `more`).
+  - **Tarjetas de colores** (golpes 45-49,5, `Boxes` en `ScrolledPC.tsx`): la página de carrera se desenfoca y tres tarjetas reales caen en pila, una por golpe, la de atrás a la vista por su color y su etiqueta. Clip `pBoxes`, solo PC: tomadas quietas, sin la pista de la página detrás y con `text-wrap: pretty`. Pidió más tiempo para verlas: la sección empieza dos golpes antes, quitados del final quieto de `pRaceCard`.
+  - **Entrada a los juegos** (golpes 67,4-73,8, `PlayIntroPC` en `PlayPC.tsx`): la cortina de cambio de la propia web (`PageFX`: cinco barras negras inclinadas con borde rojo encendido, sin R//S); en su centro, «Two games, built from the real race.»; la cortina sale y descubre los dos juegos lado a lado con sus nombres; el segundo se oscurece y el primero crece hasta su sitio. Rechazadas por el camino: la tarjeta roja con anillo y cuchillas de luz, paneles rojos, la página de Activities con clic, un semáforo de salida («ni de coña») y la pantalla partida sin cortina. Call the race empieza en el 73,8 con su carrera 0,8 golpes más tarde (`CALL_K0` 70,8, también en la inmersión); el +50 entra en el 89,5. Sin cuchillas de luz en los golpes 69 y 71.
+  - **Textos de la izquierda** (`Column` y `Mask` en `src/pc/kit.tsx`, un solo sistema para todo el vídeo): arriba, pequeño y fijo, el número del acto en rojo y su nombre en WIDE 26; debajo, la narración grande (BODY 600 a 48 px) y una línea de detalle a 30 px. Cada frase sube desde detrás de su borde y sale por arriba. Son 14 bloques de 2,2 a 5 s, a ~13 caracteres por segundo como mucho («los copys están muy bien, pero va demasiado rápido»). El copy está en `PICK_LINES` (`Opening.tsx`), `LINES` (`ScrolledPC.tsx`), `CALL_LINES` y `EXCHANGE_LINES` (`PlayPC.tsx`).
+  - **Revisión final de principio a fin:** el acto 01 dice «The season, race by race» (antes repetía «Every 2026 Grand Prix» de la pantalla del nombre); su columna entra cuando el título ya ha salido; fuera el anillo blanco del drop; el texto de Paddock exchange entra con las puertas ya abiertas; en Built, las cifras de «How it's built» van a 82 px para que «7,830» no se meta en «55».
+- **Pendiente del vídeo:** saber si el «You decide.» del vertical (`src/scenes/Scrolled.tsx`, golpes 49,5-51,5) se quita también; se le ha preguntado varias veces sin respuesta. La canción con licencia sigue pendiente.
+- **Formato PC (03/11), pedido por él:** `out/racing-simplified-16x9.mp4`, 1920x1080, composición `ShowcasePC` en `src/pc/`, con el mismo guion, tiempos y música que el vertical. Se renderiza con `npx remotion render ShowcasePC out/racing-simplified-16x9.mp4`. Portada: `npx remotion still ThumbnailPC out/thumbnail-pc.png`. Composición fija: texto a la izquierda (520 px) y web real a la derecha a toda altura, sin marcos. El puntero es el punto de la web, nunca la flecha de PC. La pantalla del nombre solo lleva «Racing Simplified» y su frase, sin R, tubo ni circuito. Clips `p*` en `capture.mjs` (`PC_CLIPS`, ventana de 1040x802 grabada a 1400x1080). El vertical no se toca: sus clips y escenas siguen aparte.
+- **Sin R//S ni URL en el vídeo (03/11):** ni en el cierre ni en la miniatura. La URL no sirve porque en un vídeo no se puede pulsar.
+- **Sin lenguaje de apuestas (03/11):** nada de bet, stake ni all in en la web o el vídeo. Niveles: A hunch, Pretty sure, Certain. Al elegir en Call the race, la opción se llena de rojo, el número salta, Lock brilla y la hoja baja.
+- `capture.mjs` encuentra las tarjetas por su texto (`CARD_EL`), no por posición: regenerar datos no las mueve. La caja roja es de Mónaco porque Silverstone no tuvo bandera roja.
+- El end card no lleva URL, decisión suya del 03/11: en un vídeo no se puede pulsar.
+- El guion antiguo (`video/GUION_INICIO.md`) ya no describe el vídeo: manda `scenes/Scrolled.tsx`.
 - Pendiente: canción con licencia (Pixabay, 105–115 BPM, drop hacia el segundo 48).
 - `video/README.md` está desfasado: habla de 30 fps, del puerto 3000 y de `time.ts`.
