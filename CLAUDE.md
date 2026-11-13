@@ -113,7 +113,8 @@ En octubre el disco bajó a 62 GB libres porque los renders dejaron unos 50 GB d
 ## 6. Estado y pendientes (actualizar al cerrar cada sesión)
 
 **Git:**
-- Repositorio en esta carpeta, rama `home-redesign-sep26`, con copia en GitHub (`fabianiernesto/f1-recap`). Desde el 30/10/2026 todo está commiteado en local (`9f73090`, `f8f70c4` y los del vídeo); a GitHub no se ha subido nada: subir es publicar y lo decide Ernesto. El vídeo PC aprobado está en el commit `120b033` (11/11/2026, solo en local). Sigue sin commit desde el 02/11/2026: la v36-v41 del vertical (`src/scenes/`, `Showcase.tsx`, `BeatFX.tsx`, `Thumbnail.tsx`), los datos regenerados de `data/` y los arreglos de `web/lib/replay.ts` y `web/components/PaddockExchange.tsx`.
+- Repositorio en esta carpeta, rama `home-redesign-sep26`, con copia en GitHub (`fabianiernesto/f1-recap`). A GitHub no se ha subido nada: subir es publicar y lo decide Ernesto. El vídeo PC aprobado está en el commit `120b033` (11/11/2026). **Desde el 13/11/2026 todo está commiteado** (`bb85b04`: Sepang a Interlagos, la v36-v41 del vertical, los datos regenerados y los arreglos del 02/11 en adelante); fuera de git a propósito solo `pipeline/_review/` y los logs.
+- **Web publicada al día el 13/11/2026:** despliegue con los 20 GP (212 URLs en el sitemap), comprobado en vivo. La sesión de Vercel ya funciona también desde el Bash de Claude (`npx vercel deploy --prod --yes` desde `web/`, tras `sync-data`). Antes de subir: las 213 páginas recorridas en escritorio y móvil sobre el build de producción, sin errores ni enlaces rotos.
 - `video/` entra en git sin su música, sus clips ni sus renders (`video/.gitignore`).
 - Los mensajes de commit van por archivo (`git commit -F`).
 
