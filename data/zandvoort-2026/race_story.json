@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Dutch Grand Prix · Race · 72 laps",
       "title": "Everything that happened, in order",
-      "text": "45 on-track passes, 42 pit stops, 6 cars that never finished, 2 virtual safety cars and a red flag that stopped the race."
+      "text": "36 on-track passes, 42 pit stops, 6 cars that never finished, 2 virtual safety cars and a red flag that stopped the race."
     },
     {
       "type": "moment",
@@ -20,7 +20,7 @@
       "title": "19 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "4 drivers gained 2 places each, the most of anybody"
+        "Bearman and Colapinto gained the most by the end of it, 4 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -47,18 +47,6 @@
       "note": "The timing feed records that he stopped, not why."
     },
     {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Lap 2 of 72 · Red flag",
-      "title": "The race was stopped",
-      "text": "Red flag: everybody into the pit lane and a wait for the track to be made safe.",
-      "bullets": [
-        "Norris was leading when it happened",
-        "Standing restart on lap 3"
-      ],
-      "note": "Teams can change tyres while the cars wait, which rewrites the strategies on the grid."
-    },
-    {
       "type": "prediction",
       "lap": 2,
       "kicker": "Call it before it happens",
@@ -70,7 +58,19 @@
         "Out of the points"
       ],
       "answer": "Somewhere in the points",
-      "reveal": "P18 to P9, 9 places gained."
+      "reveal": "Somewhere in the points. The exact place comes at the flag."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 of 72 · Red flag",
+      "title": "The race was stopped",
+      "text": "Red flag: everybody into the pit lane and a wait for the track to be made safe.",
+      "bullets": [
+        "Norris was leading when it happened",
+        "Standing restart on lap 5"
+      ],
+      "note": "Teams can change tyres while the cars wait, which rewrites the strategies on the grid."
     },
     {
       "type": "moment",
@@ -87,44 +87,12 @@
     {
       "type": "moment",
       "lap": 5,
-      "kicker": "Lap 5 · Traffic",
-      "title": "8 passes on this lap alone",
-      "text": "Only moves made on track count here, at racing speed.",
-      "bullets": [
-        "6 different drivers gained a place on this lap"
-      ],
-      "note": "A couple of laps after the restart, with the field still sorting itself out."
-    },
-    {
-      "type": "moment",
-      "lap": 5,
-      "kicker": "Lap 5 · For the lead",
-      "title": "Antonelli takes the lead from Norris",
-      "text": "A pass for the lead, made on track at racing speed."
-    },
-    {
-      "type": "moment",
-      "lap": 5,
       "kicker": "Yellow flags",
       "title": "Yellow flags out 5 times",
       "text": "Race control waves a yellow for anything on or near the track that should not be there.",
       "bullets": [
         "A yellow means slow down and do not overtake in that part of the track"
       ]
-    },
-    {
-      "type": "moment",
-      "lap": 5,
-      "kicker": "Penalties",
-      "title": "5 penalties handed out",
-      "text": "Given by the stewards during the race.",
-      "bullets": [
-        "Lindblad: a drive-through for yellow flag infringement",
-        "Colapinto: a drive-through for yellow flag infringement",
-        "Colapinto: a 10s penalty for yellow flag infringement",
-        "And 2 more"
-      ],
-      "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left. A drive-through is a trip down the pit lane at the speed limit without stopping."
     },
     {
       "type": "moment",
@@ -148,24 +116,20 @@
       "type": "moment",
       "lap": 24,
       "kicker": "The one doing the passing",
-      "title": "Ocon: 6 passes",
-      "text": "More than anybody else out there, in a Haas.",
+      "title": "Bortoleto and Ocon: 5 passes each",
+      "text": "Level on the most passes on track.",
       "bullets": [
-        "P15 on the grid, and did not reach the flag"
+        "Only moves made on track count, with the car ahead at racing speed"
       ],
       "dato": {
         "label": "Most passes",
         "rows": [
           [
-            "Ocon",
-            6
-          ],
-          [
-            "Hulkenberg",
+            "Bortoleto",
             5
           ],
           [
-            "Bortoleto",
+            "Ocon",
             5
           ],
           [
@@ -173,23 +137,26 @@
             4
           ],
           [
-            "Piastri",
+            "Hulkenberg",
             3
           ],
           [
-            "Stroll",
+            "Tsunoda",
             3
+          ],
+          [
+            "Lawson",
+            2
           ]
         ]
-      },
-      "note": "Only moves made on track count, with the car ahead at racing speed."
+      }
     },
     {
       "type": "moment",
       "lap": 32,
       "kicker": "Speed trap",
       "title": "Lindblad hit 336 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Lindblad did it in a Racing Bulls car"
       ],
@@ -203,8 +170,8 @@
       "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
         "Norris",
-        "Antonelli",
-        "Leclerc"
+        "Leclerc",
+        "Piastri"
       ],
       "answer": "Leclerc",
       "reveal": "Leclerc on lap 60, 1:14.230, in a Ferrari."
@@ -213,7 +180,7 @@
       "type": "decision",
       "lap": 34,
       "kicker": "Your call on the pit wall",
-      "title": "You are Norris, 1.1s behind Antonelli and going nowhere. Now what?",
+      "title": "You are Norris, 1.1s behind Antonelli. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -252,42 +219,18 @@
       ],
       "actual": "wait",
       "outcomes": {
-        "box": "You spend about 18s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "box": "You spend about 18s in the lane and come out in traffic, trusting that two fast laps on new tyres are worth more than the place you just gave up.",
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Norris came in on lap 47, 13 laps after this. He finished P1, Antonelli P2."
-    },
-    {
-      "type": "moment",
-      "lap": 35,
-      "kicker": "Within a second",
-      "title": "Gasly: 9 laps within a second of the car ahead",
-      "text": "The longest unbroken run like it in the race, from lap 27 to lap 35, at racing speed.",
-      "bullets": [
-        "8 other drivers had a run of five laps or more like it"
-      ],
-      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
-    },
-    {
-      "type": "moment",
-      "lap": 35,
-      "kicker": "Lap 35 · Pit window",
-      "title": "42 stops, and the busiest lap saw 5 of them",
-      "text": "Once one car stops, the cars around it have to answer.",
-      "bullets": [
-        "Busiest single lap was 21, with 5 cars in",
-        "Shortest time in the pit lane: Hulkenberg, 17.0s",
-        "Longest: Piastri, 20.2s"
-      ],
-      "note": "Pit lane time runs from the entry line to the exit line, stop included."
+      "reveal": "Norris came in on lap 47, 13 laps after this."
     },
     {
       "type": "decision",
       "lap": 35,
       "kicker": "You are the steward",
       "title": "Lap 35: an incident between Piastri and Hamilton at Turn 1. What do you give?",
-      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
+      "text": "Race control has flagged it and it lands on your desk. If one driver is to blame, what does he get? Same call the stewards had to make.",
       "state": [
         [
           "Lap",
@@ -329,6 +272,44 @@
     },
     {
       "type": "moment",
+      "lap": 5,
+      "kicker": "Penalties",
+      "title": "5 penalties handed out",
+      "text": "Given by the stewards during the race.",
+      "bullets": [
+        "Lindblad: a drive-through for yellow flag infringement",
+        "Colapinto: a drive-through for yellow flag infringement",
+        "Colapinto: a 10s penalty for yellow flag infringement",
+        "And 2 more"
+      ],
+      "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left. A drive-through is a trip down the pit lane at the speed limit without stopping."
+    },
+    {
+      "type": "moment",
+      "lap": 35,
+      "kicker": "Within a second",
+      "title": "Gasly: 9 laps within a second of the car ahead",
+      "text": "The longest unbroken run like it in the race, from lap 27 to lap 35, at racing speed.",
+      "bullets": [
+        "7 other drivers had a run of five laps or more like it"
+      ],
+      "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
+    },
+    {
+      "type": "moment",
+      "lap": 35,
+      "kicker": "Lap 35 · Pit window",
+      "title": "42 stops, and the busiest lap saw 5 of them",
+      "text": "Once one car stops, the cars around it have to answer.",
+      "bullets": [
+        "Busiest single lap was 21, with 5 cars in",
+        "Shortest time in the pit lane: Hulkenberg, 17.0s",
+        "Longest: Piastri, 20.2s"
+      ],
+      "note": "Pit lane time runs from the entry line to the exit line, stop included."
+    },
+    {
+      "type": "moment",
       "lap": 43,
       "kicker": "Blue flags",
       "title": "111 blue flags waved",
@@ -343,9 +324,8 @@
       "bullets": [
         "P18 at the start of lap 45",
         "Started P19",
-        "3 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+        "2 on-track passes before it happened"
+      ]
     },
     {
       "type": "moment",
@@ -358,27 +338,27 @@
         "rows": [
           [
             "Antonelli",
-            "1:16.208"
+            "1:16.201"
+          ],
+          [
+            "Leclerc",
+            "1:16.317"
           ],
           [
             "Norris",
             "1:16.325"
           ],
           [
-            "Leclerc",
-            "1:16.392"
-          ],
-          [
             "Hamilton",
-            "1:16.427"
+            "1:16.398"
           ],
           [
             "Russell",
-            "1:16.569"
+            "1:16.557"
           ],
           [
             "Piastri",
-            "1:16.753"
+            "1:16.727"
           ]
         ]
       }
@@ -392,9 +372,8 @@
       "bullets": [
         "P14 at the start of lap 52",
         "Started P15",
-        "6 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+        "5 on-track passes before it happened"
+      ]
     },
     {
       "type": "moment",
@@ -439,6 +418,20 @@
       }
     },
     {
+      "type": "prediction",
+      "lap": 62,
+      "kicker": "Call it before it happens",
+      "title": "One of these three does not see the chequered flag. Who?",
+      "text": "Nothing on the timing screens says it is coming.",
+      "options": [
+        "Albon",
+        "Colapinto",
+        "Sainz"
+      ],
+      "answer": "Albon",
+      "reveal": "Albon, on lap 67 of 72. Race control had logged an incident involving Sainz and Albon at Turn 1."
+    },
+    {
       "type": "moment",
       "lap": 62,
       "kicker": "Lap 62 · Retirement",
@@ -447,22 +440,7 @@
       "bullets": [
         "P18 at the start of lap 61",
         "Started P21"
-      ],
-      "note": "The timing feed records that he stopped, not why."
-    },
-    {
-      "type": "prediction",
-      "lap": 62,
-      "kicker": "Call it before it happens",
-      "title": "One of these three does not see the chequered flag. Who?",
-      "text": "Nothing on the timing screens says it is coming.",
-      "options": [
-        "Norris",
-        "Antonelli",
-        "Albon"
-      ],
-      "answer": "Albon",
-      "reveal": "Albon, on lap 67 of 72. The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -485,9 +463,9 @@
       "bullets": [
         "P15 at the start of lap 66",
         "Started P16",
-        "1 on-track pass before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+        "1 on-track pass before it happened",
+        "Race control logged an incident with Sainz and Albon at Turn 1 on lap 70"
+      ]
     },
     {
       "type": "moment",
@@ -496,7 +474,7 @@
       "title": "Alonso: P18 on the grid, P9 at the flag",
       "text": "9 places gained.",
       "bullets": [
-        "2 on-track passes along the way",
+        "1 on-track pass along the way",
         "3 cars that started ahead of him retired"
       ]
     },
@@ -522,6 +500,20 @@
         "On the hards, lap 35 to lap 71"
       ],
       "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+    },
+    {
+      "type": "guess",
+      "lap": 72,
+      "kicker": "Guess it",
+      "title": "How far behind was Antonelli at the flag?",
+      "text": "72 laps, 1 hour 37 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 20,
+      "step": 0.1,
+      "target": 11.536,
+      "close": 4.6144,
+      "reveal": "11.536 seconds after 72 laps. A trip down the pit lane took about 18s today, which is 1.6 times this gap."
     },
     {
       "type": "moment",
@@ -577,20 +569,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 72,
-      "kicker": "Guess it",
-      "title": "How far behind was Antonelli at the flag?",
-      "text": "72 laps, 1 hour 37 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 20,
-      "step": 0.1,
-      "target": 11.536,
-      "close": 4.6144,
-      "reveal": "11.536 seconds after 72 laps. A trip down the pit lane took about 18s today, which is 1.6 times the margin this race was decided by."
     }
   ],
   "result": {

@@ -1,0 +1,105 @@
+{
+  "gp": "Bahrain Grand Prix in Malaysia 2026",
+  "session": "Practice 3",
+  "sessionSlug": "fp3",
+  "circuit": "Sepang",
+  "laps": 24,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Bahrain Grand Prix in Malaysia · Practice 3",
+      "title": "Practice, honestly",
+      "text": "347 laps run and no points on offer. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 8",
+      "title": "Antonelli: 1:36.302",
+      "text": "In a Mercedes. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Lindblad racked up 22 laps",
+      "text": "Track time is the currency of a practice Saturday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Lindblad",
+            22
+          ],
+          [
+            "Perez",
+            19
+          ],
+          [
+            "Colapinto",
+            19
+          ],
+          [
+            "Gasly",
+            19
+          ],
+          [
+            "Sainz",
+            19
+          ],
+          [
+            "Leclerc",
+            18
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "SOFT",
+            79
+          ],
+          [
+            "MEDIUM",
+            10
+          ],
+          [
+            "HARD",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Lawson topped the trap at 336 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "Flags out 1 time, and the session stopped once",
+      "text": "A red flag sends everybody back to the pits and the clock keeps running. Whatever run you were on is gone, and so is the time to repeat it."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 52°C and 59°C",
+      "text": "Practice conditions rarely match the race, which is one more reason these times mislead."
+    }
+  ]
+}

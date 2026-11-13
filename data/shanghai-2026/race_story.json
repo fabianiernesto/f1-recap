@@ -20,9 +20,23 @@
       "title": "35 places changed hands on track before the first lap was done",
       "text": "18 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Alonso gained the most by the end of it, 8 places"
+        "Lindblad, Lawson and Alonso gained the most by the end of it, 5 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
+    },
+    {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Sainz starts P17. Where does he finish?",
+      "text": "56 laps to make up ground from there.",
+      "options": [
+        "On the podium",
+        "Somewhere in the points",
+        "Out of the points"
+      ],
+      "answer": "Somewhere in the points",
+      "reveal": "Somewhere in the points. The exact place comes at the flag."
     },
     {
       "type": "moment",
@@ -43,18 +57,47 @@
       "text": "A pass for the lead, made on track at racing speed."
     },
     {
-      "type": "prediction",
-      "lap": 2,
-      "kicker": "Call it before it happens",
-      "title": "Sainz starts P17. Where does he finish?",
-      "text": "56 laps to make up ground from there.",
-      "options": [
-        "On the podium",
-        "Somewhere in the points",
-        "Out of the points"
+      "type": "decision",
+      "lap": 10,
+      "kicker": "Your call on the pit wall",
+      "title": "Safety car with 46 laps left. You are leading. Box or stay out?",
+      "text": "The pack is about to bunch up behind you and a stop costs far less than usual, except that everybody behind can copy you and anyone who stays out may come out ahead.",
+      "state": [
+        [
+          "Running",
+          "P1, Antonelli"
+        ],
+        [
+          "Laps left",
+          "46"
+        ],
+        [
+          "Tyres",
+          "Medium, 9 laps old"
+        ],
+        [
+          "Gap to P2",
+          "1.4s when it came out"
+        ]
       ],
-      "answer": "Somewhere in the points",
-      "reveal": "P17 to P9, 8 places gained."
+      "choices": [
+        {
+          "id": "box",
+          "label": "Box for fresh tyres",
+          "sub": "Grip for the restart, at the risk of track position"
+        },
+        {
+          "id": "stay",
+          "label": "Stay out and defend",
+          "sub": "Keep the lead on older tyres"
+        }
+      ],
+      "actual": "box",
+      "outcomes": {
+        "box": "New rubber under a safety car is close to free. If the cars behind follow you in, the order holds. If they stay out, your gap has to cover the stop.",
+        "stay": "You keep the lead and restart on older tyres, with a queue of fresher cars in your mirrors and no gap to hide in."
+      },
+      "reveal": "Antonelli came in."
     },
     {
       "type": "moment",
@@ -104,49 +147,6 @@
         "Started P20"
       ],
       "note": "The timing feed records that he stopped, not why."
-    },
-    {
-      "type": "decision",
-      "lap": 10,
-      "kicker": "Your call on the pit wall",
-      "title": "Safety car with 46 laps left. You are leading. Box or stay out?",
-      "text": "The pack is bunched up behind you and a stop costs far less than usual, except that everybody behind can copy you and the one who does not gets the lead.",
-      "state": [
-        [
-          "Running",
-          "P1, Antonelli"
-        ],
-        [
-          "Laps left",
-          "46"
-        ],
-        [
-          "Tyres",
-          "Medium, 9 laps old"
-        ],
-        [
-          "Gap to P2",
-          "Wiped out by the safety car"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "box",
-          "label": "Box for fresh tyres",
-          "sub": "Grip for the restart, hand over track position"
-        },
-        {
-          "id": "stay",
-          "label": "Stay out and defend",
-          "sub": "Keep the lead on older tyres"
-        }
-      ],
-      "actual": "box",
-      "outcomes": {
-        "box": "New rubber under a safety car is close to free, and it only works if the cars behind stay out. If they all follow you in, you have spent your lead for nothing.",
-        "stay": "You keep the lead and restart on older tyres, with a queue of fresher cars in your mirrors and no gap to hide in."
-      },
-      "reveal": "Antonelli came in. At the flag it was P1 Antonelli, P2 Russell, P3 Hamilton."
     },
     {
       "type": "moment",
@@ -222,7 +222,7 @@
       "lap": 25,
       "kicker": "Speed trap",
       "title": "Gasly hit 353 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Gasly did it in an Alpine"
       ],
@@ -236,7 +236,7 @@
       "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
         "Antonelli",
-        "Hamilton",
+        "Ocon",
         "Russell"
       ],
       "answer": "Antonelli",
@@ -254,55 +254,6 @@
       "note": "Every one of them on track, with no stops around it."
     },
     {
-      "type": "decision",
-      "lap": 32,
-      "kicker": "Your call on the pit wall",
-      "title": "You are Leclerc, 0.9s behind Russell and going nowhere. Now what?",
-      "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
-      "state": [
-        [
-          "Running",
-          "P3"
-        ],
-        [
-          "Gap ahead",
-          "0.9s to Russell"
-        ],
-        [
-          "Tyres",
-          "Hard, 21 laps old"
-        ],
-        [
-          "Time in the pit lane",
-          "about 23s today"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "box",
-          "label": "Box now and undercut",
-          "sub": "Fresh tyres, clean air, two laps to make it pay"
-        },
-        {
-          "id": "wait",
-          "label": "Stay out and overcut",
-          "sub": "Let him stop first, then push on an empty track"
-        },
-        {
-          "id": "attack",
-          "label": "Forget strategy, pass him",
-          "sub": "Send it and take the risk"
-        }
-      ],
-      "actual": "wait",
-      "outcomes": {
-        "box": "You spend about 23s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
-        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
-        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
-      },
-      "reveal": "Leclerc did not stop again. He finished P4, Russell P2."
-    },
-    {
       "type": "moment",
       "lap": 33,
       "kicker": "Lap 33 · Retirement",
@@ -312,8 +263,7 @@
         "P17 at the start of lap 32",
         "Started P18",
         "1 on-track pass before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -370,11 +320,11 @@
       "text": "Nothing on the timing screens says it is coming.",
       "options": [
         "Verstappen",
-        "Antonelli",
-        "Russell"
+        "Gasly",
+        "Bearman"
       ],
       "answer": "Verstappen",
-      "reveal": "Verstappen, on lap 46 of 56. The timing feed records that he stopped, not why."
+      "reveal": "Verstappen, on lap 46 of 56."
     },
     {
       "type": "moment",
@@ -386,8 +336,7 @@
         "P6 at the start of lap 45",
         "Started P8",
         "8 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "decision",
@@ -436,7 +385,7 @@
         "points": "Holds roughly where he was.",
         "drop": "Tyres or traffic get him."
       },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 1.29s a lap slower than Antonelli, who went on to win it. With 10 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check."
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 1.14s a lap slower than the car that went on to win it, over the same laps. With 10 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check."
     },
     {
       "type": "moment",
@@ -477,6 +426,20 @@
         "2 on-track passes along the way",
         "1 car that started ahead of him retired"
       ]
+    },
+    {
+      "type": "guess",
+      "lap": 56,
+      "kicker": "Guess it",
+      "title": "How far behind was Russell at the flag?",
+      "text": "56 laps, 1 hour 33 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 20,
+      "step": 0.1,
+      "target": 5.515,
+      "close": 2.206,
+      "reveal": "5.515 seconds after 56 laps. A trip down the pit lane took about 23s today, which is 4 times this gap."
     },
     {
       "type": "moment",
@@ -553,20 +516,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 56,
-      "kicker": "Guess it",
-      "title": "How far behind was Russell at the flag?",
-      "text": "56 laps, 1 hour 33 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 20,
-      "step": 0.1,
-      "target": 5.515,
-      "close": 2.206,
-      "reveal": "5.515 seconds after 56 laps. A trip down the pit lane took about 23s today, which is 4 times the margin this race was decided by."
     }
   ],
   "result": {

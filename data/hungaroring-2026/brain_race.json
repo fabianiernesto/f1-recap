@@ -17,6 +17,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 25,
       "stops": [
         17,
@@ -51,6 +54,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 18,
       "stops": [
         14,
@@ -84,6 +90,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 15,
       "stops": [
         22,
@@ -116,6 +125,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 12,
       "stops": [
         16,
@@ -150,6 +162,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 10,
       "stops": [
         13,
@@ -184,6 +199,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 8,
       "stops": [
         19,
@@ -216,6 +234,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 6,
       "stops": [
         27,
@@ -248,6 +269,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 4,
       "stops": [
         21,
@@ -281,6 +305,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 2,
       "stops": [
         19,
@@ -314,6 +341,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 1,
       "stops": [
         20
@@ -345,6 +375,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         29
@@ -376,6 +409,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         16,
@@ -410,6 +446,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         8,
@@ -443,6 +482,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         34,
@@ -476,6 +518,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         15,
@@ -508,6 +553,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         17,
@@ -540,6 +588,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         26,
@@ -573,6 +624,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         18,
@@ -607,6 +661,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         22,
@@ -644,6 +701,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 56,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         16,
@@ -676,8 +736,12 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 49,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": true,
       "points": 0,
       "stops": [
+        21,
         46
       ],
       "compounds": [
@@ -694,7 +758,7 @@
       "fastestLap": false,
       "gap": null,
       "vsWinner": 4.547,
-      "extraStops": -1
+      "extraStops": 0
     },
     "bottas": {
       "name": "Bottas",
@@ -707,6 +771,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 14,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -764,7 +831,8 @@
       "Lindblad pitted"
     ],
     "21": [
-      "Lawson pitted"
+      "Lawson pitted",
+      "Perez pitted"
     ],
     "22": [
       "Antonelli pitted",
@@ -866,7 +934,7 @@
       ],
       "say": [
         "Norris took it",
-        "McLaren. started P1, led 34 of 70 laps"
+        "driving for McLaren, from P1 on the grid, and he led 34 of 70 laps"
       ]
     },
     {
@@ -939,7 +1007,7 @@
         "pitted"
       ],
       "say": [
-        "44 stops in the whole race",
+        "45 stops in the whole race",
         "you spend about 22s in the pit lane here"
       ]
     },
@@ -1102,6 +1170,20 @@
       ]
     },
     {
+      "id": "dsq",
+      "keys": [
+        "disqualified",
+        "disqualification",
+        "dsq",
+        "thrown out",
+        "descalificado",
+        "excluded"
+      ],
+      "say": [
+        "nobody was disqualified from the race"
+      ]
+    },
+    {
       "id": "grid",
       "keys": [
         "start",
@@ -1113,7 +1195,7 @@
         "pole"
       ],
       "say": [
-        "27 places changed hands on track on lap 1",
+        "27 position changes on lap 1",
         "cold tyres, cold brakes, full fuel and everybody going for the same gap"
       ]
     }

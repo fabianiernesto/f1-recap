@@ -1,0 +1,101 @@
+{
+  "gp": "Bahrain Grand Prix in Malaysia 2026",
+  "session": "Practice 2",
+  "sessionSlug": "fp2",
+  "circuit": "Sepang",
+  "laps": 33,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Bahrain Grand Prix in Malaysia · Practice 2",
+      "title": "Practice, honestly",
+      "text": "614 laps run and no points on offer. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 9",
+      "title": "Leclerc: 1:37.528",
+      "text": "In a Ferrari. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Lindblad racked up 32 laps",
+      "text": "Track time is the currency of a practice Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Lindblad",
+            32
+          ],
+          [
+            "Sainz",
+            30
+          ],
+          [
+            "Colapinto",
+            30
+          ],
+          [
+            "Bearman",
+            29
+          ],
+          [
+            "Hulkenberg",
+            29
+          ],
+          [
+            "Albon",
+            29
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "SOFT",
+            56
+          ],
+          [
+            "MEDIUM",
+            44
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Bottas topped the trap at 331 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "Flags out 3 times",
+      "text": "Every interruption costs somebody a run they had planned."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 52°C and 60°C",
+      "text": "Practice conditions rarely match the race, which is one more reason these times mislead."
+    }
+  ]
+}

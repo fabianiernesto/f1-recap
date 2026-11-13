@@ -2,7 +2,7 @@
  "session": "Race",
  "laps": 66,
  "economics": {
-  "pitLoss": 24.4,
+  "pitLoss": 24.6,
   "fuelTrend": -0.0265,
   "tyres": {
    "MEDIUM": {
@@ -11,17 +11,17 @@
     "laps": 258
    },
    "SOFT": {
-    "deg": 0.0384,
-    "base": 0.378,
-    "laps": 126
+    "deg": 0.1425,
+    "base": -0.379,
+    "laps": 117
    },
    "HARD": {
-    "deg": 0.0817,
-    "base": -0.162,
-    "laps": 641
+    "deg": 0.0825,
+    "base": -0.172,
+    "laps": 652
    }
   },
-  "typicalDeg": 0.0817
+  "typicalDeg": 0.132
  },
  "ladder": [
   {
@@ -92,26 +92,26 @@
       {
        "label": "4 laps earlier",
        "lap": 7,
-       "lost": 3.2,
+       "lost": 2.1,
        "real": false,
        "note": "7 laps on the softs, then 20 on the hards.",
-       "delta": 2.5,
+       "delta": 2.1,
        "rejoin": {
         "pos": 13,
         "ahead": [
          "Gasly",
-         0.7
+         0.9
         ],
         "behind": [
          "Sainz",
-         1.1
+         0.9
         ]
        }
       },
       {
        "label": "Box him now, lap 11",
        "lap": 11,
-       "lost": 0.7,
+       "lost": 0.0,
        "real": true,
        "note": "11 laps on the softs, then 16 on the hards.",
        "delta": 0.0,
@@ -130,10 +130,10 @@
       {
        "label": "4 laps later",
        "lap": 15,
-       "lost": 0.0,
+       "lost": 1.5,
        "real": false,
        "note": "15 laps on the softs, then 12 on the hards.",
-       "delta": -0.7,
+       "delta": 1.5,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -149,10 +149,10 @@
       {
        "label": "8 laps later",
        "lap": 19,
-       "lost": 1.3,
+       "lost": 6.6,
        "real": false,
        "note": "19 laps on the softs, then 8 on the hards.",
-       "delta": 0.6,
+       "delta": 6.6,
        "rejoin": {
         "pos": 2,
         "ahead": [
@@ -168,10 +168,10 @@
       {
        "label": "12 laps later",
        "lap": 23,
-       "lost": 4.4,
+       "lost": 15.3,
        "real": false,
        "note": "23 laps on the softs, then 4 on the hards.",
-       "delta": 3.7,
+       "delta": 15.3,
        "rejoin": {
         "pos": 2,
         "ahead": [
@@ -185,7 +185,7 @@
        }
       }
      ],
-     "reading": "The softs lose 38ms a lap as they age, the hards 82ms. The stint has to reach lap 27 either way.",
+     "reading": "The softs lose 142ms a lap as they age, the hards 82ms. The stint has to reach lap 27 either way.",
      "scored": true
     },
     {
@@ -279,7 +279,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         1.0
+         1.2
         ]
        }
       },
@@ -294,7 +294,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         10.9
+         11.1
         ]
        }
       },
@@ -309,7 +309,7 @@
         "pos": 1,
         "behind": [
          "Antonelli",
-         19.7
+         19.9
         ]
        }
       }
@@ -339,15 +339,15 @@
       {
        "label": "8 laps earlier",
        "lap": 33,
-       "lost": 9.1,
+       "lost": 9.2,
        "real": false,
        "note": "6 laps on the mediums, then 33 on the hards.",
-       "delta": 9.1,
+       "delta": 9.2,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         15.1
+         15.3
         ]
        }
       },
@@ -362,7 +362,7 @@
         "pos": 1,
         "behind": [
          "Leclerc",
-         39.1
+         39.3
         ]
        }
       },
@@ -377,15 +377,15 @@
       {
        "label": "4 laps later",
        "lap": 45,
-       "lost": 0.6,
+       "lost": 0.5,
        "real": false,
        "note": "18 laps on the mediums, then 21 on the hards.",
-       "delta": 0.6,
+       "delta": 0.5,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         53.7
+         54.1
         ]
        }
       },
@@ -400,7 +400,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         57.1
+         57.5
         ]
        }
       },
@@ -415,7 +415,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         59.7
+         60.1
         ]
        }
       }
@@ -443,23 +443,23 @@
      ],
      "options": [
       {
-       "label": "Soft",
-       "lap": 41,
-       "lost": 0.0,
-       "real": false,
-       "note": "38ms a lap of wear, over 25 laps."
-      },
-      {
        "label": "Hard",
        "lap": 41,
-       "lost": 0.6,
+       "lost": 0.0,
        "real": true,
        "note": "82ms a lap of wear, over 25 laps."
       },
       {
+       "label": "Soft",
+       "lap": 41,
+       "lost": 14.3,
+       "real": false,
+       "note": "142ms a lap of wear, over 25 laps."
+      },
+      {
        "label": "Medium",
        "lap": 41,
-       "lost": 17.3,
+       "lost": 16.7,
        "real": false,
        "note": "132ms a lap of wear, over 25 laps."
       }
@@ -476,103 +476,103 @@
      "from": 1,
      "comp": "SOFT",
      "next": "HARD",
-     "deg": 0.0384,
+     "deg": 0.1425,
      "laps": {
       "4": {
-       "d": 5.8,
+       "d": 6.0,
        "rejoin": {
         "pos": 19,
         "ahead": [
          "Perez",
-         1.4
+         1.6
         ],
         "behind": [
          "Bottas",
-         1.2
+         1.0
         ]
        }
       },
       "5": {
-       "d": 4.6,
+       "d": 4.5,
        "rejoin": {
         "pos": 17,
         "ahead": [
          "Bortoleto",
-         1.2
+         1.4
         ],
         "behind": [
          "Albon",
-         0.3
+         0.1
         ]
        }
       },
       "6": {
-       "d": 3.5,
+       "d": 3.2,
        "rejoin": {
         "pos": 14,
         "ahead": [
          "Sainz",
-         1.4
+         1.6
         ],
         "behind": [
          "Ocon",
-         0.4
+         0.2
         ]
        }
       },
       "7": {
-       "d": 2.6,
+       "d": 2.1,
        "rejoin": {
         "pos": 13,
         "ahead": [
          "Gasly",
-         0.7
+         0.9
         ],
         "behind": [
          "Sainz",
-         1.1
+         0.9
         ]
        }
       },
       "8": {
-       "d": 1.8,
+       "d": 1.2,
        "rejoin": {
         "pos": 11,
         "ahead": [
          "Hadjar",
-         0.4
+         0.6
         ],
         "behind": [
          "Colapinto",
-         1.2
+         1.0
         ]
        }
       },
       "9": {
-       "d": 1.0,
+       "d": 0.6,
        "rejoin": {
         "pos": 9,
         "ahead": [
          "Hulkenberg",
-         2.0
+         2.2
         ],
         "behind": [
          "Hadjar",
-         0.6
+         0.4
         ]
        }
       },
       "10": {
-       "d": 0.5,
+       "d": 0.2,
        "rejoin": {
         "pos": 10,
         "ahead": [
          "Lawson",
-         2.0
+         2.2
         ],
         "behind": [
          "Lindblad",
-         0.3
+         0.1
         ]
        }
       },
@@ -591,7 +591,7 @@
        }
       },
       "12": {
-       "d": -0.3,
+       "d": 0.0,
        "rejoin": {
         "pos": 6,
         "ahead": [
@@ -605,7 +605,7 @@
        }
       },
       "13": {
-       "d": -0.6,
+       "d": 0.3,
        "rejoin": {
         "pos": 5,
         "ahead": [
@@ -619,7 +619,7 @@
        }
       },
       "14": {
-       "d": -0.7,
+       "d": 0.8,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -641,10 +641,10 @@
      "from": 12,
      "comp": "HARD",
      "next": "MEDIUM",
-     "deg": 0.0817,
+     "deg": 0.0825,
      "laps": {
       "15": {
-       "d": 23.3,
+       "d": 23.4,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -784,7 +784,7 @@
        }
       },
       "25": {
-       "d": 1.8,
+       "d": 1.7,
        "rejoin": {
         "pos": 2,
         "ahead": [
@@ -817,7 +817,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         1.0
+         1.2
         ]
        }
       },
@@ -827,7 +827,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         3.5
+         3.7
         ]
        }
       },
@@ -837,7 +837,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         6.5
+         6.7
         ]
        }
       },
@@ -847,7 +847,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         8.9
+         9.1
         ]
        }
       }
@@ -863,42 +863,42 @@
      "deg": 0.132,
      "laps": {
       "31": {
-       "d": 13.6,
+       "d": 13.7,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         10.9
+         11.1
         ]
        }
       },
       "32": {
-       "d": 11.2,
+       "d": 11.4,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         13.5
+         13.7
         ]
        }
       },
       "33": {
-       "d": 9.1,
+       "d": 9.2,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         15.1
+         15.3
         ]
        }
       },
       "34": {
-       "d": 7.2,
+       "d": 7.3,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         16.7
+         16.9
         ]
        }
       },
@@ -908,17 +908,17 @@
         "pos": 1,
         "behind": [
          "Antonelli",
-         19.7
+         19.9
         ]
        }
       },
       "36": {
-       "d": 4.1,
+       "d": 4.2,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Antonelli",
-         24.2
+         24.4
         ]
        }
       },
@@ -928,17 +928,17 @@
         "pos": 1,
         "behind": [
          "Leclerc",
-         39.1
+         39.3
         ]
        }
       },
       "38": {
-       "d": 1.8,
+       "d": 1.9,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         40.7
+         40.9
         ]
        }
       },
@@ -948,7 +948,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         47.2
+         47.4
         ]
        }
       },
@@ -961,17 +961,17 @@
         "pos": 1,
         "behind": [
          "Russell",
-         53.5
+         53.9
         ]
        }
       },
       "45": {
-       "d": 0.6,
+       "d": 0.5,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         53.7
+         54.1
         ]
        }
       },
@@ -981,7 +981,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         54.5
+         54.9
         ]
        }
       },
@@ -991,7 +991,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         55.4
+         55.8
         ]
        }
       },
@@ -1001,7 +1001,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         56.0
+         56.4
         ]
        }
       },
@@ -1011,37 +1011,37 @@
         "pos": 1,
         "behind": [
          "Russell",
-         57.1
+         57.5
         ]
        }
       },
       "50": {
-       "d": 6.1,
+       "d": 6.0,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         57.7
+         58.1
         ]
        }
       },
       "51": {
-       "d": 7.8,
+       "d": 7.7,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         58.6
+         59.0
         ]
        }
       },
       "52": {
-       "d": 9.8,
+       "d": 9.7,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Russell",
-         59.2
+         59.6
         ]
        }
       },
@@ -1051,7 +1051,7 @@
         "pos": 1,
         "behind": [
          "Russell",
-         59.7
+         60.1
         ]
        }
       }
@@ -1113,19 +1113,19 @@
       {
        "label": "8 laps earlier",
        "lap": 4,
-       "lost": 10.8,
+       "lost": 10.9,
        "real": false,
        "note": "4 laps on the mediums, then 32 on the hards.",
-       "delta": 10.6,
+       "delta": 10.7,
        "rejoin": {
         "pos": 18,
         "ahead": [
          "Albon",
-         0.1
+         0.3
         ],
         "behind": [
          "Perez",
-         1.0
+         0.8
         ]
        }
       },
@@ -1140,11 +1140,11 @@
         "pos": 9,
         "ahead": [
          "Hulkenberg",
-         0.6
+         0.8
         ],
         "behind": [
          "Lindblad",
-         2.5
+         2.3
         ]
        }
       },
@@ -1185,10 +1185,10 @@
       {
        "label": "8 laps later",
        "lap": 20,
-       "lost": 3.3,
+       "lost": 3.2,
        "real": false,
        "note": "20 laps on the mediums, then 16 on the hards.",
-       "delta": 3.1,
+       "delta": 3.0,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1242,10 +1242,10 @@
       {
        "label": "12 laps earlier",
        "lap": 24,
-       "lost": 19.6,
+       "lost": 19.8,
        "real": false,
        "note": "12 laps on the hards, then 42 on the hards.",
-       "delta": 18.6,
+       "delta": 18.8,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1257,10 +1257,10 @@
       {
        "label": "8 laps earlier",
        "lap": 28,
-       "lost": 10.8,
+       "lost": 10.9,
        "real": false,
        "note": "16 laps on the hards, then 38 on the hards.",
-       "delta": 9.8,
+       "delta": 9.9,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1295,7 +1295,7 @@
         "pos": 1,
         "behind": [
          "Antonelli",
-         6.7
+         6.9
         ]
        }
       },
@@ -1318,7 +1318,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         19.7
+         19.9
         ]
        }
       },
@@ -1333,12 +1333,60 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         17.2
+         17.4
         ]
        }
       }
      ],
      "reading": "The hards lose 82ms a lap as they age, the hards 82ms. The stint has to reach lap 66 either way.",
+     "scored": true
+    },
+    {
+     "lap": 36,
+     "kicker": "The last set",
+     "question": "30 laps to the flag. What goes on the car?",
+     "facts": [
+      [
+       "Running",
+       "P2"
+      ],
+      [
+       "Tyre",
+       "hard, 23 laps old"
+      ],
+      [
+       "Ahead",
+       "Antonelli"
+      ],
+      [
+       "Behind",
+       "Hamilton"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Hard",
+       "lap": 36,
+       "lost": 0.0,
+       "real": true,
+       "note": "82ms a lap of wear, over 30 laps."
+      },
+      {
+       "label": "Soft",
+       "lap": 36,
+       "lost": 21.7,
+       "real": false,
+       "note": "142ms a lap of wear, over 30 laps."
+      },
+      {
+       "label": "Medium",
+       "lap": 36,
+       "lost": 23.7,
+       "real": false,
+       "note": "132ms a lap of wear, over 30 laps."
+      }
+     ],
+     "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters.",
      "scored": true
     }
    ],
@@ -1353,30 +1401,30 @@
      "deg": 0.132,
      "laps": {
       "4": {
-       "d": 10.6,
+       "d": 10.7,
        "rejoin": {
         "pos": 18,
         "ahead": [
          "Albon",
-         0.1
+         0.3
         ],
         "behind": [
          "Perez",
-         1.0
+         0.8
         ]
        }
       },
       "5": {
-       "d": 8.5,
+       "d": 8.6,
        "rejoin": {
         "pos": 14,
         "ahead": [
          "Sainz",
-         1.2
+         1.4
         ],
         "behind": [
          "Ocon",
-         0.3
+         0.1
         ]
        }
       },
@@ -1386,25 +1434,25 @@
         "pos": 13,
         "ahead": [
          "Gasly",
-         0.0
+         0.2
         ],
         "behind": [
          "Sainz",
-         1.7
+         1.5
         ]
        }
       },
       "7": {
-       "d": 5.0,
+       "d": 5.1,
        "rejoin": {
         "pos": 10,
         "ahead": [
          "Lindblad",
-         0.2
+         0.4
         ],
         "behind": [
          "Hadjar",
-         0.3
+         0.1
         ]
        }
       },
@@ -1414,25 +1462,25 @@
         "pos": 9,
         "ahead": [
          "Hulkenberg",
-         0.6
+         0.8
         ],
         "behind": [
          "Lindblad",
-         2.5
+         2.3
         ]
        }
       },
       "9": {
        "d": 2.4,
        "rejoin": {
-        "pos": 7,
+        "pos": 8,
         "ahead": [
-         "Piastri",
-         9.7
+         "Lawson",
+         0.0
         ],
         "behind": [
-         "Lawson",
-         0.2
+         "Hulkenberg",
+         1.1
         ]
        }
       },
@@ -1442,11 +1490,11 @@
         "pos": 7,
         "ahead": [
          "Piastri",
-         9.2
+         9.4
         ],
         "behind": [
          "Hulkenberg",
-         3.0
+         2.8
         ]
        }
       },
@@ -1456,11 +1504,11 @@
         "pos": 7,
         "ahead": [
          "Hamilton",
-         3.4
+         3.6
         ],
         "behind": [
          "Hulkenberg",
-         1.4
+         1.2
         ]
        }
       },
@@ -1507,7 +1555,7 @@
        }
       },
       "15": {
-       "d": -0.4,
+       "d": -0.5,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1557,7 +1605,7 @@
        }
       },
       "20": {
-       "d": 3.1,
+       "d": 3.0,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1577,7 +1625,7 @@
        }
       },
       "22": {
-       "d": 6.0,
+       "d": 5.9,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1587,7 +1635,7 @@
        }
       },
       "23": {
-       "d": 7.8,
+       "d": 7.7,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1605,10 +1653,10 @@
      "from": 13,
      "comp": "HARD",
      "next": "HARD",
-     "deg": 0.0817,
+     "deg": 0.0825,
      "laps": {
       "24": {
-       "d": 18.6,
+       "d": 18.8,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1618,7 +1666,7 @@
        }
       },
       "25": {
-       "d": 16.2,
+       "d": 16.3,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1628,7 +1676,7 @@
        }
       },
       "26": {
-       "d": 13.9,
+       "d": 14.0,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1638,7 +1686,7 @@
        }
       },
       "27": {
-       "d": 11.8,
+       "d": 11.9,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1648,7 +1696,7 @@
        }
       },
       "28": {
-       "d": 9.8,
+       "d": 9.9,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1658,7 +1706,7 @@
        }
       },
       "29": {
-       "d": 8.0,
+       "d": 8.1,
        "rejoin": {
         "pos": 1,
         "behind": [
@@ -1737,7 +1785,7 @@
         "pos": 1,
         "behind": [
          "Antonelli",
-         6.7
+         6.9
         ]
        }
       },
@@ -1747,7 +1795,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         7.5
+         7.7
         ]
        }
       },
@@ -1757,7 +1805,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         8.1
+         8.3
         ]
        }
       },
@@ -1767,7 +1815,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         1.6
+         1.8
         ]
        }
       },
@@ -1780,7 +1828,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         19.7
+         19.9
         ]
        }
       },
@@ -1790,7 +1838,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         19.5
+         19.7
         ]
        }
       },
@@ -1800,7 +1848,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         18.7
+         18.9
         ]
        }
       },
@@ -1810,7 +1858,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         17.8
+         18.0
         ]
        }
       },
@@ -1820,7 +1868,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         17.2
+         17.4
         ]
        }
       }
@@ -1881,19 +1929,19 @@
       {
        "label": "8 laps earlier",
        "lap": 5,
-       "lost": 8.2,
+       "lost": 8.3,
        "real": false,
        "note": "5 laps on the mediums, then 30 on the hards.",
-       "delta": 8.2,
+       "delta": 8.3,
        "rejoin": {
         "pos": 19,
         "ahead": [
          "Perez",
-         2.3
+         2.5
         ],
         "behind": [
          "Bottas",
-         1.1
+         1.0
         ]
        }
       },
@@ -1905,14 +1953,14 @@
        "note": "9 laps on the mediums, then 26 on the hards.",
        "delta": 2.4,
        "rejoin": {
-        "pos": 12,
+        "pos": 13,
         "ahead": [
-         "Colapinto",
-         0.5
-        ],
-        "behind": [
          "Gasly",
          0.1
+        ],
+        "behind": [
+         "Sainz",
+         1.8
         ]
        }
       },
@@ -2022,10 +2070,10 @@
       {
        "label": "12 laps earlier",
        "lap": 23,
-       "lost": 23.5,
+       "lost": 23.8,
        "real": false,
        "note": "10 laps on the hards, then 43 on the hards.",
-       "delta": 21.5,
+       "delta": 21.8,
        "rejoin": {
         "pos": 4,
         "ahead": [
@@ -2041,10 +2089,10 @@
       {
        "label": "8 laps earlier",
        "lap": 27,
-       "lost": 13.7,
+       "lost": 13.9,
        "real": false,
        "note": "14 laps on the hards, then 39 on the hards.",
-       "delta": 11.7,
+       "delta": 11.9,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -2060,10 +2108,10 @@
       {
        "label": "4 laps earlier",
        "lap": 31,
-       "lost": 6.5,
+       "lost": 6.6,
        "real": false,
        "note": "18 laps on the hards, then 35 on the hards.",
-       "delta": 4.5,
+       "delta": 4.6,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -2087,11 +2135,11 @@
         "pos": 2,
         "ahead": [
          "Antonelli",
-         1.0
+         0.8
         ],
         "behind": [
          "Russell",
-         2.7
+         2.9
         ]
        }
       },
@@ -2106,11 +2154,11 @@
         "pos": 2,
         "ahead": [
          "Hamilton",
-         1.1
+         0.9
         ],
         "behind": [
          "Russell",
-         21.7
+         21.9
         ]
        }
       },
@@ -2125,27 +2173,68 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         17.4
+         17.6
         ]
        }
       },
       {
        "label": "12 laps later",
        "lap": 47,
-       "lost": 3.9,
+       "lost": 4.0,
        "real": false,
        "note": "34 laps on the hards, then 19 on the hards.",
-       "delta": 1.9,
+       "delta": 2.0,
        "rejoin": {
         "pos": 1,
         "behind": [
          "Hamilton",
-         14.5
+         14.7
         ]
        }
       }
      ],
      "reading": "The hards lose 82ms a lap as they age, the hards 82ms. The stint has to reach lap 66 either way.",
+     "scored": true
+    },
+    {
+     "lap": 35,
+     "kicker": "The last set",
+     "question": "31 laps to the flag. What goes on the car?",
+     "facts": [
+      [
+       "Running",
+       "P3"
+      ],
+      [
+       "Tyre",
+       "hard, 21 laps old"
+      ],
+      [
+       "Ahead",
+       "Antonelli, 4.9s up"
+      ],
+      [
+       "Behind",
+       "Hamilton"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Hard",
+       "lap": 35,
+       "lost": 0.0,
+       "real": true,
+       "note": "82ms a lap of wear, over 31 laps."
+      },
+      {
+       "label": "Medium",
+       "lap": 35,
+       "lost": 25.3,
+       "real": false,
+       "note": "132ms a lap of wear, over 31 laps."
+      }
+     ],
+     "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters.",
      "scored": true
     }
    ],
@@ -2160,30 +2249,30 @@
      "deg": 0.132,
      "laps": {
       "4": {
-       "d": 10.2,
+       "d": 10.3,
        "rejoin": {
         "pos": 21,
         "ahead": [
          "Alonso",
-         0.4
+         0.6
         ],
         "behind": [
          "Stroll",
-         6.7
+         6.5
         ]
        }
       },
       "5": {
-       "d": 8.2,
+       "d": 8.3,
        "rejoin": {
         "pos": 19,
         "ahead": [
          "Perez",
-         2.3
+         2.5
         ],
         "behind": [
          "Bottas",
-         1.1
+         1.0
         ]
        }
       },
@@ -2193,53 +2282,53 @@
         "pos": 18,
         "ahead": [
          "Albon",
-         1.0
+         1.2
         ],
         "behind": [
          "Perez",
-         0.5
+         0.3
         ]
        }
       },
       "7": {
-       "d": 4.9,
+       "d": 5.0,
        "rejoin": {
         "pos": 16,
         "ahead": [
          "Bearman",
-         0.4
+         0.6
         ],
         "behind": [
          "Bortoleto",
-         0.6
+         0.4
         ]
        }
       },
       "8": {
-       "d": 3.5,
+       "d": 3.6,
        "rejoin": {
         "pos": 14,
         "ahead": [
          "Sainz",
-         0.7
+         0.9
         ],
         "behind": [
          "Ocon",
-         1.2
+         1.0
         ]
        }
       },
       "9": {
        "d": 2.4,
        "rejoin": {
-        "pos": 12,
+        "pos": 13,
         "ahead": [
-         "Colapinto",
-         0.5
-        ],
-        "behind": [
          "Gasly",
          0.1
+        ],
+        "behind": [
+         "Sainz",
+         1.8
         ]
        }
       },
@@ -2249,11 +2338,11 @@
         "pos": 10,
         "ahead": [
          "Lawson",
-         1.7
+         1.9
         ],
         "behind": [
          "Lindblad",
-         0.5
+         0.3
         ]
        }
       },
@@ -2263,11 +2352,11 @@
         "pos": 9,
         "ahead": [
          "Hadjar",
-         1.2
+         1.4
         ],
         "behind": [
          "Lindblad",
-         2.7
+         2.5
         ]
        }
       },
@@ -2277,11 +2366,11 @@
         "pos": 9,
         "ahead": [
          "Hulkenberg",
-         0.1
+         0.3
         ],
         "behind": [
          "Lindblad",
-         1.1
+         0.9
         ]
        }
       },
@@ -2412,7 +2501,7 @@
        }
       },
       "22": {
-       "d": 7.1,
+       "d": 7.0,
        "rejoin": {
         "pos": 4,
         "ahead": [
@@ -2434,10 +2523,10 @@
      "from": 14,
      "comp": "HARD",
      "next": "HARD",
-     "deg": 0.0817,
+     "deg": 0.0825,
      "laps": {
       "23": {
-       "d": 21.6,
+       "d": 21.8,
        "rejoin": {
         "pos": 4,
         "ahead": [
@@ -2451,7 +2540,7 @@
        }
       },
       "24": {
-       "d": 18.9,
+       "d": 19.1,
        "rejoin": {
         "pos": 4,
         "ahead": [
@@ -2465,7 +2554,7 @@
        }
       },
       "25": {
-       "d": 16.3,
+       "d": 16.5,
        "rejoin": {
         "pos": 4,
         "ahead": [
@@ -2479,7 +2568,7 @@
        }
       },
       "26": {
-       "d": 14.0,
+       "d": 14.1,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -2493,7 +2582,7 @@
        }
       },
       "27": {
-       "d": 11.8,
+       "d": 11.9,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -2507,7 +2596,7 @@
        }
       },
       "28": {
-       "d": 9.7,
+       "d": 9.8,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -2521,7 +2610,7 @@
        }
       },
       "29": {
-       "d": 7.8,
+       "d": 7.9,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -2535,7 +2624,7 @@
        }
       },
       "30": {
-       "d": 6.1,
+       "d": 6.2,
        "rejoin": {
         "pos": 3,
         "ahead": [
@@ -2610,11 +2699,11 @@
         "pos": 2,
         "ahead": [
          "Antonelli",
-         1.0
+         0.8
         ],
         "behind": [
          "Russell",
-         2.7
+         2.9
         ]
        }
       },
@@ -2624,7 +2713,7 @@
         "pos": 1,
         "behind": [
          "Antonelli",
-         4.2
+         4.4
         ]
        }
       },
@@ -2634,7 +2723,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         4.6
+         4.8
         ]
        }
       },
@@ -2644,7 +2733,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         5.3
+         5.5
         ]
        }
       },
@@ -2654,16 +2743,16 @@
         "pos": 2,
         "ahead": [
          "Hamilton",
-         1.1
+         0.9
         ],
         "behind": [
          "Russell",
-         21.7
+         21.9
         ]
        }
       },
       "40": {
-       "d": -2.0
+       "d": -2.1
       },
       "44": {
        "d": -0.7,
@@ -2671,7 +2760,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         16.6
+         16.8
         ]
        }
       },
@@ -2681,7 +2770,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         16.2
+         16.4
         ]
        }
       },
@@ -2691,7 +2780,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         15.4
+         15.6
         ]
        }
       },
@@ -2701,7 +2790,7 @@
         "pos": 1,
         "behind": [
          "Hamilton",
-         14.5
+         14.7
         ]
        }
       }
@@ -2722,6 +2811,488 @@
     [
      "HARD",
      36,
+     66
+    ]
+   ]
+  },
+  {
+   "name": "Verstappen",
+   "number": 3,
+   "team": "Red Bull Racing",
+   "colour": "4781D7",
+   "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
+   "start": 5,
+   "finish": 4,
+   "margin": 16.778,
+   "calls": [
+    {
+     "lap": 12,
+     "kicker": "The first stop",
+     "question": "When do you box him?",
+     "facts": [
+      [
+       "Running",
+       "P4"
+      ],
+      [
+       "Tyre",
+       "soft, 11 laps old"
+      ],
+      [
+       "Ahead",
+       "Norris, 4.8s up"
+      ],
+      [
+       "Behind",
+       "Leclerc"
+      ]
+     ],
+     "options": [
+      {
+       "label": "8 laps earlier",
+       "lap": 4,
+       "lost": 17.4,
+       "real": false,
+       "note": "4 laps on the softs, then 25 on the mediums.",
+       "delta": 16.0,
+       "rejoin": {
+        "pos": 21,
+        "ahead": [
+         "Alonso",
+         2.0
+        ],
+        "behind": [
+         "Stroll",
+         5.1
+        ]
+       }
+      },
+      {
+       "label": "4 laps earlier",
+       "lap": 8,
+       "lost": 7.2,
+       "real": false,
+       "note": "8 laps on the softs, then 21 on the mediums.",
+       "delta": 5.8,
+       "rejoin": {
+        "pos": 15,
+        "ahead": [
+         "Ocon",
+         1.2
+        ],
+        "behind": [
+         "Bearman",
+         0.0
+        ]
+       }
+      },
+      {
+       "label": "Box him now, lap 12",
+       "lap": 12,
+       "lost": 1.4,
+       "real": true,
+       "note": "12 laps on the softs, then 17 on the mediums.",
+       "delta": 0.0,
+       "rejoin": {
+        "pos": 8,
+        "ahead": [
+         "Hadjar",
+         1.6
+        ],
+        "behind": [
+         "Hulkenberg",
+         2.1
+        ]
+       }
+      },
+      {
+       "label": "4 laps later",
+       "lap": 16,
+       "lost": 0.0,
+       "real": false,
+       "note": "16 laps on the softs, then 13 on the mediums.",
+       "delta": -1.4,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         3.7
+        ],
+        "behind": [
+         "Leclerc",
+         8.4
+        ]
+       }
+      },
+      {
+       "label": "8 laps later",
+       "lap": 20,
+       "lost": 3.0,
+       "real": false,
+       "note": "20 laps on the softs, then 9 on the mediums.",
+       "delta": 1.6,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         5.5
+        ],
+        "behind": [
+         "Leclerc",
+         5.1
+        ]
+       }
+      },
+      {
+       "label": "12 laps later",
+       "lap": 24,
+       "lost": 10.3,
+       "real": false,
+       "note": "24 laps on the softs, then 5 on the mediums.",
+       "delta": 8.9,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         7.8
+        ],
+        "behind": [
+         "Leclerc",
+         2.5
+        ]
+       }
+      }
+     ],
+     "reading": "The softs lose 142ms a lap as they age, the mediums 132ms. The stint has to reach lap 29 either way.",
+     "scored": true
+    }
+   ],
+   "windows": [
+    {
+     "stop": 12,
+     "lo": 4,
+     "hi": 24,
+     "from": 1,
+     "comp": "SOFT",
+     "next": "MEDIUM",
+     "deg": 0.1425,
+     "laps": {
+      "4": {
+       "d": 16.0,
+       "rejoin": {
+        "pos": 21,
+        "ahead": [
+         "Alonso",
+         2.0
+        ],
+        "behind": [
+         "Stroll",
+         5.1
+        ]
+       }
+      },
+      "5": {
+       "d": 13.0,
+       "rejoin": {
+        "pos": 20,
+        "ahead": [
+         "Bottas",
+         0.6
+        ],
+        "behind": [
+         "Alonso",
+         1.0
+        ]
+       }
+      },
+      "6": {
+       "d": 10.4,
+       "rejoin": {
+        "pos": 19,
+        "ahead": [
+         "Perez",
+         1.3
+        ],
+        "behind": [
+         "Bottas",
+         2.6
+        ]
+       }
+      },
+      "7": {
+       "d": 7.9,
+       "rejoin": {
+        "pos": 18,
+        "ahead": [
+         "Albon",
+         0.0
+        ],
+        "behind": [
+         "Perez",
+         1.5
+        ]
+       }
+      },
+      "8": {
+       "d": 5.8,
+       "rejoin": {
+        "pos": 15,
+        "ahead": [
+         "Ocon",
+         1.2
+        ],
+        "behind": [
+         "Bearman",
+         0.0
+        ]
+       }
+      },
+      "9": {
+       "d": 3.9,
+       "rejoin": {
+        "pos": 14,
+        "ahead": [
+         "Sainz",
+         1.4
+        ],
+        "behind": [
+         "Ocon",
+         1.0
+        ]
+       }
+      },
+      "10": {
+       "d": 2.4,
+       "rejoin": {
+        "pos": 13,
+        "ahead": [
+         "Gasly",
+         1.6
+        ],
+        "behind": [
+         "Sainz",
+         0.8
+        ]
+       }
+      },
+      "11": {
+       "d": 1.0,
+       "rejoin": {
+        "pos": 13,
+        "ahead": [
+         "Sainz",
+         1.3
+        ],
+        "behind": [
+         "Ocon",
+         1.8
+        ]
+       }
+      },
+      "12": {
+       "d": 0.0,
+       "rejoin": {
+        "pos": 8,
+        "ahead": [
+         "Hadjar",
+         1.6
+        ],
+        "behind": [
+         "Hulkenberg",
+         2.1
+        ]
+       }
+      },
+      "13": {
+       "d": -0.8,
+       "rejoin": {
+        "pos": 7,
+        "ahead": [
+         "Norris",
+         3.6
+        ],
+        "behind": [
+         "Hadjar",
+         1.6
+        ]
+       }
+      },
+      "14": {
+       "d": -1.3,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         3.2
+        ],
+        "behind": [
+         "Hadjar",
+         8.0
+        ]
+       }
+      },
+      "15": {
+       "d": -1.5,
+       "rejoin": {
+        "pos": 6,
+        "ahead": [
+         "Norris",
+         3.2
+        ],
+        "behind": [
+         "Piastri",
+         10.1
+        ]
+       }
+      },
+      "16": {
+       "d": -1.4,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         3.7
+        ],
+        "behind": [
+         "Leclerc",
+         8.4
+        ]
+       }
+      },
+      "17": {
+       "d": -1.1,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         4.2
+        ],
+        "behind": [
+         "Leclerc",
+         8.0
+        ]
+       }
+      },
+      "18": {
+       "d": -0.5,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         4.3
+        ],
+        "behind": [
+         "Leclerc",
+         7.6
+        ]
+       }
+      },
+      "19": {
+       "d": 0.4,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         5.0
+        ],
+        "behind": [
+         "Leclerc",
+         6.4
+        ]
+       }
+      },
+      "20": {
+       "d": 1.6,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         5.5
+        ],
+        "behind": [
+         "Leclerc",
+         5.1
+        ]
+       }
+      },
+      "21": {
+       "d": 3.0,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         6.2
+        ],
+        "behind": [
+         "Leclerc",
+         4.4
+        ]
+       }
+      },
+      "22": {
+       "d": 4.7,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         6.7
+        ],
+        "behind": [
+         "Leclerc",
+         3.4
+        ]
+       }
+      },
+      "23": {
+       "d": 6.7,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         7.2
+        ],
+        "behind": [
+         "Leclerc",
+         2.9
+        ]
+       }
+      },
+      "24": {
+       "d": 8.9,
+       "rejoin": {
+        "pos": 5,
+        "ahead": [
+         "Norris",
+         7.8
+        ],
+        "behind": [
+         "Leclerc",
+         2.5
+        ]
+       }
+      }
+     }
+    }
+   ],
+   "stints": [
+    [
+     "SOFT",
+     1,
+     12
+    ],
+    [
+     "MEDIUM",
+     13,
+     29
+    ],
+    [
+     "HARD",
+     30,
+     40
+    ],
+    [
+     "MEDIUM",
+     41,
      66
     ]
    ]
@@ -2762,19 +3333,19 @@
       {
        "label": "8 laps earlier",
        "lap": 6,
-       "lost": 7.2,
+       "lost": 7.3,
        "real": false,
        "note": "6 laps on the mediums, then 30 on the hards.",
-       "delta": 7.2,
+       "delta": 7.3,
        "rejoin": {
         "pos": 19,
         "ahead": [
          "Perez",
-         2.3
+         2.5
         ],
         "behind": [
          "Bottas",
-         1.6
+         1.4
         ]
        }
       },
@@ -2789,11 +3360,11 @@
         "pos": 15,
         "ahead": [
          "Ocon",
-         0.1
+         0.3
         ],
         "behind": [
          "Bearman",
-         1.0
+         0.8
         ]
        }
       },
@@ -2857,10 +3428,10 @@
       {
        "label": "12 laps later",
        "lap": 26,
-       "lost": 14.9,
+       "lost": 14.8,
        "real": false,
        "note": "26 laps on the mediums, then 10 on the hards.",
-       "delta": 14.9,
+       "delta": 14.8,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -2903,10 +3474,10 @@
       {
        "label": "12 laps earlier",
        "lap": 24,
-       "lost": 22.2,
+       "lost": 22.4,
        "real": false,
        "note": "10 laps on the hards, then 42 on the hards.",
-       "delta": 20.6,
+       "delta": 20.7,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -2922,10 +3493,10 @@
       {
        "label": "8 laps earlier",
        "lap": 28,
-       "lost": 12.7,
+       "lost": 12.9,
        "real": false,
        "note": "14 laps on the hards, then 38 on the hards.",
-       "delta": 11.1,
+       "delta": 11.2,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -2944,7 +3515,7 @@
        "lost": 5.9,
        "real": false,
        "note": "18 laps on the hards, then 34 on the hards.",
-       "delta": 4.3,
+       "delta": 4.2,
        "rejoin": {
         "pos": 6,
         "ahead": [
@@ -2960,19 +3531,19 @@
       {
        "label": "Box him now, lap 36",
        "lap": 36,
-       "lost": 1.6,
+       "lost": 1.7,
        "real": true,
        "note": "22 laps on the hards, then 30 on the hards.",
        "delta": 0.0,
        "rejoin": {
-        "pos": 6,
+        "pos": 5,
         "ahead": [
-         "Norris",
-         0.0
+         "Russell",
+         2.3
         ],
         "behind": [
-         "Verstappen",
-         4.9
+         "Norris",
+         0.2
         ]
        }
       },
@@ -2982,7 +3553,7 @@
        "lost": 0.0,
        "real": false,
        "note": "26 laps on the hards, then 26 on the hards.",
-       "delta": -1.6
+       "delta": -1.7
       },
       {
        "label": "8 laps later",
@@ -2990,16 +3561,16 @@
        "lost": 1.0,
        "real": false,
        "note": "30 laps on the hards, then 22 on the hards.",
-       "delta": -0.6,
+       "delta": -0.7,
        "rejoin": {
         "pos": 5,
         "ahead": [
          "Norris",
-         2.9
+         2.7
         ],
         "behind": [
          "Verstappen",
-         16.5
+         16.7
         ]
        }
       },
@@ -3009,21 +3580,69 @@
        "lost": 4.6,
        "real": false,
        "note": "34 laps on the hards, then 18 on the hards.",
-       "delta": 3.0,
+       "delta": 2.9,
        "rejoin": {
         "pos": 5,
         "ahead": [
          "Norris",
-         2.9
+         2.7
         ],
         "behind": [
          "Verstappen",
-         15.6
+         15.8
         ]
        }
       }
      ],
      "reading": "The hards lose 82ms a lap as they age, the hards 82ms. The stint has to reach lap 66 either way.",
+     "scored": true
+    },
+    {
+     "lap": 36,
+     "kicker": "The last set",
+     "question": "30 laps to the flag. What goes on the car?",
+     "facts": [
+      [
+       "Running",
+       "P5"
+      ],
+      [
+       "Tyre",
+       "hard, 21 laps old"
+      ],
+      [
+       "Ahead",
+       "Leclerc, 8.9s up"
+      ],
+      [
+       "Behind",
+       "Norris"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Hard",
+       "lap": 36,
+       "lost": 0.0,
+       "real": true,
+       "note": "82ms a lap of wear, over 30 laps."
+      },
+      {
+       "label": "Soft",
+       "lap": 36,
+       "lost": 21.7,
+       "real": false,
+       "note": "142ms a lap of wear, over 30 laps."
+      },
+      {
+       "label": "Medium",
+       "lap": 36,
+       "lost": 23.7,
+       "real": false,
+       "note": "132ms a lap of wear, over 30 laps."
+      }
+     ],
+     "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters.",
      "scored": true
     }
    ],
@@ -3038,72 +3657,68 @@
      "deg": 0.132,
      "laps": {
       "4": {
-       "d": 11.1,
+       "d": 11.2,
        "rejoin": {
         "pos": 21,
         "ahead": [
          "Alonso",
-         3.0
+         3.2
         ],
         "behind": [
          "Stroll",
-         4.1
+         3.9
         ]
        }
       },
       "5": {
-       "d": 9.0,
+       "d": 9.1,
        "rejoin": {
-        "pos": 20,
+        "pos": 21,
         "ahead": [
-         "Bottas",
-         1.5
-        ],
-        "behind": [
          "Alonso",
-         0.0
+         0.2
         ]
        }
       },
       "6": {
-       "d": 7.2,
+       "d": 7.3,
        "rejoin": {
         "pos": 19,
         "ahead": [
          "Perez",
-         2.3
+         2.5
         ],
         "behind": [
          "Bottas",
-         1.6
+         1.4
         ]
        }
       },
       "7": {
-       "d": 5.5,
+       "d": 5.6,
        "rejoin": {
         "pos": 19,
         "ahead": [
          "Perez",
-         1.4
+         1.6
         ],
         "behind": [
          "Bottas",
-         3.2
+         3.0
         ]
        }
       },
       "8": {
-       "d": 4.1,
+       "d": 4.2,
        "rejoin": {
         "pos": 18,
         "ahead": [
          "Albon",
-         0.8
+         1.0
         ],
         "behind": [
          "Perez",
-         0.9
+         0.7
         ]
        }
       },
@@ -3113,11 +3728,11 @@
         "pos": 17,
         "ahead": [
          "Bortoleto",
-         0.5
+         0.7
         ],
         "behind": [
          "Albon",
-         1.4
+         1.2
         ]
        }
       },
@@ -3127,11 +3742,11 @@
         "pos": 15,
         "ahead": [
          "Ocon",
-         0.1
+         0.3
         ],
         "behind": [
          "Bearman",
-         1.0
+         0.8
         ]
        }
       },
@@ -3141,11 +3756,11 @@
         "pos": 13,
         "ahead": [
          "Sainz",
-         0.5
+         0.7
         ],
         "behind": [
          "Ocon",
-         2.5
+         2.3
         ]
        }
       },
@@ -3155,25 +3770,25 @@
         "pos": 11,
         "ahead": [
          "Gasly",
-         1.6
+         1.8
         ],
         "behind": [
          "Sainz",
-         1.8
+         1.6
         ]
        }
       },
       "13": {
-       "d": 0.1,
+       "d": 0.2,
        "rejoin": {
         "pos": 10,
         "ahead": [
          "Gasly",
-         0.3
+         0.5
         ],
         "behind": [
          "Sainz",
-         3.0
+         2.8
         ]
        }
       },
@@ -3248,7 +3863,7 @@
        }
       },
       "19": {
-       "d": 2.5,
+       "d": 2.4,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -3304,7 +3919,7 @@
        }
       },
       "23": {
-       "d": 8.3,
+       "d": 8.2,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -3326,10 +3941,10 @@
      "from": 15,
      "comp": "HARD",
      "next": "HARD",
-     "deg": 0.0817,
+     "deg": 0.0825,
      "laps": {
       "24": {
-       "d": 20.6,
+       "d": 20.8,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -3343,7 +3958,7 @@
        }
       },
       "25": {
-       "d": 18.0,
+       "d": 18.1,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -3357,7 +3972,7 @@
        }
       },
       "26": {
-       "d": 15.5,
+       "d": 15.7,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -3371,7 +3986,7 @@
        }
       },
       "27": {
-       "d": 13.2,
+       "d": 13.4,
        "rejoin": {
         "pos": 6,
         "ahead": [
@@ -3385,7 +4000,7 @@
        }
       },
       "28": {
-       "d": 11.1,
+       "d": 11.2,
        "rejoin": {
         "pos": 7,
         "ahead": [
@@ -3427,7 +4042,7 @@
        }
       },
       "31": {
-       "d": 5.7,
+       "d": 5.8,
        "rejoin": {
         "pos": 6,
         "ahead": [
@@ -3441,7 +4056,7 @@
        }
       },
       "32": {
-       "d": 4.2,
+       "d": 4.3,
        "rejoin": {
         "pos": 6,
         "ahead": [
@@ -3455,7 +4070,7 @@
        }
       },
       "33": {
-       "d": 2.9,
+       "d": 3.0,
        "rejoin": {
         "pos": 6,
         "ahead": [
@@ -3499,14 +4114,14 @@
       "36": {
        "d": 0.0,
        "rejoin": {
-        "pos": 6,
+        "pos": 5,
         "ahead": [
-         "Norris",
-         0.0
+         "Russell",
+         2.3
         ],
         "behind": [
-         "Verstappen",
-         4.9
+         "Norris",
+         0.2
         ]
        }
       },
@@ -3516,25 +4131,25 @@
         "pos": 6,
         "ahead": [
          "Norris",
-         1.1
+         0.9
         ],
         "behind": [
          "Verstappen",
-         4.4
+         4.6
         ]
        }
       },
       "38": {
-       "d": -1.1,
+       "d": -1.2,
        "rejoin": {
         "pos": 5,
         "ahead": [
          "Norris",
-         2.0
+         1.8
         ],
         "behind": [
          "Leclerc",
-         0.2
+         0.4
         ]
        }
       },
@@ -3544,16 +4159,16 @@
         "pos": 5,
         "ahead": [
          "Norris",
-         10.5
+         10.3
         ],
         "behind": [
          "Verstappen",
-         0.6
+         0.8
         ]
        }
       },
       "40": {
-       "d": -1.6
+       "d": -1.7
       },
       "44": {
        "d": -0.7,
@@ -3561,11 +4176,11 @@
         "pos": 5,
         "ahead": [
          "Norris",
-         2.9
+         2.7
         ],
         "behind": [
          "Verstappen",
-         16.5
+         16.7
         ]
        }
       },
@@ -3575,11 +4190,11 @@
         "pos": 5,
         "ahead": [
          "Norris",
-         2.9
+         2.7
         ],
         "behind": [
          "Verstappen",
-         16.1
+         16.3
         ]
        }
       },
@@ -3589,11 +4204,11 @@
         "pos": 5,
         "ahead": [
          "Norris",
-         2.9
+         2.7
         ],
         "behind": [
          "Verstappen",
-         16.0
+         16.2
         ]
        }
       },
@@ -3603,25 +4218,25 @@
         "pos": 5,
         "ahead": [
          "Norris",
-         3.0
+         2.8
         ],
         "behind": [
          "Verstappen",
-         15.6
+         15.8
         ]
        }
       },
       "48": {
-       "d": 2.9,
+       "d": 3.0,
        "rejoin": {
         "pos": 5,
         "ahead": [
          "Norris",
-         2.9
+         2.7
         ],
         "behind": [
          "Verstappen",
-         15.6
+         15.8
         ]
        }
       }

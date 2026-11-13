@@ -1,12 +1,11 @@
-import type { GhostSeat, Replay, Track } from "@/lib/types";
+import type { Replay, Track } from "@/lib/types";
 import { geometry, hex, leaderAt, pathTo, pointAt, progress, standings } from "@/lib/replay";
 
 /**
  * The pictures on the two activity cards (since 24/10/2026), made from the
  * race itself instead of stock photographs: the moodboard shots read as
  * generated next to real data. Call the race shows this circuit with every car
- * where the timing put it on a lap of the race; the ghost shows the driver
- * with his ghost a step behind him.
+ * where the timing put it on a lap of the race.
  */
 export function TrackArt({ r, track, lap }: { r: Replay; track: Track; lap: number }) {
   const g = geometry(track);
@@ -39,23 +38,6 @@ export function TrackArt({ r, track, lap }: { r: Replay; track: Track; lap: numb
   );
 }
 
-export function GhostArt({ seat }: { seat: GhostSeat }) {
-  const src = seat.headshot;
-  return (
-    <div className="act-ghost" style={{ ["--tc" as string]: hex(seat.colour) }} aria-hidden>
-      <span className="act-ghost-num">{seat.number}</span>
-      {src && (
-        <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="act-ghost-copy" src={src} alt="" decoding="async" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="act-ghost-real" src={src} alt="" decoding="async" />
-        </>
-      )}
-    </div>
-  );
-}
-
 /**
  * The exchange card (since 26/10/2026): the market of this race as it really
  * moved. Three drivers' prices lap by lap, priced exactly as the game prices
@@ -68,7 +50,8 @@ export function ExchangeArt({ r }: { r: Replay }) {
   const grid = [...r.field].sort((a, b) => (a.grid ?? 99) - (b.grid ?? 99));
   grid.forEach((c, i) => series.get(c.num)!.push((N - i) * 5));
   for (let lap = 1; lap <= r.laps; lap++)
-    standings(r, leaderAt(r, lap) + 0.001).forEach((x, i) => series.get(x.car.num)!.push(x.out ? 0 : (N - i) * 5));
+    standings(r, Infinity, lap).forEach((x, i) => series.get(x.car.num)!.push(
+      lap === r.laps ? (x.car.finish == null ? 0 : (N + 1 - x.car.finish) * 5) : x.out ? 0 : (N - i) * 5));
   const fin = (n: number) => series.get(n)!.at(-1)!;
   const first = (n: number) => series.get(n)![0];
   const winner = r.field.reduce((a, b) => (fin(b.num) > fin(a.num) ? b : a));
@@ -91,7 +74,8 @@ export function ExchangeArt({ r }: { r: Replay }) {
         return (
           <g key={c.num}>
             <path d={d} fill="none" stroke={hex(c.colour)} strokeWidth={3} strokeLinejoin="round" opacity={0.95} />
-            <text x={x(r.laps) + 8} y={y(end) + 4} fill="#fff" fontSize={12} fontFamily="monospace" fontWeight={700}>{c.code} {end}</text>
+            {/* the price, not the name: the card sits in front of the game and must not give the winner */}
+            <text x={x(r.laps) + 8} y={y(end) + 4} fill="#fff" fontSize={12} fontFamily="monospace" fontWeight={700}>{end}</text>
           </g>
         );
       })}

@@ -1,0 +1,1117 @@
+{
+"fastest-laps": {
+"title": "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"49",
+"16:26:03",
+"1:35.587",
+"203.902"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"57",
+"16:38:27",
+"1:36.030",
+"202.961"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"50",
+"16:27:37",
+"1:36.063",
+"202.891"
+],
+[
+"4",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"52",
+"16:30:27",
+"1:36.680",
+"201.597"
+],
+[
+"5",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"52",
+"16:30:26",
+"1:36.760",
+"201.430"
+],
+[
+"6",
+"30",
+"Liam Lawson LAW",
+"Red Bull Racing",
+"49",
+"16:26:49",
+"1:36.846",
+"201.251"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"48",
+"16:25:20",
+"1:37.226",
+"200.464"
+],
+[
+"8",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"46",
+"16:21:50",
+"1:37.308",
+"200.295"
+],
+[
+"9",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"52",
+"16:31:49",
+"1:37.321",
+"200.269"
+],
+[
+"10",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"51",
+"16:29:03",
+"1:37.837",
+"199.212"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"50",
+"16:28:40",
+"1:38.114",
+"198.650"
+],
+[
+"12",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"49",
+"16:27:06",
+"1:38.119",
+"198.640"
+],
+[
+"13",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"36",
+"16:05:18",
+"1:38.141",
+"198.595"
+],
+[
+"14",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"40",
+"16:12:06",
+"1:38.211",
+"198.454"
+],
+[
+"15",
+"22",
+"Yuki Tsunoda TSU",
+"Racing Bulls",
+"55",
+"16:36:10",
+"1:38.396",
+"198.081"
+],
+[
+"16",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"41",
+"16:13:54",
+"1:39.003",
+"196.866"
+],
+[
+"17",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"47",
+"16:23:34",
+"1:39.130",
+"196.614"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"48",
+"16:24:48",
+"1:39.397",
+"196.086"
+],
+[
+"19",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"3",
+"15:09:09",
+"1:39.839",
+"195.218"
+],
+[
+"20",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"38",
+"16:07:52",
+"1:40.195",
+"194.524"
+],
+[
+"21",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"16",
+"15:32:43",
+"1:41.116",
+"192.752"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"11",
+"15:23:21",
+"1:43.462",
+"188.382"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"14",
+"15:27:29",
+"31.843",
+"31.843"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"14",
+"15:27:37",
+"31.067",
+"31.067"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"14",
+"15:27:44",
+"30.740",
+"30.740"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"14",
+"15:28:23",
+"31.671",
+"31.671"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"14",
+"15:28:25",
+"31.848",
+"31.848"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"14",
+"15:28:27",
+"32.173",
+"32.173"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"14",
+"15:28:28",
+"31.040",
+"31.040"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"14",
+"15:28:47",
+"31.158",
+"31.158"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"14",
+"15:28:54",
+"32.217",
+"32.217"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"14",
+"15:28:58",
+"43.845",
+"43.845"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"15",
+"15:29:45",
+"35.134",
+"35.134"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"23",
+"15:44:29",
+"46.367",
+"46.367"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"28",
+"15:51:33",
+"30.622",
+"61.362"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"29",
+"15:55:17",
+"31.710",
+"31.710"
+],
+[
+"2",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"31",
+"15:58:56",
+"31.428",
+"77.795"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"33",
+"16:01:05",
+"33.312",
+"33.312"
+],
+[
+"1",
+"22",
+"Yuki Tsunoda TSU",
+"Racing Bulls",
+"36",
+"16:06:00",
+"31.414",
+"31.414"
+],
+[
+"2",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"37",
+"16:08:29",
+"32.002",
+"75.847"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"42",
+"16:15:01",
+"31.408",
+"31.408"
+],
+[
+"2",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"43",
+"16:18:11",
+"31.441",
+"64.753"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Red Bull Racing",
+"44",
+"16:18:17",
+"30.972",
+"30.972"
+],
+[
+"2",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"43",
+"16:19:49",
+"31.667",
+"63.377"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"47",
+"16:23:45",
+"30.836",
+"30.836"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"48",
+"16:23:59",
+"31.319",
+"31.319"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"55",
+"16:36:47",
+"31.483",
+"31.483"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:33.469",
+"1:32.873",
+"1:31.824",
+"19"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:33.267",
+"1:32.591",
+"1:31.835",
+"20"
+],
+[
+"3",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:33.381",
+"1:32.431",
+"1:31.964",
+"18"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:33.531",
+"1:32.710",
+"1:32.013",
+"21"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:33.532",
+"1:32.755",
+"1:32.019",
+"21"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:33.211",
+"1:32.850",
+"1:32.149",
+"22"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:33.829",
+"1:33.204",
+"1:32.294",
+"22"
+],
+[
+"8",
+"30",
+"Liam Lawson LAW",
+"Red Bull Racing",
+"1:33.310",
+"1:32.780",
+"1:32.316",
+"18"
+],
+[
+"9",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:33.963",
+"1:33.038",
+"1:32.903",
+"17"
+],
+[
+"10",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:34.340",
+"1:33.204",
+"1:33.041",
+"21"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:34.417",
+"1:33.223",
+"",
+"13"
+],
+[
+"12",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:33.986",
+"1:33.388",
+"",
+"12"
+],
+[
+"13",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:34.667",
+"1:33.667",
+"",
+"11"
+],
+[
+"14",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:34.246",
+"1:33.753",
+"",
+"11"
+],
+[
+"15",
+"22",
+"Yuki Tsunoda TSU",
+"Racing Bulls",
+"1:34.311",
+"1:34.084",
+"",
+"15"
+],
+[
+"16",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:35.307",
+"1:35.532",
+"",
+"14"
+],
+[
+"17",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:35.312",
+"",
+"",
+"9"
+],
+[
+"18",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:35.388",
+"",
+"",
+"9"
+],
+[
+"19",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:35.913",
+"",
+"",
+"9"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:38.011",
+"",
+"",
+"8"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"race-result": {
+"title": "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"57",
+"1:34:23.754",
+"25"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"57",
+"+4.351s",
+"18"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"57",
+"+5.089s",
+"15"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"57",
+"+29.116s",
+"12"
+],
+[
+"5",
+"63",
+"George Russell RUS",
+"Mercedes",
+"57",
+"+29.829s",
+"10"
+],
+[
+"6",
+"30",
+"Liam Lawson LAW",
+"Red Bull Racing",
+"57",
+"+86.746s",
+"8"
+],
+[
+"7",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"57",
+"+94.281s",
+"6"
+],
+[
+"8",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"57",
+"+95.839s",
+"4"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"56",
+"+1 lap",
+"2"
+],
+[
+"10",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"56",
+"+1 lap",
+"1"
+],
+[
+"11",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"56",
+"+1 lap",
+"0"
+],
+[
+"12",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"56",
+"+1 lap",
+"0"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"56",
+"+1 lap",
+"0"
+],
+[
+"14",
+"22",
+"Yuki Tsunoda TSU",
+"Racing Bulls",
+"56",
+"+1 lap",
+"0"
+],
+[
+"15",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"56",
+"+1 lap",
+"0"
+],
+[
+"16",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"56",
+"+1 lap",
+"0"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"55",
+"+2 laps",
+"0"
+],
+[
+"18",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"54",
+"+3 laps",
+"0"
+],
+[
+"NC",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"43",
+"DNF",
+"0"
+],
+[
+"NC",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"31",
+"DNF",
+"0"
+],
+[
+"NC",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"12",
+"DNF",
+"0"
+],
+[
+"NC",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"6",
+"DNF",
+"0"
+]
+],
+"after": [
+"Note - Gasly received a five-second time penalty for speeding in the pit lane.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 TAG HEUER GRAN PREMIO DE ESPAÑA 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:31.824"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:31.835"
+],
+[
+"3",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:31.964"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:32.013"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:32.019"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:32.149"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:32.294"
+],
+[
+"8",
+"30",
+"Liam Lawson LAW",
+"Red Bull Racing",
+"1:32.316"
+],
+[
+"9",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:32.903"
+],
+[
+"10",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:33.041"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:33.223"
+],
+[
+"12",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:33.388"
+],
+[
+"13",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:33.667"
+],
+[
+"14",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:33.753"
+],
+[
+"15",
+"22",
+"Yuki Tsunoda TSU",
+"Racing Bulls",
+"1:34.084"
+],
+[
+"16",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:35.532"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:35.388"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:35.913"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:38.011"
+],
+[
+"20",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:35.312"
+],
+[
+"21",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+""
+],
+[
+"22",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+""
+]
+],
+"after": [
+"Note - Bearman and Stroll permitted to race after failing to set a lap time in Qualifying. Stroll received a 40-place penalty for use of additional power unit elements. Sainz received a three-place penalty for impeding another driver during Qualifying. Bearman required to start from the pit lane after car was modified under Parc Ferme conditions and additional power unit elements used.",
+"OUR PARTNERS",
+"View all"
+]
+}
+}

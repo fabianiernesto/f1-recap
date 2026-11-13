@@ -90,6 +90,50 @@
       ]
     },
     {
+      "answer": "Hulkenberg",
+      "number": 27,
+      "team": "Audi",
+      "colour": "F50537",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P13"
+        ],
+        [
+          "Stops",
+          "0"
+        ],
+        [
+          "Tyres",
+          "medium"
+        ],
+        [
+          "Median lap",
+          "1:34.059"
+        ],
+        [
+          "On-track passes",
+          "1"
+        ],
+        [
+          "Penalty",
+          "5s, leaving the track and gaining an advantage"
+        ],
+        [
+          "Finished",
+          "P15"
+        ]
+      ],
+      "tell": "the stewards gave him a 5s penalty",
+      "options": [
+        "Bearman",
+        "Bortoleto",
+        "Colapinto",
+        "Hulkenberg"
+      ]
+    },
+    {
       "answer": "Perez",
       "number": 11,
       "team": "Cadillac",

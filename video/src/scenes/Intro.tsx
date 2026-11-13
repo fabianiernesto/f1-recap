@@ -1,6 +1,6 @@
 /**
  * Beats 8-16, four seconds: a flight through the site. Five real screens
- * hang in a dark red space, staggered left and right down a corridor; the
+ * hang in a dark red space, square-on, one behind the other; the
  * camera is already moving on the first frame, passes the home close
  * enough to touch, and flies on past the race, Alfred, Call the race and
  * the exchange while a red light sweeps each one. Then the space goes dark,
@@ -19,22 +19,20 @@ const P = 1600; // perspective: the camera's distance to the screen plane
 /** the screens, where they hang in the corridor (z: how far down it) */
 const SCREENS = [
   { src: () => clipFrame("home", 0), x: 0, y: 0, z: -420, ry: 0 },
-  { src: () => clipFrame("race", 3.4), x: -360, y: -40, z: 1200, ry: 22 },
-  { src: () => clipFrame("race", 999), x: 360, y: 30, z: 2700, ry: -22 },
-  { src: () => clipFrame("call", 999), x: -340, y: -20, z: 4200, ry: 20 },
+  { src: () => clipFrame("race", 3.4), x: 0, y: 0, z: 1200, ry: 0 },
+  { src: () => clipFrame("race", 999), x: 0, y: 0, z: 2700, ry: 0 },
+  { src: () => clipFrame("call", 999), x: 0, y: 0, z: 4200, ry: 0 },
   { src: () => clipFrame("exchange", 0.4), x: 0, y: 0, z: 5700, ry: 0 },
 ];
-const W = 640, H = 1138; // each screen, 9:16
+const W = 720, H = 1280; // each screen, 9:16
 
 export const Intro: React.FC = () => {
   const f = useFrame();
   const b = at(K0);
   // the camera: already travelling on frame 0, easing off towards the end
   const travel = interpolate(f, [0, b(6)], [-80, 5150], { ...clamp, easing: Easing.bezier(0.3, 0.12, 0.45, 1) });
-  const sway = Math.sin(f / 22) * 4;
-  const roll = interpolate(f, [0, b(6.2)], [-3, 2], clamp);
-  // the dark, the line of light, the neon
-  const dark = interpolate(f, [b(5.2), b(6.4)], [0, 0.92], clamp);
+    // the dark, the line of light, the neon
+  const dark = interpolate(f, [b(5.1), b(6.2)], [0, 1], clamp);
   const scan = interpolate(f, [b(5.6), b(6.8)], [-0.15, 1.15], { ...clamp, easing: Easing.inOut(Easing.cubic) });
   const ignite = (() => {
     if (f < b(6.4)) return 0;
@@ -48,11 +46,11 @@ export const Intro: React.FC = () => {
       {/* red fog down the corridor */}
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 60% 40% at 50% 50%, #4a0604 0%, #160202 45%, #000 80%)" }} />
       <div style={{ position: "absolute", inset: 0, perspective: P, perspectiveOrigin: "50% 50%" }}>
-        <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d", transform: `rotateY(${sway}deg) rotateZ(${roll}deg)` }}>
+        <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d" }}>
           {SCREENS.map((s, i) => {
             // depth relative to the camera: positive = nearer than the screen plane
             const z = travel - s.z;
-            const near = interpolate(z, [P * 0.38, P * 0.6], [1, 0], clamp); // fade before it reaches the lens
+            const near = i === 0 ? interpolate(z, [P * 0.3, P * 0.5], [1, 0], clamp) : interpolate(z, [P * 0.16, P * 0.34], [1, 0], clamp); // fade before it reaches the lens
             const far = interpolate(z, [-2300, -1200], [0, 1], clamp); // and rise out of the fog
             const op = near * far;
             if (op <= 0.01) return null;

@@ -17,6 +17,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 25,
       "stops": [
         31
@@ -48,6 +51,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 18,
       "stops": [
         31
@@ -79,6 +85,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 15,
       "stops": [
         31
@@ -110,6 +119,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 12,
       "stops": [
         31
@@ -141,6 +153,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 10,
       "stops": [
         31,
@@ -174,6 +189,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 8,
       "stops": [
         30
@@ -205,6 +223,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 6,
       "stops": [
         30
@@ -236,6 +257,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 4,
       "stops": [
         30
@@ -267,6 +291,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 2,
       "stops": [
         2,
@@ -299,6 +326,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 1,
       "stops": [
         30
@@ -330,6 +360,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         1,
@@ -364,6 +397,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         2,
@@ -397,6 +433,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         2,
@@ -430,6 +469,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         16,
@@ -463,6 +505,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": true,
       "points": 0,
       "stops": [
         14,
@@ -495,6 +540,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         3,
@@ -532,6 +580,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 40,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         2,
@@ -567,6 +618,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 39,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         2,
@@ -599,6 +653,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 30,
+      "dnfWhy": "race control logged an incident with Russell on lap 30",
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -627,6 +684,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 24,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         20
@@ -657,6 +717,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 12,
+      "dnfWhy": "race control logged an incident with Piastri, Albon at Turn 10 on lap 13",
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -685,6 +748,9 @@
       "dnf": false,
       "dns": true,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -823,7 +889,7 @@
       ],
       "say": [
         "Antonelli took it",
-        "Mercedes. started P2, led 46 of 68 laps"
+        "driving for Mercedes, from P2 on the grid, and he led 46 of 68 laps"
       ]
     },
     {
@@ -1054,7 +1120,21 @@
       ],
       "say": [
         "Perez on lap 40 · Norris on lap 39 · Russell on lap 30 · Alonso on lap 24 · Albon on lap 12",
-        "the data says when they stopped, not why"
+        "race control logged an incident for Russell, Albon. for the rest the data says when they stopped, not why"
+      ]
+    },
+    {
+      "id": "dsq",
+      "keys": [
+        "disqualified",
+        "disqualification",
+        "dsq",
+        "thrown out",
+        "descalificado",
+        "excluded"
+      ],
+      "say": [
+        "nobody was disqualified from the race"
       ]
     },
     {

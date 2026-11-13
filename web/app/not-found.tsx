@@ -1,5 +1,8 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Blur, MOOD, Speedlines } from "@/components/Mood";
+
+export const metadata: Metadata = { title: "Off the track" };
 
 /** A wrong turn gets the same board as everything else, and a way back. */
 export default function NotFound() {

@@ -7,7 +7,7 @@
 | Carpeta | Qué es |
 |---|---|
 | `pipeline/` | Python. Lee FastF1 y OpenF1 y genera los JSON de cada GP en `data/<slug>/` |
-| `data/` | Los JSON finales, uno por GP (19 en 2026, de Albert Park a Ciudad de México) |
+| `data/` | Los JSON finales, uno por GP (20 en 2026, de Albert Park a Interlagos) |
 | `web/` | Next.js (versión con cambios incompatibles: leer `web/AGENTS.md` y la guía en `web/node_modules/next/dist/docs/` antes de tocar código). `web/scripts/sync-data.mjs` copia `data/` en `web/data/` |
 | `video/` | Remotion. Vídeo 9:16 de 92 s a 60 fps, cortado al golpe de 110 BPM. Lo graba de la web real (`video/scripts/capture.mjs`) |
 | raíz | Documentos de concepto: `MVP.md`, `PRODUCT_MAP.md`, `DESIGN_DIRECTION.md`, moodboards |
@@ -113,7 +113,7 @@ En octubre el disco bajó a 62 GB libres porque los renders dejaron unos 50 GB d
 ## 6. Estado y pendientes (actualizar al cerrar cada sesión)
 
 **Git:**
-- Repositorio en esta carpeta, rama `home-redesign-sep26`, con copia en GitHub (`fabianiernesto/f1-recap`). Desde el 30/10/2026 todo está commiteado en local (`9f73090`, `f8f70c4` y los del vídeo); a GitHub no se ha subido nada: subir es publicar y lo decide Ernesto. Sin commit desde el 02/11/2026: la v36 del vídeo, los arreglos de `web/lib/replay.ts` y `web/components/PaddockExchange.tsx`, y la ronda del vídeo PC del 10-11/11.
+- Repositorio en esta carpeta, rama `home-redesign-sep26`, con copia en GitHub (`fabianiernesto/f1-recap`). Desde el 30/10/2026 todo está commiteado en local (`9f73090`, `f8f70c4` y los del vídeo); a GitHub no se ha subido nada: subir es publicar y lo decide Ernesto. El vídeo PC aprobado está en el commit `120b033` (11/11/2026, solo en local). Sigue sin commit desde el 02/11/2026: la v36-v41 del vertical (`src/scenes/`, `Showcase.tsx`, `BeatFX.tsx`, `Thumbnail.tsx`), los datos regenerados de `data/` y los arreglos de `web/lib/replay.ts` y `web/components/PaddockExchange.tsx`.
 - `video/` entra en git sin su música, sus clips ni sus renders (`video/.gitignore`).
 - Los mensajes de commit van por archivo (`git commit -F`).
 
@@ -133,7 +133,8 @@ En octubre el disco bajó a 62 GB libres porque los renders dejaron unos 50 GB d
   - Tarjetas de Actividades: sin fotos de moodboard ("cutre, IA"); llevan el circuito con los coches reales y la foto oficial del piloto (`components/ActArt.tsx`).
   - Tras `build_weekend.py` de un GP: `python pipeline/replay.py <slug>`, `python pipeline/muro.py <slug>` y `node web/scripts/sync-data.mjs`.
 - **Pasada de lanzamiento (02/11/2026):** auditoría contra formula1.com (DNS, salidas desde el pit lane, DSQ, sanciones de después de la carrera, paradas por reloj), juegos jugados en todas las sesiones, arreglos de iPhone, móvil y velocidad. Paddock exchange paga en la bandera la clasificación oficial (decisión del 02/11, avisada a Ernesto).
-- GPs construidos hasta México (1 nov). Sepang es el «Bahrain Grand Prix in Malaysia»; `official.py` no lo encuentra por país. Desde Interlagos (8 nov): `pipeline/add_circuit_openf1.py` (FastF1 da 401), luego `official.py <slug>` y `ff1laps.py <slug>` antes de `build_weekend.py`; `_run_all.py` ya los lleva.
+- GPs construidos hasta Interlagos (8 nov, construido el 13/11). Sepang es el «Bahrain Grand Prix in Malaysia»; `official.py` no lo encuentra por país. Desde Sepang FastF1 da 401, así que un GP nuevo se hace a mano, porque `_run_all.py` todavía llama a `add_circuit.py` (FastF1): registrar sesiones en `gps.py` (claves de `api.openf1.org/v1/sessions?year=2026&country_name=<país>`) y longitud y nombre en `add_circuit.py` (formula1.com/en/racing/2026/<país>), luego `fase0_explora.py <slug>`, `add_circuit_openf1.py <slug> <país>`, `official.py <slug>`, `ff1laps.py <slug>` (con FastF1 en 401 no saca nada y no pasa nada), `build_weekend.py <slug>`, `replay.py <slug>`, `muro.py <slug>`, `_audit.py <slug>`, `_review_pack.py <slug>` y revisar `_review/<slug>.txt` tarjeta a tarjeta. Quedan Las Vegas, Qatar y Abu Dabi: según OpenF1, sus fines de semana empiezan el 20/11, el 27/11 y el 04/12 (el día de carrera, sin comprobar).
+- **13/11:** la salida en mojado ya no cuenta a un coche que no tomó la salida («22 cars started on intermediates» en Interlagos, con Bottas DNS; ahora 21).
 - **Decisiones del 03/11:** en Call the race fallar resta los puntos que le diste a la respuesta y el marcador puede bajar de cero; en Paddock exchange el botón es «Sell», no «Cash out».
 - **Hub LED en móvil, con su permiso (03/11):** por debajo de 900 px cada línea cabe entera (`--n` en `.ledhero-l1` lleva la longitud del nombre) y los botones van apilados, en fila si el móvil está en horizontal. **Sin R//S en móvil** («queda muy mal en formato móvil, eso fuera»): ni en el hub ni en la cortina entre páginas (`.ledhero-logo` y `.sting-mark` ocultos); el coche y el nombre llenan la pantalla. Por encima de 900 px no cambia nada: el escritorio sigue intocable sin permiso y conserva el R//S.
 - **Cursor de la web (03/11), pedido por él:** el de su portfolio, en `components/CustomCursor.tsx`: punto de 10 px que crece a 40 sobre lo pulsable. Solo con ratón; el móvil no lo lleva y el cursor nativo se oculta cuando se mueve el ratón (`html.has-cursor`). Invierte en grises (`backdrop-filter`), porque `difference` sale cian sobre el rojo de la web.

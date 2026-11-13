@@ -1,0 +1,437 @@
+{
+  "gp": "Singapore Grand Prix 2026",
+  "session": "Sprint",
+  "sessionSlug": "sprint",
+  "circuit": "Marina Bay",
+  "laps": 20,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Singapore Grand Prix · Sprint · 20 laps",
+      "title": "Everything that happened, in order",
+      "text": "2 on-track passes, 1 pit stop, 9 cars that never finished, 1 safety car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Lap 1 · Lights out",
+      "title": "13 places changed hands on track before the first lap was done",
+      "text": "22 cars into the first corner on cold tyres and full tanks.",
+      "bullets": [
+        "Bearman and Hamilton gained the most by the end of it, 4 places each",
+        "22 cars started on intermediates"
+      ],
+      "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Stewards",
+      "title": "6 incidents looked at",
+      "text": "Every one of them logged by race control during the sprint.",
+      "bullets": [
+        "Lap 1: Perez and Stroll, causing a collision",
+        "2 in no further action and 4 left for after the sprint"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Lap 1 · Retirement",
+      "title": "Stroll is out",
+      "text": "His sprint ends on lap 1 of 20, in an Aston Martin.",
+      "bullets": [
+        "Started P18",
+        "Race control logged an incident with Perez and Stroll at Turn 16 on lap 1"
+      ]
+    },
+    {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Sainz starts from the pit lane. Where does he finish?",
+      "text": "20 laps to make up ground from there.",
+      "options": [
+        "On the podium",
+        "Somewhere in the points",
+        "Out of the points"
+      ],
+      "answer": "Out of the points",
+      "reveal": "Out of the points. The exact place comes at the flag."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 of 20 · Safety Car",
+      "title": "Every gap on track, erased",
+      "text": "The field bunches up behind the safety car, and whatever anybody had built is gone.",
+      "bullets": [
+        "Verstappen was leading when it came out",
+        "Neutralised until lap 6"
+      ],
+      "note": "This early, nobody had a lead to lose. What it did do was hand a cheap stop to whoever was ready to take one."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · Retirement",
+      "title": "Russell is out",
+      "text": "His sprint ends on lap 2 of 20, in a Mercedes.",
+      "bullets": [
+        "Started P2"
+      ],
+      "note": "The timing feed records that he stopped, not why."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · Retirement",
+      "title": "Perez is out",
+      "text": "His sprint ends on lap 2 of 20, in a Cadillac.",
+      "bullets": [
+        "Started P20",
+        "Race control logged an incident with Perez and Stroll at Turn 16 on lap 1"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Lap 3 · Retirement",
+      "title": "Hadjar is out",
+      "text": "His sprint ends on lap 3 of 20, in a Red Bull.",
+      "bullets": [
+        "P10 at the start of lap 2",
+        "Started P9"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Lap 3 · Retirement",
+      "title": "Colapinto is out",
+      "text": "His sprint ends on lap 3 of 20, in an Alpine.",
+      "bullets": [
+        "P12 at the start of lap 2",
+        "Started P11"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Yellow flags",
+      "title": "Yellow flags out 6 times",
+      "text": "Race control waves a yellow for anything on or near the track that should not be there.",
+      "bullets": [
+        "A yellow means slow down and do not overtake in that part of the track",
+        "Track sector 13 saw 5 calls, more than anywhere else"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Conditions",
+      "title": "Track at 40°C at the start, falling to 38°C at the flag",
+      "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the sprint."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Track limits",
+      "title": "10 lap times deleted",
+      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
+      "bullets": [
+        "Hulkenberg and Leclerc lost 2 each, the most of anybody"
+      ],
+      "note": "Keep doing it and it turns into a penalty."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Lap 7 · Retirement",
+      "title": "Bortoleto is out",
+      "text": "His sprint ends on lap 7 of 20, in an Audi.",
+      "bullets": [
+        "P13 at the start of lap 6",
+        "Started P14",
+        "Race control logged an incident with Albon and Bortoleto at Turn 16 on lap 6"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Lap 7 · Retirement",
+      "title": "Bottas is out",
+      "text": "His sprint ends on lap 7 of 20, in a Cadillac.",
+      "bullets": [
+        "P15 at the start of lap 6",
+        "Started P21"
+      ]
+    },
+    {
+      "type": "decision",
+      "lap": 9,
+      "kicker": "You are the steward",
+      "title": "Lap 9: an incident between Gasly and Hulkenberg at Turn 1. What do you give?",
+      "text": "Race control has flagged it and it lands on your desk. If one driver is to blame, what does he get? Same call the stewards had to make.",
+      "state": [
+        [
+          "Lap",
+          "9 of 20"
+        ],
+        [
+          "Cars involved",
+          "Gasly and Hulkenberg"
+        ],
+        [
+          "Reported as",
+          "Incident at Turn 1"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "none",
+          "label": "No further action",
+          "sub": "Racing incident, let them race"
+        },
+        {
+          "id": "5",
+          "label": "5 second penalty",
+          "sub": "Mild advantage gained"
+        },
+        {
+          "id": "10",
+          "label": "10 second penalty",
+          "sub": "Clearly at fault"
+        }
+      ],
+      "actual": "none",
+      "outcomes": {
+        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the race on the radio.",
+        "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.",
+        "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
+      },
+      "reveal": "The stewards took no further action."
+    },
+    {
+      "type": "moment",
+      "lap": 9,
+      "kicker": "Speed trap",
+      "title": "Gasly, Sainz, Lawson and 1 other hit 277 km/h",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
+      "bullets": [
+        "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine"
+      ]
+    },
+    {
+      "type": "prediction",
+      "lap": 11,
+      "kicker": "Call it before it happens",
+      "title": "Who has the fastest lap on the board at the flag?",
+      "text": "It usually lands late, when the car is light and the track has rubber all over it.",
+      "options": [
+        "Verstappen",
+        "Lawson",
+        "Hamilton"
+      ],
+      "answer": "Hamilton",
+      "reveal": "Hamilton on lap 20, 1:45.457, in a Ferrari."
+    },
+    {
+      "type": "moment",
+      "lap": 14,
+      "kicker": "True pace",
+      "title": "Verstappen had the quickest median racing lap",
+      "text": "No lap 1, no laps in or out of the pits, nothing behind the safety car or the VSC, and the slow outliers trimmed. It does not always match the result.",
+      "dato": {
+        "label": "Median racing lap",
+        "rows": [
+          [
+            "Verstappen",
+            "1:46.649"
+          ],
+          [
+            "Hamilton",
+            "1:46.781"
+          ],
+          [
+            "Antonelli",
+            "1:47.323"
+          ],
+          [
+            "Leclerc",
+            "1:47.375"
+          ],
+          [
+            "Norris",
+            "1:47.394"
+          ],
+          [
+            "Piastri",
+            "1:47.468"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 14,
+      "kicker": "Backwards",
+      "title": "Norris went the other way: 3 places lost",
+      "text": "Qualifying promised one thing and the sprint delivered another.",
+      "bullets": [
+        "P5 on the grid, P8 at the flag",
+        "Qualifying rewards whoever can put one lap together. A sprint asks for 20 of them"
+      ]
+    },
+    {
+      "type": "prediction",
+      "lap": 15,
+      "kicker": "Call it before it happens",
+      "title": "One of these three does not see the chequered flag. Who?",
+      "text": "Nothing on the timing screens says it is coming.",
+      "options": [
+        "Norris",
+        "Leclerc",
+        "Piastri"
+      ],
+      "answer": "Piastri",
+      "reveal": "Piastri, on lap 20 of 20. Race control had logged an incident involving Norris and Piastri at Turn 5."
+    },
+    {
+      "type": "moment",
+      "lap": 15,
+      "kicker": "Lap 15 · Retirement",
+      "title": "Albon is out",
+      "text": "His sprint ends on lap 15 of 20, in a Williams.",
+      "bullets": [
+        "P15 at the start of lap 14",
+        "Started P19"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 16,
+      "kicker": "A climb through the field",
+      "title": "Sainz: from the pit lane, P12 at the flag",
+      "text": "10 places gained.",
+      "bullets": [
+        "9 cars that started ahead of him retired"
+      ]
+    },
+    {
+      "type": "guess",
+      "lap": 20,
+      "kicker": "Guess it",
+      "title": "How far behind was Hamilton at the flag?",
+      "text": "20 laps, about 40 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 5,
+      "step": 0.05,
+      "target": 2.591,
+      "close": 1.0364000000000002,
+      "reveal": "2.591 seconds after 20 laps."
+    },
+    {
+      "type": "moment",
+      "lap": 20,
+      "kicker": "Tyres",
+      "title": "13 of 22 cars never stopped",
+      "text": "Nobody who finished needed a second set.",
+      "bullets": [
+        "On one set the whole way: intermediates for 13"
+      ],
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane."
+    },
+    {
+      "type": "moment",
+      "lap": 20,
+      "kicker": "Lap 20 · Retirement",
+      "title": "Piastri is out",
+      "text": "His sprint ends on lap 20 of 20, in a McLaren.",
+      "bullets": [
+        "P4 at the start of lap 19",
+        "Started P4",
+        "Race control logged an incident with Norris and Piastri at Turn 5 on lap 20"
+      ]
+    },
+    {
+      "type": "moment",
+      "lap": 20,
+      "kicker": "Lap 20 · Fastest lap",
+      "title": "Hamilton: 1:45.457",
+      "text": "The quickest anybody went all sprint, in a Ferrari.",
+      "bullets": [
+        "Set on lap 20 of 20, late on, where they usually land",
+        "By then the fuel is nearly gone and the car is at its lightest",
+        "A sprint has never paid a point for it"
+      ],
+      "dato": {
+        "label": "Best sector times",
+        "rows": [
+          [
+            "Sector 1 · Hamilton",
+            "31.845s"
+          ],
+          [
+            "Sector 2 · Hamilton",
+            "43.432s"
+          ],
+          [
+            "Sector 3 · Norris",
+            "29.601s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 20,
+      "kicker": "Chequered flag",
+      "title": "Verstappen wins it",
+      "text": "P1 Verstappen · P2 Hamilton · P3 Leclerc.",
+      "bullets": [
+        "After 20 laps, Hamilton crossed the line 2.591s behind"
+      ],
+      "dato": {
+        "label": "Points scored",
+        "rows": [
+          [
+            "Verstappen",
+            "8"
+          ],
+          [
+            "Hamilton",
+            "7"
+          ],
+          [
+            "Leclerc",
+            "6"
+          ],
+          [
+            "Antonelli",
+            "5"
+          ],
+          [
+            "Lawson",
+            "4"
+          ],
+          [
+            "Bearman",
+            "3"
+          ],
+          [
+            "Hulkenberg",
+            "2"
+          ],
+          [
+            "Norris",
+            "1"
+          ]
+        ]
+      }
+    }
+  ]
+}

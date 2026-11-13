@@ -14,7 +14,7 @@
         ],
         [
           "Laps led",
-          "30"
+          "31"
         ],
         [
           "Stops",
@@ -37,7 +37,7 @@
           "P1"
         ]
       ],
-      "tell": "led 30 of 72 laps and took the win",
+      "tell": "led 31 of 72 laps and took the win",
       "options": [
         "Antonelli",
         "Hamilton",
@@ -66,11 +66,11 @@
         ],
         [
           "Median lap",
-          "1:18.866"
+          "1:18.845"
         ],
         [
           "On-track passes",
-          "2"
+          "1"
         ],
         [
           "Finished",
@@ -106,7 +106,7 @@
         ],
         [
           "Median lap",
-          "1:19.876"
+          "1:19.810"
         ],
         [
           "On-track passes",
@@ -146,7 +146,7 @@
         ],
         [
           "Median lap",
-          "1:19.109"
+          "1:19.108"
         ],
         [
           "On-track passes",
@@ -186,7 +186,7 @@
         ],
         [
           "Median lap",
-          "1:19.991"
+          "1:19.988"
         ],
         [
           "On-track passes",
@@ -226,11 +226,11 @@
         ],
         [
           "Median lap",
-          "1:18.794"
+          "1:18.754"
         ],
         [
           "On-track passes",
-          "6"
+          "5"
         ],
         [
           "Finished",
@@ -266,11 +266,11 @@
         ],
         [
           "Median lap",
-          "1:19.102"
+          "1:19.049"
         ],
         [
           "On-track passes",
-          "3"
+          "2"
         ],
         [
           "Finished",

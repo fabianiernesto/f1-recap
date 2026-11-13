@@ -1,0 +1,114 @@
+{
+  "session": "Race",
+  "beats": [
+    {
+      "lap": 0,
+      "msgs": [
+        "yo",
+        "you missed the race",
+        "62 laps, 35 passes on track and 2 virtual safety cars"
+      ],
+      "asks": [
+        {
+          "q": "just tell me who won",
+          "a": [
+            "Verstappen 🏆",
+            "Red Bull, from P1 on the grid"
+          ]
+        },
+        {
+          "q": "was it actually good or are you being nice",
+          "a": [
+            "you tell me lol",
+            "35 passes on track, not counting the ones in the pit lane"
+          ]
+        },
+        {
+          "q": "i know nothing about f1, start there",
+          "a": [
+            "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
+            "in a dry race everyone has to use two different tyre types, so everyone stops at least once, and you spend about 24 seconds in the pit lane when you do",
+            "the whole sport is basically deciding WHEN to lose that time"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 1,
+      "msgs": [
+        "lights out",
+        "13 places changed hands before they even finished lap 1"
+      ],
+      "asks": [
+        {
+          "q": "why is the start always so mad",
+          "a": [
+            "cold tyres, cold brakes, full fuel tank and everybody going for the same gap",
+            "it's the only moment of the race where the whole field is that close"
+          ]
+        },
+        {
+          "q": "does the start decide the race",
+          "a": [
+            "more than anyone admits",
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 41,
+      "msgs": [
+        "fastest lap of the race went to Leclerc",
+        "1:35.202, on lap 41"
+      ],
+      "asks": [
+        {
+          "q": "is fastest lap worth anything",
+          "a": [
+            "not anymore, there's been no point for it since 2025",
+            "it's bragging rights now"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 60,
+      "msgs": [
+        "and Albon is out",
+        "lap 60, his race ended there"
+      ],
+      "asks": [
+        {
+          "q": "what happened",
+          "a": [
+            "honestly not sure, the data only tells me he stopped, not why",
+            "teams give the detail later, if at all"
+          ]
+        },
+        {
+          "q": "does he get any points",
+          "a": [
+            "nope, not today"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 62,
+      "msgs": [
+        "chequered flag",
+        "P1 Verstappen · P2 Leclerc · P3 Antonelli"
+      ],
+      "asks": [
+        {
+          "q": "was the winner just in the fastest car",
+          "a": [
+            "partly, always. the median lap times are the honest read on who had the pace",
+            "the true pace card is the one i'd trust"
+          ]
+        }
+      ]
+    }
+  ]
+}

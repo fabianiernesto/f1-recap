@@ -6,9 +6,9 @@
  * Beats 144-: the end card while the song rings out.
  */
 import React from "react";
-import { AbsoluteFill, Easing, Img, interpolate, random } from "remotion";
+import { AbsoluteFill, Easing, Img, interpolate } from "remotion";
 import {
-  at, Beam, Blur, BODY, C, clamp, ease, Flash, GLOW, GLOW_S, GPS, hum, LED, MONO, out, Rip, ring, shake, smear, Speedlines,
+  at, Beam, Blur, BODY, C, clamp, ease, Flash, GLOW, GLOW_S, GPS, hum, MONO, out, Rip, ring, shake, smear, Speedlines,
   TOTALS, Track, WIDE,
 } from "../kit";
 import { END, F, span, useFrame, Seq, X } from "../time";
@@ -303,14 +303,7 @@ export const EndCard: React.FC = () => {
       <AbsoluteFill style={{ background: "radial-gradient(ellipse 48% 17% at 50% 49%, #000000f4 0%, #000000c0 55%, transparent 100%)" }} />
 
       {/* the name, centred */}
-      <div style={{ position: "absolute", left: 0, right: 0, top: 720, textAlign: "center" }}>
-        <div style={{ ...LED, fontSize: 84, lineHeight: 1, marginBottom: 40, letterSpacing: "0.04em" }}>
-          {"R//S".split("").map((ch, i) => {
-            const st = b(1 + i * 0.5), on = b(1.25 + i * 0.5);
-            const lvl = f < st ? 0 : f >= on ? 1 : random(`rs${i}${f}`) < 0.45 ? 0.5 + random(`rl${i}${f}`) * 0.5 : 0.05;
-            return <span key={i} style={{ opacity: lvl, textShadow: lvl > 0.5 ? LED.textShadow : "none" }}>{ch}</span>;
-          })}
-        </div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 770, textAlign: "center" }}>
         <div style={{ position: "relative", display: "inline-block" }}>
           <div style={{ ...WIDE, fontSize: 112, color: "#fff", ...smear(f, b(0.4), "zoom", 12) }}>Racing</div>
           <div style={{ ...WIDE, fontSize: 112, ...GLOW, filter: `brightness(${h})`, ...smear(f, b(0.7), "zoom", 12) }}>Simplified</div>

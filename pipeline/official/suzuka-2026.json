@@ -1,0 +1,1145 @@
+{
+"fastest-laps": {
+"title": "FORMULA 1 ARAMCO JAPANESE GRAND PRIX 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"49",
+"15:35:52",
+"1:32.432",
+"226.168"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"53",
+"15:42:21",
+"1:32.549",
+"225.882"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"53",
+"15:42:20",
+"1:32.634",
+"225.675"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"48",
+"15:34:38",
+"1:32.777",
+"225.327"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"49",
+"15:36:05",
+"1:32.996",
+"224.796"
+],
+[
+"6",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"52",
+"15:40:55",
+"1:33.208",
+"224.285"
+],
+[
+"7",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"53",
+"15:42:10",
+"1:33.427",
+"223.759"
+],
+[
+"8",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"41",
+"15:23:49",
+"1:33.552",
+"223.460"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"39",
+"15:20:40",
+"1:33.691",
+"223.129"
+],
+[
+"10",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"47",
+"15:33:33",
+"1:33.732",
+"223.031"
+],
+[
+"11",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"53",
+"15:43:01",
+"1:33.837",
+"222.782"
+],
+[
+"12",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"40",
+"15:22:31",
+"1:34.164",
+"222.008"
+],
+[
+"13",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"53",
+"15:42:55",
+"1:34.230",
+"221.852"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"53",
+"15:42:56",
+"1:34.256",
+"221.791"
+],
+[
+"15",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"53",
+"15:43:05",
+"1:34.314",
+"221.655"
+],
+[
+"16",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"41",
+"15:24:11",
+"1:34.512",
+"221.190"
+],
+[
+"17",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"38",
+"15:19:24",
+"1:34.514",
+"221.186"
+],
+[
+"18",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"20",
+"14:46:46",
+"1:35.604",
+"218.664"
+],
+[
+"19",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"53",
+"15:43:37",
+"1:35.637",
+"218.589"
+],
+[
+"20",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"48",
+"15:34:23",
+"1:36.221",
+"217.262"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"53",
+"15:42:47",
+"1:36.269",
+"217.154"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"29",
+"15:05:10",
+"1:37.217",
+"215.036"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 ARAMCO JAPANESE GRAND PRIX 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"16",
+"14:39:31",
+"23.316",
+"23.316"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"16",
+"14:39:59",
+"25.081",
+"25.081"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"17",
+"14:41:04",
+"22.992",
+"22.992"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"17",
+"14:41:34",
+"23.649",
+"23.649"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"18",
+"14:42:34",
+"23.444",
+"23.444"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"18",
+"14:43:08",
+"26.335",
+"26.335"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"19",
+"14:44:42",
+"24.629",
+"24.629"
+],
+[
+"1",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"19",
+"14:44:44",
+"23.698",
+"23.698"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"19",
+"14:45:33",
+"25.129",
+"25.129"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"21",
+"14:47:19",
+"22.937",
+"22.937"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"21",
+"14:48:37",
+"27.307",
+"27.307"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"21",
+"14:48:49",
+"25.083",
+"25.083"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"21",
+"14:48:57",
+"26.458",
+"26.458"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"22",
+"14:49:12",
+"23.288",
+"23.288"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"22",
+"14:49:21",
+"22.891",
+"22.891"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"22",
+"14:49:37",
+"24.304",
+"24.304"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"22",
+"14:49:41",
+"24.490",
+"24.490"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"22",
+"14:50:03",
+"24.165",
+"24.165"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"22",
+"14:50:04",
+"24.630",
+"24.630"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"22",
+"14:50:11",
+"24.396",
+"24.396"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"22",
+"14:50:19",
+"24.600",
+"24.600"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"23",
+"14:52:12",
+"23.999",
+"23.999"
+],
+[
+"2",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"23",
+"14:53:15",
+"24.014",
+"50.472"
+],
+[
+"2",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"24",
+"14:54:49",
+"23.501",
+"48.584"
+],
+[
+"2",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"45",
+"15:30:35",
+"23.072",
+"47.672"
+],
+[
+"6",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"49",
+"15:38:36",
+"24.337",
+"154.901"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 ARAMCO JAPANESE GRAND PRIX 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:30.035",
+"1:29.048",
+"1:28.778",
+"15"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:29.967",
+"1:29.686",
+"1:29.076",
+"21"
+],
+[
+"3",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:30.200",
+"1:29.451",
+"1:29.132",
+"20"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:29.915",
+"1:29.303",
+"1:29.405",
+"18"
+],
+[
+"5",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:30.401",
+"1:29.795",
+"1:29.409",
+"20"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:30.309",
+"1:29.589",
+"1:29.567",
+"20"
+],
+[
+"7",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:30.584",
+"1:29.874",
+"1:29.691",
+"18"
+],
+[
+"8",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:30.662",
+"1:30.104",
+"1:29.978",
+"17"
+],
+[
+"9",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:30.359",
+"1:29.990",
+"1:30.274",
+"20"
+],
+[
+"10",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:30.781",
+"1:30.109",
+"1:30.319",
+"21"
+],
+[
+"11",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:30.519",
+"1:30.262",
+"",
+"12"
+],
+[
+"12",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:30.915",
+"1:30.309",
+"",
+"15"
+],
+[
+"13",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:30.358",
+"1:30.387",
+"",
+"14"
+],
+[
+"14",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:30.657",
+"1:30.495",
+"",
+"15"
+],
+[
+"15",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:30.931",
+"1:30.627",
+"",
+"12"
+],
+[
+"16",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:30.927",
+"1:31.033",
+"",
+"15"
+],
+[
+"17",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:31.088",
+"",
+"",
+"9"
+],
+[
+"18",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:31.090",
+"",
+"",
+"9"
+],
+[
+"19",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:32.206",
+"",
+"",
+"6"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:32.330",
+"",
+"",
+"9"
+],
+[
+"21",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:32.646",
+"",
+"",
+"9"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:32.920",
+"",
+"",
+"9"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"race-result": {
+"title": "FORMULA 1 ARAMCO JAPANESE GRAND PRIX 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"53",
+"1:28:03.403",
+"25"
+],
+[
+"2",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"53",
+"+13.722s",
+"18"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"53",
+"+15.270s",
+"15"
+],
+[
+"4",
+"63",
+"George Russell RUS",
+"Mercedes",
+"53",
+"+15.754s",
+"12"
+],
+[
+"5",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"53",
+"+23.479s",
+"10"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"53",
+"+25.037s",
+"8"
+],
+[
+"7",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"53",
+"+32.340s",
+"6"
+],
+[
+"8",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"53",
+"+32.677s",
+"4"
+],
+[
+"9",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"53",
+"+50.180s",
+"2"
+],
+[
+"10",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"53",
+"+51.216s",
+"1"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"53",
+"+52.280s",
+"0"
+],
+[
+"12",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"53",
+"+56.154s",
+"0"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"53",
+"+59.078s",
+"0"
+],
+[
+"14",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"53",
+"+59.848s",
+"0"
+],
+[
+"15",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"53",
+"+65.008s",
+"0"
+],
+[
+"16",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"53",
+"+65.773s",
+"0"
+],
+[
+"17",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"53",
+"+92.453s",
+"0"
+],
+[
+"18",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"52",
+"+1 lap",
+"0"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"52",
+"+1 lap",
+"0"
+],
+[
+"20",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"51",
+"+2 laps",
+"0"
+],
+[
+"NC",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"30",
+"DNF",
+"0"
+],
+[
+"NC",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"20",
+"DNF",
+"0"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 ARAMCO JAPANESE GRAND PRIX 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:28.778"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:29.076"
+],
+[
+"3",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:29.132"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:29.405"
+],
+[
+"5",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:29.409"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:29.567"
+],
+[
+"7",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:29.691"
+],
+[
+"8",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:29.978"
+],
+[
+"9",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:30.274"
+],
+[
+"10",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:30.319"
+],
+[
+"11",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:30.262"
+],
+[
+"12",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:30.309"
+],
+[
+"13",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:30.387"
+],
+[
+"14",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:30.495"
+],
+[
+"15",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:30.627"
+],
+[
+"16",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:31.033"
+],
+[
+"17",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:31.088"
+],
+[
+"18",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:31.090"
+],
+[
+"19",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:32.206"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:32.330"
+],
+[
+"21",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:32.646"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:32.920"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+}
+}

@@ -70,10 +70,14 @@
       "lap": 2,
       "kicker": "Q1 · The cut",
       "title": "Out before it got serious",
-      "text": "Alonso (P17), Stroll (P18), Bottas (P19), Perez (P20), Bortoleto (P21), Hadjar (not classified).",
+      "text": "Lindblad (P16), Alonso (P17), Stroll (P18), Bottas (P19), Perez (P20), Bortoleto (P21).",
       "dato": {
         "label": "Knocked out in Q1",
         "rows": [
+          [
+            "Lindblad",
+            "P16"
+          ],
           [
             "Alonso",
             "P17"
@@ -93,10 +97,6 @@
           [
             "Bortoleto",
             "P21"
-          ],
-          [
-            "Hadjar",
-            "not classified"
           ]
         ]
       }
@@ -106,10 +106,14 @@
       "lap": 3,
       "kicker": "Q2 · The cut",
       "title": "So close to the top ten",
-      "text": "Lawson (P11), Bearman (P12), Sainz (P13), Ocon (P14), Albon (P15), Lindblad (P16, no time set in this round).",
+      "text": "Hulkenberg (P10), Lawson (P11), Bearman (P12), Sainz (P13), Ocon (P14), Albon (P15).",
       "dato": {
         "label": "Knocked out in Q2",
         "rows": [
+          [
+            "Hulkenberg",
+            "P10"
+          ],
           [
             "Lawson",
             "P11"
@@ -129,13 +133,23 @@
           [
             "Albon",
             "P15"
-          ],
-          [
-            "Lindblad",
-            "P16, no time"
           ]
         ]
       }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Not classified",
+      "title": "Hadjar has no place in the result",
+      "text": "He set times all the way to Q3, and the classification still leaves him out. The timing feed records that, not why."
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Disqualified",
+      "title": "Hadjar loses all his times",
+      "text": "Disqualified from the session: a technical nonconformity. Everybody behind him moves up a place."
     },
     {
       "type": "moment",
@@ -174,7 +188,10 @@
       "kicker": "The grid",
       "title": "How the race starts",
       "text": "P1 Antonelli · P2 Verstappen · P3 Leclerc · P4 Norris · P5 Russell · P6 Hamilton",
-      "bullets": []
+      "bullets": [
+        "Hadjar starts from the pit lane: new power unit parts",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
     }
   ]
 }

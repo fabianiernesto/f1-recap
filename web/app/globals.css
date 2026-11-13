@@ -18,7 +18,7 @@
 /* the home's family: Anybody, a variable face with a width axis, self-hosted.
    Titles run at 150% width, sentences at 105%, labels at 110%. */
 @font-face { font-family: "Anybody"; font-weight: 100 900; font-stretch: 50% 150%;
-  font-display: swap; src: url("/fonts/anybody-variable.woff2") format("woff2"); }
+  font-display: block; src: url("/fonts/anybody-variable.woff2") format("woff2"); }
 /* the earlier TT Commons Pro slot stays, unused unless the files land */
 @font-face { font-family: "TT Commons Pro"; font-weight: 400; font-display: swap;
   src: url("/fonts/tt-commons-pro-regular.woff2") format("woff2"),
@@ -495,7 +495,7 @@ body {
 .call-opt em { position: absolute; top: 10px; right: 12px; font-style: normal;
   font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .16em;
   text-transform: uppercase; color: var(--led); }
-.call-opt:hover:not(:disabled) { border-color: var(--led); background: #140708; }
+@media (hover: hover) { .call-opt:hover:not(:disabled) { border-color: var(--led); background: #140708; } }
 .call-opt:focus-visible { outline: 2px solid var(--led); outline-offset: 2px; }
 .call-opt:disabled { cursor: default; opacity: .45; }
 .call-opt.picked { opacity: 1; border-color: #ffffff59; background: #16181d; }
@@ -557,9 +557,6 @@ body {
 .mate-fab-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff;
   animation: dot-breathe 2.4s ease-in-out infinite; }
 @keyframes dot-breathe { 0%, 100% { opacity: .88 } 50% { opacity: 1 } }
-.mate-badge { position: absolute; top: -7px; right: -7px; min-width: 19px; height: 19px;
-  border-radius: 10px; background: #fff; color: var(--led); font-size: 10px;
-  display: grid; place-items: center; padding: 0 5px; }
 
 .mate { position: fixed; z-index: 69; right: 20px; bottom: 74px; width: 360px;
   max-height: min(70vh, 620px); display: flex; flex-direction: column;
@@ -2102,7 +2099,8 @@ a.act:hover .act-go { background: var(--led); color: #000; }
   color: inherit; text-align: inherit;
   border-bottom: 1px dotted currentColor; opacity: .85;
   transition: color .15s, opacity .15s; }
-.term-word:hover, .term:focus-within .term-word { color: var(--led); opacity: 1; }
+.term.is-open .term-word { color: var(--led); opacity: 1; }
+@media (hover: hover) { .term-word:hover, .term:focus-within .term-word { color: var(--led); opacity: 1; } }
 .term-word:focus-visible { outline: 2px solid var(--led); outline-offset: 3px; }
 
 .term-pop { position: absolute; z-index: 60; left: 0; top: calc(100% + 10px);
@@ -2112,8 +2110,10 @@ a.act:hover .act-go { background: var(--led); color: #000; }
   opacity: 0; visibility: hidden; transform: translateY(-4px);
   transition: opacity .16s, transform .16s, visibility .16s;
   text-align: left; text-transform: none; letter-spacing: 0; }
-.term-word:hover + .term-pop, .term:focus-within .term-pop {
-  opacity: 1; visibility: visible; transform: none; }
+.term.is-open .term-pop { opacity: 1; visibility: visible; transform: none; }
+/* on a phone only the tap: a stuck :hover could not be closed by tapping it again */
+@media (hover: hover) { .term-word:hover + .term-pop, .term:focus-within .term-pop {
+  opacity: 1; visibility: visible; transform: none; } }
 /* the arrow, so the panel is clearly attached to the word it explains */
 .term-pop::before { content: ""; position: absolute; top: -5px; left: 14px;
   width: 8px; height: 8px; background: #0d0f13;
@@ -2628,6 +2628,20 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
   .stop .card { transition: opacity .6s ease-out, transform .95s cubic-bezier(.16, .84, .2, 1),
     filter .95s cubic-bezier(.16, .84, .2, 1); }
   .stop .card.seen { filter: none; }
+}
+/* The first card arrives on the browser's clock, not React's (02/11/2026). It
+   was hidden until hydration added .seen, which on a phone on 4G left the page
+   empty for seconds after everything had arrived. Same moves and same timing as
+   the .seen transitions above; once .seen lands these rules simply stop applying. */
+@keyframes first-card-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes first-card-rise { from { transform: translateY(20px); } to { transform: none; } }
+@keyframes first-card-land { from { transform: translate3d(-9vw, 0, 0) skewX(-14deg); filter: blur(16px); } to { transform: none; filter: none; } }
+.flow > :first-child .card:not(.seen) { animation: first-card-fade .4s ease-out both, first-card-rise .4s ease-out both; }
+@media (min-width: 1100px) {
+  .flow > :first-child .card:not(.seen) { animation: first-card-fade .6s ease-out both, first-card-land .95s cubic-bezier(.16, .84, .2, 1) both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow > :first-child .card:not(.seen) { animation: none; }
 }
 
 /* ---- the poster: the neon tube cuts behind the winner, as it cuts from the
@@ -3175,7 +3189,7 @@ html, body { overflow-x: clip; }
 .cr-opt.is-plain { grid-template-columns: 1fr; padding: 12px 16px; }
 .cr-opt b { font-family: var(--wide); font-weight: 800; font-stretch: 118%; text-transform: uppercase; font-size: 16px; line-height: 1.1; }
 .cr-opt b small { display: block; margin-top: 4px; font-family: var(--font-mono); font-weight: 500; font-size: 10px; letter-spacing: .12em; color: #8c8c8c; text-transform: none; }
-.cr-opt:hover { border-color: #ffffff55; transform: translateX(2px); }
+@media (hover: hover) { .cr-opt:hover { border-color: #ffffff55; transform: translateX(2px); } }
 .cr-opt.is-sel { border-color: #ff2415; box-shadow: 0 0 0 1px #ff2415, 0 0 26px #e1060055; }
 .cr-stake { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 16px 0; }
 .cr-stake button { padding: 10px 6px; border: 1px solid #ffffff1a; border-radius: 6px; background: #0d0d0d; color: #fff; cursor: pointer; }
@@ -3505,9 +3519,9 @@ html, body { overflow-x: clip; }
 .px-acts button { height: 34px; padding: 0 14px; border: 0; border-radius: 3px; cursor: pointer; font-family: var(--font-mono); font-weight: 700;
   font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
 .px-buy { background: #fff; color: #0a0a0a; }
-.px-buy:hover { background: #ffd9d6; }
+@media (hover: hover) { .px-buy:hover { background: #ffd9d6; } .px-row:hover { background: #ffffff0d; } .px-row.is-mine:hover { background: #260704; } }
 .px-sell { background: var(--led); color: #fff; }
-.px-sell:hover { background: #ff2415; }
+@media (hover: hover) { .px-sell:hover { background: #ff2415; } }
 .px-acts button:disabled { background: #1c1c1c; color: #4a4a4a; cursor: default; }
 .px-feed { margin: 14px 0 0; min-height: 20px; font-size: 13px; color: #8c8c8c; }
 
@@ -3543,3 +3557,331 @@ html, body { overflow-x: clip; }
   .px-acts button { height: 38px; padding: 0 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .px-row { transition: none; } }
+
+/* =====================================================================
+   LAUNCH PASS (02/11/2026): layout defects seen at phone sizes.
+   Overrides only, nothing new moves or animates. The hub LED is not here.
+   ===================================================================== */
+/* the height with the browser's bar showing, not the one with it hidden */
+.home-hero { min-height: calc(100svh - 68px); }
+.lost { min-height: 100svh; }
+
+/* the race is a screen under the site bar: at a full 100svh its foot, and
+   the Lock button with it, sat a bar's height below the fold */
+.cr-game { height: calc(100svh - 42px); min-height: 560px; }
+/* a car has no place on the track until the first frame gives it one: until
+   then all 22 sat in a stray dot in the corner of the drawing */
+.rt-car { opacity: 0; }
+.cr-lock { position: sticky; bottom: 0; }
+/* solid now that it can ride over the options (same colour as the old .45) */
+.cr-lock:disabled { opacity: 1; background: #6a0a06; color: #ffffff80; }
+.cr-marks { flex-wrap: wrap; }
+/* twenty-two prices must not widen the rules page */
+.px-ladder { grid-template-columns: repeat(var(--n, 22), minmax(0, 1fr)); }
+
+/* the lap counter clears the cards passing under it */
+.hud { top: 38px; background: linear-gradient(#0a0a0a 72%, #0a0a0a00); }
+/* and stops at the flag: it is not part of the poster or the way out */
+.poster, .snext { z-index: 55; }
+/* Alfred's button sits bottom right, so the caption goes bottom left */
+.trackcap { left: 16px; right: auto; max-width: calc(100vw - 170px); line-height: 1.5; }
+
+/* an iPhone only takes hold of a slider inside its thumb, never on the track.
+   So the thumb is a 44px square with the same 14x26 drawing as its background,
+   and the input 30px wider, so the drawing still travels from end to end */
+.guess-range { width: calc(100% + 30px); height: 44px; margin: -21px -15px; background: transparent; }
+.guess-range::-webkit-slider-runnable-track { height: 44px; background: linear-gradient(#ffffff26, #ffffff26) center / calc(100% - 30px) 2px no-repeat; }
+.guess-range::-moz-range-track { height: 44px; background: linear-gradient(#ffffff26, #ffffff26) center / calc(100% - 30px) 2px no-repeat; }
+.guess-range::-webkit-slider-thumb { width: 44px; height: 44px; margin-top: 0; box-shadow: none;
+  background: linear-gradient(var(--led), var(--led)) center / 14px 26px no-repeat; }
+.guess-range::-moz-range-thumb { width: 44px; height: 44px;
+  background: linear-gradient(var(--led), var(--led)) center / 14px 26px no-repeat; }
+.guess-range:disabled::-webkit-slider-thumb { background: linear-gradient(#6f6f6f, #6f6f6f) center / 14px 26px no-repeat; }
+.guess-dial { margin-bottom: 16px; }
+
+/* Alfred's initial: .mate-top span was shrinking it to 9.5px */
+.mate-top .mate-av { font-family: var(--font-display); font-size: 16px; letter-spacing: 0; color: #fff; }
+
+/* small links keep their look and get a finger-sized target */
+.home-more, .lost-alt, .snext-row a, .myst-link, .term-word { position: relative; }
+.home-more::after, .lost-alt::after, .snext-row a::after, .myst-link::after, .term-word::after {
+  content: ""; position: absolute; inset: -12px 0; }
+
+@media (pointer: coarse) {
+  /* under 16px iOS zooms the whole page when the field takes focus */
+  .mate-ask input { font-size: 16px; }
+  .mate-ask input::placeholder { font-size: 13px; }
+  .mate-asks button { min-height: 40px; }
+  .px-acts button { height: 42px; }
+}
+
+@media (max-width: 960px) {
+  .cr-cover { grid-template-columns: minmax(0, 1fr); }
+  /* EXCHANGE is the widest word on the site: it was running off the screen */
+  .px-cover .cr-h1 { font-size: clamp(30px, 10.2vw, 64px); }
+  /* the end screen was as wide as its longest line, and the rest was cut */
+  .cr-done { grid-template-columns: minmax(0, 1fr); }
+  .cr-game { min-height: 480px; }
+  .cr-sheet { max-height: calc(100% - 8px); }
+}
+/* a laptop screen: Lights out and the whole call both fit in it */
+@media (min-width: 961px) and (max-height: 800px) {
+  .cr-cover { padding-top: 5vh; padding-bottom: 4vh; }
+  .cr-h1 { margin: 12px 0 16px; font-size: clamp(46px, 5.2vw, 84px); }
+  .cr-how { margin-bottom: 16px; gap: 8px; }
+  .cr-how li { padding-top: 8px; }
+  .px-ladder { margin-bottom: 12px; }
+  .cr-stats { margin-bottom: 14px; }
+  .cr-stats b { font-size: 28px; }
+  .cr-sheet { padding: 14px 16px 14px; }
+  .cr-ctx { margin-bottom: 10px; }
+  .cr-opts { gap: 5px; }
+  .cr-opt { min-height: 46px; }
+  .cr-opt img { height: 46px; }
+  .cr-stake { margin: 10px 0; }
+  .cr-stake button { padding: 6px; }
+}
+/* a phone with its browser bars showing: the whole call fits without scrolling */
+@media (max-width: 960px) and (max-height: 700px) {
+  .cr-sheet { padding: 14px 14px 12px; }
+  .cr-q { margin: 6px 0 4px; font-size: 20px; }
+  .cr-ctx { margin-bottom: 10px; font-size: 13px; line-height: 1.4; }
+  .cr-opts { gap: 5px; }
+  .cr-opt { min-height: 48px; }
+  .cr-opt img { height: 48px; }
+  .cr-stake { margin: 10px 0; }
+  .cr-stake button { padding: 6px 4px; }
+  .cr-stake b { font-size: 17px; }
+}
+@media (max-width: 900px) {
+  .px-acts button { height: 42px; }
+  /* on a phone the red photograph runs behind all of this: red on it could not be read */
+  .home.led .spread-go-alt { color: #fff; box-shadow: inset 0 0 0 1.5px #fff; }
+  .home.led .spread-line, .home.led .spread-line .glow { color: #fff !important; text-shadow: none; }
+  .home.led .spread-eyebrow { color: #fff; }
+  .home.led .spread-tag { background: #0a0a0a; color: #fff; }
+}
+@media (max-width: 600px) {
+  /* Lights out is on the first screen whatever the length of the rules: it
+     rides the foot of the screen until the rules end (overflow: hidden made
+     the page's own box the scroller, and clip does not) */
+  .cr-cover-track { height: 28svh; }
+  .cr-cover { overflow: clip; }
+  .cr-cover .bt-go { position: sticky; bottom: 10px; z-index: 3; width: 100%; justify-content: center;
+    box-shadow: 0 0 0 10px #0a0a0a; }
+  /* Alfred's button steps aside while a card asks for an answer */
+  .mate-fab { transition: transform .18s, background-color .18s, opacity .18s, visibility .18s; }
+  .mate-fab.is-quiet:not(.on) { opacity: 0; visibility: hidden; }
+  /* three lines kept free, so the rows do not jump under the finger when he talks */
+  .px-coach { min-height: 66px; }
+  /* a five-figure total at the flag was touching the edge of a small phone */
+  .px-done .cr-score { font-size: min(80px, 19.5vw); }
+  /* QUALIFYING is too wide at the old size: it ran off the screen and took the arrow with it */
+  .snext-main { grid-template-columns: minmax(0, 1fr) auto; }
+  .snext-name { font-size: 7.8vw; }
+  .snext-main i { font-size: 30px; }
+  /* no label under 10px on a phone */
+  .hub-back, .hub-home { font-size: 10px; letter-spacing: .02em; padding-block: 13px; margin-block: -13px; }
+  .cr-stake span { font-size: 10px; letter-spacing: .08em; }
+  .cr-stats span, .cr-hud span, .cr-rv-k, .cr-share span, .cr-skip,
+  .px-lap span, .px-wallet span, .px-facts span, .call-state dt, .guess-scale, .mate-top span { font-size: 10px; }
+  .px-ladder span, .px-ladder b { font-size: 9px; }
+  .mate-top div > span { letter-spacing: .04em; }
+  .trackcap { left: 12px; font-size: 9.5px; letter-spacing: .1em; }
+}
+
+/* =====================================================================
+   IPHONE PASS (02/11/2026): what only shows in a phone's browser.
+   The hub LED is not here: fix by fix, these reach the game screens only.
+   ===================================================================== */
+/* two quick taps on a button zoom the page and lose the second tap */
+.cr, .flow, .mate, .mate-fab, .card-sheet { touch-action: manipulation; }
+
+/* blur on 22 moving cars is drawn by the CPU in Safari, every frame */
+@media (hover: none) { .rt-svg [filter] { filter: none; } }
+
+/* the keyboard: RaceMate sets these while the field has focus */
+.mate { bottom: var(--mate-bottom, 74px); max-height: var(--mate-max, min(70vh, 620px)); }
+@media (max-width: 560px) { .mate { bottom: var(--mate-bottom, 68px); max-height: var(--mate-max, 62vh); } }
+/* reaching the end of the chat must not scroll the race behind it */
+.mate-body { overscroll-behavior: contain; }
+
+/* the card, when a phone cannot share or download it (components/CardActions.tsx) */
+.card-sheet { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; padding: 16px; overflow-y: auto; overscroll-behavior: contain; background: #0a0a0af5; color: #fff; }
+.card-sheet-k { margin: 0; max-width: 36ch; text-align: center; font-family: var(--font-mono); font-size: 13px; line-height: 1.5; color: #d6d9de; }
+.card-sheet img { display: block; width: auto; height: auto; max-width: 100%; max-height: 62svh; border: 1px solid #ffffff26; -webkit-touch-callout: default; }
+.card-sheet-wait { display: grid; place-items: center; width: 200px; height: 356px; border: 1px solid #ffffff26; font-family: var(--font-mono); font-size: 12px; color: #8c8c8c; }
+.card-sheet-acts { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px; }
+.card-sheet-text { flex: none; width: min(100%, 420px); height: 96px; padding: 10px; background: #111; color: #fff; border: 1px solid #ffffff26; font-size: 16px; }
+
+/* Reduced motion, the ones the earlier rules lost to a later or stronger
+   selector: these kept running for a visitor who asked for stillness. Only
+   takes effect under that setting. The hub LED has its own rules and is not here. */
+@media (prefers-reduced-motion: reduce) {
+  .glow, .acts-head h1, .v-cover h2, .mood-trail, .mood-helmet .mood-img,
+  .bt-done .bt-score, .pw-done .pw-place, .bub.typing i, .beam-pulse { animation: none !important; }
+  .beam-pulse { display: none !important; }
+}
+
+/* the Exchange on a phone: what you hold sits under the driver's name, and the cash under the total */
+.px-cashline { display: none; }
+@media (max-width: 900px) {
+  .px-cashline { display: block; margin-top: 2px; font-family: var(--font-mono); font-size: 10px; color: #c8c8c8; }
+  .px-row.is-mine .px-who { align-self: start; padding-top: 7px; }
+  .px-row.is-mine .px-hold { display: flex; align-items: baseline; gap: 6px; position: absolute; left: 56px; bottom: 6px; font-size: 10px; text-align: left; white-space: nowrap; }
+  .px-row.is-mine .px-hold b { display: inline; font-size: 14px; }
+}
+
+/* choosing, in Call the race: the screen answers the finger. One-shot, transform and opacity only */
+.cr-sheet { background: linear-gradient(180deg, #141414, #0b0b0b); }
+.cr-sheet.is-closing { pointer-events: none; animation: cr-sheet-out .28s cubic-bezier(.5, 0, .8, .4) forwards; }
+@keyframes cr-sheet-out { to { opacity: 0; transform: translateY(70px); } }
+.cr-opt::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #e10600, #a80400);
+  transform: scaleX(0); transform-origin: 0 50%; transition: transform .26s cubic-bezier(.2, .8, .2, 1); }
+.cr-opt > img, .cr-opt > b { position: relative; z-index: 1; }
+.cr-opt.is-sel::before { transform: scaleX(1); }
+.cr-opt.is-sel b small { color: #ffffffd8; }
+.cr-stake button { position: relative; overflow: hidden; }
+.cr-stake button::before { content: ""; position: absolute; inset: 0; background: #e10600;
+  transform: scaleY(0); transform-origin: 50% 100%; transition: transform .24s cubic-bezier(.2, .8, .2, 1); }
+.cr-stake button.is-sel { background: #0d0d0d; }
+.cr-stake button.is-sel::before { transform: scaleY(1); }
+.cr-stake b, .cr-stake span { position: relative; z-index: 1; }
+.cr-stake button.is-sel span { color: #fff; }
+.cr-stake button.is-sel b { animation: cr-pop .3s cubic-bezier(.2, .8, .2, 1); }
+@keyframes cr-pop { 40% { transform: scale(1.24); } }
+.cr-lock { overflow: hidden; }
+.cr-lock:not(:disabled)::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 40%; pointer-events: none;
+  background: linear-gradient(90deg, transparent, #ffffff70, transparent); transform: translateX(-120%); animation: cr-sheen .7s ease-out 1 both; }
+@keyframes cr-sheen { to { transform: translateX(320%); } }
+
+/* the hub on a phone (03/11/2026, Ernesto's yes): the same sign, made to fit. The circuit and the
+   word take one line each whatever their length, and everything below stacks clear of them.
+   All of it is under 900px: the validated desktop composition is not touched. */
+@media (max-width: 900px) {
+  .ledhero { --s: min(8.4vh, 13vw); --base: 54%; --rail: calc(var(--base) + var(--s) * 2.1 + 1vh); }
+  .ledhero-l1, .ledhero-l2 { white-space: nowrap; }
+  .ledhero-l1 { --own: min(var(--s), calc(88vw / (var(--n, 8) * .6))); font-size: var(--own); left: 6vw;
+    top: calc(var(--base) + var(--s) - var(--own)); }
+  .ledhero-l2 { font-size: var(--s); left: 16vw; top: calc(var(--base) + var(--s) * 1.08); }
+  .ledhero-rail { top: var(--rail); gap: 5vw; align-items: center; }
+  .ledhero-rail button { padding: 10px 0; gap: 7px; font-size: 11px; letter-spacing: .18em; }
+  .ledhero-rail button b { font-size: 15px; }
+  .ledhero-rail em { font-size: 12px; }
+  .ledhero-read { top: calc(var(--rail) + 38px); font-size: 11px; letter-spacing: .12em; line-height: 1.4; min-height: 0; white-space: normal; }
+  .ledhero-home, .ledhero-enter { left: 6vw; right: 6vw; top: auto; justify-content: center; padding: 15px 12px;
+    font-size: 11px; letter-spacing: .22em; }
+  .ledhero-home { bottom: 3.2vh; }
+  .ledhero-enter { bottom: calc(3.2vh + 56px); }
+}
+/* no R//S on a phone, here or on the curtain between pages: the car and the name carry the screen */
+@media (max-width: 900px) {
+  .ledhero-logo, .sting-mark { display: none; }
+  .ledhero { --base: 48%; }
+  .ledhero-car { width: 112vw; left: -6vw; top: 20%; }
+}
+/* a short screen: the browser's bars showing on a small phone */
+@media (max-width: 900px) and (max-height: 640px) { .ledhero { --base: 42%; } .ledhero-car { top: 11%; } }
+/* a phone on its side: the two ways out share a row */
+@media (max-width: 900px) and (orientation: landscape) {
+  .ledhero { --s: min(13vh, 8vw); --base: 38%; }
+  .ledhero-car { width: 62vw; left: 38vw; top: 4%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%); mask-image: linear-gradient(90deg, transparent, #000 22%); }
+  .ledhero-home { right: auto; }
+  .ledhero-enter { left: auto; right: 6vw; bottom: 3.2vh; }
+}
+
+/* the lap beside a safety car notice: "47 / 52" never breaks in two */
+.px-lap { flex-shrink: 0; }
+.px-lap b { white-space: nowrap; }
+
+/* the exchange's total runs to five characters: on a laptop 11vw ran under the column beside it */
+@media (min-width: 901px) {
+  .px-done .cr-score { font-size: clamp(64px, 7.4vw, 170px); }
+}
+
+/* the cursor from Ernesto's portfolio. .has-cursor only goes on once a mouse has moved */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+.cursor-dot { position: fixed; top: 0; left: 0; z-index: 2147483000; width: 10px; height: 10px; border-radius: 50%; background: #fff;
+  mix-blend-mode: difference; pointer-events: none; transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+  transition: width 220ms cubic-bezier(.22, 1, .36, 1), height 220ms cubic-bezier(.22, 1, .36, 1), opacity 160ms; will-change: transform; }
+/* difference alone turns cyan over the site's red: the same inversion, in greys */
+@supports (backdrop-filter: invert(1)) or (-webkit-backdrop-filter: invert(1)) {
+  .cursor-dot { background: transparent; mix-blend-mode: normal; -webkit-backdrop-filter: grayscale(1) invert(1); backdrop-filter: grayscale(1) invert(1); }
+}
+.cursor-dot.is-hover { width: 40px; height: 40px; }
+.cursor-dot.is-away { opacity: 0; }
+@media (hover: none), (pointer: coarse), (max-width: 767px) { .cursor-dot { display: none; } }
+
+/* Spa-Francorchamps ran past the edge of its card */
+.home.led .home-card-name.is-long { font-size: 19px; }
+
+/* a phone on its side: each game on the one screen, nothing to scroll past mid-race */
+@media (orientation: landscape) and (max-height: 500px) {
+  .cr-cover { display: block; padding: 58px 16px 12px; overflow: clip; }
+  .cr-cover-track { position: absolute; top: 42px; right: 0; width: 42%; height: calc(100svh - 42px); margin: 0; opacity: .7; }
+  .cr-cover-copy { position: relative; z-index: 1; width: 62%; }
+  .cr-h1 { font-size: clamp(30px, 8svh, 44px); margin: 8px 0 14px; }
+  .px-cover .cr-h1 { font-size: clamp(26px, 7svh, 38px); }
+  .cr-how { margin-bottom: 12px; gap: 6px; }
+  .cr-how li { padding-top: 6px; }
+  .cr-how span { font-size: 13px; line-height: 1.4; }
+  .cr-cover .bt-go { position: sticky; bottom: 10px; z-index: 3; width: 100%; justify-content: center; box-shadow: 0 0 0 10px #0a0a0a; }
+
+  .cr-game { height: calc(100svh - 42px); min-height: 0; padding: 8px 12px; column-gap: 12px;
+    grid-template-columns: minmax(0, 1fr) 176px; grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-areas: "hud tower" "line tower" "stage tower" "stage side"; }
+  .cr-hud b { font-size: 28px; }
+  .cr-hud b small { font-size: 12px; }
+  .cr-timeline { height: 16px; margin: 4px 0 2px; }
+  .cr-timeline::before, .cr-tl-done { top: 7px; }
+  .cr-tl-mark { top: 2px; width: 12px; height: 12px; margin-left: -6px; }
+  .cr-flag { top: 0; padding: 3px 8px; }
+  .cr-flag span { font-size: 9px; padding: 2px 6px; }
+  .cr-stage { padding: 0; }
+  .cr-tower { align-self: start; margin: 0; gap: 2px; }
+  .cr-tower li { height: 24px; font-size: 10px; grid-template-columns: 14px 4px 1fr auto; gap: 6px; padding: 0 8px; }
+  .cr-tower li:nth-child(n+6) { display: grid; }
+  .cr-skip { width: 100%; max-width: none; margin: 6px 0 0; padding: 9px 6px; font-size: 9px; text-align: center; }
+  .cr-toast { left: calc(50% - 94px); bottom: 8px; width: min(460px, calc(100% - 212px)); padding: 9px 12px 9px 16px; }
+  .cr-toast b { font-size: 15px; }
+  .cr-toast p { margin-top: 3px; font-size: 12px; line-height: 1.3; }
+
+  .cr-sheet { inset: 6px 8px; width: auto; max-height: none; padding: 12px 14px; border-radius: 14px; display: grid; column-gap: 16px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); grid-template-rows: auto auto minmax(0, 1fr) auto auto; }
+  .cr-sheet-k, .cr-q, .cr-ctx, .cr-stake, .cr-lock { grid-column: 1; }
+  .cr-opts { grid-column: 2; grid-row: 1 / -1; align-self: center; gap: 5px; }
+  .cr-q { margin: 6px 0 4px; font-size: 17px; line-height: 1.05; }
+  .cr-ctx { margin: 0 0 6px; font-size: 12px; line-height: 1.35; }
+  .cr-opt { min-height: 44px; }
+  .cr-opt img { height: 44px; }
+  .cr-opt b { font-size: 14px; }
+  .cr-opt.is-plain { padding: 8px 12px; }
+  .cr-stake { margin: 0 0 6px; }
+  .cr-stake button { padding: 5px 4px; }
+  .cr-stake b { font-size: 16px; }
+  .cr-lock { padding-top: 10px; padding-bottom: 10px; }
+
+  .px-game { grid-template-columns: minmax(230px, 34%) minmax(0, 1fr); }
+  .px-left { top: 41px; height: calc(100svh - 41px); display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 8px 10px; border-right: 1px solid #ffffff14; border-bottom: 0; }
+  .px-top { display: flex; }
+  .px-lap b { font-size: 26px; }
+  .px-lap b small { font-size: 12px; }
+  .px-flag { text-align: right; }
+  .px-flag span { display: none; }
+  .px-track { flex: 1; height: auto; min-height: 0; }
+  .px-wallet { grid-template-columns: 1fr; }
+  .px-wallet > div:not(.px-total) { display: none; }
+  .px-wallet .px-total { padding: 5px 8px; }
+  .px-wallet .px-total b { font-size: 18px; margin-top: 2px; }
+  .px-wallet em { min-height: 0; font-size: 9px; }
+  .px-coach { min-height: 0; max-height: 64px; overflow-y: auto; padding: 5px 8px; font-size: 11px; line-height: 1.3; }
+  .px-board { --rh: 50px; padding: 6px 8px 40px; }
+  .px-head { display: none; }
+  .px-row { grid-template-columns: 20px minmax(0, 1fr) 46px 128px; gap: 6px; padding: 0 6px; }
+  .px-hold, .px-who span { display: none; }
+  .px-row.is-mine .px-who { align-self: start; padding-top: 6px; }
+  .px-row.is-mine .px-hold { display: flex; align-items: baseline; gap: 6px; position: absolute; left: 50px; bottom: 5px; font-size: 10px; text-align: left; white-space: nowrap; }
+  .px-row.is-mine .px-hold b { display: inline; font-size: 13px; }
+  .px-acts button { height: 38px; padding: 0 8px; }
+}

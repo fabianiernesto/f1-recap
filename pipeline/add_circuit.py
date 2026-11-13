@@ -31,11 +31,15 @@ OFFICIAL_LENGTH_KM = {
     "Australia": 5.278, "China": 5.451, "Japan": 5.807, "Miami": 5.412,
     "Canada": 4.361, "Monaco": 3.337, "Austria": 4.326, "Belgium": 7.004,
     "Netherlands": 4.259,
+    # formula1.com/en/racing/2026/<country>, read 02-nov-2026
+    "Malaysia": 5.543, "Singapore": 4.927, "United States": 5.513, "Mexico": 4.304,
+    "Brazil": 4.309,
 }
 
 # corner counts for circuits FastF1 has no circuit info for yet. Madring: 22,
 # per Wikipedia and RacingCircuits.info, checked 28-sep-2026
-OFFICIAL_CORNERS = {"Madrid": 22, "Monaco": 19}
+OFFICIAL_CORNERS = {"Madrid": 22, "Monaco": 19, "Singapore": 19, "Malaysia": 15,
+                    "Hungary": 14}   # FastF1 counts 16 at the Hungaroring
 
 # FastF1 finds an event by the name of the Grand Prix; the circuit the site
 # shows is a different word for most of them
@@ -43,7 +47,10 @@ CIRCUIT_NAME = {"Hungary": "Hungaroring", "Spa": "Spa-Francorchamps",
                 "Madrid": "Madring", "Azerbaijan": "Baku",
                 "Australia": "Albert Park", "China": "Shanghai", "Japan": "Suzuka",
                 "Canada": "Montreal", "Austria": "Spielberg", "Belgium": "Spa-Francorchamps",
-                "Netherlands": "Zandvoort"}
+                "Netherlands": "Zandvoort",
+                "Malaysia": "Sepang", "Singapore": "Marina Bay",
+                "United States": "Austin", "Mexico": "Mexico City",
+                "Brazil": "Interlagos"}
 
 # the corners worth naming, per circuit
 CORNER_NAMES = {
@@ -145,7 +152,7 @@ def main(year: int, gp: str, slug: str, name: str, country: str) -> None:
         {"label": "Full throttle", "value": f"{flat_out:.0f}%",
          "short": "How much of the lap is spent flat out, and how much the engine gets to decide"},
         {"label": "Top speed", "value": f"{top_speed} km/h",
-         "short": f"Fastest anybody went all race. It drops to {slowest} km/h at the tightest corner"},
+         "short": f"Peak in the car data on clean laps. It drops to {slowest} km/h at the tightest corner"},
         {"label": "Braking zones", "value": str(braking),
          "short": "Proper stops, not brushes of the pedal. This is where the overtakes happen"},
     ]

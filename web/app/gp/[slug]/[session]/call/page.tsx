@@ -28,7 +28,7 @@ export default async function CallPage({ params }: PageProps<"/gp/[slug]/[sessio
     <>
       <div className="hub-top">
         <Link href={`/gp/${slug}/activities`} className="hub-back">← {weekend.circuit} · all activities</Link>
-        <Link href="/" className="hub-home">Racing Simplified</Link>
+        <Link href="/" prefetch={false} className="hub-home">Racing Simplified</Link>
       </div>
       <CallTheRace r={r} track={loadTrack(slug)} gp={weekend.short.replace(/ Grand Prix$/, " GP")}
         slug={slug} session={session} exchangeHref={`/gp/${slug}/${session}/exchange`} storyHref={`/gp/${slug}/${session}`} />

@@ -1,0 +1,133 @@
+{
+  "gp": "Bahrain Grand Prix in Malaysia 2026",
+  "session": "Practice 1",
+  "sessionSlug": "fp1",
+  "circuit": "Sepang",
+  "laps": 27,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Bahrain Grand Prix in Malaysia · Practice 1",
+      "title": "Practice, honestly",
+      "text": "506 laps run and no points on offer. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 9",
+      "title": "Verstappen: 1:37.520",
+      "text": "In a Red Bull. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Lindblad racked up 26 laps",
+      "text": "Track time is the currency of a practice Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Lindblad",
+            26
+          ],
+          [
+            "Bortoleto",
+            24
+          ],
+          [
+            "Leclerc",
+            24
+          ],
+          [
+            "Russell",
+            24
+          ],
+          [
+            "Sainz",
+            24
+          ],
+          [
+            "Perez",
+            23
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Consistency",
+      "title": "Leclerc had the best average over his quicker laps",
+      "text": "Every lap within 4% of each driver's own best, averaged. Fuel loads are unknown, so read it as a hint, not a ranking.",
+      "dato": {
+        "label": "Average of the quicker laps",
+        "rows": [
+          [
+            "Leclerc",
+            "1:39.846"
+          ],
+          [
+            "Alonso",
+            "1:41.285"
+          ],
+          [
+            "Stroll",
+            "1:41.846"
+          ],
+          [
+            "Sainz",
+            "1:42.537"
+          ],
+          [
+            "Bearman",
+            "1:42.559"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "MEDIUM",
+            53
+          ],
+          [
+            "SOFT",
+            52
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Bottas topped the trap at 334 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "A clean session",
+      "text": "No yellow or red flags logged while the session ran."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 51°C and 58°C",
+      "text": "Practice conditions rarely match the race, which is one more reason these times mislead."
+    }
+  ]
+}

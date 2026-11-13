@@ -1,0 +1,141 @@
+{
+  "session": "Sprint",
+  "beats": [
+    {
+      "lap": 0,
+      "msgs": [
+        "yo",
+        "you missed the sprint",
+        "20 laps, 2 passes on track and 1 safety car"
+      ],
+      "asks": [
+        {
+          "q": "just tell me who won",
+          "a": [
+            "Verstappen 🏆",
+            "Red Bull, from P1 on the grid"
+          ]
+        },
+        {
+          "q": "was it actually good or are you being nice",
+          "a": [
+            "you tell me lol",
+            "2 passes on track, not counting the ones in the pit lane"
+          ]
+        },
+        {
+          "q": "i know nothing about f1, start there",
+          "a": [
+            "ok so 22 cars, lined up roughly in qualifying order, less any grid penalties",
+            "there's no compulsory stop in a sprint, so plenty of cars go the distance on one set"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 1,
+      "msgs": [
+        "lights out",
+        "13 places changed hands before they even finished lap 1"
+      ],
+      "asks": [
+        {
+          "q": "why is the start always so mad",
+          "a": [
+            "cold tyres, cold brakes, full fuel tank and everybody going for the same gap",
+            "it's the only moment of the sprint where the whole field is that close"
+          ]
+        },
+        {
+          "q": "does the start decide the sprint",
+          "a": [
+            "more than anyone admits",
+            "track position is everything on most circuits, you lose places on lap 1 and you can spend a long time stuck behind someone slower"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 2,
+      "msgs": [
+        "SAFETY CAR on lap 2",
+        "18 laps left and every gap just got deleted"
+      ],
+      "asks": [
+        {
+          "q": "explain safety car like i'm five",
+          "a": [
+            "something's on track that shouldn't be, so a road car comes out and everyone has to queue up behind it at reduced speed",
+            "if you'd built a big lead, it's gone. the guy in P2 is now right behind you"
+          ]
+        },
+        {
+          "q": "so is pitting under it free",
+          "a": [
+            "close to it. everyone's going slow so you lose way less time stopping",
+            "the catch is everyone behind you can do the same thing, and whoever doesn't follow you inherits the lead"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 20,
+      "msgs": [
+        "and Piastri is out",
+        "lap 20, his sprint ended there"
+      ],
+      "asks": [
+        {
+          "q": "what happened",
+          "a": [
+            "race control logged an incident with Norris and Piastri on lap 20",
+            "that's all the data says, teams give the detail later"
+          ]
+        },
+        {
+          "q": "does he get any points",
+          "a": [
+            "nope, not today"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 20,
+      "msgs": [
+        "fastest lap of the sprint went to Hamilton",
+        "1:45.457, on lap 20"
+      ],
+      "asks": [
+        {
+          "q": "is fastest lap worth anything",
+          "a": [
+            "no points for it in a sprint, never has been"
+          ]
+        },
+        {
+          "q": "why is it late in the sprint",
+          "a": [
+            "car's light, almost no fuel left, and the track has rubber all over it by then"
+          ]
+        }
+      ]
+    },
+    {
+      "lap": 20,
+      "msgs": [
+        "chequered flag",
+        "P1 Verstappen · P2 Hamilton · P3 Leclerc"
+      ],
+      "asks": [
+        {
+          "q": "was the winner just in the fastest car",
+          "a": [
+            "partly, always. the median lap times are the honest read on who had the pace",
+            "the true pace card is the one i'd trust"
+          ]
+        }
+      ]
+    }
+  ]
+}

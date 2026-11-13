@@ -11,36 +11,14 @@
       "lap": 0,
       "kicker": "Hungarian Grand Prix · Race · 70 laps",
       "title": "Everything that happened, in order",
-      "text": "54 on-track passes, 44 pit stops, 3 cars that never finished, 1 virtual safety car."
-    },
-    {
-      "type": "moment",
-      "lap": 1,
-      "kicker": "Lap 1 · Lights out",
-      "title": "27 places changed hands on track before the first lap was done",
-      "text": "22 cars into the first corner on cold tyres and full tanks.",
-      "bullets": [
-        "Ocon and Lawson gained the most by the end of it, 3 places each"
-      ],
-      "note": "Most of this is the pack sorting itself out. Some of it decides the race."
-    },
-    {
-      "type": "moment",
-      "lap": 1,
-      "kicker": "Stewards",
-      "title": "7 incidents looked at",
-      "text": "Every one of them logged by race control during the race.",
-      "bullets": [
-        "Lap 1: Perez, starting procedure infringement",
-        "3 ended in a penalty, 3 in no further action and 1 left for after the race"
-      ]
+      "text": "54 on-track passes, 45 pit stops, 3 cars that never finished, 1 virtual safety car."
     },
     {
       "type": "decision",
       "lap": 1,
       "kicker": "You are the steward",
       "title": "Lap 1: an incident between Alonso and Bearman at Turn 3. What do you give?",
-      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
+      "text": "Race control has flagged it and it lands on your desk. If one driver is to blame, what does he get? Same call the stewards had to make.",
       "state": [
         [
           "Lap",
@@ -82,14 +60,26 @@
     },
     {
       "type": "moment",
-      "lap": 2,
-      "kicker": "Track limits",
-      "title": "19 lap times deleted",
-      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
+      "lap": 1,
+      "kicker": "Lap 1 · Lights out",
+      "title": "27 position changes on lap 1",
+      "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Albon lost 3 that way, more than anybody"
+        "Ocon and Lawson gained the most by the end of it, 3 places each",
+        "When it ended, 22 places had really changed against the grid. The rest were swapped back on the way round or came from cars in trouble dropping down the order"
       ],
-      "note": "Keep doing it and it turns into a penalty."
+      "note": "Most of this is the pack sorting itself out. Some of it decides the race."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Stewards",
+      "title": "7 incidents looked at",
+      "text": "Every one of them logged by race control during the race.",
+      "bullets": [
+        "Lap 1: Perez, starting procedure infringement",
+        "3 ended in a penalty, 3 in no further action and 1 left for after the race"
+      ]
     },
     {
       "type": "prediction",
@@ -103,7 +93,18 @@
         "Out of the points"
       ],
       "answer": "Out of the points",
-      "reveal": "P20 to P13, 7 places gained."
+      "reveal": "Out of the points. The exact place comes at the flag."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Track limits",
+      "title": "19 lap times deleted",
+      "text": "The white line is the track, and the lap simply stops counting if you leave it.",
+      "bullets": [
+        "Albon lost 3 that way, more than anybody"
+      ],
+      "note": "Keep doing it and it turns into a penalty."
     },
     {
       "type": "moment",
@@ -178,9 +179,9 @@
     },
     {
       "type": "decision",
-      "lap": 28,
+      "lap": 27,
       "kicker": "Your call on the pit wall",
-      "title": "You are Norris, 0.8s behind Piastri and going nowhere. Now what?",
+      "title": "You are Norris, 0.7s behind Piastri. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -189,11 +190,11 @@
         ],
         [
           "Gap ahead",
-          "0.8s to Piastri"
+          "0.7s to Piastri"
         ],
         [
           "Tyres",
-          "Hard, 10 laps old"
+          "Hard, 9 laps old"
         ],
         [
           "Time in the pit lane",
@@ -219,22 +220,11 @@
       ],
       "actual": "wait",
       "outcomes": {
-        "box": "You spend about 22s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "box": "You spend about 22s in the lane and come out in traffic, trusting that two fast laps on new tyres are worth more than the place you just gave up.",
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Norris came in on lap 39, 11 laps after this. He finished P1."
-    },
-    {
-      "type": "moment",
-      "lap": 31,
-      "kicker": "Speed trap",
-      "title": "Sainz hit 346 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
-      "bullets": [
-        "Sainz did it in a Williams"
-      ],
-      "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine."
+      "reveal": "Norris came in on lap 39, 12 laps after this."
     },
     {
       "type": "prediction",
@@ -243,18 +233,29 @@
       "title": "Who has the fastest lap on the board at the flag?",
       "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
-        "Norris",
-        "Verstappen",
-        "Leclerc"
+        "Antonelli",
+        "Leclerc",
+        "Hamilton"
       ],
       "answer": "Leclerc",
       "reveal": "Leclerc on lap 58, 1:22.000, in a Ferrari."
     },
     {
       "type": "moment",
+      "lap": 31,
+      "kicker": "Speed trap",
+      "title": "Sainz hit 346 km/h",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
+      "bullets": [
+        "Sainz did it in a Williams"
+      ],
+      "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine."
+    },
+    {
+      "type": "moment",
       "lap": 34,
       "kicker": "Lap 34 · Pit window",
-      "title": "44 stops, and the busiest lap saw 3 of them",
+      "title": "45 stops, and the busiest lap saw 3 of them",
       "text": "Once one car stops, the cars around it have to answer.",
       "bullets": [
         "3 cars in on each of laps 16, 39, 42, 54 and 56",
@@ -291,9 +292,8 @@
       "text": "His race ends on lap 49 of 70, in a Cadillac.",
       "bullets": [
         "P21 at the start of lap 48",
-        "Started P22"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+        "Started from the pit lane"
+      ]
     },
     {
       "type": "moment",
@@ -338,12 +338,12 @@
       "title": "One of these three does not see the chequered flag. Who?",
       "text": "Nothing on the timing screens says it is coming.",
       "options": [
-        "Norris",
-        "Verstappen",
+        "Antonelli",
+        "Hamilton",
         "Piastri"
       ],
       "answer": "Piastri",
-      "reveal": "Piastri, on lap 56 of 70. The timing feed records that he stopped, not why."
+      "reveal": "Piastri, on lap 56 of 70."
     },
     {
       "type": "moment",
@@ -379,8 +379,7 @@
         "P2 at the start of lap 55",
         "Started P3",
         "1 on-track pass before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "decision",
@@ -403,7 +402,7 @@
         ],
         [
           "Quicker than",
-          "2 of the eventual top five"
+          "5 of the eventual top five"
         ]
       ],
       "choices": [
@@ -429,7 +428,7 @@
         "podium": "Close, but not enough.",
         "drop": "Tyres or traffic get him."
       },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.41s a lap slower than Norris, who went on to win it. With 14 laps left, \"podium, not the win\" is the honest guess, and nobody gets to check."
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.06s a lap quicker than the car that went on to win it, over the same laps. With 14 laps left, \"podium, not the win\" is the honest guess, and nobody gets to check."
     },
     {
       "type": "moment",
@@ -495,6 +494,20 @@
       "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
     },
     {
+      "type": "guess",
+      "lap": 70,
+      "kicker": "Guess it",
+      "title": "How far behind was Verstappen at the flag?",
+      "text": "70 laps, 1 hour 40 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 40,
+      "step": 0.5,
+      "target": 15.08,
+      "close": 6.032,
+      "reveal": "15.080 seconds after 70 laps. A trip down the pit lane took about 22s today, which is 1.5 times this gap."
+    },
+    {
       "type": "moment",
       "lap": 70,
       "kicker": "Chequered flag",
@@ -548,20 +561,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 70,
-      "kicker": "Guess it",
-      "title": "How far behind was Verstappen at the flag?",
-      "text": "70 laps, 1 hour 40 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 40,
-      "step": 0.5,
-      "target": 15.08,
-      "close": 6.032,
-      "reveal": "15.080 seconds after 70 laps. A trip down the pit lane took about 22s today, which is 1.5 times the margin this race was decided by."
     }
   ],
   "result": {

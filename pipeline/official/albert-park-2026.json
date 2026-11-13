@@ -1,0 +1,1136 @@
+{
+"fastest-laps": {
+"title": "FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"43",
+"16:06:43",
+"1:22.091",
+"231.460"
+],
+[
+"2",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"53",
+"16:20:29",
+"1:22.358",
+"230.709"
+],
+[
+"3",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"57",
+"16:25:13",
+"1:22.417",
+"230.544"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"55",
+"16:22:41",
+"1:22.423",
+"230.527"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"38",
+"15:59:08",
+"1:22.579",
+"230.092"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"21",
+"15:35:04",
+"1:22.670",
+"229.839"
+],
+[
+"7",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"49",
+"16:15:25",
+"1:22.926",
+"229.129"
+],
+[
+"8",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"45",
+"16:09:49",
+"1:23.257",
+"228.218"
+],
+[
+"9",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"54",
+"16:21:29",
+"1:23.590",
+"227.309"
+],
+[
+"10",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"48",
+"16:13:20",
+"1:23.783",
+"226.785"
+],
+[
+"11",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"22",
+"15:36:57",
+"1:24.020",
+"226.146"
+],
+[
+"12",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"21",
+"15:35:32",
+"1:24.182",
+"225.710"
+],
+[
+"13",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"37",
+"15:57:40",
+"1:24.375",
+"225.194"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"25",
+"15:41:20",
+"1:24.424",
+"225.063"
+],
+[
+"15",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"57",
+"16:25:37",
+"1:24.486",
+"224.898"
+],
+[
+"16",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"9",
+"15:16:26",
+"1:25.239",
+"222.912"
+],
+[
+"17",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"51",
+"16:17:25",
+"1:25.410",
+"222.465"
+],
+[
+"18",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"26",
+"15:43:10",
+"1:25.713",
+"221.679"
+],
+[
+"19",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"49",
+"16:15:04",
+"1:26.070",
+"220.759"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"8",
+"15:15:24",
+"1:27.364",
+"217.490"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"9",
+"15:16:40",
+"27.733",
+"27.733"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"11",
+"15:19:21",
+"18.266",
+"18.266"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"11",
+"15:19:26",
+"18.570",
+"18.570"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"11",
+"15:19:27",
+"18.672",
+"18.672"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"11",
+"15:19:35",
+"19.859",
+"19.859"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"11",
+"15:19:42",
+"19.112",
+"19.112"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"11",
+"15:19:50",
+"25.895",
+"25.895"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"11",
+"15:20:00",
+"36.686",
+"36.686"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"12",
+"15:20:57",
+"17.794",
+"17.794"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"12",
+"15:20:59",
+"20.985",
+"20.985"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"12",
+"15:21:28",
+"18.118",
+"18.118"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"12",
+"15:22:42",
+"30.387",
+"30.387"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"18",
+"15:30:28",
+"18.506",
+"18.506"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"18",
+"15:30:29",
+"19.070",
+"19.070"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"18",
+"15:30:30",
+"18.774",
+"18.774"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"18",
+"15:30:35",
+"18.916",
+"18.916"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"18",
+"15:31:24",
+"21.371",
+"21.371"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"25",
+"15:40:29",
+"17.664",
+"17.664"
+],
+[
+"2",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"26",
+"15:43:52",
+"33.182",
+"69.868"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"28",
+"15:44:45",
+"17.741",
+"17.741"
+],
+[
+"2",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"33",
+"15:52:30",
+"22.619",
+"41.535"
+],
+[
+"2",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"33",
+"15:53:04",
+"18.404",
+"36.522"
+],
+[
+"2",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"33",
+"15:53:09",
+"25.939",
+"45.798"
+],
+[
+"2",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"33",
+"15:53:16",
+"18.190",
+"37.302"
+],
+[
+"2",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"34",
+"15:53:48",
+"17.649",
+"35.915"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"41",
+"16:03:37",
+"18.078",
+"37.148"
+],
+[
+"2",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"43",
+"16:08:53",
+"18.951",
+"40.322"
+],
+[
+"3",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"45",
+"16:10:48",
+"34.615",
+"80.413"
+],
+[
+"2",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"46",
+"16:12:15",
+"18.561",
+"46.294"
+],
+[
+"4",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"39",
+"16:21:43",
+"22.469",
+"1173.890"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:19.507",
+"1:18.934",
+"1:18.518",
+"22"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:20.120",
+"1:19.435",
+"1:18.811",
+"18"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:20.023",
+"1:19.653",
+"1:19.303",
+"19"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:20.226",
+"1:19.357",
+"1:19.327",
+"24"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:19.664",
+"1:19.525",
+"1:19.380",
+"26"
+],
+[
+"6",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:20.010",
+"1:19.882",
+"1:19.475",
+"26"
+],
+[
+"7",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:19.811",
+"1:19.921",
+"1:19.478",
+"25"
+],
+[
+"8",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:20.491",
+"1:20.144",
+"1:19.994",
+"24"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:20.409",
+"1:19.971",
+"1:21.247",
+"25"
+],
+[
+"10",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:20.495",
+"1:20.221",
+"",
+"14"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:21.024",
+"1:20.303",
+"",
+"18"
+],
+[
+"12",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:21.247",
+"1:20.311",
+"",
+"18"
+],
+[
+"13",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:20.759",
+"1:20.491",
+"",
+"18"
+],
+[
+"14",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:21.138",
+"1:20.501",
+"",
+"18"
+],
+[
+"15",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:21.051",
+"1:20.941",
+"",
+"19"
+],
+[
+"16",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:21.200",
+"1:21.270",
+"",
+"18"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:21.969",
+"",
+"",
+"10"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:22.605",
+"",
+"",
+"7"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:23.244",
+"",
+"",
+"8"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"race-result": {
+"title": "FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"58",
+"1:23:06.801",
+"25"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"58",
+"+2.974s",
+"18"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"58",
+"+15.519s",
+"15"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"58",
+"+16.144s",
+"12"
+],
+[
+"5",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"58",
+"+51.741s",
+"10"
+],
+[
+"6",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"58",
+"+54.617s",
+"8"
+],
+[
+"7",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"57",
+"+1 lap",
+"6"
+],
+[
+"8",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"57",
+"+1 lap",
+"4"
+],
+[
+"9",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"57",
+"+1 lap",
+"2"
+],
+[
+"10",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"57",
+"+1 lap",
+"1"
+],
+[
+"11",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"57",
+"+1 lap",
+"0"
+],
+[
+"12",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"57",
+"+1 lap",
+"0"
+],
+[
+"13",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"57",
+"+1 lap",
+"0"
+],
+[
+"14",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"56",
+"+2 laps",
+"0"
+],
+[
+"15",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"56",
+"+2 laps",
+"0"
+],
+[
+"16",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"55",
+"+3 laps",
+"0"
+],
+[
+"NC",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"43",
+"+15 laps",
+"0"
+],
+[
+"NC",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"21",
+"DNF",
+"0"
+],
+[
+"NC",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"15",
+"DNF",
+"0"
+],
+[
+"NC",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"10",
+"DNF",
+"0"
+],
+[
+"NC",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"0",
+"DNS",
+"0"
+],
+[
+"NC",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"0",
+"DNS",
+"0"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 QATAR AIRWAYS AUSTRALIAN GRAND PRIX 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:18.518"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:18.811"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:19.303"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:19.327"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:19.380"
+],
+[
+"6",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:19.475"
+],
+[
+"7",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:19.478"
+],
+[
+"8",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:19.994"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:21.247"
+],
+[
+"10",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+""
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:20.303"
+],
+[
+"12",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:20.311"
+],
+[
+"13",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:20.491"
+],
+[
+"14",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:20.501"
+],
+[
+"15",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:20.941"
+],
+[
+"16",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:21.270"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:21.969"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:22.605"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:23.244"
+],
+[
+"20",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+""
+],
+[
+"21",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+""
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+""
+]
+],
+"after": [
+"Note - Stroll, Sainz and Verstappen given permission to start after failing to set a lap time within 107% of the fastest Q1 time in Qualifying.",
+"OUR PARTNERS",
+"View all"
+]
+}
+}

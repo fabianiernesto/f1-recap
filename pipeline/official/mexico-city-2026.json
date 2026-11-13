@@ -1,0 +1,1228 @@
+{
+"race-result": {
+"title": "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"71",
+"2:20:28.772",
+"25"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"71",
+"+0.799s",
+"18"
+],
+[
+"3",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"71",
+"+4.006s",
+"15"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"71",
+"+10.707s",
+"12"
+],
+[
+"5",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"71",
+"+11.778s",
+"10"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"71",
+"+12.263s",
+"8"
+],
+[
+"7",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"71",
+"+20.899s",
+"6"
+],
+[
+"8",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"71",
+"+22.041s",
+"4"
+],
+[
+"9",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"71",
+"+22.503s",
+"2"
+],
+[
+"10",
+"50",
+"Ryo Hirakawa HIR",
+"Haas F1 Team",
+"71",
+"+25.373s",
+"1"
+],
+[
+"11",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"71",
+"+27.562s",
+"0"
+],
+[
+"12",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"71",
+"+28.638s",
+"0"
+],
+[
+"13",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"71",
+"+29.475s",
+"0"
+],
+[
+"14",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"71",
+"+29.977s",
+"0"
+],
+[
+"15",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"71",
+"+30.204s",
+"0"
+],
+[
+"16",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"71",
+"+30.695s",
+"0"
+],
+[
+"17",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"71",
+"+51.483s",
+"0"
+],
+[
+"NC",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"58",
+"DNF",
+"0"
+],
+[
+"NC",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"47",
+"DNF",
+"0"
+],
+[
+"NC",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"42",
+"DNF",
+"0"
+],
+[
+"NC",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"5",
+"DNF",
+"0"
+],
+[
+"NC",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"5",
+"DNF",
+"0"
+]
+],
+"after": [
+"Note - Piastri penalised for causing a collision, with a 10-second time penalty applied post-race. Colapinto penalised for failing to slow under yellow flags, with a 10-second time penalty applied post-race. Gasly penalised for failing to slow under yellow flags, with a stop and go penalty applied post-race.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"fastest-laps": {
+"title": "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"50",
+"15:53:36",
+"1:19.268",
+"195.468"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"50",
+"15:53:35",
+"1:19.328",
+"195.320"
+],
+[
+"3",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"64",
+"16:14:38",
+"1:19.427",
+"195.077"
+],
+[
+"4",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"50",
+"15:53:40",
+"1:19.800",
+"194.165"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"64",
+"16:14:39",
+"1:19.851",
+"194.041"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"51",
+"15:55:01",
+"1:20.147",
+"193.324"
+],
+[
+"7",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"43",
+"15:04:05",
+"1:20.244",
+"193.091"
+],
+[
+"8",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"50",
+"15:53:43",
+"1:20.555",
+"192.345"
+],
+[
+"9",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"52",
+"15:56:25",
+"1:20.690",
+"192.023"
+],
+[
+"10",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"50",
+"15:53:45",
+"1:20.713",
+"191.969"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"70",
+"16:23:01",
+"1:20.732",
+"191.923"
+],
+[
+"12",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"50",
+"15:53:44",
+"1:20.750",
+"191.881"
+],
+[
+"13",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"50",
+"15:53:45",
+"1:20.754",
+"191.871"
+],
+[
+"14",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"55",
+"16:00:32",
+"1:20.872",
+"191.591"
+],
+[
+"15",
+"50",
+"Ryo Hirakawa HIR",
+"Haas F1 Team",
+"71",
+"16:24:19",
+"1:20.984",
+"191.326"
+],
+[
+"16",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"43",
+"15:03:58",
+"1:21.068",
+"191.128"
+],
+[
+"17",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"50",
+"15:53:48",
+"1:21.114",
+"191.020"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"50",
+"15:53:49",
+"1:21.256",
+"190.686"
+],
+[
+"19",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"51",
+"15:55:13",
+"1:21.339",
+"190.491"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"34",
+"14:51:03",
+"1:22.487",
+"187.840"
+],
+[
+"21",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"2",
+"14:06:24",
+"1:23.544",
+"185.463"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"2",
+"14:06:24",
+"1:23.696",
+"185.127"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"3",
+"14:07:48",
+"23.958",
+"23.958"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"3",
+"14:07:50",
+"27.180",
+"27.180"
+],
+[
+"1",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"7",
+"14:13:49",
+"23.989",
+"23.989"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"11",
+"14:19:40",
+"22.855",
+"22.855"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"17",
+"14:27:47",
+"22.965",
+"22.965"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"18",
+"14:29:20",
+"22.012",
+"22.012"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"26",
+"14:39:52",
+"22.681",
+"22.681"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"27",
+"14:40:49",
+"28.706",
+"28.706"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"27",
+"14:40:54",
+"22.466",
+"22.466"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"28",
+"14:42:19",
+"22.734",
+"22.734"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"30",
+"14:46:03",
+"28.905",
+"28.905"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"30",
+"14:46:28",
+"26.712",
+"26.712"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"31",
+"14:47:04",
+"21.929",
+"21.929"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"33",
+"14:49:13",
+"33.926",
+"33.926"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"34",
+"14:51:07",
+"23.343",
+"23.343"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"35",
+"14:52:22",
+"22.823",
+"22.823"
+],
+[
+"1",
+"50",
+"Ryo Hirakawa HIR",
+"Haas F1 Team",
+"35",
+"14:53:04",
+"22.876",
+"22.876"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"36",
+"14:54:24",
+"22.572",
+"22.572"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"38",
+"14:56:50",
+"22.546",
+"22.546"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"39",
+"14:57:25",
+"24.708",
+"24.708"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"40",
+"14:59:30",
+"22.590",
+"22.590"
+],
+[
+"2",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"41",
+"15:01:02",
+"22.611",
+"46.600"
+],
+[
+"2",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"41",
+"15:01:26",
+"25.430",
+"47.442"
+],
+[
+"2",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"42",
+"15:02:34",
+"22.581",
+"45.436"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"43",
+"15:02:42",
+"23.738",
+"23.738"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"44",
+"15:04:19",
+"23.806",
+"46.540"
+],
+[
+"2",
+"50",
+"Ryo Hirakawa HIR",
+"Haas F1 Team",
+"43",
+"15:04:29",
+"23.802",
+"46.678"
+],
+[
+"2",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"43",
+"15:04:42",
+"24.123",
+"53.028"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"44",
+"15:04:50",
+"22.264",
+"56.190"
+],
+[
+"2",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"44",
+"15:05:05",
+"24.559",
+"47.240"
+],
+[
+"2",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"44",
+"15:05:39",
+"22.833",
+"45.798"
+],
+[
+"3",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"59",
+"16:06:33",
+"34.546",
+"2329.377"
+],
+[
+"5",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"59",
+"16:06:38",
+"29.847",
+"2312.871"
+],
+[
+"5",
+"50",
+"Ryo Hirakawa HIR",
+"Haas F1 Team",
+"59",
+"16:06:40",
+"22.971",
+"2305.930"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:16.514"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:16.523"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:16.633"
+],
+[
+"4",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:16.707"
+],
+[
+"5",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:16.692"
+],
+[
+"6",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:16.824"
+],
+[
+"7",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:16.900"
+],
+[
+"8",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:17.117"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:17.153"
+],
+[
+"10",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:17.306"
+],
+[
+"11",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:17.640"
+],
+[
+"12",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:17.646"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:17.680"
+],
+[
+"14",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:18.083"
+],
+[
+"15",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:18.885"
+],
+[
+"16",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:18.630"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:18.908"
+],
+[
+"18",
+"50",
+"Ryo Hirakawa HIR",
+"Haas F1 Team",
+"1:18.958"
+],
+[
+"19",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:19.072"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:19.105"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:19.852"
+],
+[
+"22",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+""
+]
+],
+"after": [
+"Note - Verstappen was handed a one-place grid penalty for a collision in FP2. Bottas starts from the back of the grid after taking multiple new PU components. Lawson was handed a one-place grid penalty for a collision in FP2, and was disqualified from Qualifying for a technical breach of the rules. He starts from the pit lane after taking new PU components and changing his set-up under parc ferme conditions.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:17.341",
+"1:16.953",
+"1:16.514",
+"20"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:17.659",
+"1:17.027",
+"1:16.523",
+"22"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:17.506",
+"1:16.944",
+"1:16.633",
+"24"
+],
+[
+"4",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:17.942",
+"1:16.876",
+"1:16.692",
+"14"
+],
+[
+"5",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:17.918",
+"1:17.133",
+"1:16.707",
+"24"
+],
+[
+"6",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:17.733",
+"1:16.728",
+"1:16.824",
+"21"
+],
+[
+"7",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:17.385",
+"1:17.047",
+"1:16.900",
+"20"
+],
+[
+"8",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:18.210",
+"1:17.135",
+"1:17.117",
+"21"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:18.194",
+"1:17.278",
+"1:17.153",
+"20"
+],
+[
+"10",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:17.868",
+"1:17.306",
+"",
+"19"
+],
+[
+"11",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:18.517",
+"1:17.640",
+"",
+"14"
+],
+[
+"12",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:17.659",
+"1:17.646",
+"",
+"17"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:17.727",
+"1:17.680",
+"",
+"19"
+],
+[
+"14",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:18.083",
+"1:18.083",
+"",
+"18"
+],
+[
+"15",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:18.521",
+"1:18.885",
+"",
+"18"
+],
+[
+"16",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:18.630",
+"",
+"",
+"12"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:18.908",
+"",
+"",
+"4"
+],
+[
+"18",
+"50",
+"Ryo Hirakawa HIR",
+"Haas F1 Team",
+"1:18.958",
+"",
+"",
+"10"
+],
+[
+"19",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:19.072",
+"",
+"",
+"10"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:19.105",
+"",
+"",
+"9"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:19.852",
+"",
+"",
+"9"
+],
+[
+"DQ",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"",
+"1:17.207",
+"1:17.029",
+"0"
+]
+],
+"after": [
+"Note - Lawson disqualified for a technical infringement.",
+"OUR PARTNERS",
+"View all"
+]
+}
+}

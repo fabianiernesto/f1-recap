@@ -26,6 +26,7 @@ const REVEAL = 250;
    curtain while the mark is still arriving. The whole sting also runs at
    about 0.7x its old length (globals.css, "the sting"). */
 const PUSH_AT = 150;
+const SAFETY = 5000;
 
 export default function PageFX() {
   const router = useRouter();
@@ -36,19 +37,37 @@ export default function PageFX() {
   /* the earliest the curtain is allowed to lift, so a slow route never
      shortens the hold and a fast one never cuts the sound off */
   const holdUntil = useRef(0);
+  /* a covered screen takes no taps, so it can never be the last word: a swipe
+     back under the curtain, or a route that never lands, lifts it after 5s */
+  const safety = useRef(0);
+  const uncover = useCallback(() => {
+    clearTimeout(safety.current);
+    pending.current = null;
+    document.documentElement.classList.remove("fx-in");
+    setPhase("idle");
+  }, []);
+
+  /* a page brought back by the browser (bfcache) comes back exactly as it left */
+  useEffect(() => {
+    const onShow = (e: PageTransitionEvent) => { if (e.persisted) uncover(); };
+    window.addEventListener("pageshow", onShow);
+    return () => window.removeEventListener("pageshow", onShow);
+  }, [uncover]);
 
   /* the curtain comes down, then the route changes behind it */
   const go = useCallback(
     (href: string) => {
       pending.current = href;
       holdUntil.current = performance.now() + COVER;
+      clearTimeout(safety.current);
+      safety.current = window.setTimeout(uncover, SAFETY);
       router.prefetch(href);
       setPhase("cover");
       setTimeout(() => router.push(href), PUSH_AT);
       // only a route that is still loading once the mark is in holds on it
       setTimeout(() => setPhase((p) => (p === "cover" ? "hold" : p)), COVER);
     },
-    [router]
+    [router, uncover]
   );
 
   useEffect(() => {
@@ -81,6 +100,7 @@ export default function PageFX() {
       pending.current = null;
       let t = 0, t2 = 0, lift = 0, f1 = 0;
       const reveal = () => {
+        clearTimeout(safety.current);
         setPhase("reveal");
         // the arriving page settles in under the curtain rather than just
         // being there; the class is what the page-in animation hangs off

@@ -17,6 +17,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 25,
       "stops": [
         11,
@@ -52,6 +55,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 18,
       "stops": [
         12,
@@ -84,6 +90,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 15,
       "stops": [
         13,
@@ -116,6 +125,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 12,
       "stops": [
         12,
@@ -151,6 +163,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 10,
       "stops": [
         14,
@@ -183,6 +198,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 8,
       "stops": [
         15,
@@ -217,6 +235,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 6,
       "stops": [
         14,
@@ -249,6 +270,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 4,
       "stops": [
         11,
@@ -281,6 +305,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 2,
       "stops": [
         22,
@@ -313,6 +340,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 1,
       "stops": [
         12,
@@ -325,8 +355,8 @@
       "pace": "1:24.335",
       "paceRaw": 84.335,
       "overtakes": 2,
-      "penalty": null,
-      "penaltyFor": null,
+      "penalty": "10s",
+      "penaltyFor": "failing to slow for yellow flags",
       "led": 0,
       "swings": [],
       "fastestLap": false,
@@ -345,6 +375,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         15,
@@ -379,6 +412,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         14,
@@ -413,6 +449,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         13,
@@ -448,6 +487,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         12,
@@ -482,6 +524,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 63,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         16,
@@ -514,6 +559,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 62,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         14,
@@ -526,8 +574,8 @@
       "pace": "1:22.141",
       "paceRaw": 82.141,
       "overtakes": 1,
-      "penalty": null,
-      "penaltyFor": null,
+      "penalty": "5s",
+      "penaltyFor": "leaving the track without a justifiable reason multiple times",
       "led": 4,
       "swings": [],
       "fastestLap": false,
@@ -546,10 +594,13 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 61,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         18,
-        28
+        39
       ],
       "compounds": [
         "MEDIUM",
@@ -579,6 +630,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         13,
@@ -613,6 +667,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 38,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": true,
       "points": 0,
       "stops": [
         21
@@ -643,6 +700,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 30,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         13
@@ -674,6 +734,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 16,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         14
@@ -705,6 +768,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 6,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -773,9 +839,6 @@
     "27": [
       "Hamilton pitted"
     ],
-    "28": [
-      "Bearman pitted"
-    ],
     "29": [
       "Verstappen pitted",
       "Albon pitted"
@@ -815,6 +878,7 @@
     ],
     "39": [
       "Leclerc pitted",
+      "Bearman pitted",
       "Perez pitted"
     ],
     "40": [
@@ -868,7 +932,7 @@
       ],
       "say": [
         "Hamilton took it",
-        "Ferrari. started P2, led 29 of 66 laps"
+        "driving for Ferrari, from P2 on the grid, and he led 29 of 66 laps"
       ]
     },
     {
@@ -1011,7 +1075,8 @@
         "investigation"
       ],
       "say": [
-        "no penalties handed out"
+        "2 penalties handed out",
+        "Colapinto 10s · Antonelli 5s"
       ]
     },
     {
@@ -1103,6 +1168,20 @@
       ]
     },
     {
+      "id": "dsq",
+      "keys": [
+        "disqualified",
+        "disqualification",
+        "dsq",
+        "thrown out",
+        "descalificado",
+        "excluded"
+      ],
+      "say": [
+        "nobody was disqualified from the race"
+      ]
+    },
+    {
       "id": "grid",
       "keys": [
         "start",
@@ -1114,7 +1193,7 @@
         "pole"
       ],
       "say": [
-        "23 places changed hands on track on lap 1",
+        "23 position changes on lap 1",
         "cold tyres, cold brakes, full fuel and everybody going for the same gap"
       ]
     }

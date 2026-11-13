@@ -1,0 +1,76 @@
+{
+  "slug": "marina-bay-2026",
+  "gp": "Singapore Grand Prix 2026",
+  "short": "Singapore Grand Prix",
+  "circuit": "Marina Bay",
+  "country": "Singapore",
+  "date": "11 OCT 2026",
+  "laps": 62,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "568 laps run, no points on offer",
+      "moments": 8,
+      "laps": 31
+    },
+    {
+      "slug": "sprint-quali",
+      "label": "Sprint Qualifying",
+      "kind": "quali",
+      "headline": "Verstappen on pole",
+      "moments": 9,
+      "laps": 21
+    },
+    {
+      "slug": "sprint",
+      "label": "Sprint",
+      "kind": "race",
+      "headline": "2 on-track passes, 1 safety car",
+      "moments": 28,
+      "laps": 20
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Verstappen on pole",
+      "moments": 9,
+      "laps": 25
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "35 on-track passes",
+      "moments": 29,
+      "laps": 62
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Max",
+      "last": "Verstappen",
+      "team": "Red Bull Racing",
+      "colour": "4781D7",
+      "number": 3,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp"
+    },
+    "margin": 7.335,
+    "runnerUp": "Leclerc",
+    "fastest": {
+      "last": "Leclerc",
+      "time": "1:35.202"
+    },
+    "passes": 35,
+    "stops": 25,
+    "dnfs": 4,
+    "safetyCars": 0,
+    "redFlag": false,
+    "laps": 62
+  },
+  "rating": null,
+  "heat": []
+}

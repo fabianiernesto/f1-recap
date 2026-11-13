@@ -96,7 +96,7 @@ def main() -> None:
                   "as much to say as the chassis"},
         {"label": "Top speed",
          "value": f"{top_speed} km/h",
-         "short": f"Fastest anybody went all race. It drops to "
+         "short": f"Peak in the car data on clean laps. It drops to "
                   f"{slowest} km/h at the tightest corner"},
         {"label": "Braking zones",
          "value": str(braking_zones),

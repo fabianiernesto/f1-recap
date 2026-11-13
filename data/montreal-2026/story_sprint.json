@@ -36,7 +36,7 @@
         "Out of the points"
       ],
       "answer": "Out of the points",
-      "reveal": "P18 to P11, 7 places gained."
+      "reveal": "Out of the points. The exact place comes at the flag."
     },
     {
       "type": "prediction",
@@ -47,7 +47,7 @@
       "options": [
         "Norris",
         "Antonelli",
-        "Russell"
+        "Hamilton"
       ],
       "answer": "Antonelli",
       "reveal": "Antonelli on lap 11, 1:14.380, in a Mercedes."
@@ -59,7 +59,7 @@
       "title": "Albon: 4 passes",
       "text": "More than anybody else out there, in a Williams.",
       "bullets": [
-        "P22 on the grid, P19 at the flag"
+        "From the pit lane, P19 at the flag"
       ],
       "dato": {
         "label": "Most passes",
@@ -108,10 +108,24 @@
       "lap": 10,
       "kicker": "Speed trap",
       "title": "Lawson and Antonelli hit 353 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine"
       ]
+    },
+    {
+      "type": "prediction",
+      "lap": 11,
+      "kicker": "Call it before it happens",
+      "title": "One of these three does not see the chequered flag. Who?",
+      "text": "Nothing on the timing screens says it is coming.",
+      "options": [
+        "Gasly",
+        "Alonso",
+        "Bearman"
+      ],
+      "answer": "Alonso",
+      "reveal": "Alonso, on lap 16 of 23. The timing feed records that he stopped, not why."
     },
     {
       "type": "moment",
@@ -142,20 +156,6 @@
       }
     },
     {
-      "type": "prediction",
-      "lap": 11,
-      "kicker": "Call it before it happens",
-      "title": "One of these three does not see the chequered flag. Who?",
-      "text": "Nothing on the timing screens says it is coming.",
-      "options": [
-        "Norris",
-        "Alonso",
-        "Russell"
-      ],
-      "answer": "Alonso",
-      "reveal": "Alonso, on lap 16 of 23. The timing feed records that he stopped, not why."
-    },
-    {
       "type": "moment",
       "lap": 12,
       "kicker": "Stewards",
@@ -167,55 +167,6 @@
       ]
     },
     {
-      "type": "decision",
-      "lap": 14,
-      "kicker": "Your call on the pit wall",
-      "title": "You are Norris, 0.5s behind Russell and going nowhere. Now what?",
-      "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
-      "state": [
-        [
-          "Running",
-          "P2"
-        ],
-        [
-          "Gap ahead",
-          "0.5s to Russell"
-        ],
-        [
-          "Tyres",
-          "Medium, 13 laps old"
-        ],
-        [
-          "Time in the pit lane",
-          "about 24s today"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "box",
-          "label": "Box now and undercut",
-          "sub": "Fresh tyres, clean air, two laps to make it pay"
-        },
-        {
-          "id": "wait",
-          "label": "Stay out and overcut",
-          "sub": "Let him stop first, then push on an empty track"
-        },
-        {
-          "id": "attack",
-          "label": "Forget strategy, pass him",
-          "sub": "Send it and take the risk"
-        }
-      ],
-      "actual": "wait",
-      "outcomes": {
-        "box": "You spend about 24s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
-        "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
-        "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
-      },
-      "reveal": "Norris did not stop. He finished P2, Russell P1."
-    },
-    {
       "type": "moment",
       "lap": 16,
       "kicker": "Lap 16 · Retirement",
@@ -224,8 +175,7 @@
       "bullets": [
         "P18 at the start of lap 15",
         "Started P15"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -308,23 +258,11 @@
       ]
     },
     {
-      "type": "moment",
-      "lap": 20,
-      "kicker": "Penalties",
-      "title": "2 penalties handed out",
-      "text": "Given by the stewards during the sprint.",
-      "bullets": [
-        "Hulkenberg: a 10s penalty for leaving the track and gaining an advantage",
-        "Perez: a 10s penalty for forcing another driver off the track"
-      ],
-      "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."
-    },
-    {
       "type": "decision",
       "lap": 21,
       "kicker": "You are the steward",
       "title": "Lap 21: an incident between Perez and Lawson at Turn 13. What do you give?",
-      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
+      "text": "Race control has flagged it and it lands on your desk. If one driver is to blame, what does he get? Same call the stewards had to make.",
       "state": [
         [
           "Lap",
@@ -362,7 +300,33 @@
         "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.",
         "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
       },
-      "reveal": "The stewards gave Perez a 10s penalty. He still finished P14."
+      "reveal": "The stewards gave Perez a 10s penalty."
+    },
+    {
+      "type": "moment",
+      "lap": 20,
+      "kicker": "Penalties",
+      "title": "2 penalties handed out",
+      "text": "Given by the stewards during the sprint.",
+      "bullets": [
+        "Hulkenberg: a 10s penalty for leaving the track and gaining an advantage",
+        "Perez: a 10s penalty for forcing another driver off the track"
+      ],
+      "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."
+    },
+    {
+      "type": "guess",
+      "lap": 23,
+      "kicker": "Guess it",
+      "title": "How far behind was Norris at the flag?",
+      "text": "23 laps, about 29 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 2,
+      "step": 0.05,
+      "target": 1.272,
+      "close": 0.5088,
+      "reveal": "1.272 seconds after 23 laps. A trip down the pit lane took about 24s today, which is 19 times this gap."
     },
     {
       "type": "moment",
@@ -422,20 +386,6 @@
         ]
       },
       "note": "Less than the time it takes to read this sentence."
-    },
-    {
-      "type": "guess",
-      "lap": 23,
-      "kicker": "Guess it",
-      "title": "How far behind was Norris at the flag?",
-      "text": "23 laps, about 29 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 2,
-      "step": 0.05,
-      "target": 1.272,
-      "close": 0.5088,
-      "reveal": "1.272 seconds after 23 laps. A trip down the pit lane took about 24s today, which is 19 times the margin this sprint was decided by."
     }
   ]
 }

@@ -52,7 +52,7 @@ def run(slug: str) -> None:
         print(f"{slug}: no race")
         return
     s = bw.Session(*spec)
-    econ = race_economics(s) if s.result else None
+    econ = race_economics(s) if s.result and not s.tyres_unreliable else None
     if not econ:
         target.unlink(missing_ok=True)
         print(f"{slug}: no game (tyre data does not hold up)")

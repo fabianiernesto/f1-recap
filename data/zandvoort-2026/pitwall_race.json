@@ -12,26 +12,26 @@
     "margin": 0.503
   },
   "economics": {
-    "pitLoss": 18.9,
-    "fuelTrend": -0.0331,
+    "pitLoss": 19.0,
+    "fuelTrend": -0.033,
     "tyres": {
       "MEDIUM": {
-        "deg": 0.0636,
-        "base": 0.355,
+        "deg": 0.0629,
+        "base": 0.404,
         "laps": 194
       },
       "SOFT": {
-        "deg": 0.0358,
-        "base": 0.627,
-        "laps": 323
+        "deg": 0.0352,
+        "base": 0.67,
+        "laps": 324
       },
       "HARD": {
-        "deg": 0.0328,
-        "base": 0.628,
-        "laps": 571
+        "deg": 0.0326,
+        "base": 0.658,
+        "laps": 572
       }
     },
-    "typicalDeg": 0.0358
+    "typicalDeg": 0.0352
   },
   "calls": [
     {
@@ -60,7 +60,7 @@
         {
           "label": "12 laps earlier",
           "lap": 9,
-          "lost": 14.3,
+          "lost": 14.2,
           "real": false,
           "note": "7 laps on the softs, then 34 on the mediums."
         },
@@ -102,12 +102,12 @@
         {
           "label": "12 laps later",
           "lap": 33,
-          "lost": 2.4,
+          "lost": 2.3,
           "real": false,
           "note": "31 laps on the softs, then 10 on the mediums."
         }
       ],
-      "reading": "The softs lose 36ms a lap as they age, the mediums 64ms. The stint has to reach lap 43 either way."
+      "reading": "The softs lose 35ms a lap as they age, the mediums 63ms. The stint has to reach lap 43 either way."
     },
     {
       "lap": 43,
@@ -116,7 +116,7 @@
       "facts": [
         [
           "Running",
-          "P3"
+          "P2"
         ],
         [
           "Tyre",
@@ -124,11 +124,11 @@
         ],
         [
           "Ahead",
-          "Hamilton, 12.1s up"
+          "Norris, 11.2s up"
         ],
         [
           "Behind",
-          "Antonelli"
+          "Hamilton"
         ]
       ],
       "options": [
@@ -149,33 +149,33 @@
         {
           "label": "4 laps earlier",
           "lap": 39,
-          "lost": 0.4,
+          "lost": 0.5,
           "real": false,
           "note": "18 laps on the mediums, then 16 on the hards."
         },
         {
           "label": "Box him now, lap 43",
           "lap": 43,
-          "lost": 2.4,
+          "lost": 2.5,
           "real": true,
           "note": "22 laps on the mediums, then 12 on the hards."
         },
         {
           "label": "4 laps later",
           "lap": 47,
-          "lost": 5.9,
+          "lost": 6.0,
           "real": false,
           "note": "26 laps on the mediums, then 8 on the hards."
         },
         {
           "label": "8 laps later",
           "lap": 51,
-          "lost": 11.0,
+          "lost": 11.1,
           "real": false,
           "note": "30 laps on the mediums, then 4 on the hards."
         }
       ],
-      "reading": "The mediums lose 64ms a lap as they age, the hards 33ms. The stint has to reach lap 55 either way."
+      "reading": "The mediums lose 63ms a lap as they age, the hards 33ms. The stint has to reach lap 55 either way."
     },
     {
       "lap": 55,
@@ -203,7 +203,7 @@
         {
           "label": "8 laps earlier",
           "lap": 47,
-          "lost": 4.6,
+          "lost": 4.7,
           "real": false,
           "note": "4 laps on the hards, then 25 on the softs."
         },
@@ -217,7 +217,7 @@
         {
           "label": "Box him now, lap 55",
           "lap": 55,
-          "lost": 0.4,
+          "lost": 0.5,
           "real": true,
           "note": "12 laps on the hards, then 17 on the softs."
         },
@@ -231,19 +231,19 @@
         {
           "label": "8 laps later",
           "lap": 63,
-          "lost": 0.7,
+          "lost": 0.6,
           "real": false,
           "note": "20 laps on the hards, then 9 on the softs."
         },
         {
           "label": "12 laps later",
           "lap": 67,
-          "lost": 2.4,
+          "lost": 2.3,
           "real": false,
           "note": "24 laps on the hards, then 5 on the softs."
         }
       ],
-      "reading": "The hards lose 33ms a lap as they age, the softs 36ms. The stint has to reach lap 72 either way."
+      "reading": "The hards lose 33ms a lap as they age, the softs 35ms. The stint has to reach lap 72 either way."
     },
     {
       "lap": 55,
@@ -278,16 +278,16 @@
         {
           "label": "Medium",
           "lap": 55,
-          "lost": 0.1,
+          "lost": 0.3,
           "real": false,
-          "note": "64ms a lap of wear, over 17 laps."
+          "note": "63ms a lap of wear, over 17 laps."
         },
         {
           "label": "Soft",
           "lap": 55,
-          "lost": 0.4,
+          "lost": 0.6,
           "real": true,
-          "note": "36ms a lap of wear, over 17 laps."
+          "note": "35ms a lap of wear, over 17 laps."
         }
       ],
       "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters."

@@ -27,6 +27,7 @@ BAD_TEXT = [
     (r"\bin a (Red Bull Racing|Haas F1 Team)\b", "team name used as a car"),
     ("—", "em dash"),
     (r"\bNone\b|\bnan\b|#\d+\b", "missing value leaked into copy"),
+    (r"Wiped out|the margin this (race|sprint) was decided|comes down to this one number", "a claim the safety car can make false"),
 ]
 
 

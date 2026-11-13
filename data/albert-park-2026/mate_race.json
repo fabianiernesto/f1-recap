@@ -6,7 +6,7 @@
       "msgs": [
         "yo",
         "you missed the race",
-        "58 laps, 34 passes on track and 3 virtual safety cars"
+        "58 laps, 40 passes on track and 3 virtual safety cars"
       ],
       "asks": [
         {
@@ -20,7 +20,7 @@
           "q": "was it actually good or are you being nice",
           "a": [
             "you tell me lol",
-            "34 passes on track, not counting the ones in the pit lane"
+            "40 passes on track, not counting the ones in the pit lane"
           ]
         },
         {
@@ -37,7 +37,7 @@
       "lap": 1,
       "msgs": [
         "lights out",
-        "24 places changed hands before they even finished lap 1"
+        "19 places changed hands before they even finished lap 1"
       ],
       "asks": [
         {
@@ -60,7 +60,7 @@
       "lap": 3,
       "msgs": [
         "lap 3 was the busiest of the whole race",
-        "6 passes on that lap alone"
+        "7 passes on that lap alone"
       ],
       "asks": [
         {

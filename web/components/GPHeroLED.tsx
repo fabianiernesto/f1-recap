@@ -135,7 +135,8 @@ export default function GPHeroLED({
         <img src={carFor(weekend.slug)} alt="" decoding="async" />
       </div>
 
-      <span className="ledhero-l1" data-t={track.circuit}>{track.circuit}</span>
+      {/* its length sizes the name on a phone, so that it always fits on one line */}
+      <span className="ledhero-l1" data-t={track.circuit} style={{ ["--n" as string]: track.circuit.length }}>{track.circuit}</span>
 
       {/* the way back out, above the tag so it reads as part of the same
           bottom-left block instead of floating on its own */}

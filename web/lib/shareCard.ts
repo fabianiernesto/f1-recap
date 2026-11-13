@@ -68,23 +68,41 @@ export async function drawCard(o: CardInput): Promise<Blob | null> {
   return new Promise((res) => cv.toBlob(res, "image/png"));
 }
 
-/** share the card as a file where the phone can, the text and link where not */
-export async function shareCard(blob: Blob | null, text: string, url: string): Promise<"shared" | "copied" | "none"> {
-  try {
-    const file = blob ? new File([blob], "racing-simplified.png", { type: "image/png" }) : null;
-    if (file && navigator.canShare?.({ files: [file] })) {
-      await navigator.share({ files: [file], text: `${text} ${url}` });
-      return "shared";
-    }
-    if (navigator.share) { await navigator.share({ text, url }); return "shared"; }
-  } catch { return "none"; }
-  try { await navigator.clipboard.writeText(`${text} ${url}`); return "copied"; } catch { return "none"; }
+/** must run inside the tap, like navigator.share */
+export async function copyText(text: string): Promise<boolean> {
+  try { await navigator.clipboard.writeText(text); return true; } catch { return false; }
 }
 
+/**
+ * Share the card as a file where the phone can, the text and link where not.
+ * With a mouse the link is copied: a PC's share panel is not where a group chat
+ * lives, and the card has its own button there.
+ *
+ * Nothing is awaited before navigator.share or the clipboard: Safari only
+ * allows them inside the tap, so the blob has to be drawn before it. "cancelled"
+ * is the person closing the share sheet; "none" means show them another way.
+ */
+export async function shareCard(blob: Blob | null, text: string, url: string): Promise<"shared" | "cancelled" | "copied" | "none"> {
+  let opening: Promise<void> | null = null;
+  if (matchMedia("(hover: hover) and (pointer: fine)").matches) return (await copyText(`${text} ${url}`)) ? "copied" : "none";
+  try {
+    const file = blob ? new File([blob], "racing-simplified.png", { type: "image/png" }) : null;
+    if (file && navigator.canShare?.({ files: [file] })) opening = navigator.share({ files: [file], text: `${text} ${url}` });
+    else if (navigator.share) opening = navigator.share({ text, url });
+  } catch { return "none"; }
+  if (opening) {
+    try { await opening; return "shared"; }
+    catch (e) { return (e as Error).name === "AbortError" ? "cancelled" : "none"; }
+  }
+  return (await copyText(`${text} ${url}`)) ? "copied" : "none";
+}
+
+/** a real download, for a mouse; a phone gets the image to press and hold (CardActions) */
 export function saveCard(blob: Blob | null, name: string) {
   if (!blob) return;
   const u = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = u; a.download = name; a.click();
-  setTimeout(() => URL.revokeObjectURL(u), 4000);
+  // Safari asks before it downloads, and the question can stay open a while
+  setTimeout(() => URL.revokeObjectURL(u), 60000);
 }

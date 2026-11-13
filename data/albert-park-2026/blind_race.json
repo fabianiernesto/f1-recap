@@ -14,11 +14,11 @@
         ],
         [
           "Laps led",
-          "31"
+          "32"
         ],
         [
           "Stops",
-          "1 (lap 13)"
+          "1 (lap 12)"
         ],
         [
           "Tyres",
@@ -26,18 +26,18 @@
         ],
         [
           "Median lap",
-          "1:23.093"
+          "1:23.100"
         ],
         [
           "On-track passes",
-          "2"
+          "3"
         ],
         [
           "Finished",
           "P1"
         ]
       ],
-      "tell": "led 31 of 58 laps and took the win",
+      "tell": "led 32 of 58 laps and took the win",
       "options": [
         "Antonelli",
         "Hamilton",
@@ -58,7 +58,7 @@
         ],
         [
           "Stops",
-          "2 (lap 19, 42)"
+          "2 (lap 18, 41)"
         ],
         [
           "Tyres",
@@ -66,11 +66,11 @@
         ],
         [
           "Median lap",
-          "1:23.510"
+          "1:23.513"
         ],
         [
           "On-track passes",
-          "7"
+          "8"
         ],
         [
           "Fastest lap",
@@ -102,7 +102,7 @@
         ],
         [
           "Stops",
-          "3 (lap 12, 34, 46)"
+          "3 (lap 11, 33, 45)"
         ],
         [
           "Tyres",
@@ -110,7 +110,7 @@
         ],
         [
           "Median lap",
-          "1:25.704"
+          "1:25.765"
         ],
         [
           "On-track passes",
@@ -142,7 +142,7 @@
         ],
         [
           "Stops",
-          "1 (lap 12)"
+          "1 (lap 11)"
         ],
         [
           "Tyres",
@@ -150,7 +150,7 @@
         ],
         [
           "Median lap",
-          "1:27.450"
+          "1:27.475"
         ],
         [
           "On-track passes",
@@ -182,7 +182,7 @@
         ],
         [
           "Stops",
-          "0"
+          "1 (lap 12)"
         ],
         [
           "Tyres",
@@ -190,7 +190,7 @@
         ],
         [
           "Median lap",
-          "1:27.709"
+          "1:27.738"
         ],
         [
           "On-track passes",
@@ -221,10 +221,6 @@
           "P3"
         ],
         [
-          "Laps led",
-          "1"
-        ],
-        [
           "Stops",
           "0"
         ],
@@ -234,11 +230,11 @@
         ],
         [
           "Median lap",
-          "1:25.359"
+          "1:25.363"
         ],
         [
           "On-track passes",
-          "0"
+          "1"
         ],
         [
           "Finished",
@@ -266,7 +262,7 @@
         ],
         [
           "Stops",
-          "2 (lap 12, 35)"
+          "2 (lap 11, 34)"
         ],
         [
           "Tyres",
@@ -274,7 +270,7 @@
         ],
         [
           "Median lap",
-          "1:23.448"
+          "1:23.474"
         ],
         [
           "On-track passes",
@@ -306,7 +302,7 @@
         ],
         [
           "Stops",
-          "2 (lap 18, 34)"
+          "2 (lap 18, 33)"
         ],
         [
           "Tyres",
@@ -314,7 +310,7 @@
         ],
         [
           "Median lap",
-          "1:24.535"
+          "1:24.541"
         ],
         [
           "On-track passes",

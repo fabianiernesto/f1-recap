@@ -1,0 +1,1606 @@
+{
+"race-result": {
+"title": "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX IN MALAYSIA 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"55",
+"1:47:14.808",
+"25"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"55",
+"+2.307s",
+"18"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"55",
+"+4.919s",
+"15"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"55",
+"+7.258s",
+"12"
+],
+[
+"5",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"55",
+"+8.571s",
+"10"
+],
+[
+"6",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"55",
+"+9.454s",
+"8"
+],
+[
+"7",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"55",
+"+12.753s",
+"6"
+],
+[
+"8",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"55",
+"+13.372s",
+"4"
+],
+[
+"9",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"55",
+"+13.993s",
+"2"
+],
+[
+"10",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"55",
+"+15.928s",
+"1"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"55",
+"+17.404s",
+"0"
+],
+[
+"12",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"55",
+"+18.052s",
+"0"
+],
+[
+"13",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"55",
+"+18.997s",
+"0"
+],
+[
+"14",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"55",
+"+22.305s",
+"0"
+],
+[
+"15",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"55",
+"+22.532s",
+"0"
+],
+[
+"16",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"55",
+"+23.315s",
+"0"
+],
+[
+"17",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"55",
+"+25.431s",
+"0"
+],
+[
+"18",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"55",
+"+28.233s",
+"0"
+],
+[
+"19",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"55",
+"+29.310s",
+"0"
+],
+[
+"20",
+"63",
+"George Russell RUS",
+"Mercedes",
+"49",
+"DNF",
+"0"
+],
+[
+"NC",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"41",
+"DNF",
+"0"
+],
+[
+"NC",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"7",
+"DNF",
+"0"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"fastest-laps": {
+"title": "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX IN MALAYSIA 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"55",
+"18:20:14",
+"1:38.220",
+"203.164"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"52",
+"18:15:20",
+"1:38.589",
+"202.403"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"53",
+"18:17:01",
+"1:38.610",
+"202.360"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"54",
+"18:18:42",
+"1:39.336",
+"200.881"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"53",
+"18:17:04",
+"1:39.485",
+"200.580"
+],
+[
+"6",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"52",
+"18:15:22",
+"1:39.792",
+"199.963"
+],
+[
+"7",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"54",
+"18:18:48",
+"1:39.970",
+"199.607"
+],
+[
+"8",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"53",
+"18:17:05",
+"1:40.254",
+"199.042"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"55",
+"18:20:30",
+"1:40.315",
+"198.921"
+],
+[
+"10",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"54",
+"18:18:47",
+"1:40.353",
+"198.846"
+],
+[
+"11",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"40",
+"17:50:09",
+"1:40.366",
+"198.820"
+],
+[
+"12",
+"63",
+"George Russell RUS",
+"Mercedes",
+"34",
+"17:38:41",
+"1:40.715",
+"198.131"
+],
+[
+"13",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"33",
+"17:37:56",
+"1:40.988",
+"197.595"
+],
+[
+"14",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"53",
+"18:17:10",
+"1:41.248",
+"197.088"
+],
+[
+"15",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"37",
+"17:43:57",
+"1:41.382",
+"196.827"
+],
+[
+"16",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"54",
+"18:18:50",
+"1:41.394",
+"196.804"
+],
+[
+"17",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"41",
+"17:50:15",
+"1:41.514",
+"196.571"
+],
+[
+"18",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"28",
+"17:29:13",
+"1:41.738",
+"196.139"
+],
+[
+"19",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"53",
+"18:17:12",
+"1:42.062",
+"195.516"
+],
+[
+"20",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"32",
+"17:34:49",
+"1:42.284",
+"195.092"
+],
+[
+"21",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"20",
+"17:15:27",
+"1:42.688",
+"194.324"
+],
+[
+"22",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"7",
+"16:50:29",
+"1:59.953",
+"166.355"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX IN MALAYSIA 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1",
+"16:36:31",
+"38.032",
+"38.032"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"2",
+"16:38:23",
+"81.474",
+"81.474"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"2",
+"16:38:32",
+"73.866",
+"73.866"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"2",
+"16:38:46",
+"61.177",
+"61.177"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"2",
+"16:38:46",
+"60.446",
+"60.446"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"3",
+"16:42:01",
+"38.010",
+"38.010"
+],
+[
+"2",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"8",
+"16:51:07",
+"27.594",
+"88.771"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"9",
+"16:52:34",
+"27.739",
+"27.739"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"9",
+"16:52:35",
+"27.641",
+"27.641"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"9",
+"16:52:40",
+"28.801",
+"28.801"
+],
+[
+"1",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"9",
+"16:52:49",
+"28.134",
+"28.134"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"9",
+"16:52:58",
+"28.600",
+"28.600"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"9",
+"16:52:59",
+"28.691",
+"28.691"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"9",
+"16:53:03",
+"32.065",
+"32.065"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"9",
+"16:53:04",
+"28.598",
+"28.598"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"9",
+"16:53:11",
+"32.467",
+"32.467"
+],
+[
+"2",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"9",
+"16:53:12",
+"29.204",
+"110.678"
+],
+[
+"2",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"9",
+"16:53:12",
+"27.873",
+"101.739"
+],
+[
+"2",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"9",
+"16:53:15",
+"28.021",
+"88.467"
+],
+[
+"3",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"9",
+"16:53:24",
+"29.870",
+"109.623"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"9",
+"16:54:03",
+"30.790",
+"30.790"
+],
+[
+"2",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"9",
+"16:54:08",
+"28.651",
+"66.661"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"9",
+"16:54:16",
+"28.314",
+"28.314"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"9",
+"16:54:34",
+"28.152",
+"28.152"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"9",
+"16:54:47",
+"27.955",
+"27.955"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"10",
+"16:56:58",
+"28.553",
+"28.553"
+],
+[
+"3",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"15",
+"17:06:07",
+"36.773",
+"138.512"
+],
+[
+"2",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"16",
+"17:07:59",
+"27.608",
+"60.075"
+],
+[
+"4",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"18",
+"17:11:33",
+"28.887",
+"138.510"
+],
+[
+"5",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"21",
+"17:17:12",
+"29.266",
+"167.776"
+],
+[
+"2",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"24",
+"17:21:56",
+"29.045",
+"57.598"
+],
+[
+"2",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"25",
+"17:23:39",
+"27.758",
+"55.910"
+],
+[
+"2",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"26",
+"17:25:22",
+"28.233",
+"60.298"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"28",
+"17:28:31",
+"27.957",
+"94.618"
+],
+[
+"2",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"28",
+"17:28:37",
+"29.254",
+"57.852"
+],
+[
+"3",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"28",
+"17:28:40",
+"28.351",
+"116.818"
+],
+[
+"2",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"29",
+"17:30:18",
+"29.057",
+"57.748"
+],
+[
+"3",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"29",
+"17:30:57",
+"27.859",
+"87.934"
+],
+[
+"2",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"30",
+"17:31:59",
+"28.026",
+"56.626"
+],
+[
+"2",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"31",
+"17:33:21",
+"28.522",
+"56.656"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"31",
+"17:33:24",
+"27.802",
+"27.802"
+],
+[
+"2",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"31",
+"17:33:52",
+"27.615",
+"55.929"
+],
+[
+"2",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"31",
+"17:34:07",
+"27.631",
+"55.586"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"32",
+"17:34:53",
+"27.677",
+"56.478"
+],
+[
+"3",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"32",
+"17:35:35",
+"28.419",
+"117.190"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"33",
+"17:36:19",
+"27.834",
+"55.475"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"33",
+"17:36:30",
+"27.682",
+"55.421"
+],
+[
+"3",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"33",
+"17:37:07",
+"28.337",
+"139.015"
+],
+[
+"2",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"34",
+"17:38:52",
+"28.250",
+"59.040"
+],
+[
+"4",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"34",
+"17:39:41",
+"51.819",
+"190.331"
+],
+[
+"3",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"37",
+"17:44:41",
+"27.854",
+"83.764"
+],
+[
+"3",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"38",
+"17:46:22",
+"28.017",
+"85.615"
+],
+[
+"6",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"39",
+"17:49:18",
+"31.338",
+"199.114"
+],
+[
+"3",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"41",
+"17:51:28",
+"28.419",
+"86.167"
+],
+[
+"3",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"42",
+"17:53:22",
+"28.211",
+"83.797"
+],
+[
+"3",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"42",
+"17:53:32",
+"39.685",
+"99.983"
+],
+[
+"3",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"43",
+"17:53:44",
+"27.642",
+"83.117"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"43",
+"17:54:26",
+"28.053",
+"55.855"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"43",
+"17:54:44",
+"28.178",
+"122.796"
+],
+[
+"3",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"43",
+"17:55:22",
+"28.072",
+"85.924"
+],
+[
+"4",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"43",
+"17:55:25",
+"27.446",
+"144.264"
+],
+[
+"3",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"44",
+"17:56:13",
+"27.295",
+"82.716"
+],
+[
+"3",
+"63",
+"George Russell RUS",
+"Mercedes",
+"44",
+"17:56:21",
+"27.702",
+"84.180"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"44",
+"17:56:38",
+"27.345",
+"84.001"
+],
+[
+"5",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"44",
+"17:58:59",
+"27.704",
+"218.035"
+],
+[
+"4",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"45",
+"17:59:14",
+"27.498",
+"166.513"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"45",
+"17:59:23",
+"27.869",
+"86.909"
+],
+[
+"3",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"45",
+"17:59:32",
+"29.624",
+"86.250"
+],
+[
+"3",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"45",
+"17:59:45",
+"27.809",
+"83.738"
+],
+[
+"4",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"45",
+"17:59:47",
+"28.277",
+"145.467"
+],
+[
+"7",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"44",
+"17:59:57",
+"28.937",
+"228.051"
+],
+[
+"4",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"45",
+"18:00:30",
+"28.335",
+"112.099"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX IN MALAYSIA 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:35.130"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:35.428"
+],
+[
+"3",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:35.631"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:35.666"
+],
+[
+"5",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:35.757"
+],
+[
+"6",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:35.762"
+],
+[
+"7",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:35.871"
+],
+[
+"8",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:35.558"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:37.210"
+],
+[
+"10",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:37.673"
+],
+[
+"11",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:37.023"
+],
+[
+"12",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:37.220"
+],
+[
+"13",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:37.527"
+],
+[
+"14",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:37.566"
+],
+[
+"15",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:37.970"
+],
+[
+"16",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:37.980"
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:38.233"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:38.600"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:38.611"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:38.933"
+],
+[
+"21",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+""
+],
+[
+"22",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+""
+]
+],
+"after": [
+"Note - Colapinto penalised five places for causing a collision at the previous round and a further 10 places for use of additional power unit element. Lindblad penalised 30 places for use of additional power unit elements. Hadjar penalised five places for use of additional power unit element.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX IN MALAYSIA 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:36.477",
+"1:35.696",
+"1:35.130",
+"12"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:36.595",
+"1:36.032",
+"1:35.428",
+"15"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:36.898",
+"1:36.192",
+"1:35.558",
+"12"
+],
+[
+"4",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:37.041",
+"1:35.959",
+"1:35.631",
+"12"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:36.730",
+"1:35.970",
+"1:35.666",
+"12"
+],
+[
+"6",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:37.092",
+"1:36.173",
+"1:35.757",
+"12"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:36.852",
+"1:36.020",
+"1:35.762",
+"12"
+],
+[
+"8",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:37.264",
+"1:36.245",
+"1:35.871",
+"12"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:37.174",
+"1:36.410",
+"1:37.210",
+"18"
+],
+[
+"10",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:37.106",
+"1:36.814",
+"1:37.673",
+"18"
+],
+[
+"11",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:37.332",
+"1:37.023",
+"",
+"12"
+],
+[
+"12",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:37.721",
+"1:37.220",
+"",
+"9"
+],
+[
+"13",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:37.651",
+"1:37.527",
+"",
+"12"
+],
+[
+"14",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:37.729",
+"1:37.566",
+"",
+"12"
+],
+[
+"15",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:37.179",
+"DNF",
+"",
+"8"
+],
+[
+"16",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:37.883",
+"DNF",
+"",
+"9"
+],
+[
+"17",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:37.970",
+"",
+"",
+"6"
+],
+[
+"18",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:37.980",
+"",
+"",
+"9"
+],
+[
+"19",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:38.233",
+"",
+"",
+"9"
+],
+[
+"20",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:38.600",
+"",
+"",
+"6"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:38.611",
+"",
+"",
+"6"
+],
+[
+"22",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:38.933",
+"",
+"",
+"6"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+}
+}

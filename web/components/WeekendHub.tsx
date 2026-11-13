@@ -19,9 +19,9 @@ export default function WeekendHub({ weekend }: { weekend: Weekend }) {
   const second = name === weekend.circuit ? "Grand Prix" : weekend.circuit;
 
   return (
-    <section className="hub fx-page">
+    <main className="hub fx-page">
       <div className="hub-car" data-par="0.22" aria-hidden>
-        <Blur src={MOOD.car} className="mood-car" />
+        <Blur src={MOOD.car} className="mood-car" lazy />
       </div>
       <Speedlines n={5} />
       <header className="hub-head" data-fx="left">
@@ -59,6 +59,6 @@ export default function WeekendHub({ weekend }: { weekend: Weekend }) {
           </Link>
         ))}
       </div>
-    </section>
+    </main>
   );
 }

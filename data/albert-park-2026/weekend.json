@@ -11,7 +11,7 @@
       "slug": "fp1",
       "label": "Practice 1",
       "kind": "practice",
-      "headline": "487 laps run, no points at stake",
+      "headline": "487 laps run, no points on offer",
       "moments": 8,
       "laps": 33
     },
@@ -19,7 +19,7 @@
       "slug": "fp2",
       "label": "Practice 2",
       "kind": "practice",
-      "headline": "544 laps run, no points at stake",
+      "headline": "544 laps run, no points on offer",
       "moments": 8,
       "laps": 34
     },
@@ -27,7 +27,7 @@
       "slug": "fp3",
       "label": "Practice 3",
       "kind": "practice",
-      "headline": "377 laps run, no points at stake",
+      "headline": "377 laps run, no points on offer",
       "moments": 7,
       "laps": 26
     },
@@ -43,8 +43,8 @@
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "34 on-track passes",
-      "moments": 31,
+      "headline": "40 on-track passes",
+      "moments": 32,
       "laps": 58
     }
   ],
@@ -64,8 +64,8 @@
       "last": "Verstappen",
       "time": "1:22.091"
     },
-    "passes": 34,
-    "stops": 28,
+    "passes": 40,
+    "stops": 30,
     "dnfs": 3,
     "safetyCars": 0,
     "redFlag": false,

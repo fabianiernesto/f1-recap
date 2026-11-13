@@ -61,23 +61,60 @@ export function progress(car: ReplayCar, t: number, shift = 0): { laps: number; 
   return { laps: i, f: p, done: false };
 }
 
-/** the running order at time t, with gaps to the leader at the line */
-export function standings(r: Replay, t: number) {
+/**
+ * The running order at time t, with gaps to the leader at the line. With
+ * `capLap` it is the order at the end of that lap, once everybody has crossed
+ * it: what a question asked on that lap quotes. A car that stops after it still
+ * counts as running, so the order gives no retirement away.
+ */
+export function standings(r: Replay, t: number, capLap = Infinity) {
   const rows = r.field.map((car) => {
     const c = car.cross;
+    const last = c.length - 1;
     let laps = 0;
-    while (laps < c.length - 1 && c[laps + 1] <= t) laps++;
-    const out = car.out != null && laps >= c.length - 1 && t > c[c.length - 1] + 20;
+    while (laps < last && laps < capLap && c[laps + 1] <= t) laps++;
+    const out = car.out != null && laps >= last && last < capLap && t > c[last] + 20;
     return { car, laps, at: c[laps], out };
   });
-  rows.sort((a, b) => (a.out === b.out ? 0 : a.out ? 1 : -1) || b.laps - a.laps || a.at - b.at);
+  // before the leader's first crossing every car is on 0 laps at 0: the grid decides
+  // (the field comes sorted by final place, and that must never show)
+  rows.sort((a, b) => (a.out === b.out ? 0 : a.out ? 1 : -1) || b.laps - a.laps || a.at - b.at || (a.car.grid ?? 99) - (b.car.grid ?? 99));
   const lead = rows[0];
   return rows.map((x, i) => {
     const lc = lead.car.cross;
     const behind = lead.laps - x.laps;
-    const gap = behind === 0 ? x.at - lc[x.laps] : x.laps > 0 ? x.at - lc[x.laps] : 0;
+    const gap = Math.max(0, behind === 0 ? x.at - lc[x.laps] : x.laps > 0 ? x.at - lc[x.laps] : 0);
     return { ...x, pos: i + 1, gap, lapped: behind > 1 || (behind === 1 && gap > 0 && x.laps < lead.laps - 0) ? behind : 0 };
   });
+}
+
+/**
+ * Two faults of the feed that no car can have done, mended where the replay is
+ * loaded. A crossing read late shows as a long lap and then an impossible one
+ * (Suzuka, Lawson: 157s then 37s, P12 P22 P12): it goes halfway. A hole in the
+ * first laps leaves invented crossings (Albert Park: laps of 20s): they spread
+ * evenly up to the first real lap, so nobody seems to pass, and a call answered
+ * in that stretch goes, because its answer came from them.
+ */
+export function mendCrossings(r: Replay): Replay {
+  const laps = r.field.flatMap((c) => c.cross.slice(1).map((x, i) => x - c.cross[i])).sort((a, b) => a - b);
+  const med = laps[laps.length >> 1] ?? 0;
+  let hole = 0;
+  for (const c of r.field) {
+    let i = 1;
+    while (i < c.cross.length && c.cross[i] - c.cross[i - 1] < med * 0.6) i++;
+    hole = Math.max(hole, i - 1);
+  }
+  const field = r.field.map((c) => {
+    const cross = [...c.cross];
+    if (hole && cross.length > hole) for (let i = 1; i < hole; i++) cross[i] = Math.round((cross[hole] * i / hole) * 100) / 100;
+    for (let i = 2; i < cross.length; i++) {
+      const a = cross[i - 1] - cross[i - 2], b = cross[i] - cross[i - 1];
+      if (a > med * 1.1 && b < med * 0.85 && a + b < med * 2.4) cross[i - 1] = Math.round(((cross[i - 2] + cross[i]) / 2) * 100) / 100;
+    }
+    return { ...c, cross };
+  });
+  return { ...r, field, calls: hole ? r.calls.filter((c) => c.reveal > hole) : r.calls };
 }
 
 /** the moment the leader crosses the line at the end of a lap */
@@ -86,6 +123,20 @@ export function leaderAt(r: Replay, lap: number): number {
   let best = Infinity;
   for (const c of r.field) if (c.cross[lap] != null && c.cross[lap] < best) best = c.cross[lap];
   return best === Infinity ? r.field[0].cross[r.field[0].cross.length - 1] : best;
+}
+
+/**
+ * When a call's answer shows: when its cars have crossed the line of that lap,
+ * so the tower agrees with the toast. A car that stops never crosses it: the
+ * moment the tower marks him out. The rest, when the leader gets there.
+ */
+export function revealAt(r: Replay, c: { reveal: number; cars?: number[] }): number {
+  let t = leaderAt(r, c.reveal);
+  for (const n of c.cars ?? []) {
+    const x = r.field.find((f) => f.num === n)?.cross;
+    if (x) t = Math.max(t, x[c.reveal] ?? x[x.length - 1] + 21);
+  }
+  return t;
 }
 
 /** the leader's lap at time t (1-based lap being run) */

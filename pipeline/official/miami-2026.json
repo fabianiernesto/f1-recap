@@ -1,0 +1,1716 @@
+{
+"fastest-laps": {
+"title": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"35",
+"14:03:29",
+"1:31.869",
+"212.075"
+],
+[
+"2",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"30",
+"13:56:02",
+"1:31.949",
+"211.891"
+],
+[
+"3",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"34",
+"14:01:55",
+"1:31.968",
+"211.847"
+],
+[
+"4",
+"63",
+"George Russell RUS",
+"Mercedes",
+"53",
+"14:31:45",
+"1:32.446",
+"210.752"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"44",
+"14:17:40",
+"1:32.515",
+"210.595"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"29",
+"13:54:35",
+"1:32.676",
+"210.229"
+],
+[
+"7",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"30",
+"13:56:25",
+"1:33.026",
+"209.438"
+],
+[
+"8",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"33",
+"14:00:58",
+"1:33.035",
+"209.417"
+],
+[
+"9",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"24",
+"13:46:27",
+"1:33.110",
+"209.249"
+],
+[
+"10",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"56",
+"14:35:56",
+"1:33.500",
+"208.376"
+],
+[
+"11",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"33",
+"14:01:20",
+"1:33.712",
+"207.905"
+],
+[
+"12",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"28",
+"13:53:20",
+"1:33.744",
+"207.834"
+],
+[
+"13",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"30",
+"13:56:26",
+"1:33.784",
+"207.745"
+],
+[
+"14",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"30",
+"13:56:47",
+"1:34.058",
+"207.140"
+],
+[
+"15",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"4",
+"13:11:06",
+"1:34.523",
+"206.121"
+],
+[
+"16",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"46",
+"14:21:03",
+"1:34.594",
+"205.966"
+],
+[
+"17",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"57",
+"14:38:44",
+"1:34.716",
+"205.701"
+],
+[
+"18",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"3",
+"13:08:57",
+"1:34.814",
+"205.488"
+],
+[
+"19",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"4",
+"13:10:38",
+"1:34.833",
+"205.447"
+],
+[
+"20",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"4",
+"13:10:33",
+"1:34.856",
+"205.397"
+],
+[
+"21",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"31",
+"13:58:35",
+"1:34.895",
+"205.313"
+],
+[
+"22",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"16",
+"13:34:12",
+"1:36.080",
+"202.781"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1",
+"13:05:50",
+"33.710",
+"33.710"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"6",
+"13:14:17",
+"22.547",
+"22.547"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"6",
+"13:14:37",
+"23.529",
+"23.529"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"20",
+"13:40:08",
+"22.042",
+"22.042"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"21",
+"13:41:39",
+"23.386",
+"23.386"
+],
+[
+"2",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"21",
+"13:42:17",
+"23.827",
+"47.356"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"21",
+"13:42:19",
+"22.630",
+"22.630"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"26",
+"13:49:18",
+"22.128",
+"22.128"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"26",
+"13:49:52",
+"23.474",
+"23.474"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"27",
+"13:50:50",
+"22.565",
+"22.565"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"27",
+"13:51:09",
+"23.779",
+"23.779"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"27",
+"13:51:26",
+"23.016",
+"23.016"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"28",
+"13:52:37",
+"23.024",
+"23.024"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"28",
+"13:52:57",
+"23.595",
+"23.595"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"28",
+"13:53:19",
+"22.731",
+"22.731"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"29",
+"13:55:05",
+"23.228",
+"23.228"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"31",
+"13:57:31",
+"23.093",
+"23.093"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"31",
+"13:57:51",
+"24.027",
+"24.027"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"32",
+"13:59:31",
+"23.986",
+"23.986"
+],
+[
+"2",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"37",
+"14:08:15",
+"22.090",
+"44.720"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"41",
+"14:14:24",
+"23.160",
+"23.160"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:28.653",
+"1:28.289",
+"1:27.798",
+"17"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:29.099",
+"1:28.116",
+"1:27.964",
+"15"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:28.938",
+"1:28.315",
+"1:28.143",
+"21"
+],
+[
+"4",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:29.183",
+"1:28.920",
+"1:28.183",
+"20"
+],
+[
+"5",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:29.492",
+"1:28.477",
+"1:28.197",
+"18"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:29.483",
+"1:28.477",
+"1:28.319",
+"21"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:29.920",
+"1:28.332",
+"1:28.500",
+"20"
+],
+[
+"8",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:29.584",
+"1:28.975",
+"1:28.762",
+"19"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:29.914",
+"1:29.070",
+"1:28.810",
+"20"
+],
+[
+"10",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:29.645",
+"1:29.439",
+"",
+"14"
+],
+[
+"11",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:29.595",
+"1:29.499",
+"",
+"14"
+],
+[
+"12",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:29.340",
+"1:29.567",
+"",
+"12"
+],
+[
+"13",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:29.540",
+"1:29.568",
+"",
+"15"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:29.838",
+"1:29.772",
+"",
+"15"
+],
+[
+"15",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:29.720",
+"1:29.946",
+"",
+"15"
+],
+[
+"16",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:30.133",
+"",
+"",
+"9"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:31.098",
+"",
+"",
+"8"
+],
+[
+"18",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:31.164",
+"",
+"",
+"9"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:31.629",
+"",
+"",
+"9"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:31.967",
+"",
+"",
+"9"
+],
+[
+"21",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:33.737",
+"",
+"",
+"3"
+],
+[
+"DQ",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"",
+"1:28.941",
+"1:28.789",
+"0"
+]
+],
+"after": [
+"Note - Hadjar disqualified for a technical nonconformity.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"race-result": {
+"title": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"57",
+"1:33:19.273",
+"25"
+],
+[
+"2",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"57",
+"+3.264s",
+"18"
+],
+[
+"3",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"57",
+"+27.092s",
+"15"
+],
+[
+"4",
+"63",
+"George Russell RUS",
+"Mercedes",
+"57",
+"+43.051s",
+"12"
+],
+[
+"5",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"57",
+"+48.949s",
+"10"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"57",
+"+53.753s",
+"8"
+],
+[
+"7",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"57",
+"+61.871s",
+"6"
+],
+[
+"8",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"57",
+"+64.245s",
+"4"
+],
+[
+"9",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"57",
+"+82.072s",
+"2"
+],
+[
+"10",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"57",
+"+90.972s",
+"1"
+],
+[
+"11",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"56",
+"+1 lap",
+"0"
+],
+[
+"12",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"56",
+"+1 lap",
+"0"
+],
+[
+"13",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"56",
+"+1 lap",
+"0"
+],
+[
+"14",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"56",
+"+1 lap",
+"0"
+],
+[
+"15",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"56",
+"+1 lap",
+"0"
+],
+[
+"16",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"56",
+"+1 lap",
+"0"
+],
+[
+"17",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"56",
+"+1 lap",
+"0"
+],
+[
+"18",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"55",
+"+2 laps",
+"0"
+],
+[
+"NC",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"7",
+"DNF",
+"0"
+],
+[
+"NC",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"6",
+"DNF",
+"0"
+],
+[
+"NC",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"4",
+"DNF",
+"0"
+],
+[
+"NC",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"4",
+"DNF",
+"0"
+]
+],
+"after": [
+"Note - Leclerc received a 20-second time penalty for leaving the track on multiple occasions without a justifiable reason. Verstappen received a five-second time penalty for crossing the white line at the pit exit.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-grid": {
+"title": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026 - SPRINT GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:27.869"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:28.091"
+],
+[
+"3",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:28.108"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:28.239"
+],
+[
+"5",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:28.461"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:28.493"
+],
+[
+"7",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:28.618"
+],
+[
+"8",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:29.320"
+],
+[
+"9",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:29.422"
+],
+[
+"10",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:29.474"
+],
+[
+"11",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:29.994"
+],
+[
+"12",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:30.019"
+],
+[
+"13",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:30.116"
+],
+[
+"14",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:30.224"
+],
+[
+"15",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:31.043"
+],
+[
+"16",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:31.245"
+],
+[
+"17",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:31.255"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:31.322"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:31.826"
+],
+[
+"20",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:41.311"
+],
+[
+"21",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+""
+],
+[
+"22",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:30.573"
+]
+],
+"after": [
+"Note - Alonso and Stroll granted permission to race after both failed to set an SQ1 lap time within the 107% requirement.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-qualifying": {
+"title": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026 - SPRINT QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:28.723",
+"1:29.366",
+"1:27.869",
+"15"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:29.312",
+"1:29.209",
+"1:28.091",
+"14"
+],
+[
+"3",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:29.169",
+"1:28.506",
+"1:28.108",
+"11"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:28.733",
+"1:28.333",
+"1:28.239",
+"15"
+],
+[
+"5",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:29.801",
+"1:29.093",
+"1:28.461",
+"12"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:29.659",
+"1:28.903",
+"1:28.493",
+"15"
+],
+[
+"7",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:29.255",
+"1:28.841",
+"1:28.618",
+"15"
+],
+[
+"8",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:30.386",
+"1:29.527",
+"1:29.320",
+"15"
+],
+[
+"9",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:30.352",
+"1:29.750",
+"1:29.422",
+"15"
+],
+[
+"10",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:29.984",
+"1:29.973",
+"1:29.474",
+"15"
+],
+[
+"11",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:30.561",
+"1:29.994",
+"",
+"12"
+],
+[
+"12",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:30.270",
+"1:30.019",
+"",
+"12"
+],
+[
+"13",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:30.614",
+"1:30.116",
+"",
+"9"
+],
+[
+"14",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:30.987",
+"1:30.224",
+"",
+"12"
+],
+[
+"15",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:30.872",
+"1:30.573",
+"",
+"9"
+],
+[
+"16",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:31.043",
+"",
+"",
+"5"
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:31.245",
+"",
+"",
+"6"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:31.255",
+"",
+"",
+"3"
+],
+[
+"19",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:31.322",
+"1:30.216",
+"",
+"6"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:31.826",
+"",
+"",
+"6"
+],
+[
+"NC",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:41.311",
+"",
+"",
+"6"
+]
+],
+"after": [
+"Note - Albon's SQ1 lap time of 1.30.988 was deleted for exceeding track limits, with all his SQ2 lap times subsequently deleted.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-results": {
+"title": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026 - SPRINT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"19",
+"29:15.045",
+"8"
+],
+[
+"2",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"19",
+"+3.766s",
+"7"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"19",
+"+6.251s",
+"6"
+],
+[
+"4",
+"63",
+"George Russell RUS",
+"Mercedes",
+"19",
+"+12.951s",
+"5"
+],
+[
+"5",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"19",
+"+13.639s",
+"4"
+],
+[
+"6",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"19",
+"+13.777s",
+"3"
+],
+[
+"7",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"19",
+"+21.665s",
+"2"
+],
+[
+"8",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"19",
+"+30.525s",
+"1"
+],
+[
+"9",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"19",
+"+35.346s",
+"0"
+],
+[
+"10",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"19",
+"+36.970s",
+"0"
+],
+[
+"11",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"19",
+"+56.972s",
+"0"
+],
+[
+"12",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"19",
+"+57.365s",
+"0"
+],
+[
+"13",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"19",
+"+58.504s",
+"0"
+],
+[
+"14",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"19",
+"+59.358s",
+"0"
+],
+[
+"15",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"19",
+"+76.067s",
+"0"
+],
+[
+"16",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"19",
+"+76.691s",
+"0"
+],
+[
+"17",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"19",
+"+77.626s",
+"0"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"19",
+"+88.173s",
+"0"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"19",
+"+89.597s",
+"0"
+],
+[
+"NC",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"0",
+"DNS",
+"0"
+],
+[
+"NC",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"0",
+"DNS",
+"0"
+],
+[
+"DQ",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"",
+"DSQ",
+"0"
+]
+],
+"after": [
+"Note - Antonelli received a five-second time penalty for exceeding track limits. Bortoleto disqualified for a technical nonconformity.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:27.798"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:27.964"
+],
+[
+"3",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:28.143"
+],
+[
+"4",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:28.183"
+],
+[
+"5",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:28.197"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:28.319"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:28.500"
+],
+[
+"8",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:28.762"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:28.810"
+],
+[
+"10",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:29.439"
+],
+[
+"11",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:29.499"
+],
+[
+"12",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:29.567"
+],
+[
+"13",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:29.568"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:29.772"
+],
+[
+"15",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:29.946"
+],
+[
+"16",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:30.133"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:31.098"
+],
+[
+"18",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:31.164"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:31.629"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:31.967"
+],
+[
+"21",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:33.737"
+],
+[
+"22",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+""
+]
+],
+"after": [
+"Note - Hadjar granted permisson to race after being disqualified from Qualifying. Required to start from the pit lane after use of additional power unit elements.",
+"OUR PARTNERS",
+"View all"
+]
+}
+}

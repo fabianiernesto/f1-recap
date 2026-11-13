@@ -20,9 +20,23 @@
       "title": "29 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Sainz, Albon and Perez gained the most by the end of it, 4 places each"
+        "Albon gained the most by the end of it, 5 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
+    },
+    {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Bortoleto starts P21. Where does he finish?",
+      "text": "57 laps to make up ground from there.",
+      "options": [
+        "On the podium",
+        "Somewhere in the points",
+        "Out of the points"
+      ],
+      "answer": "Out of the points",
+      "reveal": "Out of the points. The exact place comes at the flag."
     },
     {
       "type": "moment",
@@ -37,28 +51,14 @@
     },
     {
       "type": "prediction",
-      "lap": 2,
-      "kicker": "Call it before it happens",
-      "title": "Bortoleto starts P21. Where does he finish?",
-      "text": "57 laps to make up ground from there.",
-      "options": [
-        "On the podium",
-        "Somewhere in the points",
-        "Out of the points"
-      ],
-      "answer": "Out of the points",
-      "reveal": "P21 to P12, 9 places gained."
-    },
-    {
-      "type": "prediction",
       "lap": 3,
       "kicker": "Call it before it happens",
       "title": "One of these three does not see the chequered flag. Who?",
       "text": "Nothing on the timing screens says it is coming.",
       "options": [
-        "Norris",
-        "Antonelli",
-        "Hulkenberg"
+        "Alonso",
+        "Hulkenberg",
+        "Bottas"
       ],
       "answer": "Hulkenberg",
       "reveal": "Hulkenberg, on lap 8 of 57. The timing feed records that he stopped, not why."
@@ -80,8 +80,7 @@
         "P11 at the start of lap 4",
         "Started P9",
         "1 on-track pass before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -91,30 +90,16 @@
       "text": "His race ends on lap 5 of 57, in a Red Bull.",
       "bullets": [
         "P16 at the start of lap 4",
-        "Started P22",
+        "Started from the pit lane",
         "4 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
-    },
-    {
-      "type": "moment",
-      "lap": 6,
-      "kicker": "Lap 6 of 57 · Safety Car",
-      "title": "Every gap on track, erased",
-      "text": "The field bunches up behind the safety car, and whatever anybody had built is gone.",
-      "bullets": [
-        "Leclerc was leading when it came out",
-        "He stayed out while Verstappen and Bottas stopped under it",
-        "Neutralised until lap 11"
-      ],
-      "note": "This early, nobody had a lead to lose. What it did do was hand a cheap stop to whoever was ready to take one."
+      ]
     },
     {
       "type": "decision",
       "lap": 6,
       "kicker": "Your call on the pit wall",
       "title": "Safety car with 51 laps left. You are leading. Box or stay out?",
-      "text": "The pack is bunched up behind you and a stop costs far less than usual, except that everybody behind can copy you and the one who does not gets the lead.",
+      "text": "The pack is about to bunch up behind you and a stop costs far less than usual, except that everybody behind can copy you and anyone who stays out may come out ahead.",
       "state": [
         [
           "Running",
@@ -130,14 +115,14 @@
         ],
         [
           "Gap to P2",
-          "Wiped out by the safety car"
+          "1.0s when it came out"
         ]
       ],
       "choices": [
         {
           "id": "box",
           "label": "Box for fresh tyres",
-          "sub": "Grip for the restart, hand over track position"
+          "sub": "Grip for the restart, at the risk of track position"
         },
         {
           "id": "stay",
@@ -147,10 +132,23 @@
       ],
       "actual": "stay",
       "outcomes": {
-        "box": "New rubber under a safety car is close to free, and it only works if the cars behind stay out. If they all follow you in, you have spent your lead for nothing.",
+        "box": "New rubber under a safety car is close to free. If the cars behind follow you in, the order holds. If they stay out, your gap has to cover the stop.",
         "stay": "You keep the lead and restart on older tyres, with a queue of fresher cars in your mirrors and no gap to hide in."
       },
-      "reveal": "Leclerc stayed out. At the flag it was P1 Antonelli, P2 Norris, P3 Piastri."
+      "reveal": "Leclerc stayed out."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Lap 6 of 57 · Safety Car",
+      "title": "Every gap on track, erased",
+      "text": "The field bunches up behind the safety car, and whatever anybody had built is gone.",
+      "bullets": [
+        "Leclerc was leading when it came out",
+        "He stayed out while Verstappen and Bottas stopped under it",
+        "Neutralised until lap 11"
+      ],
+      "note": "This early, nobody had a lead to lose. What it did do was hand a cheap stop to whoever was ready to take one."
     },
     {
       "type": "moment",
@@ -161,8 +159,7 @@
       "bullets": [
         "P19 at the start of lap 6",
         "Started P11"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -173,8 +170,7 @@
       "bullets": [
         "P19 at the start of lap 7",
         "Started P10"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -204,6 +200,20 @@
       "kicker": "Conditions",
       "title": "Track between 36°C and 42°C during the race",
       "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the race."
+    },
+    {
+      "type": "prediction",
+      "lap": 19,
+      "kicker": "Call it before it happens",
+      "title": "Who has the fastest lap on the board at the flag?",
+      "text": "It usually lands late, when the car is light and the track has rubber all over it.",
+      "options": [
+        "Norris",
+        "Antonelli",
+        "Piastri"
+      ],
+      "answer": "Norris",
+      "reveal": "Norris on lap 35, 1:31.869, in a McLaren."
     },
     {
       "type": "moment",
@@ -246,48 +256,21 @@
       "note": "Only moves made on track count, with the car ahead at racing speed."
     },
     {
-      "type": "prediction",
-      "lap": 19,
-      "kicker": "Call it before it happens",
-      "title": "Who has the fastest lap on the board at the flag?",
-      "text": "It usually lands late, when the car is light and the track has rubber all over it.",
-      "options": [
-        "Norris",
-        "Antonelli",
-        "Piastri"
-      ],
-      "answer": "Norris",
-      "reveal": "Norris on lap 35, 1:31.869, in a McLaren."
-    },
-    {
       "type": "moment",
       "lap": 25,
       "kicker": "Speed trap",
       "title": "Russell hit 334 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Russell did it in a Mercedes"
       ],
       "note": "Top speed says as much about wing level, and about sitting in somebody's tow, as it does about the engine."
     },
     {
-      "type": "moment",
-      "lap": 27,
-      "kicker": "Lap 27 · Pit window",
-      "title": "21 stops, and the busiest lap saw 3 of them",
-      "text": "Once one car stops, the cars around it have to answer.",
-      "bullets": [
-        "3 cars in on each of laps 21, 27 and 28",
-        "Shortest time in the pit lane: Russell, 22.0s",
-        "Longest: Hulkenberg, 33.7s"
-      ],
-      "note": "Pit lane time runs from the entry line to the exit line, stop included."
-    },
-    {
       "type": "decision",
       "lap": 27,
       "kicker": "Your call on the pit wall",
-      "title": "You are Verstappen, 0.5s behind Hamilton and going nowhere. Now what?",
+      "title": "You are Verstappen, 0.5s behind Hamilton. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -326,22 +309,24 @@
       ],
       "actual": "wait",
       "outcomes": {
-        "box": "You spend about 23s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "box": "You spend about 23s in the lane and come out in traffic, trusting that two fast laps on new tyres are worth more than the place you just gave up.",
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Verstappen did not stop again. He finished P5, Hamilton P6."
+      "reveal": "Verstappen did not stop again."
     },
     {
       "type": "moment",
-      "lap": 30,
-      "kicker": "Penalties",
-      "title": "1 penalty handed out",
-      "text": "Given by the stewards during the race.",
+      "lap": 27,
+      "kicker": "Lap 27 · Pit window",
+      "title": "21 stops, and the busiest lap saw 3 of them",
+      "text": "Once one car stops, the cars around it have to answer.",
       "bullets": [
-        "Bottas: a drive-through for speeding in the pit lane"
+        "3 cars in on each of laps 21, 27 and 28",
+        "Shortest time in the pit lane: Russell, 22.0s",
+        "Longest: Hulkenberg, 33.7s"
       ],
-      "note": "A drive-through is a trip down the pit lane at the speed limit without stopping."
+      "note": "Pit lane time runs from the entry line to the exit line, stop included."
     },
     {
       "type": "moment",
@@ -447,6 +432,20 @@
       ]
     },
     {
+      "type": "guess",
+      "lap": 57,
+      "kicker": "Guess it",
+      "title": "How far behind was Norris at the flag?",
+      "text": "57 laps, 1 hour 33 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 6,
+      "step": 0.1,
+      "target": 3.264,
+      "close": 1.3056,
+      "reveal": "3.264 seconds after 57 laps. A trip down the pit lane took about 23s today, which is 7 times this gap."
+    },
+    {
       "type": "moment",
       "lap": 57,
       "kicker": "Tyres",
@@ -466,6 +465,18 @@
       "bullets": [
         "1 ended in a penalty, 7 in no further action and 6 left for after the race"
       ]
+    },
+    {
+      "type": "moment",
+      "lap": 57,
+      "kicker": "Penalties",
+      "title": "3 penalties handed out",
+      "text": "Given by the stewards, some of them after the race: the official classification has them.",
+      "bullets": [
+        "Leclerc: a 20s penalty for leaving the track on multiple occasions without a justifiable reason, P6 on the road and P8 in the classification",
+        "Verstappen: a 5s penalty for crossing the white line at the pit exit"
+      ],
+      "note": "Bottas: a drive-through for speeding in the pit lane. A time penalty is served at the next stop, or added to the final time when there is no stop left. A drive-through is a trip down the pit lane at the speed limit without stopping."
     },
     {
       "type": "moment",
@@ -521,20 +532,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 57,
-      "kicker": "Guess it",
-      "title": "How far behind was Norris at the flag?",
-      "text": "57 laps, 1 hour 33 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 6,
-      "step": 0.1,
-      "target": 3.264,
-      "close": 1.3056,
-      "reveal": "3.264 seconds after 57 laps. A trip down the pit lane took about 23s today, which is 7 times the margin this race was decided by."
     }
   ],
   "result": {

@@ -31,6 +31,10 @@ for line in (P / "_todo.txt").read_text(encoding="utf-8").splitlines():
     say(f"download rc={code}\n    " + "\n    ".join(out))
     if code != 0:
         continue
+    # the official tables and FastF1's reading of the laps: both optional, the
+    # builder does without them and says only what the feed saw
+    run(["official.py", slug])
+    run(["ff1laps.py", slug])
     code, out = run(["build_weekend.py", slug], tail=8)
     say(f"build rc={code} " + " / ".join(out))
 say("ALL DONE")

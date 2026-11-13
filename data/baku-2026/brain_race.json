@@ -17,6 +17,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 25,
       "stops": [
         31
@@ -48,6 +51,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 18,
       "stops": [
         31
@@ -79,6 +85,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 15,
       "stops": [
         31
@@ -110,6 +119,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 12,
       "stops": [
         31
@@ -141,6 +153,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 10,
       "stops": [
         30
@@ -172,6 +187,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 8,
       "stops": [
         31
@@ -203,6 +221,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 6,
       "stops": [
         30
@@ -234,6 +255,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 4,
       "stops": [
         30
@@ -265,6 +289,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 2,
       "stops": [
         30
@@ -296,6 +323,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 1,
       "stops": [
         20,
@@ -328,6 +358,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         32
@@ -359,6 +392,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         31,
@@ -392,6 +428,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         31
@@ -423,6 +462,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         30
@@ -454,6 +496,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         30
@@ -465,8 +510,8 @@
       "pace": "1:49.302",
       "paceRaw": 109.302,
       "overtakes": 3,
-      "penalty": null,
-      "penaltyFor": null,
+      "penalty": "10s",
+      "penaltyFor": "overtaking under yellow flags",
       "led": 0,
       "swings": [],
       "fastestLap": false,
@@ -485,6 +530,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 50,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         26
@@ -516,6 +564,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 37,
+      "dnfWhy": "race control logged an incident with Norris, Gasly, Colapinto at Turn 1 on lap 36",
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         30
@@ -547,6 +598,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 36,
+      "dnfWhy": "race control logged an incident with Norris, Gasly, Colapinto at Turn 1 on lap 36",
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         30
@@ -578,6 +632,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 36,
+      "dnfWhy": "race control logged an incident with Norris, Gasly, Colapinto at Turn 1 on lap 36",
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         30
@@ -609,6 +666,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 30,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -637,6 +697,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 21,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -665,6 +728,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 8,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -758,7 +824,7 @@
       ],
       "say": [
         "Russell took it",
-        "Mercedes. started P1, led 51 of 51 laps"
+        "driving for Mercedes, from P1 on the grid, and he led 51 of 51 laps"
       ]
     },
     {
@@ -900,8 +966,8 @@
         "investigation"
       ],
       "say": [
-        "1 penalty handed out",
-        "Colapinto 10s"
+        "2 penalties handed out",
+        "Colapinto 10s · Bortoleto 10s"
       ]
     },
     {
@@ -989,7 +1055,21 @@
       ],
       "say": [
         "Bottas on lap 50 · Colapinto on lap 37 · Gasly on lap 36 · Norris on lap 36 · Albon on lap 30 · Alonso on lap 21 · Stroll on lap 8",
-        "the data says when they stopped, not why"
+        "race control logged an incident for Colapinto, Gasly, Norris. for the rest the data says when they stopped, not why"
+      ]
+    },
+    {
+      "id": "dsq",
+      "keys": [
+        "disqualified",
+        "disqualification",
+        "dsq",
+        "thrown out",
+        "descalificado",
+        "excluded"
+      ],
+      "say": [
+        "nobody was disqualified from the race"
       ]
     },
     {

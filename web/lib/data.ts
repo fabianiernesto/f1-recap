@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { mendCrossings } from "./replay";
 import type {
   BlindTest, Brain, GhostRace, MateThread, Mystery, PitWall, Replay, Story, Track, Weekend,
 } from "./types";
@@ -77,7 +78,7 @@ export function loadBlind(slug: string, session: string): BlindTest | null {
 /** The race, replayable: the engine under Call the race and The ghost. */
 export function loadReplay(slug: string, session: string): Replay | null {
   const f = path.join(DATA_DIR, slug, `replay_${session}.json`);
-  return fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, "utf-8")) as Replay) : null;
+  return fs.existsSync(f) ? mendCrossings(JSON.parse(fs.readFileSync(f, "utf-8")) as Replay) : null;
 }
 
 /** The ghost's seats, where the tyre model can price a driver's calls. */

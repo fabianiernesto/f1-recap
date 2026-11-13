@@ -202,7 +202,10 @@
       "kicker": "The grid",
       "title": "How the race starts",
       "text": "P1 Norris · P2 Russell · P3 Antonelli · P4 Piastri · P5 Hamilton · P6 Leclerc",
-      "bullets": []
+      "bullets": [
+        "Perez starts from the pit lane: the car was changed under parc ferme rules",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
     }
   ]
 }

@@ -38,8 +38,8 @@ export default function SessionNext({ weekend, current }: { weekend: Weekend; cu
       </div>
       <div className="snext-row">
         <Link href={`/gp/${weekend.slug}/sessions`}>All sessions</Link>
-        <Link href={`/gp/${weekend.slug}`}>{weekend.circuit}</Link>
-        <Link href="/">Racing Simplified</Link>
+        <Link href={`/gp/${weekend.slug}`} prefetch={false}>{weekend.circuit}</Link>
+        <Link href="/" prefetch={false}>Racing Simplified</Link>
       </div>
     </section>
   );

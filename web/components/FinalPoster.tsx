@@ -62,6 +62,8 @@ export default function FinalPoster({
             className="poster-photo"
             src={bigPhoto(winner.headshot)}
             alt={`${winner.first} ${winner.last}`}
+            loading="lazy"
+            decoding="async"
           />
         )}
 

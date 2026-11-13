@@ -14,33 +14,11 @@
       "text": "38 on-track passes, 47 pit stops, 7 cars that never finished, 1 car not classified, 2 virtual safety cars."
     },
     {
-      "type": "moment",
-      "lap": 1,
-      "kicker": "Lap 1 · Lights out",
-      "title": "23 places changed hands on track before the first lap was done",
-      "text": "22 cars into the first corner on cold tyres and full tanks.",
-      "bullets": [
-        "Sainz and Leclerc gained the most by the end of it, 3 places each"
-      ],
-      "note": "Most of this is the pack sorting itself out. Some of it decides the race."
-    },
-    {
-      "type": "moment",
-      "lap": 1,
-      "kicker": "Stewards",
-      "title": "7 incidents looked at",
-      "text": "Every one of them logged by race control during the race.",
-      "bullets": [
-        "Lap 1: Hulkenberg, leaving the track and gaining an advantage",
-        "5 in no further action and 2 left for after the race"
-      ]
-    },
-    {
       "type": "decision",
       "lap": 1,
       "kicker": "You are the steward",
       "title": "Lap 1: an incident between Bearman and Hadjar at Turn 12. What do you give?",
-      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
+      "text": "Race control has flagged it and it lands on your desk. If one driver is to blame, what does he get? Same call the stewards had to make.",
       "state": [
         [
           "Lap",
@@ -81,6 +59,29 @@
       "reveal": "The stewards took no further action."
     },
     {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Lap 1 · Lights out",
+      "title": "23 position changes on lap 1",
+      "text": "22 cars into the first corner on cold tyres and full tanks.",
+      "bullets": [
+        "Sainz and Leclerc gained the most by the end of it, 3 places each",
+        "When it ended, 17 places had really changed against the grid. The rest were swapped back on the way round or came from cars in trouble dropping down the order"
+      ],
+      "note": "Most of this is the pack sorting itself out. Some of it decides the race."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Stewards",
+      "title": "7 incidents looked at",
+      "text": "Every one of them logged by race control during the race.",
+      "bullets": [
+        "Lap 1: Hulkenberg, leaving the track and gaining an advantage",
+        "5 in no further action and 2 left for after the race"
+      ]
+    },
+    {
       "type": "prediction",
       "lap": 2,
       "kicker": "Call it before it happens",
@@ -92,7 +93,7 @@
         "Out of the points"
       ],
       "answer": "Somewhere in the points",
-      "reveal": "P14 to P7, 7 places gained."
+      "reveal": "Somewhere in the points. The exact place comes at the flag."
     },
     {
       "type": "moment",
@@ -137,8 +138,7 @@
       "bullets": [
         "P19 at the start of lap 15",
         "Started P20"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -194,9 +194,9 @@
       "title": "Who has the fastest lap on the board at the flag?",
       "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
-        "Norris",
-        "Hamilton",
-        "Russell"
+        "Verstappen",
+        "Hadjar",
+        "Hamilton"
       ],
       "answer": "Hamilton",
       "reveal": "Hamilton on lap 44, 1:20.122, in a Ferrari."
@@ -205,7 +205,7 @@
       "type": "decision",
       "lap": 24,
       "kicker": "Your call on the pit wall",
-      "title": "You are Hamilton, 2.0s behind Russell and going nowhere. Now what?",
+      "title": "You are Hamilton, 2.0s behind Russell. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -244,11 +244,11 @@
       ],
       "actual": "box",
       "outcomes": {
-        "box": "You spend about 23s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "box": "You spend about 23s in the lane and come out in traffic, trusting that two fast laps on new tyres are worth more than the place you just gave up.",
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Hamilton came in on lap 27, 3 laps after this. He finished P1, Russell P2."
+      "reveal": "Hamilton came in on lap 27, 3 laps after this."
     },
     {
       "type": "moment",
@@ -268,7 +268,7 @@
       "lap": 29,
       "kicker": "Speed trap",
       "title": "Ocon hit 358 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Ocon did it in a Haas"
       ],
@@ -284,8 +284,7 @@
         "P10 at the start of lap 29",
         "Started P9",
         "1 on-track pass before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -295,10 +294,9 @@
       "text": "His race ends on lap 38 of 66, in an Aston Martin.",
       "bullets": [
         "P17 at the start of lap 37",
-        "Started P22",
+        "Started from the pit lane",
         "2 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -315,7 +313,7 @@
       "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
         "Hamilton was leading when it was called",
-        "Perez, Verstappen, Gasly and 1 other stopped under it",
+        "Bearman, Perez, Verstappen and 2 others stopped under it",
         "Lifted on lap 42"
       ],
       "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
@@ -391,23 +389,12 @@
       "title": "One of these three does not see the chequered flag. Who?",
       "text": "Nothing on the timing screens says it is coming.",
       "options": [
+        "Verstappen",
         "Leclerc",
-        "Hamilton",
-        "Russell"
+        "Piastri"
       ],
       "answer": "Leclerc",
-      "reveal": "Leclerc, on lap 63 of 66. The timing feed records that he stopped, not why."
-    },
-    {
-      "type": "moment",
-      "lap": 60,
-      "kicker": "Tyres",
-      "title": "Bearman ran one set for 32 laps",
-      "text": "The longest anybody stayed out on one set.",
-      "bullets": [
-        "On the softs, lap 29 to lap 60"
-      ],
-      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+      "reveal": "Leclerc, on lap 63 of 66."
     },
     {
       "type": "moment",
@@ -419,8 +406,7 @@
         "P13 at the start of lap 60",
         "Started P15",
         "5 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -432,8 +418,7 @@
         "P3 at the start of lap 61",
         "Started P3",
         "1 on-track pass before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -493,7 +478,7 @@
         "podium": "Close, but not enough.",
         "drop": "Tyres or traffic get him."
       },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.73s a lap slower than Hamilton, who went on to win it. With 4 laps left, \"podium, not the win\" is the honest guess, and nobody gets to check."
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.73s a lap slower than the car that went on to win it, over the same laps. With 4 laps left, \"podium, not the win\" is the honest guess, and nobody gets to check."
     },
     {
       "type": "moment",
@@ -527,8 +512,45 @@
         "P6 at the start of lap 62",
         "Started P10",
         "1 on-track pass before it happened"
+      ]
+    },
+    {
+      "type": "guess",
+      "lap": 66,
+      "kicker": "Guess it",
+      "title": "How far behind was Russell at the flag?",
+      "text": "66 laps, 1 hour 32 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 40,
+      "step": 0.5,
+      "target": 19.561,
+      "close": 7.824400000000001,
+      "reveal": "19.561 seconds after 66 laps. A trip down the pit lane took about 23s today, which is about the same as this gap."
+    },
+    {
+      "type": "moment",
+      "lap": 66,
+      "kicker": "Tyres",
+      "title": "Norris and Colapinto ran one set for 31 laps each",
+      "text": "The longest anybody stayed out on one set.",
+      "bullets": [
+        "Norris: hards, lap 36 to 66",
+        "Colapinto: hards, lap 35 to 65"
       ],
-      "note": "The timing feed records that he stopped, not why."
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+    },
+    {
+      "type": "moment",
+      "lap": 66,
+      "kicker": "Penalties",
+      "title": "2 penalties handed out",
+      "text": "Given by the stewards, some of them after the race: the official classification has them.",
+      "bullets": [
+        "Colapinto: a 10s penalty for failing to slow for yellow flags, P8 on the road and P10 in the classification",
+        "Antonelli: a 5s penalty for leaving the track without a justifiable reason multiple times"
+      ],
+      "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."
     },
     {
       "type": "moment",
@@ -584,20 +606,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 66,
-      "kicker": "Guess it",
-      "title": "How far behind was Russell at the flag?",
-      "text": "66 laps, 1 hour 32 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 40,
-      "step": 0.5,
-      "target": 19.561,
-      "close": 7.824400000000001,
-      "reveal": "19.561 seconds after 66 laps. A trip down the pit lane took about 23s today, which is about the same as the margin this race was decided by."
     }
   ],
   "result": {

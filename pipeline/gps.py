@@ -231,6 +231,84 @@ GPS: dict[str, dict] = {
             (11353, "Race", "race", "Race", "race"),
         ],
     },
+    # Round 16: "Formula 1 Gulf Air Bahrain Grand Prix in Malaysia 2026". F1 and
+    # OpenF1 keep the Bahrain name and country; it ran at Sepang, near Kuala Lumpur
+    "sepang-2026": {
+        "meta": {
+            "slug": "sepang-2026", "gp": "Bahrain Grand Prix in Malaysia 2026",
+            "short": "Bahrain Grand Prix in Malaysia", "circuit": "Sepang",
+            "country": "Malaysia", "date": "04 OCT 2026", "laps": 56,
+        },
+        "sessions": [
+            (11727, "FP1", "fp1", "Practice 1", "practice"),
+            (11728, "FP2", "fp2", "Practice 2", "practice"),
+            (11729, "FP3", "fp3", "Practice 3", "practice"),
+            (11730, "Quali", "quali", "Qualifying", "quali"),
+            (11731, "Race", "race", "Race", "race"),
+        ],
+    },
+    "marina-bay-2026": {
+        "meta": {
+            "slug": "marina-bay-2026", "gp": "Singapore Grand Prix 2026",
+            "short": "Singapore Grand Prix", "circuit": "Marina Bay",
+            "country": "Singapore", "date": "11 OCT 2026", "laps": 62,
+        },
+        "sessions": [
+            (11378, "FP1", "fp1", "Practice 1", "practice"),
+            (11379, "Sprint_Quali", "sprint-quali", "Sprint Qualifying", "quali"),
+            (11383, "Sprint", "sprint", "Sprint", "race"),
+            (11384, "Quali", "quali", "Qualifying", "quali"),
+            (11388, "Race", "race", "Race", "race"),
+        ],
+    },
+    "austin-2026": {
+        "meta": {
+            "slug": "austin-2026", "gp": "United States Grand Prix 2026",
+            "short": "United States Grand Prix", "circuit": "Austin",
+            "country": "United States", "date": "25 OCT 2026", "laps": 56,
+        },
+        "sessions": [
+            (11389, "FP1", "fp1", "Practice 1", "practice"),
+            (11390, "FP2", "fp2", "Practice 2", "practice"),
+            (11391, "FP3", "fp3", "Practice 3", "practice"),
+            (11392, "Quali", "quali", "Qualifying", "quali"),
+            (11396, "Race", "race", "Race", "race"),
+        ],
+    },
+    "mexico-city-2026": {
+        "meta": {
+            "slug": "mexico-city-2026", "gp": "Mexico City Grand Prix 2026",
+            "short": "Mexico City Grand Prix", "circuit": "Mexico City",
+            "country": "Mexico", "date": "01 NOV 2026", "laps": 71,
+        },
+        "sessions": [
+            (11397, "FP1", "fp1", "Practice 1", "practice"),
+            (11398, "FP2", "fp2", "Practice 2", "practice"),
+            # FP3 (11399, "FP3", "fp3", "Practice 3", "practice") stays out: the feed
+            # starts 14 minutes in and is 26 laps short of the official sheet, and
+            # those minutes (a yellow flag among them) are filed under the race.
+            # Every card it gave rested on that hole. Back in if the feed is mended
+            # (delete cache/11399_* first: the cache is never re-downloaded).
+            (11400, "Quali", "quali", "Qualifying", "quali"),
+            (11404, "Race", "race", "Race", "race"),
+        ],
+    },
+    # "Formula 1 MSC Cruises Grande Premio de Sao Paulo 2026": length and laps
+    # from formula1.com/en/racing/2026/brazil, read 13-nov-2026
+    "interlagos-2026": {
+        "meta": {
+            "slug": "interlagos-2026", "gp": "Sao Paulo Grand Prix 2026",
+            "short": "Sao Paulo Grand Prix", "circuit": "Interlagos",
+            "country": "Brazil", "date": "08 NOV 2026", "laps": 71,
+        },
+        "sessions": [
+            (11405, "FP1", "fp1", "Practice 1", "practice"),
+            (11406, "FP2", "fp2", "Practice 2", "practice"),
+            (11407, "FP3", "fp3", "Practice 3", "practice"),
+            (11408, "Quali", "quali", "Qualifying", "quali"),
+            (11412, "Race", "race", "Race", "race"),
+        ],
+    },
 }
 
 DEFAULT = "silverstone-2026"

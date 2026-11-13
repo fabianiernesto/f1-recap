@@ -39,10 +39,10 @@ export default async function ActivitiesPage({
   return (
     <>
       <div className="hub-top">
-        <Link href={`/gp/${slug}`} className="hub-back">
+        <Link href={`/gp/${slug}`} prefetch={false} className="hub-back">
           ← {weekend.circuit}
         </Link>
-        <Link href="/" className="hub-home">Racing Simplified</Link>
+        <Link href="/" prefetch={false} className="hub-home">Racing Simplified</Link>
       </div>
 
       <main className="acts fx-page">
@@ -75,7 +75,7 @@ export default async function ActivitiesPage({
               <h2>Call the race</h2>
               <p>
                 The whole race plays back in three minutes on the real track. When it
-                turns, it stops and asks what happens next. Bet on how sure you are,
+                turns, it stops and asks what happens next. Say how sure you are,
                 then watch the race answer you.
               </p>
               <span className="act-meta">
@@ -99,8 +99,8 @@ export default async function ActivitiesPage({
               <h2>Paddock exchange</h2>
               <p>
                 Every driver is a share and his price is his place. The race plays
-                back lap by lap as it really went: buy the cheap ones, cash out when
-                they climb, and lose it all if he retires.
+                back lap by lap as it really went: buy the cheap ones, sell when
+                they climb, and lose it all if one retires.
               </p>
               <span className="act-meta">
                 {acts.exchange.drivers} drivers · {acts.exchange.laps} laps in 2 minutes · start with 1,000

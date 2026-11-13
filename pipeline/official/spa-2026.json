@@ -1,0 +1,1156 @@
+{
+"fastest-laps": {
+"title": "FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"44",
+"16:28:58",
+"1:48.890",
+"231.558"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"41",
+"16:23:05",
+"1:49.098",
+"231.116"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"44",
+"16:28:57",
+"1:49.298",
+"230.694"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"23",
+"15:50:07",
+"1:49.333",
+"230.620"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"33",
+"16:08:40",
+"1:49.454",
+"230.365"
+],
+[
+"6",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"23",
+"15:50:14",
+"1:49.562",
+"230.138"
+],
+[
+"7",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"23",
+"15:50:13",
+"1:49.618",
+"230.020"
+],
+[
+"8",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"22",
+"15:48:41",
+"1:50.334",
+"228.527"
+],
+[
+"9",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"41",
+"16:24:18",
+"1:50.503",
+"228.178"
+],
+[
+"10",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"23",
+"15:50:35",
+"1:50.536",
+"228.110"
+],
+[
+"11",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"44",
+"16:29:52",
+"1:51.075",
+"227.003"
+],
+[
+"12",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"39",
+"16:20:34",
+"1:51.101",
+"226.950"
+],
+[
+"13",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"22",
+"15:49:06",
+"1:51.109",
+"226.933"
+],
+[
+"14",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"42",
+"16:26:07",
+"1:51.162",
+"226.825"
+],
+[
+"15",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"24",
+"15:52:58",
+"1:51.363",
+"226.416"
+],
+[
+"16",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"21",
+"15:47:10",
+"1:51.894",
+"225.341"
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"44",
+"16:30:25",
+"1:51.900",
+"225.329"
+],
+[
+"18",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"36",
+"16:14:30",
+"1:52.011",
+"225.106"
+],
+[
+"19",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"35",
+"16:13:23",
+"1:52.948",
+"223.239"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"10",
+"15:25:42",
+"1:53.520",
+"222.114"
+],
+[
+"21",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"21",
+"15:47:58",
+"1:53.980",
+"221.217"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1",
+"15:06:21",
+"26.554",
+"26.554"
+],
+[
+"1",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1",
+"15:06:22",
+"24.156",
+"24.156"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1",
+"15:06:23",
+"25.372",
+"25.372"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1",
+"15:06:26",
+"30.594",
+"30.594"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1",
+"15:06:32",
+"33.740",
+"33.740"
+],
+[
+"2",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"2",
+"15:09:02",
+"22.997",
+"47.153"
+],
+[
+"2",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"12",
+"15:29:41",
+"27.617",
+"52.989"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"14",
+"15:32:55",
+"24.177",
+"24.177"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"14",
+"15:33:07",
+"34.841",
+"34.841"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"15",
+"15:34:46",
+"23.722",
+"23.722"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"15",
+"15:34:49",
+"24.146",
+"24.146"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"16",
+"15:36:37",
+"24.810",
+"24.810"
+],
+[
+"2",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"16",
+"15:37:01",
+"24.124",
+"57.864"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"17",
+"15:38:12",
+"23.128",
+"23.128"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"17",
+"15:39:28",
+"31.649",
+"31.649"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"18",
+"15:40:12",
+"23.093",
+"23.093"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"18",
+"15:40:49",
+"22.638",
+"22.638"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"19",
+"15:43:29",
+"23.190",
+"23.190"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"20",
+"15:44:12",
+"23.164",
+"23.164"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"20",
+"15:44:17",
+"32.201",
+"32.201"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"20",
+"15:44:22",
+"23.292",
+"23.292"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"20",
+"15:44:37",
+"24.727",
+"71.880"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"20",
+"15:44:42",
+"23.127",
+"23.127"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"20",
+"15:44:45",
+"26.098",
+"26.098"
+],
+[
+"2",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"20",
+"15:44:59",
+"28.982",
+"55.536"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"30",
+"16:03:05",
+"28.314",
+"28.314"
+],
+[
+"2",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"31",
+"16:07:18",
+"24.746",
+"47.936"
+],
+[
+"2",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"32",
+"16:08:30",
+"25.910",
+"56.504"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:46.304",
+"1:45.142",
+"1:44.361",
+"15"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:45.930",
+"1:45.589",
+"1:44.678",
+"12"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:45.865",
+"1:45.454",
+"1:44.801",
+"11"
+],
+[
+"4",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:46.185",
+"1:45.689",
+"1:44.869",
+"18"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:46.278",
+"1:45.397",
+"1:44.893",
+"18"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:46.124",
+"1:45.543",
+"1:44.895",
+"15"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:46.433",
+"1:45.671",
+"1:45.016",
+"17"
+],
+[
+"8",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:46.191",
+"1:45.629",
+"1:45.143",
+"18"
+],
+[
+"9",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:46.609",
+"1:46.082",
+"1:45.628",
+"18"
+],
+[
+"10",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:46.062",
+"1:45.823",
+"DNF",
+"13"
+],
+[
+"11",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:46.501",
+"1:46.120",
+"",
+"12"
+],
+[
+"12",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:46.679",
+"1:46.331",
+"",
+"12"
+],
+[
+"13",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:46.795",
+"1:46.392",
+"",
+"12"
+],
+[
+"14",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:46.893",
+"1:46.671",
+"",
+"12"
+],
+[
+"15",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:47.080",
+"1:46.777",
+"",
+"12"
+],
+[
+"16",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:47.113",
+"1:46.779",
+"",
+"12"
+],
+[
+"17",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:47.120",
+"",
+"",
+"6"
+],
+[
+"18",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:47.801",
+"",
+"",
+"6"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:47.823",
+"",
+"",
+"8"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:47.971",
+"",
+"",
+"8"
+],
+[
+"21",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:50.002",
+"",
+"",
+"6"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:50.177",
+"",
+"",
+"8"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"race-result": {
+"title": "FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"44",
+"1:24:42.479",
+"25"
+],
+[
+"2",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"44",
+"+1.952s",
+"18"
+],
+[
+"3",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"44",
+"+11.586s",
+"15"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"44",
+"+17.245s",
+"12"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"44",
+"+18.988s",
+"10"
+],
+[
+"6",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"44",
+"+23.307s",
+"8"
+],
+[
+"7",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"44",
+"+24.014s",
+"6"
+],
+[
+"8",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"44",
+"+49.140s",
+"4"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"44",
+"+50.406s",
+"2"
+],
+[
+"10",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"44",
+"+76.037s",
+"1"
+],
+[
+"11",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"44",
+"+76.991s",
+"0"
+],
+[
+"12",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"44",
+"+77.523s",
+"0"
+],
+[
+"13",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"44",
+"+78.348s",
+"0"
+],
+[
+"14",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"44",
+"+94.465s",
+"0"
+],
+[
+"15",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"44",
+"+104.684s",
+"0"
+],
+[
+"16",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"44",
+"+105.856s",
+"0"
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"44",
+"+110.925s",
+"0"
+],
+[
+"18",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"43",
+"+1 lap",
+"0"
+],
+[
+"19",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"42",
+"+2 laps",
+"0"
+],
+[
+"NC",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"25",
+"DNF",
+"0"
+],
+[
+"NC",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"13",
+"DNF",
+"0"
+],
+[
+"NC",
+"63",
+"George Russell RUS",
+"Mercedes",
+"0",
+"DNF",
+"0"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:44.361"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:44.678"
+],
+[
+"3",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:44.869"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:44.893"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:44.895"
+],
+[
+"6",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:45.016"
+],
+[
+"7",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:45.143"
+],
+[
+"8",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:45.628"
+],
+[
+"9",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:46.120"
+],
+[
+"10",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:46.331"
+],
+[
+"11",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:46.392"
+],
+[
+"12",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:46.671"
+],
+[
+"13",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:44.801"
+],
+[
+"14",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:46.779"
+],
+[
+"15",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:47.120"
+],
+[
+"16",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:47.801"
+],
+[
+"17",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:47.823"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:47.971"
+],
+[
+"19",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:46.777"
+],
+[
+"20",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:50.177"
+],
+[
+"21",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+""
+],
+[
+"22",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:50.002"
+]
+],
+"after": [
+"Note - Alonso and Hadjar required to start from the back of the grid after receiving 20- and 30-place penalties respectively for the use of multiple additional power unit elements. Stroll, Sainz and Norris each received a 10-place penalty for the use of additional power unit elements.",
+"OUR PARTNERS",
+"View all"
+]
+}
+}

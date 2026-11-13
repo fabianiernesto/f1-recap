@@ -1458,8 +1458,8 @@
          1.0
         ],
         "behind": [
-         "Colapinto",
-         1.3
+         "Lawson",
+         0.5
         ]
        }
       },
@@ -1883,7 +1883,7 @@
       "13": {
        "d": 0.3,
        "rejoin": {
-        "pos": 17,
+        "pos": 18,
         "ahead": [
          "Albon",
          8.6
@@ -1925,7 +1925,7 @@
       "16": {
        "d": -0.0,
        "rejoin": {
-        "pos": 16,
+        "pos": 17,
         "ahead": [
          "Albon",
          9.0
@@ -2352,7 +2352,7 @@
       "13": {
        "d": 0.3,
        "rejoin": {
-        "pos": 18,
+        "pos": 19,
         "ahead": [
          "Perez",
          2.6
@@ -2394,7 +2394,7 @@
       "16": {
        "d": -0.0,
        "rejoin": {
-        "pos": 16,
+        "pos": 17,
         "ahead": [
          "Albon",
          13.0
@@ -2835,7 +2835,7 @@
       "13": {
        "d": 0.4,
        "rejoin": {
-        "pos": 18,
+        "pos": 19,
         "ahead": [
          "Perez",
          1.9
@@ -2877,7 +2877,7 @@
       "16": {
        "d": 0.0,
        "rejoin": {
-        "pos": 16,
+        "pos": 17,
         "ahead": [
          "Albon",
          12.1
@@ -3048,7 +3048,7 @@
        "note": "13 laps on the mediums, then 40 on the hards.",
        "delta": 0.4,
        "rejoin": {
-        "pos": 18,
+        "pos": 19,
         "ahead": [
          "Perez",
          4.9
@@ -3302,7 +3302,7 @@
       "13": {
        "d": 0.4,
        "rejoin": {
-        "pos": 18,
+        "pos": 19,
         "ahead": [
          "Perez",
          4.9
@@ -3344,14 +3344,14 @@
       "16": {
        "d": 0.0,
        "rejoin": {
-        "pos": 18,
+        "pos": 19,
         "ahead": [
          "Bearman",
          0.7
         ],
         "behind": [
-         "Lawson",
-         1.9
+         "Stroll",
+         4.9
         ]
        }
       },

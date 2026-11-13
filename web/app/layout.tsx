@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { preload } from "react-dom";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
 import PageFX from "@/components/PageFX";
 import { SITE } from "@/lib/site";
 
@@ -18,6 +19,9 @@ const display = localFont({
     { path: "./fonts/barlow-condensed-600.woff2", weight: "600", style: "normal" },
     { path: "./fonts/barlow-condensed-700.woff2", weight: "700", style: "normal" },
   ],
+  // only the session cards set it (02/11/2026): 66KB in every page's preloads,
+  // competing on a phone with the stylesheet the first paint is waiting for
+  preload: false,
 });
 
 // Ernesto's brand text face is Agrandir. It is not a Google font, so this is
@@ -87,9 +91,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: { default: "Racing Simplified", template: "%s · Racing Simplified" },
   description,
-  openGraph: { siteName: "Racing Simplified", type: "website", title: "Racing Simplified", description },
+  openGraph: { siteName: "Racing Simplified", type: "website", url: "/", title: "Racing Simplified", description },
   twitter: { card: "summary_large_image", title: "Racing Simplified", description },
 };
+
+// the phone browser's bar in the site's black, not its default white
+export const viewport: Viewport = { themeColor: "#0a0a0a" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   // Anybody sets every title on the site but is declared in globals.css, so
@@ -104,6 +111,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         {children}
         <PageFX />
+        <CustomCursor />
       </body>
     </html>
   );

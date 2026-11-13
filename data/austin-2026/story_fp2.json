@@ -1,0 +1,105 @@
+{
+  "gp": "United States Grand Prix 2026",
+  "session": "Practice 2",
+  "sessionSlug": "fp2",
+  "circuit": "Austin",
+  "laps": 32,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "United States Grand Prix · Practice 2",
+      "title": "Practice, honestly",
+      "text": "589 laps run and no points on offer. What it does tell you is who looks comfortable and who is fighting the car."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Fastest of the session · lap 10",
+      "title": "Leclerc: 1:35.291",
+      "text": "In a Ferrari. Take practice times with salt: fuel loads are secret and nobody shows their hand."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Who did the work",
+      "title": "Colapinto racked up 31 laps",
+      "text": "Track time is the currency of a practice Friday. Whoever runs most learns most, and burns the most rubber doing it.",
+      "dato": {
+        "label": "Laps completed",
+        "rows": [
+          [
+            "Colapinto",
+            31
+          ],
+          [
+            "Leclerc",
+            29
+          ],
+          [
+            "Lindblad",
+            28
+          ],
+          [
+            "Bearman",
+            27
+          ],
+          [
+            "Stroll",
+            27
+          ],
+          [
+            "Sainz",
+            27
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Tyres",
+      "title": "What they ran, and on what",
+      "text": "Compound choice in practice is a rehearsal for the race plan.",
+      "dato": {
+        "label": "Stints by compound",
+        "rows": [
+          [
+            "SOFT",
+            43
+          ],
+          [
+            "MEDIUM",
+            29
+          ],
+          [
+            "HARD",
+            12
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Alonso topped the trap at 346 km/h",
+      "text": "Early wing choices show up here before anybody admits to them."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Interruptions",
+      "title": "A clean session",
+      "text": "No yellow or red flags logged while the session ran."
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Conditions",
+      "title": "Track between 40°C and 42°C",
+      "text": "Practice conditions rarely match the race, which is one more reason these times mislead."
+    }
+  ]
+}

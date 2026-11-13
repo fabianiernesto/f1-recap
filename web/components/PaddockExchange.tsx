@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent, type PointerEvent as RowPointer, type ReactNode } from "react";
 import type { Replay, Track } from "@/lib/types";
 import ReplayTrack from "@/components/ReplayTrack";
 import { hex, leaderAt, standings } from "@/lib/replay";
 import { Speedlines } from "@/components/Mood";
-import { drawCard, saveCard, shareCard } from "@/lib/shareCard";
+import CardActions from "@/components/CardActions";
+import type { CardInput } from "@/lib/shareCard";
 
 /**
  * Paddock exchange (activity 02, since 26/10/2026, in place of The ghost).
@@ -15,8 +16,8 @@ import { drawCard, saveCard, shareCard } from "@/lib/shareCard";
  * every place he gains adds 5. The race plays back on the real track in about
  * two minutes and the prices move at the end of every lap, straight from the
  * timing. You start with 1,000, put 100 at a time on whoever you like and
- * cash out when you like the number. A retirement is worth nothing, and
- * whatever you hold at the flag is paid at the driver's final place.
+ * sell when you like the number. A retirement is worth nothing, and
+ * whatever you hold at the flag is paid at the driver's official final place.
  *
  * Nothing is predicted or modelled: a price is a position, and every position
  * is the one the timing gives at the moment the leader crosses the line.
@@ -29,6 +30,10 @@ type Trade = { n: number; paid: number; got: number; lap: number; how: "sold" | 
 type Hold = { shares: number; paid: number };
 
 const fmt = (v: number) => Math.round(v).toLocaleString("en-GB");
+// money moves in whole credits, so what is on screen is what is paid and every sum adds up
+const worth = (h: Hold, price: number) => Math.round(h.shares * price);
+// "Norris", "Norris and Russell", "Norris, Russell and Piastri"
+const names = (cs: { name: string }[]) => cs.map((c) => c.name).join(", ").replace(/, ([^,]*)$/, " and $1");
 
 function verdict(d: number, traded: boolean) {
   if (!traded) return { t: "Kept the cash", l: "You watched it go by. Every price moved and none of it was yours." };
@@ -55,10 +60,23 @@ export default function PaddockExchange({
       const order: number[] = [];
       const pos = new Map<number, number | null>(), price = new Map<number, number>();
       if (lap === 0) {
-        [...r.field].sort((a, b) => (a.grid ?? 99) - (b.grid ?? 99) || (a.finish ?? 99) - (b.finish ?? 99))
+        [...r.field].sort((a, b) => (a.grid ?? 99) - (b.grid ?? 99) || a.num - b.num)
           .forEach((c, i) => { order.push(c.num); pos.set(c.num, i + 1); price.set(c.num, (N - i) * 5); });
       } else {
-        standings(r, leaderAt(r, lap) + 0.001).forEach((x, i) => {
+        // the order at the end of this lap, the moment the leader closes it: the whole board
+        // moves together, a few seconds before the last car reaches the line on the track
+        const road = standings(r, Infinity, lap);
+        if (lap === r.laps) {
+          // the flag pays the official classification, penalties included: road order is only
+          // the race as it ran. No finishing place (retired, disqualified, not classified) pays 0
+          const home = road.filter((x) => x.car.finish != null).sort((a, b) => a.car.finish! - b.car.finish!);
+          for (const x of [...home, ...road.filter((y) => y.car.finish == null)]) {
+            const f = x.car.finish;
+            order.push(x.car.num);
+            pos.set(x.car.num, f);
+            price.set(x.car.num, f == null ? 0 : (N + 1 - f) * 5);
+          }
+        } else road.forEach((x, i) => {
           order.push(x.car.num);
           pos.set(x.car.num, x.out ? null : i + 1);
           price.set(x.car.num, x.out ? 0 : (N - i) * 5);
@@ -87,10 +105,23 @@ export default function PaddockExchange({
   const [trades, setTrades] = useState<Trade[]>([]);
   const [coach, setCoach] = useState<ReactNode>(null);
   const [feed, setFeed] = useState("");
-  const [copied, setCopied] = useState(false);
+  // the order the rows held when a finger landed on the board; null when no finger is down
+  const [pressed, setPressed] = useState<number[] | null>(null);
+  const release = useRef(0);
   const heldRef = useRef(held);
   heldRef.current = held;
+  // the wallet as of the last tap, not the last render: taps can land between renders
+  const cashRef = useRef(cash);
+  cashRef.current = cash;
   const bought = useRef(false);
+
+  // the finger is up (or became a scroll): the rows catch up, a beat after the tap has landed
+  useEffect(() => {
+    if (!pressed) return;
+    const up = () => { clearTimeout(release.current); release.current = window.setTimeout(() => setPressed(null), 120); };
+    for (const ev of ["pointerup", "pointercancel", "blur"]) window.addEventListener(ev, up);
+    return () => { for (const ev of ["pointerup", "pointercancel", "blur"]) window.removeEventListener(ev, up); };
+  }, [pressed]);
 
   // the clock: one pass per frame, the market moves when the leader crosses
   useEffect(() => {
@@ -123,28 +154,33 @@ export default function PaddockExchange({
       const gone = lost.reduce((s, c) => s + heldRef.current[c.num].paid, 0);
       setTrades((tr) => [...tr, ...lost.map((c) => ({ n: c.num, paid: heldRef.current[c.num].paid, got: 0, lap, how: "retired" as const }))]);
       setHeld((h) => { const x = { ...h }; for (const c of lost) delete x[c.num]; return x; });
-      setCoach(<><b>Retirement.</b> {lost.map((c) => c.name).join(" and ")} retired with your money in {lost.length > 1 ? "them" : "him"}: <b>{fmt(gone)} gone</b>.</>);
-    } else if (pits.length && bought.current) {
+      setCoach(lost.every((c) => c.out == null)
+        ? <><b>Not classified.</b> {names(lost)} {lost.length > 1 ? "have" : "has"} no official finish, with your money in {lost.length > 1 ? "them" : "him"}: <b>{fmt(gone)} gone</b>.</>
+        : <><b>Retirement.</b> {names(lost)} retired with your money in {lost.length > 1 ? "them" : "him"}: <b>{fmt(gone)} gone</b>.</>);
+    } else if (pits.length && bought.current && lap < r.laps - 3) {
       setCoach(neutral
-        ? <><b>Stops under the safety car.</b> Everybody is slow, so a stop costs little now: watch who comes out ahead.</>
+        ? <><b>Stops under the {neutral.kind === "SC" ? "safety car" : "virtual safety car"}.</b> Everybody is slow, so a stop costs little now: watch who comes out ahead.</>
         : <><b>Pit stops.</b> A driver who just stopped loses places for a lap or two, so his price drops. Buy him there and sell when he is back up.</>);
     } else if (!bought.current) {
       setCoach(<>Prices move at the end of every lap. Pick a driver and press <b>Invest {STAKE}</b>. Somebody cheap who should be further up is the best buy.</>);
     }
-    if (lap === r.laps - 3) setCoach(<><b>Three laps to go.</b> At the flag, whatever you still hold is paid at the driver&rsquo;s final place.</>);
+    if (lap === r.laps - 3) setCoach(<><b>Three laps to go.</b> At the flag, whatever you still hold is paid at the driver&rsquo;s official final place, penalties included.</>);
 
     const many = (a: unknown[]) => a.length > 1;
     let msg = "";
     if (outs.length) {
-      msg = `${outs.map((c) => c.name).join(" and ")} ${many(outs) ? "are" : "is"} out. ${many(outs) ? "Their" : "His"} shares are worth nothing now.`;
+      msg = `${names(outs)} ${many(outs) ? "are" : "is"} ${outs.every((c) => c.out == null) ? "not classified" : "out"}. ${many(outs) ? "Their" : "His"} shares are worth nothing now.`;
     } else if (pits.length) {
-      const who = pits.map((c) => c.name).join(", ");
+      const who = names(pits);
       const fell = pits.filter((c) => (now.price.get(c.num) ?? 0) < (before.price.get(c.num) ?? 0));
+      const stop = many(pits) ? "stop" : "stops";
       msg = neutral
-        ? `${who} ${many(pits) ? "stop" : "stops"} under the safety car. A stop costs far less now, so ${many(pits) ? "they barely lose" : "he barely loses"} places.`
-        : fell.length
-          ? `${who} ${many(pits) ? "stop" : "stops"} for tyres and ${many(fell) ? "drop" : "drops"} down the order. Cheap for a lap or two, while ${many(fell) ? "they climb" : "he climbs"} back.`
-          : `${who} ${many(pits) ? "stop" : "stops"} for tyres.`;
+        ? `${who} ${stop} under the ${neutral.kind === "SC" ? "safety car" : "virtual safety car"}. A stop costs far less now.`
+        : !fell.length || lap >= r.laps - 3
+          ? `${who} ${stop} for tyres.`
+          : fell.length === pits.length
+            ? `${who} ${stop} for tyres and ${many(fell) ? "drop" : "drops"} down the order. Cheap for a lap or two, while ${many(fell) ? "they climb" : "he climbs"} back.`
+            : `${who} ${stop} for tyres. ${names(fell)} ${many(fell) ? "drop" : "drops"} down the order, cheap for a lap or two while ${many(fell) ? "they climb" : "he climbs"} back.`;
     }
     setFeed(msg ? `Lap ${lap} · ${msg}` : "");
 
@@ -153,7 +189,7 @@ export default function PaddockExchange({
       // (a retirement on the last lap was written off above, not paid again)
       const gone = new Set(lost.map((c) => c.num));
       const h = Object.fromEntries(Object.entries(heldRef.current).filter(([n]) => !gone.has(+n)));
-      const paid = Object.entries(h).map(([n, x]) => ({ n: +n, paid: x.paid, got: x.shares * (now.price.get(+n) ?? 0), lap, how: "flag" as const }));
+      const paid = Object.entries(h).map(([n, x]) => ({ n: +n, paid: x.paid, got: worth(x, now.price.get(+n) ?? 0), lap, how: "flag" as const }));
       setCash((c) => c + paid.reduce((s, x) => s + x.got, 0));
       setTrades((tr) => [...tr, ...paid]);
       setHeld({});
@@ -167,7 +203,7 @@ export default function PaddockExchange({
     tRef.current = 0;
     bought.current = false;
     setLap(0); setCash(START); setHeld({}); setTrades([]); setFeed("");
-    setCoach(<>The grid sets the first prices. <b>{pole?.name} starts on pole: {priceOf(1)}.</b> Pick somebody and press <b>Invest {STAKE}</b> before the lights go out.</>);
+    setCoach(<>The grid sets the first prices. <b>{pole?.name} starts on pole: {priceOf(1)}.</b> Pick somebody and press <b>Invest {STAKE}</b> before the first lap is over.</>);
     setPhase("run");
     scrollTo(0, 0);
   };
@@ -178,28 +214,52 @@ export default function PaddockExchange({
   const over = lap >= r.laps;
 
   const buy = (n: number) => {
-    const p = price(n), amt = Math.min(STAKE, cash);
+    const p = price(n), amt = Math.min(STAKE, cashRef.current);
     if (!p || amt <= 0 || over) return;
+    cashRef.current -= amt;
     setCash((c) => c - amt);
     setHeld((h) => ({ ...h, [n]: { shares: (h[n]?.shares ?? 0) + amt / p, paid: (h[n]?.paid ?? 0) + amt } }));
     if (!bought.current) {
       bought.current = true;
-      setCoach(<>You own a piece of <b>{byNum.get(n)?.name}</b> at {p}. If he climbs, his price climbs with him. When you like the number, <b>cash out</b>.</>);
+      setCoach(<>You own a piece of <b>{byNum.get(n)?.name}</b> at {p}. If he climbs, his price climbs with him. When you like the number, <b>sell</b>.</>);
     }
+    if (cashRef.current <= 0) setCoach(<><b>All your money is in.</b> Sell a driver to invest again.</>);
   };
   const sell = (n: number) => {
-    const h = held[n];
+    const h = heldRef.current[n];
     if (!h || over) return;
-    const got = h.shares * price(n);
+    const got = worth(h, price(n));
+    const { [n]: _sold, ...rest } = heldRef.current; // a second tap finds nothing left to sell
+    heldRef.current = rest;
+    cashRef.current += got;
     setCash((c) => c + got);
     setTrades((tr) => [...tr, { n, paid: h.paid, got, lap, how: "sold" }]);
     setHeld((x) => { const y = { ...x }; delete y[n]; return y; });
+    setCoach(<><b>Sold {byNum.get(n)?.name}.</b> Paid {fmt(h.paid)}, got {fmt(got)}.</>);
   };
 
-  const inDrivers = Object.entries(held).reduce((s, [n, h]) => s + h.shares * price(+n), 0);
+  // a mouse takes a moment to reach a button, and a row moving in that moment buys another driver: on
+  // a button the rows hold as they do under a finger, until it has stopped for a moment or has left
+  const holdForMouse = (e: RowPointer) => {
+    if (e.pointerType !== "mouse") return;
+    const on = !!(e.target as Element).closest(".px-acts button");
+    if (!on && !pressed) return;
+    if (on) setPressed((o) => o ?? snap.order);
+    clearTimeout(release.current);
+    release.current = window.setTimeout(() => setPressed(null), on ? 1200 : 120);
+  };
+
+  // with a mouse a trade happens on the press: a row still settling can slide away before the
+  // release, and then the browser fires no click. A finger stays on click, or a scroll would buy
+  const lastPointer = useRef("");
+  const trade = (act: () => void) => ({
+    onPointerDown: (e: RowPointer) => { lastPointer.current = e.pointerType; if (e.pointerType === "mouse" && e.button === 0) act(); },
+    onClick: (e: MouseEvent) => { if (e.detail > 0 && lastPointer.current === "mouse") return; act(); },
+  });
+
+  const inDrivers = Object.entries(held).reduce((s, [n, h]) => s + worth(h, price(+n)), 0);
   const total = cash + inDrivers;
-  // in whole credits, as shown: a few hundredths up is not "in the money"
-  const delta = Math.round(total) - START;
+  const delta = total - START;
 
   /* ---------- the rules */
   if (phase === "cover")
@@ -212,8 +272,8 @@ export default function PaddockExchange({
           <h1 className="cr-h1">Paddock<span className="glow">exchange</span></h1>
           <ol className="cr-how">
             <li><b>01</b><span><strong>A driver is worth his place.</strong> Last is worth 5 and every place he gains adds 5, so the leader is worth {priceOf(1)}. Prices change at the end of every lap, with the real race.</span></li>
-            <li><b>02</b><span><strong>Buy low, sell high.</strong> Invest {STAKE} in a driver when he is cheap and cash out when he has climbed. You start with {fmt(START)}.</span></li>
-            <li><b>03</b><span><strong>If he retires, you lose it.</strong> A retired driver is worth nothing. Whatever you hold at the flag is paid at his final place.</span></li>
+            <li><b>02</b><span><strong>Buy low, sell high.</strong> Invest {STAKE} in a driver when he is cheap and sell when he has climbed. You start with {fmt(START)}.</span></li>
+            <li><b>03</b><span><strong>If he retires, you lose it.</strong> A retired driver is worth nothing. Whatever you hold at the flag is paid at his official final place, penalties included.</span></li>
           </ol>
           <div className="px-ladder" aria-label="The price of every place" style={{ ["--n" as string]: N }}>
             {Array.from({ length: N }, (_, i) => (
@@ -245,19 +305,14 @@ export default function PaddockExchange({
       if (!star || fin / low > star.end / star.low) star = { n: c.num, low, at, end: fin };
     }
     const winner = r.field.find((c) => snaps[r.laps].order[0] === c.num);
-    const marks = trades.length ? trades.map((x) => (x.got > x.paid ? "hit" : "miss") as "hit" | "miss") : ["flat" as const];
+    const marks = trades.length ? trades.map((x) => (x.got > x.paid ? "hit" : x.got < x.paid ? "miss" : "flat") as "hit" | "miss" | "flat") : ["flat" as const];
     const shareText = `Racing Simplified · ${gp} · Paddock exchange\nTurned 1,000 into ${fmt(total)}\n`
-      + trades.map((x) => (x.got > x.paid ? "🟩" : "🟥")).join("") + `\nSame race, same prices. Beat me:`;
-    const card = () => drawCard({
+      + (trades.length ? trades.map((x) => (x.got > x.paid ? "🟩" : x.got < x.paid ? "🟥" : "⬜")).join("") + "\n" : "") + `Same race, same prices. Beat me:`;
+    const card: CardInput = {
       kicker: "Activity 02 // Paddock exchange", gp: `${gp} · ${session === "sprint" ? "Sprint" : "Race"}`,
       title: ["Paddock", "exchange"], big: fmt(total), bigLabel: `from 1,000 · ${trades.length} trade${trades.length === 1 ? "" : "s"}`,
       verdict: v.t, marks, foot: "Same race, same prices. Beat that.",
-    });
-    const share = async () => {
-      const res = await shareCard(await card().catch(() => null), shareText, window.location.href);
-      if (res === "copied") { setCopied(true); setTimeout(() => setCopied(false), 2000); }
     };
-    const save = async () => saveCard(await card().catch(() => null), `paddock-exchange-${slug}.png`);
     return (
       <main className="cr cr-done px-done">
         <Speedlines n={5} />
@@ -265,14 +320,13 @@ export default function PaddockExchange({
           <span className="cr-eyebrow">Chequered flag <em>//</em> {gp}</span>
           <div className="cr-score">{fmt(total)}<small>from 1,000</small></div>
           <span className={`cr-right ${delta > 0 ? "px-up" : delta < 0 ? "px-down" : ""}`}>
-            {delta === 0 ? "Not a credit either way" : `${delta > 0 ? "+" : "−"}${fmt(Math.abs(delta))} on the start`}
+            {delta === 0 ? "Not a credit either way" : `${delta > 0 ? "+" : "−"}${fmt(Math.abs(delta))} on your ${fmt(START)}`}
           </span>
           <h2 className="cr-verdict">{v.t}</h2>
           <p className="cr-line">{v.l}</p>
-          <div className="cr-marks" aria-hidden>{trades.map((x, i) => <i key={i} className={x.got > x.paid ? "hit" : "miss"} />)}</div>
+          <div className="cr-marks" aria-hidden>{trades.map((x, i) => <i key={i} className={x.got > x.paid ? "hit" : x.got < x.paid ? "miss" : ""} style={x.got === x.paid ? { background: "#555" } : undefined} />)}</div>
           <div className="cr-share">
-            <button className="bt-go" onClick={share}>{copied ? "Link copied" : "Challenge your group"} <i aria-hidden>→</i></button>
-            <button className="myst-link" onClick={save}>Save the card for Stories</button>
+            <CardActions card={card} text={shareText} name={`paddock-exchange-${slug}.png`} />
             <span>Same race and the same prices for whoever opens it.</span>
           </div>
         </section>
@@ -283,13 +337,13 @@ export default function PaddockExchange({
               : <><b>None</b><p>{trades.length ? "No trade made money this time." : "No trades."}</p></>}</div>
             {star && <div><span>The trade of the race</span><b>{name(star.n)}</b>
               <p>Cheapest at {star.low} {star.at ? `on lap ${star.at}` : "on the grid"}, worth {star.end} at the flag: {(star.end / star.low).toFixed(1)} times the money.</p></div>}
-            {winner && <div><span>The winner</span><b>{winner.name}</b><p>From P{snaps[0].pos.get(winner.num)} on the grid. Worth {priceOf(1)} at the flag.</p></div>}
+            {winner && <div><span>The winner</span><b>{winner.name}</b><p>From P{winner.grid ?? snaps[0].pos.get(winner.num)} on the grid. Worth {priceOf(1)} at the flag.</p></div>}
           </div>
           <h3>Your trades</h3>
           <ol className="px-trades">
             {trades.length ? trades.map((x, i) => (
               <li key={i}>
-                <span>{name(x.n)} · {x.how === "retired" ? `retired on lap ${x.lap}` : x.how === "flag" ? "held to the flag" : `cashed out on lap ${x.lap}`}</span>
+                <span>{name(x.n)} · {x.how === "retired" ? (byNum.get(x.n)?.out == null ? "not classified" : `retired on lap ${byNum.get(x.n)?.out}`) : x.how === "flag" ? "held to the flag" : `sold on lap ${x.lap}`}</span>
                 <b className={x.got >= x.paid ? "px-up" : "px-down"}>{x.got >= x.paid ? "+" : "−"}{fmt(Math.abs(x.got - x.paid))}</b>
               </li>
             )) : <li><span>No trades</span><b /></li>}
@@ -297,7 +351,7 @@ export default function PaddockExchange({
           <nav className="cr-next">
             <button className="myst-door" onClick={start}><span>Again</span><b>Trade this race again</b><i aria-hidden>→</i></button>
             {callHref && <Link href={callHref} className="myst-door"><span>Activity 01</span><b>Call the race</b><i aria-hidden>→</i></Link>}
-            <Link href={storyHref} className="myst-door"><span>Read it</span><b>Every moment, in order</b><i aria-hidden>→</i></Link>
+            <Link href={storyHref} className="myst-door"><span>Scrolled</span><b>Every moment, in order</b><i aria-hidden>→</i></Link>
           </nav>
         </section>
       </main>
@@ -312,33 +366,40 @@ export default function PaddockExchange({
       <aside className="px-left">
         <div className="px-top">
           <div className="px-lap"><span>Lap</span><b>{lap}<small> / {r.laps}</small></b></div>
-          <div className="px-flag">{flag && <><b>{flag.kind === "SC" ? "Safety car" : "Virtual safety car"}</b><span>The field is bunched up. Places will shuffle.</span></>}</div>
+          <div className="px-flag">{flag && <><b>{flag.kind === "SC" ? "Safety car" : "Virtual safety car"}</b><span>{flag.kind === "SC" ? "The field is bunched up. Places will shuffle." : "Everybody slows down, so a stop costs less."}</span></>}</div>
         </div>
         <div className="px-track"><ReplayTrack r={r} track={track} tRef={tRef} /></div>
         <div className="px-wallet">
           <div><span>Cash</span><b>{fmt(cash)}</b></div>
-          <div><span>In drivers</span><b>{fmt(inDrivers)}</b></div>
+          <div><span>In drivers</span><b>{fmt(inDrivers)}</b>
+            <em>{Object.entries(held).map(([n, h]) => `${byNum.get(+n)?.code} ${fmt(worth(h, price(+n)))}`).join(" · ")}</em></div>
           <div className="px-total"><span>Your total</span><b>{fmt(total)}</b>
-            <em className={delta > 0 ? "px-up" : delta < 0 ? "px-down" : ""}>{delta ? `${delta > 0 ? "+" : "−"}${fmt(Math.abs(delta))} on the start` : ""}</em></div>
+            <em className={delta > 0 ? "px-up" : delta < 0 ? "px-down" : ""}>{delta ? `${delta > 0 ? "+" : "−"}${fmt(Math.abs(delta))} on your ${fmt(START)}` : ""}</em>
+            <small className="px-cashline">Cash {fmt(cash)}</small></div>
         </div>
         <p className="px-coach" role="status">{coach}</p>
       </aside>
       <section className="px-board" aria-label="The market">
         <div className="px-head"><span>Pos</span><span>Driver</span><span>Price</span><span>You hold</span><span /></div>
-        <div className="px-rows" style={{ ["--n" as string]: N }}>
-          {r.field.map((c) => {
-            const i = snap.order.indexOf(c.num);
+        {/* a row moving under the finger loses the tap on an iPhone, or buys the wrong driver:
+            while a finger is on the board the rows hold their places (prices stay live) */}
+        <div className="px-rows" style={{ ["--n" as string]: N }}
+          onPointerDown={() => { clearTimeout(release.current); setPressed((o) => o ?? snap.order); }}
+          onPointerMove={holdForMouse} onPointerLeave={holdForMouse}>
+          {/* in grid order in the page: the field comes sorted by final place, and tabbing or a screen reader would read it out */}
+          {snaps[0].order.map((num) => byNum.get(num)!).map((c) => {
+            const i = (pressed ?? snap.order).indexOf(c.num);
             const pos = snap.pos.get(c.num);
             const out = pos == null;
             const p = price(c.num), d = lap ? p - (prevSnap.price.get(c.num) ?? p) : 0;
-            const h = held[c.num], val = h ? h.shares * p : 0;
+            const h = held[c.num], val = h ? worth(h, p) : 0;
             return (
               <div key={c.num} className={`px-row${out ? " is-out" : ""}${h ? " is-mine" : ""}`} style={{ ["--i" as string]: i }}>
                 <span className="px-p">{out ? "" : pos}</span>
                 <span className="px-who">
                   <i style={{ background: hex(c.colour) }} />
                   <b>{c.code}</b><span>{c.name} · {c.team}</span>
-                  {out ? <em>Retired</em> : pitNow.has(c.num) ? <em>Pit</em> : null}
+                  {out ? <em>{c.out == null ? "Not classified" : "Retired"}</em> : pitNow.has(c.num) ? <em>Pit</em> : null}
                 </span>
                 <span className="px-price">
                   <b>{p}</b>
@@ -346,8 +407,8 @@ export default function PaddockExchange({
                 </span>
                 <span className="px-hold">{h ? <><b className={val >= h.paid ? "px-up" : "px-down"}>{fmt(val)}</b>paid {fmt(h.paid)}</> : null}</span>
                 <span className="px-acts">
-                  <button className="px-buy" disabled={out || cash < 1 || over} onClick={() => buy(c.num)}>Invest {STAKE}</button>
-                  <button className="px-sell" disabled={!h || over} onClick={() => sell(c.num)}>Cash out</button>
+                  <button className="px-buy" aria-label={`Invest ${cash >= 1 ? Math.min(STAKE, cash) : STAKE} in ${c.name}`} disabled={out || cash < 1 || over} {...trade(() => buy(c.num))}>Invest {cash >= 1 ? Math.min(STAKE, cash) : STAKE}</button>
+                  <button className="px-sell" aria-label={`Sell ${c.name}`} disabled={!h || over} {...trade(() => sell(c.num))}>Sell</button>
                 </span>
               </div>
             );

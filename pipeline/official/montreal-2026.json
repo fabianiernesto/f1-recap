@@ -1,0 +1,1784 @@
+{
+"fastest-laps": {
+"title": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"68",
+"17:38:03",
+"1:14.210",
+"211.556"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"68",
+"17:38:14",
+"1:14.398",
+"211.021"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"61",
+"17:29:30",
+"1:14.573",
+"210.526"
+],
+[
+"4",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"68",
+"17:38:08",
+"1:14.578",
+"210.512"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"37",
+"16:58:36",
+"1:15.297",
+"208.502"
+],
+[
+"6",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"68",
+"17:38:38",
+"1:15.390",
+"208.245"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"63",
+"17:31:52",
+"1:15.456",
+"208.062"
+],
+[
+"8",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"68",
+"17:38:22",
+"1:15.462",
+"208.046"
+],
+[
+"9",
+"63",
+"George Russell RUS",
+"Mercedes",
+"16",
+"16:30:28",
+"1:15.477",
+"208.005"
+],
+[
+"10",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"60",
+"17:28:25",
+"1:15.604",
+"207.655"
+],
+[
+"11",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"36",
+"16:58:08",
+"1:15.845",
+"206.995"
+],
+[
+"12",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"66",
+"17:36:25",
+"1:15.852",
+"206.976"
+],
+[
+"13",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"65",
+"17:35:14",
+"1:16.002",
+"206.568"
+],
+[
+"14",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"51",
+"17:17:06",
+"1:16.221",
+"205.974"
+],
+[
+"15",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"58",
+"17:26:32",
+"1:16.275",
+"205.828"
+],
+[
+"16",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"66",
+"17:36:38",
+"1:16.577",
+"205.017"
+],
+[
+"17",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"38",
+"17:00:46",
+"1:16.915",
+"204.116"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"11",
+"16:24:44",
+"1:17.221",
+"203.307"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"63",
+"17:32:26",
+"1:17.725",
+"201.989"
+],
+[
+"20",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"41",
+"17:03:54",
+"1:18.721",
+"199.433"
+],
+[
+"21",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"10",
+"16:23:31",
+"1:19.635",
+"197.144"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1",
+"16:11:10",
+"24.121",
+"24.121"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"2",
+"16:12:29",
+"23.418",
+"23.418"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"2",
+"16:12:41",
+"24.952",
+"24.952"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"2",
+"16:12:43",
+"28.178",
+"28.178"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"2",
+"16:12:44",
+"24.751",
+"24.751"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"2",
+"16:12:46",
+"25.737",
+"25.737"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"3",
+"16:14:15",
+"28.257",
+"28.257"
+],
+[
+"2",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"9",
+"16:22:48",
+"24.847",
+"53.104"
+],
+[
+"2",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"12",
+"16:26:00",
+"36.627",
+"60.748"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"14",
+"16:29:04",
+"24.249",
+"24.249"
+],
+[
+"2",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"15",
+"16:29:45",
+"28.859",
+"52.277"
+],
+[
+"2",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"15",
+"16:30:22",
+"25.153",
+"50.890"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"16",
+"16:31:27",
+"24.833",
+"24.833"
+],
+[
+"2",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"18",
+"16:34:08",
+"24.766",
+"52.944"
+],
+[
+"2",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"20",
+"16:36:38",
+"31.024",
+"55.976"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"20",
+"16:36:49",
+"24.709",
+"24.709"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"30",
+"16:49:08",
+"25.640",
+"25.640"
+],
+[
+"3",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"29",
+"16:49:21",
+"24.984",
+"75.874"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"30",
+"16:49:23",
+"24.177",
+"24.177"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"30",
+"16:49:29",
+"25.644",
+"25.644"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"31",
+"16:49:51",
+"25.153",
+"25.153"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"31",
+"16:49:57",
+"25.199",
+"25.199"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"31",
+"16:50:08",
+"25.936",
+"25.936"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"31",
+"16:50:10",
+"30.114",
+"30.114"
+],
+[
+"1",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"31",
+"16:50:12",
+"24.902",
+"24.902"
+],
+[
+"3",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"29",
+"16:50:37",
+"24.413",
+"77.517"
+],
+[
+"2",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"30",
+"16:50:53",
+"35.351",
+"60.184"
+],
+[
+"2",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"49",
+"17:17:26",
+"24.146",
+"48.395"
+],
+[
+"3",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"51",
+"17:18:13",
+"36.103",
+"96.851"
+],
+[
+"4",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"49",
+"17:18:16",
+"31.102",
+"108.619"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:13.953",
+"1:13.079",
+"1:12.578",
+"24"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:13.380",
+"1:13.076",
+"1:12.646",
+"24"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:13.503",
+"1:13.049",
+"1:12.729",
+"28"
+],
+[
+"4",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:13.559",
+"1:13.285",
+"1:12.781",
+"29"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:13.767",
+"1:13.041",
+"1:12.868",
+"27"
+],
+[
+"6",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:14.067",
+"1:13.479",
+"1:12.907",
+"23"
+],
+[
+"7",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:13.654",
+"1:12.975",
+"1:12.935",
+"22"
+],
+[
+"8",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:13.825",
+"1:13.496",
+"1:12.976",
+"29"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:13.895",
+"1:13.548",
+"1:13.280",
+"28"
+],
+[
+"10",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:14.466",
+"1:13.857",
+"1:13.697",
+"27"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:14.562",
+"1:13.886",
+"",
+"21"
+],
+[
+"12",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:14.346",
+"1:13.897",
+"",
+"22"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:14.775",
+"1:14.071",
+"",
+"22"
+],
+[
+"14",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:14.698",
+"1:14.187",
+"",
+"20"
+],
+[
+"15",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:14.276",
+"1:14.273",
+"",
+"21"
+],
+[
+"16",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:14.449",
+"1:14.416",
+"",
+"22"
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:14.845",
+"",
+"",
+"12"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:14.851",
+"",
+"",
+"13"
+],
+[
+"19",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:15.196",
+"",
+"",
+"11"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:15.429",
+"",
+"",
+"11"
+],
+[
+"21",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:16.195",
+"",
+"",
+"10"
+],
+[
+"22",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:16.272",
+"",
+"",
+"10"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"race-result": {
+"title": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"68",
+"1:28:15.758",
+"25"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"68",
+"+10.768s",
+"18"
+],
+[
+"3",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"68",
+"+11.276s",
+"15"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"68",
+"+44.151s",
+"12"
+],
+[
+"5",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"67",
+"+1 lap",
+"10"
+],
+[
+"6",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"67",
+"+1 lap",
+"8"
+],
+[
+"7",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"67",
+"+1 lap",
+"6"
+],
+[
+"8",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"67",
+"+1 lap",
+"4"
+],
+[
+"9",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"67",
+"+1 lap",
+"2"
+],
+[
+"10",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"67",
+"+1 lap",
+"1"
+],
+[
+"11",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"66",
+"+2 laps",
+"0"
+],
+[
+"12",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"66",
+"+2 laps",
+"0"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"66",
+"+2 laps",
+"0"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"66",
+"+2 laps",
+"0"
+],
+[
+"15",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"64",
+"+4 laps",
+"0"
+],
+[
+"16",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"64",
+"+4 laps",
+"0"
+],
+[
+"NC",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"39",
+"DNF",
+"0"
+],
+[
+"NC",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"38",
+"DNF",
+"0"
+],
+[
+"NC",
+"63",
+"George Russell RUS",
+"Mercedes",
+"29",
+"DNF",
+"0"
+],
+[
+"NC",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"23",
+"DNF",
+"0"
+],
+[
+"NC",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"11",
+"DNF",
+"0"
+],
+[
+"NC",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"0",
+"DNS",
+"0"
+]
+],
+"after": [
+"Note - Bortoleto received a five-second time penalty for a Virtual Safety Car (VSC) infringement.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-grid": {
+"title": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026 - SPRINT GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:12.965"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:13.033"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:13.280"
+],
+[
+"4",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:13.299"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:13.326"
+],
+[
+"6",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:13.410"
+],
+[
+"7",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:13.504"
+],
+[
+"8",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:13.605"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:13.737"
+],
+[
+"10",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:14.536"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:14.595"
+],
+[
+"12",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:14.627"
+],
+[
+"13",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:14.702"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:14.928"
+],
+[
+"15",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+""
+],
+[
+"16",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:16.002"
+],
+[
+"17",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:16.354"
+],
+[
+"18",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+""
+],
+[
+"19",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:15.197"
+],
+[
+"20",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:16.642"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:16.866"
+],
+[
+"22",
+"23",
+"Alexander Albon ALB",
+"Williams",
+""
+]
+],
+"after": [
+"Note - Albon and Lawson race at stewards' discretion after failing to set a lap time in Sprint Qualifying. Bearman, Gasly, Bottas and Albon required to start from the pit lane after cars were modified whilst under Parc Ferme conditions.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-qualifying": {
+"title": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026 - SPRINT QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:14.772",
+"1:13.026",
+"1:12.965",
+"19"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:14.010",
+"1:13.551",
+"1:13.033",
+"16"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:14.265",
+"1:13.957",
+"1:13.280",
+"15"
+],
+[
+"4",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:14.665",
+"1:13.858",
+"1:13.299",
+"15"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:13.889",
+"1:13.465",
+"1:13.326",
+"23"
+],
+[
+"6",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:15.006",
+"1:13.554",
+"1:13.410",
+"19"
+],
+[
+"7",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:14.028",
+"1:14.412",
+"1:13.504",
+"15"
+],
+[
+"8",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:14.541",
+"1:14.239",
+"1:13.605",
+"17"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:14.517",
+"1:14.140",
+"1:13.737",
+"19"
+],
+[
+"10",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:15.500",
+"1:14.547",
+"1:14.536",
+"24"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:15.673",
+"1:14.595",
+"",
+"14"
+],
+[
+"12",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:15.801",
+"1:14.627",
+"",
+"14"
+],
+[
+"13",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:15.484",
+"1:14.702",
+"",
+"16"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:15.760",
+"1:14.928",
+"",
+"17"
+],
+[
+"15",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:15.872",
+"1:15.197",
+"",
+"17"
+],
+[
+"16",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:15.760",
+"",
+"",
+"7"
+],
+[
+"17",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:16.002",
+"",
+"",
+"8"
+],
+[
+"18",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:16.354",
+"",
+"",
+"9"
+],
+[
+"19",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:16.642",
+"",
+"",
+"8"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:16.866",
+"",
+"",
+"8"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-results": {
+"title": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026 - SPRINT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"23",
+"28:50.951",
+"8"
+],
+[
+"2",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"23",
+"+1.272s",
+"7"
+],
+[
+"3",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"23",
+"+1.843s",
+"6"
+],
+[
+"4",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"23",
+"+9.797s",
+"5"
+],
+[
+"5",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"23",
+"+9.929s",
+"4"
+],
+[
+"6",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"23",
+"+10.545s",
+"3"
+],
+[
+"7",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"23",
+"+15.935s",
+"2"
+],
+[
+"8",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"23",
+"+29.710s",
+"1"
+],
+[
+"9",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"23",
+"+31.621s",
+"0"
+],
+[
+"10",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"23",
+"+36.793s",
+"0"
+],
+[
+"11",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"23",
+"+61.344s",
+"0"
+],
+[
+"12",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"23",
+"+61.814s",
+"0"
+],
+[
+"13",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"23",
+"+64.209s",
+"0"
+],
+[
+"14",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"23",
+"+70.402s",
+"0"
+],
+[
+"15",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"23",
+"+72.158s",
+"0"
+],
+[
+"16",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"22",
+"+1 lap",
+"0"
+],
+[
+"17",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"22",
+"+1 lap",
+"0"
+],
+[
+"18",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"22",
+"+1 lap",
+"0"
+],
+[
+"19",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"22",
+"+1 lap",
+"0"
+],
+[
+"20",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"22",
+"+1 lap",
+"0"
+],
+[
+"21",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"20",
+"+3 laps",
+"0"
+],
+[
+"NC",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"15",
+"DNF",
+"0"
+]
+],
+"after": [
+"Note - Hulkenberg received a 10-second time penalty for leaving the track and gaining an advantage. Perez received a 10-second time penalty for forcing another driver off the track.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 LENOVO GRAND PRIX DU CANADA 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:12.578"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:12.646"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:12.729"
+],
+[
+"4",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:12.781"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:12.868"
+],
+[
+"6",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:12.907"
+],
+[
+"7",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:12.935"
+],
+[
+"8",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:12.976"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:13.280"
+],
+[
+"10",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:13.697"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:13.886"
+],
+[
+"12",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:13.897"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:14.071"
+],
+[
+"14",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:14.187"
+],
+[
+"15",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:14.273"
+],
+[
+"16",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:14.416"
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:14.845"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:14.851"
+],
+[
+"19",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:15.196"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:15.429"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:16.272"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:16.195"
+]
+],
+"after": [
+"Note - Stroll required to start from the pit lane after car was modified whilst under Parc Ferme conditions and additional power unit elements were used.",
+"OUR PARTNERS",
+"View all"
+]
+}
+}

@@ -1,0 +1,345 @@
+{
+  "session": "Race",
+  "rounds": [
+    {
+      "answer": "Hulkenberg",
+      "number": 27,
+      "team": "Audi",
+      "colour": "F50537",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P4"
+        ],
+        [
+          "Stops",
+          "3 (lap 16, 44, 61)"
+        ],
+        [
+          "Tyres",
+          "intermediate to soft to intermediate"
+        ],
+        [
+          "Median lap",
+          "1:15.923"
+        ],
+        [
+          "On-track passes",
+          "4"
+        ],
+        [
+          "Penalty",
+          "10s, leaving the track and gaining an advantage"
+        ],
+        [
+          "Finished",
+          "P10"
+        ]
+      ],
+      "tell": "started P4 and lost 6 places",
+      "options": [
+        "Hamilton",
+        "Hulkenberg",
+        "Lawson",
+        "Leclerc"
+      ]
+    },
+    {
+      "answer": "Albon",
+      "number": 23,
+      "team": "Williams",
+      "colour": "1868DB",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P9"
+        ],
+        [
+          "Stops",
+          "3 (lap 15, 42, 60)"
+        ],
+        [
+          "Tyres",
+          "intermediate to soft to intermediate"
+        ],
+        [
+          "Median lap",
+          "1:16.767"
+        ],
+        [
+          "On-track passes",
+          "1"
+        ],
+        [
+          "Penalty",
+          "5s, rejoining unsafely"
+        ],
+        [
+          "Finished",
+          "P15"
+        ]
+      ],
+      "tell": "started P9 and lost 6 places",
+      "options": [
+        "Albon",
+        "Alonso",
+        "Colapinto",
+        "Gasly"
+      ]
+    },
+    {
+      "answer": "Bearman",
+      "number": 87,
+      "team": "Haas F1 Team",
+      "colour": "9C9FA2",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/haasf1team/olibea01/2026haasf1teamolibea01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P6"
+        ],
+        [
+          "Stops",
+          "3 (lap 16, 48, 60)"
+        ],
+        [
+          "Tyres",
+          "intermediate to soft to intermediate"
+        ],
+        [
+          "Median lap",
+          "1:17.002"
+        ],
+        [
+          "On-track passes",
+          "5"
+        ],
+        [
+          "Penalty",
+          "5s, an unsafe release"
+        ],
+        [
+          "Finished",
+          "P17"
+        ]
+      ],
+      "tell": "nobody lost more places than he did: 11",
+      "options": [
+        "Albon",
+        "Bearman",
+        "Bortoleto",
+        "Gasly"
+      ]
+    },
+    {
+      "answer": "Sainz",
+      "number": 55,
+      "team": "Williams",
+      "colour": "1868DB",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/williams/carsai01/2026williamscarsai01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P12"
+        ],
+        [
+          "Stops",
+          "3 (lap 14, 45, 61)"
+        ],
+        [
+          "Tyres",
+          "intermediate to soft to intermediate"
+        ],
+        [
+          "Median lap",
+          "1:17.606"
+        ],
+        [
+          "On-track passes",
+          "3"
+        ],
+        [
+          "Finished",
+          "P19"
+        ]
+      ],
+      "tell": "started P12 and lost 7 places",
+      "options": [
+        "Bearman",
+        "Bortoleto",
+        "Perez",
+        "Sainz"
+      ]
+    },
+    {
+      "answer": "Câmara",
+      "number": 51,
+      "team": "Haas F1 Team",
+      "colour": "9C9FA2",
+      "headshot": "",
+      "rows": [
+        [
+          "Started",
+          "P11"
+        ],
+        [
+          "Stops",
+          "3 (lap 15, 49, 59)"
+        ],
+        [
+          "Tyres",
+          "intermediate to soft to intermediate"
+        ],
+        [
+          "Median lap",
+          "1:17.085"
+        ],
+        [
+          "On-track passes",
+          "0"
+        ],
+        [
+          "Finished",
+          "P20"
+        ]
+      ],
+      "tell": "started P11 and lost 9 places",
+      "options": [
+        "Bearman",
+        "Câmara",
+        "Perez",
+        "Sainz"
+      ]
+    },
+    {
+      "answer": "Norris",
+      "number": 1,
+      "team": "McLaren",
+      "colour": "F47600",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P1"
+        ],
+        [
+          "Laps led",
+          "48"
+        ],
+        [
+          "Stops",
+          "3 (lap 16, 49, 62)"
+        ],
+        [
+          "Tyres",
+          "intermediate to soft to intermediate"
+        ],
+        [
+          "Median lap",
+          "1:15.019"
+        ],
+        [
+          "On-track passes",
+          "3"
+        ],
+        [
+          "Finished",
+          "P1"
+        ]
+      ],
+      "tell": "led 48 of 71 laps and took the win",
+      "options": [
+        "Hadjar",
+        "Norris",
+        "Russell",
+        "Verstappen"
+      ]
+    },
+    {
+      "answer": "Verstappen",
+      "number": 3,
+      "team": "Red Bull Racing",
+      "colour": "4781D7",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P21"
+        ],
+        [
+          "Stops",
+          "3 (lap 17, 45, 62)"
+        ],
+        [
+          "Tyres",
+          "intermediate to soft to intermediate"
+        ],
+        [
+          "Median lap",
+          "1:15.161"
+        ],
+        [
+          "On-track passes",
+          "10"
+        ],
+        [
+          "Finished",
+          "P2"
+        ]
+      ],
+      "tell": "the biggest climb of the race, 19 places",
+      "options": [
+        "Hadjar",
+        "Norris",
+        "Russell",
+        "Verstappen"
+      ]
+    },
+    {
+      "answer": "Leclerc",
+      "number": 16,
+      "team": "Ferrari",
+      "colour": "ED1131",
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
+      "rows": [
+        [
+          "Started",
+          "P14"
+        ],
+        [
+          "Stops",
+          "2 (lap 16, 61)"
+        ],
+        [
+          "Tyres",
+          "intermediate to soft to intermediate"
+        ],
+        [
+          "Median lap",
+          "1:15.892"
+        ],
+        [
+          "On-track passes",
+          "6"
+        ],
+        [
+          "Penalty",
+          "5s, causing a collision"
+        ],
+        [
+          "Finished",
+          "P8"
+        ]
+      ],
+      "tell": "6 places gained from P14",
+      "options": [
+        "Antonelli",
+        "Lawson",
+        "Leclerc",
+        "Piastri"
+      ]
+    }
+  ]
+}

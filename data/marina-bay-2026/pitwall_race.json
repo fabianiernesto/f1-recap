@@ -1,0 +1,210 @@
+{
+  "session": "Race",
+  "laps": 62,
+  "driver": {
+    "name": "Hulkenberg",
+    "number": 27,
+    "team": "Audi",
+    "colour": "F50537",
+    "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp",
+    "start": 10,
+    "finish": 8,
+    "margin": 1.291
+  },
+  "economics": {
+    "pitLoss": 24.4,
+    "fuelTrend": -0.0328,
+    "tyres": {
+      "MEDIUM": {
+        "deg": 0.0253,
+        "base": 0.617,
+        "laps": 462
+      },
+      "SOFT": {
+        "deg": 0.0436,
+        "base": 0.143,
+        "laps": 618
+      }
+    },
+    "typicalDeg": 0.0345
+  },
+  "calls": [
+    {
+      "lap": 30,
+      "kicker": "The first stop",
+      "question": "When do you box him?",
+      "facts": [
+        [
+          "Running",
+          "P8"
+        ],
+        [
+          "Tyre",
+          "medium, 29 laps old"
+        ],
+        [
+          "Ahead",
+          "Lawson, 2.7s up"
+        ],
+        [
+          "Behind",
+          "Bearman"
+        ]
+      ],
+      "options": [
+        {
+          "label": "12 laps earlier",
+          "lap": 18,
+          "lost": 7.6,
+          "real": false,
+          "note": "18 laps on the mediums, then 44 on the softs."
+        },
+        {
+          "label": "8 laps earlier",
+          "lap": 22,
+          "lost": 4.0,
+          "real": false,
+          "note": "22 laps on the mediums, then 40 on the softs."
+        },
+        {
+          "label": "4 laps earlier",
+          "lap": 26,
+          "lost": 1.6,
+          "real": false,
+          "note": "26 laps on the mediums, then 36 on the softs."
+        },
+        {
+          "label": "Box him now, lap 30",
+          "lap": 30,
+          "lost": 0.2,
+          "real": true,
+          "note": "30 laps on the mediums, then 32 on the softs."
+        },
+        {
+          "label": "4 laps later",
+          "lap": 34,
+          "lost": 0.0,
+          "real": false,
+          "note": "34 laps on the mediums, then 28 on the softs."
+        },
+        {
+          "label": "8 laps later",
+          "lap": 38,
+          "lost": 0.9,
+          "real": false,
+          "note": "38 laps on the mediums, then 24 on the softs."
+        },
+        {
+          "label": "12 laps later",
+          "lap": 42,
+          "lost": 2.8,
+          "real": false,
+          "note": "42 laps on the mediums, then 20 on the softs."
+        }
+      ],
+      "reading": "The mediums lose 25ms a lap as they age, the softs 44ms. The stint has to reach lap 62 either way."
+    },
+    {
+      "lap": 30,
+      "kicker": "The last set",
+      "question": "32 laps to the flag. What goes on the car?",
+      "facts": [
+        [
+          "Running",
+          "P8"
+        ],
+        [
+          "Tyre",
+          "medium, 29 laps old"
+        ],
+        [
+          "Ahead",
+          "Lawson, 2.7s up"
+        ],
+        [
+          "Behind",
+          "Bearman"
+        ]
+      ],
+      "options": [
+        {
+          "label": "Soft",
+          "lap": 30,
+          "lost": 0.0,
+          "real": true,
+          "note": "44ms a lap of wear, over 32 laps."
+        },
+        {
+          "label": "Medium",
+          "lap": 30,
+          "lost": 5.5,
+          "real": false,
+          "note": "25ms a lap of wear, over 32 laps."
+        }
+      ],
+      "reading": "A softer tyre is quicker on lap one and slower on lap twenty. How many laps are left decides which half matters."
+    }
+  ],
+  "ladder": [
+    {
+      "pos": 1,
+      "name": "Verstappen",
+      "team": "Red Bull Racing",
+      "gap": 0.0
+    },
+    {
+      "pos": 2,
+      "name": "Leclerc",
+      "team": "Ferrari",
+      "gap": 7.335
+    },
+    {
+      "pos": 3,
+      "name": "Antonelli",
+      "team": "Mercedes",
+      "gap": 24.573
+    },
+    {
+      "pos": 4,
+      "name": "Norris",
+      "team": "McLaren",
+      "gap": 40.506
+    },
+    {
+      "pos": 5,
+      "name": "Piastri",
+      "team": "McLaren",
+      "gap": 49.644
+    },
+    {
+      "pos": 6,
+      "name": "Hamilton",
+      "team": "Ferrari",
+      "gap": 53.188
+    },
+    {
+      "pos": 7,
+      "name": "Lawson",
+      "team": "Racing Bulls",
+      "gap": 81.666
+    },
+    {
+      "pos": 8,
+      "name": "Hulkenberg",
+      "team": "Audi",
+      "gap": 83.386
+    },
+    {
+      "pos": 9,
+      "name": "Russell",
+      "team": "Mercedes",
+      "gap": 84.677
+    },
+    {
+      "pos": 10,
+      "name": "Hadjar",
+      "team": "Red Bull Racing",
+      "gap": 90.862
+    }
+  ]
+}

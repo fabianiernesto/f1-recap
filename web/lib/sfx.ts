@@ -117,8 +117,11 @@ export function playSfx(
   const clip = clips.get(url) ?? loadSfx(url);
   if (!ac || !clip) return;
 
+  // here and not in the then: the clip may still be decoding, and iOS only
+  // lets a context start inside the tap ("interrupted" is iOS after a call)
+  if (ac.state !== "running") ac.resume().catch(() => {});
+
   clip.then(({ buffer, offset, audible }) => {
-    if (ac.state === "suspended") ac.resume().catch(() => {});
     const src = ac.createBufferSource();
     const gain = ac.createGain();
     src.buffer = buffer;
@@ -127,7 +130,9 @@ export function playSfx(
 
     const now = ac.currentTime;
     // by default a clip runs exactly as long as it makes a noise
-    const room = audible;
+    // (with a cap the clip runs to the cap: public/sfx/radio.mp4 is cut just
+    // past the 1.6s that play, and its quiet tail still fades as it always did)
+    const room = maxMs > 0 ? buffer.duration - offset : audible;
     const runFor = maxMs > 0 ? Math.min(maxMs / 1000, room) : room;
     src.start(now, offset, runFor);
 

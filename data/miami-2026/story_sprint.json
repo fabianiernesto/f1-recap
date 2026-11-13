@@ -11,7 +11,7 @@
       "lap": 0,
       "kicker": "Miami Grand Prix · Sprint · 19 laps",
       "title": "Everything that happened, in order",
-      "text": "24 on-track passes, 1 pit stop, every starter at the flag."
+      "text": "24 on-track passes, 1 pit stop, every starter at the flag, 1 car disqualified."
     },
     {
       "type": "moment",
@@ -20,9 +20,23 @@
       "title": "13 places changed hands on track before the first lap was done",
       "text": "20 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Ocon gained the most by the end of it, 3 places"
+        "Ocon and Gasly gained the most by the end of it, 2 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
+    },
+    {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Ocon starts P16. Where does he finish?",
+      "text": "19 laps to make up ground from there.",
+      "options": [
+        "On the podium",
+        "Somewhere in the points",
+        "Out of the points"
+      ],
+      "answer": "Out of the points",
+      "reveal": "Out of the points. The exact place comes at the flag."
     },
     {
       "type": "moment",
@@ -37,17 +51,17 @@
     },
     {
       "type": "prediction",
-      "lap": 2,
+      "lap": 5,
       "kicker": "Call it before it happens",
-      "title": "Ocon starts P16. Where does he finish?",
-      "text": "19 laps to make up ground from there.",
+      "title": "Who has the fastest lap on the board at the flag?",
+      "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
-        "On the podium",
-        "Somewhere in the points",
-        "Out of the points"
+        "Norris",
+        "Antonelli",
+        "Leclerc"
       ],
-      "answer": "Out of the points",
-      "reveal": "P16 to P11, 5 places gained."
+      "answer": "Norris",
+      "reveal": "Norris on lap 10, 1:31.885, in a McLaren."
     },
     {
       "type": "moment",
@@ -55,20 +69,6 @@
       "kicker": "Conditions",
       "title": "Track at 53°C at the start, falling to 51°C at the flag",
       "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the sprint."
-    },
-    {
-      "type": "prediction",
-      "lap": 5,
-      "kicker": "Call it before it happens",
-      "title": "Who has the fastest lap on the board at the flag?",
-      "text": "It usually lands late, when the car is light and the track has rubber all over it.",
-      "options": [
-        "Norris",
-        "Leclerc",
-        "Piastri"
-      ],
-      "answer": "Norris",
-      "reveal": "Norris on lap 10, 1:31.885, in a McLaren."
     },
     {
       "type": "moment",
@@ -115,7 +115,7 @@
       "lap": 8,
       "kicker": "Speed trap",
       "title": "Verstappen hit 338 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Verstappen did it in a Red Bull"
       ],
@@ -218,6 +218,20 @@
       ]
     },
     {
+      "type": "guess",
+      "lap": 19,
+      "kicker": "Guess it",
+      "title": "How far behind was Piastri at the flag?",
+      "text": "19 laps, about 29 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 12,
+      "step": 0.1,
+      "target": 3.766,
+      "close": 1.5064000000000002,
+      "reveal": "3.766 seconds after 19 laps."
+    },
+    {
       "type": "moment",
       "lap": 19,
       "kicker": "Tyres",
@@ -248,6 +262,16 @@
         "Antonelli: a 5s penalty for track limits"
       ],
       "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."
+    },
+    {
+      "type": "moment",
+      "lap": 19,
+      "kicker": "Disqualified",
+      "title": "Bortoleto is thrown out of the result",
+      "text": "He took the flag and was disqualified after the sprint: a technical nonconformity.",
+      "bullets": [
+        "P11 on the grid"
+      ]
     },
     {
       "type": "moment",
@@ -295,20 +319,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 19,
-      "kicker": "Guess it",
-      "title": "How far behind was Piastri at the flag?",
-      "text": "19 laps, about 29 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 12,
-      "step": 0.1,
-      "target": 3.766,
-      "close": 1.5064000000000002,
-      "reveal": "3.766 seconds after 19 laps."
     }
   ]
 }

@@ -20,20 +20,9 @@
       "title": "11 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Hulkenberg gained the most by the end of it, 3 places"
+        "Hulkenberg gained the most by the end of it, 2 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
-    },
-    {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Lap 2 · Traffic",
-      "title": "5 passes on this lap alone",
-      "text": "Only moves made on track count here, at racing speed.",
-      "bullets": [
-        "4 different drivers gained a place on this lap"
-      ],
-      "note": "Early on, with full tanks and the order still settling."
     },
     {
       "type": "prediction",
@@ -47,7 +36,18 @@
         "Out of the points"
       ],
       "answer": "Somewhere in the points",
-      "reveal": "P16 to P5, 11 places gained."
+      "reveal": "Somewhere in the points. The exact place comes at the flag."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · Traffic",
+      "title": "5 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "4 different drivers gained a place on this lap"
+      ],
+      "note": "Early on, with full tanks and the order still settling."
     },
     {
       "type": "moment",
@@ -118,15 +118,14 @@
         "P21 at the start of lap 20",
         "Started P21",
         "4 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
       "lap": 22,
       "kicker": "Speed trap",
       "title": "Lawson hit 349 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Lawson did it in a Racing Bulls car"
       ],
@@ -140,7 +139,7 @@
       "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
         "Verstappen",
-        "Hadjar",
+        "Antonelli",
         "Russell"
       ],
       "answer": "Russell",
@@ -153,7 +152,7 @@
       "title": "21 stops, and the busiest lap saw 10 of them",
       "text": "Once one car stops, the cars around it have to answer.",
       "bullets": [
-        "Busiest single lap was 30, with 10 cars in under the safety car",
+        "Busiest single lap was 30, with 10 cars in under the safety car (the leader was already on lap 31)",
         "Shortest time in the pit lane: Hulkenberg, 20.1s",
         "Longest: Lawson, 23.6s"
       ],
@@ -169,8 +168,50 @@
         "P13 at the start of lap 29",
         "Started P12",
         "1 on-track pass before it happened"
+      ]
+    },
+    {
+      "type": "decision",
+      "lap": 31,
+      "kicker": "Your call on the pit wall",
+      "title": "Safety car with 20 laps left. You are leading. Box or stay out?",
+      "text": "The pack is about to bunch up behind you and a stop costs far less than usual, except that everybody behind can copy you and anyone who stays out may come out ahead.",
+      "state": [
+        [
+          "Running",
+          "P1, Russell"
+        ],
+        [
+          "Laps left",
+          "20"
+        ],
+        [
+          "Tyres",
+          "Medium, 32 laps old, a used set"
+        ],
+        [
+          "Gap to P2",
+          "11.4s when it came out"
+        ]
       ],
-      "note": "The timing feed records that he stopped, not why."
+      "choices": [
+        {
+          "id": "box",
+          "label": "Box for fresh tyres",
+          "sub": "Grip for the restart, at the risk of track position"
+        },
+        {
+          "id": "stay",
+          "label": "Stay out and defend",
+          "sub": "Keep the lead on older tyres"
+        }
+      ],
+      "actual": "box",
+      "outcomes": {
+        "box": "New rubber under a safety car is close to free. If the cars behind follow you in, the order holds. If they stay out, your gap has to cover the stop.",
+        "stay": "You keep the lead and restart on older tyres, with a queue of fresher cars in your mirrors and no gap to hide in."
+      },
+      "reveal": "Russell came in."
     },
     {
       "type": "moment",
@@ -195,49 +236,6 @@
         "Bortoleto lost 3 that way, more than anybody"
       ],
       "note": "Keep doing it and it turns into a penalty."
-    },
-    {
-      "type": "decision",
-      "lap": 31,
-      "kicker": "Your call on the pit wall",
-      "title": "Safety car with 20 laps left. You are leading. Box or stay out?",
-      "text": "The pack is bunched up behind you and a stop costs far less than usual, except that everybody behind can copy you and the one who does not gets the lead.",
-      "state": [
-        [
-          "Running",
-          "P1, Russell"
-        ],
-        [
-          "Laps left",
-          "20"
-        ],
-        [
-          "Tyres",
-          "Medium, 32 laps old"
-        ],
-        [
-          "Gap to P2",
-          "Wiped out by the safety car"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "box",
-          "label": "Box for fresh tyres",
-          "sub": "Grip for the restart, hand over track position"
-        },
-        {
-          "id": "stay",
-          "label": "Stay out and defend",
-          "sub": "Keep the lead on older tyres"
-        }
-      ],
-      "actual": "box",
-      "outcomes": {
-        "box": "New rubber under a safety car is close to free, and it only works if the cars behind stay out. If they all follow you in, you have spent your lead for nothing.",
-        "stay": "You keep the lead and restart on older tyres, with a queue of fresher cars in your mirrors and no gap to hide in."
-      },
-      "reveal": "Russell came in. At the flag it was P1 Russell, P2 Verstappen, P3 Hadjar."
     },
     {
       "type": "moment",
@@ -285,6 +283,51 @@
           ]
         ]
       }
+    },
+    {
+      "type": "decision",
+      "lap": 36,
+      "kicker": "You are the steward",
+      "title": "Lap 36: contact between Norris, Gasly and Colapinto at Turn 1. What do you give?",
+      "text": "Race control has flagged it and it lands on your desk. If one driver is to blame, what does he get? Same call the stewards had to make.",
+      "state": [
+        [
+          "Lap",
+          "36 of 51"
+        ],
+        [
+          "Cars involved",
+          "Norris, Gasly and Colapinto"
+        ],
+        [
+          "Reported as",
+          "Causing A Collision at Turn 1"
+        ]
+      ],
+      "choices": [
+        {
+          "id": "none",
+          "label": "No further action",
+          "sub": "Racing incident, let them race"
+        },
+        {
+          "id": "5",
+          "label": "5 second penalty",
+          "sub": "Mild advantage gained"
+        },
+        {
+          "id": "10",
+          "label": "10 second penalty",
+          "sub": "Clearly at fault"
+        }
+      ],
+      "actual": "10",
+      "outcomes": {
+        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the race on the radio.",
+        "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.",
+        "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
+      },
+      "reveal": "The stewards gave Colapinto a 10s penalty."
     },
     {
       "type": "moment",
@@ -348,51 +391,6 @@
     {
       "type": "decision",
       "lap": 36,
-      "kicker": "You are the steward",
-      "title": "Lap 36: contact between Norris, Gasly and Colapinto at Turn 1. What do you give?",
-      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
-      "state": [
-        [
-          "Lap",
-          "36 of 51"
-        ],
-        [
-          "Cars involved",
-          "Norris, Gasly and Colapinto"
-        ],
-        [
-          "Reported as",
-          "Causing A Collision at Turn 1"
-        ]
-      ],
-      "choices": [
-        {
-          "id": "none",
-          "label": "No further action",
-          "sub": "Racing incident, let them race"
-        },
-        {
-          "id": "5",
-          "label": "5 second penalty",
-          "sub": "Mild advantage gained"
-        },
-        {
-          "id": "10",
-          "label": "10 second penalty",
-          "sub": "Clearly at fault"
-        }
-      ],
-      "actual": "10",
-      "outcomes": {
-        "none": "You let it go. Nobody loses a place at a desk, and the driver behind spends the rest of the race on the radio.",
-        "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.",
-        "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
-      },
-      "reveal": "The stewards gave Colapinto a 10s penalty. He did not reach the flag."
-    },
-    {
-      "type": "decision",
-      "lap": 36,
       "kicker": "What if",
       "title": "Gasly was P7 a lap before his race ended on lap 36. Where does he finish if it had not?",
       "text": "Nobody can answer this one for certain. You have his own lap times to go on and nothing else.",
@@ -437,7 +435,7 @@
         "points": "Holds roughly where he was.",
         "drop": "Tyres or traffic get him."
       },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 1.13s a lap slower than Russell, who went on to win it. With 15 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check. Race control had logged an incident involving Norris, Gasly and Colapinto on lap 36."
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.95s a lap slower than the car that went on to win it, over the same laps. With 15 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check. Race control had logged an incident involving Norris, Gasly and Colapinto on lap 36."
     },
     {
       "type": "moment",
@@ -452,6 +450,20 @@
       ]
     },
     {
+      "type": "prediction",
+      "lap": 45,
+      "kicker": "Call it before it happens",
+      "title": "One of these three does not see the chequered flag. Who?",
+      "text": "Nothing on the timing screens says it is coming.",
+      "options": [
+        "Perez",
+        "Bottas",
+        "Piastri"
+      ],
+      "answer": "Bottas",
+      "reveal": "Bottas, on lap 50 of 51."
+    },
+    {
       "type": "moment",
       "lap": 45,
       "kicker": "Backwards",
@@ -461,20 +473,6 @@
         "P3 on the grid, P13 at the flag",
         "Qualifying rewards whoever can put one lap together. A race asks for 51 of them"
       ]
-    },
-    {
-      "type": "prediction",
-      "lap": 45,
-      "kicker": "Call it before it happens",
-      "title": "One of these three does not see the chequered flag. Who?",
-      "text": "Nothing on the timing screens says it is coming.",
-      "options": [
-        "Verstappen",
-        "Russell",
-        "Bottas"
-      ],
-      "answer": "Bottas",
-      "reveal": "Bottas, on lap 50 of 51. The timing feed records that he stopped, not why."
     },
     {
       "type": "moment",
@@ -526,8 +524,21 @@
         "P16 at the start of lap 49",
         "Started P19",
         "3 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
+    },
+    {
+      "type": "guess",
+      "lap": 51,
+      "kicker": "Guess it",
+      "title": "How far behind was Verstappen at the flag?",
+      "text": "51 laps, 1 hour 38 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 2,
+      "step": 0.05,
+      "target": 0.196,
+      "close": 0.1,
+      "reveal": "0.196 seconds after 51 laps."
     },
     {
       "type": "moment",
@@ -544,9 +555,10 @@
       "type": "moment",
       "lap": 51,
       "kicker": "Penalties",
-      "title": "1 penalty handed out",
-      "text": "Given by the stewards during the race.",
+      "title": "2 penalties handed out",
+      "text": "Given by the stewards, some of them after the race: the official classification has them.",
       "bullets": [
+        "Bortoleto: a 10s penalty for overtaking under yellow flags, P12 on the road and P15 in the classification",
         "Colapinto: a 10s penalty for causing a collision"
       ],
       "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."
@@ -606,20 +618,6 @@
         ]
       },
       "note": "Less than the time it takes to read this sentence."
-    },
-    {
-      "type": "guess",
-      "lap": 51,
-      "kicker": "Guess it",
-      "title": "How far behind was Verstappen at the flag?",
-      "text": "51 laps, 1 hour 38 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 2,
-      "step": 0.05,
-      "target": 0.196,
-      "close": 0.3,
-      "reveal": "0.196 seconds after 51 laps."
     }
   ],
   "result": {

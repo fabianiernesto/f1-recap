@@ -1,109 +1,127 @@
 /**
- * Beats 32-91: step 02, read it (Scrolled), as scripted on 13/10/2026
- * (GUION_INICIO.md). One idea per shot, held still long enough to read: the
- * phone How it works handed over stays where it is, every shot rises into it
- * like the next part of the page, and once it has arrived the camera leans in
- * to the one thing the shot is about (its rect is recorded on every frame of
- * the capture) while the rest of the screen goes dim. The line under the
- * header says, in plain words, what you are looking at.
+ * Beats 32-69: step 02, Scrolled. It has to say what Scrolled is: every part of a
+ * GP weekend, interactive. First the weekend's sessions and a tap on the Race,
+ * then how that page works: a finger scrolls down it and its cards explain the
+ * moments; a short look at the colours of the boxes; and most of the time the
+ * decisions it hands you, played on camera. Every card is the real site. The line under the header says, in
+ * plain words, what you are looking at.
  */
 import React from "react";
 import { AbsoluteFill, Easing, Img, interpolate, staticFile } from "remotion";
 import { ClipFrame, markers } from "../Clip";
-import { at, BODY, C, clamp, GLOW, smear } from "../kit";
+import { at, BODY, C, clamp, GLOW, smear, WIDE } from "../kit";
 import { FPS, useFrame } from "../time";
-import { PHONE, StepHead, Tap } from "./HowItWorks";
-import strips from "../../public/clips/strips/strips.json";
+import { Fingers, PHONE, StepHead, Swipe } from "./HowItWorks";
 
 const K0 = 32;
-const S = PHONE.w / 432; // CSS px of the capture -> px of the phone
-
-type Clip = "sWeek" | "sTrack" | "sMoment" | "sPurple" | "sYellow" | "sRed" | "sPred" | "sSteward" | "sGuess" | "sMate";
-type Shot = { clip: Clip; from: number; to: number; z: number; cam: number; dim?: number; fan?: boolean };
-/** the shots, in film beats; `cam` is the beat whose focus rect the camera frames */
-const SHOTS: Shot[] = [
-  { clip: "sWeek", from: 32, to: 38, z: 1.08, cam: 35 },
-  { clip: "sTrack", from: 38, to: 44.5, z: 1, cam: 40, dim: 0 },
-  { clip: "sMoment", from: 44.5, to: 50.5, z: 1.14, cam: 46.5 },
-  { clip: "sPurple", from: 50.5, to: 54.5, z: 1.14, cam: 52 },
-  { clip: "sYellow", from: 54.5, to: 58.5, z: 1.14, cam: 56 },
-  // (30/10/2026) the red flag: a real stoppage, Monaco's, lap 68
-  { clip: "sRed", from: 58.5, to: 62.5, z: 1.14, cam: 60 },
-  { clip: "sPred", from: 62.5, to: 69.5, z: 1.12, cam: 66.6 },
-  // the three kinds of call: the last shot dims under three strips
-  { clip: "sPred", from: 69.5, to: 73.5, z: 1.12, cam: 66.6, fan: true },
-  { clip: "sSteward", from: 73.5, to: 78.5, z: 1.08, cam: 77.5 },
-  { clip: "sGuess", from: 78.5, to: 84, z: 1.12, cam: 82 },
-  { clip: "sMate", from: 84, to: 92, z: 1, cam: 87.5 },
-];
-/** the beat a clip's first frame belongs to */
-const START: Record<Clip, number> = {
-  sWeek: 32, sTrack: 38, sMoment: 44.5, sPurple: 50.5, sYellow: 54.5, sRed: 58.5, sPred: 62.5, sSteward: 73.5, sGuess: 78.5, sMate: 84,
-};
-
-/** the lines under the header, in film beats: a big one and a small one */
-const LINES: { from: number; to: number; big: string; small?: string }[] = [
-  { from: 32.8, to: 38, big: "Pick any session", small: "Practice, qualifying, sprint, race" },
-  { from: 38.4, to: 44.5, big: "Scroll, and the car drives the real track", small: "Lap by lap" },
-  { from: 44.9, to: 50.5, big: "Every moment of the race, explained", small: "In the order it happened" },
-  { from: 50.9, to: 54.5, big: "Purple: the fastest lap" },
-  { from: 54.9, to: 58.5, big: "Yellow: safety car and flags" },
-  { from: 58.9, to: 62.5, big: "Red: the race is stopped", small: "Monaco, lap 68 of 78" },
-  { from: 62.9, to: 65.9, big: "Guess what happens next", small: "Colapinto starts P19. Where does he finish?" },
-  { from: 65.9, to: 69.5, big: "Guess what happens next", small: "You called it: P19 to P9" },
-  { from: 69.7, to: 78.5, big: "Make the call yourself", small: "As the pit wall · the steward · what if" },
-  { from: 78.9, to: 84, big: "Guess the number", small: "How far behind was Russell at the flag?" },
-  { from: 84.4, to: 92, big: "Ask Alfred anything about the race" },
-];
-const bigText = (s: string) =>
-  s.includes("Alfred") ? <>Ask <span style={GLOW}>Alfred</span> anything about the race</> : s;
-
-const STRIPS = [
-  { key: "pit", at: 69.9, r: -1.2, x: -14 },
-  { key: "steward", at: 70.5, r: 0.8, x: 16 },
-  { key: "whatif", at: 71.1, r: -0.6, x: -6 },
-] as const;
-
-const smooth = { ...clamp, easing: Easing.inOut(Easing.sin) };
-const io = { ...clamp, easing: Easing.inOut(Easing.cubic) };
-const WHIP = 8; // frames (30fps units) a new shot takes to rise into the phone
+const S = PHONE.w / 432; // CSS px of the capture -> px of the screen
 const W = PHONE.w, H = PHONE.h;
 
-/** a frame of a shot: the clip, the camera leaning in, the rest dimmed */
-const ShotFrame: React.FC<{ s: Shot; f: number; b: (k: number) => number; last: boolean }> = ({ s, f, b, last }) => {
-  const t = (f - b(START[s.clip] - K0)) / FPS;
-  const m = markers(s.clip) as unknown as { focus?: ([number, number, number, number] | null)[] };
-  const list = m.focus ?? [];
-  const idx = (tt: number) => Math.max(0, Math.min(list.length - 1, Math.round(tt * 60)));
-  const camR = list[idx((b(s.cam - K0) - b(START[s.clip] - K0)) / FPS)];
-  const r = list[idx(t)];
-  // the camera arrives a beat after the shot has, and lets go at the very end
-  let c = interpolate(f, [b(s.from - K0 + 0.5), b(s.from - K0 + 1.6)], [0, 1], io);
-  if (last) c *= interpolate(f, [b(90.1 - K0), b(90.9 - K0)], [1, 0], io);
-  if (s.fan) c = 1;
-  const z = 1 + (s.z - 1) * c;
-  let tx = 0, ty = 0;
-  if (camR) {
-    const cx = (camR[0] + camR[2] / 2) * S, cy = (camR[1] + camR[3] / 2) * S;
-    tx = Math.min(0, Math.max(W - W * s.z, W / 2 - cx * s.z)) * c;
-    ty = Math.min(0, Math.max(H - H * s.z, H * 0.48 - cy * s.z)) * c;
-  }
-  // the hole in the dim, where the thing is on this frame, kept on screen
-  let hole: { x: number; y: number; w: number; h: number } | null = null;
-  if (r) {
-    const pad = 6;
-    const x0 = Math.max(-40, r[0] * S * z + tx - pad), y0 = Math.max(-40, r[1] * S * z + ty - pad);
-    const x1 = Math.min(W + 40, (r[0] + r[2]) * S * z + tx + pad), y1 = Math.min(H + 40, (r[1] + r[3]) * S * z + ty + pad);
-    if (x1 > x0 && y1 > y0) hole = { x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
-  }
-  const dim = (s.dim ?? 0.6) * c;
+type Clip = "sWeek" | "sRaceCard" | "sWall" | "sSteward" | "sGuess";
+/** the shots, in film beats; `dimAt` or `dims`: when the rest of the screen steps back from the card */
+type Shot = { from: number; to: number; clip?: Clip; still?: "boxes" | "decide"; dimAt?: number; dims?: [number, number][]; dimBy?: number; rise?: boolean };
+const SHOTS: Shot[] = [
+  { clip: "sWeek", from: 32, to: 36.5 },
+  { clip: "sRaceCard", from: 36.5, to: 47, dims: [[38.4, 42], [43, 48]], dimBy: 0.72 },
+  { still: "boxes", from: 47, to: 49.5, rise: true },
+  { still: "decide", from: 49.5, to: 51.5 },
+  { clip: "sWall", from: 51.5, to: 57.5, dimAt: 52, rise: true },
+  { clip: "sSteward", from: 57.5, to: 64, dimAt: 58, rise: true },
+  { clip: "sGuess", from: 64, to: 69, dimAt: 64.4 },
+];
+
+/** the lines under the header, in film beats */
+const LINES: { from: number; to: number; big: string }[] = [
+  { from: 32.4, to: 36.5, big: "Every part of a GP weekend, interactive" },
+  { from: 36.5, to: 42, big: "Scroll down the race, lap by lap" },
+  { from: 42, to: 47, big: "Cards explain every key moment" },
+  { from: 47, to: 49.5, big: "Colours say what happened" },
+  { from: 49.5, to: 51.5, big: "And as you scroll," },
+  { from: 51.5, to: 54.5, big: "You run the pit wall" },
+  { from: 54.5, to: 57.5, big: "They boxed, you stayed out" },
+  { from: 57.5, to: 60.8, big: "You're the steward" },
+  { from: 60.8, to: 64, big: "Then see what they really did" },
+  { from: 64, to: 69, big: "Now guess the gap" },
+];
+
+const io = { ...clamp, easing: Easing.inOut(Easing.cubic) };
+const WHIP = 8; // frames (30fps units) a new shot takes to rise into the screen
+
+/** the colours of the boxes, the real cards, together for one look */
+const BOXES = [
+  { name: "fast", at: 47 },
+  { name: "car", at: 47.5 },
+  { name: "red", at: 48 },
+] as const;
+const Boxes: React.FC<{ f: number; b: (k: number) => number }> = ({ f, b }) => {
+  const m = markers("boxes") as unknown as Record<string, { w: number; h: number }>;
+  const gap = 26;
+  const total = BOXES.reduce((a, c) => a + m[c.name].h, 0) + gap * (BOXES.length - 1);
+  let y = (H - total) / 2;
   return (
     <AbsoluteFill style={{ background: C.night, overflow: "hidden" }}>
-      <div style={{ position: "absolute", left: 0, top: 0, width: W, height: H, transformOrigin: "0 0", transform: `translate(${tx}px, ${ty}px) scale(${z})` }}>
-        <ClipFrame name={s.clip} t={t} />
+      {BOXES.map((c) => {
+        const st = b(c.at - K0);
+        const p = interpolate(f, [st, st + 7], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) });
+        const top = y;
+        y += m[c.name].h + gap;
+        if (p <= 0) return null;
+        return <Img key={c.name} src={staticFile(`clips/boxes/${c.name}.png`)} style={{ position: "absolute", left: (W - m[c.name].w) / 2, top, width: m[c.name].w, height: m[c.name].h,
+          opacity: p, transform: `translateY(${(1 - p) * 60}px)` }} />;
+      })}
+    </AbsoluteFill>
+  );
+};
+
+/** the hinge of the act: from here on it is yours */
+const Decide: React.FC<{ f: number; b: (k: number) => number }> = ({ f, b }) => {
+  const st = b(49.5 - K0);
+  return (
+    <AbsoluteFill style={{ background: C.night, overflow: "hidden" }}>
+      <AbsoluteFill style={{ background: "radial-gradient(ellipse 80% 45% at 40% 42%, #e1060030, transparent 70%)" }} />
+      <div style={{ position: "absolute", left: 72, top: H * 0.27, ...WIDE, fontSize: 158, lineHeight: 1.02, ...GLOW, ...smear(f, st, "up", 8, 70) }}>
+        You<br />decide.
       </div>
+    </AbsoluteFill>
+  );
+};
+
+/** a frame of a shot: the clip, and the rest dimmed round what it is about */
+const ShotFrame: React.FC<{ s: Shot; f: number; b: (k: number) => number }> = ({ s, f, b }) => {
+  if (s.still === "boxes") return <Boxes f={f} b={b} />;
+  if (s.still === "decide") return <Decide f={f} b={b} />;
+  const clip = s.clip!;
+  const t = (f - b(s.from - K0)) / FPS;
+  const m = markers(clip) as unknown as { focus?: ([number, number, number, number] | null)[]; rows?: [number, number, number, number][] };
+  let hole: { x: number; y: number; w: number; h: number } | null = null;
+  let dim = 0;
+  if (m.rows) {
+    // the sessions, one by one, top to bottom, down to the Race: the finger goes there
+    const when = [32.9, 33.4, 33.9, 34.4, 34.9].map((k) => b(k - K0));
+    const walk = [0, 1, 2, 3, 4].map((i) => m.rows![i % m.rows!.length]);
+    const pick = (n: number) => interpolate(f, when, walk.map((r) => r[n]), io);
+    const pad = 4;
+    hole = { x: pick(0) * S - pad, y: pick(1) * S - pad, w: pick(2) * S + pad * 2, h: pick(3) * S + pad * 2 };
+    dim = 0.62 * interpolate(f, [b(32.5 - K0), b(32.9 - K0)], [0, 1], clamp);
+  } else {
+    const list = m.focus ?? [];
+    const r = list[Math.max(0, Math.min(list.length - 1, Math.round(t * 60)))];
+    if (r) {
+      const pad = 6;
+      const x0 = Math.max(-40, r[0] * S - pad), y0 = Math.max(-40, r[1] * S - pad);
+      const x1 = Math.min(W + 40, (r[0] + r[2]) * S + pad), y1 = Math.min(H + 40, (r[1] + r[3]) * S + pad);
+      if (x1 > x0 && y1 > y0) hole = { x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
+    }
+    const st = s.dimAt ?? s.from + 0.5;
+    dim = (s.dimBy ?? 0.45) * (s.dims
+      ? Math.max(...s.dims.map(([a, z]) => Math.min(interpolate(f, [b(a - K0), b(a + 0.6 - K0)], [0, 1], io), interpolate(f, [b(z - 0.4 - K0), b(z - K0)], [1, 0], io))))
+      : interpolate(f, [b(st - K0), b(st + 0.6 - K0)], [0, 1], io));
+  }
+  return (
+    <AbsoluteFill style={{ background: C.night, overflow: "hidden" }}>
+      <ClipFrame name={clip} t={t} />
       {hole && dim > 0.001 && (
-        <div style={{ position: "absolute", left: hole.x, top: hole.y, width: hole.w, height: hole.h, borderRadius: 16,
+        <div style={{ position: "absolute", left: hole.x, top: hole.y, width: hole.w, height: hole.h, borderRadius: 12,
           boxShadow: `0 0 0 3000px rgba(0,0,0,${dim})` }} />
       )}
     </AbsoluteFill>
@@ -112,102 +130,64 @@ const ShotFrame: React.FC<{ s: Shot; f: number; b: (k: number) => number; last: 
 
 export const Scrolled: React.FC = () => {
   const f = useFrame();
-  const B = 60 / 110;
-  const u = f / FPS / B; // local beat, continuous
   const b = at(K0);
-  const m = markers("sWeek");
-
-  // one slow, continuous turn of the phone
-  const curve = (keys: number[], vals: number[]) => interpolate(u, keys, vals, smooth);
-  const ry = curve([0, 1.5, 59], [0, -5, 4]);
-  const rx = curve([0, 1.5, 30, 59], [0, 3, 2, 3]);
-  const out = interpolate(f, [b(58.6), b(59)], [0, 1], clamp);
 
   const si = Math.max(0, SHOTS.findIndex((s) => f < b(s.to - K0)));
   const cur = SHOTS[si];
   const prev = SHOTS[si - 1];
-  // the sessions hand over to the race with a tap and a push, like a link;
-  // every other shot rises from below, like the next part of the page; the
-  // fan has no shot of its own, the last one just dims under the strips
-  const rises = si > 1 && !cur.fan;
-  const into = rises ? interpolate(f, [b(cur.from - K0), b(cur.from - K0) + WHIP], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) }) : 1;
-  const pushAt = b(38 - K0);
-  const push = si === 0 ? interpolate(f, [pushAt - 12, pushAt], [0, 1], io) : 0;
-  const fanDim = cur.fan ? interpolate(f, [b(69.5 - K0), b(70.2 - K0)], [0, 1], io) : 0;
+  const into = cur.rise ? interpolate(f, [b(cur.from - K0), b(cur.from - K0) + WHIP], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) }) : 1;
+  // the Race opens with a tap and a push, like a link
+  const pushAt = b(36.5 - K0);
+  const push = si === 0 ? interpolate(f, [pushAt - 9, pushAt], [0, 1], io) : 0;
+  const week = markers("sWeek") as unknown as { rows: [number, number, number, number][] };
+  const row = week.rows[week.rows.length - 1];
+
+  // the fingers on the decisions, where the recording pressed, and on the slider
+  const taps = SHOTS.flatMap((s) => (s.clip ? (markers(s.clip) as unknown as { taps?: [number, number, number][] }).taps ?? [] : [])
+    .map(([i, x, y]) => ({ at: b(s.from - K0) + i / 2, x: PHONE.x + x * S, y: PHONE.y + y * S })));
+  const thumbs = (markers("sGuess") as unknown as { thumbs: ([number, number] | null)[] }).thumbs;
+  const th = thumbs[Math.max(0, Math.min(thumbs.length - 1, Math.round(((f - b(64 - K0)) / FPS) * 60)))];
+  const drag = Math.min(interpolate(f, [b(64.1 - K0), b(64.4 - K0)], [0, 1], clamp), interpolate(f, [b(65.5 - K0), b(65.8 - K0)], [1, 0], clamp));
 
   return (
     <AbsoluteFill style={{ background: C.night, overflow: "hidden" }}>
-      <AbsoluteFill style={{ background: "radial-gradient(ellipse 70% 45% at 50% 62%, #e106001c, transparent 70%)" }} />
-
-      {/* the phone, where How it works left it */}
-      <div style={{ position: "absolute", inset: 0, perspective: 2600 }}>
-        <div style={{ position: "absolute", left: PHONE.x, top: PHONE.y, width: W, height: H, borderRadius: 34, overflow: "hidden",
-          transform: `rotateY(${ry}deg) rotateX(${rx}deg)`,
-          boxShadow: "0 0 0 2px #ffffff1a, 0 70px 180px #000, 0 0 160px #e1060048" }}>
-          {prev && into < 1 && (
-            <AbsoluteFill style={{ transform: `translateY(${-into * H * 0.35}px)`, filter: `brightness(${(prev.fan ? 0.3 : 1) * (1 - into * 0.6)})` }}>
-              <ShotFrame s={prev} f={f} b={b} last={false} />
-            </AbsoluteFill>
-          )}
-          <AbsoluteFill style={{ transform: `translateY(${(1 - into) * H}px) translateX(${-push * W * 0.3}px)`,
-            filter: `brightness(${(1 - push * 0.5) * (1 - fanDim * 0.7)})`, boxShadow: into < 1 ? "0 -30px 60px #000" : undefined }}>
-            <ShotFrame s={cur} f={f} b={b} last={si === SHOTS.length - 1} />
+      <div style={{ position: "absolute", left: PHONE.x, top: PHONE.y, width: W, height: H, overflow: "hidden", boxShadow: "0 -2px 0 #ffffff14" }}>
+        {prev && into < 1 && (
+          <AbsoluteFill style={{ transform: `translateY(${-into * H * 0.35}px)`, filter: `brightness(${1 - into * 0.6})` }}>
+            <ShotFrame s={prev} f={f} b={b} />
           </AbsoluteFill>
-          {push > 0 && (
-            <AbsoluteFill style={{ background: C.night, transform: `translateX(${(1 - push) * W}px)` }}>
-              <ClipFrame name="sTrack" t={0} />
-            </AbsoluteFill>
-          )}
+        )}
+        <AbsoluteFill style={{ transform: `translateY(${(1 - into) * H}px) translateX(${-push * W * 0.3}px)`,
+          filter: `brightness(${1 - push * 0.5})`, boxShadow: into < 1 ? "0 -30px 60px #000" : undefined }}>
+          <ShotFrame s={cur} f={f} b={b} />
+        </AbsoluteFill>
+        {push > 0 && (
+          <AbsoluteFill style={{ background: C.night, transform: `translateX(${(1 - push) * W}px)` }}>
+            <ClipFrame name="sRaceCard" t={0} />
+          </AbsoluteFill>
+        )}
+      </div>
+
+      <Swipe f={f} at={[b(37.3 - K0), b(41.9 - K0)]} len={b(1.1)} />
+      <Fingers f={f} taps={[{ at: b(35.8 - K0), x: PHONE.x + (row[0] + row[2] * 0.72) * S, y: PHONE.y + (row[1] + row[3] / 2) * S }, ...taps]} />
+      {th && drag > 0 && (
+        <div style={{ position: "absolute", left: PHONE.x + th[0] * S - 22, top: PHONE.y + th[1] * S - 22, width: 44, height: 44, borderRadius: "50%",
+          background: "#ffffffd8", boxShadow: `0 0 0 6px ${C.lit}55, 0 0 26px ${C.lit}`, opacity: drag }} />
+      )}
+
+      <StepHead f={f} at={0} n="02" tag="Scroll it" word="Scrolled.">
+        <div style={{ position: "relative", height: 100, marginTop: 30 }}>
+          {LINES.map((l, i) => {
+            const inAt = b(l.from - K0);
+            const gone = i === LINES.length - 1 ? 0 : interpolate(f, [b(l.to - K0) - 6, b(l.to - K0) - 1], [0, 1], clamp);
+            if (f < inAt - 1 || gone >= 1) return null;
+            return (
+              <div key={i} style={{ position: "absolute", left: 0, top: 0, whiteSpace: "nowrap", ...BODY, fontSize: 46, fontWeight: 600, color: "#fff",
+                opacity: 1 - gone, transform: `translateY(${-gone * 24}px)`, ...smear(f, inAt, "up", 8, 50) }}>{l.big}</div>
+            );
+          })}
         </div>
-      </div>
-      <Tap f={f} at={b(37 - K0)} x={PHONE.x + (m.raceX + m.raceW / 2) * S} y={PHONE.y + (m.raceY + m.raceH / 2) * S} />
-
-      {/* the three kinds of call: each card's own kicker and question */}
-      {cur.fan && (() => {
-        const gone = interpolate(f, [b(73 - K0), b(73.5 - K0)], [0, 1], io);
-        const sw = 960, gap = 30;
-        const hs = STRIPS.map((s) => (strips[s.key].h / strips[s.key].w) * sw);
-        const total = hs.reduce((p, q) => p + q, 0) + gap * 2;
-        let y = PHONE.y + H * 0.47 - total / 2;
-        return STRIPS.map((s, i) => {
-          const top = y;
-          y += hs[i] + gap;
-          const inP = interpolate(f, [b(s.at - K0), b(s.at - K0) + 9], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) });
-          return (
-            <div key={s.key} style={{ position: "absolute", left: (1080 - sw) / 2 + s.x, top, width: sw, height: hs[i],
-              opacity: inP * (1 - gone), transform: `translateY(${(1 - inP) * 70 - gone * 120}px) rotate(${s.r}deg)`,
-              boxShadow: "0 0 0 2px #ffffff14, 0 40px 90px #000c", borderRadius: 6, overflow: "hidden" }}>
-              <Img src={staticFile(`clips/strips/${s.key}.png`)} style={{ width: "100%", height: "100%", display: "block" }} />
-            </div>
-          );
-        });
-      })()}
-
-      {/* step 02 */}
-      <div style={{ opacity: 1 - out }}>
-        <StepHead f={f} at={0} n="02" tag="Scrolled" word="Read it.">
-          <div style={{ position: "relative", height: 110, marginTop: 18 }}>
-            {LINES.map((l, i) => {
-              const inAt = b(l.from - K0);
-              const next = LINES[i + 1];
-              const sameBig = i > 0 && LINES[i - 1].big === l.big;
-              const keepBig = !!next && next.big === l.big;
-              const outAt = next ? b(l.to - K0) : null;
-              const gone = outAt === null ? 0 : interpolate(f, [outAt - 4, outAt + 1], [0, 1], clamp);
-              if (f < inAt - 1 || gone >= 1) return null;
-              return (
-                <div key={i} style={{ position: "absolute", left: 0, top: 0, whiteSpace: "nowrap" }}>
-                  <div style={{ ...BODY, fontSize: 46, fontWeight: 600, color: "#fff", opacity: keepBig ? 1 : 1 - gone,
-                    transform: `translateY(${keepBig ? 0 : -gone * 24}px)`, ...(sameBig ? {} : smear(f, inAt, "up", 8, 50)) }}>{bigText(l.big)}</div>
-                  {l.small && (
-                    <div style={{ ...BODY, fontSize: 32, color: "#ffffffa8", marginTop: 8, opacity: 1 - gone, ...smear(f, inAt + 4, "up", 8, 40) }}>{l.small}</div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </StepHead>
-      </div>
+      </StepHead>
     </AbsoluteFill>
   );
 };

@@ -17,23 +17,13 @@
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "24 places changed hands on track before the first lap was done",
+      "title": "24 position changes on lap 1",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "5 drivers gained 2 places each, the most of anybody"
+        "5 drivers gained 2 places each, the most of anybody",
+        "When it ended, 20 places had really changed against the grid. The rest were swapped back on the way round or came from cars in trouble dropping down the order"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
-    },
-    {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Lap 2 · Traffic",
-      "title": "7 passes on this lap alone",
-      "text": "Only moves made on track count here, at racing speed.",
-      "bullets": [
-        "7 different drivers gained a place on this lap"
-      ],
-      "note": "Early on, with full tanks and the order still settling."
     },
     {
       "type": "prediction",
@@ -47,7 +37,18 @@
         "Out of the points"
       ],
       "answer": "Somewhere in the points",
-      "reveal": "P14 to P9, 5 places gained."
+      "reveal": "Somewhere in the points. The exact place comes at the flag."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · Traffic",
+      "title": "7 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "7 different drivers gained a place on this lap"
+      ],
+      "note": "Early on, with full tanks and the order still settling."
     },
     {
       "type": "moment",
@@ -118,7 +119,7 @@
       "type": "decision",
       "lap": 18,
       "kicker": "Your call on the pit wall",
-      "title": "You are Russell, 1.8s behind Piastri and going nowhere. Now what?",
+      "title": "You are Russell, 1.8s behind Piastri. Now what?",
       "text": "Stuck behind another car your tyres overheat and the car will not turn. Stopping first gives you clean track for two or three laps, which is the whole trick behind the undercut.",
       "state": [
         [
@@ -157,11 +158,11 @@
       ],
       "actual": "wait",
       "outcomes": {
-        "box": "You spend about 24s in the lane and come out in traffic, betting that two fast laps on new tyres are worth more than the place you just gave up.",
+        "box": "You spend about 24s in the lane and come out in traffic, trusting that two fast laps on new tyres are worth more than the place you just gave up.",
         "wait": "You stay on old rubber while he gets new ones, and you need clean air plus a mistake from him to make it work.",
         "attack": "Passing a car with the same tyres on the same fuel is the hardest thing in the sport, and running into the back of him ends both races."
       },
-      "reveal": "Russell came in on lap 21, 3 laps after this. He finished P4, Piastri P2."
+      "reveal": "Russell came in on lap 21, 3 laps after this."
     },
     {
       "type": "moment",
@@ -190,24 +191,11 @@
       "note": "The timing feed records that he stopped, not why."
     },
     {
-      "type": "moment",
-      "lap": 22,
-      "kicker": "Lap 22 of 53 · Safety Car",
-      "title": "Every gap on track, erased",
-      "text": "The field bunches up behind the safety car, and whatever anybody had built is gone.",
-      "bullets": [
-        "Antonelli was leading when it came out",
-        "He took a stop under it, and so did Perez, Stroll, Alonso and 8 others",
-        "Neutralised until lap 27"
-      ],
-      "note": "A lead built over a long run was worth nothing at the restart, and whoever had fresher tyres underneath him suddenly had a race again."
-    },
-    {
       "type": "decision",
       "lap": 22,
       "kicker": "Your call on the pit wall",
       "title": "Safety car with 31 laps left. You are leading. Box or stay out?",
-      "text": "The pack is bunched up behind you and a stop costs far less than usual, except that everybody behind can copy you and the one who does not gets the lead.",
+      "text": "The pack is about to bunch up behind you and a stop costs far less than usual, except that everybody behind can copy you and anyone who stays out may come out ahead.",
       "state": [
         [
           "Running",
@@ -223,14 +211,14 @@
         ],
         [
           "Gap to P2",
-          "Wiped out by the safety car"
+          "6.1s when it came out"
         ]
       ],
       "choices": [
         {
           "id": "box",
           "label": "Box for fresh tyres",
-          "sub": "Grip for the restart, hand over track position"
+          "sub": "Grip for the restart, at the risk of track position"
         },
         {
           "id": "stay",
@@ -240,10 +228,23 @@
       ],
       "actual": "box",
       "outcomes": {
-        "box": "New rubber under a safety car is close to free, and it only works if the cars behind stay out. If they all follow you in, you have spent your lead for nothing.",
+        "box": "New rubber under a safety car is close to free. If the cars behind follow you in, the order holds. If they stay out, your gap has to cover the stop.",
         "stay": "You keep the lead and restart on older tyres, with a queue of fresher cars in your mirrors and no gap to hide in."
       },
-      "reveal": "Antonelli came in. At the flag it was P1 Antonelli, P2 Piastri, P3 Leclerc."
+      "reveal": "Antonelli came in."
+    },
+    {
+      "type": "moment",
+      "lap": 22,
+      "kicker": "Lap 22 of 53 · Safety Car",
+      "title": "Every gap on track, erased",
+      "text": "The field bunches up behind the safety car, and whatever anybody had built is gone.",
+      "bullets": [
+        "Antonelli was leading when it came out",
+        "He took a stop under it, and so did Perez, Stroll, Alonso and 8 others",
+        "Neutralised until lap 27"
+      ],
+      "note": "A lead built over a long run was worth nothing at the restart, and whoever had fresher tyres underneath him suddenly had a race again."
     },
     {
       "type": "moment",
@@ -260,7 +261,7 @@
       "lap": 23,
       "kicker": "Speed trap",
       "title": "Hulkenberg hit 308 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Hulkenberg did it in an Audi"
       ],
@@ -286,7 +287,7 @@
       "options": [
         "Antonelli",
         "Leclerc",
-        "Piastri"
+        "Russell"
       ],
       "answer": "Antonelli",
       "reveal": "Antonelli on lap 49, 1:32.432, in a Mercedes."
@@ -298,12 +299,12 @@
       "title": "One of these three does not see the chequered flag. Who?",
       "text": "Nothing on the timing screens says it is coming.",
       "options": [
-        "Antonelli",
-        "Stroll",
-        "Piastri"
+        "Perez",
+        "Alonso",
+        "Stroll"
       ],
       "answer": "Stroll",
-      "reveal": "Stroll, on lap 31 of 53. The timing feed records that he stopped, not why."
+      "reveal": "Stroll, on lap 31 of 53."
     },
     {
       "type": "moment",
@@ -315,8 +316,7 @@
         "P19 at the start of lap 30",
         "Started P22",
         "2 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -427,6 +427,20 @@
       ]
     },
     {
+      "type": "guess",
+      "lap": 53,
+      "kicker": "Guess it",
+      "title": "How far behind was Piastri at the flag?",
+      "text": "53 laps, 1 hour 28 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 25,
+      "step": 0.5,
+      "target": 13.722,
+      "close": 5.4888,
+      "reveal": "13.722 seconds after 53 laps. A trip down the pit lane took about 24s today, which is 1.7 times this gap."
+    },
+    {
       "type": "moment",
       "lap": 53,
       "kicker": "Tyres",
@@ -501,20 +515,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 53,
-      "kicker": "Guess it",
-      "title": "How far behind was Piastri at the flag?",
-      "text": "53 laps, 1 hour 28 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 25,
-      "step": 0.5,
-      "target": 13.722,
-      "close": 5.4888,
-      "reveal": "13.722 seconds after 53 laps. A trip down the pit lane took about 24s today, which is 1.7 times the margin this race was decided by."
     }
   ],
   "result": {

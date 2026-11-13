@@ -15,13 +15,14 @@ import json
 import re
 import sys
 from collections import Counter, defaultdict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from statistics import mean, median
 
 from blind import blind_rounds
 from brain import race_brain
 from gps import DEFAULT, weekend_of
+from official import Official
 from photos import photo
 from pitwall import pitwall_race
 
@@ -143,6 +144,8 @@ def q_gap(r: dict) -> float | None:
 class Session:
     def __init__(self, skey: int, cache_name: str, slug: str, label: str, kind: str):
         self.key, self.slug, self.label, self.kind = skey, slug, label, kind
+        self.cache_name = cache_name
+        self.official = Official(SLUG, slug)
         self.drivers = {d["driver_number"]: d for d in load(skey, cache_name, "drivers")}
         if not self.drivers:
             # a session whose driver list never came down borrows the one of
@@ -153,12 +156,22 @@ class Session:
                     self.drivers = {d["driver_number"]: d for d in other}
                     break
         self.laps = load(skey, cache_name, "laps")
-        self.result = sorted(load(skey, cache_name, "session_result"),
-                             key=lambda r: (r.get("position") or 99))
+        # a classification word where a place belongs is no place at all
+        # (Marina Bay 2026 qualifying: Hadjar, position "RT")
+        results = load(skey, cache_name, "session_result")
+        for r in results:
+            if not isinstance(r.get("position"), int):
+                r["position"] = None
+        self.result = sorted(results, key=lambda r: (r.get("position") or 99))
         self.overtakes = load(skey, cache_name, "overtakes")
         self.pits = load(skey, cache_name, "pit")
         self.stints = load(skey, cache_name, "stints")
         self.rc = load(skey, cache_name, "race_control")
+        # messages filed under the wrong session (Mexico City 2026: the first
+        # minutes of FP3, a day before, sit in the race's race control)
+        first = min((t for t in (parse_ts(l.get("date_start")) for l in self.laps) if t), default=None)
+        if first:
+            self.rc = [m for m in self.rc if not (t := parse_ts(m.get("date"))) or t > first - timedelta(hours=12)]
         self.weather = load(skey, cache_name, "weather")
         self.radio = load(skey, cache_name, "team_radio")
         self.intervals = load(skey, cache_name, "intervals")
@@ -182,12 +195,88 @@ class Session:
             return ts[1] if len(ts) >= 2 and (ts[1] - ts[0]).total_seconds() > 60 else ts[0]
         self.lap_index = sorted((ln, lead(t)) for ln, t in starts.items())
         self._align_laps(lead)
+        if kind == "race":
+            self._mend_laps(lead)
+        self._repair_stints()
+        if kind == "race" and self.laps:
+            _ = self.real_pits      # settles the stints it has to correct
+
+    def _repair_stints(self) -> None:
+        """The stints feed can file a tyre change on lap 1 with no car in the
+        lane (Marina Bay 2026: Hadjar "medium 1-1, soft 2-62", on the official
+        sheet he stopped on lap 33). The compounds are right and the laps are
+        not, so the boundary moves to the real visit. Sepang 2026 did this to
+        most of the field, with stints missing on top: the stops still come
+        from the pit feed, which matches the official sheet, but the tyres after
+        the first stop are not fit to quote (tyres_unreliable)."""
+        self.tyres_unreliable = False
+        if self.kind != "race" or not self.stints:
+            return
+        red = set(self.red_laps)
+        visits: dict[int, list[int]] = defaultdict(list)
+        last: dict[int, datetime] = {}
+        for p in sorted(self.pits, key=lambda p: p.get("date") or ""):
+            d, ln, dur, ts = p["driver_number"], p.get("lap_number"), p.get("pit_duration"), parse_ts(p.get("date"))
+            if not ln or not dur or dur >= 300 or ln in red:
+                continue
+            if ts and d in last and (ts - last[d]).total_seconds() < 60:
+                continue
+            visits[d].append(ln)
+            if ts:
+                last[d] = ts
+        rows: dict[int, list[dict]] = defaultdict(list)
+        for st in self.stints:
+            rows[st.get("driver_number")].append(st)
+        for sts in rows.values():
+            sts.sort(key=lambda st: (st.get("lap_start") or 0, st.get("stint_number") or 0))
+        glitched = [d for d, sts in rows.items()
+                    if len(sts) >= 2 and sts[0].get("lap_end") == 1
+                    and sts[0].get("compound") != sts[1].get("compound")
+                    and not any(ln <= 2 for ln in visits.get(d, []))]
+        self.tyres_unreliable = len(glitched) >= 5
+        for d in (rows if self.tyres_unreliable else glitched):
+            sts, laps = rows[d], visits.get(d, [])
+            if laps and len(sts) - 1 == len(laps):
+                for a, b, ln in zip(sts, sts[1:], laps):
+                    a["lap_end"], b["lap_start"] = ln, ln + 1
+            elif laps and (sts[1].get("lap_start") or 0) <= laps[0] < (sts[1].get("lap_end") or 0):
+                sts[0]["lap_end"], sts[1]["lap_start"] = laps[0], laps[0] + 1
+
+    @property
+    def start_lap(self) -> int:
+        """The lap the racing began on. Sepang 2026 counted two formation laps
+        behind the safety car as race laps, and the standing start came as lap 2
+        ended: lap 3 is the first one run at racing speed."""
+        if getattr(self, "_start_lap", None) is not None:
+            return self._start_lap
+        self._start_lap = 1
+        if self.kind != "race":
+            return 1
+        for m in sorted(self.rc, key=lambda m: m.get("date") or ""):
+            u = (m.get("message") or "").upper()
+            if re.search(r"(?<![A-Z])RED FLAG", u):
+                break
+            if "STANDING START" in u and m.get("lap_number") == 2:
+                durs = defaultdict(list)
+                for l in self.laps:
+                    if l.get("lap_duration") and l.get("lap_number"):
+                        durs[l["lap_number"]].append(l["lap_duration"])
+                typical = median(d for ds in durs.values() for d in ds)
+                sl = 2
+                while durs.get(sl) and median(durs[sl]) > typical * 1.5:
+                    sl += 1
+                self._start_lap = sl
+                break
+        return self._start_lap
 
     def _align_laps(self, lead) -> None:
         """Albert Park 2026: the laps feed skips its lap 2 and every row after
         it is one lap behind race control (the winner's "lap 58" starts at the
         chequered flag). When race control disagrees by the same lap on nearly
-        every message, the rows are renumbered to match it."""
+        every message, the rows are renumbered to match it. The stints feed
+        counts with those rows and moves with them. The pit feed does not: its
+        laps already match the official pit stop table and the lap each car
+        really came in on (Norris, lap 11, not 12)."""
         if self.kind != "race" or not self.rc or not self.lap_index:
             return
         diff = Counter()
@@ -205,14 +294,13 @@ class Session:
         for l in self.laps:
             if (l.get("lap_number") or 0) > 1:
                 l["lap_number"] += off
-        # the pit and stints feeds count with the same rows
-        for p in self.pits:
-            if (p.get("lap_number") or 0) > 1:
-                p["lap_number"] += off
         for st in self.stints:
             for key in ("lap_start", "lap_end"):
                 if (st.get(key) or 0) > 1:
                     st[key] += off
+        self._reindex(lead)
+
+    def _reindex(self, lead) -> None:
         starts = defaultdict(list)
         for l in self.laps:
             ts = parse_ts(l.get("date_start"))
@@ -223,6 +311,211 @@ class Session:
         classified = next((r.get("number_of_laps") for r in self.result
                            if r.get("position") == 1 and r.get("number_of_laps")), None)
         self.total_laps = min(fed, classified) if classified else fed
+
+    def _mend_laps(self, lead) -> None:
+        """The laps a race is told from, repaired before anything reads them."""
+        if not self.laps:
+            return
+        self._fill_from_fastf1()
+        self._repair_starts()
+        self._reindex(lead)
+
+    def _fill_from_fastf1(self) -> None:
+        """Rows and lap times the OpenF1 laps feed lost, from FastF1's reading of
+        the same timing stream (pipeline/ff1laps.py). Albert Park 2026 has no lap
+        2 row for anybody and no lap 3 for the three leaders, who were swapping
+        the lead. The two sources line up on the rows with the same lap time; if
+        too few agree they are not counting the same laps and nothing is taken."""
+        f = CACHE / f"{self.key}_{self.cache_name}_ff1laps.json"
+        if not f.exists():
+            return
+        rows = json.loads(f.read_text(encoding="utf-8"))
+        have = {(l.get("driver_number"), l.get("lap_number")): l for l in self.laps}
+        diffs = []
+        for r in rows:
+            l = have.get((r["driver_number"], r["lap_number"]))
+            if l and r.get("lap_start") is not None and r.get("lap_time") and l.get("lap_duration") \
+                    and l.get("date_start") and abs(r["lap_time"] - l["lap_duration"]) < 0.002:
+                diffs.append(parse_ts(l["date_start"]).timestamp() - r["lap_start"])
+        if len(diffs) < 20:
+            return
+        shift = median(diffs)
+        for r in rows:
+            if r.get("generated") or r.get("lap_start") is None:
+                continue
+            t = datetime.fromtimestamp(r["lap_start"] + shift, tz=timezone.utc)
+            key = (r["driver_number"], r["lap_number"])
+            l = have.get(key)
+            if l is None:
+                if r["driver_number"] not in self.drivers or not r.get("lap_time"):
+                    continue
+                l = {"driver_number": r["driver_number"], "lap_number": r["lap_number"],
+                     "date_start": None, "lap_duration": None,
+                     "is_pit_out_lap": bool(r.get("pit_out")), "from_fastf1": True}
+                self.laps.append(l)
+                have[key] = l
+            if not l.get("date_start"):
+                l["date_start"] = t.isoformat()
+            if not l.get("lap_duration") and r.get("lap_time"):
+                l["lap_duration"] = r["lap_time"]
+
+    def _repair_starts(self) -> None:
+        """A start stamp the laps either side of it contradict. Suzuka 2026,
+        Lawson's lap 14 is stamped a minute late and his lap 17 half a minute: read
+        as they are, he drops from P12 to P22 and is back three laps later, on a
+        lap of 37s. The lap times are right. A stamp goes only when the lap
+        before plus its time lands somewhere else, and that same place plus this
+        lap's own time lands on the next stamp."""
+        by: dict[int, dict[int, dict]] = defaultdict(dict)
+        for l in self.laps:
+            if l.get("lap_number"):
+                by[l.get("driver_number")][l["lap_number"]] = l
+        for rows in by.values():
+            for ln in sorted(rows):
+                a, b, c = rows.get(ln - 1), rows[ln], rows.get(ln + 1)
+                if not (a and c and a.get("lap_duration") and b.get("lap_duration")):
+                    continue
+                ta, tb, tc = (parse_ts(x.get("date_start")) for x in (a, b, c))
+                if not (ta and tb and tc):
+                    continue
+                want = ta + timedelta(seconds=a["lap_duration"])
+                done = timedelta(seconds=b["lap_duration"])
+                if abs((tb - want).total_seconds()) > 1.5 \
+                        and abs((want + done - tc).total_seconds()) <= 1.5 \
+                        and abs((tb + done - tc).total_seconds()) > 1.5:
+                    b["date_start"] = want.isoformat()
+
+    def crossings(self) -> dict[int, dict[int, float]]:
+        """{driver: {lap: seconds from lights out}}: when each car finished each
+        lap. It is the start of the next lap where the feed has it and the two
+        readings differ, else the start of this one plus its time. A crossing no
+        car could have made (a lap far under the fastest of the race) is a fault
+        of the feed and is dropped. The last lap comes from the official gap when
+        the feed is within a second and a half of it: Baku 2026 was decided by
+        0.196s, and the feed's stamps had Russell and Verstappen level."""
+        if getattr(self, "_cross", None) is not None:
+            return self._cross
+        t0 = self.race_start_ts
+        total = self.total_laps or 0
+        best = self.best_lap
+        floor = best["lap_duration"] * 0.8 if best else 0
+        by: dict[int, dict[int, dict]] = defaultdict(dict)
+        for l in self.laps:
+            if l.get("lap_number"):
+                by[l.get("driver_number")][l["lap_number"]] = l
+        out: dict[int, dict[int, float]] = {}
+        for num, rows in by.items():
+            seq: dict[int, float] = {}
+            for ln in sorted(rows):
+                if ln > total:
+                    break
+                ts, d = parse_ts(rows[ln].get("date_start")), rows[ln].get("lap_duration")
+                nx = rows.get(ln + 1)
+                tn = parse_ts(nx.get("date_start")) if nx else None
+                own = (ts - t0).total_seconds() + d if ts and d else None
+                nxt = (tn - t0).total_seconds() if tn else None
+                x = own if nxt is None else nxt if own is None or abs(own - nxt) > 1.5 else own
+                if x is not None:
+                    seq[ln] = x
+            prev, kept = 0.0, {}
+            for ln in sorted(seq):
+                if seq[ln] - prev >= floor * (ln - (max(kept) if kept else 0)):
+                    kept[ln] = seq[ln]
+                    prev = seq[ln]
+            if kept:
+                out[num] = kept
+        winner = self.result[0]["driver_number"] if self.result else None
+        w_at = out.get(winner, {}).get(total)
+        if w_at is not None:
+            for r in self.result:
+                g, seq = r.get("gap_to_leader"), out.get(r["driver_number"])
+                if isinstance(g, (int, float)) and seq and total in seq and abs(seq[total] - w_at - g) <= 1.5:
+                    seq[total] = w_at + g
+        self._cross = out
+        return out
+
+    def line_order(self, lap: int) -> list[int]:
+        """Who was where when the field finished that lap, from the crossings:
+        laps done, then who crossed first. A car still on the grid counts last."""
+        grid = self.start_grid()
+        rows = []
+        for r in self.result:
+            n = r["driver_number"]
+            if r.get("dns"):
+                continue
+            seq = self.crossings().get(n, {})
+            done = max((k for k in seq if k <= lap), default=0)
+            rows.append((-done, seq.get(done, 0.0), grid.get(n, 99), n))
+        return [n for *_, n in sorted(rows)]
+
+    def lap1_gains(self) -> list[tuple[int, int]]:
+        """(places made up on the first lap of racing, driver), best first. One
+        sum for the card and for Call the race: from his place among the cars
+        that really started to his place when the field finished that lap."""
+        grid = self.start_grid()
+        dns = {r["driver_number"] for r in self.result if r.get("dns")}
+        slot = {n: i + 1 for i, n in enumerate(sorted((n for n in grid if n not in dns), key=grid.get))}
+        after = {n: i + 1 for i, n in enumerate(self.line_order(self.start_lap))}
+        return sorted(((slot[n] - p, n) for n, p in after.items() if n in slot), reverse=True)
+
+    def lap1_net(self) -> int:
+        """Pairs of cars in a different order when the first lap of racing ended
+        than on the grid: what the first lap really changed, however many times
+        the feed saw two of them swap on the way round."""
+        grid = self.start_grid()
+        cars = [n for n in self.line_order(self.start_lap) if grid.get(n)]
+        return sum(1 for i, a in enumerate(cars) for b in cars[i + 1:] if grid[a] > grid[b])
+
+    def lap1_words(self, n: int, tail: str = "on lap 1") -> str:
+        """The count only reads as places changing hands if it holds at the end
+        of the lap. A car that spins or limps round is passed by the whole field,
+        and that is a change of position, not a move on track (Hungary 2026: 27
+        logged, 18 still standing when the lap ended)."""
+        if self.lap1_holds(n):
+            return plural(n, "place") + " changed hands " + tail
+        return plural(n, "position change") + (f" on lap {self.start_lap}" if self.start_lap == 1
+                                                else " on the first lap of racing")
+
+    def lap1_holds(self, n: int) -> bool:
+        # a start after laps behind the safety car comes with stops already made
+        # (Sepang 2026): the grid is no longer the order that lap began from
+        return self.start_lap == 1 and n <= self.lap1_net() * 1.15
+
+    def from_pit_lane(self, num: int) -> bool:
+        return num in self.official.pit_lane
+
+    def start_words(self, num: int) -> str:
+        """'from the pit lane' or 'P12': a pit-lane starter's grid slot is a line
+        in a table, not a place he lined up in."""
+        return "from the pit lane" if self.from_pit_lane(num) else f"P{self.start_grid().get(num)}"
+
+    def start_line(self, num: int) -> str:
+        return "From the pit lane" if self.from_pit_lane(num) else f"P{self.start_grid().get(num)} on the grid"
+
+    def road_position(self, num: int) -> int | None:
+        """Where he crossed the line at the end, before anything was added."""
+        order = self.line_order(self.total_laps or 0)
+        return order.index(num) + 1 if num in order else None
+
+    def lap_gap(self, a: int, b: int, lap: int) -> float | None:
+        """Seconds between two cars at the end of a lap, from the crossings."""
+        sa, sb = self.crossings().get(a, {}), self.crossings().get(b, {})
+        return round(sb[lap] - sa[lap], 1) if lap in sa and lap in sb else None
+
+    @property
+    def flag_under_sc(self) -> dict | None:
+        """The safety car still out on the last lap: the margin at the flag says
+        how the queue crossed the line, not how the race was decided. Silverstone
+        2026: Leclerc won by 0.427s and was about 20s clear when it came out."""
+        total = self.total_laps or 0
+        p = next((p for p in reversed(self.sc_periods)
+                  if not p.get("red") and (not p["end_ts"] or (p["end_lap"] or 0) >= total)), None)
+        if not p:
+            return None
+        order = self.order_at_ts(p["ts"])
+        lead = order[0][1] if order else None
+        gap = self.gap_at_ts(order[1][1], p["ts"]) if len(order) > 1 else None
+        return {"lap": p["lap"], "leader": lead, "gap": gap}
 
     # ---------- helpers ----------
     def name(self, num: int | None) -> str:
@@ -426,10 +719,20 @@ class Session:
             if t and "VIRTUAL" not in u and ("SAFETY CAR DEPLOYED" in u or "SAFETY CAR IN THIS LAP" in u):
                 ev.append((t, u, m.get("lap_number")))
         periods: list[dict] = []
+        red_ts = [t for t in (parse_ts(m.get("date")) for m in self.rc
+                              if re.search(r"(?<![A-Z])RED FLAG", (m.get("message") or "").upper())) if t]
         for t, u, ln in sorted(ev):
             if "DEPLOYED" in u:
                 cur = periods[-1] if periods else None
-                if cur and cur["end_ts"] and (t - cur["end_ts"]).total_seconds() <= 120:
+                # out, then a red flag, and it is never called in: the next one
+                # is a safety car of its own (Mexico City 2026: laps 44 and 59)
+                stopped = min((r for r in red_ts if cur and not cur["end_ts"] and cur["ts"] <= r < t), default=None)
+                if stopped:
+                    cur["end_ts"], cur["end_lap"], cur["ended_red"] = stopped, self.lap_of(stopped), True
+                # called in and straight back out (Silverstone 2026, eight seconds)
+                # is one safety car. Monaco 2026 came in, the race ran for a minute
+                # and a half, and that is two.
+                if cur and cur["end_ts"] and (t - cur["end_ts"]).total_seconds() <= 30:
                     cur["end_ts"], cur["end_lap"] = None, None
                 elif not cur or cur["end_ts"]:
                     periods.append({"lap": ln, "ts": t, "end_lap": None, "end_ts": None})
@@ -438,11 +741,12 @@ class Session:
         reds = [parse_ts(m.get("date")) for m in self.rc
                 if re.search(r"(?<![A-Z])RED FLAG", (m.get("message") or "").upper())]
         reds = [r for r in reds if r]
-        kept = [p for p in periods
-                if not any(p["ts"] <= r <= (p["end_ts"] or p["ts"]) + timedelta(minutes=6)
-                           for r in reds)]
+        self._sc_all = len(periods)
+        # replaced by the red flag within a couple of minutes (Monza 2026, 54s), it
+        # is the red flag's story and gets no card of its own, though it counts
+        kept = [p for p in periods if not any(p["ts"] <= r <= p["ts"] + timedelta(minutes=2) for r in reds)]
         for p in kept:
-            p["red"] = False
+            p["red"] = bool(p.get("ended_red"))
             if not p["end_ts"]:
                 # Monaco 2026: out on lap 60, never called in, red flag on lap 67
                 r = min((r for r in reds if r > p["ts"]), default=None)
@@ -450,6 +754,29 @@ class Session:
                     p["end_ts"], p["end_lap"], p["red"] = r, self.lap_of(r), True
         self._sc = kept
         return self._sc
+
+    @property
+    def sc_count(self) -> int:
+        """Every safety car, the one a red flag replaced at once included."""
+        _ = self.sc_periods
+        return getattr(self, "_sc_all", len(self.sc_periods))
+
+    def _cleared(self, t, within: int) -> datetime | None:
+        return min((c for c in (parse_ts(m.get("date")) for m in self.messages("TRACK CLEAR"))
+                    if c and 0 <= (c - t).total_seconds() <= within), default=None)
+
+    def sc_until(self, p: dict):
+        """Until when a stop counts as made under this safety car: it stays out
+        for the lap it was called in, until race control clears the track."""
+        if p.get("red") and p["end_ts"]:
+            return p["end_ts"]
+        if not p["end_ts"]:
+            return self.race_end_ts or p["ts"] + timedelta(minutes=10)
+        return self._cleared(p["end_ts"], 240) or p["end_ts"] + timedelta(seconds=120)
+
+    def vsc_until(self, b):
+        """The delta is lifted some seconds after VSC ENDING, at TRACK CLEAR."""
+        return self._cleared(b, 40) or b + timedelta(seconds=15)
 
     @property
     def sc_laps(self) -> list[int]:
@@ -472,7 +799,10 @@ class Session:
             u, t = (m.get("message") or "").upper(), parse_ts(m.get("date"))
             if t and "VSC DEPLOYED" in u:
                 cur = t
-            elif t and "VSC ENDING" in u and cur:
+            elif t and cur and ("VSC ENDING" in u or (
+                    "SAFETY CAR DEPLOYED" in u and "VIRTUAL" not in u)):
+                # Sepang 2026: the VSC of lap 43 was never lifted, a safety car
+                # took over on lap 45
                 out.append((cur, t)); cur = None
         if cur:
             out.append((cur, self.race_end_ts or cur + timedelta(minutes=3)))
@@ -509,15 +839,16 @@ class Session:
         return bool(ts) and any(a <= ts <= b for a, b in self.neutral_windows)
 
     def neutral_kind(self, ts) -> str | None:
-        """'the safety car', 'the virtual safety car' or None."""
+        """'the safety car', 'the virtual safety car' or None, for the moment a
+        car entered the lane: by the clock, never by the lap (Spielberg 2026:
+        Antonelli went in 22s before the VSC, on the lap it was called)."""
         if not ts:
             return None
         for p in self.sc_periods:
-            end = (p["end_ts"] or self.race_end_ts or p["ts"]) + timedelta(seconds=150)
-            if p["ts"] <= ts <= end:
+            if p["ts"] <= ts <= self.sc_until(p):
                 return "the safety car"
         for a, b in self.vsc_periods:
-            if a <= ts <= b + timedelta(seconds=30):
+            if a <= ts <= self.vsc_until(b):
                 return "the virtual safety car"
         return None
 
@@ -616,7 +947,26 @@ class Session:
                                                           "RACE WILL RESUME")
                   if m.get("lap_number") and m["lap_number"] >= min(reds)]
         end = max(starts) if starts else min(reds)
+        end = max(end, self.restart_lap or 0)
         return list(range(min(reds), end + 1))
+
+    @property
+    def restart_lap(self) -> int | None:
+        """The lap a stopped race really got going again on. Race control calls
+        the standing start and its lap number is the lap it posted the message
+        on; an extra formation lap comes after that (Zandvoort 2026: called on lap
+        3, extra formation lap on lap 4, the start itself on lap 5)."""
+        reds = [m for m in self.rc if re.search(r"(?<![A-Z])RED FLAG", (m.get("message") or "").upper())]
+        if not reds:
+            return None
+        red = min(m.get("date") or "" for m in reds)
+        calls = [m for m in self.messages("STANDING START", "ROLLING START") if (m.get("date") or "") > red]
+        if not calls:
+            return None
+        lap = max(m.get("lap_number") or 0 for m in calls)
+        last = max(m.get("date") or "" for m in calls)
+        extra = [m.get("lap_number") or 0 for m in self.messages("EXTRA FORMATION LAP") if (m.get("date") or "") > last]
+        return max(extra) + 1 if extra else lap
 
     @property
     def restart_laps(self) -> list[int]:
@@ -630,6 +980,8 @@ class Session:
             ln = m.get("lap_number")
             if ln and ln > 1:
                 out.update((ln, ln + 1))
+        if self.restart_lap:
+            out.update((self.restart_lap, self.restart_lap + 1))
         return sorted(out)
 
     @property
@@ -651,6 +1003,8 @@ class Session:
         through on the same one, None if the stints feed cannot say. Each
         change in the stints feed pays for one visit only (Suzuka 2026: Albon
         in on laps 45 and 46 matched the same new set twice)."""
+        if self.tyres_unreliable:
+            return None
         sts = sorted((st for st in self.stints if st.get("driver_number") == d),
                      key=lambda st: st.get("lap_start") or 0)
         matched = False
@@ -723,7 +1077,9 @@ class Session:
             if any(q["driver_number"] == p["driver_number"] and q["ts"] and ts
                    and abs((ts - q["ts"]).total_seconds()) < 60 for q in out):
                 continue
-            out.append({**p, "ts": ts})
+            # the feed stamps a visit when the car leaves the lane; the official
+            # sheet's time of day is when it went in, a lane time earlier
+            out.append({**p, "ts": ts, "entry": ts - timedelta(seconds=p["pit_duration"]) if ts else None})
         self._visits = out
         return out
 
@@ -749,12 +1105,22 @@ class Session:
             windows.append((t - timedelta(seconds=120), end))
         serves = list(self.penalty_serves)
         used: set = set()
+        # a visit on the official pit stop sheet is a stop, whatever the stints say
+        sheet = {(r["car"], r["lap"]) for r in self.official.pit_rows}
+        same_set: list[dict] = []
         in_win = lambda ts: next((w for w in windows if ts and w[0] <= ts <= w[1]), None)
         base: dict = {}
         for w in windows:
             durs = sorted(p["pit_duration"] for p in self.lane_visits if p["ts"] and w[0] <= p["ts"] <= w[1])
             if durs:
                 base[w] = durs[len(durs) // 2]
+        # a long queue with nobody on new tyres is the field going through,
+        # however long it took (Marina Bay 2026 sprint: 23 to 35s, every set the
+        # same age). One or two cars slow in the lane are left alone.
+        queued = {w: sum(1 for p in self.lane_visits
+                         if p["ts"] and w[0] <= p["ts"] <= w[1] and p["pit_duration"] >= base.get(w, 0) + 4
+                         and self._tyres_changed(p["driver_number"], p["lap_number"]) is False)
+                  for w in windows}
         out = []
         for p in self.lane_visits:
             d, ln, ts = p["driver_number"], p["lap_number"], p["ts"]
@@ -762,6 +1128,15 @@ class Session:
                 continue
             if p["pit_duration"] >= 300:
                 continue      # a red-flag wait or a garage repair, not a pit stop
+            if (d, ln) in sheet:
+                served = next((sv for sv in serves if sv[0] == d and sv[1] and ts and ts >= sv[1]), None)
+                if served:
+                    serves.remove(served)
+                out.append(p)
+                continue
+            # no tyre data to judge a visit by (Sepang 2026): the sheet is all there is
+            if sheet and self.tyres_unreliable:
+                continue
             w = in_win(ts)
             if w and p["pit_duration"] < base[w] + 4:
                 continue      # the field routed through the lane, and this one never stopped
@@ -770,23 +1145,93 @@ class Session:
                 serves.remove(served)
                 continue
             if w:
+                if queued[w] >= 8 and self._tyres_changed(d, ln, used) is False:
+                    continue
                 out.append(p)  # clearly stationary while the field went through
                 continue
             changed = self._tyres_changed(d, ln, used)
             if changed is False:
+                same_set.append(p)
                 continue
             if p["pit_duration"] >= 120 and changed is not True:
                 continue
             out.append(p)
         if self.kind == "race":
-            out += self.inferred_stops()
+            out += self._settle_stint_changes(out, same_set, sheet)
         self._real = sorted(out, key=lambda p: (p.get("lap_number") or 0))
+        self._entries_from_sheet()
         return self._real
+
+    def _entries_from_sheet(self) -> None:
+        """When a car went into the lane, from the official sheet's time of day
+        where it lists the stop: the feed's own stamp can be a minute out (Albert
+        Park 2026: Bottas, lap 12). The sheet is in track time; the hours between
+        it and UTC come from the stops themselves."""
+        rows = {(r["car"], r["lap"]): r for r in self.official.pit_rows if r.get("tod")}
+        if not rows:
+            return
+        def secs(tod: str) -> int:
+            h, m, x = tod.split(":")
+            return int(h) * 3600 + int(m) * 60 + int(float(x))
+        diffs = []
+        for p in self._real:
+            r = rows.get((p["driver_number"], p["lap_number"]))
+            e = p.get("entry")
+            if r and e:
+                diffs.append((secs(r["tod"]) - (e.hour * 3600 + e.minute * 60 + e.second)) % 86400)
+        if not diffs:
+            return
+        shift = round(median(diffs) / 900) * 900
+        for p in self._real:
+            r = rows.get((p["driver_number"], p["lap_number"]))
+            e = p.get("entry")
+            if r and e:
+                day = e.replace(hour=0, minute=0, second=0, microsecond=0)
+                t = day + timedelta(seconds=(secs(r["tod"]) - shift) % 86400)
+                # the nearest of the three days, for a race across midnight UTC
+                p["entry"] = min((t + timedelta(days=k) for k in (-1, 0, 1)), key=lambda x: abs((x - e).total_seconds()))
+
+    def _settle_stint_changes(self, stops: list[dict], same_set: list[dict], sheet: set) -> list[dict]:
+        """A tyre change in the stints feed with no lane visit near it. It can be
+        a stop the pit feed lost (Hungary 2026: Norris, lap 39) and is kept, with
+        no lane time. It can also be the stints feed getting the lap wrong while
+        the pit feed has the real visit (Barcelona 2026: Bearman in on 18 and 39,
+        the stints change on 28): then the visit is the stop, nothing is invented
+        and the change moves to where the car really stopped."""
+        out = []
+        for q in self.inferred_stops():
+            d, ln = q["driver_number"], q["lap_number"]
+            def moved_to(stop):
+                sts = sorted((st for st in self.stints if st.get("driver_number") == d),
+                             key=lambda st: st.get("lap_start") or 0)
+                for a, b in zip(sts, sts[1:]):
+                    if (b.get("lap_start") or 0) - 1 == ln:
+                        a["lap_end"], b["lap_start"] = stop, stop + 1
+            has_boundary = lambda st_lap: any(st.get("driver_number") == d and abs((st.get("lap_start") or 0) - 1 - st_lap) <= 2
+                                              for st in self.stints if (st.get("lap_start") or 0) > 1)
+            if sheet:
+                if any(c == d and abs(l - ln) <= 1 for c, l in sheet):
+                    out.append(q)
+                    continue
+                loose = [p for p in stops if p["driver_number"] == d and not has_boundary(p["lap_number"])]
+                if loose:
+                    moved_to(loose[0]["lap_number"])
+                continue
+            twin = next((p for p in same_set if p["driver_number"] == d and p["pit_duration"] < 60), None)
+            if twin:
+                same_set.remove(twin)
+                out.append(twin)
+                moved_to(twin["lap_number"])
+                continue
+            out.append(q)
+        return out
 
     def inferred_stops(self) -> list[dict]:
         """A change of tyres the stints feed shows and the pit feed does not
         (Hungary 2026: Norris's stop at the end of lap 39). No lane time, so
         it counts as a stop and never as the quickest or slowest one."""
+        if self.tyres_unreliable:
+            return []
         have = {(p["driver_number"], p["lap_number"]) for p in self.lane_visits}
         out = []
         for d in {st.get("driver_number") for st in self.stints}:
@@ -810,8 +1255,9 @@ class Session:
                 if changed and self.race_end_ts and t_in and t_in >= self.race_end_ts:
                     changed = False   # Spa 2026: a set fitted after the chequered flag
                 if changed:
+                    t_in = self.lap_start_ts(ln + 1)
                     out.append({"driver_number": d, "lap_number": ln, "pit_duration": None,
-                                "ts": self.lap_start_ts(ln + 1), "inferred": True})
+                                "ts": t_in, "entry": t_in, "inferred": True})
         return out
 
     @property
@@ -820,7 +1266,22 @@ class Session:
         return [p for p in self.real_pits if p.get("pit_duration") and p["pit_duration"] < 60]
 
     def stops_between(self, a, b) -> list[dict]:
-        return [p for p in self.real_pits if p["ts"] and a <= p["ts"] <= b]
+        """Stops whose car went into the lane between two moments."""
+        return [p for p in self.real_pits if p.get("entry") and a <= p["entry"] <= b]
+
+    def stops_under(self, a, b) -> list[dict]:
+        """Stops made under a neutralisation called at a. The pit feed's date is
+        about when he left the lane, so a car already in it looked like one that
+        came in afterwards (Spielberg 2026: Antonelli crossed the line in the
+        lane at 13:32:37, the VSC came at 13:32:52, the feed says 13:32:54)."""
+        out = []
+        for p in self.stops_between(a, b):
+            nxt = next((l for l in self.laps if l.get("driver_number") == p["driver_number"]
+                        and l.get("lap_number") == (p.get("lap_number") or 0) + 1), None)
+            line = parse_ts(nxt.get("date_start")) if nxt else None
+            if not (line and line < a):
+                out.append(p)
+        return out
 
     def _clean_passes(self, keep_lap1: bool) -> list[tuple[int, dict]]:
         """Changes of place that were a car going past another on track.
@@ -855,11 +1316,12 @@ class Session:
             if not ts:
                 continue
             ln = self.lap_of(ts) or (1 if self.race_start_ts and ts >= self.race_start_ts - timedelta(seconds=30) else None)
-            if not ln or (ln == 1 and not keep_lap1) or (ln > 1 and ln in dead):
+            sl = self.start_lap
+            if not ln or ln < sl or (ln == sl and not keep_lap1) or (ln > sl and ln in dead):
                 continue
             if end and ts > end:
                 continue
-            if ln > 1 and self.neutralised(ts):
+            if ln > sl and self.neutralised(ts):
                 continue
             v = o.get("overtaken_driver_number")
             if any(d == v and a <= ts <= b for d, a, b in lane):
@@ -891,14 +1353,14 @@ class Session:
             v = o["overtaken_driver_number"]
             burst = {o2["overtaking_driver_number"] for _, t2, o2 in keep
                      if o2["overtaken_driver_number"] == v and abs((t2 - ts).total_seconds()) <= 30}
-            if len(burst) >= 4 and ln > 1:
+            if len(burst) >= 4 and ln > self.start_lap:
                 continue
             out.append((ln, o))
         return out
 
     def green_overtakes(self) -> list[tuple[int, dict]]:
         if getattr(self, "_green", None) is None:
-            self._green = [(ln, o) for ln, o in self._clean_passes(False) if ln > 1]
+            self._green = [(ln, o) for ln, o in self._clean_passes(False) if ln > self.start_lap]
         return self._green
 
     def lap1_passes(self) -> list[dict]:
@@ -906,7 +1368,7 @@ class Session:
         under a yellow (Shanghai 2026: Hadjar spun at the end of lap 1 and
         twelve cars "passed" him in ten seconds under a double yellow). A bad
         getaway with no flag out is a real loss of places and stays."""
-        out = [o for ln, o in self._clean_passes(True) if ln == 1]
+        out = [o for ln, o in self._clean_passes(True) if ln == self.start_lap]
         yellows = [parse_ts(m.get("date")) for m in self.rc
                    if m.get("flag") in ("YELLOW", "DOUBLE YELLOW")]
         yellows = [t for t in yellows if t]
@@ -985,15 +1447,17 @@ class Session:
         runs = [(n, v[0], v[1], v[2]) for n, v in best.items() if v[0] >= min_laps]
         return sorted(runs, key=lambda x: -x[1])
 
-    def pace(self, num: int) -> float | None:
+    def pace(self, num: int, upto: int | None = None) -> float | None:
         """Median racing lap: no lap 1, no in- or out-laps, nothing behind the
         safety car, the VSC or a red flag (Miami 2026: a median built on two
-        safety-car laps made one car look nineteen seconds a lap slow)."""
+        safety-car laps made one car look nineteen seconds a lap slow).
+        upto: only laps up to that one, to compare a car that retired against
+        the same laps of the others, on the same fuel."""
         stops = {p["lap_number"] for p in self.lane_visits if p["driver_number"] == num}
         laps = []
         for l in self.timed_laps(num):
             ln = l.get("lap_number") or 0
-            if ln <= 1 or ln in stops or ln in self.dead_laps:
+            if ln <= 1 or ln in stops or ln in self.dead_laps or (upto and ln > upto):
                 continue
             if self.kind == "race" and self.neutralised(parse_ts(l.get("date_start"))):
                 continue
@@ -1056,10 +1520,20 @@ class Session:
         vals = [g for ln, g in self._interval_index().get(num, []) if ln <= lap]
         return vals[-1] if vals else None
 
+    def gap_at_ts(self, num: int, when) -> float | None:
+        """Gap to the car directly ahead at an exact moment."""
+        vals = [iv["interval"] for iv in sorted(self.intervals, key=lambda x: x.get("date") or "")
+                if iv.get("driver_number") == num and isinstance(iv.get("interval"), (int, float))
+                and parse_ts(iv.get("date")) and parse_ts(iv.get("date")) <= when]
+        return vals[-1] if vals else None
+
     def tyre_at_lap(self, num: int, lap: int) -> tuple[str | None, int | None]:
         """The set he was on going into that lap: a stint that starts on it
         was fitted during it (Monaco 2026: "4 laps old" softs were the ones
         he got at the stop, not the ones he came in on)."""
+        if self.tyres_unreliable and any(p["driver_number"] == num and (p.get("lap_number") or 0) < lap
+                                         for p in self.lane_visits):
+            return None, None
         sts = [st for st in self.stints if st.get("driver_number") == num]
         for strict in (True, False):
             for st in sts:
@@ -1110,6 +1584,24 @@ class Session:
                 kind = "a drive-through" if "DRIVE" in dt.group(1) else "a stop-and-go"
                 out.append({"car": int(dt.group(2)), "secs": 0, "kind": kind,
                             "reason": reason.lower(), "lap": m.get("lap_number")})
+        # the note under the official result: decided after the flag, or never
+        # posted by race control (Miami 2026: Leclerc 20s, P6 to P8)
+        free = [(p["car"], p["secs"]) for p in out]
+        for q in self.official.penalties():
+            if q["secs"] and (q["car"], q["secs"]) in free:
+                free.remove((q["car"], q["secs"]))
+                continue
+            out.append({"car": q["car"], "secs": q["secs"], "kind": q["kind"],
+                        "reason": q["reason"], "lap": None, "after": True})
+        return out
+
+    @property
+    def dsq(self) -> dict[int, str]:
+        """Disqualified, and why if the official note says."""
+        out = dict(self.official.dsq)
+        for r in self.result:
+            if r.get("dsq"):
+                out.setdefault(r["driver_number"], "")
         return out
 
     def start_grid(self) -> dict[int, int]:
@@ -1118,6 +1610,8 @@ class Session:
         Not every session publishes starting_grid, so when it is missing the
         first position each driver is given in the feed is the grid slot.
         """
+        if self.official.known and self.official.grid:
+            return self.official.grid
         if self.grid:
             return {g["driver_number"]: g.get("position") for g in self.grid
                     if g.get("position")}
@@ -1125,6 +1619,14 @@ class Session:
         for p in sorted(self.position, key=lambda x: x.get("date") or ""):
             if p.get("position") and p["driver_number"] not in first:
                 first[p["driver_number"]] = p["position"]
+        # two cars on one slot: the first reading was wrong (Marina Bay 2026
+        # sprint: Norris and Verstappen both on pole). The sprint's own grid
+        # is published with sprint qualifying.
+        if len(set(first.values())) < len(first):
+            for k2, n2, s2, *_ in SESSIONS:
+                other = load(k2, n2, "starting_grid") if s2 == "sprint-quali" else []
+                if other:
+                    return {g["driver_number"]: g.get("position") for g in other if g.get("position")}
         return first
 
     def stewards(self) -> list[dict]:
@@ -1242,8 +1744,15 @@ class Session:
     def incident_on(self, num: int, lap: int) -> dict | None:
         """A race-control incident involving this car on this lap or the one
         before: what the feed says instead of an invented failure."""
+        t0 = self.own_lap_ts(num, lap)
         for c in self.stewards():
-            if num in c["cars"] and c["lap"] and lap - 1 <= c["lap"] <= lap:
+            if num not in c["cars"] or not c["lap"]:
+                continue
+            if lap - 1 <= c["lap"] <= lap:
+                return c
+            # c["lap"] is the leader's, and a lapped car counts behind him
+            # (Zandvoort 2026: Albon's lap 67 was the leader's lap 69)
+            if t0 and c["when"] and timedelta(0) <= c["when"] - t0 <= timedelta(seconds=300):
                 return c
         return None
 
@@ -1263,6 +1772,12 @@ def a_team(team: str) -> str:
         return "their car"
     noun = car(team)
     return ("an " if noun[:1].upper() in "AEIOU" else "a ") + noun
+
+
+def tyre_words(comp: str, age: int, lap: int) -> str:
+    """'Medium, 12 laps old'. Older than the race is a set that had laps on it
+    when it went on (Baku 2026: 32 laps old on lap 31), and it says so."""
+    return f"{comp.title()}, {plural(age, 'lap')} old" + (", a used set" if age >= lap else "")
 
 
 def ratio_words(r: float) -> str:
@@ -1341,9 +1856,25 @@ def prediction_cards(s: Session) -> list[dict]:
     finishers = [r["driver_number"] for r in s.result if s.finish_pos(r["driver_number"])]
     sprint = s.label.startswith("Sprint")
 
-    def decoys(right: int, n: int = 2) -> list[int]:
-        """Plausible wrong answers: drivers who finished near the front."""
-        return [d for d in finishers if d != right][:n]
+    # (02/11/2026) the decoys used to be the top two of the race, every time:
+    # the one back marker next to two leaders was the car that retired, and the
+    # lists read out the final result.
+    def near_on_track(right: int, lap: int, n: int = 2) -> list[int]:
+        """Finishers running closest to him when the question is asked."""
+        pos = {d: p for p, d in s.order_at_lap(lap)}
+        me = pos.get(right, 99)
+        return sorted((d for d in finishers if d != right and d in pos),
+                      key=lambda d: (abs(pos[d] - me), d))[:n]
+
+    def quickest_rivals(right: int, n: int = 2) -> list[int]:
+        """Finishers with the next best laps of the race."""
+        pb: dict[int, float] = {}
+        for l in s.laps:
+            t, d = l.get("lap_duration"), l.get("driver_number")
+            secs = [l.get(f"duration_sector_{i}") for i in (1, 2, 3)]
+            if t and d in finishers and d != right and not (all(secs) and abs(sum(secs) - t) > 1.0):
+                pb[d] = min(t, pb.get(d, t))
+        return sorted(pb, key=pb.get)[:n]
 
     def options(nums: list[int]) -> list[str]:
         # sorted by car number so the right answer is not always in slot one
@@ -1359,11 +1890,12 @@ def prediction_cards(s: Session) -> list[dict]:
                     "Somewhere in the points" if end <= (8 if sprint else 10) else "Out of the points")
             add({"type": "prediction", "lap": 2,
                  "kicker": "Call it before it happens",
-                 "title": f"{s.name(num)} starts P{start}. Where does he finish?",
+                 "title": f"{s.name(num)} starts {s.start_words(num)}. Where does he finish?",
                  "text": f"{s.total_laps} laps to make up ground from there.",
                  "options": ["On the podium", "Somewhere in the points", "Out of the points"],
                  "answer": band,
-                 "reveal": f"P{start} to P{end}, {plural(climb, 'place')} gained."})
+                 # the answer, and no more: the exact place belongs to the flag
+                 "reveal": f"{band}. The exact place comes at the flag."})
 
     # --- the fastest lap: asked well before it lands
     best = s.best_lap
@@ -1375,7 +1907,7 @@ def prediction_cards(s: Session) -> list[dict]:
              "title": "Who has the fastest lap on the board at the flag?",
              "text": "It usually lands late, when the car is light and the track has "
                      "rubber all over it.",
-             "options": options([right] + decoys(right)),
+             "options": options([right] + quickest_rivals(right)),
              "answer": s.name(right),
              "reveal": f"{s.name(right)} on lap {lap_of_best}, {fmt(best['lap_duration'])}, "
                        f"in {a_team(s.team(right))}."})
@@ -1391,12 +1923,12 @@ def prediction_cards(s: Session) -> list[dict]:
                  "kicker": "Call it before it happens",
                  "title": "One of these three does not see the chequered flag. Who?",
                  "text": "Nothing on the timing screens says it is coming.",
-                 "options": options([num] + decoys(num)),
+                 "options": options([num] + near_on_track(num, max(2, stop - 5))),
                  "answer": s.name(num),
                  "reveal": f"{s.name(num)}, on lap {stop} of {s.total_laps}. "
                            + (f"Race control had logged an incident involving "
                               f"{names_list([s.name(n) for n in inc['cars']])}"
-                              + (f" at {inc['where']}" if inc["where"] else "") + f" on lap {inc['lap']}."
+                              + (f" at {inc['where']}" if inc["where"] else "") + "."
                               if inc else "The timing feed records that he stopped, not why.")})
 
     return out
@@ -1431,8 +1963,9 @@ def decision_cards(s: Session) -> list[dict]:
             headline = f"{offence or 'an incident'}, {who}"
         add({"type": "decision", "lap": c["lap"], "kicker": "You are the steward",
              "title": f"Lap {c['lap']}: {headline}. What do you give?",
-             "text": "Race control has flagged it and it lands on your desk. Same "
-                     "call the stewards had to make.",
+             "text": "Race control has flagged it and it lands on your desk. If one "
+                     "driver is to blame, what does he get? Same call the stewards "
+                     "had to make.",
              "state": [["Lap", f"{c['lap']} of {s.total_laps}"],
                        ["Cars involved", who],
                        ["Reported as", (c["reason"] or "Incident").split(":")[0].strip().title()
@@ -1451,10 +1984,6 @@ def decision_cards(s: Session) -> list[dict]:
                  "10": "Ten seconds is a real punishment and it almost always costs "
                        "track position, which is why teams argue so hard about it."},
              "reveal": (f"The stewards gave {s.name(c['penalised'])} a {c['secs']}s penalty."
-                        + (f" He still finished P{s.finish_pos(c['penalised'])}."
-                           if s.finish_pos(c["penalised"]) else
-                           " He did not reach the flag." if c["penalised"] in {r['driver_number'] for r in s.dnfs}
-                           else "")
                         if c["secs"] else "The stewards took no further action.")})
 
     # --- the safety car gamble
@@ -1470,36 +1999,35 @@ def decision_cards(s: Session) -> list[dict]:
         comp, age = s.tyre_at_lap(leader, sc)
         if age is not None and age < 5:
             continue          # a leader on fresh tyres has no decision to make
-        dived = {q["driver_number"] for q in s.stops_between(p["ts"], p["end_ts"] + timedelta(seconds=100))}
+        dived = {q["driver_number"] for q in s.stops_under(p["ts"], s.sc_until(p))}
         add({"type": "decision", "lap": sc, "kicker": "Your call on the pit wall",
              "title": f"Safety car with {left} laps left. You are leading. Box or stay out?",
-             "text": "The pack is bunched up behind you and a stop costs far less than "
-                     "usual, except that everybody behind can copy you and the one who "
-                     "does not gets the lead.",
+             "text": "The pack is about to bunch up behind you and a stop costs far less "
+                     "than usual, except that everybody behind can copy you and anyone "
+                     "who stays out may come out ahead.",
              "state": [["Running", f"P1, {s.name(leader)}"], ["Laps left", str(left)]]
-                      + ([["Tyres", f"{comp.title()}, {age} laps old"]] if comp and age is not None else [])
-                      + [["Gap to P2", "Wiped out by the safety car"]],
+                      + ([["Tyres", tyre_words(comp, age, sc)]] if comp and age is not None else [])
+                      # (02/11/2026) Silverstone 2026: 20.3s, not "wiped out"
+                      + ([["Gap to P2", f"{g:.1f}s when it came out"]]
+                         if len(order) > 1 and (g := s.gap_at_ts(order[1][1], p["ts"])) is not None else []),
              "choices": [
                  {"id": "box", "label": "Box for fresh tyres",
-                  "sub": "Grip for the restart, hand over track position"},
+                  "sub": "Grip for the restart, at the risk of track position"},
                  {"id": "stay", "label": "Stay out and defend",
                   "sub": "Keep the lead on older tyres"}],
              "actual": "box" if leader in dived else "stay",
              "outcomes": {
-                 "box": "New rubber under a safety car is close to free, and it only "
-                        "works if the cars behind stay out. If they all follow you in, "
-                        "you have spent your lead for nothing.",
+                 "box": "New rubber under a safety car is close to free. If the cars "
+                        "behind follow you in, the order holds. If they stay out, your "
+                        "gap has to cover the stop.",
                  "stay": "You keep the lead and restart on older tyres, with a queue of "
                          "fresher cars in your mirrors and no gap to hide in."},
-             "reveal": (f"{s.name(leader)} came in. " if leader in dived
-                        else f"{s.name(leader)} stayed out. ")
-                       + "At the flag it was "
-                       + ", ".join(f"P{r['position']} {s.name(r['driver_number'])}"
-                                   for r in s.result[:3]) + "."})
+             "reveal": (f"{s.name(leader)} came in." if leader in dived
+                        else f"{s.name(leader)} stayed out.")})
 
     # --- the undercut: a green-flag call, only where there were green stops
     green_pits = [p for p in s.timed_stops
-                  if p["lap_number"] not in s.dead_laps and not s.neutralised(p["ts"])]
+                  if p["lap_number"] not in s.dead_laps and not s.neutral_kind(p.get("entry"))]
     if len(green_pits) >= 4 and s.position:
         window = int(median(p["lap_number"] for p in green_pits))
         order = s.order_at_lap(window - 1)
@@ -1510,26 +2038,40 @@ def decision_cards(s: Session) -> list[dict]:
                 continue      # one of them has only just stopped: no decision left
             gap = s.gap_at_lap(chaser, window - 1)
             comp, age = s.tyre_at_lap(chaser, window)
+            # (02/11/2026) the marked answer has to be what happened. "Box now"
+            # is a stop within three laps, under green, before the car ahead.
+            # "Stay out, let him stop first" needs the car ahead to stop first.
+            # Anything else (Montreal 2026: 21 laps later under the VSC, and the
+            # car ahead never stopped; Shanghai 2026: neither stopped again) has
+            # no honest answer, so the card moves on to the next pair.
+            nx = next((l for l in s.pit_laps(chaser) if l >= window), None)
+            an = next((l for l in s.pit_laps(ahead) if l >= window), None)
+            nx_ts = next((p.get("entry") for p in s.real_pits
+                          if p["driver_number"] == chaser and p["lap_number"] == nx), None)
+            box_now = (nx is not None and nx - window <= 3 and not s.neutral_kind(nx_ts)
+                       and (an is None or nx <= an))
+            he_first = an is not None and (nx is None or an < nx)
+            if not (box_now or he_first):
+                continue
             if gap and gap <= 3.0 and age is not None and age >= 5:
-                pair = (chaser, ahead, gap, comp, age)
+                pair = (chaser, ahead, gap, comp, age, box_now)
                 break
         if pair and window not in s.dead_laps:
-            chaser, ahead, gap, comp, age = pair
+            chaser, ahead, gap, comp, age, box_now = pair
             chaser_pos = next(p for p, n in order if n == chaser)
             lane = median(p["pit_duration"] for p in green_pits)
             stops = s.pit_laps(chaser)
             next_stop = next((l for l in stops if l >= window), None)
             ahead_next = next((l for l in s.pit_laps(ahead) if l >= window), None)
-            fin = s.finish_pos(chaser)
             add({"type": "decision", "lap": window, "kicker": "Your call on the pit wall",
                  "title": f"You are {s.name(chaser)}, {gap:.1f}s behind "
-                          f"{s.name(ahead)} and going nowhere. Now what?",
+                          f"{s.name(ahead)}. Now what?",
                  "text": "Stuck behind another car your tyres overheat and the car will "
                          "not turn. Stopping first gives you clean track for two or three "
                          "laps, which is the whole trick behind the undercut.",
                  "state": [["Running", f"P{chaser_pos}"],
                            ["Gap ahead", f"{gap:.1f}s to {s.name(ahead)}"],
-                           ["Tyres", f"{comp.title()}, {age} laps old"],
+                           ["Tyres", tyre_words(comp, age, window)],
                            ["Time in the pit lane", f"about {lane:.0f}s today"]],
                  "choices": [
                      {"id": "box", "label": "Box now and undercut",
@@ -1538,11 +2080,10 @@ def decision_cards(s: Session) -> list[dict]:
                       "sub": "Let him stop first, then push on an empty track"},
                      {"id": "attack", "label": "Forget strategy, pass him",
                       "sub": "Send it and take the risk"}],
-                 "actual": ("box" if next_stop and (ahead_next is None or next_stop <= ahead_next)
-                            else "wait"),
+                 "actual": "box" if box_now else "wait",
                  "outcomes": {
                      "box": f"You spend about {lane:.0f}s in the lane and come out in "
-                            "traffic, betting that two fast laps on new tyres are worth "
+                            "traffic, trusting that two fast laps on new tyres are worth "
                             "more than the place you just gave up.",
                      "wait": "You stay on old rubber while he gets new ones, and you need "
                              "clean air plus a mistake from him to make it work.",
@@ -1554,14 +2095,11 @@ def decision_cards(s: Session) -> list[dict]:
                              f"{s.name(chaser)} came in on lap {next_stop}, "
                              f"{plural(next_stop - window, 'lap')} after this"
                              + (lambda k: f", under {k}." if k else ".")(s.neutral_kind(next(
-                                 (p['ts'] for p in s.real_pits if p['driver_number'] == chaser
+                                 (p.get('entry') for p in s.real_pits if p['driver_number'] == chaser
                                   and p['lap_number'] == next_stop), None))))
                             if next_stop else
                             (f"{s.name(chaser)} did not stop again." if stops
-                             else f"{s.name(chaser)} did not stop."))
-                           + (f" He finished P{fin}" if fin else " He did not reach the flag")
-                           + (f", {s.name(ahead)} P{s.finish_pos(ahead)}."
-                              if s.finish_pos(ahead) else ".")})
+                             else f"{s.name(chaser)} did not stop."))})
 
     # --- what if: the counterfactual, labelled as one
     # (30/10/2026) the retirement that was running highest, not the first one
@@ -1584,18 +2122,18 @@ def decision_cards(s: Session) -> list[dict]:
         was = pool[0][0]
         left = s.total_laps - stop
         his = s.pace(num)
-        rivals = [(s.pace(x["driver_number"]), x["driver_number"]) for x in s.result[:5]
-                  if s.pace(x["driver_number"]) and x["driver_number"] != num]
+        rivals = [(s.pace(x["driver_number"], stop - 1), x["driver_number"]) for x in s.result[:5]
+                  if s.pace(x["driver_number"], stop - 1) and x["driver_number"] != num]
         beaten = [n for t, n in rivals if his and t > his]
         winner_num = s.result[0]["driver_number"]
-        winner_pace = s.pace(winner_num)
+        winner_pace = s.pace(winner_num, stop - 1)
         win_delta = (his - winner_pace) if (his and winner_pace) else None
         if was and his and left >= 3:
             if was <= 3:
                 choices = [("win", "He wins it", "The pace was there"),
                            ("podium", "Podium, not the win", "Close, but not enough"),
                            ("drop", "He drops back", "Tyres or traffic get him")]
-                guess_id = "win" if win_delta is not None and win_delta < 0 else "podium"
+                guess_id = "win" if win_delta is not None and win_delta < -0.1 else "podium"
             elif was <= (8 if sprint else 10):
                 choices = [("podium", "He reaches the podium", "Enough pace to climb"),
                            ("points", "He keeps it in the points", "Holds roughly where he was"),
@@ -1624,7 +2162,7 @@ def decision_cards(s: Session) -> list[dict]:
                      "Our read from his own lap times, not a fact. "
                      + (f"He was lapping {abs(win_delta):.2f}s a lap "
                         f"{'quicker' if win_delta < 0 else 'slower'} than "
-                        f"{s.name(winner_num)}, who went on to win it. "
+                        "the car that went on to win it, over the same laps. "
                         if win_delta is not None else "")
                      + f"With {left} laps left, \"{next(l for i, l, _ in choices if i == guess_id).lower()}\" "
                        "is the honest guess, and nobody gets to check."
@@ -1649,17 +2187,25 @@ def decision_cards(s: Session) -> list[dict]:
             step = 0.05 if top <= 5 else (0.1 if top <= 20 else 0.5)
             lane = median(p["pit_duration"] for p in green_pits) if len(green_pits) >= 3 else None
             dur = s.racing_time()
+            # (02/11/2026) Silverstone 2026 finished behind the safety car: 0.427s
+            # is how tight the queue was, not what decided the race
+            flag_kind = s.neutral_kind(s.race_end_ts - timedelta(seconds=5)) if s.race_end_ts else None
             add({"type": "guess", "lap": s.total_laps, "kicker": "Guess it",
                  "title": f"How far behind was {s.name(s.result[1]['driver_number'])} "
                           "at the flag?",
                  "text": f"{s.total_laps} laps" + (f", {dur} of racing" if dur else "")
-                         + ", and it comes down to this one number.",
+                         + (f". It finished under {flag_kind}." if flag_kind
+                            else ". Put a number on the gap to the winner."),
                  "unit": "s", "min": 0, "max": top, "step": step,
-                 "target": round(gap, 3), "close": max(0.3, gap * 0.4),
+                 "target": round(gap, 3), "close": max(0.1, gap * 0.4),
                  "reveal": f"{gap:.3f} seconds after {s.total_laps} laps."
-                           + (f" A trip down the pit lane took about {lane:.0f}s today, "
-                              f"which is {ratio_words(lane / gap)} the margin this "
-                              f"{'sprint' if sprint else 'race'} was decided by."
+                           + (f" Measured under {flag_kind}, so it shows how the field was "
+                              "held at the end and not how close the racing was."
+                              + (f" {s.name(fu['leader'])} was {fu['gap']:.1f}s clear when it came out."
+                                 if (fu := s.flag_under_sc) and fu["gap"] else "")
+                              if flag_kind else
+                              f" A trip down the pit lane took about {lane:.0f}s today, "
+                              f"which is {ratio_words(lane / gap)} this gap."
                               if lane and gap else "")})
 
     return out
@@ -1674,14 +2220,7 @@ def decision_cards(s: Session) -> list[dict]:
 def neutral_summary(s: Session) -> str:
     """'2 safety cars, a virtual safety car and a red flag', from the data."""
     bits = []
-    reds = [parse_ts(m.get("date")) for m in s.rc
-            if re.search(r"(?<![A-Z])RED FLAG", (m.get("message") or "").upper())]
-    deployed = [parse_ts(m.get("date")) for m in s.messages("SAFETY CAR DEPLOYED")
-                if "VIRTUAL" not in (m.get("message") or "").upper()]
-    turned = sum(1 for r in reds[:1] if r and any(d and d <= r <= d + timedelta(minutes=15)
-                                                  and not any(p["ts"] == d for p in s.sc_periods)
-                                                  for d in deployed))
-    n_sc = len(s.sc_periods) + turned
+    n_sc = s.sc_count
     if n_sc:
         bits.append(plural(n_sc, "safety car"))
     if s.vsc_periods:
@@ -1703,7 +2242,7 @@ def mate_thread(s: Session) -> dict:
     event = "sprint" if sprint else "race"
     grid_pos = s.start_grid()
     lane_times = [p["pit_duration"] for p in s.timed_stops
-                  if p["lap_number"] not in s.dead_laps and not s.neutralised(p["ts"])]
+                  if p["lap_number"] not in s.dead_laps and not s.neutral_kind(p.get("entry"))]
     lane = median(lane_times) if len(lane_times) >= 3 else None
     scs = s.sc_periods
     wet_start = any((st.get("lap_start") or 0) == 1 and st.get("compound") in ("INTERMEDIATE", "WET")
@@ -1735,10 +2274,10 @@ def mate_thread(s: Session) -> dict:
                  "grid penalties"] + rules}]})
 
     lap1 = s.lap1_passes()
-    add({"lap": 1,
+    add({"lap": s.start_lap,
          "msgs": ["lights out",
-                  f"{plural(len(lap1), 'place')} changed hands before they even finished lap 1"
-                  if lap1 else "and everybody kept their place through lap 1, rare"],
+                  s.lap1_words(len(lap1), f"before they even finished lap {s.start_lap}")
+                  if lap1 else f"and everybody kept their place through lap {s.start_lap}, rare"],
          "asks": [
              {"q": "why is the start always so mad", "a": [
                  "cold tyres, cold brakes, full fuel tank and everybody going for the "
@@ -1772,7 +2311,7 @@ def mate_thread(s: Session) -> dict:
         add({"lap": sc,
              "msgs": [f"SAFETY CAR on lap {sc}",
                       f"{s.total_laps - sc} laps left and every gap just got deleted"
-                      if p["end_ts"] else f"and the {event} finished behind it"]
+                      if p["end_ts"] and (p["end_lap"] or 0) < s.total_laps else f"and the {event} finished behind it"]
                      + (["and then it turned into a red flag"] if p.get("red") else []),
              "asks": [
                  {"q": "explain safety car like i'm five", "a": [
@@ -1863,6 +2402,8 @@ def mate_thread(s: Session) -> dict:
 def merged_stints(s: Session) -> list[dict]:
     """One entry per set of tyres. The feed splits a set into two stints at a
     lane visit where the tyres were not changed; that is still one set."""
+    if s.tyres_unreliable:
+        return []
     out = []
     by: dict[int, list[dict]] = defaultdict(list)
     for st in s.stints:
@@ -1870,17 +2411,23 @@ def merged_stints(s: Session) -> list[dict]:
     for d, sts in by.items():
         sts = sorted(sts, key=lambda st: st.get("lap_start") or 0)
         cur = None
+        last_lap = min(s.total_laps, s.completed_laps(d) or s.total_laps)
+        stops = set(s.pit_laps(d))
         for st in sts:
             a, b = st.get("lap_start") or 0, st.get("lap_end") or 0
             if not a or not b or st.get("compound") in (None, "UNKNOWN"):
                 cur = None
                 continue
+            # new tyres start the lap after he came in (Montreal 2026: Bortoleto
+            # in on lap 18, the feed's stint starts on 18 and reads 49 laps, not 48)
+            if a > 1 and a in stops and a - 1 not in stops:
+                a += 1
             if cur and st.get("compound") == cur["compound"] and \
                     (st.get("tyre_age_at_start") or 0) >= cur["age"] + (cur["end"] - cur["start"] + 1) - 2 \
                     and a <= cur["end"] + 1:
-                cur["end"] = min(b, s.total_laps)
+                cur["end"] = min(b, last_lap)
                 continue
-            cur = {"driver_number": d, "compound": st.get("compound"), "start": a, "end": min(b, s.total_laps),
+            cur = {"driver_number": d, "compound": st.get("compound"), "start": a, "end": min(b, last_lap),
                    "age": st.get("tyre_age_at_start") or 0}
             out.append(cur)
     return out
@@ -1914,34 +2461,49 @@ def race_story(s: Session) -> list[dict]:
                     else "" if s.unclassified else "every starter at the flag")
                  + ((", " if s.dnfs else "") + f"{plural(len(s.unclassified), 'car')} not classified"
                     if s.unclassified else "")
-                 + (f", {plural(len(scs), 'safety car')}" if scs else "")
+                 + (f", {plural(len(s.dsq), 'car')} disqualified" if s.dsq else "")
+                 + (f", {plural(s.sc_count, 'safety car')}" if s.sc_count else "")
                  + (f", {plural(len(vscs), 'virtual safety car')}" if vscs else "")
                  + (" and a red flag that stopped the race" if red_msgs else "")
                  + "."})
 
     # --- the start ---
     lap1 = s.lap1_passes()
-    after1 = {n: p for p, n in s.order_at_lap(1)}
-    gainers = sorted(((grid_pos[n] - p, n) for n, p in after1.items()
-                      if grid_pos.get(n) and grid_pos[n] - p > 0), reverse=True)
+    sl = s.start_lap
+    gainers = [(g, n) for g, n in s.lap1_gains() if g > 0]
     sc_lap1 = any((p["lap"] or 0) <= 1 for p in scs)
-    add({"type": "moment", "lap": 1, "kicker": "Lap 1 · Lights out",
-         "title": (f"{plural(len(lap1), 'place')} changed hands on track before the first lap was done"
+    add({"type": "moment", "lap": sl, "kicker": f"Lap {sl} · Lights out",
+         "title": (s.lap1_words(len(lap1), "on track " + ("before the first lap was done" if sl == 1
+                                                           else "on the first lap of racing"))
                    if lap1 else "The order held through the first lap"),
-         "text": f"{s.starters} cars into the first corner on cold tyres and full tanks.",
+         "text": (f"{s.starters} cars into the first corner on cold tyres and full tanks." if sl == 1 else
+                  f"The first {sl - 1} laps were run behind the safety car and the standing start "
+                  f"came at the end of them: {s.starters} cars into the first corner on cold tyres "
+                  "and full tanks."),
          "bullets": ((lambda tops, g: [
                          f"{names_list([s.name(n) for n in tops])} gained the most by the end of it, "
                          f"{plural(g, 'place')}" + (" each" if len(tops) > 1 else "")
                          if len(tops) <= 3 else
                          f"{len(tops)} drivers gained {plural(g, 'place')} each, the most of anybody"])(
                          [n for g, n in gainers if g == gainers[0][0]], gainers[0][0])
-                     if gainers else [])
+                     if gainers and sl == 1 else [])
+                    + ([f"When it ended, {plural(s.lap1_net(), 'place')} had really changed against the grid. "
+                        "The rest were swapped back on the way round or came from cars in trouble dropping down the order"]
+                       if lap1 and sl == 1 and not s.lap1_holds(len(lap1)) else
+                       ["Stops made on the laps behind the safety car are part of that count"]
+                       if lap1 and sl > 1 else [])
                     + (["The safety car came out on the opening lap"] if sc_lap1 else [])
                     + (lambda wet: [f"{plural(len(wet), 'car')} started on "
                                     + ("intermediates" if all(c == "INTERMEDIATE" for c in wet.values())
                                        else "wet-weather tyres")] if wet else [])(
                         {st["driver_number"]: st.get("compound") for st in s.stints
-                         if (st.get("lap_start") or 0) == 1 and st.get("compound") in ("INTERMEDIATE", "WET")})
+                         if sl == 1 and (st.get("lap_start") or 0) == 1
+                         and st.get("compound") in ("INTERMEDIATE", "WET")
+                         # a car that never took the start still has a stint on
+                         # file (Interlagos 2026: Bottas, DNS, on intermediates)
+                         and st["driver_number"] not in {r["driver_number"] for r in s.result
+                                                         if r.get("dns")}
+                         and st["driver_number"] not in set(s.official.non_starters)})
                     + ["Most of this is the pack sorting itself out. Some of it "
                        f"decides the {event}"]})
 
@@ -1954,8 +2516,10 @@ def race_story(s: Session) -> list[dict]:
         note = (f"{plural(near, 'car')} stopped within a lap of it, and new tyres against "
                 "old ones make passing far easier"
                 if near >= 3 else
-                "A couple of laps after the restart, with the field still sorting "
-                "itself out" if any(0 < lap - r <= 3 for r in s.restart_laps) else
+                ("A couple of laps after the restart, with the field still sorting "
+                 "itself out" if s.start_lap == 1 else
+                 "Soon after the start, with the field still sorting itself out")
+                if any(0 < lap - r <= 3 for r in s.restart_laps) else
                 "Early on, with full tanks and the order still settling" if lap <= 8 else
                 "Every one of them on track, with no stops around it")
         add({"type": "moment", "lap": lap, "kicker": f"Lap {lap} · Traffic",
@@ -1968,6 +2532,11 @@ def race_story(s: Session) -> list[dict]:
 
     # --- fights for the lead ---
     lead = [(ln, o) for ln, o in green if (o.get("position") or 99) == 1]
+    # one of the two in or just out of the lane is the stops, not a pass
+    # (Marina Bay 2026: Verstappen rejoining ahead of Piastri, lap 33)
+    lead = [(ln, o) for ln, o in lead
+            if not any(p["driver_number"] in (o["overtaking_driver_number"], o["overtaken_driver_number"])
+                       and abs((p.get("lap_number") or 0) - ln) <= 1 for p in s.real_pits)]
     if lead and len(lead) <= 6:
         ln, o = lead[0]
         add({"type": "moment", "lap": ln, "kicker": f"Lap {ln} · For the lead",
@@ -1986,7 +2555,7 @@ def race_story(s: Session) -> list[dict]:
              "title": f"{who}: {plural(n, 'pass', 'passes')} {'each' if len(top_d) > 1 else ''}".strip(),
              "text": (f"Level on the most passes on track." if len(top_d) > 1
                       else f"More than anybody else out there, in {a_team(s.team(num))}."),
-             "bullets": ([f"P{grid_pos[num]} on the grid, "
+             "bullets": ([f"{s.start_line(num)}, "
                           + (f"P{fin} at the flag" if fin else "and did not reach the flag")]
                          if len(top_d) == 1 and grid_pos.get(num) else [])
                         + ["Only moves made on track count, with the car ahead at "
@@ -2015,11 +2584,18 @@ def race_story(s: Session) -> list[dict]:
     if real_pits and by_lap and by_lap.most_common(1)[0][1] >= 2:
         busiest_lap, busiest_n = by_lap.most_common(1)[0]
         tied_laps = [l for l, c in by_lap.items() if c == busiest_n]
-        kinds = [s.neutral_kind(p["ts"]) for p in real_pits if p["lap_number"] == busiest_lap]
+        kinds = [s.neutral_kind(p.get("entry")) for p in real_pits if p["lap_number"] == busiest_lap]
         n_under = sum(1 for k in kinds if k)
         under = next((k for k in kinds if k), None)
         tail = (f" under {under}" if under and n_under == busiest_n else
                 f", {n_under} of them under {under}" if under and n_under * 2 > busiest_n else "")
+        # cars count their own lap: the leader can already be on the next one
+        # when the safety car is called (Baku 2026: called on 31, ten in on 30)
+        called = next((p["lap"] for p in scs if under == "the safety car" and p["lap"] and p["lap"] > busiest_lap
+                       and any(q["lap_number"] == busiest_lap and q.get("entry") and q["entry"] >= p["ts"]
+                               for q in real_pits)), None)
+        if called:
+            tail += f" (the leader was already on lap {called})"
         bullets = [(f"Busiest single lap was {busiest_lap}, with {busiest_n} cars in" + tail)
                    if len(tied_laps) == 1 else
                    f"{busiest_n} cars in on each of laps "
@@ -2030,7 +2606,10 @@ def race_story(s: Session) -> list[dict]:
             los = [s.name(p["driver_number"]) for p in timed if round(p["pit_duration"], 1) == round(lo, 1)]
             his = [s.name(p["driver_number"]) for p in timed if round(p["pit_duration"], 1) == round(hi, 1)]
             bullets += [f"Shortest time in the pit lane: {names_list(list(dict.fromkeys(los)))}, {lo:.1f}s",
-                        f"Longest: {names_list(list(dict.fromkeys(his)))}, {hi:.1f}s",
+                        # Sepang 2026: the visits before the start ran past the
+                        # minute this list stops at, so its longest is not the longest
+                        *([] if s.tyres_unreliable else
+                          [f"Longest: {names_list(list(dict.fromkeys(his)))}, {hi:.1f}s"]),
                         "Pit lane time runs from the entry line to the exit line, stop "
                         "included"]
         add({"type": "moment", "lap": window, "kicker": f"Lap {window} · Pit window",
@@ -2048,12 +2627,12 @@ def race_story(s: Session) -> list[dict]:
             most = most_d[0]
             words = {3: "Three", 4: "Four", 5: "Five", 6: "Six"}
             laps_in = s.pit_laps(most)
-            neut = sum(1 for p in real_pits if p["driver_number"] == most and s.neutralised(p["ts"]))
+            neut = sum(1 for p in real_pits if p["driver_number"] == most and s.neutral_kind(p.get("entry")))
             add({"type": "moment", "lap": min(window + 4, s.total_laps), "kicker": "Off the script",
                  "title": f"{s.name(most)} stopped {most_n} times",
                  "text": f"{words.get(most_n, str(most_n))} stops when most of the field "
                          f"made {typical if typical else 'none'}.",
-                 "bullets": [f"In on laps {names_list([str(l) for l in laps_in], cap=6)}"]
+                 "bullets": [f"In on laps {names_list([str(l) for l in laps_in], cap=9)}"]
                             + ([("All of them" if neut == most_n else
                                  "One of them" if neut == 1 else f"{neut} of them")
                                 + " under a safety car or VSC"] if neut else [])})
@@ -2111,7 +2690,7 @@ def race_story(s: Session) -> list[dict]:
         lap = s.lap_of(a) or 1
         order = s.order_at_ts(a)
         leader = order[0][1] if order else None
-        under = list(dict.fromkeys(p["driver_number"] for p in s.stops_between(a, b + timedelta(seconds=30))))
+        under = list(dict.fromkeys(p["driver_number"] for p in s.stops_under(a, s.vsc_until(b))))
         finished = s.race_end_ts and b >= s.race_end_ts - timedelta(seconds=5)
         ended = s.lap_of(b)
         add({"type": "moment", "lap": lap,
@@ -2125,6 +2704,8 @@ def race_story(s: Session) -> list[dict]:
                             + (" took a stop under it" if len(under) == 1 else " stopped under it")]
                            if under else [])
                         + (["The race finished under it"] if finished else
+                           [f"A safety car took over on lap {ended}"]
+                           if any(p["ts"] == b for p in scs) else
                            [f"Lifted on lap {ended}"] if ended else []),
              "note": "A stop under a VSC costs less than one at racing speed, "
                      "because everybody else is going slowly too. Cheaper, not free: "
@@ -2137,7 +2718,7 @@ def race_story(s: Session) -> list[dict]:
         order = s.order_at_ts(p["ts"])
         leader = order[0][1] if order else None
         end = p["end_ts"] or s.race_end_ts or p["ts"] + timedelta(minutes=10)
-        dived = list(dict.fromkeys(q["driver_number"] for q in s.stops_between(p["ts"], end + timedelta(seconds=60))))
+        dived = list(dict.fromkeys(q["driver_number"] for q in s.stops_under(p["ts"], s.sc_until(p))))
         others = [n for n in dived if n != leader]
         end_lap = p["end_lap"] or (s.lap_of(p["end_ts"]) if p["end_ts"] else None)
         restarted = bool(p["end_ts"]) and not p.get("red") and (end_lap or 0) < s.total_laps
@@ -2160,7 +2741,7 @@ def race_story(s: Session) -> list[dict]:
                             if others else []))
                         + ([f"Neutralised until lap {end_lap}"] if restarted and end_lap else
                            [f"It ended in a red flag on lap {end_lap}"] if p.get("red") and end_lap else
-                           [f"The {event} finished behind it"] if not p["end_ts"] else [])
+                           [f"The {event} finished behind it"] if not p["end_ts"] or (end_lap or 0) >= s.total_laps else [])
                         + lesson})
 
     # --- red flag: one card, whatever category the feed filed it under ---
@@ -2186,7 +2767,7 @@ def race_story(s: Session) -> list[dict]:
              "text": ("A safety car first, then the red flag: " if sc_first else "Red flag: ")
                      + "everybody into the pit lane and a wait for the track to be made safe.",
              "bullets": ([f"{s.name(leader)} was leading when it happened"] if leader else [])
-                        + ([f"{kind.title()} restart on lap {restart.get('lap_number')}"]
+                        + ([f"{kind.title()} restart on lap {s.restart_lap or restart.get('lap_number')}"]
                            if restart and restart.get("lap_number") else [])
                         + ["Teams can change tyres while the cars wait, which rewrites "
                            "the strategies on the grid"]})
@@ -2245,12 +2826,21 @@ def race_story(s: Session) -> list[dict]:
     if pens:
         def pen_line(p):
             what = f"a {p['kind']} penalty" if p["secs"] else p["kind"]
-            return f"{s.name(p['car'])}: {what}" + (f" for {p['reason']}" if p["reason"] else "")
-        add({"type": "moment", "lap": pens[0]["lap"] or s.total_laps,
+            road, final = s.road_position(p["car"]), s.finish_pos(p["car"])
+            return (f"{s.name(p['car'])}: {what}" + (f" for {p['reason']}" if p["reason"] else "")
+                    + (f", P{road} on the road and P{final} in the classification"
+                       if p.get("after") and road and final and road != final else ""))
+        late = [p for p in pens if p.get("after")]
+        add({"type": "moment", "lap": s.total_laps if late else (pens[0]["lap"] or s.total_laps),
              "kicker": "Penalties",
-             "title": f"{plural(len(pens), 'penalty', 'penalties')} handed out",
-             "text": "Given by the stewards during the " + event + ".",
-             "bullets": [pen_line(p) for p in pens[:3]]
+             # a total is only a total if the official sheet has been read: without
+             # it, what race control posted is all this can count
+             "title": f"{plural(len(pens), 'penalty', 'penalties')} handed out"
+                      + ("" if s.official.known else f" during the {event}"),
+             "text": (f"Given by the stewards, some of them after the {event}: the official "
+                      "classification has them." if late else
+                      "Given by the stewards during the " + event + "."),
+             "bullets": [pen_line(p) for p in (late + [q for q in pens if not q.get("after")])[:3]]
                         + ([f"And {len(pens) - 3} more"] if len(pens) > 3 else [])
                         + (["A time penalty is served at the next stop, or added to the "
                             "final time when there is no stop left"]
@@ -2258,6 +2848,13 @@ def race_story(s: Session) -> list[dict]:
                         + (["A drive-through is a trip down the pit lane at the speed "
                             "limit without stopping"]
                            if any(p["kind"] == "a drive-through" for p in pens) else [])})
+
+    for num, why in s.dsq.items():
+        add({"type": "moment", "lap": s.total_laps, "kicker": "Disqualified",
+             "title": f"{s.name(num)} is thrown out of the result",
+             "text": f"He took the flag and was disqualified after the {event}"
+                     + (f": {why}." if why else "."),
+             "bullets": [s.start_line(num)]})
 
     deleted = s.deleted_in_session()
     if deleted:
@@ -2285,7 +2882,8 @@ def race_story(s: Session) -> list[dict]:
              "title": f"{s.name(num)} is out",
              "text": f"His {event} ends on lap {stop} of {s.total_laps}, in {a_team(s.team(num))}.",
              "bullets": ([f"P{was} at the start of lap {stop - 1}"] if was else [])
-                        + ([f"Started P{grid_pos[num]}"] if grid_pos.get(num) else [])
+                        + ([("Started from the pit lane" if s.from_pit_lane(num) else f"Started P{grid_pos[num]}")]
+                           if grid_pos.get(num) else [])
                         + ([plural(ov_by_driver[num], 'on-track pass', 'on-track passes')
                             + " before it happened"] if ov_by_driver.get(num) else [])
                         + ([f"Race control logged an incident with "
@@ -2323,7 +2921,8 @@ def race_story(s: Session) -> list[dict]:
         who, kmh = trap
         add({"type": "moment", "lap": int(s.total_laps * 0.45), "kicker": "Speed trap",
              "title": f"{names_list([s.name(d) for d in who])} hit {kmh} km/h",
-             "text": "The fastest car in a straight line is often not the "
+             "text": "The trap reads one fixed point on the lap, so a car can go faster "
+                     "elsewhere. And the fastest car in a straight line is often not the "
                      "fastest car over a lap.",
              "bullets": ([f"{s.name(who[0])} did it in {a_team(s.team(who[0]))}"] if len(who) == 1 else [])
                         + ["Top speed says as much about wing level, and about sitting "
@@ -2351,7 +2950,8 @@ def race_story(s: Session) -> list[dict]:
             fell = sum(1 for r in s.dnfs if (grid_pos.get(r["driver_number"]) or 99) < grid_pos[num])
             add({"type": "moment", "lap": max(2, s.total_laps - 4),
                  "kicker": "The drive of the day" if famous else "A climb through the field",
-                 "title": f"{s.name(num)}: P{grid_pos[num]} on the grid, P{ended} at the flag",
+                 "title": f"{s.name(num)}: {s.start_line(num).lower() if s.from_pit_lane(num) else s.start_line(num)}, "
+                          f"P{ended} at the flag",
                  "text": (f"{plural(climb, 'place')} gained, all the way to the "
                           f"{'top step' if ended == 1 else 'podium'}." if famous else
                           f"{plural(climb, 'place')} gained."),
@@ -2366,8 +2966,7 @@ def race_story(s: Session) -> list[dict]:
             add({"type": "moment", "lap": max(3, s.total_laps - 6), "kicker": "Backwards",
                  "title": f"{s.name(dnum)} went the other way: {plural(abs(drop), 'place')} lost",
                  "text": f"Qualifying promised one thing and the {event} delivered another.",
-                 "bullets": [f"P{grid_pos.get(dnum)} on the grid, "
-                             f"P{s.finish_pos(dnum)} at the flag"]
+                 "bullets": [f"{s.start_line(dnum)}, P{s.finish_pos(dnum)} at the flag"]
                             + ([f"{plural(n_st, 'stop')} when most of the field made "
                                 f"{typical_stops if typical_stops else 'none'}"]
                                if n_st and n_st != typical_stops else [])
@@ -2403,7 +3002,12 @@ def race_story(s: Session) -> list[dict]:
                             for r in podium) + ".",
          "bullets": ([f"After {s.total_laps} laps, {s.name(podium[1]['driver_number'])} "
                       f"crossed the line {gap2:.3f}s behind"]
-                     + (["Less than the time it takes to read this sentence"] if gap2 < 2 else []))
+                     + ((lambda fu: [f"The {event} finished behind the safety car, so that is the queue "
+                                     "and not the racing"
+                                     + (f": {s.name(fu['leader'])} was {fu['gap']:.1f}s clear when it came out"
+                                        if fu["gap"] else "")])(s.flag_under_sc)
+                        if s.flag_under_sc else
+                        ["Less than the time it takes to read this sentence"] if gap2 < 2 else []))
                     if gap2 else [],
          "dato": {"label": "Points scored",
                   "rows": [[s.name(r["driver_number"]), f"{r.get('points') or 0:.0f}"]
@@ -2412,7 +3016,31 @@ def race_story(s: Session) -> list[dict]:
     head = [c for c in cards if c["type"] == "cover"]
     body = sorted([c for c in cards if c["type"] == "moment"]
                   + prediction_cards(s) + decision_cards(s),
-                  key=lambda c: c.get("lap") or 0)
+                  # (02/11/2026) on the same lap the question goes first: the flag
+                  # card prints the gap the guess asks for, and the safety car card
+                  # says whether the leader stopped. The what if stays after the
+                  # "is out" card it is about.
+                  key=lambda c: (c.get("lap") or 0,
+                                 2 if c.get("kicker") == "What if" else
+                                 1 if c["type"] == "moment" else 0))
+    # the penalties card names the verdict the steward quiz asks for (Montreal
+    # sprint 2026: "Perez: a 10s penalty" one card before the question)
+    st = next((i for i, c in enumerate(body) if c.get("kicker") == "You are the steward"), None)
+    pen = next((i for i, c in enumerate(body) if (c.get("title") or "").endswith("handed out")), None)
+    if st is not None and pen is not None and pen < st:
+        body.insert(st, body.pop(pen))
+    # the same disclaimer under every retirement reads like a template: once a race
+    said_it = False
+    why_line = "The timing feed records that he stopped, not why"
+    for c in body:
+        if why_line in (c.get("reveal") or ""):
+            if said_it:
+                c["reveal"] = c["reveal"].replace(why_line + ".", "").strip()
+            said_it = True
+        if why_line in (c.get("bullets") or []):
+            if said_it:
+                c["bullets"] = [b for b in c["bullets"] if b != why_line]
+            said_it = True
     return close_thoughts(head + body)
 
 
@@ -2439,8 +3067,17 @@ def quali_story(s: Session) -> list[dict]:
     no_time = [n for n in s.drivers if n not in classified]
     field = len(classified) + len(no_time)
     q2_last = 10 + (field - 10) // 2 if field > 10 else 0
+    # a car with times in Q2 and Q3 and no place at the end was not knocked out
+    # of anything, and the cuts sit one place higher without him (Mexico City
+    # 2026: Lawson, thrown out afterwards; P10 is a Q2 car and P16 a Q1 car)
+    by_num = {r["driver_number"]: r for r in s.result}
+    struck = [n for n in no_time if q_time(by_num.get(n, {}), 2) or n in s.dsq]
+    no_time = [n for n in no_time if n not in struck]
+    disqualified = {n: s.dsq.get(n, "") for n in struck}
+    q3_cut = 10 - sum(1 for n in struck if q_time(by_num.get(n, {}), 2))
+    q2_last -= sum(1 for n in struck if q_time(by_num.get(n, {}), 1)) if q2_last else 0
     q1_out = [r for r in s.result if r.get("position") and r["position"] > q2_last] if q2_last else []
-    q2_out = [r for r in s.result if 10 < (r.get("position") or 0) <= q2_last]
+    q2_out = [r for r in s.result if q3_cut < (r.get("position") or 0) <= q2_last]
     add({"type": "cover", "lap": 0, "kicker": f"{GP['short']} · {s.label}",
          "title": f"One lap decides the whole {target}",
          "text": (f"{field} cars, three rounds: {len(q1_out) + len(no_time)} out after the "
@@ -2471,6 +3108,17 @@ def quali_story(s: Session) -> list[dict]:
                  "text": ", ".join(f"{name} ({where})" for name, where in rows)
                          .replace(", no time)", ", no time set in this round)") + ".",
                  "dato": {"label": f"Knocked out in {rnd}", "rows": rows}})
+    for n in struck:
+        add({"type": "moment", "lap": 3, "kicker": "Not classified",
+             "title": f"{s.name(n)} has no place in the result",
+             "text": "He set times all the way to Q3, and the classification still leaves him out. "
+                     "The timing feed records that, not why."})
+
+    for num, why in disqualified.items():
+        add({"type": "moment", "lap": 3, "kicker": "Disqualified",
+             "title": f"{s.name(num)} loses all his times",
+             "text": f"Disqualified from the session" + (f": {why}." if why else ".")
+                     + " Everybody behind him moves up a place."})
 
     deleted = s.deleted_in_session()
     if deleted:
@@ -2520,22 +3168,45 @@ def quali_story(s: Session) -> list[dict]:
                       "A yellow in the wrong sector at the wrong moment ends "
                       "somebody's lap, and sometimes their session.")})
 
-    grid = sorted(((g["position"], g["driver_number"]) for g in s.grid
-                   if g.get("position") and g.get("driver_number")))
+    grid = sorted((pos, num) for num, pos in s.start_grid().items() if pos and num) if (s.grid or s.official.known) else []
     if grid:
         quali_pos = {r["driver_number"]: r["position"] for r in s.result if r.get("position")}
+        # who then never took the start, and who took it from the pit lane
+        dns = set(s.official.non_starters)
+        for k2, n2, s2, *_ in SESSIONS:
+            if s2 == ("sprint" if s.slug == "sprint-quali" else "race"):
+                dns |= {r["driver_number"] for r in load(k2, n2, "session_result") if r.get("dns")}
+        pit = {n: why for n, why in s.official.pit_lane.items() if n not in dns}
+        slot = dict((n, p) for p, n in grid)
         moved = [(num, quali_pos[num], pos) for pos, num in grid
-                 if num in quali_pos and quali_pos[num] < pos]
+                 if num in quali_pos and quali_pos[num] < pos and num not in dns and num not in pit]
+
+        def pit_reason(why: str) -> str:
+            w = why.lower()
+            parc, pu = "parc ferme" in w, "power unit" in w
+            return ("the car was changed under parc ferme rules and took new power unit parts" if parc and pu else
+                    "the car was changed under parc ferme rules" if parc else
+                    "new power unit parts" if pu else why)
+        by_reason: dict[str, list[int]] = defaultdict(list)
+        for n, why in pit.items():
+            by_reason[pit_reason(why)].append(n)
         add({"type": "moment", "lap": 8, "kicker": "The grid",
              "title": f"How the {target} starts",
-             "text": " · ".join(f"P{pos} {s.name(num)}" for pos, num in grid[:6]),
-             "bullets": [f"{s.name(num)} qualified P{q} and starts P{p}, "
-                         f"{p - q} place{'s' if p - q > 1 else ''} further back"
-                         for num, q, p in moved[:4]]
+             "text": " · ".join(f"P{pos} {s.name(num)}" for pos, num in [g for g in grid if g[1] not in dns][:6]),
+             "bullets": ([f"{names_list([s.name(n) for n in sorted(dns, key=lambda n: slot.get(n, 99))], cap=6)} "
+                          f"did not start, so {len(grid) - len(dns)} cars took the start"]
+                         if dns else [])
+                        + [f"{s.name(num)} qualified P{q} and starts P{p}, "
+                           f"{p - q} place{'s' if p - q > 1 else ''} further back"
+                           for num, q, p in moved[:4]]
+                        + [f"{names_list([s.name(n) for n in ns], cap=6)} "
+                           f"start{'s' if len(ns) == 1 else ''} from the pit lane"
+                           + (f": {why}" if why else "")
+                           for why, ns in by_reason.items()]
                         + (["The grid is not the qualifying order. A penalty moves a "
                             "car back, whether for something on track or for a new "
                             "engine, and everybody behind it moves up"]
-                           if moved else [])})
+                           if moved or pit else [])})
     else:
         add({"type": "moment", "lap": 8, "kicker": "The grid",
              "title": f"How the {target} starts",
@@ -2554,7 +3225,7 @@ def practice_story(s: Session) -> list[dict]:
 
     add({"type": "cover", "lap": 0, "kicker": f"{GP['short']} · {s.label}",
          "title": "Practice, honestly",
-         "text": f"{len(s.laps)} laps run and nothing at stake. What it does tell "
+         "text": f"{len(s.laps)} laps run and no points on offer. What it does tell "
                  "you is who looks comfortable and who is fighting the car."})
 
     if best:
@@ -2663,7 +3334,7 @@ def race_facts(s: Session) -> dict | None:
         "passes": len(s.green_overtakes()),
         "stops": len(s.real_pits),
         "dnfs": len(s.dnfs),
-        "safetyCars": len(s.sc_laps),
+        "safetyCars": s.sc_count,
         "redFlag": bool(s.red_laps),
         "laps": s.total_laps,
     }
@@ -2724,7 +3395,7 @@ def main() -> None:
                 json.dumps(race_brain(s, GP, fmt, parse_ts), ensure_ascii=False,
                            indent=2), encoding="utf-8")
             # the pit wall only exists for a race whose tyre data holds up
-            wall = pitwall_race(s, fmt)
+            wall = pitwall_race(s, fmt) if not s.tyres_unreliable else None
             target = OUT / f"pitwall_{slug}.json"
             if wall:
                 target.write_text(json.dumps(wall, ensure_ascii=False, indent=2),
@@ -2734,13 +3405,13 @@ def main() -> None:
             print(f"     pit wall: {wall['driver']['name'] if wall else 'no'}")
 
         if kind == "practice":
-            headline = f"{len(s.laps)} laps run, no points at stake"
+            headline = f"{len(s.laps)} laps run, no points on offer"
         elif kind == "quali":
             headline = (f"{s.name(s.result[0]['driver_number'])} on pole"
                         if s.result else label)
         else:
             headline = (plural(len(s.green_overtakes()), "on-track pass", "on-track passes")
-                        + (f", {plural(len(s.sc_periods), 'safety car')}" if s.sc_periods else ""))
+                        + (f", {plural(s.sc_count, 'safety car')}" if s.sc_count else ""))
             if slug == "race" and s.total_laps:
                 race_laps = s.total_laps
 

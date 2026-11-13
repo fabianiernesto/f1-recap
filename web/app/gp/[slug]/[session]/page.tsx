@@ -38,20 +38,23 @@ export default async function SessionPage({
   const track = loadTrack(slug);
   const mate = loadMate(slug, session);
   const brain = loadBrain(slug, session);
+  const weekend = loadWeekend(slug);
   return (
     <>
+      {/* the page's title for readers and search; on screen the cards say it */}
+      <h1 className="sr-only">{weekend.gp}: {weekend.sessions.find((s) => s.slug === session)?.label}</h1>
       <div className="hub-top">
         <Link href={`/gp/${slug}/sessions`} className="hub-back">
           ← {story.circuit} · all sessions
         </Link>
-        <Link href="/" className="hub-home">Racing Simplified</Link>
+        <Link href="/" prefetch={false} className="hub-home">Racing Simplified</Link>
       </div>
       <MotionFX />
       <div className="story-haze" aria-hidden />
       <RaceScroll story={story} track={track} mate={mate} brain={brain} />
 
       {session === "race" && <FinalPoster story={story} track={track} />}
-      <SessionNext weekend={loadWeekend(slug)} current={session} />
+      <SessionNext weekend={weekend} current={session} />
     </>
   );
 }

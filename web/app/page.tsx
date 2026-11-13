@@ -7,7 +7,11 @@ import { GHOST, bigPhoto } from "@/lib/photo";
 import HowSwitch from "@/components/HowSwitch";
 import MotionFX from "@/components/MotionFX";
 import { Beam, Blur, MOOD, Speedlines, Streak } from "@/components/Mood";
+import type { Metadata } from "next";
 import type { RaceFacts, Track, Weekend } from "@/lib/types";
+
+// only the home says it is the home: in the layout it would reach every page
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 /**
  * The front door.
@@ -67,7 +71,7 @@ function headline(w: Weekend): string {
 function story(w: Weekend, f: RaceFacts): string {
   const bits: string[] = [];
   if (f.winner.start && f.winner.start > 3)
-    bits.push(`${f.winner.first} ${f.winner.last} started ${f.winner.start}th and won`);
+    bits.push(`${f.winner.first} ${f.winner.last} started P${f.winner.start} and won`);
   else bits.push(`${f.winner.first} ${f.winner.last} won from P${f.winner.start ?? "?"}`);
   if (f.margin !== null && f.runnerUp)
     bits.push(
@@ -78,7 +82,7 @@ function story(w: Weekend, f: RaceFacts): string {
   const drama = [
     f.redFlag && "a red flag that stopped the race",
     f.safetyCars > 0 && `${f.safetyCars} safety car${f.safetyCars > 1 ? "s" : ""}`,
-    f.dnfs > 0 && `${f.dnfs} cars that never saw the flag`,
+    f.dnfs > 0 && `${f.dnfs} car${f.dnfs > 1 ? "s" : ""} that never saw the flag`,
   ].filter(Boolean) as string[];
   const tail = drama.length ? `, through ${drama.join(", ")}` : "";
   return `${bits.join(", ")}${tail}. ${f.passes} passes on track, ${f.stops} pit stops, ${w.laps} laps of ${w.circuit}.`;
@@ -216,7 +220,7 @@ export default function Home() {
       </header>
 
       <div className="cross-car" data-par="0.28" aria-hidden>
-        <Blur src={MOOD.car} className="mood-car" />
+        <Blur src={MOOD.car} className="mood-car" lazy />
       </div>
 
       {/* ------------------------------------------ 2 · the two channels */}
@@ -236,7 +240,7 @@ export default function Home() {
         <HowSwitch
           doors={[
             { key: "scrolled", n: "01", name: "Scrolled", line: "Read the whole weekend, first practice to the flag" },
-            { key: "simplified", n: "02", name: "Simplified", line: "Play the race: guess it, run it, rewrite it" },
+            { key: "simplified", n: "02", name: "Simplified", line: "Play the race: call it, trade it" },
           ]}
           scrolled={
             <>
@@ -396,7 +400,7 @@ export default function Home() {
           style={{ ["--team" as string]: tone(facts.winner.colour) }}
         >
           <div className="spread-run" data-fx="left">
-            <Blur src={MOOD.horse} className="mood-horse" />
+            <Blur src={MOOD.horse} className="mood-horse" lazy />
           </div>
           <div className="spread-head">
             <span className="spread-tag">Latest recap</span>
@@ -457,6 +461,7 @@ export default function Home() {
               <Link
                 key={w.slug}
                 href={`/gp/${w.slug}`}
+                prefetch={false}
                 className="home-card"
                 style={{ ["--team" as string]: tone(f?.winner.colour) }}
               >
@@ -480,7 +485,7 @@ export default function Home() {
                     <img src={bigPhoto(f.winner.headshot).replace("w_1000", "w_420")} alt="" loading="lazy" />
                   </figure>
                 )}
-                <span className="home-card-name">{w.circuit}</span>
+                <span className={`home-card-name${w.circuit.length > 14 ? " is-long" : ""}`}>{w.circuit}</span>
                 <span className="home-card-sub">
                   {w.short} · {w.date}
                 </span>
@@ -511,7 +516,7 @@ export default function Home() {
       {/* ------------------------------------------------ 5 · the numbers */}
       <section className="numbers numbers-fire">
         <div className="numbers-tyre">
-          <Blur src={MOOD.tyre} className="mood-tyre" />
+          <Blur src={MOOD.tyre} className="mood-tyre" lazy />
         </div>
         <Beam />
         <div className="home-sec-head">

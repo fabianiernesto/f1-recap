@@ -1,6 +1,6 @@
 /**
  * Beats 24-32: step 01 of the spine the whole film follows (01 pick a race,
- * 02 read it, 03 play it). The title and the definition lift away as the
+ * 02 Scrolled, 03 play it). The title and the definition lift away as the
  * phone rises, in one gesture; in the phone the real home scrolls down to
  * the circuits and along them to Silverstone, a tap opens it, and the race
  * page pushes in on beat 32, where the Scrolled act carries on in the same
@@ -13,20 +13,20 @@ import { at, BODY, C, clamp, GLOW, MONO, smear, WIDE } from "../kit";
 import { useFrame } from "../time";
 
 const K0 = 24;
-/** the phone, the same rect the Scrolled act uses */
-export const PHONE = { x: 145, y: 430, w: 790, h: 1404 };
+/** the screen, the same rect the Scrolled act uses: the site, full width, under the caption */
+export const PHONE = { x: 0, y: 490, w: 1080, h: 1450 };
 const S = PHONE.w / 432; // CSS px of the capture -> px of the phone
 
 /** the step header every act uses: counter, one big line, one line under it */
 export const StepHead: React.FC<{ f: number; at: number; n: string; tag?: string; word: string; glow?: boolean; children?: React.ReactNode }> = ({
   f, at: st, n, tag, word, glow, children,
 }) => (
-  <div style={{ position: "absolute", left: 72, right: 60, top: 150 }}>
+  <div style={{ position: "absolute", left: 72, right: 60, top: 208 }}>
     <div style={{ display: "flex", gap: 22, alignItems: "baseline", ...smear(f, st, "up", 9, 60) }}>
       <span style={{ ...MONO, fontSize: 30, color: C.lit }}>{n} / 03</span>
       {tag && <span style={{ ...MONO, fontSize: 30, color: "#ffffff80" }}>{tag}</span>}
     </div>
-    <div style={{ ...WIDE, fontSize: 84, lineHeight: 1, marginTop: 16, ...(glow ? GLOW : { color: "#fff" }), ...smear(f, st + 2, "up", 10, 80) }}>
+    <div style={{ ...WIDE, fontSize: 78, lineHeight: 1, marginTop: 28, ...(glow ? GLOW : { color: "#fff" }), ...smear(f, st + 2, "up", 10, 80) }}>
       {word}
     </div>
     {children}
@@ -39,14 +39,57 @@ export const Tap: React.FC<{ f: number; at: number; x: number; y: number }> = ({
   if (f < t || p >= 1) return null;
   return (
     <>
-      <div style={{ position: "absolute", left: x - 26, top: y - 26, width: 52, height: 52, borderRadius: "50%", background: "#ffffffcc",
+      <div style={{ position: "absolute", left: x - 14, top: y - 14, width: 28, height: 28, borderRadius: "50%", background: "#ffffff99",
         opacity: interpolate(p, [0, 0.3, 1], [1, 0.9, 0]), boxShadow: `0 0 30px ${C.lit}` }} />
       <div style={{ position: "absolute", left: x - 90, top: y - 90, width: 180, height: 180, borderRadius: "50%",
-        border: `4px solid ${C.lit}`, background: `${C.lit}33`, transform: `scale(${0.4 + p * 0.9})`, opacity: 1 - p,
+        border: `4px solid ${C.lit}`, background: `${C.lit}14`, transform: `scale(${0.4 + p * 0.9})`, opacity: 1 - p,
         boxShadow: `0 0 30px ${C.lit}` }} />
     </>
   );
 };
+
+/** a finger on a run of taps: it travels from one to the next, presses, and a thin ring opens */
+export const Fingers: React.FC<{ f: number; taps: { at: number; x: number; y: number }[] }> = ({ f, taps }) => {
+  const LEAD = 11, TAIL = 9, JOIN = 60;
+  const io = { ...clamp, easing: Easing.inOut(Easing.cubic) };
+  const i = taps.findIndex((t) => f <= t.at + TAIL);
+  let dot: React.ReactNode = null;
+  if (i >= 0 && f >= taps[i].at - LEAD - 6) {
+    const t = taps[i], prev = taps[i - 1], next = taps[i + 1];
+    const joined = !!prev && t.at - prev.at < JOIN;
+    const from = joined ? prev : { x: t.x + 60, y: t.y + 130 };
+    const p = interpolate(f, [t.at - LEAD - 2, t.at], [0, 1], io);
+    const op = Math.min(joined ? 1 : interpolate(f, [t.at - LEAD - 6, t.at - LEAD + 2], [0, 1], clamp),
+      next && next.at - t.at < JOIN ? 1 : interpolate(f, [t.at + 1, t.at + TAIL], [1, 0], clamp));
+    const press = 1 - 0.2 * interpolate(Math.abs(f - t.at), [0, 3], [1, 0], clamp);
+    dot = <div style={{ position: "absolute", left: from.x + (t.x - from.x) * p - 22, top: from.y + (t.y - from.y) * p - 22, width: 44, height: 44, borderRadius: "50%",
+      background: "#ffffffd8", boxShadow: `0 0 0 6px ${C.lit}55, 0 0 26px ${C.lit}`, opacity: op, transform: `scale(${press})` }} />;
+  }
+  return (
+    <>
+      {taps.map((t) => {
+        const p = interpolate(f, [t.at, t.at + 16], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) });
+        if (f < t.at || p >= 1) return null;
+        return <div key={t.at} style={{ position: "absolute", left: t.x - 90, top: t.y - 90, width: 180, height: 180, borderRadius: "50%",
+          border: "3px solid #fff", transform: `scale(${0.25 + p * 0.85})`, opacity: (1 - p) * 0.8 }} />;
+      })}
+      {dot}
+    </>
+  );
+};
+
+/** a finger scrolling: it goes up the screen as the page does */
+export const Swipe: React.FC<{ f: number; at: number[]; len: number }> = ({ f, at: list, len }) => (
+  <>
+    {list.map((st) => {
+      const p = interpolate(f, [st, st + len], [0, 1], clamp);
+      if (p <= 0 || p >= 1) return null;
+      const e = Easing.inOut(Easing.cubic)(p);
+      return <div key={st} style={{ position: "absolute", left: PHONE.w * 0.82 - 22, top: PHONE.y + PHONE.h * (0.8 - e * 0.5) - 22, width: 44, height: 44, borderRadius: "50%",
+        background: "#ffffffd8", boxShadow: `0 0 0 6px ${C.lit}55, 0 0 26px ${C.lit}`, opacity: Math.min(1, Math.sin(Math.PI * p) * 2.2) }} />;
+    })}
+  </>
+);
 
 export const HowItWorks: React.FC = () => {
   const f = useFrame();
@@ -86,15 +129,15 @@ export const HowItWorks: React.FC = () => {
 
       <div style={{ opacity: 1 - out, transform: `translateY(${-out * 50}px)` }}>
         <StepHead f={f} at={b(1)} n="01" word="Pick a race.">
-          <div style={{ ...BODY, fontSize: 38, color: "#ffffffd8", marginTop: 16, ...smear(f, b(1) + 6, "up", 10, 60) }}>Every Grand Prix of 2026</div>
+          <div style={{ ...BODY, fontSize: 38, color: "#ffffffd8", marginTop: 30, ...smear(f, b(1) + 6, "up", 10, 60) }}>Every Grand Prix of 2026</div>
         </StepHead>
       </div>
 
       {/* the phone */}
       <div style={{ position: "absolute", inset: 0, perspective: 2600 }}>
-        <div style={{ position: "absolute", left: PHONE.x, top: PHONE.y, width: PHONE.w, height: PHONE.h, borderRadius: 34, overflow: "hidden",
+        <div style={{ position: "absolute", left: PHONE.x, top: PHONE.y, width: PHONE.w, height: PHONE.h, overflow: "hidden",
           transform: `translateY(${(1 - rise) * 1500}px) rotateX(${(1 - rise) * 22}deg)`,
-          boxShadow: "0 0 0 2px #ffffff1a, 0 70px 180px #000, 0 0 160px #e1060048" }}>
+          boxShadow: "0 -2px 0 #ffffff14" }}>
           <AbsoluteFill style={{ background: C.night, transform: `translateX(${-push * PHONE.w * 0.3}px)`, filter: `brightness(${1 - push * 0.5})` }}>
             <ClipFrame name="navhome" t={f / 30} />
           </AbsoluteFill>

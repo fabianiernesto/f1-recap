@@ -108,7 +108,9 @@ export function GuessBody({ card }: { card: CardData }) {
   const max = card.max ?? 100;
   const step = card.step ?? 1;
   const target = card.target ?? 0;
-  const [value, setValue] = useState((min + max) / 2);
+  // starts at the left end: from the middle, locking without moving could already
+  // be "Spot on" (6 of 20 races) when the answer happened to sit near the middle
+  const [value, setValue] = useState(min);
   const [locked, setLocked] = useState(false);
 
   const off = Math.abs(value - target);
@@ -133,6 +135,7 @@ export function GuessBody({ card }: { card: CardData }) {
       <input
         type="range"
         className="guess-range"
+        aria-label="Your guess"
         min={min}
         max={max}
         step={step}

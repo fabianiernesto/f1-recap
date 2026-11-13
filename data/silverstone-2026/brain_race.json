@@ -17,6 +17,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 25,
       "stops": [
         25,
@@ -50,6 +53,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 18,
       "stops": [
         23,
@@ -83,6 +89,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 15,
       "stops": [
         23,
@@ -116,6 +125,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 12,
       "stops": [
         28,
@@ -151,6 +163,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 10,
       "stops": [
         19,
@@ -186,6 +201,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 8,
       "stops": [
         28,
@@ -219,6 +237,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 6,
       "stops": [
         27,
@@ -252,6 +273,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 4,
       "stops": [
         26,
@@ -285,6 +309,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 2,
       "stops": [
         22,
@@ -318,6 +345,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 1,
       "stops": [
         23,
@@ -351,6 +381,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         2,
@@ -386,6 +419,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         29,
@@ -419,6 +455,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         21,
@@ -452,6 +491,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         21,
@@ -485,10 +527,14 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         35,
-        41
+        41,
+        43
       ],
       "compounds": [
         "MEDIUM",
@@ -510,7 +556,7 @@
       "fastestLap": true,
       "gap": 8.005,
       "vsWinner": 0.15,
-      "extraStops": 0
+      "extraStops": 1
     },
     "bottas": {
       "name": "Bottas",
@@ -523,6 +569,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         29,
@@ -556,6 +605,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         20,
@@ -569,8 +621,8 @@
       "pace": "1:36.560",
       "paceRaw": 96.56,
       "overtakes": 5,
-      "penalty": null,
-      "penaltyFor": null,
+      "penalty": "one penalty lap",
+      "penaltyFor": "overtaking the safety car",
       "led": 0,
       "swings": [],
       "fastestLap": false,
@@ -589,6 +641,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         20,
@@ -622,6 +677,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         18,
@@ -655,6 +713,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 47,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         17,
@@ -688,6 +749,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 44,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         1,
@@ -725,6 +789,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 37,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         17,
@@ -858,6 +925,9 @@
     "42": [
       "Stroll got a 5s penalty"
     ],
+    "43": [
+      "Antonelli pitted"
+    ],
     "44": [
       "Albon retired"
     ],
@@ -896,7 +966,7 @@
       ],
       "say": [
         "Leclerc took it",
-        "Ferrari. started P2, led 42 of 52 laps"
+        "driving for Ferrari, from P2 on the grid, and he led 42 of 52 laps"
       ]
     },
     {
@@ -970,7 +1040,7 @@
         "pitted"
       ],
       "say": [
-        "50 stops in the whole race",
+        "51 stops in the whole race",
         "you spend about 29s in the pit lane here"
       ]
     },
@@ -1040,8 +1110,8 @@
         "investigation"
       ],
       "say": [
-        "6 penalties handed out",
-        "Albon 10s · Hamilton 5s · Stroll 5s · Stroll 5s · Stroll 5s · Antonelli 5s"
+        "7 penalties handed out",
+        "Albon 10s · Hamilton 5s · Stroll 5s · Stroll 5s · Stroll 5s · Antonelli 5s · Sainz one penalty lap"
       ]
     },
     {
@@ -1130,6 +1200,20 @@
       "say": [
         "Verstappen on lap 47 · Albon on lap 44 · Hulkenberg on lap 37",
         "the data says when they stopped, not why"
+      ]
+    },
+    {
+      "id": "dsq",
+      "keys": [
+        "disqualified",
+        "disqualification",
+        "dsq",
+        "thrown out",
+        "descalificado",
+        "excluded"
+      ],
+      "say": [
+        "nobody was disqualified from the race"
       ]
     },
     {

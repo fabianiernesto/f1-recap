@@ -78,13 +78,14 @@ function driverSay(d: BrainDriver, q: string, brain: Brain): string[] {
     ];
 
   // the default: his whole afternoon in three lines
+  if (d.dsq) return [`${d.name} was disqualified after the flag, so no result and no points`];
   if (d.dnf)
     return [
       `${d.name} didn't finish. the ${d.team} car stopped on lap ${d.dnfLap} of ${brain.laps}`,
       d.start
-        ? `he'd started P${d.start}${d.overtakes ? ` and made ${d.overtakes} passes before it went` : ""}`
+        ? `he'd started ${d.pitLane ? "from the pit lane" : `P${d.start}`}${d.overtakes ? ` and made ${d.overtakes} passes before it went` : ""}`
         : "",
-      "zero points. that's how championships quietly bleed out",
+      d.dnfWhy ?? "",
     ];
 
   const moved =
@@ -96,7 +97,7 @@ function driverSay(d: BrainDriver, q: string, brain: Brain): string[] {
   return [
     `${d.name}, ${d.team}`,
     d.start && d.finish
-      ? `started P${d.start}, finished P${d.finish}${moved}`
+      ? `started ${d.pitLane ? "from the pit lane" : `P${d.start}`}, finished P${d.finish}${moved}`
       : d.finish
         ? `finished P${d.finish}`
         : "",
@@ -118,9 +119,9 @@ function driverSay(d: BrainDriver, q: string, brain: Brain): string[] {
 function whySay(d: BrainDriver, brain: Brain): string[] {
   if (d.dnf)
     return [
-      `${d.name} didn't lose it, the car did. it stopped on lap ${d.dnfLap} of ${brain.laps}`,
-      d.start ? `he'd started P${d.start} and was still running when it went` : "",
-      "they never say what broke on the day. teams sit on that for weeks",
+      `${d.name} stopped on lap ${d.dnfLap} of ${brain.laps}`,
+      d.dnfWhy ?? "the timing says when he stopped, not why",
+      d.pitLane ? "he'd started from the pit lane" : d.start ? `he'd started P${d.start}` : "",
     ];
 
   const causes: string[] = [];

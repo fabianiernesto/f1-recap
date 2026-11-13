@@ -35,10 +35,12 @@ export const BeatPunch: React.FC<{ children: React.ReactNode }> = ({ children })
 export const BeatLight: React.FC = () => {
   const { pos, k, ph, g } = useBeat();
   if (g === 0) return null;
-  const scrolled = k >= 32 && k < 75 + X;
+  const scrolled = k >= 32 && k < 64;
+  // nothing runs across the boxes and the games while you read them
+  const quiet = k >= 36 && k < 112 + X;
   const simplified = k >= 80 && k < 112;
   // the streak on each bar's downbeat
-  const bar = k % 8 === 0 && ph < 0.75;
+  const bar = !quiet && k % 8 === 0 && ph < 0.75;
   const sp = ph / 0.75;
   const streaks = bar
     ? [0, 1].map((j) => {
@@ -56,7 +58,7 @@ export const BeatLight: React.FC = () => {
       })
     : null;
   // the hard cuts between scenes are crossed by a blade of light on the beat
-  const CUTS = [112 + X, 126 + X, 136 + X];
+  const CUTS = [69, 71, 112 + X, 126 + X, 136 + X];
   const cut = CUTS.map((c) => pos - c).find((d) => Math.abs(d) < 0.45);
   const blade = cut === undefined ? null : (() => {
     const t = (cut + 0.45) / 0.9;

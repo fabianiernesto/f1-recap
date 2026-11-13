@@ -6,7 +6,7 @@
 import React from "react";
 import { AbsoluteFill, Img } from "remotion";
 import { clipFrame } from "./Clip";
-import { BODY, C, GLOW, LED, MONO, WIDE } from "./kit";
+import { BODY, C, GLOW, MONO, WIDE } from "./kit";
 
 const SCREENS = [
   { src: () => clipFrame("home", 0), x: 210, y: 960, r: -11, z: 1 },
@@ -28,8 +28,7 @@ export const Thumbnail: React.FC = () => (
     ))}
     <AbsoluteFill style={{ background: "linear-gradient(180deg, #000 0%, #000000e0 30%, transparent 46%, transparent 72%, #000000f0 82%, #000 100%)" }} />
     {/* the title, inside the feed's 4:5 crop (y 285 to 1635) */}
-    <div style={{ position: "absolute", left: 0, right: 0, top: 330, textAlign: "center" }}>
-      <div style={{ ...LED, fontSize: 64, letterSpacing: "0.04em", marginBottom: 34 }}>R//S</div>
+    <div style={{ position: "absolute", left: 0, right: 0, top: 430, textAlign: "center" }}>
       <div style={{ ...WIDE, fontSize: 96, color: "#fff" }}>Every race</div>
       <div style={{ ...WIDE, fontSize: 96, ...GLOW }}>Simplified</div>
       <div style={{ ...BODY, fontSize: 40, color: "#ffffffe0", marginTop: 30 }}>Every 2026 Grand Prix, rebuilt from the data</div>

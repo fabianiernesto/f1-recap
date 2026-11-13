@@ -11,16 +11,16 @@
       "lap": 0,
       "kicker": "Australian Grand Prix · Race · 58 laps",
       "title": "Everything that happened, in order",
-      "text": "34 on-track passes, 28 pit stops, 3 cars that never finished, 1 car not classified, 3 virtual safety cars."
+      "text": "40 on-track passes, 30 pit stops, 3 cars that never finished, 1 car not classified, 3 virtual safety cars."
     },
     {
       "type": "moment",
       "lap": 1,
       "kicker": "Lap 1 · Lights out",
-      "title": "24 places changed hands on track before the first lap was done",
+      "title": "19 places changed hands on track before the first lap was done",
       "text": "20 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Sainz and Alonso gained the most by the end of it, 7 places each"
+        "Sainz and Alonso gained the most by the end of it, 5 places each"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the race."
     },
@@ -36,13 +36,13 @@
         "Out of the points"
       ],
       "answer": "Somewhere in the points",
-      "reveal": "P20 to P6, 14 places gained."
+      "reveal": "Somewhere in the points. The exact place comes at the flag."
     },
     {
       "type": "moment",
-      "lap": 3,
-      "kicker": "Lap 3 · Traffic",
-      "title": "6 passes on this lap alone",
+      "lap": 2,
+      "kicker": "Lap 2 · Traffic",
+      "title": "5 passes on this lap alone",
       "text": "Only moves made on track count here, at racing speed.",
       "bullets": [
         "5 different drivers gained a place on this lap"
@@ -51,10 +51,21 @@
     },
     {
       "type": "moment",
-      "lap": 3,
-      "kicker": "Lap 3 · For the lead",
-      "title": "Leclerc takes the lead from Russell",
+      "lap": 2,
+      "kicker": "Lap 2 · For the lead",
+      "title": "Russell takes the lead from Leclerc",
       "text": "A pass for the lead, made on track at racing speed."
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Lap 3 · Traffic",
+      "title": "7 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "6 different drivers gained a place on this lap"
+      ],
+      "note": "Early on, with full tanks and the order still settling."
     },
     {
       "type": "moment",
@@ -84,7 +95,7 @@
       "title": "Gasly: 8 laps within a second of the car ahead",
       "text": "The longest unbroken run like it in the race, from lap 4 to lap 11, at racing speed.",
       "bullets": [
-        "6 other drivers had a run of five laps or more like it"
+        "7 other drivers had a run of five laps or more like it"
       ],
       "note": "Following closely costs the car downforce and cooks the front tyres, so sitting there is harder than it looks."
     },
@@ -96,7 +107,8 @@
       "text": "His race ends on lap 11 of 58, in a Red Bull.",
       "bullets": [
         "P5 at the start of lap 10",
-        "Started P3"
+        "Started P3",
+        "1 on-track pass before it happened"
       ],
       "note": "The timing feed records that he stopped, not why."
     },
@@ -117,11 +129,11 @@
         ],
         [
           "His median racing lap",
-          "1:25.359"
+          "1:25.363"
         ],
         [
-          "Pace",
-          "Slower than all of the eventual top five"
+          "Quicker than",
+          "1 of the eventual top five"
         ]
       ],
       "choices": [
@@ -147,7 +159,7 @@
         "points": "Holds roughly where he was.",
         "drop": "Tyres or traffic get him."
       },
-      "reveal": "Our read from his own lap times, not a fact. He was lapping 2.27s a lap slower than Russell, who went on to win it. With 47 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check."
+      "reveal": "Our read from his own lap times, not a fact. He was lapping 0.57s a lap slower than the car that went on to win it, over the same laps. With 47 laps left, \"he keeps it in the points\" is the honest guess, and nobody gets to check."
     },
     {
       "type": "moment",
@@ -157,7 +169,7 @@
       "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
         "Leclerc was leading when it was called",
-        "Norris, Ocon, Gasly and 7 others stopped under it",
+        "Norris, Ocon, Gasly and 8 others stopped under it",
         "Lifted on lap 14"
       ],
       "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
@@ -171,8 +183,21 @@
       "bullets": [
         "P18 at the start of lap 15",
         "Started P19"
+      ]
+    },
+    {
+      "type": "prediction",
+      "lap": 17,
+      "kicker": "Call it before it happens",
+      "title": "One of these three does not see the chequered flag. Who?",
+      "text": "Nothing on the timing screens says it is coming.",
+      "options": [
+        "Perez",
+        "Alonso",
+        "Colapinto"
       ],
-      "note": "The timing feed records that he stopped, not why."
+      "answer": "Alonso",
+      "reveal": "Alonso, on lap 22 of 58."
     },
     {
       "type": "moment",
@@ -182,18 +207,17 @@
       "text": "Track temperature changes how much grip the tyres find and how fast they wear. No rain was recorded during the race."
     },
     {
-      "type": "prediction",
-      "lap": 17,
-      "kicker": "Call it before it happens",
-      "title": "One of these three does not see the chequered flag. Who?",
-      "text": "Nothing on the timing screens says it is coming.",
-      "options": [
-        "Antonelli",
-        "Alonso",
-        "Russell"
+      "type": "moment",
+      "lap": 18,
+      "kicker": "Lap 18 · Pit window",
+      "title": "30 stops, and the busiest lap saw 7 of them",
+      "text": "Once one car stops, the cars around it have to answer.",
+      "bullets": [
+        "Busiest single lap was 11, with 7 cars in under the virtual safety car",
+        "Shortest time in the pit lane: Leclerc and Norris, 17.6s",
+        "Longest: Stroll, 36.7s"
       ],
-      "answer": "Alonso",
-      "reveal": "Alonso, on lap 22 of 58. The timing feed records that he stopped, not why."
+      "note": "Pit lane time runs from the entry line to the exit line, stop included."
     },
     {
       "type": "moment",
@@ -203,7 +227,7 @@
       "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
         "Leclerc was leading when it was called",
-        "Bortoleto, Bearman, Lindblad and 2 others stopped under it",
+        "Bearman, Lindblad, Verstappen and 2 others stopped under it",
         "Lifted on lap 20"
       ],
       "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
@@ -223,7 +247,7 @@
       "type": "moment",
       "lap": 19,
       "kicker": "The one doing the passing",
-      "title": "Verstappen: 7 passes",
+      "title": "Verstappen: 8 passes",
       "text": "More than anybody else out there, in a Red Bull.",
       "bullets": [
         "P20 on the grid, P6 at the flag"
@@ -233,10 +257,14 @@
         "rows": [
           [
             "Verstappen",
-            7
+            8
           ],
           [
             "Bearman",
+            5
+          ],
+          [
+            "Lawson",
             4
           ],
           [
@@ -244,33 +272,16 @@
             4
           ],
           [
+            "Russell",
+            3
+          ],
+          [
             "Bortoleto",
             3
-          ],
-          [
-            "Lawson",
-            3
-          ],
-          [
-            "Leclerc",
-            2
           ]
         ]
       },
       "note": "Only moves made on track count, with the car ahead at racing speed."
-    },
-    {
-      "type": "moment",
-      "lap": 19,
-      "kicker": "Lap 19 · Pit window",
-      "title": "28 stops, and the busiest lap saw 7 of them",
-      "text": "Once one car stops, the cars around it have to answer.",
-      "bullets": [
-        "Busiest single lap was 12, with 7 cars in under the virtual safety car",
-        "Shortest time in the pit lane: Leclerc and Norris, 17.6s",
-        "Longest: Stroll, 36.7s"
-      ],
-      "note": "Pit lane time runs from the entry line to the exit line, stop included."
     },
     {
       "type": "moment",
@@ -281,8 +292,7 @@
       "bullets": [
         "P18 at the start of lap 21",
         "Started P17"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "prediction",
@@ -291,9 +301,9 @@
       "title": "Who has the fastest lap on the board at the flag?",
       "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
+        "Norris",
         "Verstappen",
-        "Antonelli",
-        "Russell"
+        "Antonelli"
       ],
       "answer": "Verstappen",
       "reveal": "Verstappen on lap 43, 1:22.091, in a Red Bull."
@@ -303,7 +313,7 @@
       "lap": 26,
       "kicker": "Speed trap",
       "title": "Russell hit 321 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Russell did it in a Mercedes"
       ],
@@ -317,7 +327,7 @@
       "text": "Every car is held to a delta time exactly where it is. The gaps freeze instead of vanishing, which is the whole difference from a real safety car.",
       "bullets": [
         "Russell was leading when it was called",
-        "Bortoleto and Albon stopped under it",
+        "Bortoleto, Albon and Sainz stopped under it",
         "Lifted on lap 34"
       ],
       "note": "A stop under a VSC costs less than one at racing speed, because everybody else is going slowly too. Cheaper, not free: the leader keeps his gap and the queue behind him keeps its shape."
@@ -340,27 +350,27 @@
         "rows": [
           [
             "Antonelli",
-            "1:23.016"
+            "1:23.017"
           ],
           [
             "Russell",
-            "1:23.093"
+            "1:23.100"
           ],
           [
             "Leclerc",
-            "1:23.098"
+            "1:23.106"
           ],
           [
             "Hamilton",
-            "1:23.165"
+            "1:23.185"
           ],
           [
             "Norris",
-            "1:23.448"
+            "1:23.474"
           ],
           [
             "Verstappen",
-            "1:23.510"
+            "1:23.513"
           ]
         ]
       }
@@ -395,6 +405,20 @@
     },
     {
       "type": "moment",
+      "lap": 46,
+      "kicker": "Tyres",
+      "title": "Colapinto, Ocon, Gasly and 2 others ran one set for 46 laps each",
+      "text": "The longest anybody stayed out on one set.",
+      "bullets": [
+        "Colapinto: hards, lap 1 to 46",
+        "Ocon: hards, lap 12 to 57",
+        "Gasly: hards, lap 12 to 57",
+        "Russell: hards, lap 13 to 58"
+      ],
+      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+    },
+    {
+      "type": "moment",
       "lap": 52,
       "kicker": "Backwards",
       "title": "Lawson went the other way: 5 places lost",
@@ -412,20 +436,23 @@
       "title": "Verstappen: P20 on the grid, P6 at the flag",
       "text": "14 places gained.",
       "bullets": [
-        "7 on-track passes along the way",
+        "8 on-track passes along the way",
         "3 cars that started ahead of him retired"
       ]
     },
     {
-      "type": "moment",
+      "type": "guess",
       "lap": 58,
-      "kicker": "Tyres",
-      "title": "Ocon and Gasly ran one set for 47 laps each",
-      "text": "The longest anybody stayed out on one set.",
-      "bullets": [
-        "On the hards, lap 12 to lap 58"
-      ],
-      "note": "Every lap you stretch is a lap you do not lose in the pit lane. And every lap you stretch is a set of tyres getting slower underneath you."
+      "kicker": "Guess it",
+      "title": "How far behind was Antonelli at the flag?",
+      "text": "58 laps, 1 hour 23 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 10,
+      "step": 0.1,
+      "target": 2.974,
+      "close": 1.1896000000000002,
+      "reveal": "2.974 seconds after 58 laps. A trip down the pit lane took about 19s today, which is 6 times this gap."
     },
     {
       "type": "moment",
@@ -491,20 +518,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 58,
-      "kicker": "Guess it",
-      "title": "How far behind was Antonelli at the flag?",
-      "text": "58 laps, 1 hour 23 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 10,
-      "step": 0.1,
-      "target": 2.974,
-      "close": 1.1896000000000002,
-      "reveal": "2.974 seconds after 58 laps. A trip down the pit lane took about 19s today, which is 6 times the margin this race was decided by."
     }
   ],
   "result": {

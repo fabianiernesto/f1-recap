@@ -20,7 +20,7 @@
       "title": "22 places changed hands on track before the first lap was done",
       "text": "22 cars into the first corner on cold tyres and full tanks.",
       "bullets": [
-        "Bearman and Colapinto gained the most by the end of it, 4 places each"
+        "Bearman gained the most by the end of it, 4 places"
       ],
       "note": "Most of this is the pack sorting itself out. Some of it decides the sprint."
     },
@@ -36,31 +36,10 @@
       ]
     },
     {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Lap 2 · Traffic",
-      "title": "8 passes on this lap alone",
-      "text": "Only moves made on track count here, at racing speed.",
-      "bullets": [
-        "8 different drivers gained a place on this lap"
-      ],
-      "note": "Early on, with full tanks and the order still settling."
-    },
-    {
-      "type": "moment",
-      "lap": 2,
-      "kicker": "Yellow flags",
-      "title": "Yellow flags out 1 time",
-      "text": "Race control waves a yellow for anything on or near the track that should not be there.",
-      "bullets": [
-        "A yellow means slow down and do not overtake in that part of the track"
-      ]
-    },
-    {
       "type": "prediction",
       "lap": 2,
       "kicker": "Call it before it happens",
-      "title": "Albon starts P22. Where does he finish?",
+      "title": "Albon starts from the pit lane. Where does he finish?",
       "text": "17 laps to make up ground from there.",
       "options": [
         "On the podium",
@@ -68,14 +47,14 @@
         "Out of the points"
       ],
       "answer": "Out of the points",
-      "reveal": "P22 to P18, 4 places gained."
+      "reveal": "Out of the points. The exact place comes at the flag."
     },
     {
       "type": "decision",
       "lap": 2,
       "kicker": "You are the steward",
       "title": "Lap 2: contact between Perez and Alonso at Turn 3. What do you give?",
-      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
+      "text": "Race control has flagged it and it lands on your desk. If one driver is to blame, what does he get? Same call the stewards had to make.",
       "state": [
         [
           "Lap",
@@ -113,7 +92,28 @@
         "5": "Five seconds gets added at the next stop, or to the final time if there is no stop left. Usually one position, sometimes none.",
         "10": "Ten seconds is a real punishment and it almost always costs track position, which is why teams argue so hard about it."
       },
-      "reveal": "The stewards gave Perez a 10s penalty. He still finished P22."
+      "reveal": "The stewards gave Perez a 10s penalty."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Lap 2 · Traffic",
+      "title": "8 passes on this lap alone",
+      "text": "Only moves made on track count here, at racing speed.",
+      "bullets": [
+        "8 different drivers gained a place on this lap"
+      ],
+      "note": "Early on, with full tanks and the order still settling."
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Yellow flags",
+      "title": "Yellow flags out 1 time",
+      "text": "Race control waves a yellow for anything on or near the track that should not be there.",
+      "bullets": [
+        "A yellow means slow down and do not overtake in that part of the track"
+      ]
     },
     {
       "type": "moment",
@@ -200,7 +200,7 @@
       "lap": 7,
       "kicker": "Speed trap",
       "title": "Hadjar hit 340 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Hadjar did it in a Red Bull"
       ],
@@ -214,26 +214,15 @@
       "text": "A pass for the lead, made on track at racing speed."
     },
     {
-      "type": "moment",
-      "lap": 8,
-      "kicker": "Penalties",
-      "title": "1 penalty handed out",
-      "text": "Given by the stewards during the sprint.",
-      "bullets": [
-        "Perez: a 10s penalty for causing a collision"
-      ],
-      "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."
-    },
-    {
       "type": "prediction",
       "lap": 9,
       "kicker": "Call it before it happens",
       "title": "Who has the fastest lap on the board at the flag?",
       "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
-        "Norris",
         "Antonelli",
-        "Hamilton"
+        "Hamilton",
+        "Russell"
       ],
       "answer": "Antonelli",
       "reveal": "Antonelli on lap 17, 1:31.607, in a Mercedes."
@@ -290,11 +279,25 @@
       "type": "moment",
       "lap": 13,
       "kicker": "A climb through the field",
-      "title": "Albon: P22 on the grid, P18 at the flag",
+      "title": "Albon: from the pit lane, P18 at the flag",
       "text": "4 places gained.",
       "bullets": [
         "3 on-track passes along the way"
       ]
+    },
+    {
+      "type": "guess",
+      "lap": 17,
+      "kicker": "Guess it",
+      "title": "How far behind was Hamilton at the flag?",
+      "text": "17 laps, about 26 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 6,
+      "step": 0.1,
+      "target": 2.745,
+      "close": 1.098,
+      "reveal": "2.745 seconds after 17 laps."
     },
     {
       "type": "moment",
@@ -306,6 +309,18 @@
         "On one set the whole way: Mediums for 18, softs for Alonso and Bottas"
       ],
       "note": "Every lap you stretch is a lap you do not lose in the pit lane."
+    },
+    {
+      "type": "moment",
+      "lap": 17,
+      "kicker": "Penalties",
+      "title": "2 penalties handed out",
+      "text": "Given by the stewards, some of them after the sprint: the official classification has them.",
+      "bullets": [
+        "Hulkenberg: a 5s penalty for leaving the track and gaining an advantage, P13 on the road and P15 in the classification",
+        "Perez: a 10s penalty for causing a collision"
+      ],
+      "note": "A time penalty is served at the next stop, or added to the final time when there is no stop left."
     },
     {
       "type": "moment",
@@ -382,20 +397,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 17,
-      "kicker": "Guess it",
-      "title": "How far behind was Hamilton at the flag?",
-      "text": "17 laps, about 26 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 6,
-      "step": 0.1,
-      "target": 2.745,
-      "close": 1.098,
-      "reveal": "2.745 seconds after 17 laps."
     }
   ]
 }

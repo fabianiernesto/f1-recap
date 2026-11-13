@@ -1,0 +1,76 @@
+{
+  "slug": "interlagos-2026",
+  "gp": "Sao Paulo Grand Prix 2026",
+  "short": "Sao Paulo Grand Prix",
+  "circuit": "Interlagos",
+  "country": "Brazil",
+  "date": "08 NOV 2026",
+  "laps": 71,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "570 laps run, no points on offer",
+      "moments": 8,
+      "laps": 34
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "702 laps run, no points on offer",
+      "moments": 8,
+      "laps": 37
+    },
+    {
+      "slug": "fp3",
+      "label": "Practice 3",
+      "kind": "practice",
+      "headline": "478 laps run, no points on offer",
+      "moments": 7,
+      "laps": 32
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Norris on pole",
+      "moments": 9,
+      "laps": 24
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "84 on-track passes",
+      "moments": 28,
+      "laps": 71
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Lando",
+      "last": "Norris",
+      "team": "McLaren",
+      "colour": "F47600",
+      "number": 1,
+      "start": 1,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp"
+    },
+    "margin": 14.602,
+    "runnerUp": "Verstappen",
+    "fastest": {
+      "last": "Antonelli",
+      "time": "1:12.689"
+    },
+    "passes": 84,
+    "stops": 58,
+    "dnfs": 1,
+    "safetyCars": 0,
+    "redFlag": false,
+    "laps": 71
+  },
+  "rating": null,
+  "heat": []
+}

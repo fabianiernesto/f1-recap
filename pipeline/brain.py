@@ -76,8 +76,16 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
     typical = Counter(stop_counts.values()).most_common(1)[0][0] if stop_counts else 0
     winner_pace = s.pace(winner) if winner else None
     green_lane = [p["pit_duration"] for p in s.timed_stops
-                  if p["lap_number"] not in s.dead_laps and not s.neutralised(p["ts"])]
+                  if p["lap_number"] not in s.dead_laps and not s.neutral_kind(p.get("entry"))]
     lane = median(green_lane) if len(green_lane) >= 3 else None
+
+    def _dnf_why(num: int) -> str | None:
+        inc = s.incident_on(num, s.stop_lap(num))
+        if not inc:
+            return None
+        where = f" at {inc['where']}" if inc["where"] else ""
+        return (f"race control logged an incident with {', '.join(s.name(n) for n in inc['cars'])}"
+                f"{where} on lap {inc['lap']}")
 
     # ---------- every driver's race ----------
     drivers: dict[str, dict] = {}
@@ -105,6 +113,10 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
             "dnf": retired,
             "dns": bool(r.get("dns")),
             "dnfLap": s.stop_lap(num) if retired else None,
+            # what race control logged, the same line as the card, or nothing
+            "dnfWhy": _dnf_why(num) if retired else None,
+            "dsq": num in s.dsq,
+            "pitLane": s.from_pit_lane(num),
             "points": round(r.get("points") or 0),
             "stops": s.pit_laps(num),
             "compounds": comps,
@@ -171,9 +183,9 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
          "keys": ["who won", "winner", "won", "win", "ganador", "gano", "quien gano",
                   "first place", "p1"],
          "say": [f"{s.name(winner)} took it" if winner else "nobody, weirdly",
-                 (f"{s.team(winner)}. started P{grid.get(winner)}"
-                  + (f", led {w_led} of {s.total_laps} laps" if w_led else ""))
-                 if winner and grid.get(winner) else s.team(winner) if winner else ""]},
+                 (f"driving for {s.team(winner)}, from P{grid.get(winner)} on the grid"
+                  + (f", and he led {w_led} of {s.total_laps} laps" if w_led else ""))
+                 if winner and grid.get(winner) else f"driving for {s.team(winner)}" if winner else ""]},
         {"id": "podium",
          "keys": ["podium", "podio", "top 3", "top three", "second", "third", "segundo"],
          "say": [" · ".join(f"P{r['position']} {s.name(r['driver_number'])}"
@@ -196,7 +208,7 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
         {"id": "overtakes",
          "keys": ["overtake", "overtaking", "passes", "adelantamiento", "adelantamientos",
                   "how many overtakes"],
-         "say": [f"{plural(len(green), 'pass', 'passes')} on track after lap 1",
+         "say": [f"{plural(len(green), 'pass', 'passes')} on track after lap {s.start_lap}",
                  "pit lane swaps and anything behind the safety car don't count, they'd "
                  "inflate the number and mean nothing"]},
         {"id": "pits",
@@ -228,7 +240,8 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
         {"id": "penalty",
          "keys": ["penalty", "penalties", "sancion", "stewards", "fia", "punished",
                   "investigation"],
-         "say": ([plural(len(penalties), "penalty", "penalties") + " handed out",
+         "say": ([plural(len(penalties), "penalty", "penalties") + " handed out"
+                  + ("" if s.official.known else f" during the {event}"),
                   " · ".join(f"{s.name(c['car'])} {c['kind']}" for c in penalties)[:190]]
                  if penalties else ["no penalties handed out"])},
         {"id": "weather",
@@ -243,7 +256,7 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
                   "estuvo bien", "any good", "should i watch", "entertaining"],
          "say": ["you tell me",
                  f"{plural(len(green), 'pass', 'passes')} on track, "
-                 f"{plural(len(scs), 'safety car')} and {plural(len(s.dnfs), 'retirement')}"]},
+                 f"{plural(s.sc_count, 'safety car')} and {plural(len(s.dnfs), 'retirement')}"]},
         {"id": "newbie",
          "keys": ["explain", "i know nothing", "new to f1", "how does this work",
                   "no entiendo", "explicame", "beginner", "from scratch", "like im five"],
@@ -265,14 +278,23 @@ def race_brain(s, gp: dict, fmt, parse_ts) -> dict:
                   "who went out", "did not finish", "crash"],
          "say": ([" · ".join(f"{d['name']} on lap {d['dnfLap']}"
                              for d in drivers.values() if d["dnf"]),
+                  "race control logged an incident for "
+                  + ", ".join(d["name"] for d in drivers.values() if d["dnf"] and d["dnfWhy"])
+                  + ". for the rest the data says when they stopped, not why"
+                  if any(d["dnf"] and d["dnfWhy"] for d in drivers.values()) else
                   "the data says when they stopped, not why"]
                  if any(d["dnf"] for d in drivers.values()) else
                  [" · ".join(s.name(r["driver_number"]) for r in s.unclassified)
                   + " running at the end but not classified"] if s.unclassified else
                  ["everyone who started finished"])},
+        {"id": "dsq",
+         "keys": ["disqualified", "disqualification", "dsq", "thrown out", "descalificado", "excluded"],
+         "say": [" · ".join(f"{s.name(n)}: {why}" if why else s.name(n) for n, why in s.dsq.items())
+                 + " disqualified after the " + event] if s.dsq else
+                [f"nobody was disqualified from the {event}"]},
         {"id": "grid",
          "keys": ["start", "lights out", "first lap", "lap 1", "salida", "grid", "pole"],
-         "say": [f"{plural(lap1, 'place')} changed hands on track on lap 1",
+         "say": [s.lap1_words(lap1, f"on track on lap {s.start_lap}"),
                  "cold tyres, cold brakes, full fuel and everybody going for the same gap"]},
     ]
 

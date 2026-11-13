@@ -29,7 +29,7 @@ export default async function ExchangePage({ params }: PageProps<"/gp/[slug]/[se
     <>
       <div className="hub-top">
         <Link href={`/gp/${slug}/activities`} className="hub-back">← {weekend.circuit} · all activities</Link>
-        <Link href="/" className="hub-home">Racing Simplified</Link>
+        <Link href="/" prefetch={false} className="hub-home">Racing Simplified</Link>
       </div>
       <PaddockExchange r={replay} track={loadTrack(slug)} gp={weekend.short.replace(/ Grand Prix$/, " GP")}
         slug={slug} session={session}

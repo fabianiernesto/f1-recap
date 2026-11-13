@@ -29,20 +29,24 @@ export default function RaceMate({
   thread,
   lap,
   brain,
+  quiet = false,
 }: {
   thread: MateThread;
   lap: number;
   brain: Brain | null;
+  /** a card asking for an answer is under the button: on a phone it steps aside */
+  quiet?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [log, setLog] = useState<Line[]>([]);
   const [queue, setQueue] = useState<string[]>([]);
-  const [unread, setUnread] = useState(0);
   const [beatIdx, setBeatIdx] = useState(0);
   const [draft, setDraft] = useState("");
   const [hasAsked, setHasAsked] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const fabRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
   const [sound, setSound] = useState(false);
   /* effects run twice in dev, and a beat must never be said twice */
   const saidRef = useRef(-1);
@@ -63,10 +67,9 @@ export default function RaceMate({
     const t = setTimeout(() => {
       setLog((l) => [...l, { who: "them", text: queue[0] }]);
       setQueue((q) => q.slice(1));
-      if (!open) setUnread((u) => u + 1);
     }, 420);
     return () => clearTimeout(t);
-  }, [queue, open]);
+  }, [queue]);
 
   useEffect(() => {
     bodyRef.current?.scrollTo({
@@ -75,18 +78,51 @@ export default function RaceMate({
     });
   }, [log, queue, open]);
 
+  /* only on opening: at every new message it pulled the keyboard user off
+     whatever they had tabbed to, and on a phone it threw the keyboard over the panel */
   useEffect(() => {
-    if (open) {
-      setUnread(0);
-      inputRef.current?.focus();
-    }
-  }, [open, log]);
+    if (open && matchMedia("(pointer: fine)").matches) inputRef.current?.focus();
+  }, [open]);
+
+  /* the iPhone keyboard covers the bottom of the screen without moving what is
+     fixed there, so while the field has focus the panel sits inside what is left
+     of the screen. Pinch zoom shrinks the same viewport: that is not a keyboard. */
+  useEffect(() => {
+    const vv = window.visualViewport;
+    const panel = panelRef.current;
+    if (!open || !vv || !panel) return;
+    const fit = () => {
+      const typing = document.activeElement === inputRef.current && Math.abs(vv.scale - 1) < 0.01 && vv.height < innerHeight * 0.85;
+      panel.style.setProperty("--mate-bottom", typing ? `${Math.max(0, innerHeight - vv.height - vv.offsetTop) + 6}px` : "");
+      panel.style.setProperty("--mate-max", typing ? `${vv.height - 12}px` : "");
+    };
+    fit();
+    vv.addEventListener("resize", fit);
+    vv.addEventListener("scroll", fit);
+    panel.addEventListener("focusin", fit);
+    panel.addEventListener("focusout", fit);
+    return () => {
+      vv.removeEventListener("resize", fit);
+      vv.removeEventListener("scroll", fit);
+      panel.removeEventListener("focusin", fit);
+      panel.removeEventListener("focusout", fit);
+      panel.style.removeProperty("--mate-bottom");
+      panel.style.removeProperty("--mate-max");
+    };
+  }, [open]);
 
   /* decoded once, so the click lands with the panel rather than after it */
   useEffect(() => {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    loadSfx(SFX_RADIO);
     setSound(true);
+    // not on mount: on a phone this fetch was racing the page's own first load
+    const load = () => { loadSfx(SFX_RADIO); };
+    if ("requestIdleCallback" in window) {
+      const id = requestIdleCallback(load, { timeout: 5000 });
+      return () => cancelIdleCallback(id);
+    }
+    const t = setTimeout(load, 3000);
+    return () => clearTimeout(t);
   }, []);
 
   /** He comes on air when the panel opens, and never when it closes. */
@@ -106,6 +142,8 @@ export default function RaceMate({
       ? askAlfred(q, brain)
       : ["no data pack for this session, so I would only be guessing"];
     setQueue((s) => [...reply, ...s]);
+    // a starter button is gone after this, and focus must not go with it
+    if (matchMedia("(pointer: fine)").matches) inputRef.current?.focus();
   };
 
   const typing = queue.length > 0;
@@ -113,21 +151,31 @@ export default function RaceMate({
   return (
     <>
       <button
-        className={`mate-fab${open ? " on" : ""}`}
+        ref={fabRef}
+        className={`mate-fab${open ? " on" : ""}${quiet ? " is-quiet" : ""}`}
         /* the sound is fired here and not inside the state updater, which
            React is free to call twice and did */
         onClick={() => { if (!open) radioOn(); setOpen((o) => !o); }}
         onPointerEnter={() => { if (sound) warmSfx(); }}
         onPointerDown={() => { if (sound) warmSfx(); }}
         onFocus={() => { if (sound) warmSfx(); }}
-        aria-label={open ? "Close the chat" : `Chat with ${MATE}`}
+        aria-label={open ? "Close the chat" : `Ask ${MATE}`}
+        aria-expanded={open}
       >
         <span className="mate-fab-dot" />
         {open ? "Close" : `Ask ${MATE}`}
-        {!open && unread > 0 && <b className="mate-badge">{unread}</b>}
       </button>
 
-      <aside className={`mate${open ? " open" : ""}`} aria-hidden={!open}>
+      {/* closed it is only see-through: inert keeps the keyboard out of it */}
+      <aside
+        ref={panelRef}
+        className={`mate${open ? " open" : ""}`}
+        aria-hidden={!open}
+        inert={!open}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") { setOpen(false); fabRef.current?.focus(); }
+        }}
+      >
         <header className="mate-top">
           <span className="mate-av">{MATE[0]}</span>
           <div>
@@ -136,7 +184,7 @@ export default function RaceMate({
           </div>
         </header>
 
-        <div className="mate-body" ref={bodyRef}>
+        <div className="mate-body" ref={bodyRef} role="log">
           {log.length === 0 && (
             <p className="mate-empty">
               He talks as you scroll the race. Ask him anything about it and he

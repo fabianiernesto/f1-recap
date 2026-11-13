@@ -6,7 +6,7 @@
       "msgs": [
         "yo",
         "you missed the race",
-        "72 laps, 45 passes on track and 2 virtual safety cars and a red flag"
+        "72 laps, 36 passes on track and 2 virtual safety cars and a red flag"
       ],
       "asks": [
         {
@@ -20,7 +20,7 @@
           "q": "was it actually good or are you being nice",
           "a": [
             "you tell me lol",
-            "45 passes on track, not counting the ones in the pit lane"
+            "36 passes on track, not counting the ones in the pit lane"
           ]
         },
         {
@@ -57,22 +57,6 @@
       ]
     },
     {
-      "lap": 5,
-      "msgs": [
-        "lap 5 was the busiest of the whole race",
-        "8 passes on that lap alone"
-      ],
-      "asks": [
-        {
-          "q": "are those real passes",
-          "a": [
-            "yeah, only moves made on track count here",
-            "swaps in the pit lane and stuff behind the safety car are left out"
-          ]
-        }
-      ]
-    },
-    {
       "lap": 60,
       "msgs": [
         "fastest lap of the race went to Leclerc",
@@ -104,8 +88,8 @@
         {
           "q": "what happened",
           "a": [
-            "honestly not sure, the data only tells me he stopped, not why",
-            "teams give the detail later, if at all"
+            "race control logged an incident with Sainz and Albon on lap 70",
+            "that's all the data says, teams give the detail later"
           ]
         },
         {

@@ -1,0 +1,1653 @@
+{
+"fastest-laps": {
+"title": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"52",
+"16:30:48",
+"1:35.275",
+"205.967"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"56",
+"16:37:20",
+"1:35.400",
+"205.698"
+],
+[
+"3",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"55",
+"16:36:45",
+"1:35.964",
+"204.489"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"56",
+"16:37:44",
+"1:36.011",
+"204.389"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"55",
+"16:36:04",
+"1:36.092",
+"204.216"
+],
+[
+"6",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"47",
+"16:23:07",
+"1:36.099",
+"204.201"
+],
+[
+"7",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"38",
+"16:09:59",
+"1:36.180",
+"204.029"
+],
+[
+"8",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"56",
+"16:38:12",
+"1:36.429",
+"203.503"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"53",
+"16:33:24",
+"1:36.505",
+"203.342"
+],
+[
+"10",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"35",
+"16:04:54",
+"1:36.783",
+"202.758"
+],
+[
+"11",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"39",
+"16:10:44",
+"1:37.046",
+"202.209"
+],
+[
+"12",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"56",
+"16:38:35",
+"1:37.096",
+"202.105"
+],
+[
+"13",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"46",
+"16:22:23",
+"1:37.311",
+"201.658"
+],
+[
+"14",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"52",
+"16:30:51",
+"1:37.981",
+"200.279"
+],
+[
+"15",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"56",
+"16:38:11",
+"1:38.393",
+"199.441"
+],
+[
+"16",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"51",
+"16:30:14",
+"1:38.523",
+"199.177"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"25",
+"15:48:25",
+"1:39.721",
+"196.785"
+],
+[
+"18",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"9",
+"15:19:19",
+"1:40.883",
+"194.518"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1",
+"15:06:01",
+"23.062",
+"23.062"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"9",
+"15:19:07",
+"23.678",
+"23.678"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"9",
+"15:19:07",
+"22.721",
+"22.721"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"9",
+"15:19:10",
+"23.106",
+"23.106"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"10",
+"15:20:25",
+"23.005",
+"23.005"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"10",
+"15:20:32",
+"23.390",
+"23.390"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"10",
+"15:20:33",
+"22.433",
+"22.433"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"10",
+"15:20:36",
+"25.633",
+"25.633"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"10",
+"15:20:42",
+"23.539",
+"23.539"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"10",
+"15:20:59",
+"22.967",
+"22.967"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"10",
+"15:21:20",
+"27.795",
+"27.795"
+],
+[
+"2",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"10",
+"15:21:40",
+"25.748",
+"48.810"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"11",
+"15:23:41",
+"26.213",
+"26.213"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"29",
+"15:54:41",
+"25.997",
+"25.997"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"31",
+"15:58:29",
+"23.291",
+"23.291"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"32",
+"15:59:34",
+"23.195",
+"23.195"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"35",
+"16:04:32",
+"37.358",
+"37.358"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"42",
+"16:16:19",
+"23.290",
+"23.290"
+],
+[
+"2",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"46",
+"16:23:06",
+"47.067",
+"73.064"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:33.305",
+"1:32.443",
+"1:32.064",
+"15"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:33.262",
+"1:32.523",
+"1:32.286",
+"13"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:33.522",
+"1:32.567",
+"1:32.415",
+"19"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:33.175",
+"1:32.486",
+"1:32.428",
+"20"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:33.590",
+"1:33.130",
+"1:32.550",
+"20"
+],
+[
+"6",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:33.535",
+"1:32.910",
+"1:32.608",
+"20"
+],
+[
+"7",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:33.788",
+"1:33.003",
+"1:32.873",
+"21"
+],
+[
+"8",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:33.417",
+"1:33.098",
+"1:33.002",
+"20"
+],
+[
+"9",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:33.632",
+"1:33.352",
+"1:33.121",
+"20"
+],
+[
+"10",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:33.687",
+"1:33.197",
+"1:33.292",
+"19"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:34.116",
+"1:33.354",
+"",
+"12"
+],
+[
+"12",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:33.634",
+"1:33.357",
+"",
+"15"
+],
+[
+"13",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:33.974",
+"1:33.538",
+"",
+"14"
+],
+[
+"14",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:34.139",
+"1:33.765",
+"",
+"15"
+],
+[
+"15",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:33.906",
+"1:33.784",
+"",
+"15"
+],
+[
+"16",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:33.549",
+"1:33.965",
+"",
+"14"
+],
+[
+"17",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:34.317",
+"",
+"",
+"10"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:34.772",
+"",
+"",
+"10"
+],
+[
+"19",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:35.203",
+"",
+"",
+"9"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:35.436",
+"",
+"",
+"9"
+],
+[
+"21",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:35.995",
+"",
+"",
+"9"
+],
+[
+"22",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:36.906",
+"",
+"",
+"6"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"race-result": {
+"title": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"56",
+"1:33:15.607",
+"25"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"56",
+"+5.515s",
+"18"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"56",
+"+25.267s",
+"15"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"56",
+"+28.894s",
+"12"
+],
+[
+"5",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"56",
+"+57.268s",
+"10"
+],
+[
+"6",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"56",
+"+59.647s",
+"8"
+],
+[
+"7",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"56",
+"+80.588s",
+"6"
+],
+[
+"8",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"56",
+"+87.247s",
+"4"
+],
+[
+"9",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"55",
+"+1 lap",
+"2"
+],
+[
+"10",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"55",
+"+1 lap",
+"1"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"55",
+"+1 lap",
+"0"
+],
+[
+"12",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"55",
+"+1 lap",
+"0"
+],
+[
+"13",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"55",
+"+1 lap",
+"0"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"55",
+"+1 lap",
+"0"
+],
+[
+"15",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"55",
+"+1 lap",
+"0"
+],
+[
+"NC",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"45",
+"DNF",
+"0"
+],
+[
+"NC",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"32",
+"DNF",
+"0"
+],
+[
+"NC",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"9",
+"DNF",
+"0"
+],
+[
+"NC",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"0",
+"DNS",
+"0"
+],
+[
+"NC",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"0",
+"DNS",
+"0"
+],
+[
+"NC",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"0",
+"DNS",
+"0"
+],
+[
+"NC",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"0",
+"DNS",
+"0"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-grid": {
+"title": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026 - SPRINT GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:31.520"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:31.809"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:32.141"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:32.161"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:32.224"
+],
+[
+"6",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:32.528"
+],
+[
+"7",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:32.888"
+],
+[
+"8",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:33.254"
+],
+[
+"9",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:33.409"
+],
+[
+"10",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:33.723"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:33.635"
+],
+[
+"12",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:33.639"
+],
+[
+"13",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:33.714"
+],
+[
+"14",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:33.774"
+],
+[
+"15",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:34.048"
+],
+[
+"16",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:34.327"
+],
+[
+"17",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:34.761"
+],
+[
+"18",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:35.581"
+],
+[
+"19",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:36.151"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:37.378"
+],
+[
+"21",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+""
+],
+[
+"22",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:35.305"
+]
+],
+"after": [
+"Note - Perez given permission to start after failing to set a lap time within 107% of the fastest Q1 time in Sprint Qualifying. Albon required to start from pit lane after car was modified under Parc Ferme conditions.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-qualifying": {
+"title": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026 - SPRINT QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:33.030",
+"1:32.241",
+"1:31.520",
+"13"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:33.455",
+"1:32.291",
+"1:31.809",
+"13"
+],
+[
+"3",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:33.783",
+"1:33.086",
+"1:32.141",
+"13"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:33.148",
+"1:33.042",
+"1:32.161",
+"15"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:33.813",
+"1:33.038",
+"1:32.224",
+"13"
+],
+[
+"6",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:33.194",
+"1:32.602",
+"1:32.528",
+"16"
+],
+[
+"7",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:33.970",
+"1:33.405",
+"1:32.888",
+"15"
+],
+[
+"8",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:34.170",
+"1:33.564",
+"1:33.254",
+"17"
+],
+[
+"9",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:34.280",
+"1:33.501",
+"1:33.409",
+"16"
+],
+[
+"10",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:34.447",
+"1:33.620",
+"1:33.723",
+"15"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:33.997",
+"1:33.635",
+"",
+"14"
+],
+[
+"12",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:34.087",
+"1:33.639",
+"",
+"13"
+],
+[
+"13",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:34.110",
+"1:33.714",
+"",
+"13"
+],
+[
+"14",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:34.291",
+"1:33.774",
+"",
+"14"
+],
+[
+"15",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:34.495",
+"1:34.048",
+"",
+"13"
+],
+[
+"16",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:34.592",
+"1:34.327",
+"",
+"12"
+],
+[
+"17",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:34.761",
+"",
+"",
+"6"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:35.305",
+"",
+"",
+"6"
+],
+[
+"19",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:35.581",
+"",
+"",
+"5"
+],
+[
+"20",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:36.151",
+"",
+"",
+"7"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:37.378",
+"",
+"",
+"8"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"sprint-results": {
+"title": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026 - SPRINT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"19",
+"33:38.998",
+"8"
+],
+[
+"2",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"19",
+"+0.674s",
+"7"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"19",
+"+2.554s",
+"6"
+],
+[
+"4",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"19",
+"+4.433s",
+"5"
+],
+[
+"5",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"19",
+"+5.688s",
+"4"
+],
+[
+"6",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"19",
+"+6.809s",
+"3"
+],
+[
+"7",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"19",
+"+10.900s",
+"2"
+],
+[
+"8",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"19",
+"+11.271s",
+"1"
+],
+[
+"9",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"19",
+"+11.619s",
+"0"
+],
+[
+"10",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"19",
+"+13.887s",
+"0"
+],
+[
+"11",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"19",
+"+14.780s",
+"0"
+],
+[
+"12",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"19",
+"+15.753s",
+"0"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"19",
+"+15.858s",
+"0"
+],
+[
+"14",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"19",
+"+16.393s",
+"0"
+],
+[
+"15",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"19",
+"+16.430s",
+"0"
+],
+[
+"16",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"19",
+"+20.014s",
+"0"
+],
+[
+"17",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"19",
+"+21.599s",
+"0"
+],
+[
+"18",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"19",
+"+21.971s",
+"0"
+],
+[
+"19",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"19",
+"+28.241s",
+"0"
+],
+[
+"NC",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"12",
+"DNF",
+"0"
+],
+[
+"NC",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"12",
+"DNF",
+"0"
+],
+[
+"NC",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"11",
+"DNF",
+"0"
+]
+],
+"after": [
+"Note - Perez received a five-second time penalty for a Safety Car infringement.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:32.064"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:32.286"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:32.415"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:32.428"
+],
+[
+"5",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:32.550"
+],
+[
+"6",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:32.608"
+],
+[
+"7",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:32.873"
+],
+[
+"8",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:33.002"
+],
+[
+"9",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:33.121"
+],
+[
+"10",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:33.292"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:33.354"
+],
+[
+"12",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:33.357"
+],
+[
+"13",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:33.538"
+],
+[
+"14",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:33.765"
+],
+[
+"15",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:33.784"
+],
+[
+"16",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:33.965"
+],
+[
+"17",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:34.317"
+],
+[
+"18",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:35.203"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:35.436"
+],
+[
+"20",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:35.995"
+],
+[
+"21",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:36.906"
+],
+[
+"22",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:34.772"
+]
+],
+"after": [
+"Note - Albon required to start from pit lane after car was modified under Parc Ferme conditions.",
+"OUR PARTNERS",
+"View all"
+]
+}
+}

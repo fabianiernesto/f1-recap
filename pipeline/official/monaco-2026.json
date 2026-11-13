@@ -1,0 +1,1156 @@
+{
+"fastest-laps": {
+"title": "FORMULA 1 LOUIS VUITTON GRAND PRIX DE MONACO 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"76",
+"17:24:13",
+"1:13.481",
+"163.487"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"74",
+"17:21:48",
+"1:14.643",
+"160.942"
+],
+[
+"3",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"77",
+"17:25:47",
+"1:15.497",
+"159.121"
+],
+[
+"4",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"77",
+"17:25:50",
+"1:15.669",
+"158.759"
+],
+[
+"5",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"76",
+"17:24:37",
+"1:15.754",
+"158.581"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"57",
+"16:16:32",
+"1:15.773",
+"158.541"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"76",
+"17:24:35",
+"1:15.816",
+"158.452"
+],
+[
+"8",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"76",
+"17:24:40",
+"1:15.908",
+"158.259"
+],
+[
+"9",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"53",
+"16:11:53",
+"1:15.964",
+"158.143"
+],
+[
+"10",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"74",
+"17:22:19",
+"1:16.316",
+"157.413"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"15",
+"15:23:31",
+"1:16.332",
+"157.380"
+],
+[
+"12",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"78",
+"17:27:16",
+"1:16.393",
+"157.255"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"48",
+"16:05:28",
+"1:16.803",
+"156.415"
+],
+[
+"14",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"78",
+"17:27:22",
+"1:16.891",
+"156.236"
+],
+[
+"15",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"77",
+"17:26:03",
+"1:16.914",
+"156.190"
+],
+[
+"16",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"77",
+"17:26:07",
+"1:17.120",
+"155.772"
+],
+[
+"17",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"34",
+"15:47:56",
+"1:17.670",
+"154.669"
+],
+[
+"18",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"52",
+"16:11:09",
+"1:18.022",
+"153.971"
+],
+[
+"19",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"23",
+"15:33:35",
+"1:18.475",
+"153.083"
+],
+[
+"20",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"37",
+"15:51:39",
+"1:18.845",
+"152.364"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"8",
+"15:14:42",
+"1:20.494",
+"149.243"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 LOUIS VUITTON GRAND PRIX DE MONACO 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1",
+"15:04:43",
+"26.759",
+"26.759"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1",
+"15:04:43",
+"32.127",
+"32.127"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1",
+"15:04:45",
+"25.927",
+"25.927"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"3",
+"15:07:26",
+"24.975",
+"24.975"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"4",
+"15:08:42",
+"27.138",
+"27.138"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"4",
+"15:08:49",
+"24.803",
+"24.803"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"9",
+"15:15:21",
+"25.482",
+"25.482"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"12",
+"15:19:14",
+"24.810",
+"24.810"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"28",
+"15:39:15",
+"24.138",
+"24.138"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"31",
+"15:43:44",
+"24.029",
+"24.029"
+],
+[
+"1",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"32",
+"15:45:03",
+"24.784",
+"24.784"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"35",
+"15:48:22",
+"25.377",
+"25.377"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"35",
+"15:49:39",
+"25.797",
+"25.797"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"37",
+"15:50:33",
+"24.136",
+"24.136"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"43",
+"16:00:11",
+"25.553",
+"25.553"
+],
+[
+"2",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"43",
+"16:01:08",
+"24.690",
+"50.617"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"44",
+"16:01:16",
+"25.622",
+"25.622"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"45",
+"16:02:15",
+"25.547",
+"25.547"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"48",
+"16:06:06",
+"24.244",
+"24.244"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"52",
+"16:12:20",
+"25.662",
+"25.662"
+],
+[
+"2",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"59",
+"16:20:53",
+"31.421",
+"55.665"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"60",
+"16:20:54",
+"31.227",
+"55.365"
+],
+[
+"2",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"60",
+"16:20:59",
+"34.907",
+"60.284"
+],
+[
+"2",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"58",
+"16:21:07",
+"26.334",
+"51.309"
+],
+[
+"2",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"61",
+"16:22:12",
+"26.878",
+"51.014"
+],
+[
+"2",
+"63",
+"George Russell RUS",
+"Mercedes",
+"60",
+"16:22:14",
+"35.258",
+"59.287"
+],
+[
+"3",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"59",
+"16:23:24",
+"26.005",
+"72.920"
+],
+[
+"4",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"59",
+"16:23:41",
+"24.824",
+"95.765"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 LOUIS VUITTON GRAND PRIX DE MONACO 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:13.599",
+"1:12.704",
+"1:12.051",
+"28"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:13.490",
+"1:12.499",
+"1:12.094",
+"26"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:13.777",
+"1:12.934",
+"1:12.279",
+"28"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:13.293",
+"1:12.774",
+"1:12.351",
+"29"
+],
+[
+"5",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:14.408",
+"1:12.722",
+"1:12.434",
+"25"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:14.214",
+"1:13.238",
+"1:12.445",
+"28"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:14.159",
+"1:12.983",
+"1:12.624",
+"29"
+],
+[
+"8",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:13.630",
+"1:12.919",
+"1:12.765",
+"28"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:14.469",
+"1:13.762",
+"1:13.226",
+"32"
+],
+[
+"10",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:14.498",
+"1:13.471",
+"1:13.412",
+"29"
+],
+[
+"11",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:14.321",
+"1:13.787",
+"",
+"24"
+],
+[
+"12",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:14.348",
+"1:13.815",
+"",
+"23"
+],
+[
+"13",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:13.923",
+"1:13.902",
+"",
+"21"
+],
+[
+"14",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:14.573",
+"1:13.995",
+"",
+"24"
+],
+[
+"15",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:14.685",
+"1:14.248",
+"",
+"23"
+],
+[
+"16",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:14.683",
+"",
+"",
+"10"
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:14.722",
+"",
+"",
+"14"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:14.747",
+"",
+"",
+"12"
+],
+[
+"19",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:14.814",
+"",
+"",
+"14"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:15.283",
+"",
+"",
+"13"
+],
+[
+"21",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:15.349",
+"",
+"",
+"13"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:16.061",
+"",
+"",
+"11"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"race-result": {
+"title": "FORMULA 1 LOUIS VUITTON GRAND PRIX DE MONACO 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"78",
+"2:23:31.243",
+"25"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"78",
+"+6.271s",
+"18"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"78",
+"+23.394s",
+"15"
+],
+[
+"4",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"78",
+"+24.261s",
+"12"
+],
+[
+"5",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"78",
+"+26.553s",
+"10"
+],
+[
+"6",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"78",
+"+29.010s",
+"8"
+],
+[
+"7",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"78",
+"+30.369s",
+"6"
+],
+[
+"8",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"78",
+"+33.413s",
+"4"
+],
+[
+"9",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"78",
+"+37.140s",
+"2"
+],
+[
+"10",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"78",
+"+41.899s",
+"1"
+],
+[
+"11",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"78",
+"+42.748s",
+"0"
+],
+[
+"12",
+"63",
+"George Russell RUS",
+"Mercedes",
+"78",
+"+43.353s",
+"0"
+],
+[
+"13",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"78",
+"+44.102s",
+"0"
+],
+[
+"14",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"78",
+"+48.964s",
+"0"
+],
+[
+"15",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"78",
+"+49.153s",
+"0"
+],
+[
+"16",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"70",
+"DNF",
+"0"
+],
+[
+"NC",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"64",
+"DNF",
+"0"
+],
+[
+"NC",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"56",
+"DNF",
+"0"
+],
+[
+"NC",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"43",
+"DNF",
+"0"
+],
+[
+"NC",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"27",
+"DNF",
+"0"
+],
+[
+"NC",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"15",
+"DNF",
+"0"
+],
+[
+"NC",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"0",
+"DNF",
+"0"
+]
+],
+"after": [
+"Note - Colapinto received a five-second time penalty for speeding in the pit lane. Gasly received two five-second time penalties for speeding in the pit lane. Stroll received a five-second time penalty for exceeding track limits. Hulkenberg received a 10-second time penalty for causing a collision. Perez received a 10-second time penalty for a false start.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 LOUIS VUITTON GRAND PRIX DE MONACO 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:12.051"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:12.094"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:12.279"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:12.351"
+],
+[
+"5",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:12.434"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:12.445"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:12.624"
+],
+[
+"8",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:12.765"
+],
+[
+"9",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:13.226"
+],
+[
+"10",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:13.412"
+],
+[
+"11",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:13.787"
+],
+[
+"12",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:13.815"
+],
+[
+"13",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:13.902"
+],
+[
+"14",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:13.995"
+],
+[
+"15",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:14.248"
+],
+[
+"16",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+""
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:14.722"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:14.747"
+],
+[
+"19",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:14.814"
+],
+[
+"20",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:15.283"
+],
+[
+"21",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:15.349"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:16.061"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+}
+}

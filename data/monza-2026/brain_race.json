@@ -17,6 +17,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 25,
       "stops": [
         28
@@ -48,6 +51,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 18,
       "stops": [],
       "compounds": [
@@ -77,6 +83,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 15,
       "stops": [
         28
@@ -109,6 +118,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 12,
       "stops": [],
       "compounds": [
@@ -138,6 +150,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 10,
       "stops": [],
       "compounds": [
@@ -167,6 +182,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 8,
       "stops": [],
       "compounds": [
@@ -196,6 +214,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 6,
       "stops": [],
       "compounds": [
@@ -225,6 +246,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 4,
       "stops": [],
       "compounds": [
@@ -259,6 +283,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 2,
       "stops": [],
       "compounds": [
@@ -288,6 +315,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 1,
       "stops": [],
       "compounds": [
@@ -317,6 +347,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -346,6 +379,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         27
@@ -378,6 +414,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         27
@@ -410,6 +449,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": true,
       "points": 0,
       "stops": [
         12
@@ -442,6 +484,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -471,6 +516,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         27
@@ -503,6 +551,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         46
@@ -535,6 +586,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         27
@@ -566,6 +620,9 @@
       "dnf": false,
       "dns": false,
       "dnfLap": null,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [
         27
@@ -598,6 +655,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 27,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -627,6 +687,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 24,
+      "dnfWhy": null,
+      "dsq": false,
+      "pitLane": true,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -656,6 +719,9 @@
       "dnf": true,
       "dns": false,
       "dnfLap": 2,
+      "dnfWhy": "race control logged an incident with Leclerc, Hamilton at Turn 2 on lap 1",
+      "dsq": false,
+      "pitLane": false,
       "points": 0,
       "stops": [],
       "compounds": [
@@ -759,7 +825,7 @@
       ],
       "say": [
         "Antonelli took it",
-        "Mercedes. started P19, led 9 of 53 laps"
+        "driving for Mercedes, from P19 on the grid, and he led 9 of 53 laps"
       ]
     },
     {
@@ -919,7 +985,7 @@
       ],
       "say": [
         "you tell me",
-        "103 passes on track, 0 safety cars and 3 retirements"
+        "103 passes on track, 1 safety car and 3 retirements"
       ]
     },
     {
@@ -972,7 +1038,21 @@
       ],
       "say": [
         "Stroll on lap 27 · Alonso on lap 24 · Leclerc on lap 2",
-        "the data says when they stopped, not why"
+        "race control logged an incident for Leclerc. for the rest the data says when they stopped, not why"
+      ]
+    },
+    {
+      "id": "dsq",
+      "keys": [
+        "disqualified",
+        "disqualification",
+        "dsq",
+        "thrown out",
+        "descalificado",
+        "excluded"
+      ],
+      "say": [
+        "nobody was disqualified from the race"
       ]
     },
     {
@@ -987,7 +1067,7 @@
         "pole"
       ],
       "say": [
-        "27 places changed hands on track on lap 1",
+        "27 position changes on lap 1",
         "cold tyres, cold brakes, full fuel and everybody going for the same gap"
       ]
     }

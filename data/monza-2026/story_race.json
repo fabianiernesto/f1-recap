@@ -11,36 +11,14 @@
       "lap": 0,
       "kicker": "Italian Grand Prix · Race · 53 laps",
       "title": "Everything that happened, in order",
-      "text": "103 on-track passes, 9 pit stops, 3 cars that never finished, 1 virtual safety car and a red flag that stopped the race."
-    },
-    {
-      "type": "moment",
-      "lap": 1,
-      "kicker": "Lap 1 · Lights out",
-      "title": "27 places changed hands on track before the first lap was done",
-      "text": "22 cars into the first corner on cold tyres and full tanks.",
-      "bullets": [
-        "Antonelli gained the most by the end of it, 5 places"
-      ],
-      "note": "Most of this is the pack sorting itself out. Some of it decides the race."
-    },
-    {
-      "type": "moment",
-      "lap": 1,
-      "kicker": "Stewards",
-      "title": "5 incidents looked at",
-      "text": "Every one of them logged by race control during the race.",
-      "bullets": [
-        "Lap 1: Leclerc and Hamilton, an incident",
-        "1 ended in a penalty, 2 in no further action and 2 left for after the race"
-      ]
+      "text": "103 on-track passes, 9 pit stops, 3 cars that never finished, 1 safety car, 1 virtual safety car and a red flag that stopped the race."
     },
     {
       "type": "decision",
       "lap": 1,
       "kicker": "You are the steward",
       "title": "Lap 1: an incident between Leclerc and Hamilton at Turn 2. What do you give?",
-      "text": "Race control has flagged it and it lands on your desk. Same call the stewards had to make.",
+      "text": "Race control has flagged it and it lands on your desk. If one driver is to blame, what does he get? Same call the stewards had to make.",
       "state": [
         [
           "Lap",
@@ -82,6 +60,43 @@
     },
     {
       "type": "moment",
+      "lap": 1,
+      "kicker": "Lap 1 · Lights out",
+      "title": "27 position changes on lap 1",
+      "text": "22 cars into the first corner on cold tyres and full tanks.",
+      "bullets": [
+        "Antonelli gained the most by the end of it, 5 places",
+        "When it ended, 22 places had really changed against the grid. The rest were swapped back on the way round or came from cars in trouble dropping down the order"
+      ],
+      "note": "Most of this is the pack sorting itself out. Some of it decides the race."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Stewards",
+      "title": "5 incidents looked at",
+      "text": "Every one of them logged by race control during the race.",
+      "bullets": [
+        "Lap 1: Leclerc and Hamilton, an incident",
+        "1 ended in a penalty, 2 in no further action and 2 left for after the race"
+      ]
+    },
+    {
+      "type": "prediction",
+      "lap": 2,
+      "kicker": "Call it before it happens",
+      "title": "Antonelli starts P19. Where does he finish?",
+      "text": "53 laps to make up ground from there.",
+      "options": [
+        "On the podium",
+        "Somewhere in the points",
+        "Out of the points"
+      ],
+      "answer": "On the podium",
+      "reveal": "On the podium. The exact place comes at the flag."
+    },
+    {
+      "type": "moment",
       "lap": 2,
       "kicker": "Lap 2 · Traffic",
       "title": "12 passes on this lap alone",
@@ -102,20 +117,6 @@
         "1 on-track pass before it happened",
         "Race control logged an incident with Leclerc and Hamilton at Turn 2 on lap 1"
       ]
-    },
-    {
-      "type": "prediction",
-      "lap": 2,
-      "kicker": "Call it before it happens",
-      "title": "Antonelli starts P19. Where does he finish?",
-      "text": "53 laps to make up ground from there.",
-      "options": [
-        "On the podium",
-        "Somewhere in the points",
-        "Out of the points"
-      ],
-      "answer": "On the podium",
-      "reveal": "P19 to P1, 18 places gained."
     },
     {
       "type": "moment",
@@ -230,9 +231,9 @@
       "title": "One of these three does not see the chequered flag. Who?",
       "text": "Nothing on the timing screens says it is coming.",
       "options": [
-        "Antonelli",
         "Stroll",
-        "Russell"
+        "Lawson",
+        "Bottas"
       ],
       "answer": "Stroll",
       "reveal": "Stroll, on lap 27 of 53. The timing feed records that he stopped, not why."
@@ -242,7 +243,7 @@
       "lap": 23,
       "kicker": "Speed trap",
       "title": "Norris hit 338 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Norris did it in a McLaren"
       ],
@@ -256,10 +257,9 @@
       "text": "His race ends on lap 24 of 53, in an Aston Martin.",
       "bullets": [
         "P17 at the start of lap 23",
-        "Started P21",
+        "Started from the pit lane",
         "5 on-track passes before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -284,8 +284,7 @@
         "P20 at the start of lap 26",
         "Started P18",
         "1 on-track pass before it happened"
-      ],
-      "note": "The timing feed records that he stopped, not why."
+      ]
     },
     {
       "type": "moment",
@@ -309,7 +308,7 @@
       "options": [
         "Verstappen",
         "Antonelli",
-        "Russell"
+        "Hulkenberg"
       ],
       "answer": "Antonelli",
       "reveal": "Antonelli on lap 53, 1:23.504, in a Mercedes."
@@ -389,6 +388,20 @@
         "12 on-track passes along the way",
         "2 cars that started ahead of him retired"
       ]
+    },
+    {
+      "type": "guess",
+      "lap": 53,
+      "kicker": "Guess it",
+      "title": "How far behind was Russell at the flag?",
+      "text": "53 laps, 1 hour 20 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 12,
+      "step": 0.1,
+      "target": 3.857,
+      "close": 1.5428000000000002,
+      "reveal": "3.857 seconds after 53 laps."
     },
     {
       "type": "moment",
@@ -484,20 +497,6 @@
           ]
         ]
       }
-    },
-    {
-      "type": "guess",
-      "lap": 53,
-      "kicker": "Guess it",
-      "title": "How far behind was Russell at the flag?",
-      "text": "53 laps, 1 hour 20 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 12,
-      "step": 0.1,
-      "target": 3.857,
-      "close": 1.5428000000000002,
-      "reveal": "3.857 seconds after 53 laps."
     }
   ],
   "result": {

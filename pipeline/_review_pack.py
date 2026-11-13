@@ -45,12 +45,13 @@ for slug in slugs:
         out.append(f"-- CARDS ({len(cards)})")
         out += [card_line(i, c) for i, c in enumerate(cards)]
         # ---- raw facts
-        res = sorted(load(key, name, "session_result"), key=lambda r: r.get("position") or 99)
+        res = sorted(load(key, name, "session_result"),
+                     key=lambda r: r["position"] if isinstance(r.get("position"), int) else 99)
         out.append("-- RAW result: " + " · ".join(
             f"P{r.get('position')} {nm(r['driver_number'])}"
             + (" DNF" if r.get("dnf") else "") + (" DNS" if r.get("dns") else "") + (" DSQ" if r.get("dsq") else "")
             + (f" gap={r.get('gap_to_leader')}" if kind == "race" and r.get("position") in (1, 2, 3) else "")
-            + (f" dur={r.get('duration')}" if kind == "quali" and (r.get("position") or 99) <= 3 else "")
+            + (f" dur={r.get('duration')}" if kind == "quali" and r.get("position") in (1, 2, 3) else "")
             for r in res))
         grid = sorted(load(key, name, "starting_grid"), key=lambda g: g.get("position") or 99)
         if grid:

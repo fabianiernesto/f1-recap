@@ -1,0 +1,68 @@
+{
+  "slug": "mexico-city-2026",
+  "gp": "Mexico City Grand Prix 2026",
+  "short": "Mexico City Grand Prix",
+  "circuit": "Mexico City",
+  "country": "Mexico",
+  "date": "01 NOV 2026",
+  "laps": 71,
+  "sessions": [
+    {
+      "slug": "fp1",
+      "label": "Practice 1",
+      "kind": "practice",
+      "headline": "589 laps run, no points on offer",
+      "moments": 8,
+      "laps": 33
+    },
+    {
+      "slug": "fp2",
+      "label": "Practice 2",
+      "kind": "practice",
+      "headline": "656 laps run, no points on offer",
+      "moments": 8,
+      "laps": 35
+    },
+    {
+      "slug": "quali",
+      "label": "Qualifying",
+      "kind": "quali",
+      "headline": "Hamilton on pole",
+      "moments": 11,
+      "laps": 24
+    },
+    {
+      "slug": "race",
+      "label": "Race",
+      "kind": "race",
+      "headline": "27 on-track passes, 2 safety cars",
+      "moments": 32,
+      "laps": 71
+    }
+  ],
+  "facts": {
+    "winner": {
+      "first": "Max",
+      "last": "Verstappen",
+      "team": "Red Bull Racing",
+      "colour": "4781D7",
+      "number": 3,
+      "start": 5,
+      "headshot": "https://media.formula1.com/image/upload/c_lfill,w_1000/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp"
+    },
+    "margin": 0.799,
+    "runnerUp": "Hamilton",
+    "fastest": {
+      "last": "Hamilton",
+      "time": "1:19.268"
+    },
+    "passes": 27,
+    "stops": 34,
+    "dnfs": 5,
+    "safetyCars": 2,
+    "redFlag": true,
+    "laps": 71
+  },
+  "rating": null,
+  "heat": []
+}

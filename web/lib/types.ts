@@ -129,6 +129,9 @@ export type BrainDriver = {
   moved: number | null;
   dnf: boolean;
   dnfLap: number | null;
+  dnfWhy?: string | null;
+  pitLane?: boolean;
+  dsq?: boolean;
   points: number;
   stops: number[];
   compounds: string[];
@@ -177,8 +180,13 @@ export type BlindTest = { session: string; rounds: BlindRound[] };
 export type ReplayCar = {
   num: number; code: string; name: string; team: string; colour: string; photo: string;
   grid: number | null; finish: number | null; out: number | null; cross: number[];
+  dsq?: boolean;
 };
 export type RaceCall = {
+  /** the lap the tower and the options quote, when it is not `lap` (a neutralisation: the lap before) */
+  towerLap?: number;
+  /** the cars the answer hangs on: it shows once they have crossed `reveal` */
+  cars?: number[];
   kind: string; lap: number; reveal: number; flag?: string;
   q: string; ctx: string; options: { id: string; label: string; sub?: string }[];
   answer: string; why: string;

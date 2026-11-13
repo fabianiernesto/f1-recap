@@ -1,0 +1,236 @@
+{
+  "gp": "Mexico City Grand Prix 2026",
+  "session": "Qualifying",
+  "sessionSlug": "quali",
+  "circuit": "Mexico City",
+  "laps": 24,
+  "generated": "build_weekend",
+  "cards": [
+    {
+      "type": "cover",
+      "lap": 0,
+      "kicker": "Mexico City Grand Prix · Qualifying",
+      "title": "One lap decides the whole race",
+      "text": "22 cars, three rounds: 6 out after the first, 6 after the second, and ten left to fight for the grid that shapes everything the race can become."
+    },
+    {
+      "type": "moment",
+      "lap": 1,
+      "kicker": "Pole position",
+      "title": "Hamilton takes it",
+      "text": "By 0.009s over Russell. Less time than a blink.",
+      "dato": {
+        "label": "Top ten",
+        "rows": [
+          [
+            "P1 Hamilton",
+            "Ferrari"
+          ],
+          [
+            "P2 Russell",
+            "Mercedes"
+          ],
+          [
+            "P3 Leclerc",
+            "Ferrari"
+          ],
+          [
+            "P4 Verstappen",
+            "Red Bull Racing"
+          ],
+          [
+            "P5 Antonelli",
+            "Mercedes"
+          ],
+          [
+            "P6 Norris",
+            "McLaren"
+          ],
+          [
+            "P7 Hadjar",
+            "Red Bull Racing"
+          ],
+          [
+            "P8 Lindblad",
+            "Racing Bulls"
+          ],
+          [
+            "P9 Gasly",
+            "Alpine"
+          ],
+          [
+            "P10 Hulkenberg",
+            "Audi"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 2,
+      "kicker": "Q1 · The cut",
+      "title": "Out before it got serious",
+      "text": "Albon (P16), Alonso (P17), Hirakawa (P18), Stroll (P19), Perez (P20), Bottas (P21).",
+      "dato": {
+        "label": "Knocked out in Q1",
+        "rows": [
+          [
+            "Albon",
+            "P16"
+          ],
+          [
+            "Alonso",
+            "P17"
+          ],
+          [
+            "Hirakawa",
+            "P18"
+          ],
+          [
+            "Stroll",
+            "P19"
+          ],
+          [
+            "Perez",
+            "P20"
+          ],
+          [
+            "Bottas",
+            "P21"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Q2 · The cut",
+      "title": "So close to the top ten",
+      "text": "Hulkenberg (P10), Colapinto (P11), Piastri (P12), Bortoleto (P13), Bearman (P14), Sainz (P15).",
+      "dato": {
+        "label": "Knocked out in Q2",
+        "rows": [
+          [
+            "Hulkenberg",
+            "P10"
+          ],
+          [
+            "Colapinto",
+            "P11"
+          ],
+          [
+            "Piastri",
+            "P12"
+          ],
+          [
+            "Bortoleto",
+            "P13"
+          ],
+          [
+            "Bearman",
+            "P14"
+          ],
+          [
+            "Sainz",
+            "P15"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Not classified",
+      "title": "Lawson has no place in the result",
+      "text": "He set times all the way to Q3, and the classification still leaves him out. The timing feed records that, not why."
+    },
+    {
+      "type": "moment",
+      "lap": 3,
+      "kicker": "Disqualified",
+      "title": "Lawson loses all his times",
+      "text": "Disqualified from the session: a technical infringement. Everybody behind him moves up a place."
+    },
+    {
+      "type": "moment",
+      "lap": 4,
+      "kicker": "Deleted laps",
+      "title": "12 laps thrown in the bin",
+      "text": "In qualifying a deleted lap can be the difference between Q3 and going home early.",
+      "dato": {
+        "label": "Deleted laps",
+        "rows": [
+          [
+            "Stroll",
+            "1:29.337"
+          ],
+          [
+            "Hadjar",
+            "1:19.035"
+          ],
+          [
+            "Perez",
+            "at turn 1"
+          ],
+          [
+            "Gasly",
+            "at turn 9"
+          ],
+          [
+            "Gasly",
+            "at turn 8"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 5,
+      "kicker": "Speed trap",
+      "title": "Gasly, Colapinto and Hadjar were quickest through the trap: 351 km/h",
+      "text": "Top speed says as much about wing level and the tow from the car ahead as it does about the engine."
+    },
+    {
+      "type": "moment",
+      "lap": 6,
+      "kicker": "Sector by sector",
+      "title": "Nobody owned the whole lap",
+      "text": "The quickest sectors of the session were split between three drivers, so the ideal lap was never actually driven.",
+      "dato": {
+        "label": "Fastest sectors",
+        "rows": [
+          [
+            "Sector 1 · Verstappen",
+            "26.768s"
+          ],
+          [
+            "Sector 2 · Russell",
+            "30.008s"
+          ],
+          [
+            "Sector 3 · Leclerc",
+            "19.524s"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "moment",
+      "lap": 7,
+      "kicker": "Interruptions",
+      "title": "Yellow flags out 2 times, and the session stopped once",
+      "text": "A red flag stops the session and sends everybody back to the pits."
+    },
+    {
+      "type": "moment",
+      "lap": 8,
+      "kicker": "The grid",
+      "title": "How the race starts",
+      "text": "P1 Hamilton · P2 Russell · P3 Leclerc · P4 Antonelli · P5 Verstappen · P6 Norris",
+      "bullets": [
+        "Verstappen qualified P4 and starts P5, 1 place further back",
+        "The grid is not the qualifying order. A penalty moves a car back, whether for something on track or for a new engine, and everybody behind it moves up"
+      ]
+    }
+  ]
+}

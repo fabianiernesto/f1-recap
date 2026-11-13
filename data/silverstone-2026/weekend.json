@@ -11,7 +11,7 @@
       "slug": "fp1",
       "label": "Practice 1",
       "kind": "practice",
-      "headline": "613 laps run, no points at stake",
+      "headline": "613 laps run, no points on offer",
       "moments": 8,
       "laps": 33
     },
@@ -44,7 +44,7 @@
       "label": "Race",
       "kind": "race",
       "headline": "59 on-track passes, 1 safety car",
-      "moments": 34,
+      "moments": 33,
       "laps": 52
     }
   ],
@@ -65,7 +65,7 @@
       "time": "1:31.777"
     },
     "passes": 59,
-    "stops": 50,
+    "stops": 51,
     "dnfs": 3,
     "safetyCars": 1,
     "redFlag": false,

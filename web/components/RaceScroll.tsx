@@ -70,11 +70,14 @@ export default function RaceScroll({
   const [lap, setLap] = useState(0);
   const [activeIdx, setActiveIdx] = useState(0);
   const [litLabel, setLitLabel] = useState(-1);
+  const [quiet, setQuiet] = useState(false);
   /* which cards have come into view. This has to be state: it used to be a
      class written onto the node, and React wiped it on the next render of that
      className, which only started happening once the active card began
      changing for real. */
-  const [seen, setSeen] = useState<Set<number>>(() => new Set());
+  /* the first card is there from the first paint: on a slow phone it used to
+     wait for the script, with the page showing only the track */
+  const [seen, setSeen] = useState<Set<number>>(() => new Set([0]));
 
   const carRef = useRef<SVGGElement>(null);
   const traceRef = useRef<SVGPathElement>(null);
@@ -236,6 +239,14 @@ export default function RaceScroll({
         if (dd < bd) { bd = dd; best = i; }
       });
       setActiveIdx(best);
+
+      /* a card that asks for an answer is at the foot of the screen, where
+         Alfred's button sits: on a phone the button was covering its options */
+      const foot = scrollY + innerHeight;
+      setQuiet(anchors.some((a, i) => {
+        const t = cards[i]?.type;
+        return (t === "decision" || t === "prediction" || t === "guess") && a.y < foot && a.y + a.h > foot - 64;
+      }));
 
       /* the reveal is not left to the observer alone. It is the whole content
          of the page, and an observer that is throttled or never fires would
@@ -427,7 +438,7 @@ export default function RaceScroll({
       </div>
       <div className="trackcap">Real track shape · fastest-lap telemetry</div>
 
-      <div className="flow" id="race">
+      <main className="flow" id="race">
         {cards.map((c, i) => {
           const v = variant(c);
           const time = v === "v-fast" ? /([\d.]+)s/.exec(c.title || "") : null;
@@ -513,8 +524,8 @@ export default function RaceScroll({
         <div className="credits">
           Built from the OpenF1 and FastF1 timing data
         </div>
-      </div>
-      {mate && <RaceMate thread={mate} lap={lap} brain={brain ?? null} />}
+      </main>
+      {mate && <RaceMate thread={mate} lap={lap} brain={brain ?? null} quiet={quiet} />}
     </>
   );
 }

@@ -1,0 +1,1206 @@
+{
+"race-result": {
+"title": "FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2026 - RACE RESULT",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Laps",
+"Time / Retired",
+"Pts."
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"56",
+"1:35:16.650",
+"25"
+],
+[
+"2",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"56",
+"+13.078s",
+"18"
+],
+[
+"3",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"56",
+"+17.485s",
+"15"
+],
+[
+"4",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"56",
+"+18.515s",
+"12"
+],
+[
+"5",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"56",
+"+30.521s",
+"10"
+],
+[
+"6",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"56",
+"+34.373s",
+"8"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"56",
+"+52.674s",
+"6"
+],
+[
+"8",
+"63",
+"George Russell RUS",
+"Mercedes",
+"56",
+"+54.303s",
+"4"
+],
+[
+"9",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"56",
+"+79.183s",
+"2"
+],
+[
+"10",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"56",
+"+87.516s",
+"1"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"56",
+"+94.945s",
+"0"
+],
+[
+"12",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"55",
+"+1 lap",
+"0"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"55",
+"+1 lap",
+"0"
+],
+[
+"14",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"55",
+"+1 lap",
+"0"
+],
+[
+"15",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"55",
+"+1 lap",
+"0"
+],
+[
+"16",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"55",
+"+1 lap",
+"0"
+],
+[
+"17",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"55",
+"+1 lap",
+"0"
+],
+[
+"18",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"55",
+"+1 lap",
+"0"
+],
+[
+"19",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"55",
+"+1 lap",
+"0"
+],
+[
+"NC",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"48",
+"DNF",
+"0"
+],
+[
+"NC",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"35",
+"DNF",
+"0"
+],
+[
+"NC",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"24",
+"DNF",
+"0"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"fastest-laps": {
+"title": "FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2026 - FASTEST LAPS",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Avg. Speed"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"42",
+"16:15:03",
+"1:37.976",
+"202.567"
+],
+[
+"2",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"54",
+"16:36:00",
+"1:38.393",
+"201.709"
+],
+[
+"3",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"48",
+"16:25:04",
+"1:38.457",
+"201.578"
+],
+[
+"4",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"55",
+"16:37:25",
+"1:39.086",
+"200.298"
+],
+[
+"5",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"54",
+"16:36:04",
+"1:39.231",
+"200.006"
+],
+[
+"6",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"44",
+"16:18:33",
+"1:39.399",
+"199.668"
+],
+[
+"7",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"44",
+"16:18:05",
+"1:39.422",
+"199.621"
+],
+[
+"8",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"56",
+"16:40:25",
+"1:39.652",
+"199.161"
+],
+[
+"9",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"43",
+"16:16:36",
+"1:39.811",
+"198.843"
+],
+[
+"10",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"54",
+"16:36:39",
+"1:39.841",
+"198.784"
+],
+[
+"11",
+"63",
+"George Russell RUS",
+"Mercedes",
+"29",
+"15:53:31",
+"1:39.928",
+"198.610"
+],
+[
+"12",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"44",
+"16:18:37",
+"1:40.189",
+"198.093"
+],
+[
+"13",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"55",
+"16:38:53",
+"1:40.193",
+"198.085"
+],
+[
+"14",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"53",
+"16:35:39",
+"1:40.323",
+"197.829"
+],
+[
+"15",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"19",
+"15:36:37",
+"1:40.328",
+"197.819"
+],
+[
+"16",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"42",
+"16:15:24",
+"1:40.353",
+"197.769"
+],
+[
+"17",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"34",
+"16:01:35",
+"1:41.087",
+"196.333"
+],
+[
+"18",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"34",
+"16:01:33",
+"1:41.132",
+"196.246"
+],
+[
+"19",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"23",
+"15:43:55",
+"1:41.418",
+"195.693"
+],
+[
+"20",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"56",
+"16:40:29",
+"1:41.680",
+"195.188"
+],
+[
+"21",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"33",
+"16:00:08",
+"1:42.012",
+"194.553"
+],
+[
+"22",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"4",
+"15:10:54",
+"1:42.107",
+"194.372"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"pit-stop-summary": {
+"title": "FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2026 - PIT STOP SUMMARY",
+"rows": [
+[
+"Stops",
+"No.",
+"Driver",
+"Team",
+"Lap",
+"Time of Day",
+"Time",
+"Total"
+],
+[
+"1",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"13",
+"15:25:50",
+"23.960",
+"23.960"
+],
+[
+"1",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"13",
+"15:26:28",
+"24.217",
+"24.217"
+],
+[
+"1",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"14",
+"15:27:38",
+"24.120",
+"24.120"
+],
+[
+"1",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"15",
+"15:29:15",
+"24.072",
+"24.072"
+],
+[
+"1",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"15",
+"15:29:32",
+"23.413",
+"23.413"
+],
+[
+"1",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"15",
+"15:30:07",
+"24.338",
+"24.338"
+],
+[
+"1",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"16",
+"15:31:09",
+"25.760",
+"25.760"
+],
+[
+"1",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"16",
+"15:31:47",
+"24.425",
+"24.425"
+],
+[
+"1",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"17",
+"15:33:34",
+"33.692",
+"33.692"
+],
+[
+"1",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"18",
+"15:35:02",
+"23.793",
+"23.793"
+],
+[
+"1",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"21",
+"15:40:09",
+"24.937",
+"24.937"
+],
+[
+"1",
+"63",
+"George Russell RUS",
+"Mercedes",
+"22",
+"15:41:22",
+"29.761",
+"29.761"
+],
+[
+"2",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"22",
+"15:42:21",
+"34.744",
+"58.961"
+],
+[
+"1",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"23",
+"15:44:05",
+"25.184",
+"25.184"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"24",
+"15:44:22",
+"23.594",
+"23.594"
+],
+[
+"1",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"24",
+"15:45:10",
+"26.982",
+"26.982"
+],
+[
+"1",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"25",
+"15:46:18",
+"24.066",
+"24.066"
+],
+[
+"1",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"25",
+"15:46:48",
+"24.226",
+"24.226"
+],
+[
+"1",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"26",
+"15:48:52",
+"24.084",
+"24.084"
+],
+[
+"1",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"28",
+"15:52:12",
+"24.202",
+"24.202"
+],
+[
+"1",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"29",
+"15:53:50",
+"23.929",
+"23.929"
+],
+[
+"1",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"29",
+"15:54:38",
+"24.241",
+"24.241"
+],
+[
+"1",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"30",
+"15:56:07",
+"25.366",
+"25.366"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"31",
+"15:56:21",
+"25.389",
+"49.349"
+],
+[
+"2",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"31",
+"15:57:47",
+"23.698",
+"48.123"
+],
+[
+"2",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"38",
+"16:08:13",
+"23.955",
+"48.075"
+],
+[
+"2",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"39",
+"16:09:46",
+"24.227",
+"48.299"
+],
+[
+"2",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"38",
+"16:10:00",
+"24.380",
+"58.072"
+],
+[
+"2",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"40",
+"16:12:44",
+"24.505",
+"48.298"
+],
+[
+"2",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"41",
+"16:14:55",
+"23.824",
+"48.162"
+],
+[
+"2",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"42",
+"16:16:22",
+"40.424",
+"64.626"
+],
+[
+"2",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"50",
+"16:29:44",
+"23.974",
+"48.058"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+},
+"starting-grid": {
+"title": "FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2026 - STARTING GRID",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Time"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:34.035"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:34.214"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:34.250"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:34.267"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:34.311"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:34.476"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:34.803"
+],
+[
+"8",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:35.049"
+],
+[
+"9",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+""
+],
+[
+"10",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:35.080"
+],
+[
+"11",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:35.158"
+],
+[
+"12",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:35.818"
+],
+[
+"13",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:36.031"
+],
+[
+"14",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:36.049"
+],
+[
+"15",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:36.531"
+],
+[
+"16",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:36.770"
+],
+[
+"17",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:36.967"
+],
+[
+"18",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:37.433"
+],
+[
+"19",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:37.523"
+],
+[
+"20",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:35.722"
+],
+[
+"21",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:35.691"
+],
+[
+"22",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:36.677"
+]
+],
+"after": [
+"Note - Lindblad penalised five places for use of additional power unit element. Colapinto penalised 10 places for use of additional power unit element. Bortoleto penalised 80 places for use of additional power unit elements. Stroll required to start from the pit lane after car was modified under Parc Ferme conditions and additional power unit elements were used.",
+"OUR PARTNERS",
+"View all"
+]
+},
+"qualifying": {
+"title": "FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2026 - QUALIFYING",
+"rows": [
+[
+"Pos.",
+"No.",
+"Driver",
+"Team",
+"Q1",
+"Q2",
+"Q3",
+"Laps"
+],
+[
+"1",
+"12",
+"Kimi Antonelli ANT",
+"Mercedes",
+"1:35.390",
+"1:34.278",
+"1:34.035",
+"18"
+],
+[
+"2",
+"3",
+"Max Verstappen VER",
+"Red Bull Racing",
+"1:35.215",
+"1:34.471",
+"1:34.214",
+"12"
+],
+[
+"3",
+"6",
+"Isack Hadjar HAD",
+"Red Bull Racing",
+"1:35.286",
+"1:34.887",
+"1:34.250",
+"12"
+],
+[
+"4",
+"16",
+"Charles Leclerc LEC",
+"Ferrari",
+"1:35.200",
+"1:34.198",
+"1:34.267",
+"15"
+],
+[
+"5",
+"44",
+"Lewis Hamilton HAM",
+"Ferrari",
+"1:35.355",
+"1:34.833",
+"1:34.311",
+"14"
+],
+[
+"6",
+"63",
+"George Russell RUS",
+"Mercedes",
+"1:35.730",
+"1:34.305",
+"1:34.476",
+"18"
+],
+[
+"7",
+"81",
+"Oscar Piastri PIA",
+"McLaren",
+"1:35.842",
+"1:34.818",
+"1:34.803",
+"20"
+],
+[
+"8",
+"1",
+"Lando Norris NOR",
+"McLaren",
+"1:35.029",
+"1:34.539",
+"1:35.049",
+"15"
+],
+[
+"9",
+"41",
+"Arvid Lindblad LIN",
+"Racing Bulls",
+"1:35.755",
+"1:34.950",
+"1:36.049",
+"15"
+],
+[
+"10",
+"30",
+"Liam Lawson LAW",
+"Racing Bulls",
+"1:35.662",
+"1:35.058",
+"",
+"9"
+],
+[
+"11",
+"10",
+"Pierre Gasly GAS",
+"Alpine",
+"1:35.969",
+"1:35.080",
+"",
+"12"
+],
+[
+"12",
+"27",
+"Nico Hulkenberg HUL",
+"Audi",
+"1:35.704",
+"1:35.158",
+"",
+"12"
+],
+[
+"13",
+"5",
+"Gabriel Bortoleto BOR",
+"Audi",
+"1:35.632",
+"1:35.691",
+"",
+"12"
+],
+[
+"14",
+"43",
+"Franco Colapinto COL",
+"Alpine",
+"1:35.898",
+"1:35.722",
+"",
+"12"
+],
+[
+"15",
+"14",
+"Fernando Alonso ALO",
+"Aston Martin",
+"1:36.240",
+"1:35.818",
+"",
+"15"
+],
+[
+"16",
+"87",
+"Oliver Bearman BEA",
+"Haas F1 Team",
+"1:36.175",
+"1:36.031",
+"",
+"15"
+],
+[
+"17",
+"31",
+"Esteban Ocon OCO",
+"Haas F1 Team",
+"1:36.531",
+"",
+"",
+"9"
+],
+[
+"18",
+"18",
+"Lance Stroll STR",
+"Aston Martin",
+"1:36.677",
+"",
+"",
+"9"
+],
+[
+"19",
+"55",
+"Carlos Sainz SAI",
+"Williams",
+"1:36.770",
+"",
+"",
+"9"
+],
+[
+"20",
+"23",
+"Alexander Albon ALB",
+"Williams",
+"1:36.967",
+"",
+"",
+"9"
+],
+[
+"21",
+"11",
+"Sergio Perez PER",
+"Cadillac",
+"1:37.433",
+"",
+"",
+"9"
+],
+[
+"22",
+"77",
+"Valtteri Bottas BOT",
+"Cadillac",
+"1:37.523",
+"",
+"",
+"9"
+]
+],
+"after": [
+"OUR PARTNERS",
+"View all"
+]
+}
+}

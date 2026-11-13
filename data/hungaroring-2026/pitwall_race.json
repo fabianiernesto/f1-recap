@@ -12,7 +12,7 @@
     "margin": 0.7
   },
   "economics": {
-    "pitLoss": 21.1,
+    "pitLoss": 21.2,
     "fuelTrend": -0.0355,
     "tyres": {
       "SOFT": {

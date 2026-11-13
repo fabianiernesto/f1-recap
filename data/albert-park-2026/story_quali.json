@@ -180,8 +180,10 @@
       "lap": 8,
       "kicker": "The grid",
       "title": "How the race starts",
-      "text": "P1 Russell · P2 Antonelli · P3 Hadjar · P4 Leclerc · P5 Piastri · P6 Norris",
-      "bullets": []
+      "text": "P1 Russell · P2 Antonelli · P3 Hadjar · P4 Leclerc · P6 Norris · P7 Hamilton",
+      "bullets": [
+        "Piastri and Hulkenberg did not start, so 20 cars took the start"
+      ]
     }
   ]
 }

@@ -39,7 +39,7 @@
       "type": "prediction",
       "lap": 2,
       "kicker": "Call it before it happens",
-      "title": "Alonso starts P22. Where does he finish?",
+      "title": "Alonso starts from the pit lane. Where does he finish?",
       "text": "24 laps to make up ground from there.",
       "options": [
         "On the podium",
@@ -47,7 +47,7 @@
         "Out of the points"
       ],
       "answer": "Out of the points",
-      "reveal": "P22 to P18, 4 places gained."
+      "reveal": "Out of the points. The exact place comes at the flag."
     },
     {
       "type": "prediction",
@@ -57,7 +57,7 @@
       "text": "It usually lands late, when the car is light and the track has rubber all over it.",
       "options": [
         "Norris",
-        "Leclerc",
+        "Antonelli",
         "Russell"
       ],
       "answer": "Norris",
@@ -103,7 +103,7 @@
       "lap": 10,
       "kicker": "Speed trap",
       "title": "Hamilton hit 320 km/h",
-      "text": "The fastest car in a straight line is often not the fastest car over a lap.",
+      "text": "The trap reads one fixed point on the lap, so a car can go faster elsewhere. And the fastest car in a straight line is often not the fastest car over a lap.",
       "bullets": [
         "Hamilton did it in a Ferrari"
       ],
@@ -170,11 +170,25 @@
       "type": "moment",
       "lap": 20,
       "kicker": "A climb through the field",
-      "title": "Alonso: P22 on the grid, P18 at the flag",
+      "title": "Alonso: from the pit lane, P18 at the flag",
       "text": "4 places gained.",
       "bullets": [
         "1 on-track pass along the way"
       ]
+    },
+    {
+      "type": "guess",
+      "lap": 24,
+      "kicker": "Guess it",
+      "title": "How far behind was Leclerc at the flag?",
+      "text": "24 laps, about 30 minutes of racing. Put a number on the gap to the winner.",
+      "unit": "s",
+      "min": 0,
+      "max": 5,
+      "step": 0.05,
+      "target": 1.36,
+      "close": 0.544,
+      "reveal": "1.360 seconds after 24 laps."
     },
     {
       "type": "moment",
@@ -234,20 +248,6 @@
         ]
       },
       "note": "Less than the time it takes to read this sentence."
-    },
-    {
-      "type": "guess",
-      "lap": 24,
-      "kicker": "Guess it",
-      "title": "How far behind was Leclerc at the flag?",
-      "text": "24 laps, about 30 minutes of racing, and it comes down to this one number.",
-      "unit": "s",
-      "min": 0,
-      "max": 5,
-      "step": 0.05,
-      "target": 1.36,
-      "close": 0.544,
-      "reveal": "1.360 seconds after 24 laps."
     }
   ]
 }

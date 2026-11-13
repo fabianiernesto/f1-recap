@@ -242,6 +242,44 @@
      ],
      "reading": "4 of 17 cars boxed under it. His garage boxed: P1 when it came out, P1 three laps after the restart. The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
      "moved": 0
+    },
+    {
+     "lap": 66,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 66. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P1"
+      ],
+      [
+       "Tyre",
+       "soft, 9 laps old"
+      ],
+      [
+       "Laps left",
+       "12"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 66,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 66,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "0 of 16 cars boxed under it. His garage kept him out: P1 when it came out, P1 three laps after the restart. The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 0
     }
    ],
    "windows": [
@@ -512,6 +550,44 @@
      ],
      "reading": "4 of 17 cars boxed under it. His garage kept him out: P6 when it came out, P6 three laps after the restart. The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
      "moved": 0
+    },
+    {
+     "lap": 66,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 66. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P7"
+      ],
+      [
+       "Tyre",
+       "soft, 11 laps old"
+      ],
+      [
+       "Laps left",
+       "12"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 66,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 66,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "0 of 16 cars boxed under it. His garage kept him out: P7 when it came out, P6 three laps after the restart (+1 place). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 1
     }
    ],
    "windows": [
@@ -735,6 +811,44 @@
      ],
      "reading": "4 of 17 cars boxed under it. His garage kept him out: P8 when it came out, P7 three laps after the restart (+1 place). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
      "moved": 1
+    },
+    {
+     "lap": 66,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 66. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P8"
+      ],
+      [
+       "Tyre",
+       "soft, 26 laps old"
+      ],
+      [
+       "Laps left",
+       "12"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 66,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 66,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "0 of 16 cars boxed under it. His garage kept him out: P8 when it came out, P7 three laps after the restart (+1 place). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 1
     }
    ],
    "windows": [],
@@ -856,6 +970,44 @@
       }
      ],
      "reading": "4 of 17 cars boxed under it. His garage kept him out: P10 when it came out, P9 three laps after the restart (+1 place). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 1
+    },
+    {
+     "lap": 66,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 66. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P10"
+      ],
+      [
+       "Tyre",
+       "soft, 23 laps old"
+      ],
+      [
+       "Laps left",
+       "12"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 66,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 66,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "0 of 16 cars boxed under it. His garage kept him out: P10 when it came out, P9 three laps after the restart (+1 place). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
      "moved": 1
     }
    ],
@@ -1029,7 +1181,45 @@
        "note": "Keep the track position and run the old set to the flag or the next window."
       }
      ],
-     "reading": "4 of 17 cars boxed under it. His garage kept him out: P15 when it came out, P13 three laps after the restart (+2 places). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "reading": "4 of 17 cars boxed under it. His garage kept him out: P15 when it came out, P14 three laps after the restart (+1 place). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 1
+    },
+    {
+     "lap": 66,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 66. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P15"
+      ],
+      [
+       "Tyre",
+       "soft, 8 laps old"
+      ],
+      [
+       "Laps left",
+       "12"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 66,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 66,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "0 of 16 cars boxed under it. His garage kept him out: P15 when it came out, P13 three laps after the restart (+2 places). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
      "moved": 2
     }
    ],
@@ -1223,8 +1413,46 @@
        "note": "Keep the track position and run the old set to the flag or the next window."
       }
      ],
-     "reading": "4 of 17 cars boxed under it. His garage kept him out: P18 when it came out, P14 three laps after the restart (+4 places). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
-     "moved": 4
+     "reading": "4 of 17 cars boxed under it. His garage kept him out: P18 when it came out, P16 three laps after the restart (+2 places). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 2
+    },
+    {
+     "lap": 66,
+     "kicker": "Safety car",
+     "scored": false,
+     "question": "Safety car on lap 66. Box or stay out?",
+     "facts": [
+      [
+       "Running",
+       "P17"
+      ],
+      [
+       "Tyre",
+       "soft, 1 laps old"
+      ],
+      [
+       "Laps left",
+       "12"
+      ]
+     ],
+     "options": [
+      {
+       "label": "Box him",
+       "lap": 66,
+       "lost": 0,
+       "real": false,
+       "note": "Fresh tyres for a cheaper stop, and the places it costs to take it."
+      },
+      {
+       "label": "Stay out",
+       "lap": 66,
+       "lost": 0,
+       "real": true,
+       "note": "Keep the track position and run the old set to the flag or the next window."
+      }
+     ],
+     "reading": "0 of 16 cars boxed under it. His garage kept him out: P17 when it came out, P14 three laps after the restart (+3 places). The other road cannot be measured: a stop under a safety car is paid in track position, not in seconds.",
+     "moved": 3
     }
    ],
    "windows": [

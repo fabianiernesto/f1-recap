@@ -11,7 +11,7 @@
       "slug": "fp1",
       "label": "Practice 1",
       "kind": "practice",
-      "headline": "620 laps run, no points at stake",
+      "headline": "620 laps run, no points on offer",
       "moments": 8,
       "laps": 34
     },
@@ -19,7 +19,7 @@
       "slug": "fp2",
       "label": "Practice 2",
       "kind": "practice",
-      "headline": "711 laps run, no points at stake",
+      "headline": "711 laps run, no points on offer",
       "moments": 8,
       "laps": 39
     },
@@ -27,7 +27,7 @@
       "slug": "fp3",
       "label": "Practice 3",
       "kind": "practice",
-      "headline": "518 laps run, no points at stake",
+      "headline": "518 laps run, no points on offer",
       "moments": 8,
       "laps": 32
     },
@@ -43,8 +43,8 @@
       "slug": "race",
       "label": "Race",
       "kind": "race",
-      "headline": "4 on-track passes, 1 safety car",
-      "moments": 35,
+      "headline": "4 on-track passes, 2 safety cars",
+      "moments": 36,
       "laps": 78
     }
   ],
@@ -67,7 +67,7 @@
     "passes": 4,
     "stops": 28,
     "dnfs": 7,
-    "safetyCars": 1,
+    "safetyCars": 2,
     "redFlag": true,
     "laps": 78
   },

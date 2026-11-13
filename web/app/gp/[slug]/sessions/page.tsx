@@ -24,11 +24,13 @@ export default async function SessionsPage({
   const weekend = loadWeekend(slug);
   return (
     <>
+      {/* the page's title for readers and search; on screen the board says it */}
+      <h1 className="sr-only">{weekend.gp}: the sessions</h1>
       <div className="hub-top">
-        <Link href={`/gp/${slug}`} className="hub-back">
+        <Link href={`/gp/${slug}`} prefetch={false} className="hub-back">
           ← {weekend.circuit} · all activities
         </Link>
-        <Link href="/" className="hub-home">Racing Simplified</Link>
+        <Link href="/" prefetch={false} className="hub-home">Racing Simplified</Link>
       </div>
       <MotionFX />
       <WeekendHub weekend={weekend} />

@@ -5,16 +5,20 @@ import { clamp, Finish } from "./kit";
 import { Intro } from "./scenes/Intro";
 import { LightsOut } from "./scenes/LightsOut";
 import { Scrolled } from "./scenes/Scrolled";
-import { Breakdown, Simplified } from "./scenes/Simplified";
+import { Breakdown, Drop, PlayCall, PlayExchange, PlayIntro } from "./scenes/Play";
 import { Built, EndCard } from "./scenes/Built";
 import { END, F, useFrame, Seq, SCALE, X } from "./time";
 
 const SCENES: [number, number, React.FC][] = [
   [8, 16, Intro],
   [16, 32, LightsOut],
-  [32, 75 + X, Scrolled],
-  [75 + X, 80 + X, Breakdown],
-  [80 + X, 112 + X, Simplified],
+  [32, 69, Scrolled],
+  [69, 71, PlayIntro],
+  [71, 92, PlayCall],
+  [92, 96, Breakdown],
+  [98, 112 + X, PlayExchange],
+  // after the exchange, so that its doors open onto the board
+  [96, 98.8, Drop],
   [112 + X, 144 + X, Built],
 ];
 
