@@ -4,6 +4,7 @@ import { preload } from "react-dom";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import PageFX from "@/components/PageFX";
+import TeamRadio from "@/components/TeamRadio";
 import { SITE } from "@/lib/site";
 
 /**
@@ -110,6 +111,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         {children}
+        <TeamRadio />
         <PageFX />
         <CustomCursor />
       </body>

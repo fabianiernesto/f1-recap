@@ -31,7 +31,8 @@ OUT = PUBLIC / "home" / "mood" / "trails"
 # source -> (scale on a 1440px screen, scale on a 390px phone): the width the
 # photograph is drawn at over its natural width, measured on the built site
 TRAILS = {
-    "home/mood/helmet.jpg": (1.29, 0.69),
+    # 1672px wide since 16/11/2026 (was 736: 1.29 / 0.69)
+    "home/mood/helmet.jpg": (0.568, 0.304),
     # the car runs on the home (0.28 / 0.137) and on Sessions (0.346 / 0.18)
     "home/mood/car-top.jpg": (0.31, 0.16),
     "home/mood/nuevas/helmet-guantes-c.webp": (0.603, 0.303),
