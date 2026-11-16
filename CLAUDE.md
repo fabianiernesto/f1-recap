@@ -105,6 +105,7 @@ En octubre el disco bajó a 62 GB libres porque los renders dejaron unos 50 GB d
 - **Estelas de las fotos del moodboard:** las del casco, el coche y el casco del 404 van pre-dibujadas (`web/scripts/bake_trails.py`, versión escritorio y móvil, idénticas al filtro en vivo). Si cambia una de esas fotos o su tamaño en pantalla, se vuelve a ejecutar el script. El caballo y el neumático siguen con el filtro en vivo, porque su caja recorta la foto distinto en cada pantalla.
 - **Sonido:** crear el `AudioContext` despierta la tarjeta de sonido y bloquea ~230 ms la primera vez de cada sesión. Se decodifica con un `OfflineAudioContext` (gratis) y el contexto real se abre al pasar el ratón por el botón de Alfred.
 - "CHEQUERED FLAG" contiene "RED FLAG".
+- **`public/` se guarda 30 días en el navegador** (`next.config.ts`, sin hash en los nombres). Si se cambia una imagen con el mismo nombre, quien ya visitó la web sigue viendo la vieja: hay que cambiarle la dirección. El 16/11 el casco, el caballo y el neumático nuevos se veían pixelados por eso; arreglado con `?v=20261116` en `MOOD` y en las estelas del casco (`components/Mood.tsx`) y publicado ese día (despliegue `gi89p6qvf`). Sin commit todavía.
 - Los heredocs de Bash se comen las barras invertidas: los parches se escriben con Write y luego se ejecutan.
 - El panel del navegador a veces pinta negro: se verifica con Chrome headless (Playwright desde `video/`).
 - Los renders de Remotion llenan `%TEMP%`: reglas en la sección 4, «Disco y renders del vídeo».

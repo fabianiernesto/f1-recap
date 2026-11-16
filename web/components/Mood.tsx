@@ -6,12 +6,18 @@
  * it; the motion lives in globals.css and MotionFX.
  */
 
+/** 16/11/2026: the helmet, the horse and the tyre were remade sharper under
+ *  the same names, and public/ is cached for a month (next.config.ts), so a
+ *  returning visitor kept the old, pixelated ones. A new photograph at an old
+ *  name gets a new ?v here, and so does its baked trail; the file is the same. */
+const V = "?v=20261116";
+
 /** The moodboard: red and black, shot at speed. */
 export const MOOD = {
-  helmet: "/home/mood/helmet.jpg",
+  helmet: `/home/mood/helmet.jpg${V}`,
   car: "/home/mood/car-top.jpg",
-  horse: "/home/mood/horse.jpg",
-  tyre: "/home/mood/tyre.jpg",
+  horse: `/home/mood/horse.jpg${V}`,
+  tyre: `/home/mood/tyre.jpg${V}`,
   // the second shoot, so no page wears the same photograph as the home
   gloves: "/home/mood/nuevas/helmet-guantes-a.webp",
   glovesSmoke: "/home/mood/nuevas/helmet-guantes-c.webp",
@@ -22,10 +28,10 @@ export const MOOD = {
 /** Trails baked by scripts/bake_trails.py: the same blur, colour and
  *  brightness as the live filter, drawn once instead of every frame. Only
  *  photographs shown at their own proportions are here (see the script). */
-const BAKED: Record<string, string> = {
-  [MOOD.helmet]: "/home/mood/trails/helmet",
-  [MOOD.car]: "/home/mood/trails/car-top",
-  [MOOD.glovesSmoke]: "/home/mood/trails/helmet-guantes-c",
+const BAKED: Record<string, { d: string; m: string }> = {
+  [MOOD.helmet]: { d: `/home/mood/trails/helmet-d.webp${V}`, m: `/home/mood/trails/helmet-m.webp${V}` },
+  [MOOD.car]: { d: "/home/mood/trails/car-top-d.webp", m: "/home/mood/trails/car-top-m.webp" },
+  [MOOD.glovesSmoke]: { d: "/home/mood/trails/helmet-guantes-c-d.webp", m: "/home/mood/trails/helmet-guantes-c-m.webp" },
 };
 
 /** A photograph with a smeared copy of itself dragging behind it. `lazy`
@@ -39,9 +45,9 @@ export function Blur({ src, className = "", lazy = false }: { src: string; class
     <div className={`mood ${className}`} aria-hidden>
       {baked ? (
         <picture>
-          <source media="(max-width: 900px)" srcSet={`${baked}-m.webp`} />
+          <source media="(max-width: 900px)" srcSet={baked.m} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="mood-trail is-baked" src={`${baked}-d.webp`} alt="" loading={loading} decoding="async" />
+          <img className="mood-trail is-baked" src={baked.d} alt="" loading={loading} decoding="async" />
         </picture>
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
