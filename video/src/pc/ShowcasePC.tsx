@@ -6,7 +6,7 @@ import { END, F, Seq, SCALE, useFrame, X } from "../time";
 import { BuiltPC, EndCardPC } from "./BuiltPC";
 import { BeatLightPC, FinishPC } from "./kit";
 import { IntroPC, LightsPC } from "./Opening";
-import { BreakdownPC, DropPC, PlayCallPC, PlayExchangePC, PlayIntroPC } from "./PlayPC";
+import { EXCHANGE_IN, EXCHANGE_START, ExchangeIntroPC, PlayCallPC, PlayExchangePC, PlayIntroPC } from "./PlayPC";
 import { ScrolledPC } from "./ScrolledPC";
 
 const SCENES: [number, number, React.FC][] = [
@@ -17,10 +17,9 @@ const SCENES: [number, number, React.FC][] = [
   // (11/11) slower, so it can be read: 67.4-73.8, and the first game starts on 73.8
   [67.4, 73.8, PlayIntroPC],
   [73.8, 92, PlayCallPC],
-  [92, 96, BreakdownPC],
-  [98, 112 + X, PlayExchangePC],
-  // after the exchange, so that its doors open onto the board
-  [96, 98.8, DropPC],
+  // (17/11) game 2 is presented exactly like game 1, its window landing on the drop
+  [EXCHANGE_IN, EXCHANGE_START, ExchangeIntroPC],
+  [EXCHANGE_START, 112 + X, PlayExchangePC],
   [112 + X, 144 + X, BuiltPC],
 ];
 

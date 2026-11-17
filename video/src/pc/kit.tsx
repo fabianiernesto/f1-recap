@@ -173,3 +173,36 @@ export const FinishPC: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+/**
+ * The site's change curtain (web/app/globals.css, "the sting"), for any cut in
+ * the film: five slanted black bars rip in from the right, each dragging a hot
+ * edge, hold, and whip off to the left. `inAt` and `offAt` are frames (30fps
+ * units) of the scene it sits in. (17/11: also the cut from the name to 01.)
+ */
+export const Sting: React.FC<{ f: number; inAt: number; offAt: number }> = ({ f, inAt, offAt }) => {
+  const BARS = 5;
+  const shut = inAt + (BARS - 1) * 1.0 + 7;
+  const flash = interpolate(f, [shut - 2, shut, shut + 4], [0, 0.16, 0], clamp);
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none" }}>
+      <div style={{ position: "absolute", left: "-14%", right: "-14%", top: "-8%", bottom: "-8%", display: "flex", transform: "skewX(-13deg)" }}>
+        {Array.from({ length: BARS }, (_, i) => {
+          const a = inAt + i * 1.0;
+          const inP = interpolate(f, [a, a + 7], [0, 1], { ...clamp, easing: Easing.bezier(0.25, 0.9, 0.25, 1) });
+          const o = offAt + (BARS - 1 - i) * 0.8;
+          const outP = interpolate(f, [o, o + 7], [0, 1], { ...clamp, easing: Easing.bezier(0.6, 0, 0.9, 0.3) });
+          const x = ((BARS - i) * 100 + 30) * (1 - inP) - ((i + 1) * 100 + 30) * outP;
+          const hot = 1 - interpolate(f, [a + 5, a + 14], [0, 1], clamp);
+          return (
+            <div key={i} style={{ position: "relative", flex: 1, background: "#000", transform: `translateX(${x}%)` }}>
+              {hot > 0 && <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "44%", opacity: hot,
+                background: "linear-gradient(90deg, #e1060000, #e1060033 52%, #e10600d9 88%, #ffe3e1 100%)" }} />}
+            </div>
+          );
+        })}
+      </div>
+      <AbsoluteFill style={{ background: "#fff", opacity: flash }} />
+    </AbsoluteFill>
+  );
+};

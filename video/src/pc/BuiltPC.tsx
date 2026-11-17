@@ -84,7 +84,9 @@ const NODES = [
   { v: TOTALS.pythonLines.toLocaleString("en-US"), l: "Lines of Python", big: true },
   { v: String(TOTALS.animations), l: "Animations inside the site", big: true },
 ];
-const NODE_X = [110, 580, 1040, 1500];
+/** (17/11) four equal columns centred on the frame; each node sits in the middle of its column */
+const COL_W = 420;
+const NODE_X = [0, 1, 2, 3].map((i) => 960 + (i - 1.5) * COL_W);
 const LINE_Y = 390;
 
 const LitLine: React.FC<{ y: number; x0: number; tip: number }> = ({ y, x0, tip }) => (
@@ -116,15 +118,15 @@ const Pipeline: React.FC = () => {
           <div style={{ position: "absolute", inset: 0, transform: "scale(1.03)", transformOrigin: "30% 50%" }}><ScratchShot f={at(K0)(8)} /></div>
         </div>
       )}
-      <div style={{ position: "absolute", left: 110, top: 190, ...MONO, fontSize: 30, color: C.lit, ...smear(f, 6, "left") }}>How it's built</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 190, textAlign: "center", ...MONO, fontSize: 30, color: C.lit, ...smear(f, 6, "up") }}>How it's built</div>
       <LitLine y={LINE_Y} x0={0} tip={tip} />
       {NODES.map((n, i) => {
         const st = arrive[i];
         const lit = f >= st;
         const hit = ring(f, [st], 8);
         return (
-          <div key={i} style={{ position: "absolute", left: NODE_X[i], top: LINE_Y, width: 410 }}>
-            <div style={{ position: "absolute", left: -16, top: -16, width: 32, height: 32, background: "#fff", opacity: lit ? 1 : 0, transform: `scale(${lit ? 1 + hit * 0.4 : 0})`,
+          <div key={i} style={{ position: "absolute", left: NODE_X[i] - (COL_W - 40) / 2, top: LINE_Y, width: COL_W - 40, textAlign: "center" }}>
+            <div style={{ position: "absolute", left: (COL_W - 40) / 2 - 16, top: -16, width: 32, height: 32, background: "#fff", opacity: lit ? 1 : 0, transform: `scale(${lit ? 1 + hit * 0.4 : 0})`,
               boxShadow: lit ? `0 0 ${20 + hit * 40}px #ff2415, 0 0 ${60 + hit * 80}px #e10600` : "none" }} />
             <div style={{ position: "absolute", left: 0, right: 0, top: 70, ...smear(f, st, "up", 10, 60) }}>
               <div style={{ ...WIDE, fontWeight: 900, fontSize: n.big ? 82 : 52, lineHeight: n.big ? 1 : 1.12, height: 118, ...(n.big ? GLOW : { color: "#fff" }) }}>{n.v}</div>
@@ -148,7 +150,9 @@ const SEASON = [
   { n: TOTALS.stops, l: "Pit stops" },
   { n: TOTALS.interactive, l: "Calls to make" },
 ];
-const CELL_X = [110, 720, 1330];
+/** (17/11) three columns centred on the frame, the same margin each side */
+const CELL_W = 560;
+const CELL_X = [0, 1, 2].map((i) => 960 + (i - 1) * CELL_W);
 const ROW_Y = [290, 660];
 
 const Tower: React.FC = () => {
@@ -163,15 +167,15 @@ const Tower: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.night, overflow: "hidden" }}>
       <Beam draw={1} x={1760} angle={28} opacity={0.3} pulse={(f % b(4)) / b(4)} />
-      <div style={{ position: "absolute", left: 110, top: 170, ...MONO, fontSize: 30, color: C.lit, ...smear(f, 0, "left", 10) }}>Season 2026 so far</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 170, textAlign: "center", ...MONO, fontSize: 30, color: C.lit, ...smear(f, 0, "up", 10) }}>Season 2026 so far</div>
       {ROW_Y.map((y, r) => f >= b(r * 3 + 0.6) && <LitLine key={r} y={y} x0={0} tip={run(r)} />)}
       {SEASON.map((s, i) => {
         const st = b(1 + i);
         const count = interpolate(f, [st + 2, st + 2 + b(1)], [0, s.n], { ...clamp, easing: out });
         const col = i % 3, row = Math.floor(i / 3);
         return (
-          <div key={s.l} style={{ position: "absolute", left: CELL_X[col], top: ROW_Y[row] + 44, width: 580, ...smear(f, st + 2, "up", 10, 60) }}>
-            <div style={{ ...WIDE, fontWeight: 900, fontSize: 118, lineHeight: 1, ...GLOW }}>{Math.round(count).toLocaleString("en-US")}</div>
+          <div key={s.l} style={{ position: "absolute", left: CELL_X[col] - (CELL_W - 40) / 2, top: ROW_Y[row] + 44, width: CELL_W - 40, textAlign: "center", ...smear(f, st + 2, "up", 10, 60) }}>
+            <div style={{ ...WIDE, fontWeight: 900, fontSize: 100, lineHeight: 1, ...GLOW }}>{Math.round(count).toLocaleString("en-US")}</div>
             <div style={{ ...WIDE, fontSize: 34, lineHeight: 1.2, color: "#fff", marginTop: 26 }}>{s.l}</div>
           </div>
         );

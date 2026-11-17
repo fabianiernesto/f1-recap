@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Logo de Racing Simplified (la R del favicon, web/app/icon.png) redibujado a 2048 px el 16/11/2026. Abrir en Chrome a 2048x2048 y hacer captura. -->
+<style>
+@font-face { font-family: "Anybody"; src: url("file:///C:/Users/ErniB/Downloads/CLAUDE%20CODE%20MASTER%20-%20v1/Proyecto%206_Ernesto%20-%20F1%20Recap%20Interactivo/web/public/fonts/anybody-variable.woff2") format("woff2"); font-weight: 100 900; font-stretch: 50% 150%; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 2048px; height: 2048px; overflow: hidden; background: #0a0a0a; }
+body { position: relative; }
+.halo { position: absolute; inset: 0; background: radial-gradient(circle at 50% 47%, #48100a 0%, #220705 40%, #0c0a0a 72%); }
+.tube { position: absolute; left: 0; top: 0; width: 2048px; height: 2048px; }
+.r { position: absolute; left: 154px; top: 263px; font-family: "Anybody"; font-weight: 800; font-stretch: 150%;
+  font-size: 1604.8px; line-height: 1; color: #ff2415;
+  text-shadow: 0 0 14px #ff5a40, 0 0 60px #ff2415, 0 0 160px #e10600cc, 0 0 320px #e1060088; }
+</style></head><body>
+<div class="halo"></div>
+<svg class="tube" viewBox="0 0 2048 2048">
+  <defs>
+    <linearGradient id="g" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff2415"/><stop offset="0.55" stop-color="#ff3a18"/><stop offset="1" stop-color="#f0782a"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <line x1="1893" y1="-20" x2="740" y2="2068" stroke="url(#g)" stroke-width="58" stroke-linecap="round" filter="url(#glow)"/>
+</svg>
+<div class="r" id="r">R</div>
+</body></html>

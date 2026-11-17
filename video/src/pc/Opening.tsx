@@ -7,7 +7,7 @@ import { AbsoluteFill, Easing, Img, interpolate, random } from "remotion";
 import { ClipFrame, clipFrame, markers } from "../Clip";
 import { at, Blur, BODY, C, clamp, ease, Flash, GLOW, hum, out, shake, smear, WIDE } from "../kit";
 import { Seq, span, useFrame } from "../time";
-import { Column, Cursor, S, Say, Seam, SITE } from "./kit";
+import { Column, Cursor, S, Say, Seam, SITE, Sting } from "./kit";
 
 /* ---------- beats 8-16: the corridor of real screens, then the neon ---------- */
 
@@ -21,7 +21,7 @@ const SCREENS = [
 ];
 const W = 1040, H = 802;
 /** the title: where the neon catches and where the word lands on beat 16 */
-const TITLE = { x: 120, y: 250, size: 150 };
+const TITLE = { x: 120, y: 308, size: 116 }; // (17/11) smaller: the text was taking the whole screen
 
 export const IntroPC: React.FC = () => {
   const f = useFrame();
@@ -84,12 +84,13 @@ const TitleBlock: React.FC<{ f?: number; live?: boolean; h?: number; slam?: numb
       Racing
       <div style={{ ...GLOW, filter: `brightness(${h})` }}>Simplified</div>
     </div>
-    <div style={{ ...WIDE, fontSize: 44, lineHeight: 1.2, color: "#fff", marginTop: 72, whiteSpace: "nowrap", ...(live && k ? smear(f, k(1), "left") : {}) }}>
+    <div style={{ ...WIDE, fontSize: 32, lineHeight: 1.25, color: "#fff", marginTop: 54, whiteSpace: "nowrap", ...(live && k ? smear(f, k(1), "left") : {}) }}>
       The website that explains
       <br />
-      every F1 race.
+      {/* 17/11: the same promise as the teaser, the games included, on the same line (his call) */}
+      every F1 race, <span style={GLOW}>and lets you play it.</span>
     </div>
-    <div style={{ ...BODY, fontSize: 38, lineHeight: 1.3, color: "#ffffffd0", marginTop: 34, whiteSpace: "nowrap", ...(live && k ? smear(f, k(3), "left") : {}) }}>
+    <div style={{ ...BODY, fontSize: 22, lineHeight: 1.3, color: "#ffffff8a", fontStyle: "italic", letterSpacing: "0.01em", marginTop: 84, whiteSpace: "nowrap", /* (17/11) fine print, lower, so the frame breathes */ ...(live && k ? smear(f, k(3), "left") : {}) }}>
       Every 2026 Grand Prix, rebuilt from the official data.
     </div>
   </div>
@@ -127,19 +128,13 @@ const Pick: React.FC = () => {
   const b = at(24);
   const m = markers("pNav");
   const io = { ...clamp, easing: Easing.inOut(Easing.cubic) };
-  const lift = interpolate(f, [0, b(1.4)], [0, 1], io);
-  const rise = interpolate(f, [b(0.2), b(1.8)], [0, 1], { ...clamp, easing: Easing.out(Easing.cubic) });
+  const rise = 1; // (17/11) already in place when the curtain whips off
   const push = interpolate(f, [b(8) - 12, b(8)], [0, 1], io);
   const tapX = SITE.x + (m.cardX + m.cardW / 2) * S;
   const tapY = SITE.y + (m.cardY + m.cardH * 0.45) * S;
   return (
     <AbsoluteFill style={{ background: C.night, overflow: "hidden" }}>
-      {/* the title block as the beat before left it, lifting away */}
-      {lift < 1 && (
-        <div style={{ position: "absolute", inset: 0, opacity: 1 - lift, transform: `translateY(${-lift * 520}px)`, filter: `blur(${lift * 6}px)` }}>
-          <TitleBlock />
-        </div>
-      )}
+      {/* (17/11) the name no longer lifts away over the site: the curtain takes it (LightsPC) */}
       <Column f={f} at={b(1.2)} n="01" name="Pick a race" lines={PICK_LINES} b={b} k0={24} until={b(7.85)} />
       {/* the site comes in from the right and takes its place */}
       <div style={{ position: "absolute", left: SITE.x, top: SITE.y, width: SITE.w, height: SITE.h, overflow: "hidden", transform: `translateX(${(1 - rise) * SITE.w}px)` }}>
@@ -158,12 +153,20 @@ const Pick: React.FC = () => {
   );
 };
 
+const NameToPick: React.FC = () => {
+  const f = useFrame();
+  const b = at(23.3);
+  return <Sting f={f} inAt={0} offAt={b(1.05)} />;
+};
+
 export const LightsPC: React.FC = () => {
   const k = at(16);
   return (
     <AbsoluteFill>
       <Seq durationInFrames={span(16, 24)}><Brand /></Seq>
       <Seq from={k(8)} durationInFrames={span(24, 32)}><Pick /></Seq>
+      {/* (17/11) the cut from the name to 01 is the site's own curtain: shut on the name, off onto the home */}
+      <Seq from={k(7.3)} durationInFrames={span(23.3, 25.4)}><NameToPick /></Seq>
     </AbsoluteFill>
   );
 };
