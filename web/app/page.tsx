@@ -486,8 +486,8 @@ export default function Home() {
                   </figure>
                 )}
                 <span className={`home-card-name${w.circuit.length > 14 ? " is-long" : ""}`}>{w.circuit}</span>
-                <span className="home-card-sub">
-                  {w.short} · {w.date}
+                <span className={`home-card-sub${w.short.length > 24 ? " is-long" : ""}`}>
+                  {w.short}<span className="home-card-date">{w.date}</span>
                 </span>
                 {f ? (
                   <span className="home-card-win">

@@ -906,6 +906,11 @@ body {
 .home-card-sub { position: relative; z-index: 1; font-family: var(--font-mono);
   font-size: 10px; letter-spacing: .14em; color: #8c8c8c; text-transform: uppercase;
   margin-top: 7px; }
+/* every card the same: the Grand Prix on one line, its date whole on the next (it used to break at a different word on each card) */
+.home-card-date { display: block; margin-top: 4px; white-space: nowrap; }
+/* "Bahrain Grand Prix in Malaysia" is the one name too long for one line: a little less spacing keeps it there
+   wherever the card is wide enough (on a small phone it still breaks, inside the card) */
+.home-card-sub.is-long { letter-spacing: .04em; }
 .home-card-win { position: relative; z-index: 1; margin-top: 12px;
   font-family: "Agrandir", var(--font-body), sans-serif; font-size: 14px; color: #cfcfcf; }
 .home-card-win b { color: var(--ink); font-weight: 600; }
@@ -3969,6 +3974,10 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 .tr-x:hover { color: #fff; }
 .tr-panel .tr-err { margin: 14px 0 0; color: var(--led); }
 .tr-panel .tr-done { margin: 0; font-size: 17px; color: #fff; }
+/* on a phone the button took too much of the screen: it stays on the home page only (Ernesto, 18/11/2026); a computer keeps it everywhere */
+@media (max-width: 600px), (pointer: coarse) and (max-height: 500px) {
+  .tr-btn.is-away { display: none; }
+}
 @media (max-width: 600px) {
   .tr-btn { left: 12px; bottom: 52px; padding: 10px 14px; font-size: 10px; }
   .tr-panel { left: 0; right: 0; bottom: 0; width: auto; max-width: none; border-left: 0; border-right: 0;

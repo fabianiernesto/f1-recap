@@ -115,7 +115,7 @@ export default function TeamRadio() {
 
   return (
     <>
-      <button type="button" className={`tr-btn${open ? " is-open" : ""}`} onClick={toggle} aria-expanded={open} aria-controls="team-radio"
+      <button type="button" className={`tr-btn${open ? " is-open" : ""}${path === "/" ? "" : " is-away"}`} onClick={toggle} aria-expanded={open} aria-controls="team-radio"
         onPointerEnter={warm} onPointerDown={warm} onFocus={warm}>
         Roast the site
       </button>
