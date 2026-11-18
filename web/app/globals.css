@@ -365,7 +365,8 @@ body {
   letter-spacing: .2em; text-transform: uppercase; line-height: 1; color: #ffffff; }
 .badge .t2 { font-family: var(--font-mono); font-size: 10px; color: var(--led);
   letter-spacing: .16em; text-transform: uppercase; margin-top: 5px; }
-.lapbox { display: flex; align-items: center; padding: 14px 18px; gap: 10px; }
+/* the lap count ends on the top bar's right margin (5vw), like every other edge of the page */
+.lapbox { display: flex; align-items: center; padding: 14px 5vw 14px 18px; gap: 10px; }
 .lapbox .lbl { font-family: var(--font-mono); font-size: 10px; color: #8c8c8c; letter-spacing: .18em; }
 .lapbox .n { font-family: var(--font-mono); font-weight: 700; font-size: 22px;
   font-variant-numeric: tabular-nums; letter-spacing: .02em; color: var(--led); }
@@ -392,7 +393,7 @@ body {
 .stop { position: relative; }
 .stop .card { max-width: 380px; }
 @media (min-width: 1100px) {
-  .flow { max-width: none; padding-left: 3vw; padding-right: 3vw; }
+  .flow { max-width: none; padding-left: 5vw; padding-right: 5vw; }
   .stop.s-left .card { margin-right: auto; }
   .stop.s-right .card { margin-left: auto; }
 }
@@ -431,6 +432,13 @@ body {
 .v-cover h2 { font-family: var(--font-hero), sans-serif; font-weight: 400;
   color: var(--led); font-size: 46px; line-height: 1.02; letter-spacing: .01em; }
 .v-cover p { font-size: 14.5px; max-width: 40ch; color: #cfcfcf; }
+/* the title's glow needs room before the first line of text */
+.v-cover h2 { margin-bottom: 20px; }
+/* under 1100 px the track runs behind the cover: a soft dark patch keeps its text readable */
+@media (max-width: 1099px) {
+  .v-cover::before { content: ""; position: absolute; inset: -24px -20px; z-index: -1;
+    background: radial-gradient(closest-side, #0a0a0ae0, #0a0a0a00); }
+}
 .v-cover .kicker::before { width: 34px; }
 
 .v-pred { border-color: #ffffff1c; }
@@ -455,6 +463,14 @@ body {
 .v-final::before { top: 0; }
 .v-final::after { bottom: 0; }
 .v-final h2 { font-size: 32px; }
+/* one axis: the kicker centred with the rest; the table reads like every other card's, name left and points right */
+.v-final .kicker { justify-content: center; }
+.v-final .dato td:first-child { text-align: left; }
+/* centred lines: no word left alone on the last one ("behind") */
+.v-final p, .v-final .pts li { text-wrap: pretty; }
+/* the word sits in the middle of the card, so its panel hangs from the middle and stays on a phone screen */
+.v-final .term-pop { left: 50%; translate: -50% 0; }
+.v-final .term-pop::before { left: calc(50% - 4px); }
 
 .v-num .bignum { position: absolute; right: 8px; top: -34px; z-index: -1;
   font-family: var(--font-hero), var(--font-display), sans-serif; font-size: 120px;
@@ -492,7 +508,7 @@ body {
   letter-spacing: .04em; text-transform: uppercase; }
 .call-opt span { font-family: var(--font-mono); font-size: 11px; color: #8c8c8c;
   letter-spacing: .02em; }
-.call-opt em { position: absolute; top: 10px; right: 12px; font-style: normal;
+.call-opt em { position: absolute; top: 15px; right: 12px; font-style: normal;
   font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .16em;
   text-transform: uppercase; color: var(--led); }
 @media (hover: hover) { .call-opt:hover:not(:disabled) { border-color: var(--led); background: #140708; } }
@@ -1052,7 +1068,7 @@ a.how-act:hover { background: #f3f3f3; }
    One centre line and one set of margins. Everything above the bands is
    centred on the same axis; the bands are the only full-width elements, and
    they share the page gutter so their edges line up with each other. */
-.poster { --gut: 6vw;
+.poster { --gut: 5vw;
   position: relative; z-index: 30; min-height: 100vh; background: var(--paper);
   color: #0a0a0a; overflow: hidden; display: flex; flex-direction: column; }
 
@@ -2586,6 +2602,10 @@ a.act:hover .act-go { background: var(--led); color: #000; }
 .hub.fx-page .hub-session-race .hub-session-n, .hub.fx-page .hub-session-race .hub-session-go { color: #fff; }
 .hub.fx-page .hub-session-race .hub-session-head, .hub.fx-page .hub-session-race .hub-session-meta { color: #ffe3dd; }
 .hub.fx-page .hub-session-race .hub-session-label { font-size: clamp(26px, 2.8vw, 44px); }
+/* on a phone the band runs edge to edge like the other red bands, and its number and name line up with the rows above */
+@media (max-width: 900px) {
+  .hub.fx-page .hub-session.hub-session-race { margin: 5vh -5vw 0; padding-left: calc(5vw + 8px); padding-right: calc(5vw + 8px); }
+}
 
 /* ---- the activities: photographs behind every door, the cards off the line */
 .acts.fx-page { position: relative; overflow: hidden; isolation: isolate; }
@@ -2674,9 +2694,10 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
 .lost-alt:hover { color: #fff; }
 
 /* ---- the end of a session hands over to the next one */
+/* the foot clears Roast the site (fixed, its top ~93px from the bottom): the links end 4vh above it */
 .snext { position: relative; z-index: 30; background: #0a0a0a; overflow: hidden; isolation: isolate;
-  padding: 16vh 0 8vh; }
-.snext-band { position: relative; z-index: 2; margin: 0 0 0 0; padding: 14vh 6vw 12vh;
+  padding: 16vh 0 calc(96px + 4vh); }
+.snext-band { position: relative; z-index: 2; margin: 0 0 0 0; padding: 14vh 5vw 12vh;
   background: linear-gradient(115deg, #6e0703 0%, #a50b06 38%, #d20e08 100%);
   clip-path: polygon(0 12%, 100% 0, 100% 88%, 0 100%); }
 .snext-k { display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 700;
@@ -2694,11 +2715,11 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
   font-size: clamp(40px, 5vw, 90px); color: #fff; transition: transform .3s ease; }
 .snext-main:hover i { transform: translateX(14px); }
 .snext-main:hover .snext-name { letter-spacing: .02em; }
-.snext-row { position: relative; z-index: 2; display: flex; gap: 34px; flex-wrap: wrap; padding: 7vh 6vw 0; }
+.snext-row { position: relative; z-index: 2; display: flex; gap: 34px; flex-wrap: wrap; padding: 7vh 5vw 0; }
 .snext-row a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
   color: #8c8c8c; text-decoration: none; }
 .snext-row a:hover { color: #fff; }
-@media (max-width: 700px) { .snext-band { padding: 10vh 6vw 9vh; } .lost-helmet { width: 130vw; right: -50vw; opacity: .55; } }
+@media (max-width: 700px) { .snext-band { padding: 10vh 5vw 9vh; } .lost-helmet { width: 130vw; right: -50vw; opacity: .55; } }
 
 /* ---- the blind test, in play and at the end */
 .bt-subject { isolation: isolate; }
@@ -2723,7 +2744,7 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
   .mate { right: 10px; left: 10px; width: auto; max-width: none; }
   .mate-ask button { width: 40px; }
   .hud { justify-content: flex-end; }
-  .lapbox { padding: 12px 12px; }
+  .lapbox { padding: 12px 5vw 12px 12px; }
   .hub-top { gap: 12px; }
   .hub-back, .hub-home { font-size: 9px; letter-spacing: .12em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .hub-home { flex: none; }
@@ -3113,6 +3134,8 @@ html, body { overflow-x: clip; }
 .cr-cover-copy { position: relative; z-index: 2; max-width: 600px; }
 .cr-h1 { margin: 20px 0 30px; font-family: var(--wide); font-weight: 800; font-stretch: 150%; text-transform: uppercase;
   font-size: clamp(46px, 6.8vw, 112px); line-height: .9; }
+/* EXCHANGE is the widest word on the site: at 98 px it ran 244 px into the track and pushed Lights out to the bottom */
+.px-cover .cr-h1 { font-size: clamp(40px, 4.6vw, 69px); }
 .cr-how { list-style: none; margin: 0 0 30px; padding: 0; display: grid; gap: 12px; max-width: 520px; }
 .cr-how li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding-top: 12px; border-top: 1px solid #ffffff1a; }
 .cr-how b { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--led); }
@@ -3122,7 +3145,7 @@ html, body { overflow-x: clip; }
 .cr-stats b { font-family: var(--wide); font-weight: 900; font-stretch: 150%; font-size: 34px; line-height: 1.1; }
 
 /* the game: track in the middle, the order and the calls round it */
-.cr-game { height: calc(100svh - 0px); min-height: 640px; overflow: hidden; display: grid; padding: 64px 3vw 2vh;
+.cr-game { height: calc(100svh - 0px); min-height: 640px; overflow: hidden; display: grid; padding: 64px 5vw 2vh;
   grid-template-columns: 240px minmax(0, 1fr) 240px; grid-template-rows: auto auto minmax(0, 1fr);
   grid-template-areas: "hud hud hud" "line line line" "tower stage side";
   background: radial-gradient(ellipse 55% 60% at 50% 55%, #e106001c, transparent 70%), var(--carbon-0); column-gap: 2vw; }
@@ -3140,7 +3163,7 @@ html, body { overflow-x: clip; }
 .cr-tl-mark.set { border-color: #fff; background: #fff3; }
 .cr-tl-mark.hit { border-color: var(--ok); background: var(--ok); box-shadow: 0 0 10px #2fd06a88; }
 .cr-tl-mark.miss { border-color: #ff2415; background: #ff2415; }
-.cr-flag { position: absolute; z-index: 6; left: 0; right: 0; top: 52px; padding: 7px 3vw; }
+.cr-flag { position: absolute; z-index: 6; left: 0; right: 0; top: 52px; padding: 7px 5vw; }
 .cr-flag span { font-family: var(--font-mono); font-weight: 700; font-size: 11px; letter-spacing: .24em; text-transform: uppercase;
   background: #111; padding: 4px 10px; }
 .cr-flag.sc, .cr-flag.vsc { background: repeating-linear-gradient(-45deg, #ffd12e 0 12px, #111 12px 24px); }
@@ -3156,7 +3179,9 @@ html, body { overflow-x: clip; }
 .cr-tower li.is-focus { background: #e1060026; box-shadow: inset 0 0 0 1px #e1060077; }
 .cr-skip { grid-area: side; align-self: end; justify-self: end; margin-bottom: 2vh; padding: 12px 14px; border: 1px solid #ffffff26; border-radius: 6px;
   background: #0d0d0d; color: #d6d9de; font-size: 10px; cursor: pointer; }
-.cr-skip i { font-style: normal; color: var(--led); margin-left: 6px; }
+/* the arrow stays on the line of the words, however they wrap */
+.cr-skip { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.cr-skip i { font-style: normal; color: var(--led); flex: none; }
 .cr-skip:hover { border-color: var(--led); color: #fff; }
 
 /* the answer arriving */
@@ -3167,14 +3192,15 @@ html, body { overflow-x: clip; }
 .cr-toast.hit::before { background: var(--ok); }
 .cr-toast.miss { background: linear-gradient(90deg, #2a0705, #140302); border: 1px solid #5a0a06; }
 .cr-toast.miss::before { background: #ff2415; }
-.cr-toast b { display: block; font-family: var(--wide); font-weight: 900; font-stretch: 140%; text-transform: uppercase; font-size: 24px; }
+.cr-toast b { display: block; font-family: var(--wide); font-weight: 900; font-stretch: 140%; text-transform: uppercase; font-size: 24px;
+  line-height: 1.05; text-wrap: balance; }
 .cr-toast.hit b { color: var(--ok); }
 .cr-toast.miss b { color: #ff6a5c; }
-.cr-toast p { margin: 6px 0 0; font-size: 14px; color: #e6e6e6; line-height: 1.45; }
+.cr-toast p { margin: 10px 0 0; font-size: 14px; color: #e6e6e6; line-height: 1.45; }
 @keyframes cr-up { from { opacity: 0; transform: translate(-50%, 30px); } }
 
 /* the call */
-.cr-sheet { position: absolute; z-index: 10; right: 3vw; bottom: 3vh; width: min(460px, calc(100% - 24px)); max-height: calc(100% - 150px); overflow-y: auto;
+.cr-sheet { position: absolute; z-index: 10; right: 5vw; bottom: 4vh; width: min(460px, calc(100% - 24px)); max-height: calc(100% - 150px); overflow-y: auto;
   padding: 22px 20px 20px; border-radius: 16px; border: 1px solid #ffffff1f;
   background: linear-gradient(180deg, #141414f5, #0b0b0bf5); box-shadow: 0 30px 90px #000e; animation: cr-sheet .45s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes cr-sheet { from { opacity: 0; transform: translateY(40px); filter: blur(8px); } }
@@ -3194,7 +3220,7 @@ html, body { overflow-x: clip; }
 .cr-stake { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 16px 0; }
 .cr-stake button { padding: 10px 6px; border: 1px solid #ffffff1a; border-radius: 6px; background: #0d0d0d; color: #fff; cursor: pointer; }
 .cr-stake b { display: block; font-family: var(--wide); font-weight: 900; font-stretch: 140%; font-size: 20px; }
-.cr-stake span { font-size: 8px; color: #8c8c8c; }
+.cr-stake span { font-size: 10px; color: #8c8c8c; }
 .cr-stake button.is-sel { border-color: #ff2415; background: #e1060026; }
 .cr-lock { width: 100%; justify-content: center; }
 .cr-lock:disabled { opacity: .45; cursor: default; filter: none; }
@@ -3229,10 +3255,10 @@ html, body { overflow-x: clip; }
 .cr-next { display: grid; margin-top: 26px; }
 
 @media (max-width: 960px) {
-  .cr-cover { grid-template-columns: 1fr; padding: 9vh 16px 6vh; gap: 0; }
+  .cr-cover { grid-template-columns: 1fr; padding: 9vh 5vw 6vh; gap: 0; }
   .cr-cover-track { order: 0; height: 42vh; margin: 0 -10px -6vh; opacity: .8; }
   .cr-h1 { font-size: clamp(40px, 13vw, 64px); margin: 14px 0 22px; }
-  .cr-game { height: 100svh; min-height: 560px; padding: 54px 12px 10px; grid-template-columns: 1fr auto; grid-template-rows: auto auto minmax(0, 1fr) auto;
+  .cr-game { height: 100svh; min-height: 560px; padding: 54px 5vw 10px; grid-template-columns: 1fr auto; grid-template-rows: auto auto minmax(0, 1fr) auto;
     grid-template-areas: "hud hud" "line line" "stage stage" "tower side"; column-gap: 8px; }
   .cr-hud b { font-size: 34px; }
   .cr-flag { top: 46px; padding: 6px 12px; }
@@ -3240,9 +3266,9 @@ html, body { overflow-x: clip; }
   .cr-tower li { height: 22px; font-size: 10px; grid-template-columns: 16px 4px 1fr auto; gap: 6px; padding: 0 8px; }
   .cr-tower li:nth-child(n+6) { display: none; }
   .cr-skip { margin: 0; padding: 10px; font-size: 9px; letter-spacing: .12em; max-width: 130px; text-align: right; }
-  .cr-sheet { left: 0; right: 0; bottom: 0; width: auto; max-height: 78svh; border-radius: 18px 18px 0 0; padding: 20px 16px 18px; }
+  .cr-sheet { left: 0; right: 0; bottom: 0; width: auto; max-height: 78svh; border-radius: 18px 18px 0 0; padding: 20px 5vw 18px; }
   .cr-toast { bottom: 140px; }
-  .cr-done { grid-template-columns: 1fr; padding: 10vh 16px 8vh; }
+  .cr-done { grid-template-columns: 1fr; padding: 10vh 5vw 8vh; }
 }
 
 /* =====================================================================
@@ -3354,16 +3380,24 @@ html, body { overflow-x: clip; }
 /* the second activity card sits 7vh lower (translate, so the layout does not
    know): clear it, or the sprint links run into its bottom edge */
 .acts-sprint { margin-right: 14px; }
-@media (min-width: 901px) { .acts.fx-page .acts-sprint { margin-top: calc(7vh + 34px); } }
+/* on a computer each sprint link sits under its own card: the same width, 34px below it, the second one
+   7vh lower like its card, and square corners like the cards (the phone keeps its own layout) */
+@media (min-width: 901px) {
+  .acts.fx-page .acts-sprint { width: calc(50% - 13px); margin: 34px 0 0; border-radius: 0; vertical-align: top;
+    grid-template-columns: 1fr auto; }
+  .acts.fx-page .acts-sprint + .acts-sprint { margin-left: 26px; translate: 0 7vh; }
+}
 
 /* the activity cards wear the race itself (24/10/2026): no stock photographs */
 .act-art { position: absolute !important; inset: 0; z-index: -1; opacity: 1 !important; overflow: hidden;
   background: radial-gradient(ellipse 70% 80% at 72% 60%, #e106001a, transparent 70%), #0a0a0a; }
 .act-art::after { content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(90deg, #0a0a0ae6 0%, #0a0a0a99 34%, #0a0a0a00 62%); }
-.act-track { position: absolute; right: -4%; top: 6%; width: 64%; height: 92%; }
+.act-track { position: absolute; right: -2%; top: 6%; width: 50%; height: 92%; }
 /* low and to the right, under the copy rather than through it */
-.act-chart { position: absolute; right: 3%; bottom: 16%; width: 54%; height: 46%; opacity: .6; }
+.act-chart { position: absolute; right: 3%; bottom: 16%; width: 44%; height: 46%; opacity: .6; }
+/* the words keep to the left half, the drawing to the right: no cars over the text */
+.act p, .act-meta { max-width: 290px; }
 .act-ghost { position: absolute; inset: 0; }
 .act-ghost img { position: absolute; top: 5%; right: 4%; height: 235%; width: auto; max-width: none; }
 .act-ghost-real { filter: drop-shadow(0 30px 50px #000); }
@@ -3470,7 +3504,7 @@ html, body { overflow-x: clip; }
 .px-ladder div { display: grid; justify-items: center; gap: 3px; }
 .px-ladder i { display: block; width: 100%; background: #2a2a2a; border-radius: 2px 2px 0 0; }
 .px-ladder i.top { background: var(--led); box-shadow: 0 0 10px #e1060088; }
-.px-ladder span, .px-ladder b { font-family: var(--font-mono); font-size: 8px; color: #8c8c8c; font-weight: 500; }
+.px-ladder span, .px-ladder b { font-family: var(--font-mono); font-size: 10px; color: #8c8c8c; font-weight: 500; }
 .px-ladder b { color: #cfcfcf; }
 .px-ladder div:nth-child(even) span, .px-ladder div:nth-child(even) b { visibility: hidden; }
 
@@ -3514,9 +3548,10 @@ html, body { overflow-x: clip; }
 .px-who span { color: #8c8c8c; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .px-who em { flex: none; font-style: normal; font-family: var(--font-mono); font-weight: 700; font-size: 10px; letter-spacing: .14em;
   text-transform: uppercase; color: #ffd12e; }
-.px-price { text-align: right; }
-.px-price b { display: block; font-family: var(--font-mono); font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums; }
-.px-price small { display: block; height: 14px; font-family: var(--font-mono); font-size: 11px; }
+/* the price on the row's centre line with the code and the buttons; the change hangs under it */
+.px-price { position: relative; text-align: right; }
+.px-price b { display: block; font-family: var(--font-mono); font-weight: 700; font-size: 20px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.px-price small { position: absolute; right: 0; top: calc(100% - 2px); display: block; height: 14px; font-family: var(--font-mono); font-size: 11px; }
 .px-hold { text-align: right; font-family: var(--font-mono); font-size: 12px; color: #8c8c8c; }
 .px-hold b { display: block; font-size: 14px; }
 .px-acts { display: flex; gap: 8px; justify-content: flex-end; }
@@ -3537,7 +3572,8 @@ html, body { overflow-x: clip; }
   text-transform: uppercase; line-height: 1; }
 .px-facts p { margin: 0; color: #b9bec6; font-size: 14px; line-height: 1.45; }
 .px-trades { list-style: none; margin: 0 0 34px; padding: 0; }
-.px-trades li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #ffffff14; font-size: 14px; }
+/* the same box as the calls in Call the race: text off the edges, label and amount on one baseline */
+.px-trades li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #ffffff14; font-size: 14px; }
 .px-trades b { font-family: var(--font-mono); font-weight: 700; }
 
 @media (max-width: 900px) {
@@ -3579,7 +3615,13 @@ html, body { overflow-x: clip; }
 .cr-lock { position: sticky; bottom: 0; }
 /* solid now that it can ride over the options (same colour as the old .45) */
 .cr-lock:disabled { opacity: 1; background: #6a0a06; color: #ffffff80; }
-.cr-marks { flex-wrap: wrap; }
+/* one row of marks: they shrink to fit instead of sending the 16th to a line of its own */
+.cr-marks { flex-wrap: nowrap; }
+.cr-marks i { flex: 0 1 30px; height: auto; aspect-ratio: 1; }
+/* the score column stays in view while the list of calls scrolls past it (clip, not hidden, so sticky works) */
+.cr-done { overflow: clip; }
+@media (min-width: 961px) { .cr-final { position: sticky; top: 13vh; align-self: start; } }
+@media (max-width: 960px) { .cr-done { row-gap: 64px; } }
 /* twenty-two prices must not widen the rules page */
 .px-ladder { grid-template-columns: repeat(var(--n, 22), minmax(0, 1fr)); }
 
@@ -3669,10 +3711,14 @@ html, body { overflow-x: clip; }
   /* Lights out is on the first screen whatever the length of the rules: it
      rides the foot of the screen until the rules end (overflow: hidden made
      the page's own box the scroller, and clip does not) */
-  .cr-cover-track { height: 28svh; }
+  /* a shorter track: on the first screen the button no longer sits on the figures */
+  .cr-cover-track { height: 18svh; }
+  /* the exchange cover has the price ladder too: its figures were the ones left under the button */
+  .px-cover .cr-stats { display: none; }
   .cr-cover { overflow: clip; }
+  /* what scrolls under the button fades into the black, not a hard 10px ring */
   .cr-cover .bt-go { position: sticky; bottom: 10px; z-index: 3; width: 100%; justify-content: center;
-    box-shadow: 0 0 0 10px #0a0a0a; }
+    box-shadow: 0 0 0 10px #0a0a0a, 0 -16px 24px 14px #0a0a0a; }
   /* Alfred's button steps aside while a card asks for an answer */
   .mate-fab { transition: transform .18s, background-color .18s, opacity .18s, visibility .18s; }
   .mate-fab.is-quiet:not(.on) { opacity: 0; visibility: hidden; }
@@ -3846,7 +3892,7 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
   .cr-tower { align-self: start; margin: 0; gap: 2px; }
   .cr-tower li { height: 24px; font-size: 10px; grid-template-columns: 14px 4px 1fr auto; gap: 6px; padding: 0 8px; }
   .cr-tower li:nth-child(n+6) { display: grid; }
-  .cr-skip { width: 100%; max-width: none; margin: 6px 0 0; padding: 9px 6px; font-size: 9px; text-align: center; }
+  .cr-skip { width: 100%; max-width: none; margin: 6px 0 0; padding: 9px 6px; font-size: 9px; text-align: center; justify-content: center; }
   .cr-toast { left: calc(50% - 94px); bottom: 8px; width: min(460px, calc(100% - 212px)); padding: 9px 12px 9px 16px; }
   .cr-toast b { font-size: 15px; }
   .cr-toast p { margin-top: 3px; font-size: 12px; line-height: 1.3; }
