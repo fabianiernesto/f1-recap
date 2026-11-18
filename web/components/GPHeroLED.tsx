@@ -123,7 +123,7 @@ export default function GPHeroLED({
   const start = channels.indexOf(simplified);
 
   return (
-    <section className="ledhero">
+    <section className={`ledhero${track.circuit.length <= 6 ? " is-short" : ""}`} style={{ ["--n" as string]: track.circuit.length }}>
       {/* our own mark, in the same LED face the sting lands on, rather than a
           logo that belongs to Formula One Licensing BV */}
       <div className="ledhero-logo">

@@ -99,6 +99,9 @@ body {
    behind it. Dimmer than the headline too, because a mark this size at full
    strength stops being a background and starts being the subject. */
 .ledhero-logo { position: absolute; z-index: 0; top: 1.2vh; left: 1.6vw; }
+/* 18/11/2026, Ernesto: no R//S on the hub on a computer either. On the wide circuits (Baku, Marina Bay,
+   Austin, Mexico City) the data panel sat on its S; on a phone it was already gone */
+.ledhero-logo { display: none; }
 /* the headline treatment, at the scale of a backdrop: same face, same red,
    same glow and the same slow breath as SILVERSTONE and SCROLLED, so the two
    read as one sign rather than a mark and a title that happen to share a
@@ -1516,6 +1519,31 @@ a.act:hover .act-go { background: var(--led); color: #000; }
   font-family: var(--font-mono); font-size: 1.15vh; font-weight: 700;
   letter-spacing: .26em; text-transform: uppercase; color: #8a8f99;
   text-shadow: 0 0 12px #000, 0 0 4px #000; }
+/* 18/11/2026, Ernesto: SILVERSTONE / SIMPLIFIED works because the two lines meet; a short name (BAKU) sat far
+   left with a hole before SIMPLIFIED. Moving only the name put all the weight on the right ("demasiado peso
+   visual a la derecha"). So both lines close the gap by half each: for every letter a name is short of 11, the
+   name moves half a letter (.3em of 12.6vh = 3.78vh) right and SIMPLIFIED, with its rail, half a letter left.
+   The pair keeps Silverstone's overlap and stays on Silverstone's axis. 11 letters and longer: unchanged.
+   The phone has its own layout. */
+@media (min-width: 901px) {
+  .ledhero .ledhero-l1, .ledhero .ledhero-read { left: calc(13vw + (11 - min(var(--n, 11), 11)) * 3.78vh); }
+  .ledhero .ledhero-l2, .ledhero .ledhero-rail { left: calc(48vw - (11 - min(var(--n, 11), 11)) * 3.78vh); }
+}
+/* 18/11/2026, Ernesto: a name of up to 6 letters goes on one line with the word ("BAKU SIMPLIFIED"),
+   centred on the screen: the line is (n + 11) letters of 7.56vh, so it starts half of that
+   left of the middle. On a screen narrower than 3:2 it would not fit, so there it keeps two lines. */
+@media (min-width: 901px) and (min-aspect-ratio: 3/2) {
+  .ledhero.is-short .ledhero-l1, .ledhero.is-short .ledhero-read {
+    left: calc(50vw - (var(--n) + 11) * 3.78vh); }
+  /* on the first line's row, sitting on the base of the car (Ernesto: "más arriba, sobre la base del coche") */
+  /* "un poco más abajo": 4% below the first line's row, and the date under it moves down the same 4% */
+  .ledhero.is-short .ledhero-l1, .ledhero.is-short .ledhero-l2 { top: 60.5%; }
+  .ledhero.is-short .ledhero-read { top: 72.2%; }
+  /* the rail stays at its usual height above the buttons, as on every hub; raised to the date's row it
+     crowded the date and broke it onto two lines */
+  .ledhero.is-short .ledhero-l2, .ledhero.is-short .ledhero-rail {
+    left: calc(50vw - (var(--n) + 11) * 3.78vh + (var(--n) + 1) * 7.56vh); }
+}
 .ledhero-read i { font-style: normal; color: var(--led);
   animation: cursor-blink 1s steps(1) infinite; }
 
