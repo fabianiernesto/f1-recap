@@ -468,6 +468,10 @@ body {
 .v-final .dato td:first-child { text-align: left; }
 /* centred lines: no word left alone on the last one ("behind") */
 .v-final p, .v-final .pts li { text-wrap: pretty; }
+/* no word left alone on the last line of any card text, list, note or explanation (18/11/2026: ~180 of them
+   across the race pages); the LED hub is not touched */
+.card p, .card .pts li, .card .note, .card dd, .dato td, .acts-head p, .act p, .how-banner-text p,
+.home-sec-head p, .cr-how li span, .cr-line, .cr-ctx, .cr-toast p, .cr-review li p, .snext-head { text-wrap: pretty; }
 /* the word sits in the middle of the card, so its panel hangs from the middle and stays on a phone screen */
 .v-final .term-pop { left: 50%; translate: -50% 0; }
 .v-final .term-pop::before { left: calc(50% - 4px); }
