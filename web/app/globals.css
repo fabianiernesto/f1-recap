@@ -783,9 +783,9 @@ body {
   gap: 28px; margin-top: 4.5vh; }
 .home-go { display: inline-flex; align-items: center; gap: .9em;
   background: var(--brand); color: var(--paper); text-decoration: none;
-  padding: 17px 30px; font-family: var(--font-mono); font-weight: 700;
+  padding: 16px 30px; font-family: var(--font-mono); font-weight: 700;
   font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
-  transition: filter .18s; }
+  transition: filter .18s; } /* 16px 30px: the same box as every red button (bt-go, spread-go), 49px tall */
 .home-go i { font-style: normal; transition: transform .18s; }
 .home-go:hover { filter: brightness(1.12); }
 .home-go:hover i { transform: translateX(4px); }
@@ -867,7 +867,7 @@ body {
   font-weight: 700; font-size: 20px; letter-spacing: .01em; text-transform: uppercase; }
 .spread-go { display: inline-flex; align-items: center; gap: .9em;
   background: var(--brand); color: var(--paper); text-decoration: none;
-  padding: 16px 28px; font-family: var(--font-mono); font-weight: 700;
+  padding: 16px 30px; font-family: var(--font-mono); font-weight: 700;
   font-size: 11px; letter-spacing: .26em; text-transform: uppercase; }
 .spread-go i { font-style: normal; transition: transform .18s; }
 .spread-go:hover i { transform: translateX(4px); }
@@ -2688,7 +2688,7 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
 
 /* ---- a wrong turn: the helmet, lit, and the way back */
 .lost { position: relative; min-height: 100vh; overflow: hidden; isolation: isolate; background: #0a0a0a;
-  display: flex; align-items: center; padding: 10vh 6vw; }
+  display: flex; align-items: center; padding: 10vh 5vw; } /* 5vw: on the top bar's margin, like every page */
 .lost-helmet { position: absolute; z-index: -1; right: -4vw; top: 50%; transform: translateY(-50%);
   width: min(70vw, 1200px); aspect-ratio: 736 / 414; }
 .lost-copy { position: relative; z-index: 2; max-width: 720px; }
