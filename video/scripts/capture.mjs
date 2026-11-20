@@ -206,7 +206,7 @@ const PC_EXCHANGE_GAME = `.hub-top{display:none!important} .px-left{top:0!import
   .px-row.is-out{opacity:1!important;background:#3a0806}
   .cr-share span,.myst-link{display:none!important}
   .px-row:not(.is-mine) .px-buy:not(:disabled){background:transparent!important;color:#9a9a9a!important;box-shadow:inset 0 0 0 1px #3a3a3a}`;
-const READ_CLIPS = new Set(["navhome", "sWeek", "sRaceCard", "boxes", "pBoxes", "sSteward", "sWall", "sGuess", "sMate"]);
+const READ_CLIPS = new Set(["tWeek", "tRaceCard", "navhome", "sWeek", "sRaceCard", "boxes", "pBoxes", "sSteward", "sWall", "sGuess", "sMate"]);
 /** a card's top, as a fraction of the screen: under the lap counter (measured before its 20px rise) */
 const CARD_K = 0.15;
 /** the boxes say one thing each on film: the lap counter up top, the small print out */
@@ -905,6 +905,17 @@ const CLIPS = {
   async pGuess() { return CLIPS.sGuess("pGuess", CARD_CSS + PC_CARD + PC_CALL_CSS, 0.15); },
   async pPlayCall() { return CLIPS.playCall("pPlayCall", PC_CALL_GAME); },
   async pPlayExchange() { return CLIPS.playExchange("pPlayExchange", PC_EXCHANGE_GAME, 0, 0); },
+  // the games teaser (19/11/2026): the site as it is after the 18/11 design pass, under new names so the
+  // approved launch film keeps its own recordings
+  async tPlayCall() { return CLIPS.playCall("tPlayCall"); },
+  async tPlayExchange() { return CLIPS.playExchange("tPlayExchange"); },
+  async tRaceCard() { return CLIPS.sRaceCard("tRaceCard"); },
+  async tWeek() { return CLIPS.sWeek("tWeek"); },
+  async tHome() {
+    const n = span(20, 28);
+    return record("tHome", "/", n, async (i, page, c) => ({ y: c.how * glide((i - 44) / (n - 44 - 8)) }),
+      async (page) => ({ how: (await yOf(page, "#how", 0.04)) ?? 1400 }), 1);
+  },
 };
 
 const want = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(CLIPS);

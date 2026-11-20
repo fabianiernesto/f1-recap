@@ -136,7 +136,7 @@ export const Car: React.FC<{ top: number; drag: number; blur: number; opacity?: 
 /* ---------- the build: the counter and the season flashing past ---------- */
 /** when each circuit flashes: one a beat with the bass, two a beat in the climb, then one empty beat before the drop */
 export const trackAt = (i: number) => (i < 8 ? fb(BASS + i) : fb(CLIMB + (i - 8) * 0.5));
-const Build: React.FC<{ f: number; p: TeaserProps }> = ({ f, p }) => {
+export const Build: React.FC<{ f: number; p: TeaserProps }> = ({ f, p }) => {
   const d = fb(DROP);
   if (f >= d) return null;
   // counts down to launch with the music: from the whole build to the days left
@@ -175,17 +175,17 @@ const Build: React.FC<{ f: number; p: TeaserProps }> = ({ f, p }) => {
  * Every screen is symmetric about the centre line: a kicker in mono, one big
  * figure, its words under it, then the supporting line. The header (name and
  * date) stays put from the drop to the end instead of coming and going. */
-const CX: React.CSSProperties = { position: "absolute", left: 80, right: 80, textAlign: "center" };
-const KICK: React.CSSProperties = { ...MONO, fontSize: 18, color: C.muted };
+export const CX: React.CSSProperties = { position: "absolute", left: 80, right: 80, textAlign: "center" };
+export const KICK: React.CSSProperties = { ...MONO, fontSize: 18, color: C.muted };
 /** the biggest a figure can be and still sit inside the margins */
-const fitSize = (txt: string, cap: number) => Math.min(cap, 900 / (txt.length * 0.86));
-const Rule: React.FC<{ f: number; at: number; top: number }> = ({ f, at, top }) => {
+export const fitSize = (txt: string, cap: number) => Math.min(cap, 900 / (txt.length * 0.86));
+export const Rule: React.FC<{ f: number; at: number; top: number }> = ({ f, at, top }) => {
   const w = interpolate(f, [at, at + 16], [0, 1], { ...clamp, easing: out });
   return <div style={{ position: "absolute", top, left: "50%", width: 120 * w, height: 3, marginLeft: -60 * w, background: C.brand, boxShadow: `0 0 12px ${C.brand}` }} />;
 };
 
 /* ---------- 1: the days left ---------- */
-const Lap: React.FC<{ f: number; p: TeaserProps }> = ({ f, p }) => {
+export const Lap: React.FC<{ f: number; p: TeaserProps }> = ({ f, p }) => {
   const d = fb(DROP);
   const slam = interpolate(f, [d + 3, d + 13], [0, 1], { ...clamp, easing: out });
   const bar = interpolate(f, [fb(S.lap + 4), fb(S.lap + 6)], [0, p.days / p.total], { ...clamp, easing: Easing.inOut(Easing.cubic) });
@@ -313,29 +313,29 @@ const Season: React.FC<{ f: number }> = ({ f }) => {
 };
 
 /* ---------- 5: the name and the day ---------- */
-const End: React.FC<{ f: number; p: TeaserProps }> = ({ f, p }) => {
-  const a = fb(S.end);
+export const End: React.FC<{ f: number; p: TeaserProps; at?: number }> = ({ f, p, at = S.end }) => {
+  const a = fb(at);
   const carY = interpolate(f, [a, a + 26], [1400, -1900], { ...clamp, easing: Easing.inOut(Easing.cubic) });
   return (
     <AbsoluteFill>
       {f < a + 30 && <Car top={carY} drag={0.4} blur={2} opacity={0.85} />}
       <div style={{ ...CX, top: 380, whiteSpace: "nowrap" }}>
         <div style={{ ...WIDE, fontSize: 92, color: "#fff", ...enter(f, a + 8) }}>Every race</div>
-        <div style={{ ...WIDE, fontSize: 92, ...GLOW, ...enter(f, fb(S.end + 1)) }}>Simplified</div>
+        <div style={{ ...WIDE, fontSize: 92, ...GLOW, ...enter(f, fb(at + 1)) }}>Simplified</div>
       </div>
-      <Rule f={f} at={fb(S.end + 1.5)} top={600} />
-      <div style={{ ...CX, top: 640, whiteSpace: "pre-line", ...BODY, fontSize: 34, lineHeight: 1.4, color: "#d6d6d6", ...enter(f, fb(S.end + 2)) }}>{p.tagline}</div>
+      <Rule f={f} at={fb(at + 1.5)} top={600} />
+      <div style={{ ...CX, top: 640, whiteSpace: "pre-line", ...BODY, fontSize: 34, lineHeight: 1.4, color: "#d6d6d6", ...enter(f, fb(at + 2)) }}>{p.tagline}</div>
       {/* the sign-off sits where every other screen keeps its footer (17/11: "el texto abajo no queda bien") */}
-      <div style={{ ...CX, bottom: 150, ...WIDE, fontSize: 64, lineHeight: 1, whiteSpace: "nowrap", color: "#fff", ...enter(f, fb(S.end + 3)) }}>
+      <div style={{ ...CX, bottom: 150, ...WIDE, fontSize: 64, lineHeight: 1, whiteSpace: "nowrap", color: "#fff", ...enter(f, fb(at + 3)) }}>
         <span style={GLOW}>Live</span> {p.soon.toLowerCase()}
       </div>
-      <div style={{ ...CX, bottom: 96, ...MONO, fontSize: 18, color: C.brand, ...enter(f, fb(S.end + 3.5), 0) }}>{p.when}</div>
+      <div style={{ ...CX, bottom: 96, ...MONO, fontSize: 18, color: C.brand, ...enter(f, fb(at + 3.5), 0) }}>{p.when}</div>
     </AbsoluteFill>
   );
 };
 
 /** the name and the date, fixed from the drop to the last frame */
-const Header: React.FC<{ f: number; p: TeaserProps }> = ({ f, p }) => (
+export const Header: React.FC<{ f: number; p: TeaserProps }> = ({ f, p }) => (
   <div style={{ position: "absolute", top: 72, left: 80, right: 80, display: "flex", justifyContent: "space-between", ...MONO, fontSize: 17, color: "#ffffffb3", ...enter(f, fb(DROP) + 6, 0) }}>
     <span>Racing Simplified</span><span style={{ color: C.brand }}>{p.day}</span>
   </div>

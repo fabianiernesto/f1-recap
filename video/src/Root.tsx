@@ -5,6 +5,7 @@ import { Showcase } from "./Showcase";
 import { ShowcasePC, ThumbnailPC } from "./pc/ShowcasePC";
 import { Thumbnail } from "./Thumbnail";
 import { Teaser, TEASER_END, TEASER_FPS, TEASER_PROPS } from "./Teaser";
+import { TeaserGames, TEASER_GAMES_END, TEASER_GAMES_PROPS } from "./TeaserGames";
 import { END, OUT_FPS, SCALE } from "./time";
 
 export const Root: React.FC = () => (
@@ -14,5 +15,6 @@ export const Root: React.FC = () => (
     <Composition id="ShowcasePC" component={ShowcasePC} durationInFrames={END * SCALE} fps={OUT_FPS} width={1920} height={1080} />
     <Composition id="ThumbnailPC" component={ThumbnailPC} durationInFrames={1} fps={OUT_FPS} width={1920} height={1080} />
     <Composition id="Teaser" component={Teaser} defaultProps={TEASER_PROPS} durationInFrames={TEASER_END} fps={TEASER_FPS} width={1080} height={1350} />
+    <Composition id="TeaserGames" component={TeaserGames} defaultProps={TEASER_GAMES_PROPS} durationInFrames={TEASER_GAMES_END} fps={TEASER_FPS} width={1080} height={1350} />
   </>
 );
