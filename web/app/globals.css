@@ -473,7 +473,7 @@ body {
 .v-final p, .v-final .pts li { text-wrap: pretty; }
 /* no word left alone on the last line of any card text, list, note or explanation (18/11/2026: ~180 of them
    across the race pages); the LED hub is not touched */
-.card p, .card .pts li, .card .note, .card dd, .dato td, .acts-head p, .act p, .how-banner-text p,
+.card p, .card .pts li, .card .note, .card dd, .dato td, .acts-head p, .how-banner-text p,
 .home-sec-head p, .cr-how li span, .cr-line, .cr-ctx, .cr-toast p, .cr-review li p, .snext-head { text-wrap: pretty; }
 /* the word sits in the middle of the card, so its panel hangs from the middle and stays on a phone screen */
 .v-final .term-pop { left: 50%; translate: -50% 0; }
@@ -1432,36 +1432,6 @@ a.how-act:hover { background: #f3f3f3; }
   font-size: 11.5px; line-height: 1.9; letter-spacing: .06em;
   text-transform: uppercase; max-width: 54ch; }
 
-.acts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 16px; }
-.act { position: relative; display: flex; flex-direction: column;
-  background: #111111; border: 1px solid #ffffff1c; padding: 32px 30px 30px;
-  min-height: 330px; text-decoration: none; color: var(--ink);
-  transition: background-color .18s, border-color .18s; }
-a.act:hover { background: #0d0405; border-color: #e1060066; }
-.act-n { display: flex; align-items: center; gap: 9px;
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: .24em;
-  text-transform: uppercase; color: #8c8c8c; margin-bottom: 16px; }
-.act-n::before { content: ""; width: 14px; height: 3px; background: var(--led);
-  flex: none; }
-.act-off .act-n::before, .act-next .act-n::before { background: #3d424d; }
-.act h2 { margin: 0 0 14px; font-family: var(--font-hero), sans-serif;
-  font-weight: 400; font-size: 32px; text-transform: uppercase;
-  letter-spacing: .02em; color: var(--ink); line-height: 1.05; }
-a.act:hover h2 { color: var(--led); }
-.act p { margin: 0 0 18px; color: #9aa0aa; font-size: 13.5px; line-height: 1.65;
-  flex: 1; }
-.act-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em;
-  text-transform: uppercase; color: #6f6f6f; }
-.act-go { display: inline-flex; align-self: flex-start; align-items: center;
-  gap: .9em; margin-top: 22px; border: 2px solid #e10600; color: var(--led);
-  background: #e1060014; padding: 16px 28px; font-family: var(--font-mono);
-  font-weight: 700; font-size: 13px; letter-spacing: .24em;
-  text-transform: uppercase; transition: background-color .18s, color .18s; }
-a.act:hover .act-go { background: var(--led); color: #000; }
-/* the slot that is not a thing yet reads as a promise, not as a broken link */
-.act-next, .act-off { border-style: dashed; background: #030304; }
-.act-next h2, .act-off h2 { color: #6b7078; }
 
 /* ---------- the board re-letters ----------
    Line 2 is one lamp per character so the LED face can flick a new word up
@@ -2648,16 +2618,6 @@ a.act:hover .act-go { background: var(--led); color: #000; }
 .acts.fx-page { position: relative; overflow: hidden; isolation: isolate; }
 .acts.fx-page .acts-head { position: relative; z-index: 2; }
 .acts-beam i { left: 58vw !important; top: -8vh !important; height: 140vh !important; }
-.acts.fx-page .acts-grid { position: relative; z-index: 2; gap: 26px; align-items: start; }
-.act-photo { overflow: hidden; isolation: isolate; background: #0a0a0a !important; min-height: 380px; }
-.act-photo .act-bg { position: absolute !important; inset: 0; z-index: -1; opacity: .68; transition: opacity .3s, transform .6s; }
-.act-photo .act-bg .mood-img { object-position: 60% 40%; }
-.act-photo::after { content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(180deg, #0a0a0acc 0%, #0a0a0a55 45%, #0a0a0ae6 100%); }
-a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
-.act-off.act-photo .act-bg, .act-next.act-photo .act-bg { opacity: .22; filter: grayscale(.6); }
-.acts.fx-page .acts-grid > :nth-child(2) { translate: 0 7vh; }
-.acts.fx-page .acts-grid > :nth-child(3) { translate: 0 14vh; }
 .acts.fx-page { padding-bottom: 26vh; }
 
 /* ---- the blind test and the pit wall: lit from behind like the helmet */
@@ -2710,7 +2670,6 @@ a.act-photo:hover .act-bg { opacity: .8; transform: scale(1.04); }
 @media (max-width: 900px) {
   .hub.fx-page .hub-session { width: auto; margin-left: 0; }
   .hub-car { width: 50vw; right: -8vw; opacity: .5; }
-  .acts.fx-page .acts-grid > :nth-child(n) { translate: none; }
   .bt-fx::before { width: 100vw; right: -30vw; opacity: .5; }
 }
 
@@ -3406,51 +3365,6 @@ html, body { overflow-x: clip; }
 /* the flag sits on top of the track, under the lap and the timeline */
 .cr-stage .cr-flag { top: 0; left: 0; right: 0; padding: 7px 12px; border-radius: 4px; }
 
-/* a sprint weekend has a second race to call */
-.acts-sprint { position: relative; z-index: 2; display: inline-grid; grid-template-columns: auto auto; align-items: end; gap: 4px 18px;
-  margin: 34px 0 0; padding: 16px 20px; border: 1px solid #ffffff26; border-radius: 8px; background: #0d0d0de6; color: #fff; }
-.acts-sprint span { grid-column: 1; font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--led); }
-.acts-sprint b { grid-column: 1; font-family: "Anybody", var(--font-hero), sans-serif; font-weight: 800; font-stretch: 140%; text-transform: uppercase; font-size: 20px; }
-.acts-sprint i { grid-column: 2; grid-row: 1 / span 2; font-style: normal; font-size: 22px; color: var(--led); transition: transform .2s; }
-.acts-sprint:hover { border-color: var(--led); }
-.acts-sprint:hover i { transform: translateX(5px); }
-/* the second activity card sits 7vh lower (translate, so the layout does not
-   know): clear it, or the sprint links run into its bottom edge */
-.acts-sprint { margin-right: 14px; }
-/* on a computer each sprint link sits under its own card: the same width, 34px below it, the second one
-   7vh lower like its card, and square corners like the cards (the phone keeps its own layout) */
-@media (min-width: 901px) {
-  .acts.fx-page .acts-sprint { width: calc(50% - 13px); margin: 34px 0 0; border-radius: 0; vertical-align: top;
-    grid-template-columns: 1fr auto; }
-  .acts.fx-page .acts-sprint + .acts-sprint { margin-left: 26px; translate: 0 7vh; }
-}
-
-/* the activity cards wear the race itself (24/10/2026): no stock photographs */
-.act-art { position: absolute !important; inset: 0; z-index: -1; opacity: 1 !important; overflow: hidden;
-  background: radial-gradient(ellipse 70% 80% at 72% 60%, #e106001a, transparent 70%), #0a0a0a; }
-.act-art::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(90deg, #0a0a0ae6 0%, #0a0a0a99 34%, #0a0a0a00 62%); }
-.act-track { position: absolute; right: -2%; top: 6%; width: 50%; height: 92%; }
-/* low and to the right, under the copy rather than through it */
-.act-chart { position: absolute; right: 3%; bottom: 16%; width: 44%; height: 46%; opacity: .6; }
-/* the words keep to the left half, the drawing to the right: no cars over the text */
-.act p, .act-meta { max-width: 290px; }
-.act-ghost { position: absolute; inset: 0; }
-.act-ghost img { position: absolute; top: 5%; right: 4%; height: 235%; width: auto; max-width: none; }
-.act-ghost-real { filter: drop-shadow(0 30px 50px #000); }
-.act-ghost-copy { right: 21% !important; top: 9% !important; filter: brightness(0) invert(1) blur(1px); opacity: .14;
-  -webkit-mask-image: repeating-linear-gradient(180deg, #000 0 3px, transparent 3px 7px); mask-image: repeating-linear-gradient(180deg, #000 0 3px, transparent 3px 7px); }
-.act-ghost-num { position: absolute; right: 4%; top: 2%; font-family: "Anybody", var(--font-hero), sans-serif; font-weight: 900; font-stretch: 150%;
-  font-size: 220px; line-height: 1; color: transparent; -webkit-text-stroke: 2px color-mix(in srgb, var(--tc) 55%, transparent); }
-.act-ghost::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 70% at 75% 70%, color-mix(in srgb, var(--tc) 40%, transparent), transparent 70%); }
-.act-art-off { background: repeating-linear-gradient(-45deg, #111 0 14px, #0d0d0d 14px 28px); }
-.act-photo:hover .act-art .act-track { transform: scale(1.03); transition: transform .6s; }
-@media (max-width: 760px) {
-  .act-track { width: 90%; right: -20%; opacity: .7; }
-  .act-ghost img { height: 200%; right: -12%; }
-  .act-ghost-num { font-size: 140px; }
-}
-
 /* =====================================================================
    THE GHOST, LIVE (activity 02, rebuilt 24/10/2026)
    ===================================================================== */
@@ -3976,7 +3890,7 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 /* ---------- team radio: the feedback button (16/11/2026, components/TeamRadio.tsx) ----------
    bottom left, because Alfred's button lives bottom right, and high enough to clear the
    track caption of the race pages and the home's ticker; the site's own red
-   outlined button (.act-go), filled on hover; the panel opens above it */
+   outlined button, filled on hover; the panel opens above it */
 .tr-btn { position: fixed; z-index: 75; left: 20px; bottom: 48px; display: inline-flex; align-items: center;
   border: 2px solid #e10600; background: #0a0a0ae6; color: var(--led); padding: 12px 18px;
   font-family: var(--font-mono); font-weight: 700; font-size: 11px; letter-spacing: .22em;
@@ -4014,4 +3928,81 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
   .tr-btn { left: 12px; bottom: 52px; padding: 10px 14px; font-size: 10px; }
   .tr-panel { left: 0; right: 0; bottom: 0; width: auto; max-width: none; border-left: 0; border-right: 0;
     padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+}
+/* on the Activities page it sits top right, 16px under the bar and on the page
+   margin, with the panel opening below it (Ernesto, 20/11/2026: at the bottom
+   left it ran over the first game's title). It belongs to the top of the page
+   and scrolls away with it, under the bar: fixed, it ran over the cards */
+.tr-btn.is-top { position: absolute; z-index: 59; top: 58px; bottom: auto; left: auto; right: 5vw; }
+.tr-panel.is-top { position: absolute; z-index: 59; top: 113px; bottom: auto; left: auto; right: 5vw; }
+
+/* =====================================================================
+   THE SHELF OF GAMES (Activities, 20/11/2026)
+   Each game is a small copy of its own cover: the drawing of this race on
+   top, then the cover's title (white word, lit word), its three figures and
+   its red button, and the sprint inside the same frame. Every card is the
+   same size and the type is sized from the card's own width (cqi), so a
+   third or a fourth game drops into the row without a new layout.
+   ===================================================================== */
+.games { position: relative; z-index: 2; display: grid; gap: 26px; align-items: stretch;
+  grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); }
+.game { --wide: "Anybody", var(--font-hero), sans-serif; --pad: clamp(22px, 6.4cqi, 40px);
+  container-type: inline-size; position: relative; display: flex; flex-direction: column; min-width: 0;
+  background: #0a0a0a; border: 1px solid #ffffff1c; transition: border-color .2s; }
+.game:has(.game-main:hover) { border-color: #e1060099; }
+.game-main { display: flex; flex-direction: column; flex: 1; color: var(--ink); text-decoration: none; }
+/* the drawing keeps to the top three quarters; the title comes up into the
+   faded bottom, where nothing is drawn, so no car or line runs under a word */
+.game-art { position: relative; aspect-ratio: 16 / 9; overflow: hidden;
+  background: radial-gradient(ellipse 62% 70% at 50% 45%, #e106002e, transparent 72%), #070707; }
+.game-art::after { content: ""; position: absolute; inset: auto 0 0; height: 34%; pointer-events: none;
+  background: linear-gradient(180deg, #0a0a0a00, #0a0a0a 88%); }
+.game-track { position: absolute; left: 6%; top: 5%; width: 88%; height: 74%; transition: transform .6s; }
+.game-chart { position: absolute; left: 5%; top: 9%; width: 90%; height: 64%; transition: transform .6s; }
+.game-main:hover .game-track, .game-main:hover .game-chart { transform: scale(1.04); }
+.game-body { position: relative; z-index: 1; display: flex; flex-direction: column; flex: 1;
+  margin-top: calc(-1 * clamp(40px, 11cqi, 72px)); padding: 0 var(--pad) var(--pad); }
+.game-n { font-family: var(--font-mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--led); }
+/* the cover's title at the card's scale: EXCHANGE, the widest word, fills
+   most of the line and never more */
+.game-title { margin: 18px 0 24px; font-family: var(--wide); font-weight: 800; font-stretch: 150%;
+  text-transform: uppercase; line-height: .92; font-size: min(76px, calc((100cqi - 2 * var(--pad)) / 9.2)); }
+.game-title span, .game-title em { display: block; }
+/* lit once, not humming: two of them breathing would keep the page repainting */
+.game-title em { font-style: normal; color: #ff2415;
+  text-shadow: 0 0 2px #ff7a62, 0 0 10px #ff2415, 0 0 26px #e10600cc, 0 0 60px #e1060080; }
+.game-body p { flex: 1; margin: 0 0 30px; max-width: 54ch; color: #c4c8ce; font-size: 15px; line-height: 1.6; text-wrap: pretty; }
+.game-stats { display: flex; gap: 34px; margin: 0 0 30px; }
+.game-stats dt { font-family: var(--font-mono); font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #8c8c8c; }
+.game-stats dd { margin: 4px 0 0; font-family: var(--wide); font-weight: 900; font-stretch: 150%; font-size: 30px; line-height: 1.1; }
+.game-go { align-self: flex-start; display: inline-flex; align-items: center; gap: .95em;
+  background: var(--brand); color: var(--paper); padding: 16px 30px; font-family: var(--font-mono);
+  font-weight: 700; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; transition: filter .18s; }
+.game-go i { font-style: normal; transition: transform .18s; }
+.game-main:hover .game-go { filter: brightness(1.12); }
+.game-main:hover .game-go i { transform: translateX(4px); }
+.game-main:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
+/* the sprint is the same game on the Saturday, so it lives in the same frame */
+.game-sprint { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 6px 18px;
+  padding: 20px var(--pad) 22px; border-top: 1px solid #ffffff1a; color: #fff; text-decoration: none;
+  transition: background-color .18s; }
+.game-sprint span { font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--led); }
+.game-sprint b { grid-column: 1; font-family: var(--wide); font-weight: 800; font-stretch: 140%; text-transform: uppercase;
+  font-size: min(18px, 5cqi); text-wrap: balance; }
+.game-sprint i { grid-column: 2; grid-row: 1 / span 2; font-style: normal; font-size: 22px; color: var(--led); transition: transform .2s; }
+.game-sprint:hover { background: #e106000f; }
+.game-sprint:hover i { transform: translateX(5px); }
+.game-sprint:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
+/* a tablet takes two in a row (one when the count is odd, so none is left alone); a phone, one */
+@media (max-width: 1100px) {
+  .games { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .games[data-odd] { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .games { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .game-art { aspect-ratio: 4 / 3; }
+  .game-body p { font-size: 14.5px; }
+  .game-stats { gap: 28px; }
+  .game-stats dd { font-size: 26px; }
+  .game-go { align-self: stretch; justify-content: center; }
 }

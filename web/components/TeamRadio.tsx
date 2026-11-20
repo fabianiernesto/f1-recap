@@ -21,10 +21,13 @@ import { SFX_RADIO, loadSfx, playSfx, warmSfx } from "@/lib/sfx";
  *
  * Not on a circuit's LED hub (that hero is not to be touched) nor inside the
  * two games, which need the whole screen and their own controls at the bottom.
+ * On the Activities page it sits top right, under the bar (Ernesto, 20/11/2026:
+ * at the bottom left it ran over the first game's title).
  */
 const KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 const LIVE = !!KEY || process.env.NODE_ENV !== "production";
 const HIDDEN = [/^\/gp\/[^/]+\/?$/, /\/(call|exchange)\/?$/];
+const TOP = /^\/gp\/[^/]+\/activities\/?$/;
 /** Alfred's radio, as he plays it (components/RaceMate.tsx) */
 const SFX_VOLUME = 0.22;
 const SFX_MS = 1600;
@@ -115,12 +118,12 @@ export default function TeamRadio() {
 
   return (
     <>
-      <button type="button" className={`tr-btn${open ? " is-open" : ""}${path === "/" ? "" : " is-away"}`} onClick={toggle} aria-expanded={open} aria-controls="team-radio"
+      <button type="button" className={`tr-btn${open ? " is-open" : ""}${path === "/" ? "" : " is-away"}${TOP.test(path) ? " is-top" : ""}`} onClick={toggle} aria-expanded={open} aria-controls="team-radio"
         onPointerEnter={warm} onPointerDown={warm} onFocus={warm}>
         Roast the site
       </button>
       {open && (
-        <div id="team-radio" className="tr-panel" role="dialog" aria-label="Team radio">
+        <div id="team-radio" className={`tr-panel${TOP.test(path) ? " is-top" : ""}`} role="dialog" aria-label="Team radio">
           <button type="button" className="tr-x" onClick={() => setOpen(false)}>Close</button>
           <span className="tr-kick">Team radio</span>
           <h2>Be brutal.</h2>

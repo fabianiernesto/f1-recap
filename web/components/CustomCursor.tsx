@@ -39,14 +39,14 @@ export default function CustomCursor() {
         now.y = e.clientY;
         document.documentElement.classList.add("has-cursor");
       }
-      target.x = e.clientX;
-      target.y = e.clientY;
+      // 20/11/2026, Ernesto (and his friends): the dot follows the mouse exactly, no trail, so the mouse
+      // never feels slower inside the site; the dot and its grow on links stay
+      target.x = now.x = e.clientX;
+      target.y = now.y = e.clientY;
+      paint();
       el.classList.remove("is-away");
       el.classList.toggle("is-hover", !!(e.target as Element | null)?.closest?.(HOVERABLE));
-      if (!raf) {
-        last = 0;
-        raf = requestAnimationFrame(step);
-      }
+      void raf; void last; void step;
     };
     const onLeave = () => el.classList.add("is-away");
 
